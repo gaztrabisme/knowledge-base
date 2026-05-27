@@ -1,0 +1,28 @@
+# Source books (EPUBs, PDFs — large binary files, not version-controlled)
+knowledge-base/applied-ml/
+knowledge-base/databases/
+knowledge-base/security/
+knowledge-base/distributed-systems/
+
+# Pipeline outputs (regenerable from source + code)
+data/markdown/
+data/chunks/
+data/qdrant/
+data/qdrant_old/
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+.venv/
+
+# OS
+.DS_Store
+
+# Claude Code
+.claude/
