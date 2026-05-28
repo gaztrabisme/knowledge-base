@@ -10,12 +10,22 @@ CONTEXT_PROMPT = """<document>
 {parent_text}
 </document>
 
-Here is the chunk we want to situate within the above section:
+The passage above is from the book "{book_title}"{location}.
+
+Here is the chunk we want to situate within it:
 <chunk>
 {child_text}
 </chunk>
 
-Give a short (1-2 sentence) context that explains where this chunk fits in the document and resolves any ambiguous references. Do not repeat the chunk content. Start with the book and topic context."""
+Write a short (1-2 sentence) context that makes this chunk findable by search: name the book and the specific topic or section it covers, and resolve any ambiguous references (e.g. "this method", "the algorithm above", pronouns) to the concrete entities they name. Do not repeat or summarize the chunk's content. Output only the context sentences."""
+
+
+def _location_clause(metadata: dict) -> str:
+    """Build a section descriptor from heading_path, skipping empty or bare-number placeholders."""
+    heading = (metadata.get("heading_path") or "").strip()
+    if heading and any(c.isalpha() for c in heading):
+        return f', in the section "{heading}"'
+    return ""
 
 
 def get_client() -> OpenAI:
@@ -23,7 +33,13 @@ def get_client() -> OpenAI:
 
 
 def generate_context(client: OpenAI, parent_text: str, child_text: str, metadata: dict) -> str:
-    prompt = CONTEXT_PROMPT.format(parent_text=parent_text, child_text=child_text)
+    book_title = metadata.get("book_title") or metadata.get("book", "")
+    prompt = CONTEXT_PROMPT.format(
+        parent_text=parent_text,
+        child_text=child_text,
+        book_title=book_title,
+        location=_location_clause(metadata),
+    )
 
     try:
         response = client.chat.completions.create(
