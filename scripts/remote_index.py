@@ -2,6 +2,7 @@
 """Standalone indexing script for running on a remote GPU machine.
 Reads chunk JSONs, embeds with Jina v5, writes Qdrant file-based index."""
 
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -87,7 +88,7 @@ def main():
             sparse_vectors_config={"bm25": models.SparseVectorParams(modifier=models.Modifier.IDF)},
         )
 
-    batch_size = 16
+    batch_size = 4
     total_indexed = 0
 
     for chunk_file in sorted(chunks_dir.glob("*.json")):
@@ -118,9 +119,11 @@ def main():
             batch = children[i:i + batch_size]
             enriched_texts = []
             for child in batch:
+                heading = child.get("metadata", {}).get("heading_path", "")
                 ctx = child.get("context_text", "")
                 text = child["text"]
-                enriched_texts.append(f"{ctx}\n\n{text}" if ctx else text)
+                parts = [p for p in [heading, ctx, text] if p]
+                enriched_texts.append("\n\n".join(parts))
 
             truncated = [t[:8000] if len(t) > 8000 else t for t in enriched_texts]
             dense_vectors = model.encode(truncated, task="retrieval.passage", show_progress_bar=False, batch_size=batch_size).tolist()
@@ -132,7 +135,7 @@ def main():
                 meta = child.get("metadata", {})
 
                 point = models.PointStruct(
-                    id=abs(hash(child["child_id"])) % (2**63),
+                    id=int.from_bytes(hashlib.sha256(child["child_id"].encode()).digest()[:8], "big") >> 1,
                     vector={"": dense_vectors[j], "bm25": sparse},
                     payload={
                         "child_id": child["child_id"],

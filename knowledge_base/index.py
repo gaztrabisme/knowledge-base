@@ -1,5 +1,6 @@
 """Embedding + Qdrant indexing with dense and sparse vectors."""
 
+import hashlib
 import json
 
 from fastembed import SparseTextEmbedding
@@ -111,9 +112,11 @@ def index_book(book_slug: str, client: QdrantClient | None = None) -> int:
         batch = children[i:i + batch_size]
         enriched_texts = []
         for child in batch:
+            heading = child.get("metadata", {}).get("heading_path", "")
             ctx = child.get("context_text", "")
             text = child["text"]
-            enriched_texts.append(f"{ctx}\n\n{text}" if ctx else text)
+            parts = [p for p in [heading, ctx, text] if p]
+            enriched_texts.append("\n\n".join(parts))
 
         dense_vectors = embed_texts(enriched_texts)
 
@@ -125,7 +128,7 @@ def index_book(book_slug: str, client: QdrantClient | None = None) -> int:
             meta = child.get("metadata", {})
 
             point = models.PointStruct(
-                id=abs(hash(child["child_id"])) % (2**63),
+                id=int.from_bytes(hashlib.sha256(child["child_id"].encode()).digest()[:8], "big") >> 1,
                 vector={
                     "": dense_vectors[j],
                     "bm25": sparse,

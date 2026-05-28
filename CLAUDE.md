@@ -2,9 +2,9 @@
 
 A local MCP server that serves semantic search over technical books to Claude Code during development sessions. 33 sources indexed across ML, databases, security, and distributed systems.
 
-## Status: v4.1 — Fully Enriched, Expansion Sources Downloaded
+## Status: v5.0 — Search Intelligence Upgrade
 
-33 books indexed (19,103 vectors), all chunks contextually enriched. 10 new sources downloaded (7 PDFs + 118 OWASP cheat sheets + 2 scraped web books) awaiting ingestion pipeline. Search pipeline: FastEmbed BM25, Qdrant DBSF fusion, MiniLM-L-12 reranker, grep_books tool.
+33 books indexed (~19,728 vectors), all chunks contextually enriched. Reranker upgraded from MiniLM-L-12 to Ettin-150m (ModernBERT, +0.093 NDCG@10). Adaptive score cutoff filters noise. HyDE and multi-query exposed as agent-provided parameters. Parent chunk overlap at section boundaries. Heading path prepended to embeddings. 10 new sources still awaiting ingestion.
 
 ## Architecture
 
@@ -12,19 +12,21 @@ A local MCP server that serves semantic search over technical books to Claude Co
 EPUBs + PDFs + HTML
   → markitdown (format → markdown, preserves heading hierarchy)
   → HTML cleanup + front/back matter stripping (EPUBs only)
-  → heading-aware parent/child chunker (H2-based splitting + small section merging)
+  → heading-aware parent/child chunker (H2-based splitting + small section merging + section overlap)
   → (optional) contextual enrichment via LLM
-  → Jina v5-text-small embeddings (1024-dim)
+  → heading_path + context_text + child_text → Jina v5-text-small embeddings (1024-dim)
   → FastEmbed Qdrant/bm25 sparse vectors (proper tokenization + stopwords)
   → Qdrant hybrid index (dense + BM25 sparse, DBSF fusion, file-based)
-  → MiniLM-L-12 FlashRank cross-encoder reranking
+  → HyDE + multi-query expansion (agent-provided, no LLM dependency)
+  → Ettin-150m cross-encoder reranking (sentence-transformers, ModernBERT)
+  → adaptive score cutoff (absolute floor + min results)
   → FastMCP server (5 tools)
   → Claude Code queries via MCP
 ```
 
 ## MCP Tools
 
-- `search(query, top_k=10, book=None)` — hybrid semantic + keyword search across all books
+- `search(query, top_k=10, book=None, hyde_passage=None, extra_queries=None)` — hybrid semantic + keyword search across all books
 - `search_book(book, query, top_k=5)` — scoped search within a single book
 - `get_chapter(book, chapter)` — full text of a specific chapter
 - `list_books()` — all indexed books with chapter listings
@@ -98,7 +100,7 @@ knowledge_base/
   chunk.py     — heading-aware parent/child chunker
   enrich.py    — contextual enrichment via LM Studio
   index.py     — Jina v5 dense + FastEmbed BM25 sparse → Qdrant
-  search.py    — hybrid search (DBSF fusion) + FlashRank MiniLM-L-12 reranking
+  search.py    — hybrid search (DBSF fusion) + Ettin-150m cross-encoder reranking + adaptive cutoff
   server.py    — FastMCP MCP server (5 tools)
 scripts/
   ingest_all.py    — end-to-end pipeline runner
@@ -114,7 +116,7 @@ scripts/
 - `qdrant-client` >= 1.12 — file-based vector store with native hybrid search + DBSF fusion
 - `sentence-transformers` — Jina v5-text-small embedding model (677M params, 1024-dim)
 - `fastembed` — Qdrant/bm25 sparse text embeddings (proper tokenization + stopwords)
-- `flashrank` — MiniLM-L-12 cross-encoder reranking (34MB)
+- `sentence-transformers` — Ettin-150m cross-encoder reranking (ModernBERT, 151M params)
 - `openai` — LM Studio / llama-server client for contextual enrichment
 
 ## Source Library
@@ -175,13 +177,14 @@ scripts/
 ## Corpus Stats
 
 - 33 sources indexed (18 EPUBs + 14 PDFs/HTML + 1 markdown guide)
-- 5,825 parent chunks, 19,103 child chunks (vectors)
-- **All 19,103 chunks contextually enriched** (Qwen3.6-27B MTP, no-think mode)
-- Embedding: Jina v5-text-small (677M params, 1024-dim)
+- 6,386 parent chunks, 19,728 child chunks (vectors)
+- **All chunks contextually enriched** (Qwen3.6-27B MTP, no-think mode)
+- Embedding: heading_path + context_text + child_text → Jina v5-text-small (677M params, 1024-dim)
 - Sparse: FastEmbed Qdrant/bm25 (proper tokenization, stopwords, IDF)
-- Reranker: FlashRank MiniLM-L-12-v2 (34MB, 12-layer cross-encoder)
+- Reranker: Ettin-150m cross-encoder (ModernBERT, 151M params, 0.5994 NDCG@10)
 - Fusion: Qdrant DBSF (Distribution-Based Score Fusion) via prefetch API
-- Vector store: Qdrant file-based, collection `developer_knowledge` (~370MB)
+- Adaptive cutoff: score floor 4.0, min results 3
+- Vector store: Qdrant file-based, collection `developer_knowledge`
 
 ## Version History
 
@@ -190,6 +193,7 @@ scripts/
 - **v3 (enrichment):** Contextual enrichment via Qwen3.6-27B MTP. All 12,666 ML chunks enriched.
 - **v4 (multi-domain + pipeline upgrade):** Expanded to 33 books (19,103 vectors). Upgraded reranker (TinyBERT → MiniLM-L-12), BM25 tokenizer (regex → FastEmbed), fusion (client-side RRF → Qdrant DBSF). Added grep_books tool. PDF/HTML ingestion support.
 - **v4.1 (full enrichment + expansion downloads):** All 19,103 chunks enriched (ML + databases + security + distributed systems). Re-indexed with enriched embeddings. Downloaded 7 free PDFs, 118 OWASP cheat sheets, and 2 scraped web books for next ingestion batch.
+- **v5 (search intelligence):** Reranker upgraded to Ettin-150m (ModernBERT, +0.093 NDCG@10 over MiniLM-L-12). Adaptive score cutoff filters noise (absolute floor 4.0). HyDE and multi-query exposed as agent-provided input parameters (no LLM dependency). Parent chunk overlap at H2 section boundaries. Heading path prepended to embeddings. Re-chunked to 19,728 vectors. Dev skill integration (KB in Available Tools + Research Subagent briefs).
 
 ## Known Limitations
 
@@ -244,9 +248,15 @@ scripts/
 | API Security in Action | Madden | ~$40 | Security |
 | Microservices Patterns | Richardson | ~$50 | Distributed Systems |
 
-## Research Decisions (from v4 sprint)
+## Research Decisions
 
-- **GraphRAG/LightRAG:** Skipped. Our structured books + enrichment + hybrid search already handles cross-concept queries. LLM cost for graph construction not justified. Lighter alternatives (concept tagging, entity-to-chunk index) available if needed later.
+### v5 sprint
+- **Ettin-150m over Jina v3 / Qwen3-Reranker:** Ettin-150m (ModernBERT, 151M, Apache 2.0) beats Jina v3 (0.5994 vs 0.5856 NDCG@10) at fraction of size. PyTorch at 0.17s/50-docs on Apple Silicon — no ONNX needed.
+- **ONNX/CoreML acceleration:** Blocked. `optimum` requires `transformers<4.58`, ModernBERT needs `>=5.2.0`. PyTorch is fast enough (sub-200ms reranking). Revisit when optimum supports transformers 5.x.
+- **Gap-based adaptive cutoff:** Rejected after calibration. Ettin's smooth score distributions make median-gap detection trigger at position 1-2 (too aggressive). Absolute score floor (4.0) cleanly separates noise from signal across all query types.
+- **HyDE/multi-query as agent params:** Better than local LLM. Zero latency overhead — Claude generates the hypothetical passage and query expansions as part of the tool call. No dependency on LM Studio or any inference server.
+
+### v4 sprint
+- **GraphRAG/LightRAG:** Skipped. Our structured books + enrichment + hybrid search already handles cross-concept queries. LLM cost for graph construction not justified.
 - **TurboVec:** Not a fit at our scale (~19K chunks). Impressive Rust ANN index but replaces only the dense vector part of Qdrant. Revisit at 100K+ chunks.
 - **SPLADE++:** Available via FastEmbed if BM25 quality isn't sufficient. Current Qdrant/bm25 is the pragmatic choice.
-- **Larger rerankers (BGE, Jina):** Better NDCG but blow the 500ms latency budget on Apple Silicon. MiniLM-L-12 is the sweet spot for local Mac use.

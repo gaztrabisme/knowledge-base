@@ -32,6 +32,32 @@
 **Context:** As we expand beyond ML into security/databases, out-of-domain generalization matters more. `rank-T5-flan` (110MB) has better zero-shot performance.
 **Decision:** Deferred. MiniLM-L-12 is good enough for now. Config makes it a one-line swap.
 
+## Search Pipeline (v5)
+
+### Ettin-150m over MiniLM-L-12 / Jina v3 / Qwen3-Reranker
+**Context:** MiniLM-L-12 (34MB, FlashRank) was the v4 reranker. Researched modern alternatives: Jina v3 (278M, 0.5856 NDCG@10), Qwen3-Reranker-0.6B (0.5940), Ettin family (6 ModernBERT models, 17M-1B, Apache 2.0, distilled from mxbai-rerank-large-v2).
+**Decision:** Ettin-150m (151M, 0.5994 NDCG@10). Beats Jina v3 at half the size. PyTorch at 0.17s/50-docs on Apple Silicon. sentence-transformers CrossEncoder replaces FlashRank (FlashRank has a fixed model list that can't load Ettin).
+
+### Absolute score floor over gap-based cutoff
+**Context:** Planned gap detection (1.5x median gap) for adaptive cutoff. Calibrated on 14 diverse queries with full 50-candidate score distributions.
+**Decision:** Absolute floor (score >= 4.0) + min results (3). Gap detection triggers at position 1-2 for most queries because Ettin's smooth distributions put the largest gap between #1 and #2 — too aggressive. Score floor of 4.0 perfectly separates nonsense (max 3.68) from real queries (min top score 8.36).
+
+### HyDE/multi-query as agent-provided parameters over local LLM
+**Context:** HyDE traditionally requires a local LLM to generate hypothetical answers. Multi-query needs a model to reformulate queries.
+**Decision:** Expose `hyde_passage` and `extra_queries` as MCP tool parameters. The calling agent (Claude) generates these directly — zero latency overhead, zero dependency on LM Studio or any inference server. BM25 leg still uses original query for keyword matching.
+
+### ONNX acceleration deferred
+**Context:** Ettin-150m (ModernBERT) on ONNX would give 2-3x speedup via `sentence-transformers[onnx]`.
+**Decision:** Blocked. `optimum` requires `transformers<4.58`, ModernBERT needs `>=5.2.0`. Hard conflict, no compatible version exists (as of 2026-05-28). PyTorch at 0.17s is fast enough. Revisit when optimum supports transformers 5.x.
+
+### Parent chunk overlap at H2 boundaries
+**Context:** Cross-section answers (where the answer spans two consecutive H2 sections) get split across chunks, degrading retrieval for boundary content.
+**Decision:** Copy last 2 sentences of each section into the start of the next section (within same chapter). +3.3% chunk count (19,103 → 19,728). PDF-sourced books with empty chapter metadata are skipped (can't determine section boundaries).
+
+### Heading path in embeddings
+**Context:** Section titles carry strong semantic signal ("MVCC and Transaction Isolation") but weren't included in the embedded text.
+**Decision:** Prepend `heading_path` before `context_text` and `child_text` when constructing the embedding input. Both `index.py` and `remote_index.py` updated in sync.
+
 ## Rejected Approaches
 
 ### GraphRAG / LightRAG

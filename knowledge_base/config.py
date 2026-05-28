@@ -21,7 +21,10 @@ LM_STUDIO_MODEL = "qwen3.6-35b-a3b-mlx"
 
 EMBEDDING_MODEL = "jinaai/jina-embeddings-v5-text-small-retrieval"
 BM25_MODEL = "Qdrant/bm25"
-RERANKER_MODEL = "ms-marco-MiniLM-L-12-v2"
+RERANKER_MODEL = "cross-encoder/ettin-reranker-150m-v1"
+
+RERANKER_SCORE_FLOOR = 4.0
+RERANKER_MIN_RESULTS = 3
 
 PARENT_MAX_TOKENS = 1200
 CHILD_MAX_TOKENS = 250

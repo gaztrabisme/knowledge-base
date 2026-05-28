@@ -19,13 +19,22 @@ def search(
     query: str,
     top_k: int = 10,
     book: str | None = None,
+    hyde_passage: str | None = None,
+    extra_queries: list[str] | None = None,
 ) -> list[dict]:
-    """Search across all indexed ML books using hybrid semantic + keyword search.
+    """Search across all indexed books using hybrid semantic + keyword search.
 
     Args:
         query: Natural language search query.
         top_k: Number of results to return (default 10).
         book: Optional book slug to filter results to a single book.
+        hyde_passage: Optional hypothetical answer paragraph. When provided, this
+            text is embedded instead of the query for the dense retrieval leg,
+            bridging vocabulary gaps between questions and textbook prose. The
+            BM25 keyword leg still uses the original query.
+        extra_queries: Optional list of alternative query phrasings to broaden
+            recall. Each extra query adds its own dense + BM25 retrieval legs,
+            and all candidates are fused before reranking.
 
     Returns:
         List of search results with score, book, chapter, section, content, and matching child chunk.
@@ -37,6 +46,8 @@ def search(
             client=client,
             top_k=top_k,
             book_filter=book,
+            hyde_passage=hyde_passage,
+            extra_queries=extra_queries,
         )
         return [r.to_dict() for r in results]
     finally:

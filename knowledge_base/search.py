@@ -1,21 +1,27 @@
-"""Hybrid search (dense + BM25) with FlashRank reranking."""
+"""Hybrid search (dense + BM25) with Ettin-150m cross-encoder reranking."""
 
 from dataclasses import dataclass
 
-from flashrank import Ranker, RerankRequest
 from qdrant_client import QdrantClient, models
+from sentence_transformers import CrossEncoder
 
-from .config import COLLECTION_NAME, QDRANT_DIR, RERANKER_MODEL
+from .config import (
+    COLLECTION_NAME,
+    QDRANT_DIR,
+    RERANKER_MODEL,
+    RERANKER_MIN_RESULTS,
+    RERANKER_SCORE_FLOOR,
+)
 from .index import embed_texts, text_to_sparse_vector
 
-_ranker: Ranker | None = None
+_reranker: CrossEncoder | None = None
 
 
-def get_ranker() -> Ranker:
-    global _ranker
-    if _ranker is None:
-        _ranker = Ranker(model_name=RERANKER_MODEL)
-    return _ranker
+def get_ranker() -> CrossEncoder:
+    global _reranker
+    if _reranker is None:
+        _reranker = CrossEncoder(RERANKER_MODEL, trust_remote_code=True)
+    return _reranker
 
 
 def get_client() -> QdrantClient:
@@ -52,8 +58,11 @@ def hybrid_search(
     candidates: int = 50,
     book_filter: str | None = None,
     rerank: bool = True,
+    hyde_passage: str | None = None,
+    extra_queries: list[str] | None = None,
 ) -> list[SearchResult]:
-    query_vector = embed_texts([query], task="retrieval.query")[0]
+    dense_text = hyde_passage if hyde_passage else query
+    dense_vector = embed_texts([dense_text], task="retrieval.query")[0]
     query_sparse = text_to_sparse_vector(query)
 
     filter_conditions = None
@@ -65,25 +74,47 @@ def hybrid_search(
             )]
         )
 
-    fused = client.query_points(
-        collection_name=COLLECTION_NAME,
-        prefetch=[
-            models.Prefetch(
-                query=query_vector,
+    prefetches = [
+        models.Prefetch(
+            query=dense_vector,
+            using="",
+            filter=filter_conditions,
+            limit=candidates,
+        ),
+        models.Prefetch(
+            query=models.SparseVector(
+                indices=query_sparse.indices,
+                values=query_sparse.values,
+            ),
+            using="bm25",
+            filter=filter_conditions,
+            limit=candidates,
+        ),
+    ]
+
+    if extra_queries:
+        for eq in extra_queries:
+            eq_vector = embed_texts([eq], task="retrieval.query")[0]
+            eq_sparse = text_to_sparse_vector(eq)
+            prefetches.append(models.Prefetch(
+                query=eq_vector,
                 using="",
                 filter=filter_conditions,
                 limit=candidates,
-            ),
-            models.Prefetch(
+            ))
+            prefetches.append(models.Prefetch(
                 query=models.SparseVector(
-                    indices=query_sparse.indices,
-                    values=query_sparse.values,
+                    indices=eq_sparse.indices,
+                    values=eq_sparse.values,
                 ),
                 using="bm25",
                 filter=filter_conditions,
                 limit=candidates,
-            ),
-        ],
+            ))
+
+    fused = client.query_points(
+        collection_name=COLLECTION_NAME,
+        prefetch=prefetches,
         query=models.FusionQuery(fusion=models.Fusion.DBSF),
         limit=candidates if rerank else top_k,
         with_payload=True,
@@ -103,26 +134,32 @@ def hybrid_search(
 
 
 def _rerank(query: str, results: list[dict], top_k: int) -> list[dict]:
-    ranker = get_ranker()
+    reranker = get_ranker()
 
-    passages = []
+    documents = []
     for r in results:
         p = r["payload"]
         text = p.get("child_text", "")
         ctx = p.get("context_text", "")
-        passages.append({"id": r["id"], "text": f"{ctx}\n{text}" if ctx else text})
+        documents.append(f"{ctx}\n{text}" if ctx else text)
 
-    request = RerankRequest(query=query, passages=passages)
-    ranked = ranker.rerank(request)
+    rankings = reranker.rank(query, documents)
 
-    id_to_result = {r["id"]: r for r in results}
-    reranked = []
-    for item in ranked[:top_k]:
-        result = id_to_result[item["id"]]
+    scored = []
+    for item in rankings:
+        result = results[int(item["corpus_id"])]
         result["score"] = float(item["score"])
-        reranked.append(result)
+        scored.append(result)
 
-    return reranked
+    return _adaptive_cutoff(scored, top_k)
+
+
+def _adaptive_cutoff(results: list[dict], top_k: int) -> list[dict]:
+    kept = [r for r in results if r["score"] >= RERANKER_SCORE_FLOOR]
+    kept = kept[:top_k]
+    if len(kept) < RERANKER_MIN_RESULTS:
+        kept = results[:RERANKER_MIN_RESULTS]
+    return kept
 
 
 def _deduplicate_parents(results: list[dict]) -> list[SearchResult]:

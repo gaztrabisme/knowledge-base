@@ -9,9 +9,16 @@
 
 ## numpy float32 Serialization
 
-**Problem:** FlashRank returns numpy float32 scores. JSON serialization fails on numpy types.
+**Problem:** sentence-transformers CrossEncoder returns numpy float32 scores. JSON serialization fails on numpy types.
 **Fix:** `search.py` wraps all scores in `float()` — in `SearchResult.to_dict()` and `_rerank()`.
 **Watch for:** Any new code path that puts numpy values into dicts returned via MCP.
+
+## optimum / transformers Version Conflict
+
+**Problem:** ONNX acceleration for Ettin-150m (ModernBERT) blocked. `optimum` requires `transformers<4.58`, ModernBERT needs `>=5.2.0`.
+**Impact:** Cannot use `backend="onnx"` in sentence-transformers CrossEncoder for Ettin models.
+**Workaround:** PyTorch at 0.17s/50-docs is fast enough. No ONNX needed.
+**Future fix:** Revisit when `optimum` supports transformers 5.x.
 
 ## Remote Script Duplication
 

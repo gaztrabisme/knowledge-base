@@ -270,6 +270,26 @@ def create_children(parent_text: str, parent_id: str) -> list[dict]:
     return children
 
 
+def _extract_last_sentences(text: str, n: int = 2) -> str:
+    """Extract last N sentences from text, skipping code blocks."""
+    lines = text.split("\n")
+    prose_lines = []
+    in_code = False
+    for line in lines:
+        if line.strip().startswith("```"):
+            in_code = not in_code
+            continue
+        if not in_code:
+            prose_lines.append(line)
+
+    prose = " ".join(prose_lines)
+    sentences = re.split(r"(?<=[.!?])\s+", prose.strip())
+    sentences = [s for s in sentences if len(s) > 20]
+    if not sentences:
+        return ""
+    return " ".join(sentences[-n:])
+
+
 def chunk_book(book_slug: str) -> dict:
     """Chunk a single book into parent/child structure."""
     md_path = MARKDOWN_DIR / f"{book_slug}.md"
@@ -280,36 +300,45 @@ def chunk_book(book_slug: str) -> dict:
     sections = extract_sections(text)
     sections = merge_small_sections(sections)
 
+    all_parts = []
+    for section in sections:
+        all_parts.extend(split_large_section(section))
+
+    for i in range(1, len(all_parts)):
+        if all_parts[i]["chapter"] == all_parts[i - 1]["chapter"] and all_parts[i]["chapter"]:
+            overlap = _extract_last_sentences(all_parts[i - 1]["text"])
+            if overlap:
+                all_parts[i]["text"] = f"{overlap}\n\n{all_parts[i]['text']}"
+
     parents = []
     all_children = []
     chapter_num = 0
 
-    for section in sections:
-        for part in split_large_section(section):
-            parent_id = f"{book_slug}-p{len(parents)}"
+    for part in all_parts:
+        parent_id = f"{book_slug}-p{len(parents)}"
 
-            if part["chapter"] and part["chapter"] != (parents[-1]["metadata"]["chapter_title"] if parents else ""):
-                chapter_num += 1
+        if part["chapter"] and part["chapter"] != (parents[-1]["metadata"]["chapter_title"] if parents else ""):
+            chapter_num += 1
 
-            parent = {
-                "parent_id": parent_id,
-                "text": part["text"],
-                "metadata": {
-                    "book": book_slug,
-                    "book_title": BOOKS.get(book_slug, book_slug),
-                    "chapter": str(chapter_num),
-                    "chapter_title": part["chapter"],
-                    "section": part["section"],
-                    "heading_path": part["heading_path"],
-                },
-            }
-            parents.append(parent)
+        parent = {
+            "parent_id": parent_id,
+            "text": part["text"],
+            "metadata": {
+                "book": book_slug,
+                "book_title": BOOKS.get(book_slug, book_slug),
+                "chapter": str(chapter_num),
+                "chapter_title": part["chapter"],
+                "section": part["section"],
+                "heading_path": part["heading_path"],
+            },
+        }
+        parents.append(parent)
 
-            children = create_children(part["text"], parent_id)
-            for child in children:
-                child["metadata"] = parent["metadata"].copy()
-                child["metadata"]["chunk_type"] = child.pop("chunk_type")
-            all_children.extend(children)
+        children = create_children(part["text"], parent_id)
+        for child in children:
+            child["metadata"] = parent["metadata"].copy()
+            child["metadata"]["chunk_type"] = child.pop("chunk_type")
+        all_children.extend(children)
 
     return {"parents": parents, "children": all_children}
 
