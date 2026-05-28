@@ -1,6 +1,6 @@
 # Developer Knowledge Base — Project Wiki
 
-Last updated: 2026-05-27
+Last updated: 2026-05-28
 
 ## Quick Links
 
@@ -21,5 +21,6 @@ MCP server providing semantic search over 33 technical books to Claude Code. Pip
 | Total vectors | 19,103 |
 | Collection | `developer_knowledge` |
 | MCP tools | 5 (search, search_book, get_chapter, list_books, grep_books) |
-| Enriched chunks | 12,666 / 19,103 (ML only; new domains pending) |
-| Index size | ~360MB |
+| Enriched chunks | 19,103 / 19,103 (all domains) |
+| Index size | ~370MB |
+| Downloaded (awaiting ingestion) | 7 PDFs + 118 OWASP cheat sheets + 2 scraped web books |

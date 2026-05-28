@@ -50,7 +50,8 @@ client.delete(
 **Problem:** Qdrant file-based storage allows only one client at a time. If the MCP server has the index open and you try to run `test_search.py` simultaneously, one will fail.
 **Fix:** The MCP server opens/closes the client per query (`get_client()` → use → `client.close()`). Scripts do the same. Don't leave a Python REPL with an open client.
 
-## Two Corrupted PDFs (Fixed)
+## llama-server OOM During Enrichment
 
-**Problem:** `boneh-shoup-applied-cryptography.pdf` (11MB) and `designing-distributed-systems.pdf` (314KB) originally failed with "Unexpected EOF" — incomplete downloads.
-**Fix:** Re-downloaded from source. Boneh-Shoup from `crypto.stanford.edu` (8.7MB), Designing Distributed Systems from Microsoft (5.6MB). Both convert cleanly now.
+**Problem:** Qwen3.6-27B MTP on RTX 5080 (16GB) can get OOM-killed (exit 137) during long enrichment runs. The model uses ~14GB VRAM; sustained inference can push past limits.
+**Fix:** Enrichment script saves every 50 chunks, so it's resumable. Restart the container (`docker compose --profile llama-cpp-s016 up -d`), kill stale enrichment process, relaunch — it skips already-enriched chunks.
+**Watch for:** Check `docker ps` before assuming enrichment is running. Exit 137 = kernel OOM kill.

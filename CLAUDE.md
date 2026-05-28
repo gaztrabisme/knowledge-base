@@ -2,9 +2,9 @@
 
 A local MCP server that serves semantic search over technical books to Claude Code during development sessions. 33 sources indexed across ML, databases, security, and distributed systems.
 
-## Status: v4 — Multi-Domain, Upgraded Search Pipeline
+## Status: v4.1 — Fully Enriched, Expansion Sources Downloaded
 
-33 books indexed (19,103 vectors). Search pipeline upgraded: FastEmbed BM25 tokenizer, Qdrant DBSF fusion, MiniLM-L-12 reranker, grep_books tool. ML collection fully enriched; new domain chunks awaiting enrichment.
+33 books indexed (19,103 vectors), all chunks contextually enriched. 10 new sources downloaded (7 PDFs + 118 OWASP cheat sheets + 2 scraped web books) awaiting ingestion pipeline. Search pipeline: FastEmbed BM25, Qdrant DBSF fusion, MiniLM-L-12 reranker, grep_books tool.
 
 ## Architecture
 
@@ -176,12 +176,12 @@ scripts/
 
 - 33 sources indexed (18 EPUBs + 14 PDFs/HTML + 1 markdown guide)
 - 5,825 parent chunks, 19,103 child chunks (vectors)
-- ML chunks (12,666) contextually enriched; new domain chunks (6,437) awaiting enrichment
+- **All 19,103 chunks contextually enriched** (Qwen3.6-27B MTP, no-think mode)
 - Embedding: Jina v5-text-small (677M params, 1024-dim)
 - Sparse: FastEmbed Qdrant/bm25 (proper tokenization, stopwords, IDF)
 - Reranker: FlashRank MiniLM-L-12-v2 (34MB, 12-layer cross-encoder)
 - Fusion: Qdrant DBSF (Distribution-Based Score Fusion) via prefetch API
-- Vector store: Qdrant file-based, collection `developer_knowledge` (~360MB)
+- Vector store: Qdrant file-based, collection `developer_knowledge` (~370MB)
 
 ## Version History
 
@@ -189,25 +189,37 @@ scripts/
 - **v2 (markitdown):** Proper H1/H2/H3 hierarchy → right-sized chunks. 12,666 children.
 - **v3 (enrichment):** Contextual enrichment via Qwen3.6-27B MTP. All 12,666 ML chunks enriched.
 - **v4 (multi-domain + pipeline upgrade):** Expanded to 33 books (19,103 vectors). Upgraded reranker (TinyBERT → MiniLM-L-12), BM25 tokenizer (regex → FastEmbed), fusion (client-side RRF → Qdrant DBSF). Added grep_books tool. PDF/HTML ingestion support.
+- **v4.1 (full enrichment + expansion downloads):** All 19,103 chunks enriched (ML + databases + security + distributed systems). Re-indexed with enriched embeddings. Downloaded 7 free PDFs, 118 OWASP cheat sheets, and 2 scraped web books for next ingestion batch.
 
 ## Known Limitations
 
 - **PDF heading structure:** markitdown extracts text but loses heading hierarchy from PDFs. Chunker falls back to paragraph-based splitting. Chunks are well-sized but metadata (chapter, section) is empty for PDF-sourced books.
-- **New domain chunks not enriched:** The 14 new sources (6,437 chunks) don't have contextual enrichment yet. Enrichment takes ~3-5 hours on GPU. Search still works — enrichment improves relevance but isn't required.
+
+## Downloaded — Awaiting Ingestion
+
+### Advanced ML / Deep Learning (7 PDFs) — `knowledge-base/advanced-ml/`
+
+| File | Source | Size |
+|------|--------|------|
+| d2l-en.pdf | Dive into Deep Learning (Zhang et al.) | 43MB |
+| lbdl.pdf | The Little Book of Deep Learning (Fleuret) | 4.5MB |
+| understanding-deep-learning.pdf | Understanding Deep Learning (Prince) | 21MB |
+| probml-intro.pdf | Probabilistic ML: Introduction (Murphy) | 19MB |
+| probml-advanced.pdf | Probabilistic ML: Advanced Topics (Murphy) | 71MB |
+| bishop-prml.pdf | Pattern Recognition & ML (Bishop) | 17MB |
+| cuda-programming-guide.pdf | NVIDIA CUDA Programming Guide | 4.4MB |
+
+### Scraped Web Sources — already in source dirs
+
+| File | Source | Size |
+|------|--------|------|
+| `security/owasp-cheat-sheets/` (118 .md files) | OWASP Cheat Sheet Series | 2.5MB |
+| `databases/use-the-index-luke.md` | Use The Index, Luke (SQL indexing) | 62KB |
+| `databases/postgresql-internals-interdb.md` | The Internals of PostgreSQL (Suzuki) | 31KB |
+
+**To ingest:** Add BOOKS entries to `config.py` + `remote_index.py`, run `ingest_all.py --step ingest`, chunk, index.
 
 ## Expansion — Still Needed
-
-### Free PDF Downloads
-
-**Advanced ML / Deep Learning:**
-| Book | Author | URL |
-|------|--------|-----|
-| Dive into Deep Learning | Zhang et al. | [d2l.ai/d2l-en.pdf](https://d2l.ai/d2l-en.pdf) |
-| The Little Book of Deep Learning v1.3 | Fleuret | [fleuret.org/public/lbdl.pdf](https://fleuret.org/public/lbdl.pdf) |
-| Understanding Deep Learning (2023) | Prince | [udlbook.github.io/udlbook](https://udlbook.github.io/udlbook/) |
-| Probabilistic ML vol 1 & 2 | Murphy | [probml.github.io/pml-book](https://probml.github.io/pml-book/) |
-| Pattern Recognition & ML | Bishop | [microsoft.com/research](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf) |
-| NVIDIA CUDA Programming Guide | NVIDIA | [docs.nvidia.com/cuda](https://docs.nvidia.com/cuda/cuda-programming-guide/pdf/cuda-programming-guide.pdf) |
 
 **Registration-gated (free but manual download):**
 - Google Building Secure and Reliable Systems — [sre.google/books](https://sre.google/books/)
@@ -215,9 +227,6 @@ scripts/
 - Confluent books (Kafka, Event-Driven, Stream Processing) — [confluent.io](https://www.confluent.io/resources/)
 
 **Can scrape/clone (free):**
-- OWASP Cheat Sheet Series — [GitHub markdown](https://github.com/OWASP/CheatSheetSeries)
-- Use The Index, Luke — [use-the-index-luke.com](https://use-the-index-luke.com/)
-- The Internals of PostgreSQL — [interdb.jp/pg](https://www.interdb.jp/pg/)
 - MIT 6.5940 EfficientML slides — [hanlab.mit.edu](https://hanlab.mit.edu/courses/2024-fall-65940)
 
 ### Paid

@@ -1,5 +1,6 @@
 # Source books (EPUBs, PDFs — large binary files, not version-controlled)
 knowledge-base/applied-ml/
+knowledge-base/advanced-ml/
 knowledge-base/databases/
 knowledge-base/security/
 knowledge-base/distributed-systems/
@@ -8,7 +9,6 @@ knowledge-base/distributed-systems/
 data/markdown/
 data/chunks/
 data/qdrant/
-data/qdrant_old/
 
 # Python
 __pycache__/
