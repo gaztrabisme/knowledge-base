@@ -18,6 +18,15 @@ def main():
     parser.add_argument("--book", help="Filter to specific book slug")
     parser.add_argument("--no-rerank", action="store_true", help="Disable reranking")
     parser.add_argument("--json", action="store_true", help="Output as JSON")
+    parser.add_argument(
+        "--bm25-keywords",
+        nargs="+",
+        help="Exact terms for the BM25 sparse leg (separate from the semantic query)",
+    )
+    parser.add_argument(
+        "--hyde-passage",
+        help="Hypothetical answer paragraph to embed instead of the query (dense leg)",
+    )
     args = parser.parse_args()
 
     client = get_client()
@@ -28,6 +37,8 @@ def main():
             top_k=args.top_k,
             book_filter=args.book,
             rerank=not args.no_rerank,
+            hyde_passage=args.hyde_passage,
+            bm25_keywords=args.bm25_keywords,
         )
     finally:
         client.close()

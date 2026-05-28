@@ -21,6 +21,7 @@ def search(
     book: str | None = None,
     hyde_passage: str | None = None,
     extra_queries: list[str] | None = None,
+    bm25_keywords: list[str] | None = None,
 ) -> list[dict]:
     """Search across all indexed books using hybrid semantic + keyword search.
 
@@ -31,10 +32,15 @@ def search(
         hyde_passage: Optional hypothetical answer paragraph. When provided, this
             text is embedded instead of the query for the dense retrieval leg,
             bridging vocabulary gaps between questions and textbook prose. The
-            BM25 keyword leg still uses the original query.
+            BM25 keyword leg still uses the original query (or bm25_keywords).
         extra_queries: Optional list of alternative query phrasings to broaden
             recall. Each extra query adds its own dense + BM25 retrieval legs,
             and all candidates are fused before reranking.
+        bm25_keywords: Optional list of exact terms for the BM25 keyword leg
+            (e.g. ["MVCC", "xmin", "snapshot isolation"]). When provided, these
+            terms drive lexical matching instead of the natural-language query,
+            separating semantic intent (dense leg) from exact-term matching.
+            Use when you know the precise vocabulary the source text would use.
 
     Returns:
         List of search results with score, book, chapter, section, content, and matching child chunk.
@@ -48,6 +54,7 @@ def search(
             book_filter=book,
             hyde_passage=hyde_passage,
             extra_queries=extra_queries,
+            bm25_keywords=bm25_keywords,
         )
         return [r.to_dict() for r in results]
     finally:

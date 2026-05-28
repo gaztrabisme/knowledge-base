@@ -60,10 +60,12 @@ def hybrid_search(
     rerank: bool = True,
     hyde_passage: str | None = None,
     extra_queries: list[str] | None = None,
+    bm25_keywords: list[str] | None = None,
 ) -> list[SearchResult]:
     dense_text = hyde_passage if hyde_passage else query
     dense_vector = embed_texts([dense_text], task="retrieval.query")[0]
-    query_sparse = text_to_sparse_vector(query)
+    bm25_text = " ".join(bm25_keywords) if bm25_keywords else query
+    query_sparse = text_to_sparse_vector(bm25_text)
 
     filter_conditions = None
     if book_filter:
