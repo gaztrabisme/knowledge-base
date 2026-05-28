@@ -133,10 +133,54 @@ def ingest_epub(epub_path: Path, output_path: Path) -> Path:
     return output_path
 
 
+def convert_pdf_with_toc(pdf_path: Path) -> str | None:
+    """Reconstruct markdown headings from a PDF's embedded TOC bookmarks.
+
+    Returns None if the PDF has no usable TOC (caller should fall back to
+    markitdown). The body text never contributes headings — we inject only
+    the TOC entries and neutralize any body line that looks like a heading,
+    so code comments like `# init` can't masquerade as structure.
+    """
+    import fitz  # PyMuPDF
+
+    doc = fitz.open(str(pdf_path))
+    toc = doc.get_toc()  # [[level, title, page], ...]; page is 1-based
+    if not toc:
+        doc.close()
+        return None
+
+    page_headings: dict[int, list[tuple[int, str]]] = {}
+    for level, title, page in toc:
+        title = title.strip()
+        if not title:
+            continue
+        page_headings.setdefault(page - 1, []).append((level, title))
+
+    parts = []
+    for page_index in range(doc.page_count):
+        for level, title in page_headings.get(page_index, []):
+            parts.append("#" * min(level, 3) + " " + title)
+        body = str(doc.load_page(page_index).get_text("text"))
+        # Neutralize body lines that would parse as markdown headings.
+        body = re.sub(r"(?m)^(#{1,6}\s)", r" \1", body)
+        parts.append(body)
+
+    doc.close()
+    return "\n\n".join(parts)
+
+
 def ingest_pdf(pdf_path: Path, output_path: Path) -> Path:
-    text = convert_epub(pdf_path)  # markitdown handles PDFs too
-    text = clean_markdown(text)
-    text = normalize_heading_levels(text)
+    text = convert_pdf_with_toc(pdf_path)
+    if text is None:
+        # markitdown fallback (no TOC bookmarks) — yields no headings, so
+        # front-matter stripping would be a no-op; skip it to avoid misfires.
+        text = convert_epub(pdf_path)
+        text = clean_markdown(text)
+        text = normalize_heading_levels(text)
+    else:
+        text = clean_markdown(text)
+        text = strip_front_back_matter(text)
+        text = normalize_heading_levels(text)
     output_path.write_text(text, encoding="utf-8")
     return output_path
 
