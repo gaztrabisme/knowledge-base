@@ -26,9 +26,12 @@ RERANKER_MODEL = "cross-encoder/ettin-reranker-150m-v1"
 RERANKER_SCORE_FLOOR = 4.0
 RERANKER_MIN_RESULTS = 3
 
-PARENT_MAX_TOKENS = 1200
+# Thresholds are real tokens (tiktoken cl100k_base ≈ Jina v5 tokenizer).
+# v6: children tightened to a true 250 for sharper match units; parents kept
+# near their prior effective size (~1900 real tokens) to preserve returned context.
+PARENT_MAX_TOKENS = 1900
 CHILD_MAX_TOKENS = 250
-CHILD_MIN_TOKENS = 50
+CHILD_MIN_TOKENS = 75
 
 BOOKS = {
     "kagglebook_secondedition": "Kaggle Book, 2nd Edition",

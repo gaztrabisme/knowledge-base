@@ -3,16 +3,21 @@
 import json
 import re
 
+import tiktoken
+
 from .config import (
     BOOKS, CHUNKS_DIR, MARKDOWN_DIR,
     PARENT_MAX_TOKENS, CHILD_MAX_TOKENS, CHILD_MIN_TOKENS,
 )
 
-PARENT_MIN_TOKENS = 200
+PARENT_MIN_TOKENS = 300
+
+_encoder = tiktoken.get_encoding("cl100k_base")
 
 
 def estimate_tokens(text: str) -> int:
-    return len(text.split())
+    # cl100k_base tracks the Jina v5 tokenizer within ~2%; far closer than word count.
+    return len(_encoder.encode(text, disallowed_special=()))
 
 
 def extract_sections(markdown: str) -> list[dict]:
