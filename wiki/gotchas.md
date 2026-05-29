@@ -1,11 +1,32 @@
 # Gotchas & Known Issues
 
-## PDF Heading Loss
+## PDF Heading Loss (RESOLVED in v6)
 
 **Problem:** markitdown extracts text from PDFs but loses heading hierarchy. No `#` markers in the output markdown.
-**Impact:** Chunker falls back to paragraph-based splitting. Chunks are well-sized but metadata (chapter, section, heading_path) is empty for PDF-sourced books. `get_chapter()` tool won't work for these books.
-**Workaround:** Search and grep_books still work fine. For structured browsing, use the original PDF.
-**Future fix:** Post-process PDF markdown to detect chapter headings from patterns (numbered sections, "Chapter X", etc.) and inject `#` markers.
+**v6 fix:** `convert_pdf_with_toc()` reconstructs headings from PyMuPDF's embedded TOC bookmarks (`doc.get_toc()`), injecting them at page-start positions. PDF-sourced books now carry chapter/section/heading_path. See decisions.md "PDF heading recovery".
+**Caveat:** Only works if the PDF has TOC bookmarks (100% of the production set does). PDFs without a TOC fall back to markitdown (headingless, as before).
+
+## PDF CID-Font Garble
+
+**Problem:** Some PDFs embed subset fonts with no ToUnicode CMap. PyMuPDF `get_text()` maps those glyphs to garbage in the Armenian/Hebrew/extended-Cyrillic Unicode ranges — e.g. "PostgreSQL" → "PostgreԯԭԨ", "2022" → "ҁѿҁ҂". Only postgresql-14-internals (of 46 books) is affected; markitdown extracts it cleanly.
+**Fix:** `ingest_pdf()` measures suspicious-glyph ratio against `_GARBLE_RATIO_THRESHOLD` (0.002). Above it, discard TOC headings and fall back to markitdown (clean body, no headings). General — any future CID-broken PDF self-heals.
+**Trade-off:** That one book loses heading metadata but keeps clean, keyword-searchable text. Chose clean text over headings.
+
+## Front-Matter Strip: "Chapter N" Appendix Misfire
+
+**Problem:** `strip_front_back_matter` treats the first bare "Chapter N"/numeric heading as the start of real content. A book whose real chapters are descriptively titled but whose answer-key appendix uses "# Chapter N" headings would match the *appendix* and discard the whole book as front matter (creativeprojectsforrustprogrammers collapsed 713KB → 23KB, 26 chunks).
+**Fix:** Position guard — only trust a numeric/"Chapter N" heading within the first 40% of lines; otherwise fall through to the descriptive-heading fallback.
+**Watch for:** Suspiciously small markdown output (`wc -c data/markdown/*.md | sort -n`) is the tell. A 4MB EPUB yielding 23KB markdown means stripping ate the content.
+
+## Tailscale Unreachable After GPU Wake
+
+**Problem:** After Wake-on-LAN, the GPU box responds on its LAN IP (192.168.2.42) but the Tailscale IP (100.106.185.34) can time out for a while (tailscaled re-establishing).
+**Fix:** When on the same LAN, just SSH the LAN IP. Verify with `ping`/`ssh -o ConnectTimeout=3` before expensive transfers.
+
+## macOS Has No `timeout`
+
+**Problem:** Validation/wrapper scripts using `timeout 600 python3 ...` fail on macOS with "command not found: timeout".
+**Fix:** macOS ships `gtimeout` (via coreutils) or nothing. Drop the wrapper for local one-shot scripts, or use `gtimeout` if coreutils is installed.
 
 ## numpy float32 Serialization
 

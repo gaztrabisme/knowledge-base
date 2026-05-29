@@ -39,8 +39,15 @@ def clean_markdown(text: str) -> str:
 def strip_front_back_matter(text: str) -> str:
     lines = text.split("\n")
 
+    # A bare "Chapter N"/numeric heading marks the first real chapter — but only
+    # if it appears early. Some books name real chapters descriptively and reserve
+    # "Chapter N" headings for a back-matter answer key; trusting a late match would
+    # discard the whole book as front matter. Guard with a position cap.
+    numeric_cap = int(len(lines) * 0.4)
     content_start = None
     for i, line in enumerate(lines):
+        if i > numeric_cap:
+            break
         if not re.match(r"^#{1,2}\s+", line):
             continue
         heading_text = re.sub(r"^#{1,6}\s+", "", line).strip()
@@ -174,11 +181,31 @@ def convert_pdf_with_toc(pdf_path: Path) -> str | None:
     return "\n\n".join(parts)
 
 
+# Glyphs that should never appear in English technical PDFs. Some PDFs embed
+# subset fonts with no ToUnicode CMap, so PyMuPDF maps glyphs to garbage in the
+# Armenian/Hebrew/extended-Cyrillic ranges (e.g. "PostgreSQL" → "PostgreԯԭԨ",
+# "2022" → "ҁѿҁ҂"). When that happens we lose the body text, so we discard the
+# TOC headings and fall back to markitdown, which extracts these PDFs cleanly.
+_GARBLE_RE = re.compile(r"[԰-֏֐-׿Ҁ-ӿ]")
+_GARBLE_RATIO_THRESHOLD = 0.002  # clean PDFs ~0%; the one bad book ran ~0.88%
+
+
+def _garble_ratio(text: str) -> float:
+    if not text:
+        return 0.0
+    return len(_GARBLE_RE.findall(text)) / len(text)
+
+
 def ingest_pdf(pdf_path: Path, output_path: Path) -> Path:
     text = convert_pdf_with_toc(pdf_path)
+    if text is not None and _garble_ratio(text) > _GARBLE_RATIO_THRESHOLD:
+        # CID-font subset with no ToUnicode map: PyMuPDF text is corrupt. Headings
+        # come from the TOC (clean) but the body is unusable — markitdown wins here.
+        print(f"  PyMuPDF text garbled ({_garble_ratio(text):.2%}); falling back to markitdown: {pdf_path.stem}")
+        text = None
     if text is None:
-        # markitdown fallback (no TOC bookmarks) — yields no headings, so
-        # front-matter stripping would be a no-op; skip it to avoid misfires.
+        # markitdown fallback (no TOC bookmarks or garbled body) — yields no
+        # headings, so front-matter stripping would be a no-op; skip it.
         text = convert_epub(pdf_path)
         text = clean_markdown(text)
         text = normalize_heading_levels(text)

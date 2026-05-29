@@ -4,11 +4,10 @@ knowledge-base/advanced-ml/
 knowledge-base/databases/
 knowledge-base/security/
 knowledge-base/distributed-systems/
+knowledge-base/rust/
 
-# Pipeline outputs (regenerable from source + code)
-data/markdown/
-data/chunks/
-data/qdrant/
+# Pipeline outputs (regenerable from source + code) — all of data/ is derived
+data/
 
 # Python
 __pycache__/

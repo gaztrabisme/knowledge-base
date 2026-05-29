@@ -58,6 +58,40 @@
 **Context:** Section titles carry strong semantic signal ("MVCC and Transaction Isolation") but weren't included in the embedded text.
 **Decision:** Prepend `heading_path` before `context_text` and `child_text` when constructing the embedding input. Both `index.py` and `remote_index.py` updated in sync.
 
+## Pipeline (v6)
+
+### tiktoken token counting + "Option 1" chunk sizing
+**Context:** Chunk sizes were estimated by word count, which undercounted real tokens by ~1.65x — children drifted well past their nominal target. Calibration showed tiktoken `cl100k_base` matches the Jina v5 tokenizer within ~2%.
+**Decision:** Count tokens with tiktoken `cl100k_base`. Re-tightened thresholds to **Option 1**: children to a true `CHILD_MAX_TOKENS=250` (sharper match units), `CHILD_MIN_TOKENS=75`; parents kept near their prior effective size at `PARENT_MAX_TOKENS=1900` to preserve returned context. Rationale: the **child is the match unit** (embedded/retrieved/reranked) so it should be tight and focused, while the **parent is the context unit** returned to the agent, so it stays large. Smaller children = more precise reranking without sacrificing the context the agent actually reads.
+
+### PDF heading recovery via PyMuPDF TOC bookmarks
+**Context:** v5's known limitation — markitdown extracts PDF body text but drops heading hierarchy, so PDF-sourced books had empty chapter/section metadata. Compared 4 approaches (markitdown-only, PyMuPDF TOC, Docling, heuristic font-size detection) across 3 books.
+**Decision:** PyMuPDF `doc.get_toc()` two-pass reconstruction. Inject TOC bookmark headings at their page-start positions; neutralize any body line that already looks like a markdown heading (`^#{1,6}\s` → prefixed with a space) so code comments like `# init` can't masquerade as structure. Body text never contributes headings. Result: 100% TOC coverage on the production PDF set; postgres/dist-sys/owasp/crypto all gained clean chapter/section paths with zero code-comment false H1s. Docling rejected — crashes on macOS MPS backend.
+
+### PostgreSQL Internals → markitdown fallback (CID-font garble guard)
+**Context:** postgresql-14-internals embeds subset fonts with no ToUnicode CMap. PyMuPDF maps those glyphs into the Armenian/Hebrew/extended-Cyrillic ranges ("PostgreSQL" → "PostgreԯԭԨ", "2022" → "ҁѿҁ҂"), garbling ~0.3-0.9% of chars including the flagship keyword. v5/markitdown rendered this book cleanly but flat. It's the only book of 46 affected.
+**Decision:** Auto-detect garble — if PyMuPDF text exceeds `_GARBLE_RATIO_THRESHOLD=0.002` suspicious glyphs, discard the TOC headings and fall back to markitdown (clean body, no headings). General, not a hardcoded book name, so any future CID-broken PDF self-heals. Trade-off accepted: clean searchable body + intact BM25 keyword match beats structured-but-garbled text, since the agent reads returned snippets directly. Chose clean text over headings for this one book.
+
+### Front-matter strip: position guard on "Chapter N" heading
+**Context:** `strip_front_back_matter` used a first-pass "bare Chapter N / numeric heading = first real chapter" heuristic. creativeprojectsforrustprogrammers names real chapters descriptively but reserves "# Chapter N" headings for a back-matter answer key — the heuristic matched that late appendix heading and discarded the entire 713KB book as front matter, leaving only the 23KB answer key (26 chunks).
+**Decision:** Only trust a numeric/"Chapter N" heading if it appears within the first 40% of lines; otherwise fall through to the descriptive-heading fallback. Recovered the book to 873 children.
+
+### Index back-matter narrowing + hard-split oversized chunks
+**Context:** A book's "Index" back-matter (page-number noise) and monster paragraphs were producing children far over 250 tokens (16.6% over, one 37,249-token chunk — an "# Index" page).
+**Decision:** (1) Narrow exact-match back-matter cut to `index`/`subject index`/`author index` only, so mid-book "Index Scans"/"Indexing" headings don't trigger it. (2) `_hard_split_block()` token-bounded splitting of oversized paragraphs — code blocks split by line and re-fenced, prose split by sentence with a word-level fallback for monster sentences. Result: max child 946, p99 255, 3.3% over 250.
+
+### BM25 keyword parameter + metadata-enriched enrichment prompt
+**Context:** Two smaller v6 search-quality items.
+**Decision:** (1) Expose a BM25 keyword customization parameter on search. (2) Enrichment prompt now includes the chunk's metadata fields (book/chapter/section) so generated context is grounded in document structure.
+
+### Rust corpus expansion (33 → 46 books)
+**Context:** Acquired 13 Rust EPUBs (Humble Bundle Packt Rust bundle). Generalized the EPUB ingestion loop to scan all `SOURCE_DIRS` (added `rust/`) rather than only `applied-ml/`.
+**Decision:** Folded all 13 into the v6 re-index. BOOKS entries added in sync to both `config.py` and `scripts/remote_index.py`. Corpus is now 46 books, 48,009 vectors.
+
+### Index now, enrich later
+**Context:** Re-chunking invalidates the v5 enrichment context_text, which forces re-enrichment of all 47.6K chunks — a 13-20h serial GPU pass that would block every structural v6 win.
+**Decision:** Re-index immediately with `heading_path + child_text` (empty context_text), defer enrichment to a separate background pass (`remote_enrich.py`, then re-index enriched chunks). The embedding-text builder already drops empty context_text, so no code change was needed for the index-now path. Structural improvements (tiktoken sizing, PDF headings, Rust books, bug fixes) ship now; enrichment quality returns later without blocking.
+
 ## Rejected Approaches
 
 ### GraphRAG / LightRAG

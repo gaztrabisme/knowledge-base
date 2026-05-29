@@ -1,19 +1,19 @@
 # Developer Knowledge Base — MCP Server
 
-A local MCP server that serves semantic search over technical books to Claude Code during development sessions. 33 sources indexed across ML, databases, security, and distributed systems.
+A local MCP server that serves semantic search over technical books to Claude Code during development sessions. 46 sources indexed across ML, databases, security, distributed systems, and Rust.
 
-## Status: v5.0 — Search Intelligence Upgrade
+## Status: v6.0 — Corpus Expansion + Ingestion Quality
 
-33 books indexed (~19,728 vectors), all chunks contextually enriched. Reranker upgraded from MiniLM-L-12 to Ettin-150m (ModernBERT, +0.093 NDCG@10). Adaptive score cutoff filters noise. HyDE and multi-query exposed as agent-provided parameters. Parent chunk overlap at section boundaries. Heading path prepended to embeddings. 10 new sources still awaiting ingestion.
+46 books indexed (48,009 vectors). PDF heading hierarchy recovered via PyMuPDF TOC reconstruction (v5's known limitation, now fixed). Chunk sizing on real tiktoken counts (child max 250, parent max 1900). 13 Rust books added. Two ingestion bugs fixed (Chapter-N appendix misfire, CID-font garble fallback). Indexed now with heading_path + child_text; contextual enrichment deferred to a background pass (index-now-enrich-later).
 
 ## Architecture
 
 ```
 EPUBs + PDFs + HTML
-  → markitdown (format → markdown, preserves heading hierarchy)
-  → HTML cleanup + front/back matter stripping (EPUBs only)
-  → heading-aware parent/child chunker (H2-based splitting + small section merging + section overlap)
-  → (optional) contextual enrichment via LLM
+  → markitdown (EPUB/HTML) | PyMuPDF TOC reconstruction (PDF, markitdown fallback on CID-font garble)
+  → HTML cleanup + front/back matter stripping
+  → tiktoken-sized heading-aware parent/child chunker (H2-based splitting + small section merging + section overlap + hard-split oversized blocks)
+  → (deferred) contextual enrichment via LLM
   → heading_path + context_text + child_text → Jina v5-text-small embeddings (1024-dim)
   → FastEmbed Qdrant/bm25 sparse vectors (proper tokenization + stopwords)
   → Qdrant hybrid index (dense + BM25 sparse, DBSF fusion, file-based)
@@ -174,11 +174,30 @@ scripts/
 | designing-distributed-systems | Distributed system patterns (Burns/Microsoft) |
 | distributed-systems-fun-profit | Distributed systems theory |
 
+### Rust (13 sources) — `knowledge-base/rust/`
+
+| Book | Topic |
+|------|-------|
+| asynchronousprogramminginrust | Async/await, futures, executors |
+| creativeprojectsforrustprogrammers | Project-based Rust (web, DB, WASM, ML) |
+| designpatternsandbestpracticesinrust | Idiomatic patterns |
+| gamedevelopmentwithrustandwebassembly | Rust + WASM game dev |
+| hands-onconcurrencywithrust | Concurrency, parallelism |
+| practicalsystemprogrammingforrustdevelopers | Systems programming |
+| rust_ebook | Rust fundamentals (Nouman Azam) |
+| rustforblockchainapplicationdevelopment | Blockchain in Rust |
+| rustforcplusplusdeveloper | Rust for C++ devs |
+| rustprogramminghandbook | Comprehensive Rust handbook |
+| rustwebdevelopmentwithrocket | Web dev with Rocket |
+| rustwebprogramming | Full-stack Rust web |
+| speedupyourpythonwithrust | PyO3, Rust extensions for Python |
+
 ## Corpus Stats
 
-- 33 sources indexed (18 EPUBs + 14 PDFs/HTML + 1 markdown guide)
-- 6,386 parent chunks, 19,728 child chunks (vectors)
-- **All chunks contextually enriched** (Qwen3.6-27B MTP, no-think mode)
+- 46 sources indexed (31 EPUBs + 14 PDFs/HTML + 1 markdown guide)
+- 48,009 child chunks (vectors)
+- **Not yet enriched** — index-now-enrich-later: embedded with heading_path + child_text only; contextual enrichment is a deferred background pass
+- Token counting: tiktoken `cl100k_base` (≈ Jina v5 tokenizer within ~2%). Child max 250 / min 75, parent max 1900 tokens
 - Embedding: heading_path + context_text + child_text → Jina v5-text-small (677M params, 1024-dim)
 - Sparse: FastEmbed Qdrant/bm25 (proper tokenization, stopwords, IDF)
 - Reranker: Ettin-150m cross-encoder (ModernBERT, 151M params, 0.5994 NDCG@10)
@@ -194,10 +213,12 @@ scripts/
 - **v4 (multi-domain + pipeline upgrade):** Expanded to 33 books (19,103 vectors). Upgraded reranker (TinyBERT → MiniLM-L-12), BM25 tokenizer (regex → FastEmbed), fusion (client-side RRF → Qdrant DBSF). Added grep_books tool. PDF/HTML ingestion support.
 - **v4.1 (full enrichment + expansion downloads):** All 19,103 chunks enriched (ML + databases + security + distributed systems). Re-indexed with enriched embeddings. Downloaded 7 free PDFs, 118 OWASP cheat sheets, and 2 scraped web books for next ingestion batch.
 - **v5 (search intelligence):** Reranker upgraded to Ettin-150m (ModernBERT, +0.093 NDCG@10 over MiniLM-L-12). Adaptive score cutoff filters noise (absolute floor 4.0). HyDE and multi-query exposed as agent-provided input parameters (no LLM dependency). Parent chunk overlap at H2 section boundaries. Heading path prepended to embeddings. Re-chunked to 19,728 vectors. Dev skill integration (KB in Available Tools + Research Subagent briefs).
+- **v6 (corpus expansion + ingestion quality):** Expanded to 46 books / 48,009 vectors (added 13 Rust books). PDF heading hierarchy recovered via PyMuPDF TOC reconstruction (resolves v5 PDF limitation). tiktoken-based chunk sizing (child max 250, parent max 1900). Hard-split for oversized blocks. Fixed two ingestion bugs: "Chapter N" appendix misfire in front-matter stripping, and CID-font garble auto-fallback to markitdown (postgresql-14-internals). BM25 keyword parameter + metadata-enriched enrichment prompt. Indexed without enrichment (index-now-enrich-later); enrichment is a deferred background pass.
 
 ## Known Limitations
 
-- **PDF heading structure:** markitdown extracts text but loses heading hierarchy from PDFs. Chunker falls back to paragraph-based splitting. Chunks are well-sized but metadata (chapter, section) is empty for PDF-sourced books.
+- **CID-font PDFs lose headings:** PDFs whose embedded subset fonts lack a ToUnicode CMap garble under PyMuPDF, so they auto-fall back to markitdown (clean body, no heading metadata). Only postgresql-14-internals is currently affected — search/grep work, but `get_chapter()` and chapter/section metadata are empty for it.
+- **Enrichment pending:** v6 chunks carry heading_path + child_text but no contextual `context_text` yet. Retrieval works; the enrichment background pass will further sharpen recall on vocabulary-gap queries.
 
 ## Downloaded — Awaiting Ingestion
 
@@ -236,7 +257,7 @@ scripts/
 ### Paid
 
 **Humble Bundle ($18, expires June 4 2026):**
-- Rust Systems Programming Bundle — 13 Packt books
+- ~~Rust Systems Programming Bundle — 13 Packt books~~ ✅ ingested in v6
 
 **Individual books (~$237 total):**
 | Book | Author | Price | Domain |
