@@ -1,13 +1,32 @@
 # Plan — DSPy-Optimized Contextual Enrichment (future v6 work)
 
-Status: **Phase 1 DONE; Phase 2 next.** Written 2026-05-29, updated same day. Picks up after v6.0 (48,009 chunks, not 19,728 as originally written below).
+Status: **COMPLETE — enrichment does NOT ship.** Phase 1 DONE (harness). Phase 2 DONE (DSPy lost the prompt gate → manual problem-symptom). **Phase 3 DONE: enriching all 48K then re-indexing made the hard-set gate WORSE (NDCG 0.7907 → 0.7759), so we REVERTED to the no-enrichment index. The corpus stays index-now-enrich-never.** Full write-up in `decisions.md` → "Phase 3 — enrichment LOST the full-index gate". Sprint closed 2026-05-30. Written 2026-05-29; picks up after v6.0 (48,009 chunks, not 19,728 as written below).
 
 **Progress:**
 - ✅ **Phase 1 (eval harness)** built and trustworthy. `scripts/build_golden_set.py` (201 q), `scripts/harden_golden_set.py` (vocab-gap paraphrase, −52% lexical overlap), `scripts/eval_retrieval.py` (NDCG@10/Recall@10/MRR + Recall@50 ceiling, parent-granularity). Two baselines recorded under `data/golden/eval_runs/`:
   - easy (chunk-vocab) = regression guard: NDCG 0.931 / R@10 0.975 / R@50 **1.000**
   - **hard (vocab-gap) = the gate**: NDCG **0.791** / R@10 0.925 / MRR **0.747** / R@50 0.960
 - **LM changed: local Qwen → `deepseek-v4-flash`** (see decisions.md). Both DSPy and final enrichment run on DeepSeek API (cheap + 2500 concurrency). Task model thinking-OFF; instruction-proposer thinking-ON.
-- ⏭️ **Phase 2 (DSPy)** is next; must beat the hard-set gate without regressing the easy set.
+- ✅ **Phase 2 (DSPy)** DONE. `scripts/dspy_enrich.py` (`--smoke`/`--build-bg`/`--bootstrap`/`--mipro`/`--manual`/`--enrich-all`). Mini-retrieval metric = frozen **hard-negative** distractor pool (same-book/same-chapter siblings; a flat random pool scored a useless 1.0) + freshly candidate-enriched positive in an in-memory Qdrant mirroring production (dense+BM25+DBSF+Ettin). **Result: MIPROv2 (light) tied the incumbent (0.9615→0.9615, Δ 0); two hand-written variants won — problem-symptom 0.9678, query-anticipation 0.9676, baseline 0.9615, entity-dense 0.9461.** Per gate 2D, **DSPy does not ship; we ship the hand-written `problem-symptom` instruction** (`MANUAL_VARIANTS["problem-symptom"]` in dspy_enrich.py). Signal is directional (problem/query-vocab framing beats keyword-stuffing), each margin within mini-harness noise → full-index is the real gate. DSPy harness kept as reusable infra.
+
+---
+
+## ⏳ PHASE 3 — RESUME HERE (in progress as of 2026-05-29 ~midnight)
+
+**What's running:** `scripts/dspy_enrich.py --enrich-all --concurrency 80` (PID was 46424, log `data/dspy_cache/enrich_all.log`, completion waiter `bhbuqq3w9`). Runs the DSPy `Enricher` with the **problem-symptom** instruction (Envelope A — exactly what won the gate; `make_enricher("problem-symptom")`) over all un-enriched children, writing `context_text` into `data/chunks/*.json`. Resumable (skips children that already have `context_text`; saves per file). ~44 chunks/s, ~18 min, ~$10–12.
+
+**After enrichment finishes, do Phase 3B (re-index on GPU) — exact steps:**
+1. **Revert safety:** back up the current no-enrichment index locally first: `cp -r data/qdrant data/qdrant_v6_noenrich_backup` (this is the shippable 0.791 fallback).
+2. rsync enriched chunks up: `rsync -avz data/chunks/ bppc@100.106.185.34:~/kb-work/chunks/`
+3. **Force fresh build** (remote_index.py SKIPS books already in the collection): `ssh bppc@100.106.185.34 'rm -rf ~/kb-work/qdrant'`
+4. Re-index (background, ~30 min, batch_size 4): `ssh bppc@100.106.185.34 'source ~/kb-env/bin/activate && cd ~/kb-work && nohup python3 -u remote_index.py . > index_enriched.log 2>&1 &'`  (GPU confirmed reachable, 14.5 GB free; watch for OOM → see gotchas.)
+5. Pull back: `rsync -avz bppc@100.106.185.34:~/kb-work/qdrant/ data/qdrant/`
+
+**Then Phase 3C (validate + decide) — the ship rule:**
+- `PYTHONPATH=. python3 scripts/eval_retrieval.py --label v6-enriched-hard --golden data/golden/golden_queries_hard.jsonl`
+- also easy set as regression guard: `--label v6-enriched-easy --golden data/golden/golden_queries.jsonl`
+- **SHIP only if hard set beats NDCG 0.791** (compare to `data/golden/eval_runs/*hard*.json`). If yes → enrichment ships, bump CLAUDE.md to v6.x, log result, commit. **If no → revert** (`rm -rf data/qdrant && mv data/qdrant_v6_noenrich_backup data/qdrant`), conclude enrichment isn't worth it for this corpus, keep index-now-enrich-never.
+- Note: postgresql-14-internals has empty heading_path (CID-font book) — enrichment still applies from parent/child text.
 
 ## Goal
 
