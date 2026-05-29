@@ -231,9 +231,71 @@ def _split_preserving_code(text: str) -> list[str]:
     return blocks
 
 
+def _hard_split_block(block: str, max_tokens: int) -> list[str]:
+    """Split a single oversized block (code or prose) into token-bounded pieces.
+
+    Code blocks are split by lines and re-fenced so each piece stays valid
+    markdown; prose is split by sentences, falling back to words for a single
+    monster sentence. Children are match units, so aggressive splitting is fine
+    — the parent still returns the whole block as context.
+    """
+    if block.strip().startswith("```"):
+        lines = block.split("\n")
+        fence = lines[0] if lines[0].strip().startswith("```") else "```"
+        body = lines[1:]
+        if body and body[-1].strip().startswith("```"):
+            body = body[:-1]
+        pieces, cur, cur_tok = [], [], 0
+        for ln in body:
+            lt = estimate_tokens(ln) or 1
+            if cur and cur_tok + lt > max_tokens:
+                pieces.append(f"{fence}\n" + "\n".join(cur) + "\n```")
+                cur, cur_tok = [ln], lt
+            else:
+                cur.append(ln)
+                cur_tok += lt
+        if cur:
+            pieces.append(f"{fence}\n" + "\n".join(cur) + "\n```")
+        return pieces or [block]
+
+    pieces, cur, cur_tok = [], [], 0
+    for sentence in re.split(r"(?<=[.!?])\s+", block):
+        st = estimate_tokens(sentence) or 1
+        if st > max_tokens:
+            if cur:
+                pieces.append(" ".join(cur))
+                cur, cur_tok = [], 0
+            wcur, wtok = [], 0
+            for word in sentence.split():
+                wt = estimate_tokens(word) or 1
+                if wcur and wtok + wt > max_tokens:
+                    pieces.append(" ".join(wcur))
+                    wcur, wtok = [word], wt
+                else:
+                    wcur.append(word)
+                    wtok += wt
+            if wcur:
+                pieces.append(" ".join(wcur))
+        elif cur and cur_tok + st > max_tokens:
+            pieces.append(" ".join(cur))
+            cur, cur_tok = [sentence], st
+        else:
+            cur.append(sentence)
+            cur_tok += st
+    if cur:
+        pieces.append(" ".join(cur))
+    return pieces or [block]
+
+
 def create_children(parent_text: str, parent_id: str) -> list[dict]:
     """Split a parent chunk into children on paragraph boundaries."""
-    paragraphs = _split_preserving_code(parent_text)
+    raw_paragraphs = _split_preserving_code(parent_text)
+    paragraphs = []
+    for para in raw_paragraphs:
+        if estimate_tokens(para) > CHILD_MAX_TOKENS:
+            paragraphs.extend(_hard_split_block(para, CHILD_MAX_TOKENS))
+        else:
+            paragraphs.append(para)
     children = []
     current: list[str] = []
     current_tokens = 0

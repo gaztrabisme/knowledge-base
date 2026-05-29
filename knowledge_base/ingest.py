@@ -88,6 +88,10 @@ def _is_front_matter_heading(line: str) -> bool:
 
 def _is_back_matter_heading(line: str) -> bool:
     heading = re.sub(r"^#{1,6}\s+", "", line).strip().lower()
+    # Exact matches: the book index ("Index") is huge page-number noise, but
+    # "Index Scans"/"Indexing" mid-book must not trigger the cut.
+    if heading in ("index", "subject index", "author index"):
+        return True
     back_patterns = [
         "other books you may enjoy", "packt page",
         "download a free pdf",
