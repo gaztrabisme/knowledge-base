@@ -7,6 +7,7 @@ SOURCE_DIRS = {
     "databases": ROOT / "knowledge-base" / "databases",
     "security": ROOT / "knowledge-base" / "security",
     "distributed-systems": ROOT / "knowledge-base" / "distributed-systems",
+    "rust": ROOT / "knowledge-base" / "rust",
 }
 RAG_GUIDE_DIR = ROOT / "knowledge-base" / "production-rag-guide"
 MARKDOWN_DIR = ROOT / "data" / "markdown"
@@ -70,4 +71,18 @@ BOOKS = {
     "owasp-wstg-v4.2": "OWASP Web Security Testing Guide v4.2",
     "owasp-asvs-v5": "OWASP ASVS v5",
     "oauth-rfcs-book": "OAuth RFCs Book",
+    # Rust
+    "asynchronousprogramminginrust": "Asynchronous Programming in Rust",
+    "creativeprojectsforrustprogrammers": "Creative Projects for Rust Programmers",
+    "designpatternsandbestpracticesinrust": "Design Patterns and Best Practices in Rust",
+    "gamedevelopmentwithrustandwebassembly": "Game Development with Rust and WebAssembly",
+    "hands-onconcurrencywithrust": "Hands-On Concurrency with Rust",
+    "practicalsystemprogrammingforrustdevelopers": "Practical System Programming for Rust Developers",
+    "rust_ebook": "Rust Programming (Nouman Azam)",
+    "rustforblockchainapplicationdevelopment": "Rust for Blockchain Application Development",
+    "rustforcplusplusdeveloper": "Rust for C++ Developers",
+    "rustprogramminghandbook": "The Rust Programming Handbook",
+    "rustwebdevelopmentwithrocket": "Rust Web Development with Rocket",
+    "rustwebprogramming": "Rust Web Programming",
+    "speedupyourpythonwithrust": "Speed Up Your Python with Rust",
 }

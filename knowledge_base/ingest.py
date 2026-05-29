@@ -5,7 +5,7 @@ from pathlib import Path
 
 from markitdown import MarkItDown
 
-from .config import EPUB_DIR, MARKDOWN_DIR, RAG_GUIDE_DIR, SOURCE_DIRS, BOOKS
+from .config import MARKDOWN_DIR, RAG_GUIDE_DIR, SOURCE_DIRS, BOOKS
 
 _converter = MarkItDown()
 
@@ -81,6 +81,7 @@ def _is_front_matter_heading(line: str) -> bool:
         "to get the most out", "sections", "reviews", "leave a review",
         "making the most out", "unlock your book", "how to unlock",
         "running a jupyter", "conventions", "code in action",
+        "why subscribe", "packtpub", "packt.com", "subscribe",
     ]
     return any(p in heading for p in front_patterns)
 
@@ -200,19 +201,20 @@ def ingest_all() -> list[Path]:
     MARKDOWN_DIR.mkdir(parents=True, exist_ok=True)
     results = []
 
-    for epub_file in sorted(EPUB_DIR.glob("*.epub")):
-        stem = epub_file.stem
-        if stem not in BOOKS:
-            print(f"  Skipping unknown book: {stem}")
-            continue
-        output = MARKDOWN_DIR / f"{stem}.md"
-        if output.exists():
-            print(f"  Skipping (exists): {stem}")
+    for source_dir in SOURCE_DIRS.values():
+        for epub_file in sorted(source_dir.glob("*.epub")):
+            stem = epub_file.stem
+            if stem not in BOOKS:
+                print(f"  Skipping unknown book: {stem}")
+                continue
+            output = MARKDOWN_DIR / f"{stem}.md"
+            if output.exists():
+                print(f"  Skipping (exists): {stem}")
+                results.append(output)
+                continue
+            print(f"  Converting: {stem}")
+            ingest_epub(epub_file, output)
             results.append(output)
-            continue
-        print(f"  Converting: {stem}")
-        ingest_epub(epub_file, output)
-        results.append(output)
 
     # PDFs from domain directories
     for domain, source_dir in SOURCE_DIRS.items():
