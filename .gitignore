@@ -7,7 +7,10 @@ knowledge-base/distributed-systems/
 knowledge-base/rust/
 
 # Pipeline outputs (regenerable from source + code) — all of data/ is derived
-data/
+# ...except data/golden/ (eval benchmark + recorded baselines — version-controlled
+# so retrieval comparisons stay stable across sessions)
+data/*
+!data/golden/
 
 # Python
 __pycache__/

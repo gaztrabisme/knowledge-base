@@ -1,6 +1,6 @@
 # Developer Knowledge Base — Project Wiki
 
-Last updated: 2026-05-29
+Last updated: 2026-05-29 (eval-harness foundation; DeepSeek enrichment LM)
 
 ## Quick Links
 
@@ -8,7 +8,7 @@ Last updated: 2026-05-29
 - [Decisions](decisions.md) — Key technical decisions and their rationale
 - [Gotchas](gotchas.md) — Known issues, workarounds, failure patterns
 - [Ops Runbook](ops-runbook.md) — Common operations, remote GPU workflows, troubleshooting
-- [DSPy Enrichment Plan](dspy-enrichment-plan.md) — Planned v6 work: eval harness + prompt optimization
+- [DSPy Enrichment Plan](dspy-enrichment-plan.md) — Phase 1 (eval harness) DONE; Phase 2 (DSPy on DeepSeek) next
 
 ## Project Summary
 
@@ -26,5 +26,7 @@ MCP server providing semantic search over 46 technical books to Claude Code. Pip
 | Reranker | Ettin-150m (ModernBERT, 0.5994 NDCG@10) |
 | Token counting | tiktoken cl100k_base (child max 250, parent max 1900) |
 | PDF headings | PyMuPDF TOC reconstruction (markitdown fallback on CID-font garble) |
-| Enriched chunks | none yet — index-now-enrich-later (deferred background pass) |
+| Enriched chunks | none yet — DSPy-optimized enrichment in progress (Phase 2, DeepSeek API) |
+| Eval harness | `eval_retrieval.py` + 2× golden sets (`data/golden/`); hard-set gate NDCG 0.791 / R@10 0.925 |
+| Enrichment LM | `deepseek-v4-flash` (thinking-off), replaces local Qwen |
 | Downloaded (awaiting ingestion) | 7 advanced-ML PDFs + 118 OWASP cheat sheets + 2 scraped web books |

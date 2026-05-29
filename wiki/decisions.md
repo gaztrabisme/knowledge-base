@@ -92,6 +92,24 @@
 **Context:** Re-chunking invalidates the v5 enrichment context_text, which forces re-enrichment of all 47.6K chunks — a 13-20h serial GPU pass that would block every structural v6 win.
 **Decision:** Re-index immediately with `heading_path + child_text` (empty context_text), defer enrichment to a separate background pass (`remote_enrich.py`, then re-index enriched chunks). The embedding-text builder already drops empty context_text, so no code change was needed for the index-now path. Structural improvements (tiktoken sizing, PDF headings, Rust books, bug fixes) ship now; enrichment quality returns later without blocking.
 
+## Enrichment / Eval Harness (v6.x — DSPy sprint)
+
+### DeepSeek-v4-flash as the enrichment + DSPy LM (replaces local Qwen)
+**Context:** The DSPy plan originally specced local Qwen3.6-27B via llama-server (free on owned GPU, but a ~13–20h serial enrichment pass for 48K chunks). DeepSeek V4 launched cheap with high concurrency.
+**Decision:** Use `deepseek-v4-flash` (OpenAI-compatible, `base_url=https://api.deepseek.com`) for both DSPy optimization and the final enrichment. Pricing: input $0.14/M (cache miss), $0.0028/M (cache hit), output $0.28/M — the full 48K enrichment pass costs **under ~$15** and finishes in **~15–45 min** via async fan-out (concurrency cap is **2500** for flash, no RPM/TPM caps, 429 on overflow). This frees the GPU entirely and collapses the serial pass.
+**Thinking control:** `extra_body={"thinking": {"type": "disabled"}}` — ⚠️ defaults to ENABLED, so non-thinking must be set explicitly. Task model (enrichment execution, many calls) runs thinking-OFF; MIPROv2 instruction-proposer (few calls) runs thinking-ON for better prompt candidates. `reasoning_effort` (high/max) only applies when thinking is on.
+**Wiring:** DSPy→LiteLLM via the OpenAI passthrough (`dspy.LM("openai/deepseek-v4-flash", api_base=..., extra_body=...)`) rather than the native `deepseek/` provider, because the brand-new model ID may not be in LiteLLM's registry yet (would break cost-tracking / strip extra_body).
+**Cache ordering:** order enrichment calls by parent so the stable prefix (instruction → metadata → parent_text) is prompt-cached across a parent's children — cache hit is 50× cheaper than miss.
+
+### Extrinsic eval harness, scored at parent granularity
+**Context:** Enrichment text is never read by anyone — it only shifts the child embedding. So the metric must be extrinsic (retrieval quality), and the golden set is `query → relevant-chunk` pairs, not `chunk → gold-summary`.
+**Decision:** `scripts/eval_retrieval.py` runs the golden queries through the REAL `hybrid_search()` and scores **NDCG@10 / Recall@10 / MRR** plus a **Recall@50 ceiling** (fusion-only, no rerank). Matching is at **parent** granularity — the pipeline dedups by parent and the agent receives parent content, so parent-level is the meaningful unit. The ceiling-vs-delivered gap separates "never retrieved" (embedding/recall lever — enrichment's target) from "retrieved but reranked out" (reranker lever). Added `parent_id`/`child_id` to `SearchResult` (dataclass only; `to_dict` unchanged, so the MCP contract is untouched) so eval can match without re-querying internals.
+
+### Vocab-gap hardening of the golden set (the harness's first real finding)
+**Context:** The first golden set was LLM-generated FROM each chunk, so queries inherited the chunk's rare terms. Baseline came back near-ceiling — NDCG@10 0.931, Recall@10 0.975, **Recall@50 1.000**. That means retrieval already wins on chunk-vocabulary queries AND enrichment's lever (recall) is maxed, so the set literally **cannot measure enrichment**.
+**Decision:** Build a second set (`golden_queries_hard.jsonl`) that paraphrases each query into developer problem/symptom framing, deliberately avoiding the chunk's signature terminology (`scripts/harden_golden_set.py`). Verified objectively: mean query→chunk content-word overlap dropped **52%** (0.649→0.313). The hard baseline exposes real headroom — **NDCG@10 0.791, Recall@10 0.925, Recall@50 0.960** — with the 15 misses splitting into **8 never-retrieved** (enrichment's target) + **7 reranked-out** (reranker's target).
+**Use:** the **hard set is the gate** any enrichment/DSPy change must beat (NDCG 0.791 / MRR 0.747); the **easy set is a regression guard** (don't regress the already-solved case). Both baselines recorded under `data/golden/eval_runs/`.
+
 ## Rejected Approaches
 
 ### GraphRAG / LightRAG

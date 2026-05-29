@@ -38,6 +38,8 @@ class SearchResult:
     heading_path: str
     content: str
     child_match: str
+    parent_id: str = ""
+    child_id: str = ""
 
     def to_dict(self) -> dict:
         return {
@@ -184,6 +186,8 @@ def _deduplicate_parents(results: list[dict]) -> list[SearchResult]:
             heading_path=p.get("heading_path", ""),
             content=p.get("parent_text", ""),
             child_match=p.get("child_text", ""),
+            parent_id=parent_id,
+            child_id=p.get("child_id", ""),
         ))
 
     return deduped

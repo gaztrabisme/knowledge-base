@@ -1,5 +1,17 @@
 # Gotchas & Known Issues
 
+## Golden-Set Vocabulary Bias (measure-the-wrong-thing trap)
+
+**Problem:** LLM-generating a benchmark query FROM the chunk it should retrieve makes the query inherit the chunk's rare terms, so BM25/dense match trivially. The v6 eval baseline came back near-ceiling (NDCG 0.93, Recall@50 1.00) — which looks great but means the set can't measure recall-improving changes like enrichment (recall is already maxed).
+**Fix:** Harden with a paraphrase pass (`scripts/harden_golden_set.py`) that reframes each query as a developer problem/symptom and avoids the chunk's signature terminology. Verify it worked by measuring query→chunk content-word overlap (dropped 52%: 0.649→0.313). The hard set then showed real headroom (NDCG 0.79, Recall@50 0.96).
+**Watch for:** any benchmark where positives are generated from the answer text — check lexical overlap before trusting near-perfect scores.
+
+## DeepSeek API Transient Timeouts Under Fan-Out
+
+**Problem:** A batch of ~200 concurrent calls all returned `Request timed out` even though single calls worked seconds earlier — a brief API window the SDK's default 2 retries didn't ride out. (Not balance/auth: those raise different errors.)
+**Fix:** Build the client with `AsyncOpenAI(..., timeout=60.0, max_retries=5)` and keep concurrency modest (25 was ample; the account cap is 2500). Diagnose with a single-call smoke test — if that works, it's transient, just retry the batch.
+**Note:** thinking must be disabled explicitly — `extra_body={"thinking": {"type": "disabled"}}` — it defaults to ENABLED on deepseek-v4-flash.
+
 ## PDF Heading Loss (RESOLVED in v6)
 
 **Problem:** markitdown extracts text from PDFs but loses heading hierarchy. No `#` markers in the output markdown.

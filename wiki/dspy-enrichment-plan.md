@@ -1,6 +1,13 @@
 # Plan — DSPy-Optimized Contextual Enrichment (future v6 work)
 
-Status: **planned, not started.** Written 2026-05-29. Picks up after v5.0.
+Status: **Phase 1 DONE; Phase 2 next.** Written 2026-05-29, updated same day. Picks up after v6.0 (48,009 chunks, not 19,728 as originally written below).
+
+**Progress:**
+- ✅ **Phase 1 (eval harness)** built and trustworthy. `scripts/build_golden_set.py` (201 q), `scripts/harden_golden_set.py` (vocab-gap paraphrase, −52% lexical overlap), `scripts/eval_retrieval.py` (NDCG@10/Recall@10/MRR + Recall@50 ceiling, parent-granularity). Two baselines recorded under `data/golden/eval_runs/`:
+  - easy (chunk-vocab) = regression guard: NDCG 0.931 / R@10 0.975 / R@50 **1.000**
+  - **hard (vocab-gap) = the gate**: NDCG **0.791** / R@10 0.925 / MRR **0.747** / R@50 0.960
+- **LM changed: local Qwen → `deepseek-v4-flash`** (see decisions.md). Both DSPy and final enrichment run on DeepSeek API (cheap + 2500 concurrency). Task model thinking-OFF; instruction-proposer thinking-ON.
+- ⏭️ **Phase 2 (DSPy)** is next; must beat the hard-set gate without regressing the easy set.
 
 ## Goal
 
@@ -102,8 +109,7 @@ not minutes. Acceptable as an overnight job; expensive on a paid API.
 
 - Start with **BootstrapFewShot** (cheap, fast, validates the harness end-to-end).
 - Escalate to **MIPROv2** (joint instruction + few-shot Bayesian search) once the pipeline works.
-- LM: **local Qwen3.6-27B via llama-server** (the model we already enrich with — keeps train/serve
-  consistent and costs nothing). Claude API is the faster-but-paid alternative if iteration speed matters.
+- LM: **`deepseek-v4-flash` via OpenAI passthrough** (`dspy.LM("openai/deepseek-v4-flash", api_base="https://api.deepseek.com", extra_body={"thinking":{"type":"disabled"}})`). Task model = thinking-OFF; MIPROv2 `prompt_model` (instruction proposer) = thinking-ON for stronger candidates. Cheap + 2500-concurrency, so the per-trial distractor-pool cost is no longer a GPU-time concern (still bound the pool ~500–1000 to keep token spend sane). Original plan's local-Qwen note is superseded; see decisions.md.
 
 ### 2D. Checkpoint (honest gate)
 
