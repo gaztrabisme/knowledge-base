@@ -63,6 +63,7 @@ def main():
     ap.add_argument("--label", required=True, help="run label, e.g. v6-no-enrichment")
     ap.add_argument("--golden", default=str(GOLDEN_PATH), help="path to golden JSONL")
     ap.add_argument("--limit", type=int, default=0, help="eval only first N queries (debug)")
+    ap.add_argument("--candidates", type=int, default=50, help="fusion candidate depth fed to reranker (⚡3 sweep)")
     args = ap.parse_args()
 
     rows = [json.loads(l) for l in open(args.golden)]
@@ -81,7 +82,7 @@ def main():
         dom = r["domain"]
 
         # full pipeline (what the agent gets)
-        results = hybrid_search(r["query"], client, top_k=10, rerank=True)
+        results = hybrid_search(r["query"], client, top_k=10, candidates=args.candidates, rerank=True)
         ranked = [res.parent_id for res in results]
         ndcg = ndcg_at_k(ranked, positives, 10)
         rank = first_hit_rank(ranked, positives)

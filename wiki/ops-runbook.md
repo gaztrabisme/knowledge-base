@@ -49,6 +49,41 @@ client.close()
 
 Then re-run indexing (it will index only the book whose points were deleted).
 
+> ⚠️ **Single-process lock (matters more since ⚡2).** File-based Qdrant holds a
+> single-process lock. Any offline delete/index requires the MCP server(s) to be
+> **down** — `pkill -f knowledge_base.server` first. Since v6.1 the server reuses one
+> client for its whole lifetime (⚡2), so a running server holds the lock continuously
+> (no per-query release window). Always stop servers before mutating the index.
+
+## PostgreSQL heading restore + re-index (CID-font book)
+
+`postgresql-14-internals` ingests via markitdown fallback (no headings). If its
+markdown is ever regenerated from source, re-apply the v6.1 heading fix:
+
+```bash
+# 1. restore headings (idempotent; strips front matter, promotes 1 book + 29 chapter H1s)
+PYTHONPATH=. python3 scripts/restore_postgres_headings.py
+
+# 2. re-chunk ONLY this book (chunk_book returns the dict — it does NOT write; persist it)
+PYTHONPATH=. python3 -c "import json; from knowledge_base.chunk import chunk_book; from knowledge_base.config import CHUNKS_DIR; \
+(CHUNKS_DIR/'postgresql-14-internals.json').write_text(json.dumps(chunk_book('postgresql-14-internals'),indent=2))"
+
+# 3. stop servers, then delete-by-filter + local re-index (≈1,160 chunks, no GPU)
+pkill -f knowledge_base.server
+PYTHONPATH=. python3 -c "from qdrant_client import models; from knowledge_base.index import get_client,index_book; from knowledge_base.config import COLLECTION_NAME as C; \
+cl=get_client(); f=models.Filter(must=[models.FieldCondition(key='book',match=models.MatchValue(value='postgresql-14-internals'))]); \
+cl.delete(collection_name=C,points_selector=models.FilterSelector(filter=f)); print('indexed',index_book('postgresql-14-internals',cl)); cl.close()"
+```
+
+**Then re-anchor the golden set.** Re-chunking shifts parent boundaries, so the 4
+postgres `positive_child_ids` in BOTH `data/golden/golden_queries*.jsonl` dangle —
+`eval_retrieval.py` silently skips queries whose positives aren't in the chunk map
+(would drop databases n=13→9). For each of the 4, find the new child whose text
+contains the query's `source_text` and rewrite `positive_child_ids` (+`heading_path`).
+Verify all 4 resolve before trusting any databases eval delta. (One-off script pattern
+is in the v6.1 sprint history; the distinctive anchors are: `checkpointer is paused`,
+`pg_opfamily opf ON opfmethod`, `cost=21.03..21.04`, and the parallel-seq-scan plan.)
+
 ## Full Re-Index (Nuclear Option)
 
 When changing embeddings, BM25 tokenizer, or collection schema:

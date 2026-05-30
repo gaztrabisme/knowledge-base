@@ -1,6 +1,6 @@
 # Developer Knowledge Base — Project Wiki
 
-Last updated: 2026-05-30 (DSPy sprint CLOSED — Phase 3: full-index enrichment lost the hard gate 0.7907→0.7759, REVERTED; corpus stays index-now-enrich-never)
+Last updated: 2026-05-30 (v6.1 search-path sprint: ⚡2 client singleton ≈3× latency, ⚡1 reranker reads heading_path → hard NDCG 0.7907→0.7921 / easy →0.9434, PostgreSQL headings rescued. ⚡3 candidate-depth rejected. Prior: DSPy enrichment CLOSED/reverted.)
 
 ## Quick Links
 
@@ -18,12 +18,14 @@ MCP server providing semantic search over 46 technical books to Claude Code. Pip
 
 | Metric | Value |
 |--------|-------|
-| Version | v6.0 |
+| Version | v6.1 |
 | Books indexed | 46 (19 ML + 5 DB + 7 security + 2 distributed + 13 Rust) |
-| Total vectors | 48,009 |
+| Total vectors | 48,056 (postgres re-chunked: 1,113→1,160) |
 | Collection | `developer_knowledge` |
-| MCP tools | 5 (search, search_book, get_chapter, list_books, grep_books) |
-| Reranker | Ettin-150m (ModernBERT, 0.5994 NDCG@10) |
+| MCP tools | 5 (search, search_book, get_chapter, list_books, grep_books) — `get_chapter`/`list_books` now work for postgres |
+| Reranker | Ettin-150m (ModernBERT) — now reranks `heading_path + child_text` (⚡1) |
+| Search latency | MCP search ≈3.2s (was ≈10.2s) after ⚡2 client singleton — lands on next server restart |
+| Hard gate (NDCG@10) | **0.7921** (was 0.7907) · easy 0.9434 (was 0.9311) |
 | Token counting | tiktoken cl100k_base (child max 250, parent max 1900) |
 | PDF headings | PyMuPDF TOC reconstruction (markitdown fallback on CID-font garble) |
 | Enriched chunks | **None (by decision).** Full-index enrichment was tested (problem-symptom prompt, 48K, DeepSeek) and REGRESSED the hard gate (0.7907→0.7759) → reverted. Corpus is index-now-enrich-never. Rejected enriched chunks preserved at `data/chunks_enriched_rejected/`. |

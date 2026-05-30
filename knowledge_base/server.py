@@ -45,20 +45,18 @@ def search(
     Returns:
         List of search results with score, book, chapter, section, content, and matching child chunk.
     """
+    # ⚡2: reuse the long-lived client singleton (no per-call open/close).
     client = get_client()
-    try:
-        results = hybrid_search(
-            query=query,
-            client=client,
-            top_k=top_k,
-            book_filter=book,
-            hyde_passage=hyde_passage,
-            extra_queries=extra_queries,
-            bm25_keywords=bm25_keywords,
-        )
-        return [r.to_dict() for r in results]
-    finally:
-        client.close()
+    results = hybrid_search(
+        query=query,
+        client=client,
+        top_k=top_k,
+        book_filter=book,
+        hyde_passage=hyde_passage,
+        extra_queries=extra_queries,
+        bm25_keywords=bm25_keywords,
+    )
+    return [r.to_dict() for r in results]
 
 
 @mcp.tool()
@@ -80,17 +78,15 @@ def search_book(
     if book not in BOOKS:
         return [{"error": f"Unknown book: {book}. Use list_books() to see available books."}]
 
+    # ⚡2: reuse the long-lived client singleton (no per-call open/close).
     client = get_client()
-    try:
-        results = hybrid_search(
-            query=query,
-            client=client,
-            top_k=top_k,
-            book_filter=book,
-        )
-        return [r.to_dict() for r in results]
-    finally:
-        client.close()
+    results = hybrid_search(
+        query=query,
+        client=client,
+        top_k=top_k,
+        book_filter=book,
+    )
+    return [r.to_dict() for r in results]
 
 
 @mcp.tool()

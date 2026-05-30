@@ -15,6 +15,7 @@ from .config import (
 from .index import embed_texts, text_to_sparse_vector
 
 _reranker: CrossEncoder | None = None
+_client: QdrantClient | None = None
 
 
 def get_ranker() -> CrossEncoder:
@@ -25,7 +26,15 @@ def get_ranker() -> CrossEncoder:
 
 
 def get_client() -> QdrantClient:
-    return QdrantClient(path=str(QDRANT_DIR))
+    # ⚡2: long-lived singleton. Opening a file-based 48K-point collection re-scans
+    # all segment metadata (~5.9s); reopening per query cost ~7s/call. Reuse one
+    # client for the process lifetime. The MCP server is the intended caller and
+    # holds the single-process lock for as long as it runs (it must be DOWN during
+    # any offline delete/index — see index.py).
+    global _client
+    if _client is None:
+        _client = QdrantClient(path=str(QDRANT_DIR))
+    return _client
 
 
 @dataclass
@@ -64,8 +73,12 @@ def hybrid_search(
     extra_queries: list[str] | None = None,
     bm25_keywords: list[str] | None = None,
 ) -> list[SearchResult]:
+    # ⚡4: embed the primary query and all extra-query variants in ONE batch
+    # instead of one embed_texts() call per variant.
     dense_text = hyde_passage if hyde_passage else query
-    dense_vector = embed_texts([dense_text], task="retrieval.query")[0]
+    dense_texts = [dense_text] + list(extra_queries or [])
+    dense_vectors = embed_texts(dense_texts, task="retrieval.query")
+    dense_vector = dense_vectors[0]
     bm25_text = " ".join(bm25_keywords) if bm25_keywords else query
     query_sparse = text_to_sparse_vector(bm25_text)
 
@@ -97,8 +110,8 @@ def hybrid_search(
     ]
 
     if extra_queries:
-        for eq in extra_queries:
-            eq_vector = embed_texts([eq], task="retrieval.query")[0]
+        for i, eq in enumerate(extra_queries):
+            eq_vector = dense_vectors[i + 1]
             eq_sparse = text_to_sparse_vector(eq)
             prefetches.append(models.Prefetch(
                 query=eq_vector,
@@ -140,12 +153,18 @@ def hybrid_search(
 def _rerank(query: str, results: list[dict], top_k: int) -> list[dict]:
     reranker = get_ranker()
 
+    # ⚡1: feed the cross-encoder the same signal the dense embedding sees —
+    # heading_path + context_text + child_text. Previously the reranker scored
+    # bare child_text, blind to the section breadcrumb (heading_path), so it
+    # could not use "PostgreSQL 14 Internals > Snapshots"-style context to
+    # disambiguate generically-worded chunks.
     documents = []
     for r in results:
         p = r["payload"]
-        text = p.get("child_text", "")
+        heading = p.get("heading_path", "")
         ctx = p.get("context_text", "")
-        documents.append(f"{ctx}\n{text}" if ctx else text)
+        text = p.get("child_text", "")
+        documents.append("\n".join(x for x in [heading, ctx, text] if x))
 
     rankings = reranker.rank(query, documents)
 
