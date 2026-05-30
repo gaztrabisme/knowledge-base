@@ -13,6 +13,59 @@
 
 ---
 
+## ✅ Gate v2 (v6.5) — defects remediated (2026-05-31)
+
+The audit below (D+) drove a rebuild. Two of the three top defects are now fixed; the report card
+beneath is preserved as the diagnosis that motivated it.
+
+**What changed:**
+- **Multi-positive graded labels (fixes Label completeness D).** TREC-style pooling (3 legs:
+  dense / BM25 / HyDE-dense off the live index) → deepseek graded each candidate 0/1/2 → **mean
+  2.8 positives/query** (was 1). Gold forced to grade 2. `pool_and_judge.py`.
+- **Judge validated (Phase B gate PASSED).** Claude blind-regraded 60 stratified triples:
+  **100% within ±1**, deepseek precision/recall on the relevant decision **0.95 / 0.905**. Exact
+  agreement 68% — disagreement is almost entirely the 1↔2 (partial vs perfect) boundary, a
+  conservative direction that doesn't add false positives. `judge_agreement.json`.
+- **3 new query archetypes (fixes Query realism D–).** +240 queries: 80 keyword (terse 2–6 tok),
+  80 error_symbol (exact `backtick` API/error lookups), 80 navigational ("where is X defined").
+  `gen_archetypes.py`. Main gate grew **200 → 440**; graded NDCG + `--by-archetype` added to
+  `eval_retrieval.py`.
+
+**Measured outcome (Jina v5 baseline on gate v2):**
+
+| | v1 gate (single-label, n=200) | v2 gate baseline stratum (multi-pos, n=200) |
+|---|---|---|
+| NDCG@10 | 0.8021 | 0.801 (flat — system already ranked well) |
+| Recall@10 | 0.930 | **0.980** |
+| MRR | 0.761 | **0.875** |
+| R@50 ceiling | 0.960 | **0.995** |
+
+→ **The audit's core prediction confirmed: single-label incompleteness deflated recall/MRR/ceiling,
+not NDCG.** The "8 never-retrieved misses" / 0.96 ceiling was **mostly a label artifact** — true
+ceiling is 0.995.
+
+**Per-archetype (n=440 main gate, aggregate NDCG 0.7939 / R@10 0.977 / R@50 0.989):**
+
+| stratum | n | NDCG@10 | R@10 | note |
+|---|---|---|---|---|
+| baseline (long why/how) | 200 | 0.801 | 0.980 | — |
+| error_symbol | 80 | 0.822 | 1.000 | BM25 nails exact symbols |
+| keyword | 80 | 0.778 | 1.000 | terse lookups retrieve fine |
+| **navigational** | 80 | **0.763** | **0.925** | **the real gap** — locating-intent is weakest |
+
+→ Surprise the old monoculture gate could never surface: keyword/error queries retrieve **well**
+(the BM25 leg does its job); **navigational** ("where is X / which chapter") is the genuine soft spot.
+
+**Discrimination floor — improved ~2×** (`power_analysis_v2.json`): per-query NDCG σ **0.311→0.244**,
+marginal CI half-width **±0.043→±0.023**, paired MDE@80% at ρ=0.7 **0.048→0.025**. Honest caveat:
+the gate now reliably resolves **~0.025-class** deltas (not 0.015 — that needs ρ≈0.9 or n→~1000+).
+Easy gate v2: R@10/R@50 both **1.000**, NDCG 0.921 (graded multi-positive is a stricter ranking test).
+
+**Still open (deferred):** hard-negative curation + multi-hop queries (defect #4), n→1000 for ~0.015
+resolution, and the per-domain power skew (distributed n=7, databases n=17 still thin though improved).
+
+---
+
 **Auditor stance:** skeptical IR-evaluation expert. **Subject:** the 200-query "hard" golden set
 (`data/golden/golden_queries_hard.jsonl`) plus its 201-query "easy" twin, used as the pass/fail gate
 for every retrieval change in this project (e.g., the v6.3 embedding-upgrade rejection).

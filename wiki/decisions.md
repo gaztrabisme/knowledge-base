@@ -409,6 +409,63 @@ negatives, n→500, paired-test rule) are recorded in the report card, **not yet
 round was diagnosis. Resource-acquisition thread (IR-eval theory into the KB) deferred pending these
 findings, which now tell us exactly what to add.
 
+## Gate v2 — multi-positive re-labeling + missing archetypes (v6.5, 2026-05-31)
+
+The v6.4 audit graded the gate D+ and named the fixes. This round executed two of them (the third,
+ingesting IR-eval resources, was deferred). **Production serving path unchanged throughout** — this
+is all eval-harness work.
+
+**1. Multi-positive graded labels (fixes label incompleteness).** TREC-style pooling: for each query,
+union top-20 parents from 3 retrieval legs off the live index — dense-only, BM25-only, HyDE-dense
+(`pool_and_judge.py`; plain fusion dropped as redundant with dense∪bm25). deepseek-v4-flash grades
+each candidate 0/1/2 (one batched call/query); gold forced to 2. Result: **mean 2.8 positives/query**
+(hard), 2.3 (easy), 3.4 (archetypes). The judge prompt needed a strict rewrite — the first pass
+over-labeled at mean 12/query because every pooled candidate is topically related *by construction*;
+adding "topical relatedness is NOT relevance, when in doubt choose 0" fixed it.
+
+**2. Judge validated before trusting labels (Phase B gate — PASSED).** Claude blind-regraded 60
+grade-stratified triples (`judge_validation_workflow.js`, 6 agents). **within-±1 agreement 100%**,
+deepseek precision/recall on the relevant (≥1) decision **0.95 / 0.905**. Exact agreement 68% — the
+disagreement is almost all the 1↔2 boundary (deepseek conservatively grades some perfects as partial),
+which doesn't create false positives. Verdict: labels trustworthy, no re-pool.
+
+**3. Three new query archetypes (fixes realism).** +240 queries (`gen_archetypes.py`), 80 each:
+keyword (terse 2–6 tok), error_symbol (exact `backtick` API/error lookups, seeded from
+`chunk_type=="code"`), navigational ("where is X defined"). Main gate **200 → 440**.
+
+**4. Graded eval (`eval_retrieval.py`).** `ndcg_at_k` takes a parent→grade map, gain `2^g-1`, IDCG
+over ALL positives (correct multi-positive ideal); reduces exactly to old binary when all grades=1
+(unit-tested: 0.919721 both). Added `--by-archetype`.
+
+**Measured (Jina v5 on gate v2):**
+
+| baseline stratum (same 200 hard q) | NDCG@10 | R@10 | MRR | R@50 |
+|---|---|---|---|---|
+| v1 single-label | 0.8021 | 0.930 | 0.761 | 0.960 |
+| v2 multi-positive | 0.801 | **0.980** | **0.875** | **0.995** |
+
+**Audit prediction confirmed: incompleteness deflated recall/MRR/ceiling, NOT NDCG** (the system
+already ranked the gold high; it was being penalized for *also* surfacing other valid chunks). The
+0.96 R@50 ceiling and "8 never-retrieved misses" were **mostly label artifacts** — true ceiling 0.995.
+
+Per-archetype (n=440, aggregate NDCG 0.7939): error_symbol **0.822**/R@10 1.0, keyword 0.778/R@10 1.0,
+**navigational 0.763/R@10 0.925 ← the real gap**. Counter-intuitive and previously invisible: the
+BM25 leg handles keyword/symbol queries *well*; **navigational (locating) intent is the weakest** —
+the actionable finding the old 100%-why/how gate could never produce.
+
+**Discrimination floor improved ~2×** (`power_analysis_v2.json`): per-query NDCG σ 0.311→**0.244**,
+marginal CI ±0.043→**±0.023**, paired MDE@80% at ρ=0.7 0.048→**0.025**. The gate now reliably resolves
+**~0.025-class** deltas (was ~0.048). It still does NOT reach 0.015 at realistic ρ — that needs
+n→~1000+ or ρ≈0.9. So the v6.4 rule holds, relaxed: **require a paired p<0.05; trust deltas ≥~0.025.**
+
+**Promotion:** v2 sets are now canonical (`golden_queries_hard.jsonl` = 440 baseline+archetypes,
+`golden_queries.jsonl` = 201 easy, both graded multi-positive); originals archived as `*_v1.jsonl`.
+New reference baselines: `v65-baseline-mainv2.json` / `v65-baseline-easyv2.json`.
+
+**Still deferred:** hard negatives + multi-hop (audit defect #4), n→1000 for 0.015 resolution,
+domain-balance (distributed n=7 / databases n=17 still thin), and the navigational weakness now
+quantified — all candidates for a future round.
+
 ## Rejected Approaches
 
 ### Embedding upgrade (Qwen3-Embedding-0.6B / EmbeddingGemma-300M) — v6.3 → Qwen3 part RE-OPENED by v6.4 audit

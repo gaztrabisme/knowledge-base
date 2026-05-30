@@ -30,3 +30,5 @@ build/
 
 # Claude Code
 .claude/
+data/golden/audit/jval_batch_*.jsonl
+data/golden/golden_hard_v2_full.jsonl
