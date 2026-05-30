@@ -1,19 +1,30 @@
 #!/usr/bin/env python3
 """Standalone indexing script for running on a remote GPU machine.
-Reads chunk JSONs, embeds with Jina v5, writes Qdrant file-based index."""
+Reads chunk JSONs, embeds the dense vector via the shared embedder adapter
+(rsync `knowledge_base/embedder.py` to ~/kb-work/embedder.py beside this script),
+writes a Qdrant file-based index.
+
+Model + output dir + collection are env-overridable so each candidate builds in
+isolation (same contract as the package's config.py):
+    KB_EMBEDDING_MODEL  default jina v5-small
+    KB_QDRANT_DIR       default <work_dir>/qdrant
+    KB_COLLECTION       default developer_knowledge
+"""
 
 import hashlib
 import json
+import os
 import sys
 from pathlib import Path
 
 from fastembed import SparseTextEmbedding
 from qdrant_client import QdrantClient, models
-from sentence_transformers import SentenceTransformer
 
-COLLECTION_NAME = "developer_knowledge"
-EMBEDDING_DIM = 1024
-EMBEDDING_MODEL = "jinaai/jina-embeddings-v5-text-small-retrieval"
+from embedder import encode_texts, load_model, model_dim
+
+EMBEDDING_MODEL = os.environ.get("KB_EMBEDDING_MODEL", "jinaai/jina-embeddings-v5-text-small-retrieval")
+EMBEDDING_DIM = model_dim(EMBEDDING_MODEL)
+COLLECTION_NAME = os.environ.get("KB_COLLECTION", "developer_knowledge")
 
 BOOKS = {
     "kagglebook_secondedition": "Kaggle Book, 2nd Edition",
@@ -84,11 +95,11 @@ def text_to_sparse_vector(text: str, sparse_model: SparseTextEmbedding) -> model
 def main():
     work_dir = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(".")
     chunks_dir = work_dir / "chunks"
-    qdrant_dir = work_dir / "qdrant"
+    qdrant_dir = Path(os.environ.get("KB_QDRANT_DIR", str(work_dir / "qdrant")))
     qdrant_dir.mkdir(parents=True, exist_ok=True)
 
-    print(f"Loading dense model {EMBEDDING_MODEL}...")
-    model = SentenceTransformer(EMBEDDING_MODEL, trust_remote_code=True)
+    print(f"Loading dense model {EMBEDDING_MODEL} (dim {EMBEDDING_DIM}) -> {qdrant_dir} [{COLLECTION_NAME}]")
+    model = load_model(EMBEDDING_MODEL)
     print("Loading sparse model Qdrant/bm25...")
     sparse_model = SparseTextEmbedding("Qdrant/bm25")
     print("Models loaded.")
@@ -117,7 +128,7 @@ def main():
             limit=1,
         )
         if existing[0]:
-            print(f"  Already indexed, skipping.")
+            print("  Already indexed, skipping.")
             continue
 
         with open(chunk_file) as f:
@@ -126,7 +137,7 @@ def main():
         parent_map = {p["parent_id"]: p["text"] for p in data["parents"]}
         children = data["children"]
         if not children:
-            print(f"  No children, skipping.")
+            print("  No children, skipping.")
             continue
 
         for i in range(0, len(children), batch_size):
@@ -139,8 +150,7 @@ def main():
                 parts = [p for p in [heading, ctx, text] if p]
                 enriched_texts.append("\n\n".join(parts))
 
-            truncated = [t[:8000] if len(t) > 8000 else t for t in enriched_texts]
-            dense_vectors = model.encode(truncated, task="retrieval.passage", show_progress_bar=False, batch_size=batch_size).tolist()
+            dense_vectors = encode_texts(model, EMBEDDING_MODEL, enriched_texts, is_query=False, batch_size=batch_size)
 
             points = []
             for j, child in enumerate(batch):

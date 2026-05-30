@@ -293,7 +293,86 @@ security n=36); databases n=13 and distributed n=6 are noisy and align direction
 drive the decision. The easy guard (R@10 intact) is the check that this isn't hard-set overfitting.
 **Supersedes ⚡1** (which is now the `heading` fallback mode, retained for A/B reproducibility).
 
+## Embedding Upgrade + Late Chunking (v6.3 experiment — frontier levers, measured negative, 2026-05-30)
+
+A "research the RAG frontier" session surfaced two Tier-1 levers from the 2025–26 literature: swap
+Jina v5 for a higher-MTEB embedder, and adopt **late chunking** (context-aware chunk embeddings
+without LLM enrichment). Both were measured against the hard/easy golden gates. **Both rejected.**
+Full survey in [rag-frontier-2026.md](rag-frontier-2026.md).
+
+**Hard constraint that shaped candidates:** index on the 5080 GPU, **query on the Mac**. The embedder
+must run per-query on Apple Silicon *and* be the same model for index + query (vector spaces must
+match). Prunes 4–8B embedders from the query path. Mac-feasible shortlist: Jina v5 (current),
+Qwen3-Embedding-0.6B, Jina v3, EmbeddingGemma-300M.
+
+### Stage 1 — embedding swap (naive chunking held fixed; dense model = only variable)
+
+| Hard gate | NDCG@10 | R@10 | R@50 ceiling |
+|---|---|---|---|
+| **Jina v5-small (kept)** | **0.8021** | 0.930 | 0.96 |
+| Qwen3-Embedding-0.6B | 0.7900 | 0.910 | 0.955 |
+| EmbeddingGemma-300M | 0.7695 | 0.890 | 0.930 |
+
+**Decision: KEEP Jina v5.** Both candidates lose on the hard gate AND neither lifts the R@50 ceiling
+— a "better" embedder retrieves *no more* of the 8 never-retrieved positives, so the swap doesn't
+touch the recall problem it was meant for. Easy gate is a three-way tie (~0.9394, R@10 0.980) —
+vocab-matched queries are BM25-carried, so the easy set is insensitive to the dense model.
+**Mechanism:** Jina v5 is *retrieval-specialized* (`…-text-small-retrieval`, query/passage LoRA) and
+is itself built on a Qwen3-0.6B backbone — effectively "Qwen3 + heavy retrieval finetuning," which
+beats raw Qwen3-Embedding and general-purpose Gemma on technical-retrieval queries. **MTEB rank ≠
+corpus performance.** Retroactively validates the v6.x embedder choice.
+
+### Stage 2 — late chunking (the pooling fork)
+
+Late chunking pools each child's token span from the **parent's** contextualized token embeddings —
+context without an LLM call. It requires **mean pooling**: incompatible with the **last-token** pooling
+of Jina v5 *and* Qwen3-Embedding (Jina staff confirmed v5 dropped late-chunk support for exactly this).
+So "best embedder" and "late chunking" are a fork. Tested on the two mean-pool options — Gemma (manual
+span-pool, raw-mean space) and Jina v3 (native task-LoRA late chunking). Mechanism unit-tested first:
+100% span-location, cos(late, naive-isolated)=0.94 — no alignment bug.
+
+| late − naive (same model/space) | NDCG@10 | R@50 ceiling |
+|---|---|---|
+| Gemma, with rerank (gate) | **−0.026** | −0.025 |
+| Gemma, fusion-only | **−0.064** | −0.025 |
+| Jina v3 **native**, fusion-only | **−0.089** | **−0.085** (0.955→0.870) |
+
+**Decision: REJECT late chunking.** Net-negative every way measured — and it *lowers the R@50 ceiling*,
+pushing the precise chunk out of the top-50 entirely (not just mis-ranking it). Jina's purpose-built
+**native** late chunking hurts the *most* → it's the method meeting the corpus, not a sloppy
+implementation. **Mechanism = ConTEB / "Context is Gold"** (arXiv 2505.24782): context-pooling
+regresses on extractive/technical-term corpora (their COVID-QA −21 nDCG) because it dilutes the
+rare-term signal that jargon queries (`MVCC`, `WAL`, `PyO3`, `nonce`) match on. Our corpus is that
+regime; late chunking wins the *opposite* regime (pronoun/reference-heavy chunks needing neighbors).
+
+### Jina v3 non-deployable (independent of quality)
+
+v3 needs transformers **<5.0** (else `all_tied_weights_keys`); the Ettin reranker (ModernBERT) needs
+transformers **≥5.x** (`TokenizersBackend`); production Jina v5 needs **≥5.x**. So v3 cannot share a
+process with the reranker *or* with v5 — non-shippable in our pipeline regardless of retrieval quality.
+(v3-naive fusion 0.6237 / ceiling 0.955 is ~v5-class as a pure retriever, but moot.) Building/eval'ing
+v3 required an isolated transformers-4.49 env on both the 5080 and the Mac.
+
+### Reusable infra retained (production-neutral, default-off)
+
+The experiment left clean infrastructure that does **not** change shipped behavior (defaults = Jina v5 /
+`developer_knowledge`): `embedder.py` (model registry + per-model encode adapter — prevents the Qwen3
+silent-`task=`-ignored footgun, single source of truth for index + query encoding), env-overridable
+`EMBEDDING_MODEL/EMBEDDING_DIM/QDRANT_DIR/COLLECTION`, parameterized `remote_index.py`, and
+`remote_index_lc.py` (late-chunk / raw-mean indexer). The next embedding experiment is now a one-env-var
+change. **Net: both 2025–26 frontier levers measured negative on this corpus — the well-engineered
+fundamentals (hybrid + Ettin rerank + structural parent/child chunking) are at/near the ceiling, and
+context-adding tricks are the wrong tool for a self-identifying jargon corpus.**
+
 ## Rejected Approaches
+
+### Embedding upgrade (Qwen3-Embedding-0.6B / EmbeddingGemma-300M) — v6.3
+**Why considered:** 2025–26 frontier; higher open-MTEB than Jina v5; the open recall lever (8 never-retrieved).
+**Why rejected:** both lose the hard gate (0.790 / 0.770 vs 0.802) and neither lifts the R@50 ceiling. Jina v5's retrieval-specialization beats higher-MTEB generalists here. Full record in the v6.3 section above.
+
+### Late chunking (manual mean-pool + Jina v3 native) — v6.3
+**Why considered:** "contextual chunks without LLM enrichment" — the survey's most novel lever, and the one that should sidestep the enrichment failure.
+**Why rejected:** net-negative every measurement (−0.026 to −0.089), and it lowers the recall ceiling. ConTEB mechanism: context-pooling dilutes the rare-term signal on extractive/jargon corpora. Native v3 hurt most. Full record above.
 
 ### Corpus-wide HyDE (query→hypothetical-passage on the dense leg)
 **Why considered:** standard fix for vocab-gap recall; the 8 never-retrieved hard misses looked like textbook HyDE wins.

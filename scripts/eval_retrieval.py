@@ -64,6 +64,9 @@ def main():
     ap.add_argument("--golden", default=str(GOLDEN_PATH), help="path to golden JSONL")
     ap.add_argument("--limit", type=int, default=0, help="eval only first N queries (debug)")
     ap.add_argument("--candidates", type=int, default=50, help="fusion candidate depth fed to reranker (⚡3 sweep)")
+    ap.add_argument("--no-rerank", action="store_true", help="skip the cross-encoder; score fusion top-k directly. "
+                                                             "Use to isolate retrieval-level effects (e.g. late chunking) "
+                                                             "and to eval models whose env can't load the Ettin reranker (Jina v3).")
     ap.add_argument("--hyde", default="", help="path to hyde_<tag>.jsonl {query, hyde_passage}; "
                                                "routes the dense leg through the hypothetical passage "
                                                "(BM25 stays on the original query). Measures the "
@@ -92,8 +95,9 @@ def main():
         dom = r["domain"]
         hyde = hyde_map.get(r["query"]) or None
 
-        # full pipeline (what the agent gets)
-        results = hybrid_search(r["query"], client, top_k=10, candidates=args.candidates, rerank=True, hyde_passage=hyde)
+        # full pipeline (what the agent gets); --no-rerank scores fusion top-10 directly
+        results = hybrid_search(r["query"], client, top_k=10, candidates=args.candidates,
+                                rerank=not args.no_rerank, hyde_passage=hyde)
         ranked = [res.parent_id for res in results]
         ndcg = ndcg_at_k(ranked, positives, 10)
         rank = first_hit_rank(ranked, positives)

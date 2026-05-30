@@ -1,6 +1,6 @@
 # Developer Knowledge Base — Project Wiki
 
-Last updated: 2026-05-31 (v6.2 measure-first round: HyDE measured net-negative → rejected as default + replace→augment safety fix; **reranker input now per-domain (`descriptive-heading`): hard NDCG 0.7921→0.8021, easy 0.9434→0.9379, easy R@10 intact** — supersedes ⚡1's global heading. Prior v6.1: ⚡2 client singleton ≈3× latency, ⚡3 candidate-depth rejected. DSPy enrichment CLOSED/reverted.)
+Last updated: 2026-05-30 (v6.3 frontier-levers round: **embedding upgrade REJECTED** — Qwen3-Embedding-0.6B (0.790) & EmbeddingGemma-300M (0.770) both lose the hard gate to Jina v5 (0.802), neither lifts the R@50 ceiling; **late chunking REJECTED** — net-negative every measurement (Gemma −0.026 w/rerank, Jina v3 native fusion −0.089, lowers recall ceiling), ConTEB dilution on a jargon corpus; Jina v3 non-deployable (transformers conflict w/ Ettin + v5). Both 2025–26 frontier levers measured negative → keep the v6.2 stack. Prior v6.2: HyDE net-negative + per-domain reranker `descriptive-heading` hard 0.7921→0.8021.)
 
 ## Quick Links
 
@@ -8,6 +8,7 @@ Last updated: 2026-05-31 (v6.2 measure-first round: HyDE measured net-negative �
 - [Decisions](decisions.md) — Key technical decisions and their rationale
 - [Gotchas](gotchas.md) — Known issues, workarounds, failure patterns
 - [Ops Runbook](ops-runbook.md) — Common operations, remote GPU workflows, troubleshooting
+- [RAG Frontier Survey 2025–26](rag-frontier-2026.md) — Cutting-edge scan mapped to this system; embedding-upgrade + late-chunking levers; the pooling fork
 - [DSPy Enrichment Plan](dspy-enrichment-plan.md) — **CLOSED.** Phase 1+2 done (DSPy lost the prompt gate); Phase 3 done — full-index enrichment regressed the hard gate (0.7907→0.7759) so it was **reverted**. Corpus stays no-enrichment. Post-mortem in [decisions.md](decisions.md).
 
 ## Project Summary

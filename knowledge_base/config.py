@@ -1,4 +1,7 @@
+import os
 from pathlib import Path
+
+from .embedder import model_dim
 
 ROOT = Path(__file__).resolve().parent.parent
 EPUB_DIR = ROOT / "knowledge-base" / "applied-ml"
@@ -12,15 +15,17 @@ SOURCE_DIRS = {
 RAG_GUIDE_DIR = ROOT / "knowledge-base" / "production-rag-guide"
 MARKDOWN_DIR = ROOT / "data" / "markdown"
 CHUNKS_DIR = ROOT / "data" / "chunks"
-QDRANT_DIR = ROOT / "data" / "qdrant"
 
-COLLECTION_NAME = "developer_knowledge"
-EMBEDDING_DIM = 1024
+# Experiment knobs (env-overridable so a candidate index can be built/eval'd into its
+# own collection+dir without code edits). Defaults = the shipped v6.2 production index.
+QDRANT_DIR = Path(os.environ.get("KB_QDRANT_DIR", str(ROOT / "data" / "qdrant")))
+COLLECTION_NAME = os.environ.get("KB_COLLECTION", "developer_knowledge")
+EMBEDDING_MODEL = os.environ.get("KB_EMBEDDING_MODEL", "jinaai/jina-embeddings-v5-text-small-retrieval")
+# Dim derives from the model registry unless explicitly overridden.
+EMBEDDING_DIM = int(os.environ.get("KB_EMBEDDING_DIM", str(model_dim(EMBEDDING_MODEL))))
 
 LM_STUDIO_BASE_URL = "http://localhost:1234/v1"
 LM_STUDIO_MODEL = "qwen3.6-35b-a3b-mlx"
-
-EMBEDDING_MODEL = "jinaai/jina-embeddings-v5-text-small-retrieval"
 BM25_MODEL = "Qdrant/bm25"
 RERANKER_MODEL = "cross-encoder/ettin-reranker-150m-v1"
 

@@ -11,6 +11,7 @@ from .config import (
     BOOKS, CHUNKS_DIR, COLLECTION_NAME, EMBEDDING_DIM,
     EMBEDDING_MODEL, QDRANT_DIR,
 )
+from .embedder import encode_texts as _encode_texts, load_model
 
 _model: SentenceTransformer | None = None
 _sparse_model: SparseTextEmbedding | None = None
@@ -19,7 +20,7 @@ _sparse_model: SparseTextEmbedding | None = None
 def get_model() -> SentenceTransformer:
     global _model
     if _model is None:
-        _model = SentenceTransformer(EMBEDDING_MODEL, trust_remote_code=True)
+        _model = load_model(EMBEDDING_MODEL)
     return _model
 
 
@@ -67,10 +68,10 @@ def text_to_sparse_vector(text: str) -> models.SparseVector:
 
 
 def embed_texts(texts: list[str], task: str = "retrieval.passage") -> list[list[float]]:
-    model = get_model()
-    truncated = [t[:8000] if len(t) > 8000 else t for t in texts]
-    embeddings = model.encode(truncated, task=task, show_progress_bar=False, batch_size=8)
-    return embeddings.tolist()
+    # `task` kept for back-compat with callers (search.py passes "retrieval.query");
+    # the adapter maps it to the model-appropriate query/passage idiom.
+    is_query = task.startswith("retrieval.query")
+    return _encode_texts(get_model(), EMBEDDING_MODEL, texts, is_query=is_query)
 
 
 def index_book(book_slug: str, client: QdrantClient | None = None) -> int:
