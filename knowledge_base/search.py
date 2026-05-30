@@ -73,12 +73,21 @@ def hybrid_search(
     extra_queries: list[str] | None = None,
     bm25_keywords: list[str] | None = None,
 ) -> list[SearchResult]:
-    # ⚡4: embed the primary query and all extra-query variants in ONE batch
-    # instead of one embed_texts() call per variant.
-    dense_text = hyde_passage if hyde_passage else query
-    dense_texts = [dense_text] + list(extra_queries or [])
+    # ⚡4: embed the query, the optional HyDE passage, and all extra-query variants
+    # in ONE batch instead of one embed_texts() call per variant.
+    #
+    # HyDE is AUGMENT, not replace: the original query vector is ALWAYS a dense leg
+    # (the anchor); a hyde_passage adds a SECOND dense leg rather than replacing the
+    # query. Measured 2026-05-31 — replace-mode HyDE drifted off the chunks the bare
+    # query matched, breaking 5 previously-working hard queries and rescuing none of
+    # the never-retrieved recall misses (NDCG 0.7921→0.7753). Keeping the query anchor
+    # in fusion prevents that drift while still reaching for the passage's recall.
+    dense_texts = [query]
+    if hyde_passage:
+        dense_texts.append(hyde_passage)
+    dense_texts.extend(extra_queries or [])
     dense_vectors = embed_texts(dense_texts, task="retrieval.query")
-    dense_vector = dense_vectors[0]
+
     bm25_text = " ".join(bm25_keywords) if bm25_keywords else query
     query_sparse = text_to_sparse_vector(bm25_text)
 
@@ -91,43 +100,22 @@ def hybrid_search(
             )]
         )
 
-    prefetches = [
-        models.Prefetch(
-            query=dense_vector,
-            using="",
-            filter=filter_conditions,
-            limit=candidates,
-        ),
-        models.Prefetch(
-            query=models.SparseVector(
-                indices=query_sparse.indices,
-                values=query_sparse.values,
-            ),
-            using="bm25",
-            filter=filter_conditions,
-            limit=candidates,
-        ),
-    ]
+    def _dense_prefetch(vec):
+        return models.Prefetch(query=vec, using="", filter=filter_conditions, limit=candidates)
 
-    if extra_queries:
-        for i, eq in enumerate(extra_queries):
-            eq_vector = dense_vectors[i + 1]
-            eq_sparse = text_to_sparse_vector(eq)
-            prefetches.append(models.Prefetch(
-                query=eq_vector,
-                using="",
-                filter=filter_conditions,
-                limit=candidates,
-            ))
-            prefetches.append(models.Prefetch(
-                query=models.SparseVector(
-                    indices=eq_sparse.indices,
-                    values=eq_sparse.values,
-                ),
-                using="bm25",
-                filter=filter_conditions,
-                limit=candidates,
-            ))
+    def _sparse_prefetch(sparse):
+        return models.Prefetch(
+            query=models.SparseVector(indices=sparse.indices, values=sparse.values),
+            using="bm25", filter=filter_conditions, limit=candidates,
+        )
+
+    # One dense leg per embedded text (query [+ hyde] [+ extra_queries]); BM25 on the
+    # original query plus each extra query. HyDE prose is not a keyword query, so it
+    # gets no BM25 leg.
+    prefetches = [_dense_prefetch(v) for v in dense_vectors]
+    prefetches.append(_sparse_prefetch(query_sparse))
+    for eq in (extra_queries or []):
+        prefetches.append(_sparse_prefetch(text_to_sparse_vector(eq)))
 
     fused = client.query_points(
         collection_name=COLLECTION_NAME,

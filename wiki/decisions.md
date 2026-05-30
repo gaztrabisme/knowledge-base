@@ -213,7 +213,61 @@ substance — the nav/heading wins are banked, retrieval didn't move.
 The markdown fix lives in gitignored `data/markdown/` (survives pipeline re-runs since ingest
 skips existing markdown, but is lost if regenerated from source — see ops-runbook for re-apply).
 
+## Search Pipeline (v6.2 — measure-first optimization round, 2026-05-31)
+
+### Fresh diagnostic re-anchored the miss taxonomy (8 / 8, not reranker-dominated)
+**Context:** entered another optimization round. The v6.1 snapshot read "reranker is the binding
+constraint" (from the ⚡3 candidate-depth rejection). A fresh full eval on both gates
+(hard NDCG **0.7921** / easy **0.9434**, n=200/201) reclassified the **16 hard misses** as an
+even **8 never-retrieved** (not in top-50 fusion — recall/embedding lever) + **8 reranked-out**
+(retrieved @50, ranked below top-10 — reranker lever). The "reranker is binding" verdict was
+specific to *candidate depth* (more candidates = more distractors); per-miss, the two levers are
+**co-equal**. Security/crypto is the weakest domain (NDCG 0.742, `boneh-shoup` ×3) and bleeds on
+both. Easy ceiling is a perfect **1.000** → when query vocab matches the chunk, recall is maxed,
+so every easy miss is a reranker drop and the hard never-retrieved are *purely* vocab-gap.
+
+### HyDE is NOT a corpus-wide lever — REJECTED both modes (the round's main finding)
+**Context:** `eval_retrieval.py` tests the bare-query path, but production exposes `hyde_passage`
+(Claude generates it). The 8 never-retrieved looked like textbook HyDE wins, so before paying for
+an embedding swap we measured the HyDE-augmented path. Built `gen_hyde.py` (DeepSeek generates a
+hypothetical answer from the **query alone** — `source_text` never shown, no gold leakage) +
+a `--hyde` flag on the harness.
+**Finding:** HyDE **lost** on the hard gate in both variants.
+
+| Variant | NDCG@10 | Ceiling | Misses |
+|---|---|---|---|
+| Bare query (baseline) | **0.7921** | **0.960** | **16** |
+| HyDE replace | 0.7753 | 0.950 | 20 |
+| HyDE augment | 0.7809 | 0.955 | 19 |
+
+**Mechanism — a clean domain split:** HyDE helps **ML** (broad conceptual; generated passage lands
+near textbook prose — rescued the neural-style-transfer never-retrieved miss, ml ceiling
+0.966→0.978) and **harms Rust** (precise borrow-checker/async semantics; generic passage drifts
+to wrong chunks — broke 3 working rust queries clean out of top-50, rust ceiling 0.946→0.911).
+Of the 8 never-retrieved, augment-HyDE reached only **2/8** at recall, delivered **1/8**.
+**Why it loses structurally:** Jina v5's bare-query ceiling is already 0.96 — little recall
+headroom to capture — while HyDE's drift cost is real and concentrated in precise-vocab domains.
+**Decision:** HyDE does **not** ship as a default. It is a **selective, caller's-discretion** tool
+(good on ML-conceptual queries, bad on Rust-precise) — exactly the per-query judgment an agent
+should make, never corpus-wide. The 8 never-retrieved are confirmed **real recall failures**:
+HyDE, the standard free fix, can't reach them, so the only path to them is an embedding upgrade.
+
+### HyDE replace→augment: a production footgun fixed (search.py, SHIPPED)
+**Context:** `hybrid_search` did HyDE by *replacement* — `dense_text = hyde_passage if hyde_passage
+else query` — so a supplied passage **removed the original query vector from the prefetch entirely**.
+That's the weak variant: when Claude passes a HyDE passage on a query that already retrieves well,
+it could silently make results *worse* (the 5 broken queries under replace-mode).
+**Decision:** changed to **augment** — the original query is always a dense leg (the anchor); a
+`hyde_passage` adds a *second* dense leg via Qdrant multi-prefetch (same mechanism as
+`extra_queries`). Strict improvement to the exposed param (0.7809 > 0.7753 when used); the
+no-HyDE **gate path is byte-identical** (verified: `dense_texts=[query]` → same two prefetches).
+Kept even though HyDE-default lost, because it de-risks the API Claude already calls.
+
 ## Rejected Approaches
+
+### Corpus-wide HyDE (query→hypothetical-passage on the dense leg)
+**Why considered:** standard fix for vocab-gap recall; the 8 never-retrieved hard misses looked like textbook HyDE wins.
+**Why rejected:** measured net-negative on the hard gate (NDCG 0.7921 → 0.7809 augment / 0.7753 replace). Domain-split mechanism — helps ML-conceptual, drifts on Rust-precise — and Jina v5's 0.96 bare-query ceiling leaves too little recall headroom to offset the drift. Kept as a **selective caller-side param** (augment-mode), not a default. Full record in the v6.2 section above.
 
 ### GraphRAG / LightRAG
 **Why considered:** Cross-book concept linking (e.g., "regularization" in 8 books).

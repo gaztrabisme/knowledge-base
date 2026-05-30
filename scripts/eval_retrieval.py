@@ -64,12 +64,22 @@ def main():
     ap.add_argument("--golden", default=str(GOLDEN_PATH), help="path to golden JSONL")
     ap.add_argument("--limit", type=int, default=0, help="eval only first N queries (debug)")
     ap.add_argument("--candidates", type=int, default=50, help="fusion candidate depth fed to reranker (⚡3 sweep)")
+    ap.add_argument("--hyde", default="", help="path to hyde_<tag>.jsonl {query, hyde_passage}; "
+                                               "routes the dense leg through the hypothetical passage "
+                                               "(BM25 stays on the original query). Measures the "
+                                               "agent-augmented production path, not the bare-query floor.")
     args = ap.parse_args()
 
     rows = [json.loads(l) for l in open(args.golden)]
     if args.limit:
         rows = rows[: args.limit]
     c2p = child_to_parent_map()
+
+    hyde_map = {}
+    if args.hyde:
+        hyde_map = {json.loads(l)["query"]: json.loads(l)["hyde_passage"] for l in open(args.hyde)}
+        missing = sum(1 for r in rows if r["query"] not in hyde_map)
+        print(f"HyDE mode: {len(hyde_map)} passages loaded · {missing} queries without a passage (fall back to bare query)")
 
     client = get_client()
     per_domain = defaultdict(lambda: {"ndcg": [], "recall10": [], "mrr": [], "recall_ceiling": []})
@@ -80,9 +90,10 @@ def main():
         if not positives:
             continue
         dom = r["domain"]
+        hyde = hyde_map.get(r["query"]) or None
 
         # full pipeline (what the agent gets)
-        results = hybrid_search(r["query"], client, top_k=10, candidates=args.candidates, rerank=True)
+        results = hybrid_search(r["query"], client, top_k=10, candidates=args.candidates, rerank=True, hyde_passage=hyde)
         ranked = [res.parent_id for res in results]
         ndcg = ndcg_at_k(ranked, positives, 10)
         rank = first_hit_rank(ranked, positives)
@@ -90,7 +101,7 @@ def main():
         mrr = 1.0 / rank if rank else 0.0
 
         # retrieval ceiling (fusion only, no rerank/cutoff)
-        ceil = hybrid_search(r["query"], client, top_k=CEILING_K, rerank=False)
+        ceil = hybrid_search(r["query"], client, top_k=CEILING_K, rerank=False, hyde_passage=hyde)
         ceil_hit = 1.0 if positives & {x.parent_id for x in ceil} else 0.0
 
         per_domain[dom]["ndcg"].append(ndcg)
