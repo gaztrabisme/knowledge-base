@@ -1,5 +1,6 @@
 """Hybrid search (dense + BM25) with Ettin-150m cross-encoder reranking."""
 
+import os
 from dataclasses import dataclass
 
 from qdrant_client import QdrantClient, models
@@ -138,21 +139,71 @@ def hybrid_search(
     return _deduplicate_parents(merged)
 
 
+# Rust book slugs — the domain where heading_path is descriptive enough to help the
+# cross-encoder (e.g. "Async > Futures > Pinning"). In security/ml/db the headings are
+# generic or formal section titles that add tokens orthogonal to a developer-symptom
+# query, diluting the content match (measured: diag-rerank-positions, 2026-05-31).
+_RUST_BOOKS = frozenset({
+    "asynchronousprogramminginrust", "creativeprojectsforrustprogrammers",
+    "designpatternsandbestpracticesinrust", "gamedevelopmentwithrustandwebassembly",
+    "hands-onconcurrencywithrust", "practicalsystemprogrammingforrustdevelopers",
+    "rust_ebook", "rustforblockchainapplicationdevelopment", "rustforcplusplusdeveloper",
+    "rustprogramminghandbook", "rustwebdevelopmentwithrocket", "rustwebprogramming",
+    "speedupyourpythonwithrust",
+})
+
+# Generic/formal-heading books — databases (ops), distributed, security (crypto
+# formalism, OWASP section numbers). Headings here are tokens orthogonal to a
+# developer-symptom query, so the cross-encoder does better on bare child text.
+_GENERIC_HEADING_BOOKS = frozenset({
+    # databases
+    "postgresql-14-internals", "database-design-2nd-ed", "redis-for-dummies",
+    "little-redis-book", "digitalocean-redis",
+    # distributed
+    "designing-distributed-systems", "distributed-systems-fun-profit",
+    # security
+    "boneh-shoup-applied-cryptography", "crypto-101", "joy-of-cryptography",
+    "owasp-developer-guide", "owasp-wstg-v4.2", "owasp-asvs-v5", "oauth-rfcs-book",
+})
+
+
+def _rerank_doc(p: dict) -> str:
+    """Build the text the cross-encoder scores for one candidate.
+
+    ⚡1 (v6.1) prepended heading_path globally — but the rank diagnostic (2026-05-31)
+    showed that helps {ml, rust} and HURTS {security, databases, distributed}, whose
+    headings are formal/generic tokens orthogonal to a developer-symptom query
+    (joy-of-crypto positive moved rerank-rank 23→9 with the heading removed). The A/B
+    over the golden gates picked `descriptive-heading`: hard NDCG 0.7921→0.8021,
+    easy 0.9434→0.9379 (easy R@10 unchanged — no recall lost, pure reorder).
+    Modes (env override `KB_RERANK_INPUT`, default is the shipped winner):
+      descriptive-heading — heading for {ml, rust}, child for generic-heading books (DEFAULT)
+      heading             — heading_path + context + child   (v6.1 global)
+      child               — context + child                  (pre-⚡1)
+      rust-heading        — heading only for rust books
+    """
+    mode = os.environ.get("KB_RERANK_INPUT", "descriptive-heading")
+    ctx, text = p.get("context_text", ""), p.get("child_text", "")
+    heading = p.get("heading_path", "")
+    book = p.get("book", "")
+    if mode == "child":
+        use_heading = False
+    elif mode == "rust-heading":
+        use_heading = book in _RUST_BOOKS
+    elif mode == "descriptive-heading":
+        # heading for {ml, rust} (descriptive section titles), child for the
+        # generic/formal-heading books (security, databases, distributed).
+        use_heading = book not in _GENERIC_HEADING_BOOKS
+    else:  # "heading" (default, v6.1)
+        use_heading = True
+    parts = [heading, ctx, text] if use_heading else [ctx, text]
+    return "\n".join(x for x in parts if x)
+
+
 def _rerank(query: str, results: list[dict], top_k: int) -> list[dict]:
     reranker = get_ranker()
 
-    # ⚡1: feed the cross-encoder the same signal the dense embedding sees —
-    # heading_path + context_text + child_text. Previously the reranker scored
-    # bare child_text, blind to the section breadcrumb (heading_path), so it
-    # could not use "PostgreSQL 14 Internals > Snapshots"-style context to
-    # disambiguate generically-worded chunks.
-    documents = []
-    for r in results:
-        p = r["payload"]
-        heading = p.get("heading_path", "")
-        ctx = p.get("context_text", "")
-        text = p.get("child_text", "")
-        documents.append("\n".join(x for x in [heading, ctx, text] if x))
+    documents = [_rerank_doc(r["payload"]) for r in results]
 
     rankings = reranker.rank(query, documents)
 

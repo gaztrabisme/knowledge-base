@@ -263,6 +263,36 @@ it could silently make results *worse* (the 5 broken queries under replace-mode)
 no-HyDE **gate path is byte-identical** (verified: `dense_texts=[query]` → same two prefetches).
 Kept even though HyDE-default lost, because it de-risks the API Claude already calls.
 
+### Reranker input: per-domain heading (`descriptive-heading`, SHIPPED — the round's win)
+**Context:** the user pushed back on "swap the reranker" — Ettin-150m is current (2025 ModernBERT),
+so *tune before replace*. The `diag_rerank.py` rank-position probe on the 8 reranked-out misses
+showed the cross-encoder ranks the positives at 9–28 (close, not fundamentally disagreeing) and —
+the smoking gun — **child-only input beat ⚡1's heading-aware input on 7 of 8 misses** (joy-of-crypto
+positive 23→9, deep-rl 20→10). ⚡1 shipped heading_path *globally*; the probe showed it helps where
+headings are descriptive and hurts where they're formal/generic.
+**A/B over both gates (env `KB_RERANK_INPUT`, default now the winner):**
+
+| reranker input | hard NDCG | easy NDCG | note |
+|---|---|---|---|
+| heading (⚡1 v6.1) | 0.7921 | 0.9434 | global heading_path |
+| child (pre-⚡1) | 0.7887 | 0.9311 | loses both — heading carries vocab the easy set + ml/rust need |
+| rust-heading | 0.7989 | 0.9333 | wins hard, regresses easy; leaves ml on child |
+| **descriptive-heading** | **0.8021** | **0.9379** | **SHIPPED** — heading for {ml,rust}, child for {security,databases,distributed} |
+
+**Decision:** ship `descriptive-heading`. **+0.0100 hard gate** (rescued 2 positives into top-10,
+R@10 0.920→0.930) for **−0.0055 easy** — and the easy regression is benign: **easy R@10 unchanged
+at 0.975, no positive lost, pure within-top-10 reorder**. It dominates every other variant
+(strictly beats rust-heading on both axes). The mechanism: heading_path is a *vocabulary* signal —
+it reinforces the match when the query shares the chunk's vocab (descriptive ml/rust titles, and
+the whole vocab-matched easy set) and adds orthogonal noise when the heading is formal/generic
+(crypto formalism, OWASP section numbers, redis ops) against a developer-symptom query.
+**Implementation:** `search.py:_rerank_doc()` — `_GENERIC_HEADING_BOOKS` (14 security/db/dist slugs)
+get child-only; everything else (ml + rust) keeps heading. No model swap, no re-index.
+**Caveat (anti-overfit):** the per-domain hypothesis rests on the robust cells (ml n=89, rust n=56,
+security n=36); databases n=13 and distributed n=6 are noisy and align directionally but don't
+drive the decision. The easy guard (R@10 intact) is the check that this isn't hard-set overfitting.
+**Supersedes ⚡1** (which is now the `heading` fallback mode, retained for A/B reproducibility).
+
 ## Rejected Approaches
 
 ### Corpus-wide HyDE (query→hypothetical-passage on the dense leg)

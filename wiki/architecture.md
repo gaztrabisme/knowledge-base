@@ -85,8 +85,11 @@ Query arrives via MCP → `hybrid_search()`:
 4. **DBSF fusion** — Distribution-Based Score Fusion normalizes dense and BM25
    score distributions into a comparable range, then merges.
 5. **Ettin-150m rerank** — cross-encoder scores each fused candidate against the
-   query. Document text = `context_text + child_text` (context_text empty today,
-   so effectively child_text). Returns reranked order.
+   query. Document text is **per-domain** (`_rerank_doc`, v6.2): `heading_path +
+   context_text + child_text` for descriptive-heading books (ml, rust), and
+   `context_text + child_text` (child-only) for generic/formal-heading books
+   (security, databases, distributed) where the heading is orthogonal noise to a
+   developer-symptom query. context_text is empty today. Returns reranked order.
 6. **Adaptive cutoff** — keep results with score ≥ 4.0, capped at `top_k`; if
    fewer than 3 survive, fall back to the top 3.
 7. **Parent dedup** — multiple children from one parent collapse to a single
@@ -124,9 +127,11 @@ opens and closes a fresh file-based client per request (see Known Costs).
 - **Qdrant reopened per query** — `server.py` does `get_client()` … `client.close()`
   on every call; the file-based open re-reads segment metadata each time. A
   long-lived singleton would remove this per-query overhead.
-- **Reranker is heading-blind** — the dense embedding includes `heading_path`,
-  but the reranker scores `context_text + child_text` only, so the section
-  breadcrumb never reaches the cross-encoder.
+- **Reranker input is per-domain** (v6.2, resolves the old "heading-blind" note) —
+  ⚡1 (v6.1) fed `heading_path` to the cross-encoder globally; the rank diagnostic
+  showed that helps ml/rust but hurts security/db/distributed. `_rerank_doc()` now
+  routes heading_path to ml/rust only (hard NDCG 0.7921→0.8021). Env
+  `KB_RERANK_INPUT` overrides the policy for A/B.
 - **postgresql-14-internals headings** — this PDF's subset fonts lack a ToUnicode
   CMap, so PyMuPDF garbled it and ingestion fell back to markitdown. Result: clean
   body text (~0.9% glyph garble, mostly digits) but **zero `#` heading markers**,
