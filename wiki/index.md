@@ -1,6 +1,6 @@
 # Developer Knowledge Base — Project Wiki
 
-Last updated: 2026-05-30 (v6.3 frontier-levers round: **embedding upgrade REJECTED** — Qwen3-Embedding-0.6B (0.790) & EmbeddingGemma-300M (0.770) both lose the hard gate to Jina v5 (0.802), neither lifts the R@50 ceiling; **late chunking REJECTED** — net-negative every measurement (Gemma −0.026 w/rerank, Jina v3 native fusion −0.089, lowers recall ceiling), ConTEB dilution on a jargon corpus; Jina v3 non-deployable (transformers conflict w/ Ettin + v5). Both 2025–26 frontier levers measured negative → keep the v6.2 stack. Prior v6.2: HyDE net-negative + per-domain reranker `descriptive-heading` hard 0.7921→0.8021.)
+Last updated: 2026-05-30 (v6.4 gate-audit round: **audited the golden gate itself — overall grade D+**. The gate cannot resolve the ~0.01-NDCG deltas it has been adjudicating: per-query NDCG σ=0.31, n=200 → paired MDE ≥0.0195 at 80% power *even at ρ=0.95*. **v6.3's embedding-upgrade "rejection" (0.802 vs 0.790, gap 0.012) is downgraded to INCONCLUSIVE — below the discrimination floor, never significance-tested.** Also: 44.4% of sampled queries have an unlabeled-but-relevant top-10 hit (single-positive labels deflate NDCG; the "8 never-retrieved" may be label artifacts), query realism LOW (100% long why/how, 0 keyword/error/navigational). Added significance harness (`significance.py`, `--per-query`) + report card [gate-audit.md](gate-audit.md). **The gate's late-chunking rejection stands** (those gaps −0.06 to −0.09 are above the floor). Prior v6.3: late chunking rejected (ConTEB dilution); Jina v3 non-deployable.)
 
 ## Quick Links
 
@@ -9,6 +9,7 @@ Last updated: 2026-05-30 (v6.3 frontier-levers round: **embedding upgrade REJECT
 - [Gotchas](gotchas.md) — Known issues, workarounds, failure patterns
 - [Ops Runbook](ops-runbook.md) — Common operations, remote GPU workflows, troubleshooting
 - [RAG Frontier Survey 2025–26](rag-frontier-2026.md) — Cutting-edge scan mapped to this system; embedding-upgrade + late-chunking levers; the pooling fork
+- [Gate Audit Report Card](gate-audit.md) — **v6.4.** Rigorous audit of the golden eval gate (D+): statistical power, label completeness (44% incomplete), query realism, coverage. Significance harness. Why v6.3's embedding rejection is inconclusive.
 - [DSPy Enrichment Plan](dspy-enrichment-plan.md) — **CLOSED.** Phase 1+2 done (DSPy lost the prompt gate); Phase 3 done — full-index enrichment regressed the hard gate (0.7907→0.7759) so it was **reverted**. Corpus stays no-enrichment. Post-mortem in [decisions.md](decisions.md).
 
 ## Project Summary

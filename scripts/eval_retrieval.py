@@ -22,6 +22,7 @@ import glob
 import json
 import math
 from collections import defaultdict
+from pathlib import Path
 
 from knowledge_base.config import CHUNKS_DIR
 from knowledge_base.search import get_client, hybrid_search
@@ -71,6 +72,10 @@ def main():
                                                "routes the dense leg through the hypothetical passage "
                                                "(BM25 stays on the original query). Measures the "
                                                "agent-augmented production path, not the bare-query floor.")
+    ap.add_argument("--per-query", default="", help="also write one JSONL row per query: per-query "
+                                                    "scores (for paired significance testing) + the "
+                                                    "retrieved top-k candidate texts (for label-quality "
+                                                    "auditing). Path, e.g. data/golden/eval_runs/pq-<label>.jsonl")
     args = ap.parse_args()
 
     rows = [json.loads(l) for l in open(args.golden)]
@@ -87,6 +92,7 @@ def main():
     client = get_client()
     per_domain = defaultdict(lambda: {"ndcg": [], "recall10": [], "mrr": [], "recall_ceiling": []})
     misses = []
+    per_query_rows = []
 
     for n, r in enumerate(rows, 1):
         positives = {c2p[cid] for cid in r["positive_child_ids"] if cid in c2p}
@@ -113,6 +119,32 @@ def main():
         per_domain[dom]["mrr"].append(mrr)
         per_domain[dom]["recall_ceiling"].append(ceil_hit)
 
+        if args.per_query:
+            # candidate dump from the full-pipeline results (what the agent would see):
+            # enough text per retrieved parent for an LLM judge to rate relevance to the
+            # query WITHOUT the single gold label, so we can estimate label incompleteness.
+            cands = [{
+                "rank": i + 1,
+                "parent_id": res.parent_id,
+                "is_labeled_positive": res.parent_id in positives,
+                "heading_path": res.heading_path,
+                "book": res.book,
+                "snippet": (res.child_match or res.content or "")[:600],
+            } for i, res in enumerate(results)]
+            per_query_rows.append({
+                "query": r["query"],
+                "domain": dom,
+                "book": r["book"],
+                "heading_path": r.get("heading_path", ""),
+                "positive_parent_ids": sorted(positives),
+                "ndcg": round(ndcg, 6),
+                "recall10": recall10,
+                "mrr": round(mrr, 6),
+                "rank": rank,
+                "ceiling_hit": ceil_hit,
+                "candidates": cands,
+            })
+
         if not recall10:
             misses.append({"query": r["query"], "book": r["book"], "domain": dom,
                            "in_ceiling": bool(ceil_hit), "heading_path": r["heading_path"]})
@@ -137,6 +169,14 @@ def main():
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     out = RESULTS_DIR / f"{args.label}.json"
     out.write_text(json.dumps({"report": report, "misses": misses}, indent=2))
+
+    if args.per_query:
+        pq_path = Path(args.per_query)
+        pq_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(pq_path, "w") as fh:
+            for row in per_query_rows:
+                fh.write(json.dumps(row) + "\n")
+        print(f"  per-query dump ({len(per_query_rows)} rows) -> {pq_path}")
 
     print(f"\n===== {args.label}  (n={report['n_queries']}) =====")
     a = report["aggregate"]

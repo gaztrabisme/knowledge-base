@@ -322,6 +322,13 @@ is itself built on a Qwen3-0.6B backbone — effectively "Qwen3 + heavy retrieva
 beats raw Qwen3-Embedding and general-purpose Gemma on technical-retrieval queries. **MTEB rank ≠
 corpus performance.** Retroactively validates the v6.x embedder choice.
 
+> ⚠️ **v6.4 audit caveat — the Qwen3 half of this decision is unproven.** The Qwen3 gap is **0.012**,
+> which the [gate audit](gate-audit.md) shows is *below the gate's discrimination floor* (paired MDE
+> ≥0.0195 at 80% power even at ρ=0.95; never significance-tested). So Qwen3 is **not reliably worse —
+> it's indistinguishable on this gate**, status INCONCLUSIVE pending a paired re-test. Gemma's 0.033
+> gap is above the floor, so *that* rejection holds. "Keep Jina v5" still stands as the safe default
+> (no evidence to switch), but "Qwen3 is worse" is not established.
+
 ### Stage 2 — late chunking (the pooling fork)
 
 Late chunking pools each child's token span from the **parent's** contextualized token embeddings —
@@ -364,11 +371,50 @@ change. **Net: both 2025–26 frontier levers measured negative on this corpus �
 fundamentals (hybrid + Ettin rerank + structural parent/child chunking) are at/near the ceiling, and
 context-adding tricks are the wrong tool for a self-identifying jargon corpus.**
 
+## Gate Audit (v6.4 — audit the evaluator itself, 2026-05-30)
+
+Every prior decision in this file was gated on the golden set. So before trusting it for one more
+round, we audited the gate against IR test-collection criteria. Scope: **diagnose + significance**
+(not rebuild). Method: deterministic coverage/power stats (`audit_prep.py`) + a paired-significance
+harness (`significance.py`, with per-query dumps now persisted via `eval_retrieval.py --per-query`) +
+an 8-agent LLM relevance-judging workflow over a stratified 54-query sample. Full report card in
+[gate-audit.md](gate-audit.md). **Overall grade: D+.**
+
+**The decisive finding — the gate cannot resolve the deltas it has been adjudicating.** Per-query
+NDCG σ = **0.3111** (single-positive NDCG is near-bimodal), n=200. The paired minimum-detectable
+effect at 80% power is **≥0.0195 even at an implausible ρ=0.95**, and ~0.045–0.055 at realistic
+ρ≈0.6–0.8. The gate has been used to decide gaps of ~0.01–0.012. So:
+
+- **v6.3's embedding-upgrade rejection (0.802 vs 0.790, gap 0.012) is downgraded to INCONCLUSIVE.**
+  It is below the floor and was never significance-tested. (Gemma's 0.033 and late-chunking's
+  −0.06…−0.09 *are* above the floor — those rejections stand.)
+- **Rule going forward:** never accept/reject on an aggregate delta alone. Require a paired bootstrap
+  + sign/Wilcoxon p<0.05 (`significance.py`). The harness and per-query persistence now exist.
+
+**Other findings:** (1) **Label incompleteness** — 100% single-positive over 48k chunks; **44.4%** of
+sampled queries retrieved an unlabeled-but-relevant chunk (mean 0.963/query), so NDCG/MRR are
+*understated* and the 0.96 R@50 ceiling + "8 never-retrieved misses" may be **label artifacts, not
+corpus gaps**. (2) **Query realism LOW** — 100% long why/how questions (median 27 words), **0/200**
+short-keyword, **1/200** error-string, **0/200** navigational; the gate under-tests the BM25/sparse
+leg and terse-input reranking that real Claude Code queries trigger. (3) **Power skew** —
+distributed n=6, databases n=13 are too thin to gate per-domain (retroactively weakens confidence in
+v6.2's per-domain reranker split). (4) **The gate's one clear strength:** the hardening step really
+does suppress lexical leakage (query↔source overlap 0.65→0.31), so it's a *clean* test of dense
+semantic matching — just of that one narrow construct.
+
+**Decision:** the gate stays in service (it reliably catches large regressions and full-book gaps),
+but its remit is narrowed: **trust it only for deltas above ~0.02 with a paired test; treat sub-0.02
+verdicts as inconclusive.** Remediations (pooled multi-positive labels, new query archetypes, hard
+negatives, n→500, paired-test rule) are recorded in the report card, **not yet executed** — this
+round was diagnosis. Resource-acquisition thread (IR-eval theory into the KB) deferred pending these
+findings, which now tell us exactly what to add.
+
 ## Rejected Approaches
 
-### Embedding upgrade (Qwen3-Embedding-0.6B / EmbeddingGemma-300M) — v6.3
+### Embedding upgrade (Qwen3-Embedding-0.6B / EmbeddingGemma-300M) — v6.3 → Qwen3 part RE-OPENED by v6.4 audit
 **Why considered:** 2025–26 frontier; higher open-MTEB than Jina v5; the open recall lever (8 never-retrieved).
-**Why rejected:** both lose the hard gate (0.790 / 0.770 vs 0.802) and neither lifts the R@50 ceiling. Jina v5's retrieval-specialization beats higher-MTEB generalists here. Full record in the v6.3 section above.
+**Why rejected (v6.3):** both scored below the hard gate (0.790 / 0.770 vs 0.802); neither lifted the R@50 ceiling.
+**v6.4 audit correction:** the **Qwen3** rejection (0.012 gap) is **below the gate's discrimination floor → INCONCLUSIVE, not rejected** (pending a paired re-test, remote-gated, task #19). **Gemma** (0.033 gap, above floor) stays rejected. "Keep Jina v5" remains the default (no proven reason to switch), but Qwen3 is *not* established as worse. See [gate-audit.md](gate-audit.md).
 
 ### Late chunking (manual mean-pool + Jina v3 native) — v6.3
 **Why considered:** "contextual chunks without LLM enrichment" — the survey's most novel lever, and the one that should sidestep the enrichment failure.

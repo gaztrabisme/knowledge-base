@@ -11,6 +11,8 @@ knowledge-base/rust/
 # so retrieval comparisons stay stable across sessions)
 data/*
 !data/golden/
+# ...but the audit judge-sample batches are bulky reproducible scratch (regen via audit_prep.py)
+data/golden/audit/sample_batch_*.jsonl
 
 # Python
 __pycache__/

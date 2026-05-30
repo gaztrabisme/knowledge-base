@@ -12,10 +12,13 @@ The two actionable levers this survey proposed were built and measured against t
 gates. **Both lost.** Full record in [decisions.md](decisions.md) → "Embedding Upgrade +
 Late Chunking (v6.3)".
 
-- **Embedding upgrade → rejected.** Qwen3-Embedding-0.6B (hard NDCG **0.790**) and
-  EmbeddingGemma-300M (**0.770**) both lose to Jina v5 (**0.802**), and neither lifts the
-  R@50 ceiling (no recall gain on the 8 never-retrieved). MTEB rank ≠ corpus performance;
-  Jina v5's retrieval-specialization wins.
+- **Embedding upgrade → rejected → DOWNGRADED TO INCONCLUSIVE (v6.4 audit).** Qwen3-Embedding-0.6B
+  (hard NDCG **0.790**) and EmbeddingGemma-300M (**0.770**) scored below Jina v5 (**0.802**). But the
+  v6.4 [gate audit](gate-audit.md) proved the **0.012 Qwen3 gap is below the gate's discrimination
+  floor** (paired MDE ≥0.0195 at 80% power *even at ρ=0.95*; never significance-tested). So Qwen3 is
+  *not* reliably worse — it's indistinguishable on this gate, pending a paired re-test (remote-gated).
+  Gemma's 0.033 gap *is* above the floor, so that rejection holds. Net: "MTEB rank ≠ corpus
+  performance" survives for Gemma; the Qwen3 call is unproven.
 - **Late chunking → rejected.** Net-negative every measurement (Gemma −0.026 w/rerank;
   Jina v3 **native** fusion −0.089) and it *lowers* the recall ceiling. The ConTEB dilution
   mechanism (below) is real for this jargon corpus — the survey called this risk and it
