@@ -79,3 +79,27 @@ embedding "rejections" SHRANK markedly under graded labels (Qwen3 0.012→0.008,
 the single-label gate was **inflating embedding-candidate deficits**, the same incompleteness artifact
 that deflated baseline recall. Embedding swaps are not worth it (no upside, ~0.01 worse at most), but
 calling them "significantly worse" would need n≈1000–1250 at these ρ.
+
+## v6.7 — index back-matter strip (the navigational thread → a real win)
+
+The retest's one open gap (navigational 0.763) was diagnosed as **two artifacts, not weak retrieval**:
+1. **Gate contamination:** 12 of 440 hard queries (10 nav + 2 keyword) had a book back-of-book INDEX
+   page as their only gold ("where is the index for dot product"). Dropped them (gate 440→428). The
+   64→70 legit nav queries score **0.866** (R@10 1.0) — better than every other stratum.
+2. **Corpus bloat:** 6,276 chunks (12.7%) were back-of-book index pages (heading `Index (part N)`)
+   that survived v6 stripping, across 15 books. Stripped via `strip_index_backmatter.py` (validated:
+   contiguous tails; kept real content like joy-of-crypto's "Index of Security Definitions" and
+   pandas' "Index" object section). Corpus 48,056 → **41,780**.
+
+**Re-indexed clean on the 5080; paired clean-index vs old-index on the same 428-query cleaned gate:**
+
+| metric | old-index | clean-index | Δ | verdict |
+|---|---|---|---|---|
+| NDCG@10 | 0.8137 | **0.8212** | **+0.0075** [+0.0037,+0.0118] | **SIGNIFICANT** (wilcox p=0.0001, ρ=0.981) |
+| keyword stratum | 0.791 | **0.821** | +0.030 | index pages were displacing keyword hits |
+| Recall@10 | 0.9883 | 0.9907 | +0.0023 | n.s. (recall not hurt) |
+| R@50 ceiling | 0.9977 | 0.9977 | 0.0 | identical — no content lost |
+
+**First statistically significant POSITIVE retrieval change in all of v6.x.** Removing index junk
+improved *ranking* (fewer distractors in the reranker pool), didn't touch recall, and shrank the
+index 12.7%. Found by chasing a measurement artifact, not a retrieval-architecture lever.

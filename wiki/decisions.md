@@ -473,6 +473,47 @@ New reference baselines: `v65-baseline-mainv2.json` / `v65-baseline-easyv2.json`
 domain-balance (distributed n=7 / databases n=17 still thin), and the navigational weakness now
 quantified — all candidates for a future round.
 
+## Index back-matter strip — the navigational "gap" was junk, and removing it is a real win (v6.7, 2026-05-31)
+
+The v6.6 retest left one open thread: the v6.5 gate flagged navigational queries (NDCG 0.763) as the
+weakest stratum. Diagnosing it before "fixing retrieval" (measure before you cut) revealed **two
+artifacts, neither of which is weak retrieval**:
+
+1. **Gate contamination.** 12 of 440 hard queries had a book **back-of-book INDEX page** as their only
+   gold — `where is the index for dot product` → an alphabetical page-ref list (`dot product [21]...`).
+   They scored ~0.33 and dragged the stratum down. The **70 legit navigational queries score 0.866
+   (R@10 1.0)** — *better* than every other stratum. Dropped the 12 (gate 440→**428**); 2 were
+   keyword queries with the same defect.
+2. **Corpus bloat.** **6,276 chunks (12.7% of the corpus)** were back-of-book index pages (heading
+   `Index (part N)`) that survived v6's front/back-matter stripping, across **15 books**. The v6 strip
+   missed them because their indexes use varied link formats (EPUB `idIndexMarker`, `dx1-` anchors,
+   bare page numbers) — but all share the TOC-assigned `Index (part N)` heading, the reliable signal.
+
+**The fix (`scripts/strip_index_backmatter.py`).** Strip children whose heading top is exactly
+`Index (part N)`; drop orphaned parents. Validated: every flagged region is a contiguous page-tail;
+real content that merely starts with "Index" is **kept** (joy-of-crypto's *Index of Security
+Definitions* — a curated definition reference; pandascookbook's *Index* — the pandas Index object).
+Corpus **48,056 → 41,780**. Golden reconciled (`clean_golden_after_strip.py`): 12 dead queries
+dropped, 18 partial pruned, 145 dead hard-negatives pruned.
+
+**The result — first significant POSITIVE retrieval change in all of v6.x.** Re-indexed clean on the
+5080; paired clean-index vs old-index on the same 428-query cleaned gate:
+
+| metric | old-index | clean-index | Δ | verdict |
+|---|---|---|---|---|
+| **NDCG@10** | 0.8137 | **0.8212** | **+0.0075** [+0.0037,+0.0118] | **SIGNIFICANT** (sign p=.002, wilcox p=.0001, ρ=0.981) |
+| keyword stratum | 0.791 | **0.821** | +0.030 | index pages were matching keyword queries & displacing real hits |
+| Recall@10 | 0.9883 | 0.9907 | +0.0023 | n.s. |
+| R@50 ceiling | 0.9977 | 0.9977 | 0.0 | identical — no real content lost |
+
+Mechanism: the strip didn't change recall (ceiling identical) — it improved **ranking** by removing
+6,276 incoherent index-page distractors from the reranker's candidate pool. Easy set: 0.9225, R@10
+1.0, ceiling 1.0 (a −0.009 NDCG vs v6.5 is near-saturation reorder, zero recall loss). **Promoted to
+production** (`data/qdrant`, old → `data/qdrant.v66.bak`). Indexer default batch **128→48** (128
+reliably OOMs Jina v5 on the 15 GB 5080). **The lesson: the apparent navigational weakness was a
+measurement artifact — but chasing it honestly surfaced a genuine 12.7% corpus-bloat bug whose removal
+is the only significant retrieval gain the v6.x tuning ever produced.**
+
 ## Retest Sweep — paired re-adjudication of all v6.3 verdicts on gate v2 (v6.6, 2026-05-31)
 
 Every v6.3 verdict was a **bare aggregate comparison** — never a paired significance test. With the

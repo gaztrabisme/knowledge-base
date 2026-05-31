@@ -1,6 +1,17 @@
 # Developer Knowledge Base — Project Wiki
 
-Last updated: 2026-05-31 (v6.6 RETEST round: **paired re-adjudication of all six v6.3 verdicts on
+Last updated: 2026-05-31 (v6.7 CORPUS-HYGIENE round: chasing the retest's one open gap (navigational
+0.763) found it was **two artifacts, not weak retrieval** — (1) 12 gate queries whose gold was a book
+back-of-book INDEX page (dropped; legit nav = **0.866**, R@10 1.0), and (2) **6,276 chunks (12.7%) of
+back-of-book index pages** that survived v6 stripping across 15 books. Stripped them
+(`strip_index_backmatter.py`, validated contiguous-tail; kept real "Index of Security Definitions" /
+pandas "Index" content), re-indexed clean on the 5080 → corpus **48,056 → 41,780**. Paired clean-vs-old
+on the 428-query cleaned gate: **NDCG +0.0075 [+0.0037,+0.0118], wilcox p=0.0001, SIGNIFICANT** (keyword
+stratum +0.030; recall/ceiling unchanged) — the **first statistically significant POSITIVE retrieval
+change in all of v6.x**, found by chasing a measurement artifact, not a retrieval lever. Clean index
+PROMOTED to production (old → `data/qdrant.v66.bak`). Indexer default batch 128→48 (128 OOMs Jina on
+15GB). Full record in [decisions.md](decisions.md).)
+PREVIOUS (v6.6 RETEST round: **paired re-adjudication of all six v6.3 verdicts on
 gate v2** — Qwen3/Gemma/late-chunk/enrichment re-indexed on the 5080 over LAN, HyDE + per-domain
 reranker re-run locally, each paired vs the Jina-v5 baseline via `significance.py` (now reports ρ +
 MDE@80%). **Nothing overturned — production config vindicated** (Jina v5, no enrichment, no late-chunk,
@@ -32,9 +43,10 @@ MCP server providing semantic search over 46 technical books to Claude Code. Pip
 
 | Metric | Value |
 |--------|-------|
-| Version | v6.6 (gate v2 + all v6.3 verdicts paired-retested; serving = v6.2 pipeline) |
+| Version | v6.7 (index back-matter stripped + promoted; gate v2 paired-retested) |
 | Books indexed | 46 (19 ML + 5 DB + 7 security + 2 distributed + 13 Rust) |
-| Total vectors | 48,056 (postgres re-chunked: 1,113→1,160) |
+| Total vectors | **41,780** (v6.7 stripped 6,276 back-of-book index chunks from 48,056) |
+| Hard gate (NDCG@10) | **0.8212** (clean index, 428-query v2 gate; +0.0075 sig. over pre-strip) · easy 0.9225 |
 | Collection | `developer_knowledge` |
 | MCP tools | 5 (search, search_book, get_chapter, list_books, grep_books) — `get_chapter`/`list_books` now work for postgres |
 | Reranker | Ettin-150m (ModernBERT) — **per-domain input (v6.2): heading_path for ml/rust, child-only for security/db/distributed** (`descriptive-heading`, supersedes ⚡1's global heading) |
