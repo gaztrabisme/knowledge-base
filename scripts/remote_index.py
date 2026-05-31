@@ -113,7 +113,7 @@ def main():
             sparse_vectors_config={"bm25": models.SparseVectorParams(modifier=models.Modifier.IDF)},
         )
 
-    batch_size = 4
+    batch_size = int(os.environ.get("KB_INDEX_BATCH", "128"))  # was 4 — starved the 5080
     total_indexed = 0
 
     for chunk_file in sorted(chunks_dir.glob("*.json")):

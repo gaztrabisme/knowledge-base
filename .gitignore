@@ -32,3 +32,7 @@ build/
 .claude/
 data/golden/audit/jval_batch_*.jsonl
 data/golden/golden_hard_v2_full.jsonl
+# v6.6 retest per-query dumps — bulky (22MB) reproducible scratch; verdicts live in
+# v66_retest_notes.md + decisions.md, regen via gpu_sweep.sh + eval_retrieval.py --per-query
+data/golden/eval_runs/pq-v66-*.jsonl
+data/golden/eval_runs/pq-v65-base200.jsonl

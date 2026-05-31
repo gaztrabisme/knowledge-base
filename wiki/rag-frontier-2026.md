@@ -12,17 +12,17 @@ The two actionable levers this survey proposed were built and measured against t
 gates. **Both lost.** Full record in [decisions.md](decisions.md) → "Embedding Upgrade +
 Late Chunking (v6.3)".
 
-- **Embedding upgrade → rejected → DOWNGRADED TO INCONCLUSIVE (v6.4 audit).** Qwen3-Embedding-0.6B
-  (hard NDCG **0.790**) and EmbeddingGemma-300M (**0.770**) scored below Jina v5 (**0.802**). But the
-  v6.4 [gate audit](gate-audit.md) proved the **0.012 Qwen3 gap is below the gate's discrimination
-  floor** (paired MDE ≥0.0195 at 80% power *even at ρ=0.95*; never significance-tested). So Qwen3 is
-  *not* reliably worse — it's indistinguishable on this gate, pending a paired re-test (remote-gated).
-  Gemma's 0.033 gap *is* above the floor, so that rejection holds. Net: "MTEB rank ≠ corpus
-  performance" survives for Gemma; the Qwen3 call is unproven.
-- **Late chunking → rejected.** Net-negative every measurement (Gemma −0.026 w/rerank;
-  Jina v3 **native** fusion −0.089) and it *lowers* the recall ceiling. The ConTEB dilution
-  mechanism (below) is real for this jargon corpus — the survey called this risk and it
-  materialized.
+- **Embedding upgrade → rejected → inconclusive (v6.4) → PAIRED-RETESTED (v6.6).** Qwen3-Embedding-0.6B
+  and EmbeddingGemma-300M scored below Jina v5 on the v6.3 single-label gate (0.790 / 0.770 vs 0.802).
+  v6.6 re-indexed both on the 5080 and ran a **paired test on gate v2**: **Qwen3 Δ=−0.0084** (n.s., ρ=0.917,
+  CI upper ≈ 0 → no upside), **Gemma Δ=−0.0107** (borderline, wilcox p=.043). **Both gaps shrank**
+  (0.012→0.008, 0.033→0.011) — the single-label gate had *inflated* embedding deficits. Net: keep Jina
+  v5 (no upside to either), but "significantly worse" is unproven and Gemma's "clear reject" is downgraded
+  to "weakly worse." "MTEB rank ≠ corpus performance" still holds directionally.
+- **Late chunking → rejected, now SIGNIFICANT (v6.6).** Net-negative every v6.3 measurement (Gemma
+  −0.026 w/rerank; Jina v3 native −0.089) and it lowers the recall ceiling. v6.6 paired re-test (Gemma
+  raw-late vs raw-naive) Δ=−0.0164, **wilcox p=0.045** — the rejection now carries a p-value. The ConTEB
+  dilution mechanism (below) is real for this jargon corpus.
 - **Jina v3 non-deployable** anyway: transformers conflict with both the Ettin reranker and
   production v5.
 

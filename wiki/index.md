@@ -1,6 +1,17 @@
 # Developer Knowledge Base — Project Wiki
 
-Last updated: 2026-05-31 (v6.5 gate-UPGRADE round: executed the v6.4 audit's fixes. **Multi-positive graded labels** (TREC pooling + deepseek judge, mean 2.8 positives/query; judge validated vs Claude — 100% within ±1, 0.95 precision) + **3 new query archetypes** (+240: keyword/error_symbol/navigational), main gate **200→440**. Result: the single-label gate was deflating **recall/MRR/ceiling, not NDCG** — baseline stratum R@10 0.930→**0.980**, MRR 0.761→**0.875**, R@50 ceiling 0.960→**0.995** (the "8 never-retrieved" was mostly a label artifact). New finding the old gate couldn't see: **navigational queries (0.763) are the real gap**; keyword/error retrieve fine (BM25 works). Discrimination floor ~2× better (paired MDE@ρ0.7 0.048→0.025). Graded NDCG + `--by-archetype` in eval. v2 sets canonical; originals archived `*_v1`. Prior v6.4: gate audited D+ — embedding rejection downgraded to inconclusive.)
+Last updated: 2026-05-31 (v6.6 RETEST round: **paired re-adjudication of all six v6.3 verdicts on
+gate v2** — Qwen3/Gemma/late-chunk/enrichment re-indexed on the 5080 over LAN, HyDE + per-domain
+reranker re-run locally, each paired vs the Jina-v5 baseline via `significance.py` (now reports ρ +
+MDE@80%). **Nothing overturned — production config vindicated** (Jina v5, no enrichment, no late-chunk,
+descriptive-heading rerank, HyDE selective). Late-chunk (wilcox p=.045) and enrichment (p=.024) are
+now *statistically* significant rejections they never had. The two embedding "rejections" **shrank
+under graded labels** (Qwen3 0.012→0.008, Gemma 0.033→0.011) — the single-label gate had inflated
+them; both n.s. with CI upper bound ≈ 0 (no upside → keep Jina; "significantly worse" needs n≈1000+).
+Per-domain reranker confirmed (heading-in-input beats child-only, MRR p=.0018). Fixed `remote_index.py`
+batch starvation (4→`KB_INDEX_BATCH`); driver `gpu_sweep.sh`; full table in
+[decisions.md](decisions.md) + [v66_retest_notes](../data/golden/eval_runs/v66_retest_notes.md).)
+PREVIOUS (v6.5 gate-UPGRADE round: executed the v6.4 audit's fixes. **Multi-positive graded labels** (TREC pooling + deepseek judge, mean 2.8 positives/query; judge validated vs Claude — 100% within ±1, 0.95 precision) + **3 new query archetypes** (+240: keyword/error_symbol/navigational), main gate **200→440**. Result: the single-label gate was deflating **recall/MRR/ceiling, not NDCG** — baseline stratum R@10 0.930→**0.980**, MRR 0.761→**0.875**, R@50 ceiling 0.960→**0.995** (the "8 never-retrieved" was mostly a label artifact). New finding the old gate couldn't see: **navigational queries (0.763) are the real gap**; keyword/error retrieve fine (BM25 works). Discrimination floor ~2× better (paired MDE@ρ0.7 0.048→0.025). Graded NDCG + `--by-archetype` in eval. v2 sets canonical; originals archived `*_v1`. Prior v6.4: gate audited D+ — embedding rejection downgraded to inconclusive.)
 PREVIOUS (v6.4 gate-audit round: **audited the golden gate itself — overall grade D+**. The gate cannot resolve the ~0.01-NDCG deltas it has been adjudicating: per-query NDCG σ=0.31, n=200 → paired MDE ≥0.0195 at 80% power *even at ρ=0.95*. **v6.3's embedding-upgrade "rejection" (0.802 vs 0.790, gap 0.012) is downgraded to INCONCLUSIVE — below the discrimination floor, never significance-tested.** Also: 44.4% of sampled queries have an unlabeled-but-relevant top-10 hit (single-positive labels deflate NDCG; the "8 never-retrieved" may be label artifacts), query realism LOW (100% long why/how, 0 keyword/error/navigational). Added significance harness (`significance.py`, `--per-query`) + report card [gate-audit.md](gate-audit.md). **The gate's late-chunking rejection stands** (those gaps −0.06 to −0.09 are above the floor). Prior v6.3: late chunking rejected (ConTEB dilution); Jina v3 non-deployable.)
 
 ## Quick Links
@@ -21,7 +32,7 @@ MCP server providing semantic search over 46 technical books to Claude Code. Pip
 
 | Metric | Value |
 |--------|-------|
-| Version | v6.1 |
+| Version | v6.6 (gate v2 + all v6.3 verdicts paired-retested; serving = v6.2 pipeline) |
 | Books indexed | 46 (19 ML + 5 DB + 7 security + 2 distributed + 13 Rust) |
 | Total vectors | 48,056 (postgres re-chunked: 1,113→1,160) |
 | Collection | `developer_knowledge` |

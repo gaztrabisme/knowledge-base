@@ -42,6 +42,23 @@ def mean(xs):
     return sum(xs) / len(xs) if xs else 0.0
 
 
+def stdev(xs):
+    n = len(xs)
+    if n < 2:
+        return 0.0
+    m = mean(xs)
+    return math.sqrt(sum((x - m) ** 2 for x in xs) / (n - 1))
+
+
+def pearson(xs, ys):
+    """Per-query correlation between two systems — drives paired power."""
+    mx, my = mean(xs), mean(ys)
+    cov = sum((x - mx) * (y - my) for x, y in zip(xs, ys))
+    vx = math.sqrt(sum((x - mx) ** 2 for x in xs))
+    vy = math.sqrt(sum((y - my) ** 2 for y in ys))
+    return cov / (vx * vy) if vx and vy else 0.0
+
+
 def bootstrap_ci_mean(xs, n_boot=N_BOOT, alpha=0.05):
     """Percentile bootstrap CI for the mean of one sample."""
     rng = random.Random(SEED)
@@ -150,8 +167,20 @@ def two_file(path_a, path_b):
         verdict = "SIGNIFICANT" if (sig and min(sp, wp) < 0.05) else "noise (n.s.)"
         print(f"  {m:12s} {mean(a):7.4f}  {mean(b):7.4f}  {d:+7.4f}  "
               f"[{lo:+7.4f},{hi:+7.4f}]  {pos:3d}/{neg:<3d}    {sp:6.4f}   {wp:6.4f}   {verdict}")
+    # power readout on the gate metric (ndcg): measured rho → the smallest true gap
+    # this paired test can resolve at 80% power (z_.975 + z_.8 = 2.802).
+    a = [A[q]["ndcg"] for q in common]
+    b = [B[q]["ndcg"] for q in common]
+    deltas = [bi - ai for ai, bi in zip(a, b)]
+    rho = pearson(a, b)
+    sd = stdev(deltas)
+    n = len(common)
+    mde = 2.802 * sd / math.sqrt(n) if n else float("nan")
+    print(f"\n  power (ndcg): rho(A,B)={rho:+.3f}  sigma_delta={sd:.4f}  n={n}  "
+          f"MDE@80%={mde:.4f}")
     print("\n  SIGNIFICANT = paired bootstrap CI excludes 0 AND min(sign,wilcoxon) p < 0.05.\n"
-          "  Otherwise the two systems are statistically indistinguishable on this gate.")
+          "  Otherwise the two systems are statistically indistinguishable on this gate.\n"
+          "  If |delta| < MDE@80%, an n.s. verdict is 'underpowered', not 'no effect'.")
 
 
 def main():

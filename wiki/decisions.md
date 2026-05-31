@@ -328,6 +328,11 @@ corpus performance.** Retroactively validates the v6.x embedder choice.
 > it's indistinguishable on this gate**, status INCONCLUSIVE pending a paired re-test. Gemma's 0.033
 > gap is above the floor, so *that* rejection holds. "Keep Jina v5" still stands as the safe default
 > (no evidence to switch), but "Qwen3 is worse" is not established.
+>
+> ✅ **v6.6 update — re-tested with a paired test on gate v2.** Qwen3 Δ=−0.0084 (n.s., CI upper ≈ 0,
+> no upside); **Gemma's gap shrank 0.033→0.011** (the single-label gate had inflated it) and is now
+> only *borderline* worse, not a clear reject. Decision unchanged in practice (keep Jina v5), but the
+> table above overstates both gaps. See the v6.6 Retest Sweep section.
 
 ### Stage 2 — late chunking (the pooling fork)
 
@@ -388,6 +393,8 @@ effect at 80% power is **≥0.0195 even at an implausible ρ=0.95**, and ~0.045�
 - **v6.3's embedding-upgrade rejection (0.802 vs 0.790, gap 0.012) is downgraded to INCONCLUSIVE.**
   It is below the floor and was never significance-tested. (Gemma's 0.033 and late-chunking's
   −0.06…−0.09 *are* above the floor — those rejections stand.)
+  *→ Resolved in v6.6 (paired re-test): Qwen3 Δ=−0.008 still n.s. but no upside; the gap shrank under
+  graded labels. See the v6.6 Retest Sweep section below.*
 - **Rule going forward:** never accept/reject on an aggregate delta alone. Require a paired bootstrap
   + sign/Wilcoxon p<0.05 (`significance.py`). The harness and per-query persistence now exist.
 
@@ -466,20 +473,65 @@ New reference baselines: `v65-baseline-mainv2.json` / `v65-baseline-easyv2.json`
 domain-balance (distributed n=7 / databases n=17 still thin), and the navigational weakness now
 quantified — all candidates for a future round.
 
+## Retest Sweep — paired re-adjudication of all v6.3 verdicts on gate v2 (v6.6, 2026-05-31)
+
+Every v6.3 verdict was a **bare aggregate comparison** — never a paired significance test. With the
+v6.5 gate (440 graded multi-positive queries) and a paired harness (`significance.py`, now also
+reporting measured ρ + MDE@80%), we re-ran **all six** candidates against the saved Jina-v5 baseline
+(`pq-v65-mainv2.jsonl`, aggregate NDCG **0.7939**). GPU candidates re-indexed on the 5080 over LAN
+(Tailscale was down); evals run on the box (qdrant stays local, only per-query JSONL returns). The
+`remote_index.py` batch-size starvation (`batch_size=4`) is fixed — now `KB_INDEX_BATCH` (128 for
+Jina; **dropped to 32–48 for Qwen3 / enriched-text after batch-128 OOMs**). **Serving path untouched.**
+
+**Verdict table** (paired, n=440 except HyDE n=200; SIGNIFICANT = bootstrap CI excludes 0 AND
+min(sign,wilcoxon) p<0.05):
+
+| Candidate | old Δ (single-label) | new Δ (graded) | 95% CI | ρ | MDE@80% | verdict |
+|---|---|---|---|---|---|---|
+| HyDE (optional) | ~−0.011 | −0.0081 | [−0.026,+0.007] | 0.895 | 0.023 | n.s. — keep optional (no-op) |
+| Qwen3-Embedding-0.6B | −0.012 | −0.0084 | [−0.019,**+0.001**] | 0.917 | 0.0135 | n.s. — no upside → keep Jina |
+| EmbeddingGemma-300M | −0.033 | −0.0107 | [−0.023,**+0.001**] | 0.875 | 0.017 | borderline (wilcox .043) |
+| Per-domain rerank (shipped) | +0.003 | +0.001 vs heading; **−0.024 MRR vs child** | — | 0.95 | 0.011 | CONFIRMED |
+| Late chunking | −0.026…−0.089 | −0.0164 | [−0.029,−0.005] | 0.884 | 0.018 | **SIGNIFICANT reject** (wilcox .045) |
+| Enrichment | −0.0148 | −0.0241 | [−0.045,−0.003] | 0.600 | 0.031 | **SIGNIFICANT reject** (wilcox .024) |
+
+**Bottom line: nothing overturned — the production config is vindicated.** Every candidate is ≤ Jina
+v5, so serving stays exactly as shipped (Jina v5, no enrichment, no late-chunk, `descriptive-heading`
+rerank, HyDE selective). Three findings of substance:
+
+1. **Two rejections gained the p-value they never had.** Late chunking (raw-late vs raw-naive, same
+   Gemma space) and enrichment are now *statistically* significant rejections — v6.3 only had eyeballed
+   deltas. Enrichment again cratered databases (0.86→**0.605**), reproducing the v6.3 per-domain signature.
+2. **The two embedding "rejections" SHRANK under graded labels** — Qwen3 0.012→0.008, Gemma 0.033→0.011.
+   The single-label gate was **inflating embedding-candidate deficits**, the same incompleteness artifact
+   that deflated baseline recall (v6.5). Both now sit just below the floor with CI upper bounds ≈ 0:
+   *no upside, slight-worse trend*. "Keep Jina" is well-supported; "significantly worse" would need
+   n≈1000–1250 at these ρ. The high ρ (0.88–0.95) for embedder swaps was as predicted — it dropped
+   Qwen3's MDE to 0.0135, nearly resolving it.
+3. **The per-domain reranker decision is confirmed for the right reason** — `descriptive-heading` ties
+   global `heading` (n.s.) but significantly beats child-only on MRR (−0.024, wilcox .0018): it's the
+   *heading-in-rerank-input*, not the per-domain split per se, that earns its place.
+
+Reusable infra: `scripts/gpu_sweep.sh` (unattended index→eval driver for candidates). Per-query dumps
++ running notes at `data/golden/eval_runs/{pq-v66-*.jsonl, v66_retest_notes.md}`. Closes task #19.
+
 ## Rejected Approaches
 
-### Embedding upgrade (Qwen3-Embedding-0.6B / EmbeddingGemma-300M) — v6.3 → Qwen3 part RE-OPENED by v6.4 audit
+### Embedding upgrade (Qwen3-Embedding-0.6B / EmbeddingGemma-300M) — v6.3 → re-tested v6.6
 **Why considered:** 2025–26 frontier; higher open-MTEB than Jina v5; the open recall lever (8 never-retrieved).
 **Why rejected (v6.3):** both scored below the hard gate (0.790 / 0.770 vs 0.802); neither lifted the R@50 ceiling.
-**v6.4 audit correction:** the **Qwen3** rejection (0.012 gap) is **below the gate's discrimination floor → INCONCLUSIVE, not rejected** (pending a paired re-test, remote-gated, task #19). **Gemma** (0.033 gap, above floor) stays rejected. "Keep Jina v5" remains the default (no proven reason to switch), but Qwen3 is *not* established as worse. See [gate-audit.md](gate-audit.md).
+**v6.4 audit correction:** the **Qwen3** rejection (0.012 gap) was downgraded to INCONCLUSIVE (below the gate's discrimination floor, never significance-tested).
+**v6.6 paired re-test (resolved):** re-indexed both on the 5080, paired vs Jina on gate v2. **Qwen3 Δ=−0.0084** [−0.019,+0.001], ρ=0.917 — n.s., but CI upper bound ≈ 0 → *no upside*. **Gemma Δ=−0.0107** [−0.023,+0.001], wilcox p=0.043 — borderline. **Both gaps shrank vs v6.3** (0.012→0.008, 0.033→0.011): the single-label gate had *inflated* them. Net: **keep Jina v5 — no upside to either; "significantly worse" unproven (needs n≈1000+).** Gemma's "clear reject" is downgraded to "weakly worse." See [v66_retest_notes](../data/golden/eval_runs/v66_retest_notes.md).
 
 ### Late chunking (manual mean-pool + Jina v3 native) — v6.3
 **Why considered:** "contextual chunks without LLM enrichment" — the survey's most novel lever, and the one that should sidestep the enrichment failure.
 **Why rejected:** net-negative every measurement (−0.026 to −0.089), and it lowers the recall ceiling. ConTEB mechanism: context-pooling dilutes the rare-term signal on extractive/jargon corpora. Native v3 hurt most. Full record above.
+**v6.6 paired re-test (strengthened):** Gemma raw-late vs raw-naive (same space, n=440) Δ=**−0.0164** [−0.029,−0.005], **wilcox p=0.045 → now statistically SIGNIFICANT** (v6.3 only had eyeballed deltas). Reject stands, reinforced.
 
 ### Corpus-wide HyDE (query→hypothetical-passage on the dense leg)
 **Why considered:** standard fix for vocab-gap recall; the 8 never-retrieved hard misses looked like textbook HyDE wins.
 **Why rejected:** measured net-negative on the hard gate (NDCG 0.7921 → 0.7809 augment / 0.7753 replace). Domain-split mechanism — helps ML-conceptual, drifts on Rust-precise — and Jina v5's 0.96 bare-query ceiling leaves too little recall headroom to offset the drift. Kept as a **selective caller-side param** (augment-mode), not a default. Full record in the v6.2 section above.
+**v6.6 paired re-test (confirmed no-op):** on gate v2 baseline-200, HyDE Δ=−0.0081 [−0.026,+0.007], ρ=0.895 — n.s.; only 37/200 queries even changed (BM25 leg uses the original query). Confirms "keep as optional, not a default, not a significant regression."
 
 ### GraphRAG / LightRAG
 **Why considered:** Cross-book concept linking (e.g., "regularization" in 8 books).
