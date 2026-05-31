@@ -103,3 +103,25 @@ The retest's one open gap (navigational 0.763) was diagnosed as **two artifacts,
 **First statistically significant POSITIVE retrieval change in all of v6.x.** Removing index junk
 improved *ranking* (fewer distractors in the reranker pool), didn't touch recall, and shrank the
 index 12.7%. Found by chasing a measurement artifact, not a retrieval-architecture lever.
+
+## v6.7.1 — gate restore (428 → 440)
+
+The v6.7 strip dropped 12 hard-gate queries (2 keyword + 10 navigational) whose only gold was an
+index page. Regenerated replacements from the **clean** corpus via `regen_dropped_queries.py`
+(reuses `gen_archetypes` helpers; seed 1234 for a fresh shuffle, dedup vs all 440 prior queries, +a
+`index for…`/`Index (part N)` nav-junk reject so the artifact can't recur). Pooled+judged on the
+clean production index (`pool_and_judge.py`): mean **3.0 positives/query**, validated **0 index
+golds / 0 dead positives**, every row anchored by a grade-2.
+
+Gate **428 → 440**, archetype balance back to **200/80/80/80**. Re-baseline on the clean index:
+
+| metric | 428 (v6.7) | 440 (v6.7.1) | note |
+|---|---|---|---|
+| NDCG@10 | 0.8212 | **0.8218** | +0.0006 — noise; cosmetic restore, no verdict moves |
+| R@10 | 0.9907 | 0.9886 | flat |
+| R@50 ceiling | 0.9977 | 0.9955 | flat |
+| keyword (n) | 0.791 (78) | 0.824 (80) | 2 new kw scored high |
+| navigational (n) | 0.866 (70) | 0.861 (80) | 10 new nav ≈ stratum |
+
+Paired reference `pq-v67-clean-hard.jsonl` regenerated at n=440. The 440 gate (balanced, valid) is
+canonical; production index unchanged.

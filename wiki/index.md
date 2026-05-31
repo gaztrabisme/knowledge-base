@@ -1,6 +1,14 @@
 # Developer Knowledge Base — Project Wiki
 
-Last updated: 2026-05-31 (v6.7 CORPUS-HYGIENE round: chasing the retest's one open gap (navigational
+Last updated: 2026-05-31 (v6.7.1 GATE-RESTORE: regenerated the 12 queries dropped by the v6.7 strip
+(2 keyword + 10 navigational, whose gold had been index pages) from the **clean** corpus — seeds now
+valid by construction; added a junk-nav phrasing reject (`index for…`/`Index (part N)`) so the
+artifact can't recur. Pooled+judged against the clean index (mean 3.0 positives/query, validated zero
+index golds / zero dead positives). Gate **428 → 440**, archetype balance restored to **200/80/80/80**.
+Re-baseline held: NDCG@10 **0.8218** (was 0.8212@428; +0.0006 noise — cosmetic restore, no verdict
+moves), R@10 0.989 / ceiling 0.996 intact. Paired reference `pq-v67-clean-hard.jsonl` regenerated at
+n=440. Script: `scripts/regen_dropped_queries.py`.)
+PREVIOUS (v6.7 CORPUS-HYGIENE round: chasing the retest's one open gap (navigational
 0.763) found it was **two artifacts, not weak retrieval** — (1) 12 gate queries whose gold was a book
 back-of-book INDEX page (dropped; legit nav = **0.866**, R@10 1.0), and (2) **6,276 chunks (12.7%) of
 back-of-book index pages** that survived v6 stripping across 15 books. Stripped them
@@ -43,10 +51,10 @@ MCP server providing semantic search over 46 technical books to Claude Code. Pip
 
 | Metric | Value |
 |--------|-------|
-| Version | v6.7 (index back-matter stripped + promoted; gate v2 paired-retested) |
+| Version | v6.7.1 (index back-matter stripped + promoted; gate restored to 440) |
 | Books indexed | 46 (19 ML + 5 DB + 7 security + 2 distributed + 13 Rust) |
 | Total vectors | **41,780** (v6.7 stripped 6,276 back-of-book index chunks from 48,056) |
-| Hard gate (NDCG@10) | **0.8212** (clean index, 428-query v2 gate; +0.0075 sig. over pre-strip) · easy 0.9225 |
+| Hard gate (NDCG@10) | **0.8218** (clean index, 440-query v2 gate, balance 200/80/80/80; +0.0075 sig. over pre-strip) · easy 0.9225 |
 | Collection | `developer_knowledge` |
 | MCP tools | 5 (search, search_book, get_chapter, list_books, grep_books) — `get_chapter`/`list_books` now work for postgres |
 | Reranker | Ettin-150m (ModernBERT) — **per-domain input (v6.2): heading_path for ml/rust, child-only for security/db/distributed** (`descriptive-heading`, supersedes ⚡1's global heading) |
