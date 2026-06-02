@@ -1,12 +1,15 @@
 """FastMCP server exposing semantic search over ML books."""
 
+import json
 import re
 import subprocess
 
 from fastmcp import FastMCP
 
-from .config import BOOKS, MARKDOWN_DIR
+from .config import BOOKS, CHUNKS_DIR, MARKDOWN_DIR
 from .search import get_client, hybrid_search
+
+_CHUNK_ID_RE = re.compile(r"^(.+)-p(\d+)-c(\d+)$")
 
 mcp = FastMCP(
     "Developer Knowledge Base",
@@ -87,6 +90,63 @@ def search_book(
         book_filter=book,
     )
     return [r.to_dict() for r in results]
+
+
+@mcp.tool()
+def read_chunk(chunk_id: str, window: int = 1) -> dict:
+    """Expand context around a search hit: read a chunk plus its neighbours.
+
+    Pass the `chunk_id` from a search() / search_book() result to pull the exact
+    chunk, its parent passage, and the adjacent sibling chunks — without
+    re-searching or loading a whole chapter via get_chapter(). Useful for
+    following a promising hit forward/backward through the surrounding text.
+
+    Args:
+        chunk_id: A chunk id from search results, e.g. "crypto-101-p0-c1".
+        window: Number of sibling chunks to include on each side (default 1;
+            window=0 returns only the chunk itself).
+
+    Returns:
+        Dict with the chunk text, its parent passage, neighbouring siblings
+        (`previous`/`next`), heading_path, and `seen_chunk_ids` (every id
+        returned) so repeated calls can skip already-seen chunks.
+    """
+    m = _CHUNK_ID_RE.match(chunk_id)
+    if not m:
+        return {"error": f"Malformed chunk_id (expected 'slug-pN-cM'): {chunk_id}"}
+    slug, p_idx, _ = m.groups()
+    parent_id = f"{slug}-p{p_idx}"
+
+    chunk_path = CHUNKS_DIR / f"{slug}.json"
+    if not chunk_path.exists():
+        return {"error": f"Book not found: {slug}"}
+
+    data = json.loads(chunk_path.read_text(encoding="utf-8"))
+    siblings = [c for c in data.get("children", []) if c["parent_id"] == parent_id]
+    ids = [c["child_id"] for c in siblings]
+    if chunk_id not in ids:
+        return {"error": f"Chunk not found: {chunk_id}"}
+    idx = ids.index(chunk_id)
+
+    lo = max(0, idx - window)
+    hi = min(len(siblings), idx + window + 1)
+    parent = next((p for p in data.get("parents", []) if p["parent_id"] == parent_id), None)
+    target = siblings[idx]
+    meta = target.get("metadata", {})
+
+    def _slim(c: dict) -> dict:
+        return {"chunk_id": c["child_id"], "text": c["text"]}
+
+    return {
+        "chunk_id": chunk_id,
+        "book": meta.get("book_title", slug),
+        "heading_path": meta.get("heading_path", ""),
+        "text": target["text"],
+        "parent_text": parent["text"] if parent else "",
+        "previous": [_slim(c) for c in siblings[lo:idx]],
+        "next": [_slim(c) for c in siblings[idx + 1:hi]],
+        "seen_chunk_ids": ids[lo:hi],
+    }
 
 
 @mcp.tool()

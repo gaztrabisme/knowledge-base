@@ -60,6 +60,8 @@ class SearchResult:
             "heading_path": self.heading_path,
             "content": self.content,
             "child_match": self.child_match,
+            # chunk_id lets the agent expand context via read_chunk(chunk_id)
+            "chunk_id": self.child_id,
         }
 
 
