@@ -46,8 +46,18 @@ BOOKS = {
     "azureai-102certificationessentials": "Azure AI-102 Certification Essentials",
     "hands-onmachinelearningwithcplusplus_secondedition": "Hands-On Machine Learning with C++, 2nd Edition",
     "production-rag-guide": "Production RAG Guide",
+    # Advanced ML / Deep Learning (theory canon)
+    "bishop-prml": "Pattern Recognition and Machine Learning (Bishop)",
+    "probml-intro": "Probabilistic Machine Learning: An Introduction (Murphy)",
+    "probml-advanced": "Probabilistic Machine Learning: Advanced Topics (Murphy)",
+    "understanding-deep-learning": "Understanding Deep Learning (Prince)",
+    "d2l-en": "Dive into Deep Learning",
+    "lbdl": "The Little Book of Deep Learning (Fleuret)",
+    "cuda-programming-guide": "NVIDIA CUDA C++ Programming Guide",
     # Databases
     "postgresql-14-internals": "PostgreSQL 14 Internals",
+    "postgresql-internals-interdb": "The Internals of PostgreSQL (Suzuki)",
+    "use-the-index-luke": "Use The Index, Luke — SQL Indexing",
     "database-design-2nd-ed": "Database Design, 2nd Edition",
     "redis-for-dummies": "Redis for Dummies",
     "little-redis-book": "The Little Redis Book",
@@ -63,6 +73,7 @@ BOOKS = {
     "owasp-wstg-v4.2": "OWASP Web Security Testing Guide v4.2",
     "owasp-asvs-v5": "OWASP ASVS v5",
     "oauth-rfcs-book": "OAuth RFCs Book",
+    "owasp-cheat-sheets": "OWASP Cheat Sheet Series",
     # Rust
     "asynchronousprogramminginrust": "Asynchronous Programming in Rust",
     "creativeprojectsforrustprogrammers": "Creative Projects for Rust Programmers",

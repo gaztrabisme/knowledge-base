@@ -293,6 +293,25 @@ def ingest_all() -> list[Path]:
                 if output.exists():
                     output.unlink()
 
+    # Plain markdown sources (scraped web books, pre-built sheet collections).
+    # Already markdown — just normalise heading levels (like the HTML path); no
+    # markitdown conversion and no front/back-matter strip (tuned for Packt PDFs).
+    for source_dir in SOURCE_DIRS.values():
+        for md_file in sorted(source_dir.glob("*.md")):
+            stem = md_file.stem
+            if stem not in BOOKS:
+                continue
+            output = MARKDOWN_DIR / f"{stem}.md"
+            if output.exists():
+                print(f"  Skipping (exists): {stem}")
+                results.append(output)
+                continue
+            print(f"  Copying markdown: {stem}")
+            text = md_file.read_text(encoding="utf-8")
+            text = normalize_heading_levels(text)
+            output.write_text(text, encoding="utf-8")
+            results.append(output)
+
     rag_output = MARKDOWN_DIR / "production-rag-guide.md"
     if not rag_output.exists():
         print("  Converting: production-rag-guide")
