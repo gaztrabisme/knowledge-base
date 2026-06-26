@@ -1,6 +1,7 @@
 """Hybrid search (dense + BM25) with Ettin-150m cross-encoder reranking."""
 
 import os
+import sys
 from dataclasses import dataclass
 
 from qdrant_client import QdrantClient, models
@@ -27,14 +28,23 @@ def get_ranker() -> CrossEncoder:
 
 
 def get_client() -> QdrantClient:
-    # ⚡2: long-lived singleton. Opening a file-based 48K-point collection re-scans
-    # all segment metadata (~5.9s); reopening per query cost ~7s/call. Reuse one
-    # client for the process lifetime. The MCP server is the intended caller and
-    # holds the single-process lock for as long as it runs (it must be DOWN during
-    # any offline delete/index — see index.py).
+    # ⚡2: long-lived singleton, reused for the process lifetime.
+    # Prefer a shared Qdrant *server* (KB_QDRANT_URL, default 127.0.0.1:6333) so
+    # multiple concurrent MCP servers / Claude Code sessions can all read at once —
+    # the file-based store takes an exclusive single-process lock and only one
+    # session could use it. Fall back to the embedded store if the server is down
+    # (single-session mode, same as before).
     global _client
     if _client is None:
-        _client = QdrantClient(path=str(QDRANT_DIR))
+        url = os.environ.get("KB_QDRANT_URL", "http://127.0.0.1:6333")
+        try:
+            c = QdrantClient(url=url, timeout=30)
+            c.get_collections()  # ping — raises if the server is unreachable
+            _client = c
+        except Exception as e:
+            print(f"[kb] Qdrant server {url} unreachable ({e}); "
+                  f"falling back to embedded store {QDRANT_DIR}", file=sys.stderr)
+            _client = QdrantClient(path=str(QDRANT_DIR))
     return _client
 
 

@@ -2,6 +2,8 @@
 
 import hashlib
 import json
+import os
+import sys
 
 from fastembed import SparseTextEmbedding
 from qdrant_client import QdrantClient, models
@@ -32,8 +34,19 @@ def get_sparse_model() -> SparseTextEmbedding:
 
 
 def get_client() -> QdrantClient:
-    QDRANT_DIR.mkdir(parents=True, exist_ok=True)
-    return QdrantClient(path=str(QDRANT_DIR))
+    # Prefer the shared Qdrant server (KB_QDRANT_URL, default 127.0.0.1:6333) so
+    # indexing writes into the same store every session reads from, and concurrent
+    # access is allowed. Fall back to the embedded file store when the server is down.
+    url = os.environ.get("KB_QDRANT_URL", "http://127.0.0.1:6333")
+    try:
+        c = QdrantClient(url=url, timeout=60)
+        c.get_collections()  # ping
+        return c
+    except Exception as e:
+        print(f"[kb] Qdrant server {url} unreachable ({e}); "
+              f"using embedded store {QDRANT_DIR}", file=sys.stderr)
+        QDRANT_DIR.mkdir(parents=True, exist_ok=True)
+        return QdrantClient(path=str(QDRANT_DIR))
 
 
 def ensure_collection(client: QdrantClient) -> None:
