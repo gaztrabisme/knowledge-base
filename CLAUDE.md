@@ -1,13 +1,18 @@
 # Developer Knowledge Base — MCP Server
 
-A local MCP server that serves semantic search over technical books to Claude Code during development sessions. 65 sources indexed across ML, databases, security, distributed systems, Rust, and software architecture.
+A local MCP server that serves semantic search over technical books to Claude Code during development sessions. 115 sources indexed across ML, AI engineering, databases, security, distributed systems, Rust, software architecture, software engineering, and systems/ops.
 
-## Status: v6.9 — Architecture Shelf
+## Status: v7.0 — Full Corpus
 
-65 books indexed (55,113 vectors). 19 O'Reilly software-architecture books added and gated:
-paired bootstrap + sign test + Wilcoxon over the 440-query hard set return *noise (n.s.)* on
-every metric (NDCG delta -0.0057, below the gate's 0.0085 detection floor; 15 queries improved,
-18 regressed). O'Reilly front matter is now stripped — the pattern list had been Packt-only.
+115 books indexed (117,695 vectors). Everything that was staged on disk is now live: the
+19-book architecture shelf plus the 50-source batch (AI engineering, the software-engineering
+canon, systems/ops, space-edge-ai research notes, 7 theory PDFs, OWASP cheat sheets).
+
+The 440-query hard gate reads **NDCG 0.7737, down 0.0481 from v6.7.1** — statistically
+significant (89 queries regressed, 8 improved, p < 0.0001). Read that number with the
+structural caveat below before acting on it: 89 regressions are almost all rank demotions
+*within* the top 10, recall@10 only moved 0.9886 → 0.9705, and the golden set cannot credit
+a new book because all 641 queries were drawn from the original 46.
 
 PDF heading hierarchy comes from PyMuPDF TOC reconstruction, with a markitdown fallback when CID-font garble is detected. Chunk sizing uses real tiktoken counts (child max 250, parent max 1900). Chunks are embedded from heading_path + child_text; contextual enrichment is a deferred background pass (index-now-enrich-later).
 
@@ -126,7 +131,7 @@ scripts/
 
 ## Source Library
 
-### ML (19 sources) — `knowledge-base/applied-ml/` + `production-rag-guide/`
+### ML (19 sources) — `knowledge-base/applied-ml/` (18) + `production-rag-guide/` (1)
 
 | Book | Topic |
 |------|-------|
@@ -150,17 +155,20 @@ scripts/
 | hands-onmachinelearningwithcplusplus_secondedition | C++ ML implementations |
 | production-rag-guide | Production RAG systems (9 chapters) |
 
-### Databases (5 sources) — `knowledge-base/databases/`
+### Databases (8 sources) — `knowledge-base/databases/`
 
 | Book | Topic |
 |------|-------|
 | postgresql-14-internals | PostgreSQL internals (MVCC, WAL, indexes, vacuum) |
 | database-design-2nd-ed | Relational database design |
 | redis-for-dummies | Redis fundamentals |
+| sql-relational-theory | SQL and Relational Theory, 3rd ed (Date) |
+| use-the-index-luke | SQL indexing and tuning |
+| postgresql-internals-interdb | The Internals of PostgreSQL (Suzuki) |
 | little-redis-book | Redis concise guide |
 | digitalocean-redis | Redis operations guide |
 
-### Security (7 sources) — `knowledge-base/security/`
+### Security (8 sources) — `knowledge-base/security/`
 
 | Book | Topic |
 |------|-------|
@@ -171,6 +179,40 @@ scripts/
 | owasp-wstg-v4.2 | Web security testing methodology |
 | owasp-asvs-v5 | Application security verification standard |
 | oauth-rfcs-book | OAuth 2.0 RFC compilation |
+| owasp-cheat-sheets | OWASP Cheat Sheet Series (118 documents) |
+
+### AI Engineering (3 sources) — `knowledge-base/ai-engineering/`
+
+| Book | Topic |
+|------|-------|
+| ai-engineering-huyen | Building applications on foundation models (Huyen) |
+| designing-ml-systems-huyen | Production ML system design (Huyen) |
+| agentic-design-patterns | Agent architecture patterns (Gulli) |
+
+### Software Engineering (22 sources) — `knowledge-base/software-engineering/`
+
+The classic canon: Clean Code / Clean Architecture (Martin), DDD (Evans), PoEAA and Refactoring
+(Fowler), Design Patterns (GoF), Enterprise Integration Patterns (Hohpe), Release It! (Nygard),
+Continuous Delivery (Humble & Farley), Google SRE, CLRS, AIMA, SWEBOK, Pro Git, TDD by Example
+(Beck), Growing OO Software Guided by Tests, REST in Practice, NoSQL Distilled, and three
+microservices titles.
+
+### Systems / Ops (9 sources) — `knowledge-base/systems-ops/`
+
+Linux administration, security hardening, kernel programming, systemd, shell scripting, Ubuntu,
+Python networking, network observability, and Serious Python.
+
+### Advanced ML Theory (7 PDFs) — `knowledge-base/advanced-ml/`
+
+Dive into Deep Learning (Zhang et al.), Understanding Deep Learning (Prince), Probabilistic ML
+Introduction + Advanced (Murphy), Pattern Recognition & ML (Bishop), The Little Book of Deep
+Learning (Fleuret), and the NVIDIA CUDA Programming Guide.
+
+### Space / On-Orbit EO Edge AI (5 sources) — `knowledge-base/space-edge-ai/`
+
+Synthesized research notes (not books) for the VinSpace project: on-board EO inference, cloud
+detection and gating, land-cover segmentation and the SAM lineage, Jetson compression and energy
+optimization, and repository analyses.
 
 ### Architecture (19 sources) — `knowledge-base/architecture/`
 
@@ -223,9 +265,9 @@ scripts/
 
 ## Corpus Stats
 
-- 65 sources indexed live (50 EPUBs + 14 PDFs/HTML + 1 markdown guide)
-- 55,113 child chunks (vectors) in the live collection
-- 115 sources chunked on disk (117,750 children) — 50 are staged but unindexed, see Known Limitations
+- 115 sources indexed live; 117,695 child chunks (vectors) in the live collection
+- Disk chunks total 117,750; the 55-chunk gap is postgresql-14-internals, whose on-disk
+  re-chunk is corrupt and deliberately not indexed (see Known Limitations)
 - **Not yet enriched** — index-now-enrich-later: embedded with heading_path + child_text only; contextual enrichment is a deferred background pass
 - Token counting: tiktoken `cl100k_base` (≈ Jina v5 tokenizer within ~2%). Child max 250 / min 75, parent max 1900 tokens
 - Embedding: heading_path + context_text + child_text → Jina v5-text-small (677M params, 1024-dim)
@@ -257,26 +299,40 @@ scripts/
   `building-microservices.pdf`, a 102-page CID-garbled preview sampler, in favour of the
   full 2nd-edition EPUB. Gate: noise (n.s.) on all metrics vs v6.7.1.
 
+- **v7.0 (full corpus):** Indexed the remaining 50 staged sources (62,582 vectors) → 115 books
+  / 117,695 vectors. Hard gate 0.8161 → 0.7737 NDCG (significant); recall@10 0.9841 → 0.9705;
+  retrieval ceiling barely moved (0.9909 → 0.9886), so the reranker is demoting known-good hits
+  rather than the retriever losing them. Diagnosed the v6.8 databases collapse as a corrupt
+  postgresql-14-internals re-chunk, not new-book distraction.
+
 ## Known Limitations
 
 - **CID-font PDFs lose headings:** PDFs whose embedded subset fonts lack a ToUnicode CMap garble under PyMuPDF, so they auto-fall back to markitdown (clean body, no heading metadata). Only postgresql-14-internals is currently affected — search/grep work, but `get_chapter()` and chapter/section metadata are empty for it.
-- **50 books staged but unindexed:** the ai-engineering / software-engineering / systems-ops /
-  space-edge-ai batch and the 7 theory PDFs are ingested and chunked but not in the live index.
-  The v6.8 gate scored them as a regression (hard NDCG 0.8218 → 0.7871); that verdict is not
-  trustworthy — see the next two entries.
-- **Golden labels for postgresql-14-internals are stale:** that book was re-chunked during the
-  heading-restoration work, which renumbered its chunk ids. All 6 hard-set and both easy-set
-  postgres queries now point at dead ids or unrelated sections, so the gate scores correct
-  retrievals as misses. This alone produced the v6.8 databases collapse (0.888 → 0.607 NDCG).
-  Regenerate those labels before trusting any databases-domain gate number.
-- **Single-book ground truth penalizes better answers:** on the v6.8 run, `d2l-en` took 70 of
-  the displaced top-10 slots, with `probml-*`, `understanding-deep-learning` and the OWASP
-  cheat sheets behind it. Sampled cases are mostly equal-or-better answers scored as misses
-  because only one book's parent is labeled positive. Settling this needs `pool_and_judge.py`,
-  not a raw NDCG diff.
+- **The on-disk postgresql-14-internals chunks have corrupt headings — do not index them.**
+  The heading-restoration pass mis-assigned headings wholesale: BRIN/Bloom-filter text is
+  headed `B-tree > Indexing JSON`, WAL checkpoint text is headed `Vacuum and Autovacuum`,
+  merge-join plans are headed `Bitmap Scans`. Since heading_path is prepended to the embedding,
+  every chunk would be embedded under the wrong topic. This is what collapsed the databases
+  domain to 0.607 NDCG in the v6.8 gate. The live index still carries the older flat-but-correct
+  chapter headings (`2 Isolation`, `24 Hash`), the golden labels match it, and `index_book`
+  skips already-indexed books — so production is unaffected. Re-derive the headings before
+  re-indexing that book. It is the only book whose disk chunks diverge from the live index.
+- **The gate cannot reward corpus growth.** All 641 golden queries (440 hard + 201 easy) were
+  drawn from the original 46 books; zero have any later-added book as the labeled positive.
+  A new source can therefore only ever lower the score, never raise it, however good it is.
+  Sampling the v7.0 regressions shows roughly half are better answers being scored as misses —
+  `understanding-deep-learning` returning the actual SGD update rule, AIMA answering the Turing
+  test question — and roughly half are genuine dilution (a local-vs-global-maxima question
+  drifting to CLRS maximum-subarray). Settling which is which needs `pool_and_judge.py` over a
+  regenerated pool, not a raw NDCG diff.
+- **`ai-modern-approach` carries OCR garble:** text shows artifacts like `%ring Test` for
+  "Turing Test" and `195O` for "1950". Search still reaches it; exact-phrase grep may not.
 - **Enrichment pending:** v6 chunks carry heading_path + child_text but no contextual `context_text` yet. Retrieval works; the enrichment background pass will further sharpen recall on vocabulary-gap queries.
 
 ## Downloaded — Awaiting Ingestion
+
+Nothing. Everything previously listed here (the 7 theory PDFs, the OWASP cheat sheets, and the
+two scraped web books) is ingested and live as of v7.0. Historical listing:
 
 ### Advanced ML / Deep Learning (7 PDFs) — `knowledge-base/advanced-ml/`
 
