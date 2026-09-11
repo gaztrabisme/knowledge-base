@@ -5,6 +5,10 @@ knowledge-base/databases/
 knowledge-base/security/
 knowledge-base/distributed-systems/
 knowledge-base/rust/
+knowledge-base/architecture/
+knowledge-base/ai-engineering/
+knowledge-base/software-engineering/
+knowledge-base/systems-ops/
 
 # Pipeline outputs (regenerable from source + code) — all of data/ is derived
 # ...except data/golden/ (eval benchmark + recorded baselines — version-controlled

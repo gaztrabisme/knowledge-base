@@ -1,10 +1,15 @@
 # Developer Knowledge Base — MCP Server
 
-A local MCP server that serves semantic search over technical books to Claude Code during development sessions. 46 sources indexed across ML, databases, security, distributed systems, and Rust.
+A local MCP server that serves semantic search over technical books to Claude Code during development sessions. 65 sources indexed across ML, databases, security, distributed systems, Rust, and software architecture.
 
-## Status: v6.0 — Corpus Expansion + Ingestion Quality
+## Status: v6.9 — Architecture Shelf
 
-46 books indexed (48,009 vectors). PDF heading hierarchy recovered via PyMuPDF TOC reconstruction (v5's known limitation, now fixed). Chunk sizing on real tiktoken counts (child max 250, parent max 1900). 13 Rust books added. Two ingestion bugs fixed (Chapter-N appendix misfire, CID-font garble fallback). Indexed now with heading_path + child_text; contextual enrichment deferred to a background pass (index-now-enrich-later).
+65 books indexed (55,113 vectors). 19 O'Reilly software-architecture books added and gated:
+paired bootstrap + sign test + Wilcoxon over the 440-query hard set return *noise (n.s.)* on
+every metric (NDCG delta -0.0057, below the gate's 0.0085 detection floor; 15 queries improved,
+18 regressed). O'Reilly front matter is now stripped — the pattern list had been Packt-only.
+
+PDF heading hierarchy comes from PyMuPDF TOC reconstruction, with a markitdown fallback when CID-font garble is detected. Chunk sizing uses real tiktoken counts (child max 250, parent max 1900). Chunks are embedded from heading_path + child_text; contextual enrichment is a deferred background pass (index-now-enrich-later).
 
 ## Architecture
 
@@ -167,6 +172,30 @@ scripts/
 | owasp-asvs-v5 | Application security verification standard |
 | oauth-rfcs-book | OAuth 2.0 RFC compilation |
 
+### Architecture (19 sources) — `knowledge-base/architecture/`
+
+| Book | Topic |
+|------|-------|
+| software-architect-elevator | The architect's role across org levels (Hohpe) |
+| software-architecture-hard-parts | Distributed architecture trade-off analysis |
+| building-evolutionary-architectures | Fitness functions, architectural change |
+| software-architecture-metrics | Measuring architecture quality |
+| facilitating-software-architecture | Decentralized architecture practice, ADRs |
+| fundamentals-enterprise-architecture | EA concepts and practice |
+| semantic-software-design | Design philosophy and semantics |
+| learning-systems-thinking | Systems thinking for engineers |
+| architecture-patterns-with-python | DDD/ports-and-adapters/CQRS in Python |
+| learning-domain-driven-design | DDD strategic + tactical (Khononov) |
+| building-microservices-2e | Microservices, 2nd ed (Newman) |
+| building-event-driven-microservices | Event-driven microservices, 2nd ed |
+| designing-distributed-systems-2e | Distributed patterns, 2nd ed (Burns) |
+| building-multi-tenant-saas | Multi-tenant SaaS architecture |
+| building-medallion-architectures | Bronze/silver/gold data architecture |
+| flow-architectures | Event-driven integration, real-time flow |
+| mastering-api-architecture | API design, testing, evolution, gateways |
+| learning-api-styles | REST/GraphQL/gRPC/async API styles |
+| building-green-software | Carbon-aware and energy-efficient systems |
+
 ### Distributed Systems (2 sources) — `knowledge-base/distributed-systems/`
 
 | Book | Topic |
@@ -194,8 +223,9 @@ scripts/
 
 ## Corpus Stats
 
-- 46 sources indexed (31 EPUBs + 14 PDFs/HTML + 1 markdown guide)
-- 48,009 child chunks (vectors)
+- 65 sources indexed live (50 EPUBs + 14 PDFs/HTML + 1 markdown guide)
+- 55,113 child chunks (vectors) in the live collection
+- 115 sources chunked on disk (117,750 children) — 50 are staged but unindexed, see Known Limitations
 - **Not yet enriched** — index-now-enrich-later: embedded with heading_path + child_text only; contextual enrichment is a deferred background pass
 - Token counting: tiktoken `cl100k_base` (≈ Jina v5 tokenizer within ~2%). Child max 250 / min 75, parent max 1900 tokens
 - Embedding: heading_path + context_text + child_text → Jina v5-text-small (677M params, 1024-dim)
@@ -203,7 +233,8 @@ scripts/
 - Reranker: Ettin-150m cross-encoder (ModernBERT, 151M params, 0.5994 NDCG@10)
 - Fusion: Qdrant DBSF (Distribution-Based Score Fusion) via prefetch API
 - Adaptive cutoff: score floor 4.0, min results 3
-- Vector store: Qdrant file-based, collection `developer_knowledge`
+- Vector store: Qdrant server at `127.0.0.1:6333` (KB_QDRANT_URL), collection `developer_knowledge`;
+  falls back to the embedded file store at `data/qdrant` when the server is down
 
 ## Version History
 
@@ -214,10 +245,35 @@ scripts/
 - **v4.1 (full enrichment + expansion downloads):** All 19,103 chunks enriched (ML + databases + security + distributed systems). Re-indexed with enriched embeddings. Downloaded 7 free PDFs, 118 OWASP cheat sheets, and 2 scraped web books for next ingestion batch.
 - **v5 (search intelligence):** Reranker upgraded to Ettin-150m (ModernBERT, +0.093 NDCG@10 over MiniLM-L-12). Adaptive score cutoff filters noise (absolute floor 4.0). HyDE and multi-query exposed as agent-provided input parameters (no LLM dependency). Parent chunk overlap at H2 section boundaries. Heading path prepended to embeddings. Re-chunked to 19,728 vectors. Dev skill integration (KB in Available Tools + Research Subagent briefs).
 - **v6 (corpus expansion + ingestion quality):** Expanded to 46 books / 48,009 vectors (added 13 Rust books). PDF heading hierarchy recovered via PyMuPDF TOC reconstruction (resolves v5 PDF limitation). tiktoken-based chunk sizing (child max 250, parent max 1900). Hard-split for oversized blocks. Fixed two ingestion bugs: "Chapter N" appendix misfire in front-matter stripping, and CID-font garble auto-fallback to markitdown (postgresql-14-internals). BM25 keyword parameter + metadata-enriched enrichment prompt. Indexed without enrichment (index-now-enrich-later); enrichment is a deferred background pass.
+- **v6.7 (index-chunk strip):** Removed 6,276 back-of-book index chunks — page-number noise that
+  was displacing real content. Gate restored to 440 queries by regenerating 12 dropped ones (v6.7.1).
+- **v6.8 (staged expansion):** Ingested and chunked 50 more sources (ai-engineering,
+  software-engineering, systems-ops, space-edge-ai, 7 theory PDFs, OWASP cheat sheets) and added
+  the `read_chunk` MCP tool. The corpus is on disk; the index build was gated and not promoted.
+- **v6.9 (architecture shelf):** Added 19 O'Reilly architecture/microservices/API books
+  (13,333 vectors) → 65 books / 55,113 vectors. O'Reilly front-matter stripping added to
+  `ingest.py` (praise pages, revision history, "How to Contact Us"), plus a positive
+  content-start rule for titled `Part I.` / `Chapter 1.` headings. Dropped
+  `building-microservices.pdf`, a 102-page CID-garbled preview sampler, in favour of the
+  full 2nd-edition EPUB. Gate: noise (n.s.) on all metrics vs v6.7.1.
 
 ## Known Limitations
 
 - **CID-font PDFs lose headings:** PDFs whose embedded subset fonts lack a ToUnicode CMap garble under PyMuPDF, so they auto-fall back to markitdown (clean body, no heading metadata). Only postgresql-14-internals is currently affected — search/grep work, but `get_chapter()` and chapter/section metadata are empty for it.
+- **50 books staged but unindexed:** the ai-engineering / software-engineering / systems-ops /
+  space-edge-ai batch and the 7 theory PDFs are ingested and chunked but not in the live index.
+  The v6.8 gate scored them as a regression (hard NDCG 0.8218 → 0.7871); that verdict is not
+  trustworthy — see the next two entries.
+- **Golden labels for postgresql-14-internals are stale:** that book was re-chunked during the
+  heading-restoration work, which renumbered its chunk ids. All 6 hard-set and both easy-set
+  postgres queries now point at dead ids or unrelated sections, so the gate scores correct
+  retrievals as misses. This alone produced the v6.8 databases collapse (0.888 → 0.607 NDCG).
+  Regenerate those labels before trusting any databases-domain gate number.
+- **Single-book ground truth penalizes better answers:** on the v6.8 run, `d2l-en` took 70 of
+  the displaced top-10 slots, with `probml-*`, `understanding-deep-learning` and the OWASP
+  cheat sheets behind it. Sampled cases are mostly equal-or-better answers scored as misses
+  because only one book's parent is labeled positive. Settling this needs `pool_and_judge.py`,
+  not a raw NDCG diff.
 - **Enrichment pending:** v6 chunks carry heading_path + child_text but no contextual `context_text` yet. Retrieval works; the enrichment background pass will further sharpen recall on vocabulary-gap queries.
 
 ## Downloaded — Awaiting Ingestion

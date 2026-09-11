@@ -1,0 +1,79 @@
+{
+  "report": {
+    "label": "v68-easy",
+    "n_queries": 201,
+    "aggregate": {
+      "ndcg": 0.8969,
+      "recall10": 0.9801,
+      "mrr": 0.9534,
+      "recall_ceiling": 0.9801
+    },
+    "per_domain": {
+      "databases": {
+        "n": 13,
+        "ndcg": 0.6871,
+        "recall10": 0.6923,
+        "mrr": 0.6923,
+        "recall_ceiling": 0.6923
+      },
+      "distributed": {
+        "n": 6,
+        "ndcg": 0.9295,
+        "recall10": 1.0,
+        "mrr": 1.0,
+        "recall_ceiling": 1.0
+      },
+      "ml": {
+        "n": 89,
+        "ndcg": 0.9017,
+        "recall10": 1.0,
+        "mrr": 0.9623,
+        "recall_ceiling": 1.0
+      },
+      "rust": {
+        "n": 57,
+        "ndcg": 0.9189,
+        "recall10": 1.0,
+        "mrr": 0.9912,
+        "recall_ceiling": 1.0
+      },
+      "security": {
+        "n": 36,
+        "ndcg": 0.9206,
+        "recall10": 1.0,
+        "mrr": 0.9583,
+        "recall_ceiling": 1.0
+      }
+    }
+  },
+  "misses": [
+    {
+      "query": "How can I use multiple index scans on distinct values of the first column to simulate an index-only search on a non-leading column in PostgreSQL?",
+      "book": "postgresql-14-internals",
+      "domain": "databases",
+      "in_ceiling": false,
+      "heading_path": "25 B-tree (part 5)"
+    },
+    {
+      "query": "How can I disable WAL file recycling in PostgreSQL to prevent renaming instead of deleting old WAL segments?",
+      "book": "postgresql-14-internals",
+      "domain": "databases",
+      "in_ceiling": false,
+      "heading_path": "10 Write-Ahead Log (part 4)"
+    },
+    {
+      "query": "How do I query which operator classes and operators support the less-than strategy for the integer data type in a B-tree index?",
+      "book": "postgresql-14-internals",
+      "domain": "databases",
+      "in_ceiling": false,
+      "heading_path": "19 Index Access Methods (part 3)"
+    },
+    {
+      "query": "How does PostgreSQL's query planner estimate the cost of a Sort node with a Nested Loop Left Join when sorting by c.relname?",
+      "book": "postgresql-14-internals",
+      "domain": "databases",
+      "in_ceiling": false,
+      "heading_path": "16 Query Execution Stages (part 3)"
+    }
+  ]
+}

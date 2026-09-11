@@ -1,0 +1,179 @@
+{
+  "report": {
+    "label": "v68-hard",
+    "n_queries": 440,
+    "aggregate": {
+      "ndcg": 0.7871,
+      "recall10": 0.9682,
+      "mrr": 0.8698,
+      "recall_ceiling": 0.9818
+    },
+    "per_domain": {
+      "databases": {
+        "n": 17,
+        "ndcg": 0.6066,
+        "recall10": 0.7059,
+        "mrr": 0.6555,
+        "recall_ceiling": 0.7059
+      },
+      "distributed": {
+        "n": 7,
+        "ndcg": 0.8636,
+        "recall10": 1.0,
+        "mrr": 0.9048,
+        "recall_ceiling": 1.0
+      },
+      "ml": {
+        "n": 211,
+        "ndcg": 0.8128,
+        "recall10": 0.9763,
+        "mrr": 0.8911,
+        "recall_ceiling": 0.9953
+      },
+      "rust": {
+        "n": 137,
+        "ndcg": 0.7803,
+        "recall10": 0.9781,
+        "mrr": 0.8917,
+        "recall_ceiling": 0.9854
+      },
+      "security": {
+        "n": 68,
+        "ndcg": 0.7583,
+        "recall10": 0.9853,
+        "mrr": 0.8096,
+        "recall_ceiling": 1.0
+      }
+    },
+    "per_archetype": {
+      "baseline": {
+        "n": 200,
+        "ndcg": 0.7636,
+        "recall10": 0.95,
+        "mrr": 0.834,
+        "recall_ceiling": 0.97
+      },
+      "error_symbol": {
+        "n": 80,
+        "ndcg": 0.8139,
+        "recall10": 0.9875,
+        "mrr": 0.9133,
+        "recall_ceiling": 1.0
+      },
+      "keyword": {
+        "n": 80,
+        "ndcg": 0.7929,
+        "recall10": 1.0,
+        "mrr": 0.9276,
+        "recall_ceiling": 1.0
+      },
+      "navigational": {
+        "n": 80,
+        "ndcg": 0.813,
+        "recall10": 0.9625,
+        "mrr": 0.8577,
+        "recall_ceiling": 0.975
+      }
+    }
+  },
+  "misses": [
+    {
+      "query": "Why does my form field lose the user's typed input when the page refreshes, and how do I keep it?",
+      "book": "creativeprojectsforrustprogrammers",
+      "domain": "rust",
+      "in_ceiling": false,
+      "heading_path": "A simple list of persons > The other Rust handlers"
+    },
+    {
+      "query": "How can I make PostgreSQL avoid scanning the entire index when I only query the second column of a multi-column index, by breaking it into separate lookups for each unique value in the first column?",
+      "book": "postgresql-14-internals",
+      "domain": "databases",
+      "in_ceiling": false,
+      "heading_path": "25 B-tree (part 5)"
+    },
+    {
+      "query": "Why does my machine learning model get slower to make predictions the more training data I add, even though it's great at adapting to new examples?",
+      "book": "machinelearningwithpytorchandscikit-learn",
+      "domain": "ml",
+      "in_ceiling": false,
+      "heading_path": "K-nearest neighbors \u2013 a lazy learning algorithm"
+    },
+    {
+      "query": "Why does PostgreSQL keep renaming old WAL files instead of deleting them, and how can I force it to actually remove them to free up disk space?",
+      "book": "postgresql-14-internals",
+      "domain": "databases",
+      "in_ceiling": false,
+      "heading_path": "10 Write-Ahead Log (part 4)"
+    },
+    {
+      "query": "How can I find all the comparison operators that PostgreSQL uses internally for B-tree indexes when sorting integers with the less-than operation?",
+      "book": "postgresql-14-internals",
+      "domain": "databases",
+      "in_ceiling": false,
+      "heading_path": "19 Index Access Methods (part 3)"
+    },
+    {
+      "query": "Why does my reinforcement learning model for Atari games keep crashing when I try to use the same image-processing layers for both deciding what action to take and estimating how good the current situation is?",
+      "book": "deepreinforcementlearninghands-on_thirdedition",
+      "domain": "ml",
+      "in_ceiling": true,
+      "heading_path": "Advantage actor-critic (A2C) > A2C on Pong (part 1)"
+    },
+    {
+      "query": "Why does my Rust WASM function that returns either a success or error JavaScript value still fail to compile when I use the `?` operator everywhere, even though I've set up the return type correctly?",
+      "book": "gamedevelopmentwithrustandwebassembly",
+      "domain": "rust",
+      "in_ceiling": true,
+      "heading_path": "Sprite sheets > Loading JSON"
+    },
+    {
+      "query": "Why does the security proof for a hash function's internal state collision fail when two different inputs end up with the same internal value at the last mixing step, assuming both sequences are as short as possible and don't revisit earlier states?",
+      "book": "boneh-shoup-applied-cryptography",
+      "domain": "security",
+      "in_ceiling": true,
+      "heading_path": "I Secret key cryptography > 8 Message integrity from collision resistant hashing > 8.8.1 The sponge construction (part 3)"
+    },
+    {
+      "query": "Why does my query plan show a Sort step costing 21.03 after a Nested Loop Left Join, when I'm just ordering by a table name?",
+      "book": "postgresql-14-internals",
+      "domain": "databases",
+      "in_ceiling": false,
+      "heading_path": "16 Query Execution Stages (part 3)"
+    },
+    {
+      "query": "How do I save a table with columns like names and birth years into a file and then reload it back into a Python dictionary without losing the list structure?",
+      "book": "pandascookbook_thirdedition",
+      "domain": "ml",
+      "in_ceiling": true,
+      "heading_path": "JSON"
+    },
+    {
+      "query": "which section covers Bloom filters in BRIN",
+      "book": "postgresql-14-internals",
+      "domain": "databases",
+      "in_ceiling": false,
+      "heading_path": "29 BRIN (part 6)"
+    },
+    {
+      "query": "which section covers batch normalization",
+      "book": "hands-onmachinelearningwithcplusplus_secondedition",
+      "domain": "ml",
+      "in_ceiling": true,
+      "heading_path": "An overview of neural networks > Regularization in neural networks"
+    },
+    {
+      "query": "`gradient descent update rule`",
+      "book": "moderntimeseriesforecastingwithpython_secondedition",
+      "domain": "ml",
+      "in_ceiling": true,
+      "heading_path": "Components of a deep learning system > Forward and backward propagation > Gradient descent (part 1)"
+    },
+    {
+      "query": "where is the technical requirements section",
+      "book": "rustprogramminghandbook",
+      "domain": "rust",
+      "in_ceiling": false,
+      "heading_path": "Technical requirements"
+    }
+  ]
+}

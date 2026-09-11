@@ -51,7 +51,11 @@ def strip_front_back_matter(text: str) -> str:
         if not re.match(r"^#{1,2}\s+", line):
             continue
         heading_text = re.sub(r"^#{1,6}\s+", "", line).strip()
-        if re.match(r"^(\d+|chapter\s+\d+)$", heading_text, re.IGNORECASE):
+        # Bare "Chapter N"/"7" (Packt), or O'Reilly's titled "Chapter 1. Foo" /
+        # "Part I. Foo" openers. Either way this is the first real content.
+        if re.match(r"^(\d+|chapter\s+\d+)$", heading_text, re.IGNORECASE) or re.match(
+            r"^(chapter\s+1|part\s+(i|one|1))\s*[.:]", heading_text, re.IGNORECASE
+        ):
             content_start = i
             break
 
@@ -89,6 +93,11 @@ def _is_front_matter_heading(line: str) -> bool:
         "making the most out", "unlock your book", "how to unlock",
         "running a jupyter", "conventions", "code in action",
         "why subscribe", "packtpub", "packt.com", "subscribe",
+        # O'Reilly front matter (curly apostrophes vary, so match without them)
+        "praise for", "revision history", "reilly online learning",
+        "how to contact us", "using code examples", "about this book",
+        "who should read this book", "why i wrote this book",
+        "navigating the book", "staying up-to-date", "safari",
     ]
     return any(p in heading for p in front_patterns)
 

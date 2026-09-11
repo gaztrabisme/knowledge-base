@@ -1,0 +1,130 @@
+{
+  "report": {
+    "label": "v69-hard",
+    "n_queries": 440,
+    "aggregate": {
+      "ndcg": 0.8161,
+      "recall10": 0.9841,
+      "mrr": 0.8996,
+      "recall_ceiling": 0.9909
+    },
+    "per_domain": {
+      "databases": {
+        "n": 17,
+        "ndcg": 0.8682,
+        "recall10": 1.0,
+        "mrr": 0.8941,
+        "recall_ceiling": 1.0
+      },
+      "distributed": {
+        "n": 7,
+        "ndcg": 0.7986,
+        "recall10": 1.0,
+        "mrr": 0.8036,
+        "recall_ceiling": 1.0
+      },
+      "ml": {
+        "n": 211,
+        "ndcg": 0.8447,
+        "recall10": 0.9905,
+        "mrr": 0.9227,
+        "recall_ceiling": 1.0
+      },
+      "rust": {
+        "n": 137,
+        "ndcg": 0.7819,
+        "recall10": 0.9781,
+        "mrr": 0.8953,
+        "recall_ceiling": 0.9781
+      },
+      "security": {
+        "n": 68,
+        "ndcg": 0.7848,
+        "recall10": 0.9706,
+        "mrr": 0.8482,
+        "recall_ceiling": 0.9853
+      }
+    },
+    "per_archetype": {
+      "baseline": {
+        "n": 200,
+        "ndcg": 0.7934,
+        "recall10": 0.97,
+        "mrr": 0.8662,
+        "recall_ceiling": 0.985
+      },
+      "error_symbol": {
+        "n": 80,
+        "ndcg": 0.8261,
+        "recall10": 1.0,
+        "mrr": 0.9227,
+        "recall_ceiling": 1.0
+      },
+      "keyword": {
+        "n": 80,
+        "ndcg": 0.8197,
+        "recall10": 1.0,
+        "mrr": 0.9498,
+        "recall_ceiling": 1.0
+      },
+      "navigational": {
+        "n": 80,
+        "ndcg": 0.8592,
+        "recall10": 0.9875,
+        "mrr": 0.9101,
+        "recall_ceiling": 0.9875
+      }
+    }
+  },
+  "misses": [
+    {
+      "query": "Why does my secure messaging handshake fail after I decrypt the first message, even though the certificate chain looks okay?",
+      "book": "boneh-shoup-applied-cryptography",
+      "domain": "security",
+      "in_ceiling": false,
+      "heading_path": "III Protocols > 21 Authenticated Key Exchange > 21.6 One-sided authenticated key exchange"
+    },
+    {
+      "query": "Why does my form field lose the user's typed input when the page refreshes, and how do I keep it?",
+      "book": "creativeprojectsforrustprogrammers",
+      "domain": "rust",
+      "in_ceiling": false,
+      "heading_path": "A simple list of persons > The other Rust handlers"
+    },
+    {
+      "query": "Why does my reinforcement learning model for Atari games keep crashing when I try to use the same image-processing layers for both deciding what action to take and estimating how good the current situation is?",
+      "book": "deepreinforcementlearninghands-on_thirdedition",
+      "domain": "ml",
+      "in_ceiling": true,
+      "heading_path": "Advantage actor-critic (A2C) > A2C on Pong (part 1)"
+    },
+    {
+      "query": "Why does the security proof for a hash function's internal state collision fail when two different inputs end up with the same internal value at the last mixing step, assuming both sequences are as short as possible and don't revisit earlier states?",
+      "book": "boneh-shoup-applied-cryptography",
+      "domain": "security",
+      "in_ceiling": true,
+      "heading_path": "I Secret key cryptography > 8 Message integrity from collision resistant hashing > 8.8.1 The sponge construction (part 3)"
+    },
+    {
+      "query": "Why would it be bad to have my async code start running immediately when I create it, instead of waiting until I actually await it?",
+      "book": "asynchronousprogramminginrust",
+      "domain": "rust",
+      "in_ceiling": false,
+      "heading_path": "An example of hand-written coroutines > Do all futures have to be lazy?"
+    },
+    {
+      "query": "How do I save a table with columns like names and birth years into a file and then reload it back into a Python dictionary without losing the list structure?",
+      "book": "pandascookbook_thirdedition",
+      "domain": "ml",
+      "in_ceiling": true,
+      "heading_path": "JSON"
+    },
+    {
+      "query": "where is the technical requirements section",
+      "book": "rustprogramminghandbook",
+      "domain": "rust",
+      "in_ceiling": false,
+      "heading_path": "Technical requirements"
+    }
+  ]
+}
