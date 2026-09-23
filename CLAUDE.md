@@ -1,18 +1,18 @@
 # Developer Knowledge Base — MCP Server
 
-A local MCP server that serves semantic search over technical books to Claude Code during development sessions. 115 sources indexed across ML, AI engineering, databases, security, distributed systems, Rust, software architecture, software engineering, and systems/ops.
+A local MCP server that serves semantic search over technical books to Claude Code during development sessions. 126 sources indexed across ML, AI engineering, databases, security, distributed systems, Rust, software architecture, software engineering, and systems/ops.
 
-## Status: v7.0 — Full Corpus
+## Status: v7.1 — Manning AI shelf
 
-115 books indexed (117,695 vectors). Everything that was staged on disk is now live: the
-19-book architecture shelf plus the 50-source batch (AI engineering, the software-engineering
-canon, systems/ops, space-edge-ai research notes, 7 theory PDFs, OWASP cheat sheets).
+126 books are indexed (132,623 vectors). v7.1 adds 17 books: 16 from Manning and one from O'Reilly. Fourteen cover AI and LLM
+engineering, one covers optimization algorithms, and two cover software engineering (platform engineering and code
+review). It also removes the two sources we wrote ourselves: the production RAG guide and the VinSpace research notes.
+The corpus now contains published books only.
 
-The 440-query hard gate reads **NDCG 0.7737, down 0.0481 from v6.7.1** — statistically
-significant (89 queries regressed, 8 improved, p < 0.0001). Read that number with the
-structural caveat below before acting on it: 89 regressions are almost all rank demotions
-*within* the top 10, recall@10 only moved 0.9886 → 0.9705, and the golden set cannot credit
-a new book because all 641 queries were drawn from the original 46.
+The hard gate is a 438-query benchmark, and it reads **NDCG 0.7704**. That is 0.0042 below v7.0 on the same queries,
+a statistically significant drop: 30 queries regressed and 8 improved. Recall@10 (0.9680) and the retrieval ceiling
+(0.9886) did not move. The benchmark cannot give credit for a new book, because every query was drawn from the original
+46 books (see Known Limitations). The easy set reads 0.9108 (v7.0: 0.9115).
 
 PDF heading hierarchy comes from PyMuPDF TOC reconstruction, with a markitdown fallback when CID-font garble is detected. Chunk sizing uses real tiktoken counts (child max 250, parent max 1900). Chunks are embedded from heading_path + child_text; contextual enrichment is a deferred background pass (index-now-enrich-later).
 
@@ -131,7 +131,7 @@ scripts/
 
 ## Source Library
 
-### ML (19 sources) — `knowledge-base/applied-ml/` (18) + `production-rag-guide/` (1)
+### ML (19 sources) — `knowledge-base/applied-ml/`
 
 | Book | Topic |
 |------|-------|
@@ -153,7 +153,7 @@ scripts/
 | hands-onartificialintelligenceforiot_secondedition | Edge/IoT ML |
 | azureai-102certificationessentials | Azure AI services |
 | hands-onmachinelearningwithcplusplus_secondedition | C++ ML implementations |
-| production-rag-guide | Production RAG systems (9 chapters) |
+| optimization-algorithms | Search, metaheuristics, evolutionary and ML-based optimization (Khamis) |
 
 ### Databases (8 sources) — `knowledge-base/databases/`
 
@@ -181,21 +181,36 @@ scripts/
 | oauth-rfcs-book | OAuth 2.0 RFC compilation |
 | owasp-cheat-sheets | OWASP Cheat Sheet Series (118 documents) |
 
-### AI Engineering (3 sources) — `knowledge-base/ai-engineering/`
+### AI Engineering (17 sources) — `knowledge-base/ai-engineering/`
 
 | Book | Topic |
 |------|-------|
 | ai-engineering-huyen | Building applications on foundation models (Huyen) |
 | designing-ml-systems-huyen | Production ML system design (Huyen) |
 | agentic-design-patterns | Agent architecture patterns (Gulli) |
+| ai-powered-search | Semantic search, learning to rank, RAG over search engines (Grainger et al.) |
+| llms-in-production | Serving, evaluating and operating LLMs (Brousseau & Sharp) |
+| building-reliable-ai-systems | LLM reliability, guardrails, evaluation in production (Shahani) |
+| generative-ai-in-action | Enterprise generative AI patterns and RAG (Bahree) |
+| transformers-in-action | Transformer architecture, fine-tuning, alignment (Koenigstein) |
+| illustrated-guide-ai-agents | Agent anatomy: tools, memory, planning (Grootendorst & Alammar) |
+| human-in-the-loop-ml | Active learning and annotation (Monarch) |
+| interpretable-ai | Explainability methods for ML models (Thampi) |
+| ml-platform-engineering | Building an MLOps platform from scratch (Tan, Padmanabha) |
+| effective-conversational-ai | Designing and improving chatbots and assistants (Freed et al.) |
+| coding-with-ai | AI-assisted software development (Morgan) |
+| software-testing-with-genai | Using LLMs in software testing (Winteringham) |
+| art-of-ai-product-development | AI product discovery and delivery (Lipenkova) |
+| financial-ai-in-practice | ML and LLM applications in finance (Kim; early-access edition) |
 
-### Software Engineering (22 sources) — `knowledge-base/software-engineering/`
+### Software Engineering (24 sources) — `knowledge-base/software-engineering/`
 
 The classic canon: Clean Code / Clean Architecture (Martin), DDD (Evans), PoEAA and Refactoring
 (Fowler), Design Patterns (GoF), Enterprise Integration Patterns (Hohpe), Release It! (Nygard),
 Continuous Delivery (Humble & Farley), Google SRE, CLRS, AIMA, SWEBOK, Pro Git, TDD by Example
-(Beck), Growing OO Software Guided by Tests, REST in Practice, NoSQL Distilled, and three
-microservices titles.
+(Beck), Growing OO Software Guided by Tests, REST in Practice, NoSQL Distilled, three
+microservices titles, Effective Platform Engineering (Chankramath et al.), and "Looks Good to Me"
+(Braganza) on code review.
 
 ### Systems / Ops (9 sources) — `knowledge-base/systems-ops/`
 
@@ -207,12 +222,6 @@ Python networking, network observability, and Serious Python.
 Dive into Deep Learning (Zhang et al.), Understanding Deep Learning (Prince), Probabilistic ML
 Introduction + Advanced (Murphy), Pattern Recognition & ML (Bishop), The Little Book of Deep
 Learning (Fleuret), and the NVIDIA CUDA Programming Guide.
-
-### Space / On-Orbit EO Edge AI (5 sources) — `knowledge-base/space-edge-ai/`
-
-Synthesized research notes (not books) for the VinSpace project: on-board EO inference, cloud
-detection and gating, land-cover segmentation and the SAM lineage, Jetson compression and energy
-optimization, and repository analyses.
 
 ### Architecture (19 sources) — `knowledge-base/architecture/`
 
@@ -265,8 +274,8 @@ optimization, and repository analyses.
 
 ## Corpus Stats
 
-- 115 sources indexed live; 117,695 child chunks (vectors) in the live collection
-- Disk chunks total 117,750; the 55-chunk gap is postgresql-14-internals, whose on-disk
+- 126 sources indexed live; 132,623 child chunks (vectors) in the live collection
+- Disk chunks total 132,678; the 55-chunk gap is postgresql-14-internals, whose on-disk
   re-chunk is corrupt and deliberately not indexed (see Known Limitations)
 - **Not yet enriched** — index-now-enrich-later: embedded with heading_path + child_text only; contextual enrichment is a deferred background pass
 - Token counting: tiktoken `cl100k_base` (≈ Jina v5 tokenizer within ~2%). Child max 250 / min 75, parent max 1900 tokens
@@ -304,8 +313,23 @@ optimization, and repository analyses.
   retrieval ceiling barely moved (0.9909 → 0.9886), so the reranker is demoting known-good hits
   rather than the retriever losing them. Diagnosed the v6.8 databases collapse as a corrupt
   postgresql-14-internals re-chunk, not new-book distraction.
+- **v7.1 (Manning AI shelf):** Added 17 books (15,237 vectors) and removed `production-rag-guide` and
+  the five `space-edge-ai` notes (309 vectors), giving 126 books and 132,623 vectors. `ingest.py`
+  now also treats Manning-style `# 1 Title` / `# Part 1` headings as the start of content. The
+  golden sets drop the 2 rows whose only answers were in the RAG guide in each set: hard
+  440 → 438, easy 201 → 199. Removing the sources had no measurable effect (NDCG +0.0002, n.s.).
+  Adding the books cost NDCG 0.0042 (significant), with recall unchanged.
 
 ## Known Limitations
+
+- **Two markitdown versions are in use.** The 17 v7.1 books were converted with markitdown
+  0.1.7 from the project `.venv`. Every earlier book was converted with the global 0.1.4. If an
+  older book is re-ingested under `.venv`, its markdown will not be byte-identical, because 0.1.7
+  escapes periods and spaces headings differently.
+- **Three systems-ops books still carry back-of-book index chunks:** `masteringlinuxadministration`,
+  `masteringpythonnetworking` and `ultimateubuntuhandbook`, 2,477 chunks in total, all live.
+  `strip_index_backmatter.py --dry-run` flags them. Stripping them means deleting the matching
+  points from Qdrant as well, so that the chunk files on disk and the index stay in step.
 
 - **CID-font PDFs lose headings:** PDFs whose embedded subset fonts lack a ToUnicode CMap garble under PyMuPDF, so they auto-fall back to markitdown (clean body, no heading metadata). Only postgresql-14-internals is currently affected — search/grep work, but `get_chapter()` and chapter/section metadata are empty for it.
 - **The on-disk postgresql-14-internals chunks have corrupt headings — do not index them.**
@@ -317,7 +341,7 @@ optimization, and repository analyses.
   chapter headings (`2 Isolation`, `24 Hash`), the golden labels match it, and `index_book`
   skips already-indexed books — so production is unaffected. Re-derive the headings before
   re-indexing that book. It is the only book whose disk chunks diverge from the live index.
-- **The gate cannot reward corpus growth.** All 641 golden queries (440 hard + 201 easy) were
+- **The gate cannot reward corpus growth.** All 637 golden queries (438 hard + 199 easy) were
   drawn from the original 46 books; zero have any later-added book as the labeled positive.
   A new source can therefore only ever lower the score, never raise it, however good it is.
   Sampling the v7.0 regressions shows roughly half are better answers being scored as misses —

@@ -26,7 +26,7 @@ import re
 import tiktoken
 from openai import AsyncOpenAI
 
-from knowledge_base.config import BOOKS, CHUNKS_DIR, RAG_GUIDE_DIR, SOURCE_DIRS
+from knowledge_base.config import BOOKS, CHUNKS_DIR, SOURCE_DIRS
 from knowledge_base.ingest import _is_back_matter_heading, _is_front_matter_heading
 
 SEED = 42
@@ -69,10 +69,9 @@ def domain_map() -> dict[str, str]:
         for f in d.iterdir():
             if f.suffix.lower() in {".epub", ".pdf", ".html"}:
                 out[f.stem] = label[dom]
-    out["production-rag-guide"] = "ml"  # lives in RAG_GUIDE_DIR
     missing = [b for b in BOOKS if b not in out]
     if missing:
-        print(f"  WARN: no domain derived for {missing}; check {[*SOURCE_DIRS]} / {RAG_GUIDE_DIR.name}")
+        print(f"  WARN: no domain derived for {missing}; check {[*SOURCE_DIRS]}")
     return out
 
 

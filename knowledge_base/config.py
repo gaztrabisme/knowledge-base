@@ -15,10 +15,8 @@ SOURCE_DIRS = {
     "ai-engineering": ROOT / "knowledge-base" / "ai-engineering",
     "software-engineering": ROOT / "knowledge-base" / "software-engineering",
     "systems-ops": ROOT / "knowledge-base" / "systems-ops",
-    "space-edge-ai": ROOT / "knowledge-base" / "space-edge-ai",
     "architecture": ROOT / "knowledge-base" / "architecture",
 }
-RAG_GUIDE_DIR = ROOT / "knowledge-base" / "production-rag-guide"
 MARKDOWN_DIR = ROOT / "data" / "markdown"
 CHUNKS_DIR = ROOT / "data" / "chunks"
 
@@ -64,7 +62,7 @@ BOOKS = {
     "hands-onartificialintelligenceforiot_secondedition": "Hands-On AI for IoT, 2nd Edition",
     "azureai-102certificationessentials": "Azure AI-102 Certification Essentials",
     "hands-onmachinelearningwithcplusplus_secondedition": "Hands-On Machine Learning with C++, 2nd Edition",
-    "production-rag-guide": "Production RAG Guide",
+    "optimization-algorithms": "Optimization Algorithms (Khamis)",
     # Advanced ML / Deep Learning (theory canon)
     "bishop-prml": "Pattern Recognition and Machine Learning (Bishop)",
     "probml-intro": "Probabilistic Machine Learning: An Introduction (Murphy)",
@@ -111,6 +109,20 @@ BOOKS = {
     "ai-engineering-huyen": "AI Engineering: Building Applications with Foundation Models (Huyen)",
     "designing-ml-systems-huyen": "Designing Machine Learning Systems (Huyen)",
     "agentic-design-patterns": "Agentic Design Patterns (Gulli)",
+    "ai-powered-search": "AI-Powered Search (Grainger, Turnbull, Irwin)",
+    "llms-in-production": "LLMs in Production (Brousseau & Sharp)",
+    "building-reliable-ai-systems": "Building Reliable AI Systems (Shahani)",
+    "generative-ai-in-action": "Generative AI in Action (Bahree)",
+    "transformers-in-action": "Transformers in Action (Koenigstein)",
+    "illustrated-guide-ai-agents": "An Illustrated Guide to AI Agents (Grootendorst & Alammar)",
+    "human-in-the-loop-ml": "Human-in-the-Loop Machine Learning (Monarch)",
+    "interpretable-ai": "Interpretable AI (Thampi)",
+    "ml-platform-engineering": "Build a Machine Learning Platform (From Scratch) (Tan, Padmanabha)",
+    "effective-conversational-ai": "Effective Conversational AI (Freed, Jacobs, Rozsa)",
+    "coding-with-ai": "Coding with AI (Morgan)",
+    "software-testing-with-genai": "Software Testing with Generative AI (Winteringham)",
+    "art-of-ai-product-development": "The Art of AI Product Development (Lipenkova)",
+    "financial-ai-in-practice": "Financial AI in Practice (Kim, MEAP)",
     # Software Engineering / Architecture (classic canon)
     "clean-architecture": "Clean Architecture (Martin)",
     "clean-code": "Clean Code (Martin)",
@@ -134,6 +146,8 @@ BOOKS = {
     "intro-to-algorithms-clrs": "Introduction to Algorithms (CLRS)",
     "ai-modern-approach": "Artificial Intelligence: A Modern Approach (Russell & Norvig)",
     "pro-git": "Pro Git, 2nd Edition (Chacon & Straub)",
+    "effective-platform-engineering": "Effective Platform Engineering (Chankramath, Cheneweth et al.)",
+    "looks-good-to-me": "Looks Good to Me: Constructive Code Reviews (Braganza)",
     # Databases (added to existing domain)
     "sql-relational-theory": "SQL and Relational Theory, 3rd Edition (Date)",
     # Systems / Ops
@@ -146,12 +160,6 @@ BOOKS = {
     "masteringpythonnetworking": "Mastering Python Networking, 4th Edition",
     "linuxkernelprogramming": "Linux Kernel Programming, 2nd Edition",
     "modernnetworkobservability": "Modern Network Observability",
-    # Space / On-Orbit EO Edge AI (VinSpace project — synthesized research, not books)
-    "eo-cloud-detection": "EO Cloud Detection & Cloud-Cover Gating (On-Orbit)",
-    "eo-segmentation": "EO Land-Cover Segmentation & the SAM Lineage for Edge",
-    "edge-efficiency": "Edge Model Compression & Energy Optimization for Jetson",
-    "onboard-space-ai": "On-Board & In-Orbit AI for Earth Observation",
-    "repo-analyses": "Repository Analyses — On-Orbit EO AI Stack",
     # Architecture (O'Reilly architecture shelf)
     "software-architect-elevator": "The Software Architect Elevator (Hohpe)",
     "software-architecture-hard-parts": "Software Architecture: The Hard Parts (Ford, Richards, Sadalage, Dehghani)",

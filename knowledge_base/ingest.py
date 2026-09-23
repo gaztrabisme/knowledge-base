@@ -5,7 +5,7 @@ from pathlib import Path
 
 from markitdown import MarkItDown
 
-from .config import MARKDOWN_DIR, RAG_GUIDE_DIR, SOURCE_DIRS, BOOKS
+from .config import MARKDOWN_DIR, SOURCE_DIRS, BOOKS
 
 _converter = MarkItDown()
 
@@ -51,10 +51,16 @@ def strip_front_back_matter(text: str) -> str:
         if not re.match(r"^#{1,2}\s+", line):
             continue
         heading_text = re.sub(r"^#{1,6}\s+", "", line).strip()
-        # Bare "Chapter N"/"7" (Packt), or O'Reilly's titled "Chapter 1. Foo" /
-        # "Part I. Foo" openers. Either way this is the first real content.
+        # Titled front matter ("1 Preface") also matches the chapter-1 opener regex.
+        if _is_front_matter_heading(line):
+            continue
+        # Bare "Chapter N"/"7" (Packt), titled chapter 1 / Part 1 openers (Manning),
+        # or O'Reilly's "Chapter 1. Foo" / "Part I. Foo" openers mark real content.
         if re.match(r"^(\d+|chapter\s+\d+)$", heading_text, re.IGNORECASE) or re.match(
-            r"^(chapter\s+1|part\s+(i|one|1))\s*[.:]", heading_text, re.IGNORECASE
+            r"^(?:1(?:\s+\S|[.:](?!\d)\s*\S)|chapter\s+1\s*[.:]|"
+            r"part\s+(?:i|one|1)(?=$|\s|[.:](?!\d)))",
+            heading_text,
+            re.IGNORECASE,
         ):
             content_start = i
             break
@@ -226,17 +232,6 @@ def ingest_pdf(pdf_path: Path, output_path: Path) -> Path:
     return output_path
 
 
-def ingest_rag_guide(output_path: Path) -> Path:
-    parts = []
-    for md_file in sorted(RAG_GUIDE_DIR.glob("*.md")):
-        content = md_file.read_text(encoding="utf-8").strip()
-        parts.append(content)
-
-    combined = "\n\n---\n\n".join(parts)
-    output_path.write_text(combined + "\n", encoding="utf-8")
-    return output_path
-
-
 def ingest_all() -> list[Path]:
     MARKDOWN_DIR.mkdir(parents=True, exist_ok=True)
     results = []
@@ -320,14 +315,6 @@ def ingest_all() -> list[Path]:
             text = normalize_heading_levels(text)
             output.write_text(text, encoding="utf-8")
             results.append(output)
-
-    rag_output = MARKDOWN_DIR / "production-rag-guide.md"
-    if not rag_output.exists():
-        print("  Converting: production-rag-guide")
-        ingest_rag_guide(rag_output)
-    else:
-        print("  Skipping (exists): production-rag-guide")
-    results.append(rag_output)
 
     return results
 

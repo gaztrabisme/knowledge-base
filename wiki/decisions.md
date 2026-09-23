@@ -556,6 +556,20 @@ rerank, HyDE selective). Three findings of substance:
 Reusable infra: `scripts/gpu_sweep.sh` (unattended index→eval driver for candidates). Per-query dumps
 + running notes at `data/golden/eval_runs/{pq-v66-*.jsonl, v66_retest_notes.md}`. Closes task #19.
 
+## Corpus v7.1 — published books only; Manning AI shelf (2026-09-24)
+
+### Removed the self-authored sources
+**Context:** Two sources in the index were written by us with AI rather than published. `production-rag-guide` (9 chapters, 163 vectors) has been in the corpus since the initial commit. `space-edge-ai` (5 VinSpace research notes, 146 vectors) was added in v7.0.
+**Decision:** Remove both from the index, from `config.py` / `remote_index.py`, and from the source tree. They are recoverable from git at `a4da3d9`. The `ingest_rag_guide()` special case is gone with them.
+**Gate:** The removal was measured on its own before any books were added (`pq-v71a-hard`, paired against v7.0 on 436 queries): NDCG 0.7750 → 0.7753, not significant. The golden sets drop the 2 rows whose only positives were in the RAG guide in each set: hard 440 → 438, easy 201 → 199.
+**Gotcha:** The first reconciliation used `clean_golden_after_strip.py`, which treats `data/chunks/` as the set of live ids. `postgresql-14-internals` is the one book whose disk chunks diverge from the live index, so the script wrongly dropped 2 answerable PostgreSQL rows per set. The Codex review caught it. `scripts/reconcile_golden_live.py` reads that book's ids from Qdrant instead. Use it for any future removal.
+
+### Added 17 books (15,237 vectors)
+**Context:** Gary bought 28 EPUBs, 26 of them from Manning. We skipped 11: 5 are early-access (MEAP) drafts, 2 are domain-specific (finance, drug discovery), 3 are written for business readers, 1 is Java-only (Spring AI), and 1 is a second copy of Huyen's AI Engineering. *Financial AI in Practice* is kept despite being a MEAP.
+**Ingestion fix:** Manning titles chapters `# 1 Title`, and the content-start rule only knew about bare `1`, `Chapter 1.` and `Part I.`. As a result, 12 of the 17 books kept their full front matter: copyright, contents, foreword, preface, acknowledgments, about-this-book and the cover note. The bppc 27B audit found this, and Codex (gpt-6-luna) extended the regex to accept chapter-1 / `Part 1` openers only. A GLM follow-up added a guard so that a heading `_is_front_matter_heading` recognises (e.g. `1 Preface`) is never taken as the content start. Five existing books re-ingest byte-identical under the same markitdown version.
+**Gate:** Paired against v7.1a on 436 queries: NDCG −0.0044, MRR −0.0057, both significant (30 regressed / 8 improved). Recall@10 did not change (0.9702 → 0.9679, n.s.) and neither did the ceiling (0.9885). The drop is in the ML domain (0.790 → 0.781), where the new books compete with the labeled answers. It has the same structure as v7.0: the benchmark was drawn from the original 46 books and cannot credit new sources. Recorded as-is.
+**Indexing:** Indexed locally against the Qdrant server on MPS, at about 400 vectors/min (38 min), instead of on the 5080. The 27B was serving on bppc, and a remote build would have needed a merge step into the server.
+
 ## Rejected Approaches
 
 ### Embedding upgrade (Qwen3-Embedding-0.6B / EmbeddingGemma-300M) — v6.3 → re-tested v6.6
