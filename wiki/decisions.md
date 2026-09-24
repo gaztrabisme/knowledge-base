@@ -570,6 +570,13 @@ Reusable infra: `scripts/gpu_sweep.sh` (unattended index→eval driver for candi
 **Gate:** Paired against v7.1a on 436 queries: NDCG −0.0044, MRR −0.0057, both significant (30 regressed / 8 improved). Recall@10 did not change (0.9702 → 0.9679, n.s.) and neither did the ceiling (0.9885). The drop is in the ML domain (0.790 → 0.781), where the new books compete with the labeled answers. It has the same structure as v7.0: the benchmark was drawn from the original 46 books and cannot credit new sources. Recorded as-is.
 **Indexing:** Indexed locally against the Qdrant server on MPS, at about 400 vectors/min (38 min), instead of on the 5080. The 27B was serving on bppc, and a remote build would have needed a merge step into the server.
 
+## Measurement decisions
+
+### Agent-call benchmark harness (2026-09-24)
+**Context:** The MCP tool interface will change in stages for small local models, so each stage needs comparable agent-level evidence while the current tool behavior stays fixed.
+**Decision:** Add opt-in JSONL call logging, a seed-42 stratified 120-query set, an in-process OpenAI-compatible agent loop, and paired per-qid comparisons. Keep transcripts and call logs ignored; keep the question set and run rows versionable. Citation success maps each cited child chunk to its parent before matching the graded gold parents.
+**Evidence:** [agent benchmark report](../data/bench/report.md) records exact schema parity and the three-question smoke outputs. The smoke was not used to draw a model-quality conclusion.
+
 ## Rejected Approaches
 
 ### Embedding upgrade (Qwen3-Embedding-0.6B / EmbeddingGemma-300M) — v6.3 → re-tested v6.6

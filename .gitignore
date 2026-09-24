@@ -15,6 +15,9 @@ knowledge-base/systems-ops/
 # so retrieval comparisons stay stable across sessions)
 data/*
 !data/golden/
+!data/bench/
+data/bench/transcripts/
+data/bench/calls/
 # ...but the audit judge-sample batches are bulky reproducible scratch (regen via audit_prep.py)
 data/golden/audit/sample_batch_*.jsonl
 

@@ -6,6 +6,7 @@ import subprocess
 
 from fastmcp import FastMCP
 
+from .calllog import logged
 from .config import BOOKS, CHUNKS_DIR, MARKDOWN_DIR
 from .search import get_client, hybrid_search
 
@@ -18,6 +19,7 @@ mcp = FastMCP(
 
 
 @mcp.tool()
+@logged
 def search(
     query: str,
     top_k: int = 10,
@@ -63,6 +65,7 @@ def search(
 
 
 @mcp.tool()
+@logged
 def search_book(
     book: str,
     query: str,
@@ -93,6 +96,7 @@ def search_book(
 
 
 @mcp.tool()
+@logged
 def read_chunk(chunk_id: str, window: int = 1) -> dict:
     """Expand context around a search hit: read a chunk plus its neighbours.
 
@@ -150,6 +154,7 @@ def read_chunk(chunk_id: str, window: int = 1) -> dict:
 
 
 @mcp.tool()
+@logged
 def get_chapter(book: str, chapter: str) -> str:
     """Get the full text of a specific chapter from a book.
 
@@ -196,6 +201,7 @@ def get_chapter(book: str, chapter: str) -> str:
 
 
 @mcp.tool()
+@logged
 def list_books() -> list[dict]:
     """List all indexed books with their slugs and chapter count.
 
@@ -223,6 +229,7 @@ def list_books() -> list[dict]:
 
 
 @mcp.tool()
+@logged
 def grep_books(
     pattern: str,
     book: str | None = None,

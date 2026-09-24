@@ -1,6 +1,7 @@
 # Developer Knowledge Base — Project Wiki
 
-Last updated: 2026-05-31 (v6.7.1 GATE-RESTORE: regenerated the 12 queries dropped by the v6.7 strip
+Last updated: 2026-09-24 (agent tool-call measurement harness added; corpus/gate history below remains the 2026-05-31 v6.7.1 record).
+Historical update (2026-05-31, v6.7.1 GATE-RESTORE): regenerated the 12 queries dropped by the v6.7 strip
 (2 keyword + 10 navigational, whose gold had been index pages) from the **clean** corpus — seeds now
 valid by construction; added a junk-nav phrasing reject (`index for…`/`Index (part N)`) so the
 artifact can't recur. Pooled+judged against the clean index (mean 3.0 positives/query, validated zero
@@ -35,6 +36,8 @@ PREVIOUS (v6.4 gate-audit round: **audited the golden gate itself — overall gr
 
 ## Quick Links
 
+- [Active Work](active-work.md) — Current work in progress.
+- [Wiki Log](log.md) — Dated session outcomes and evidence pointers.
 - [Architecture](architecture.md) — Pipeline design, data flow, component interactions
 - [Decisions](decisions.md) — Key technical decisions and their rationale
 - [Gotchas](gotchas.md) — Known issues, workarounds, failure patterns
@@ -42,12 +45,15 @@ PREVIOUS (v6.4 gate-audit round: **audited the golden gate itself — overall gr
 - [RAG Frontier Survey 2025–26](rag-frontier-2026.md) — Cutting-edge scan mapped to this system; embedding-upgrade + late-chunking levers; the pooling fork
 - [Gate Audit Report Card](gate-audit.md) — **v6.4.** Rigorous audit of the golden eval gate (D+): statistical power, label completeness (44% incomplete), query realism, coverage. Significance harness. Why v6.3's embedding rejection is inconclusive.
 - [DSPy Enrichment Plan](dspy-enrichment-plan.md) — **CLOSED.** Phase 1+2 done (DSPy lost the prompt gate); Phase 3 done — full-index enrichment regressed the hard gate (0.7907→0.7759) so it was **reverted**. Corpus stays no-enrichment. Post-mortem in [decisions.md](decisions.md).
+- [Agent Benchmark](agent-benchmark.md) — Tool-call measurement harness, fixed 120-question sample, smoke results, and paired comparison commands.
 
 ## Project Summary
 
-MCP server providing semantic search over 46 technical books to Claude Code. Pipeline: markitdown/PyMuPDF-TOC → tiktoken-sized chunker (with overlap) → enrichment → heading_path + Jina v5 + FastEmbed BM25 → Qdrant (DBSF fusion) → HyDE/multi-query → Ettin-150m reranking → adaptive cutoff → FastMCP.
+MCP server providing semantic search over 126 technical books to agents. Pipeline: markitdown/PyMuPDF-TOC → tiktoken-sized chunker (with overlap) → enrichment → heading_path + Jina v5 + FastEmbed BM25 → Qdrant (DBSF fusion) → HyDE/multi-query → Ettin-150m reranking → adaptive cutoff → FastMCP.
 
 ## Current State
+
+`list_books()` returned 126 books on 2026-09-24. The numerical retrieval and corpus-size rows below are the last recorded 46-book v6.7.1 snapshot from 2026-05-31; this task did not rerun retrieval evaluation.
 
 | Metric | Value |
 |--------|-------|
@@ -56,7 +62,7 @@ MCP server providing semantic search over 46 technical books to Claude Code. Pip
 | Total vectors | **41,780** (v6.7 stripped 6,276 back-of-book index chunks from 48,056) |
 | Hard gate (NDCG@10) | **0.8218** (clean index, 440-query v2 gate, balance 200/80/80/80; +0.0075 sig. over pre-strip) · easy 0.9225 |
 | Collection | `developer_knowledge` |
-| MCP tools | 5 (search, search_book, get_chapter, list_books, grep_books) — `get_chapter`/`list_books` now work for postgres |
+| MCP tools | 6 (search, search_book, read_chunk, get_chapter, list_books, grep_books) |
 | Reranker | Ettin-150m (ModernBERT) — **per-domain input (v6.2): heading_path for ml/rust, child-only for security/db/distributed** (`descriptive-heading`, supersedes ⚡1's global heading) |
 | Search latency | MCP search ≈3.2s (was ≈10.2s) after ⚡2 client singleton — lands on next server restart |
 | Hard gate (NDCG@10) | **0.8021** (v6.1 0.7921) · easy 0.9379 (v6.1 0.9434, R@10 intact at 0.975) |
