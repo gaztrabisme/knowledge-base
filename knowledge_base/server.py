@@ -4,6 +4,8 @@ import json
 import os
 import re
 import subprocess
+import sys
+import threading
 
 from fastmcp import FastMCP
 
@@ -26,25 +28,23 @@ TOOL_DESCRIPTIONS = {
             "If you don't know which books cover the topic, call find_books first. "
             "For follow-up searches, reuse words from related_headings or "
             "find_books matching_sections instead of guessing vocabulary. "
-            "Use read_chunk(chunk_id) to read around a hit."
+            "Use read(chunk_id) to read around a hit."
         ),
         "hyde": (
             "Search the library for passages that answer a technical question. "
             "For conceptual questions, always write a hyde_passage: a 3–5 sentence "
             "hypothetical textbook answer. If you don't know which books cover the "
-            "topic, call find_books first. Use read_chunk(chunk_id) to read around a hit."
+            "topic, call find_books first. Use read(chunk_id) to read around a hit."
         ),
     },
-    "search_book": "Search a selected book for passages that answer a technical question.",
-    "read_chunk": "Read a search hit with neighboring chunks and its parent passage.",
-    "get_chapter": "Read a chapter by book and chapter number or title.",
+    "read": "Read a search hit with context, or a book chapter.",
     "list_books": "List the library catalog or one book's chapters.",
     "find_books": {
         "default": (
-            "Find books that cover a topic and show the vocabulary used in their sections. "
-            "Call this first if you don't know which books cover the topic."
+            "Find books that cover a topic and show section vocabulary. "
+            "Use returned slugs with search(books=[...])."
         ),
-        "hyde": "Find books that cover a topic and show the vocabulary used in their sections.",
+        "hyde": "Find books that cover a topic and show section vocabulary. Use returned slugs with search(books=[...]).",
     },
     "grep_books": "Find exact text matches in the books.",
 }
@@ -190,119 +190,107 @@ def search(
     return _search_response(results, overflow, detail)
 
 
-@mcp.tool(description=_tool_description("search_book"))
+@mcp.tool(description=_tool_description("read"))
 @logged
-def search_book(
-    book: str,
-    query: str,
-    top_k: int = 5,
-    detail: str = "brief",
-) -> dict | list[dict]:
-    """Search within one book.
+def read(
+    chunk_id: str | None = None,
+    book: str | None = None,
+    chapter: str | int | None = None,
+    window: int = 1,
+) -> dict | str:
+    """Read a search hit with context or a chapter from a book.
 
     Args:
-        book: Book slug or title.
-        query: Natural-language question or topic.
-        top_k: Maximum number of hits to return.
-        detail: Use "brief" hits or "full" parent passages.
+        chunk_id: Search-result chunk id; returns its parent and neighboring chunks.
+        book: Book slug or title; pass chapter to read one chapter.
+        chapter: Chapter number or exact, prefix, or partial title.
+        window: Sibling chunks on each side; applies only with chunk_id.
     """
-    if detail not in {"brief", "full"}:
-        return [{"error": "detail must be 'brief' or 'full'"}]
-    book_slug, suggestions = resolve_book(book)
-    if book_slug is None:
-        return [{"error": _unknown_book_error(book, suggestions)}]
+    if chunk_id is not None:
+        m = _CHUNK_ID_RE.match(chunk_id)
+        if not m:
+            return {"error": f"Malformed chunk_id (expected 'slug-pN-cM'): {chunk_id}"}
+        slug, p_idx, _ = m.groups()
+        parent_id = f"{slug}-p{p_idx}"
 
-    # ⚡2: reuse the long-lived client singleton (no per-call open/close).
-    client = get_client()
-    overflow = []
-    results = hybrid_search(
-        query=query,
-        client=client,
-        top_k=top_k,
-        book_filter=book_slug,
-        overflow=overflow,
-    )
-    return _search_response(results, overflow, detail)
+        chunk_path = CHUNKS_DIR / f"{slug}.json"
+        if not chunk_path.exists():
+            return {"error": f"Book not found: {slug}"}
 
+        data = json.loads(chunk_path.read_text(encoding="utf-8"))
+        siblings = [c for c in data.get("children", []) if c["parent_id"] == parent_id]
+        ids = [c["child_id"] for c in siblings]
+        if chunk_id not in ids:
+            return {"error": f"Chunk not found: {chunk_id}"}
+        idx = ids.index(chunk_id)
 
-@mcp.tool(description=_tool_description("read_chunk"))
-@logged
-def read_chunk(chunk_id: str, window: int = 1) -> dict:
-    """Read the chunk and surrounding context.
+        lo = max(0, idx - window)
+        hi = min(len(siblings), idx + window + 1)
+        parent = next((p for p in data.get("parents", []) if p["parent_id"] == parent_id), None)
+        target = siblings[idx]
+        meta = target.get("metadata", {})
 
-    Args:
-        chunk_id: Chunk id from a search result.
-        window: Number of sibling chunks to include on each side.
-    """
-    m = _CHUNK_ID_RE.match(chunk_id)
-    if not m:
-        return {"error": f"Malformed chunk_id (expected 'slug-pN-cM'): {chunk_id}"}
-    slug, p_idx, _ = m.groups()
-    parent_id = f"{slug}-p{p_idx}"
+        def _slim(c: dict) -> dict:
+            return {"chunk_id": c["child_id"], "text": c["text"]}
 
-    chunk_path = CHUNKS_DIR / f"{slug}.json"
-    if not chunk_path.exists():
-        return {"error": f"Book not found: {slug}"}
+        return {
+            "chunk_id": chunk_id,
+            "book": meta.get("book_title", slug),
+            "heading_path": meta.get("heading_path", ""),
+            "text": target["text"],
+            "parent_text": parent["text"] if parent else "",
+            "previous": [_slim(c) for c in siblings[lo:idx]],
+            "next": [_slim(c) for c in siblings[idx + 1:hi]],
+            "seen_chunk_ids": ids[lo:hi],
+        }
 
-    data = json.loads(chunk_path.read_text(encoding="utf-8"))
-    siblings = [c for c in data.get("children", []) if c["parent_id"] == parent_id]
-    ids = [c["child_id"] for c in siblings]
-    if chunk_id not in ids:
-        return {"error": f"Chunk not found: {chunk_id}"}
-    idx = ids.index(chunk_id)
+    if book is None:
+        return {
+            "error": (
+                "Call read(chunk_id='...') for a search hit or "
+                "read(book='...', chapter='...') for a chapter."
+            )
+        }
 
-    lo = max(0, idx - window)
-    hi = min(len(siblings), idx + window + 1)
-    parent = next((p for p in data.get("parents", []) if p["parent_id"] == parent_id), None)
-    target = siblings[idx]
-    meta = target.get("metadata", {})
-
-    def _slim(c: dict) -> dict:
-        return {"chunk_id": c["child_id"], "text": c["text"]}
-
-    return {
-        "chunk_id": chunk_id,
-        "book": meta.get("book_title", slug),
-        "heading_path": meta.get("heading_path", ""),
-        "text": target["text"],
-        "parent_text": parent["text"] if parent else "",
-        "previous": [_slim(c) for c in siblings[lo:idx]],
-        "next": [_slim(c) for c in siblings[idx + 1:hi]],
-        "seen_chunk_ids": ids[lo:hi],
-    }
-
-
-@mcp.tool(description=_tool_description("get_chapter"))
-@logged
-def get_chapter(book: str, chapter: str | int) -> str:
-    """Read a chapter from a book.
-
-    Args:
-        book: Book slug or title.
-        chapter: 1-based number or exact, partial, or prefix title.
-    """
     slug, suggestions = resolve_book(book)
     if slug is None:
         return _unknown_book_error(book, suggestions)
+
+    chapter_titles = book_chapters(slug)
+    if chapter is None:
+        available = "; ".join(
+            f"{i}. {title}" for i, title in enumerate(chapter_titles[:10], start=1)
+        )
+        return {
+            "error": (
+                "Pass chapter to read a book. First chapters: "
+                f"{available or 'No chapters found.'}"
+            )
+        }
 
     md_path = MARKDOWN_DIR / f"{slug}.md"
     if not md_path.exists():
         return f"Book markdown not found: {slug}"
 
     text = md_path.read_text(encoding="utf-8")
-    chapter_titles = book_chapters(slug)
     chapter_query = str(chapter).strip()
     chapter_lower = chapter_query.casefold()
     selected_index = None
 
     if isinstance(chapter, int) and not isinstance(chapter, bool):
-        index = chapter
+        number = chapter
     elif chapter_query.isdigit():
-        index = int(chapter_query)
+        number = int(chapter_query)
     else:
-        index = None
-    if index is not None and 1 <= index <= len(chapter_titles):
-        selected_index = index
+        number = None
+    if number is not None:
+        numbered_title = re.compile(rf"^(?:chapter\s+)?{number}(?=$|[ .:])", re.IGNORECASE)
+        for i, title in enumerate(chapter_titles, start=1):
+            if numbered_title.match(title):
+                selected_index = i
+                break
+        if selected_index is None and 1 <= number <= len(chapter_titles):
+            selected_index = number
     if selected_index is None:
         for i, title in enumerate(chapter_titles, start=1):
             if title.casefold() == chapter_lower:
@@ -316,7 +304,7 @@ def get_chapter(book: str, chapter: str | int) -> str:
         if selected_index is None:
             for i, title in enumerate(chapter_titles, start=1):
                 title_lower = title.casefold()
-                if chapter_lower in title_lower or title_lower in chapter_lower:
+                if chapter_lower in title_lower:
                     selected_index = i
                     break
 
@@ -358,7 +346,8 @@ def get_chapter(book: str, chapter: str | int) -> str:
 
     result = "\n".join(chapter_lines).strip()
     if len(result) > 50000:
-        result = result[:50000] + "\n\n[... truncated at 50,000 characters ...]"
+        marker = "\n\n[... truncated at 50,000 characters ...]"
+        result = result[:49999 - len(marker)] + marker
     return result
 
 
@@ -677,6 +666,20 @@ def _grep_python(
 
 
 def main():
+    def warm_up() -> None:
+        try:
+            from .index import get_model
+            from .search import get_ranker
+
+            get_model()
+            get_ranker()
+            client = get_client()
+            hybrid_search("warm up", client, top_k=1)
+            print("[kb] warm-up finished", file=sys.stderr, flush=True)
+        except Exception as exc:
+            print(f"[kb] warm-up failed: {exc}", file=sys.stderr, flush=True)
+
+    threading.Thread(target=warm_up, name="kb-warm-up", daemon=True).start()
     mcp.run()
 
 

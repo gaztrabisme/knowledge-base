@@ -1,6 +1,6 @@
 # Developer Knowledge Base — Project Wiki
 
-Last updated: 2026-09-24 (agent tool-call measurement harness added; corpus/gate history below remains the 2026-05-31 v6.7.1 record).
+Last updated: 2026-09-24 (Stage 4 tool interface implemented; s4-check NDCG@10=0.7699, 0.0001 under the required value; corpus/gate history below remains the 2026-05-31 v6.7.1 record).
 Historical update (2026-05-31, v6.7.1 GATE-RESTORE): regenerated the 12 queries dropped by the v6.7 strip
 (2 keyword + 10 navigational, whose gold had been index pages) from the **clean** corpus — seeds now
 valid by construction; added a junk-nav phrasing reject (`index for…`/`Index (part N)`) so the
@@ -47,6 +47,7 @@ PREVIOUS (v6.4 gate-audit round: **audited the golden gate itself — overall gr
 - [DSPy Enrichment Plan](dspy-enrichment-plan.md) — **CLOSED.** Phase 1+2 done (DSPy lost the prompt gate); Phase 3 done — full-index enrichment regressed the hard gate (0.7907→0.7759) so it was **reverted**. Corpus stays no-enrichment. Post-mortem in [decisions.md](decisions.md).
 - [Agent Benchmark](agent-benchmark.md) — Tool-call measurement harness, fixed 120-question sample, smoke results, and paired comparison commands.
 - [Stage 3 Interface Report](../data/bench/stage3-report.md) — Search result wrapper, description arms, token counts, and acceptance output.
+- [Stage 4 Interface Report](../data/bench/stage4-report.md) — Merged read tool, chapter matching, warm-up, token counts, and the s4-check gate result.
 
 ## Project Summary
 
@@ -63,7 +64,7 @@ MCP server providing semantic search over 126 technical books to agents. Pipelin
 | Total vectors | **41,780** (v6.7 stripped 6,276 back-of-book index chunks from 48,056) |
 | Hard gate (NDCG@10) | **0.8218** (clean index, 440-query v2 gate, balance 200/80/80/80; +0.0075 sig. over pre-strip) · easy 0.9225 |
 | Collection | `developer_knowledge` |
-| MCP tools | 6 (search, search_book, read_chunk, get_chapter, list_books, grep_books) |
+| MCP tools | 5 (search, read, list_books, find_books, grep_books) |
 | Reranker | Ettin-150m (ModernBERT) — **per-domain input (v6.2): heading_path for ml/rust, child-only for security/db/distributed** (`descriptive-heading`, supersedes ⚡1's global heading) |
 | Search latency | MCP search ≈3.2s (was ≈10.2s) after ⚡2 client singleton — lands on next server restart |
 | Hard gate (NDCG@10) | **0.8021** (v6.1 0.7921) · easy 0.9379 (v6.1 0.9434, R@10 intact at 0.975) |

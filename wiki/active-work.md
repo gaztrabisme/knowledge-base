@@ -1,8 +1,8 @@
 # Active Work
 
 ## KB interface refinement, measured on small agents
-**Status:** Stage 3 implementation complete; retrieval gate `s3-check` completed with a strict metric mismatch.
-**Current state:** Search and search_book wrap hits with related headings. Tool descriptions support the default and `KB_TOOL_DOCS=hyde` arms. Harness and call-log counts handle the results wrapper. Live search and helper checks pass. Gate NDCG@10 was 0.7699 versus required 0.7700; see [Stage 3 interface report](../data/bench/stage3-report.md).
-**Next step:** User runs the agent smoke test and reviews the −0.0001 gate difference. Do not run `agent_bench.py` against a model in this stage.
+**Status:** Stage 4 implementation complete; retrieval gate strict FAIL.
+**Current state:** The tools are search, read, list_books, find_books, and grep_books. Default tool schema is 1,077 cl100k_base tokens versus 1,237 at HEAD; the HyDE schema is 1,079 versus 1,225. Chapter, chunk, error, import-time, warm-up, and benchmark parser checks passed. The s4-check NDCG@10 is 0.7699 against 0.7700 required. See [Stage 4 interface report](../data/bench/stage4-report.md).
+**Next step:** Review the 0.0001 retrieval gate shortfall before choosing further work. Do not run agent_bench.py against a model in this stage.
 
 Details in [Agent Benchmark](agent-benchmark.md).
