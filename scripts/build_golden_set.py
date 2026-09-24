@@ -14,6 +14,12 @@ add hard negatives), then can be dropped before eval.
 Usage:
   export DEEPSEEK_API_KEY=...   # from .env
   python3 scripts/build_golden_set.py --target 200 --concurrency 50
+
+Options:
+  --books slug1,slug2   restrict sampling to these books (requires --out)
+  --out PATH            output file (default: the full golden file)
+  --backend deepseek|omlx
+  --model ID            model id for --backend omlx
 """
 
 import argparse
@@ -22,15 +28,23 @@ import json
 import os
 import random
 import re
+import sys
+from pathlib import Path
 
 import tiktoken
 from openai import AsyncOpenAI
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))    # knowledge_base
+sys.path.insert(0, os.path.expanduser("~/.claude/skills/omlx/scripts"))
+import omlx_client as oc
 
 from knowledge_base.config import BOOKS, CHUNKS_DIR, SOURCE_DIRS
 from knowledge_base.ingest import _is_back_matter_heading, _is_front_matter_heading
 
 SEED = 42
 MODEL = "deepseek-v4-flash"
+OMLX_MODEL = "Qwen3.8-Flash-Next-REAP-384-oQ4e-BF16-MTP-PLE"
+OMLX_WORKERS = 4
 THINKING_OFF = {"thinking": {"type": "disabled"}}
 GOLDEN_PATH = CHUNKS_DIR.parent / "golden" / "golden_queries.jsonl"
 
@@ -68,7 +82,7 @@ def domain_map() -> dict[str, str]:
             continue
         for f in d.iterdir():
             if f.suffix.lower() in {".epub", ".pdf", ".html"}:
-                out[f.stem] = label[dom]
+                out[f.stem] = label.get(dom, dom)  # domains past v6 use the dir key as-is
     missing = [b for b in BOOKS if b not in out]
     if missing:
         print(f"  WARN: no domain derived for {missing}; check {[*SOURCE_DIRS]}")
@@ -102,7 +116,7 @@ def eligible_children(book: str) -> list[dict]:
             continue
         if _is_matter_heading(c["metadata"].get("heading_path", "")):
             continue
-        n = len(_enc.encode(text))
+        n = len(_enc.encode(text, disallowed_special=()))
         if MIN_TOK <= n <= MAX_TOK:
             out.append(c)
     return out
@@ -140,27 +154,76 @@ async def gen_query(client, sem, chunk, domain, book_title):
     q = (r.choices[0].message.content or "").strip().strip('"')
     if not q or len(q) < 10:
         return None
+    return _row(chunk, q, domain)
+
+
+def gen_query_omlx(item, model):
+    """Same prompt and row shape as gen_query, on the local omlx server."""
+    chunk, domain, book_title = item
+    md = chunk["metadata"]
+    prompt = GEN_PROMPT.format(
+        book_title=book_title,
+        heading_path=md.get("heading_path", "") or "(none)",
+        chunk_text=chunk["text"].strip()[:2000],
+    )
+    try:
+        text, _meta = oc.chat_meta(
+            [{"role": "user", "content": prompt}], model,
+            temperature=0.3, max_tokens=200,
+        )
+    except Exception as e:
+        print(f"  ERROR {chunk['child_id']}: {e}")
+        return None
+    q = (text or "").strip().strip('"')
+    if not q or len(q) < 10:
+        return None
+    return _row(chunk, q, domain)
+
+
+def _row(chunk, query, domain) -> dict:
+    md = chunk["metadata"]
+    parent_id = re.sub(r"-c\d+$", "", chunk["child_id"])
     return {
-        "query": q,
+        "query": query,
         "positive_child_ids": [chunk["child_id"]],
         "hard_negative_child_ids": [],
         "domain": domain,
         "book": md["book"],
         "heading_path": md.get("heading_path", ""),
         "source_text": chunk["text"].strip(),
+        "relevance_grades": {parent_id: 2},
+        "archetype": "baseline",
     }
 
 
 async def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--target", type=int, default=200)
-    ap.add_argument("--concurrency", type=int, default=50)
+    ap.add_argument("--target", type=int, default=200,
+                    help="total number of queries to sample (default: 200)")
+    ap.add_argument("--concurrency", type=int, default=50,
+                    help="deepseek request concurrency (default: 50)")
+    ap.add_argument("--books", help="comma-separated book slugs to sample from (default: all)")
+    ap.add_argument("--out", help="output JSONL path (required with --books)")
+    ap.add_argument("--backend", choices=["deepseek", "omlx"], default="deepseek",
+                    help="question generator backend (default: deepseek)")
+    ap.add_argument("--model", default=OMLX_MODEL, help="model id for --backend omlx")
     args = ap.parse_args()
+
+    if args.books and not args.out:
+        ap.error("--out is required when --books is given (protects the full golden file)")
+    book_slugs = list(BOOKS)
+    if args.books:
+        book_slugs = [b.strip() for b in args.books.split(",") if b.strip()]
+        unknown = [b for b in book_slugs if b not in BOOKS]
+        if unknown:
+            ap.error(f"unknown book slug(s): {unknown}")
+    out_path = Path(args.out) if args.out else GOLDEN_PATH
+    model = MODEL if args.backend == "deepseek" else args.model
 
     random.seed(SEED)
     doms = domain_map()
 
-    pools = {b: eligible_children(b) for b in BOOKS}
+    pools = {b: eligible_children(b) for b in book_slugs}
     counts = {b: len(p) for b, p in pools.items()}
     alloc = allocate(args.target, counts)
 
@@ -171,25 +234,28 @@ async def main():
         sampled += [(c, doms.get(b, "unknown"), BOOKS[b]) for c in random.sample(pools[b], min(n, len(pools[b])))]
     random.shuffle(sampled)
     print(f"Sampling {len(sampled)} chunks across {sum(1 for n in alloc.values() if n>0)} books "
-          f"(target {args.target}). Generating questions on {MODEL} (thinking off)...")
+          f"(target {args.target}). Generating questions on {model} via {args.backend} (thinking off)...")
 
-    key = os.environ["DEEPSEEK_API_KEY"]
-    client = AsyncOpenAI(
-        api_key=key, base_url="https://api.deepseek.com",
-        timeout=60.0, max_retries=5,  # ride out transient API windows
-    )
-    sem = asyncio.Semaphore(args.concurrency)
-    results = await asyncio.gather(*(gen_query(client, sem, c, d, t) for c, d, t in sampled))
+    if args.backend == "omlx":
+        results = oc.fanout(sampled, lambda item: gen_query_omlx(item, model), workers=OMLX_WORKERS)
+    else:
+        key = os.environ["DEEPSEEK_API_KEY"]
+        client = AsyncOpenAI(
+            api_key=key, base_url="https://api.deepseek.com",
+            timeout=60.0, max_retries=5,  # ride out transient API windows
+        )
+        sem = asyncio.Semaphore(args.concurrency)
+        results = await asyncio.gather(*(gen_query(client, sem, c, d, t) for c, d, t in sampled))
     rows = [r for r in results if r]
 
-    GOLDEN_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with GOLDEN_PATH.open("w") as f:
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with out_path.open("w") as f:
         for r in rows:
             f.write(json.dumps(r) + "\n")
 
     from collections import Counter
     dist = Counter(r["domain"] for r in rows)
-    print(f"\nWrote {len(rows)} queries -> {GOLDEN_PATH}")
+    print(f"\nWrote {len(rows)} queries -> {out_path}")
     print(f"by domain: {dict(dist)}")
     print(f"dropped (errors/too-short): {len(sampled) - len(rows)}")
 
