@@ -1,9 +1,17 @@
 {
   "mcpServers": {
     "knowledge-base": {
-      "command": "python3",
-      "args": ["-m", "knowledge_base.server"],
-      "cwd": "/Users/GaryT/Documents/Work/knowledge-base"
+      "command": "uv",
+      "args": [
+        "run",
+        "--project",
+        "/Users/GaryT/Documents/Work/tools/knowledge-base",
+        "--directory",
+        "/Users/GaryT/Documents/Work/tools/knowledge-base",
+        "python",
+        "-m",
+        "knowledge_base.server"
+      ]
     }
   }
 }
