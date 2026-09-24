@@ -8,6 +8,7 @@ from fastmcp import FastMCP
 
 from .calllog import logged
 from .config import BOOKS, CHUNKS_DIR, MARKDOWN_DIR
+from .books import _chapter_title, book_chapters, book_domain, resolve_book
 from .search import get_client, hybrid_search
 
 _CHUNK_ID_RE = re.compile(r"^(.+)-p(\d+)-c(\d+)$")
@@ -16,6 +17,26 @@ mcp = FastMCP(
     "Developer Knowledge Base",
     instructions="Semantic search over technical books: ML, databases, security, distributed systems",
 )
+
+
+def _unknown_book_error(book: str, suggestions: list[str]) -> str:
+    closest = ", ".join(suggestions)
+    return f"Unknown book '{book}'. Closest slugs: {closest}. Call list_books() for all slugs."
+
+
+def _format_search_result(result, detail: str) -> dict:
+    if detail == "brief":
+        return {
+            "score": round(float(result.score), 4),
+            "book": result.book,
+            "book_title": result.book_title,
+            "heading_path": result.heading_path,
+            "text": result.child_match,
+            "chunk_id": result.child_id,
+        }
+    full = result.to_dict()
+    full["book_slug"] = result.book
+    return full
 
 
 @mcp.tool()
@@ -27,13 +48,14 @@ def search(
     hyde_passage: str | None = None,
     extra_queries: list[str] | None = None,
     bm25_keywords: list[str] | None = None,
+    detail: str = "brief",
 ) -> list[dict]:
     """Search across all indexed books using hybrid semantic + keyword search.
 
     Args:
         query: Natural language search query.
         top_k: Number of results to return (default 10).
-        book: Optional book slug to filter results to a single book.
+        book: Optional book slug or title to filter results to a single book.
         hyde_passage: Optional hypothetical answer paragraph. When provided, this
             text is embedded instead of the query for the dense retrieval leg,
             bridging vocabulary gaps between questions and textbook prose. The
@@ -46,22 +68,33 @@ def search(
             terms drive lexical matching instead of the natural-language query,
             separating semantic intent (dense leg) from exact-term matching.
             Use when you know the precise vocabulary the source text would use.
+        detail: "brief" returns short passages for scanning; call read_chunk(chunk_id)
+            for the surrounding passage, or use "full" for the full result.
 
     Returns:
-        List of search results with score, book, chapter, section, content, and matching child chunk.
+        List of search results. Brief results contain the matching child passage;
+        full results include the parent passage and legacy fields.
     """
+    if detail not in {"brief", "full"}:
+        return [{"error": "detail must be 'brief' or 'full'"}]
+    book_slug = None
+    if book is not None:
+        book_slug, suggestions = resolve_book(book)
+        if book_slug is None:
+            return [{"error": _unknown_book_error(book, suggestions)}]
+
     # ⚡2: reuse the long-lived client singleton (no per-call open/close).
     client = get_client()
     results = hybrid_search(
         query=query,
         client=client,
         top_k=top_k,
-        book_filter=book,
+        book_filter=book_slug,
         hyde_passage=hyde_passage,
         extra_queries=extra_queries,
         bm25_keywords=bm25_keywords,
     )
-    return [r.to_dict() for r in results]
+    return [_format_search_result(r, detail) for r in results]
 
 
 @mcp.tool()
@@ -70,19 +103,25 @@ def search_book(
     book: str,
     query: str,
     top_k: int = 5,
+    detail: str = "brief",
 ) -> list[dict]:
     """Search within a specific book.
 
     Args:
-        book: Book slug (use list_books() to see available slugs).
+        book: Book slug or title (use list_books() to see available books).
         query: Natural language search query.
         top_k: Number of results to return (default 5).
+        detail: "brief" returns short passages for scanning; call read_chunk(chunk_id)
+            for the surrounding passage, or use "full" for the full result.
 
     Returns:
         List of search results scoped to the specified book.
     """
-    if book not in BOOKS:
-        return [{"error": f"Unknown book: {book}. Use list_books() to see available books."}]
+    if detail not in {"brief", "full"}:
+        return [{"error": "detail must be 'brief' or 'full'"}]
+    book_slug, suggestions = resolve_book(book)
+    if book_slug is None:
+        return [{"error": _unknown_book_error(book, suggestions)}]
 
     # ⚡2: reuse the long-lived client singleton (no per-call open/close).
     client = get_client()
@@ -90,9 +129,9 @@ def search_book(
         query=query,
         client=client,
         top_k=top_k,
-        book_filter=book,
+        book_filter=book_slug,
     )
-    return [r.to_dict() for r in results]
+    return [_format_search_result(r, detail) for r in results]
 
 
 @mcp.tool()
@@ -155,44 +194,90 @@ def read_chunk(chunk_id: str, window: int = 1) -> dict:
 
 @mcp.tool()
 @logged
-def get_chapter(book: str, chapter: str) -> str:
+def get_chapter(book: str, chapter: str | int) -> str:
     """Get the full text of a specific chapter from a book.
 
     Args:
-        book: Book slug (use list_books() to see available slugs).
-        chapter: Chapter heading or number to retrieve.
+        book: Book slug or title (use list_books() to see available books).
+        chapter: 1-based chapter index, exact or partial title, or title prefix.
 
     Returns:
         Full markdown text of the chapter, or an error message.
     """
-    md_path = MARKDOWN_DIR / f"{book}.md"
+    slug, suggestions = resolve_book(book)
+    if slug is None:
+        return _unknown_book_error(book, suggestions)
+
+    md_path = MARKDOWN_DIR / f"{slug}.md"
     if not md_path.exists():
-        return f"Book not found: {book}"
+        return f"Book markdown not found: {slug}"
 
     text = md_path.read_text(encoding="utf-8")
-    chapter_lower = chapter.lower().strip()
+    chapter_titles = book_chapters(slug)
+    chapter_query = str(chapter).strip()
+    chapter_lower = chapter_query.casefold()
+    selected_index = None
 
-    lines = text.split("\n")
+    if isinstance(chapter, int) and not isinstance(chapter, bool):
+        index = chapter
+    elif chapter_query.isdigit():
+        index = int(chapter_query)
+    else:
+        index = None
+    if index is not None and 1 <= index <= len(chapter_titles):
+        selected_index = index
+    if selected_index is None:
+        for i, title in enumerate(chapter_titles, start=1):
+            if title.casefold() == chapter_lower:
+                selected_index = i
+                break
+        if selected_index is None:
+            for i, title in enumerate(chapter_titles, start=1):
+                if title.casefold().startswith(chapter_lower):
+                    selected_index = i
+                    break
+        if selected_index is None:
+            for i, title in enumerate(chapter_titles, start=1):
+                title_lower = title.casefold()
+                if chapter_lower in title_lower or title_lower in chapter_lower:
+                    selected_index = i
+                    break
+
+    if selected_index is None:
+        available = "; ".join(
+            f"{i}. {title}" for i, title in enumerate(chapter_titles[:10], start=1)
+        )
+        suffix = f" Available chapters: {available}." if available else " No chapters found."
+        return f"Chapter '{chapter}' not found in {slug}.{suffix}"
+
     capturing = False
     chapter_lines: list[str] = []
     in_code = False
+    heading_index = 0
 
-    for line in lines:
-        if line.strip().startswith("```"):
+    for line in text.splitlines():
+        if line.lstrip().startswith(("```", "~~~")):
+            if capturing:
+                chapter_lines.append(line)
             in_code = not in_code
+            continue
 
-        if not in_code and re.match(r"^#\s+", line):
-            heading = re.sub(r"^#\s+", "", line).strip().lower()
+        heading = None if in_code else _chapter_title(line)
+        if heading:
+            heading_index += 1
             if capturing:
                 break
-            if chapter_lower in heading or heading in chapter_lower:
+            if heading_index == selected_index:
                 capturing = True
 
         if capturing:
             chapter_lines.append(line)
 
     if not chapter_lines:
-        return f"Chapter '{chapter}' not found in {book}. Try get_chapter with a different chapter name."
+        available = "; ".join(
+            f"{i}. {title}" for i, title in enumerate(chapter_titles[:10], start=1)
+        )
+        return f"Chapter '{chapter}' not found in {slug}. Available chapters: {available}."
 
     result = "\n".join(chapter_lines).strip()
     if len(result) > 50000:
@@ -202,30 +287,40 @@ def get_chapter(book: str, chapter: str) -> str:
 
 @mcp.tool()
 @logged
-def list_books() -> list[dict]:
-    """List all indexed books with their slugs and chapter count.
+def list_books(book: str | None = None) -> list[dict] | dict:
+    """List the catalog, or the chapters for one book.
+
+    Call without arguments for the catalog; pass a book slug or title for its chapters.
 
     Returns:
-        List of books with slug, title, and chapters.
+        Catalog rows, or one book with indexed chapter titles.
     """
-    result = []
-    for slug, title in sorted(BOOKS.items(), key=lambda x: x[1]):
-        md_path = MARKDOWN_DIR / f"{slug}.md"
-        chapters = []
-        if md_path.exists():
-            text = md_path.read_text(encoding="utf-8")
-            for line in text.split("\n"):
-                if re.match(r"^#\s+", line):
-                    heading = re.sub(r"^#\s+", "", line).strip()
-                    chapters.append(heading)
+    if book is not None:
+        slug, suggestions = resolve_book(book)
+        if slug is None:
+            return {"error": _unknown_book_error(book, suggestions)}
+        chapters = book_chapters(slug)
+        return {
+            "slug": slug,
+            "title": BOOKS[slug],
+            "domain": book_domain(slug),
+            "chapters": [
+                {"index": i, "title": title}
+                for i, title in enumerate(chapters, start=1)
+            ],
+        }
 
-        result.append({
+    return [
+        {
             "slug": slug,
             "title": title,
-            "chapters": chapters,
-            "chapter_count": len(chapters),
-        })
-    return result
+            "domain": book_domain(slug),
+            "chapter_count": len(book_chapters(slug)),
+        }
+        for slug, title in sorted(
+            BOOKS.items(), key=lambda item: (book_domain(item[0]), item[1].casefold())
+        )
+    ]
 
 
 @mcp.tool()
@@ -248,8 +343,11 @@ def grep_books(
     Returns:
         List of matches with book slug, line_number, and context (matching line + 1 line of surrounding context).
     """
-    if book is not None and book not in BOOKS:
-        return [{"error": f"Unknown book: {book}. Use list_books() to see available books."}]
+    if book is not None:
+        slug, suggestions = resolve_book(book)
+        if slug is None:
+            return [{"error": _unknown_book_error(book, suggestions)}]
+        book = slug
 
     # Build list of markdown files to search
     if book is not None:
