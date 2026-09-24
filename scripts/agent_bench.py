@@ -97,8 +97,10 @@ def result_count(value: object) -> int:
 def cited_ids(answer: str) -> list[str]:
     cited_line = None
     for line in answer.splitlines():
-        if line.strip().lower().startswith("cited:"):
-            cited_line = line.split(":", 1)[1]
+        # Models often format the line as markdown ("**CITED:** ...", "- CITED: ...").
+        bare = line.strip().lstrip("*_`#>- ").replace("*", "")
+        if bare.lower().startswith("cited:"):
+            cited_line = bare.split(":", 1)[1]
     return list(dict.fromkeys(CHUNK_ID_RE.findall(cited_line or "")))
 
 

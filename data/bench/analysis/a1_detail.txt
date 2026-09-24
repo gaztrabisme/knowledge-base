@@ -1,0 +1,233 @@
+== A1: 150 rows, 35 cited=false
+--- h0003 [golden/ml/baseline] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=4
+    Q: Why does my reinforcement learning agent's update rule involve multiplying the log probability of each action by the total reward collected from that point onwa
+    positives: ['deepreinforcementlearninghands-on_thirdedition-p173', 'deepreinforcementlearninghands-on_thirdedition-p174', 'deepreinforcementlearninghands-on_thirdedition-p179', 'deepreinforcementlearninghands-on_thirdedition-p184'] ...
+    cited_line: 'understanding-deep-learning-p188-c1, understanding-deep-learning-p188-c3'
+      call search       n=9 query='reinforcement learning agent update rule log probability reward sum'
+      call read_chunk   n=1 chunk_id='understanding-deep-learning-p188-c1' window=2
+      call read_chunk   n=1 chunk_id='understanding-deep-learning-p188-c3' window=2
+--- h0027 [golden/ml/baseline] n_calls=2 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: How many parameters does the latest GPT model have, based on what was rumored when it first came out?
+    positives: ['machinelearningengineeringwithpython_secondedition-p145']
+    cited_line: 'modernnetworkobservability-p218-c3'
+      call search       n=3 query='latest GPT model parameters rumored at launch'
+      call search       n=5 query='GPT-4 parameters number of parameters rumored'
+--- h0052 [golden/databases/baseline] n_calls=5 invalid=0 empty=0 gave_up=False stop=answer turns=6
+    Q: What kind of throughput and response times can I expect from a production-grade in-memory data store when running with full transaction safety guarantees?
+    positives: ['postgresql-14-internals-p44', 'redis-for-dummies-p7', 'rustwebprogramming-p209']
+    cited_line: '** redis-for-dummies-p7-c0, redis-for-dummies-p24-c4, redis-for-dummies-p24-c5'
+      call search       n=10 query='production-grade in-memory data store throughput response times transaction safety guarantees'
+      call search       n=8 query='Redis in-memory data store throughput latency transaction safety durability guarantees'
+      call search       n=6 query='Redis throughput latency numbers transactions per second full durability write-AOF fsync'
+      call read_chunk   n=1 chunk_id='redis-for-dummies-p7-c0' window=1
+      call read_chunk   n=1 chunk_id='redis-for-dummies-p24-c4' window=1
+--- h0060 [golden/databases/baseline] n_calls=8 invalid=0 empty=0 gave_up=True stop=max_calls turns=6
+    Q: How can I make PostgreSQL avoid scanning the entire index when I only query the second column of a multi-column index, by breaking it into separate lookups for 
+    positives: ['postgresql-14-internals-p113']
+    cited_line: 'postgresql-14-internals-p137-c1, postgresql-14-internals-p87-c4, use-the-index-luke-p7-c7, postgresql-14-internals-p112-c7'
+      call search       n=7 query='PostgreSQL avoid scanning index second column multi-column index separate lookups'
+      call search       n=5 query='PostgreSQL bitmap index separate lookups second column multi-column index avoid full scan'
+      call search       n=5 query='PostgreSQL index skip scan second column only'
+      call search       n=4 query='PostgreSQL bitmap index separate indexes for each column combine bitmaps'
+      call search       n=4 query='PostgreSQL index skip scan'
+      call search       n=5 query='PostgreSQL skip scan index second column only'
+      call grep_books   n=1 {"pattern": "skip.?scan", "max_results": 10}
+      call read_chunk   n=1 chunk_id='postgresql-14-internals-p137-c1' window=2
+--- h0071 [golden/ml/baseline] n_calls=1 invalid=0 empty=0 gave_up=False stop=answer turns=2
+    Q: Why do I need to multiply my log-differenced stock returns by 100 before fitting a volatility model, and how do I check if the squared deviations from the mean 
+    positives: ['machinelearningforalgorithmictradingsecondedition-p166']
+    cited_line: '** `machinelearningforalgorithmictradingsecondedition-p166-c2`'
+      call search       n=3 query='GARCH volatility model log-differenced stock returns multiply by 100 squared deviations mean memory'
+--- h0073 [golden/ml/baseline] n_calls=4 invalid=0 empty=0 gave_up=False stop=answer turns=5
+    Q: How do I set up a zone-based alert in Azure's video analysis so that it fires whenever someone walks through a specific doorway or boundary I define?
+    positives: ['azureai-102certificationessentials-p72']
+    cited_line: 'azureai-102certificationessentials-p72-c1**'
+      call search       n=6 query='Azure video analysis zone-based alert boundary doorway'
+      call search       n=8 query='Azure AI Vision Spatial Analysis zone configuration polygon line crossing'
+      call search       n=5 query='Azure AI Vision Spatial Analysis code example zone region polygon line crossing webhook'
+      call read_chunk   n=1 chunk_id='azureai-102certificationessentials-p72-c1' window=1
+--- h0105 [golden/ml/baseline] n_calls=4 invalid=0 empty=0 gave_up=False stop=answer turns=5
+    Q: Why can't I just rely on my model's accuracy on the data I trained it on, and how do I actually check if it will work on new, unseen examples?
+    positives: ['bayesiananalysiswithpython_thirdedition-p73', 'bayesiananalysiswithpython_thirdedition-p74', 'bayesiananalysiswithpython_thirdedition-p76', 'graphmachinelearning_secondedition-p32'] ...
+    cited_line: 'd2l-en-p168-c2, designing-ml-systems-huyen-p136-c1, ai-engineering-huyen-p130-c4, designing-ml-systems-huyen-p172-c2, designing-ml-systems-huyen-p146-c0'
+      call search       n=8 query='model evaluation accuracy on training data vs unseen examples generalization'
+      call search       n=10 query='data distribution shift production data unseen examples evaluation methods'
+      call read_chunk   n=1 chunk_id='d2l-en-p168-c2' window=None
+      call read_chunk   n=1 chunk_id='designing-ml-systems-huyen-p136-c1' window=None
+--- h0116 [golden/ml/baseline] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=4
+    Q: Why does my reinforcement learning model for Atari games keep crashing when I try to use the same image-processing layers for both deciding what action to take 
+    positives: ['deepreinforcementlearninghands-on_thirdedition-p187']
+    cited_line: 'deepreinforcementlearninghands-on_thirdedition-p131-c2, understanding-deep-learning-p186-c4'
+      call search       n=6 query='reinforcement learning Atari games image processing layers action estimation crashing'
+      call search       n=7 query='DQN Atari image processing layers value prediction action selection same network'
+      call read_chunk   n=1 chunk_id='deepreinforcementlearninghands-on_thirdedition-p131-c2' window=2
+--- h0118 [golden/rust/baseline] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=4
+    Q: Why does my terminal app not move the cursor correctly when I press arrow keys, even though I'm updating the position values?
+    positives: ['gamedevelopmentwithrustandwebassembly-p68', 'practicalsystemprogrammingforrustdevelopers-p128']
+    cited_line: 'practicalsystemprogrammingforrustdevelopers-p128-c2, practicalsystemprogrammingforrustdevelopers-p128-c3, practicalsystemprogrammingforrustdevelopers-p128-c4, practicalsystemprogrammingforrustdevelope'
+      call search       n=6 query='terminal cursor positioning arrow keys escape sequences'
+      call read_chunk   n=1 chunk_id='practicalsystemprogrammingforrustdevelopers-p128-c2' window=2
+      call search       n=6 query='ANSI escape sequence cursor position goto terminal control codes'
+--- h0119 [golden/databases/baseline] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: When I update an existing field in a Redis hash, how can I tell if the value was actually changed or if it was a brand new field being added?
+    positives: ['digitalocean-redis-p9']
+    cited_line: 'search_result_HSET_return_value'
+--- h0129 [golden/security/baseline] n_calls=2 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: Why does my encryption sometimes map a value to itself, and should I be worried that this means my cipher is broken?
+    positives: ['crypto-101-p11']
+    cited_line: 'crypto-101-p11-c4, crypto-101-p11-c3**'
+      call search       n=8 query='encryption maps value to itself fixed point cipher broken'
+      call read_chunk   n=1 chunk_id='crypto-101-p11-c4' window=2
+--- h0152 [golden/distributed/baseline] n_calls=2 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: How can I force a legacy app to pick up new settings if it can't reload configs on its own and doesn't respond to restart signals?
+    positives: ['designing-distributed-systems-p8']
+    cited_line: 'designing-distributed-systems-2e-p21-c2'
+      call search       n=4 query='force reload config legacy app restart signals'
+      call read_chunk   n=1 chunk_id='designing-distributed-systems-2e-p21-c2' window=None
+--- h0167 [golden/security/baseline] n_calls=6 invalid=0 empty=0 gave_up=False stop=answer turns=7
+    Q: Why does generating a fake execution trace for a secret-sharing protocol ensure that an attacker who controls some of the participants still learns nothing abou
+    positives: ['boneh-shoup-applied-cryptography-p915']
+    cited_line: 'boneh-shoup-applied-cryptography-p806-c0, boneh-shoup-applied-cryptography-p799-c5, boneh-shoup-applied-cryptography-p896-c3, boneh-shoup-applied-cryptography-p807-c2'
+      call search       n=8 query='fake execution trace secret-sharing protocol attacker learns nothing hidden value'
+      call search       n=7 query='fake execution trace simulation ideal world adversary learns nothing secure multi-party computation'
+      call read_chunk   n=1 chunk_id='boneh-shoup-applied-cryptography-p806-c0' window=1
+      call search       n=10 query='zero-knowledge simulation fake transcript ideal world security definition' book='boneh-shoup-applied-cryptography'
+      call read_chunk   n=1 chunk_id='boneh-shoup-applied-cryptography-p896-c3' window=1
+      call read_chunk   n=1 chunk_id='boneh-shoup-applied-cryptography-p807-c2' window=1
+--- h0180 [golden/ml/baseline] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=4
+    Q: How do you ensure your reinforcement learning agent tries all possible actions when estimating how good each action is from a given state, if some actions never
+    positives: ['machinelearningwithpytorchandscikit-learn-p343']
+    cited_line: 'understanding-deep-learning-p185-c0, understanding-deep-learning-p185-c1, machinelearningforalgorithmictradingsecondedition-p442-c7'
+      call search       n=8 query='reinforcement learning agent tries all possible actions estimating value from a state exhaustive evaluation'
+      call read_chunk   n=1 chunk_id='understanding-deep-learning-p185-c0' window=2
+      call search       n=5 query='value iteration exhaustive all possible actions Bellman equation reinforcement learning'
+--- h0201 [golden/rust/keyword] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: aws ec2 key pair create ssh
+    positives: ['masteringpytorch_secondedition-p196', 'rustwebprogramming-p287']
+    cited_line: 'masteringlinuxadministration-p342-c4, masteringlinuxadministration-p349-c1'
+      call search       n=7 query='aws ec2 key pair create ssh'
+      call read_chunk   n=1 chunk_id='masteringlinuxadministration-p342-c4' window=1
+      call read_chunk   n=1 chunk_id='masteringlinuxadministration-p349-c1' window=1
+--- h0242 [golden/ml/keyword] n_calls=4 invalid=0 empty=0 gave_up=False stop=answer turns=5
+    Q: pytorch neural style transfer total loss
+    positives: ['masteringpytorch_secondedition-p113', 'masteringpytorch_secondedition-p116']
+    cited_line: 'd2l-en-p792-c1, d2l-en-p793-c3, d2l-en-p795-c0'
+      call search       n=5 query='neural style transfer total loss function'
+      call read_chunk   n=1 chunk_id='d2l-en-p792-c1' window=1
+      call read_chunk   n=1 chunk_id='d2l-en-p793-c3' window=2
+      call read_chunk   n=1 chunk_id='d2l-en-p795-c0' window=2
+--- h0246 [golden/security/keyword] n_calls=3 invalid=0 empty=1 gave_up=False stop=answer turns=4
+    Q: mac not prf
+    positives: ['joy-of-cryptography-p113']
+    cited_line: 'joy-of-cryptography-p112-c2'
+      call grep_books   n=0 {"pattern": "mac not prf"}
+      call search       n=4 query='mac not prf'
+      call read_chunk   n=1 chunk_id='joy-of-cryptography-p112-c2' window=None
+--- h0264 [golden/rust/keyword] n_calls=8 invalid=0 empty=0 gave_up=True stop=max_calls turns=6
+    Q: tokio move keyword tasks await
+    positives: ['rust_ebook-p277', 'rust_ebook-p281', 'rustwebprogramming-p348', 'rustwebprogramming-p360'] ...
+    cited_line: 'rustprogramminghandbook-p232-c4, rustprogramminghandbook-p37-c0, rustprogramminghandbook-p215-c4'
+      call search       n=4 query='tokio move keyword tasks await'
+      call search       n=6 query='tokio move keyword await tasks' book='rustforcplusplusdeveloper'
+      call search       n=6 query='tokio move keyword await tasks' book='gamedevelopmentwithrustandwebassembly'
+      call list_books   n=126 {}
+      call search       n=10 query='tokio move keyword await tasks' book='asynchronousprogramminginrust'
+      call search       n=8 query='tokio move keyword await tasks' book='hands-onconcurrencywithrust'
+      call search       n=4 query='tokio move keyword await tasks' book='rustprogramminghandbook'
+      call read_chunk   n=1 chunk_id='rustprogramminghandbook-p232-c4' window=1
+--- h0330 [golden/security/navigational] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: where is PMAC defined
+    positives: ['boneh-shoup-applied-cryptography-p209']
+    cited_line: 'boneh-shoup-applied-cryptography-p209-c2, probml-advanced-p281-c3**'
+      call search       n=5 query='PMAC definition'
+      call read_chunk   n=1 chunk_id='boneh-shoup-applied-cryptography-p209-c2' window=2
+      call read_chunk   n=1 chunk_id='probml-advanced-p281-c3' window=1
+--- h0335 [golden/security/navigational] n_calls=6 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: where is the sponge construction and SHA3 covered
+    positives: ['boneh-shoup-applied-cryptography-p17', 'boneh-shoup-applied-cryptography-p268', 'boneh-shoup-applied-cryptography-p272', 'crypto-101-p53']
+    cited_line: 'boneh-shoup-applied-cryptography-p268-c3, boneh-shoup-applied-cryptography-p269-c2, boneh-shoup-applied-cryptography-p272-c2, crypto-101-p53-c2**'
+      call search       n=5 query='sponge construction SHA3'
+      call search       n=2 query='sponge construction'
+      call search       n=5 query='SHA3'
+      call read_chunk   n=1 chunk_id='boneh-shoup-applied-cryptography-p268-c3' window=2
+      call read_chunk   n=1 chunk_id='boneh-shoup-applied-cryptography-p272-c2' window=2
+      call read_chunk   n=1 chunk_id='crypto-101-p53-c2' window=1
+--- h0352 [golden/ml/error_symbol] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: `pd.read_parquet`
+    positives: ['machinelearningforalgorithmictradingsecondedition-p327', 'moderntimeseriesforecastingwithpython_secondedition-p101', 'moderntimeseriesforecastingwithpython_secondedition-p122', 'moderntimeseriesforecastingwithpython_secondedition-p81'] ...
+    cited_line: ''
+--- h0358 [golden/ml/error_symbol] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: `memory usage: 6.1+ GB`
+    positives: ['machinelearningforalgorithmictradingsecondedition-p261']
+    cited_line: 'None'
+--- h0396 [golden/rust/error_symbol] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: `sized_iter! macro`
+    positives: ['hands-onconcurrencywithrust-p167']
+    cited_line: 'search result'
+--- h0397 [golden/ml/error_symbol] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: `agent.replay(batch_size)`
+    positives: ['hands-onartificialintelligenceforiot_secondedition-p110', 'machinelearningwithpytorchandscikit-learn-p354']
+    cited_line: ''
+--- h0398 [golden/rust/error_symbol] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: `RefCell::borrow`
+    positives: ['rust_ebook-p197', 'rust_ebook-p200', 'rustprogramminghandbook-p176']
+    cited_line: '** rustprogramminghandbook-p176-c2, rustprogramminghandbook-p176-c3, rust_ebook-p197-c2'
+      call search       n=3 query='RefCell borrow'
+      call read_chunk   n=1 chunk_id='rustprogramminghandbook-p176-c2' window=1
+      call read_chunk   n=1 chunk_id='rust_ebook-p197-c2' window=1
+--- h0406 [golden/ml/error_symbol] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: `Embedding(weights=[embedding_matrix], trainable=False)`
+    positives: ['kagglebook_secondedition-p224', 'kagglebook_secondedition-p235', 'machinelearningforalgorithmictradingsecondedition-p392']
+    cited_line: ''
+--- h0407 [golden/ml/error_symbol] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: `nn.Softmax(dim=1)`
+    positives: ['deepreinforcementlearninghands-on_thirdedition-p136', 'deepreinforcementlearninghands-on_thirdedition-p283', 'deepreinforcementlearninghands-on_thirdedition-p37', 'hands-onmachinelearningwithcplusplus_secondedition-p228'] ...
+    cited_line: 'None'
+--- h0412 [golden/ml/error_symbol] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: `plt.barh([], [])`
+    positives: ['scikit-learncookbook_thirdedition-p96']
+    cited_line: 'N/A (General knowledge of matplotlib API, not explicitly found in provided search results, but consistent with standard usage).'
+--- n005 [new-books/ai-engineering/baseline] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=4
+    Q: How does cosine similarity score ranking work in vector search for HR policy queries
+    positives: ['building-reliable-ai-systems-p70']
+    cited_line: 'ai-powered-search-p206-c4, ai-powered-search-p207-c0'
+      call search       n=6 query='cosine similarity score ranking vector search'
+      call search       n=2 query='cosine similarity HR policy semantic search dense vectors'
+      call search       n=3 query='cosine similarity score ranking semantic search dense vectors' book='ai-powered-search'
+--- n007 [new-books/ai-engineering/baseline] n_calls=2 invalid=0 empty=0 gave_up=False stop=answer turns=2
+    Q: What are the specific advantages of using Tabnine for test generation compared to GitHub Copilot?
+    positives: ['coding-with-ai-p92']
+    cited_line: 'coding-with-ai-p92-c2, coding-with-ai-p104-c4, coding-with-ai-p99-c8, generative-ai-in-action-p85-c0**'
+      call search       n=6 query='Tabnine test generation advantages over GitHub Copilot'
+      call search       n=7 query='Tabnine vs GitHub Copilot test generation'
+--- n014 [new-books/ai-engineering/baseline] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: How do you aggregate multiple conflicting annotations to create a single training label?
+    positives: ['human-in-the-loop-ml-p172']
+    cited_line: 'human-in-the-loop-ml-p175-c0, human-in-the-loop-ml-p175-c1, human-in-the-loop-ml-p221-c0, human-in-the-loop-ml-p221-c1'
+      call search       n=4 query='aggregate conflicting annotations single training label'
+      call read_chunk   n=1 chunk_id='human-in-the-loop-ml-p175-c0' window=1
+      call read_chunk   n=1 chunk_id='human-in-the-loop-ml-p221-c0' window=1
+--- n019 [new-books/ai-engineering/baseline] n_calls=1 invalid=0 empty=0 gave_up=False stop=answer turns=2
+    Q: What are the four main categories of machine learning training techniques used for LLMs?
+    positives: ['llms-in-production-p107']
+    cited_line: 'llms-in-production-p107-c1**'
+      call search       n=5 query='four main categories of machine learning training techniques for LLMs'
+--- n022 [new-books/ai-engineering/baseline] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=4
+    Q: What is the minimal directory structure and file layout needed to containerize a FastAPI application that serves a random joke?
+    positives: ['ml-platform-engineering-p29']
+    cited_line: 'ml-platform-engineering-p29-c0, ml-platform-engineering-p30-c0**'
+      call search       n=8 query='FastAPI containerization Dockerfile directory structure'
+      call read_chunk   n=1 chunk_id='ml-platform-engineering-p29-c0' window=2
+      call read_chunk   n=1 chunk_id='ml-platform-engineering-p30-c0' window=2
+--- n024 [new-books/ml/baseline] n_calls=2 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: What are the key SOM parameters to tune in MiniSom to improve TSP route length?
+    positives: ['optimization-algorithms-p181']
+    cited_line: 'None'
+      call search       n=5 query='SOM parameters MiniSom TSP route length'
+      call read_chunk   n=1 chunk_id='optimization-algorithms-p181-c6' window=1
+--- n025 [new-books/ml/baseline] n_calls=2 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: What is the role of the acceleration coefficients in the PSO algorithm?
+    positives: ['optimization-algorithms-p260']
+    cited_line: 'optimization-algorithms-p136-c2'
+      call search       n=5 query='acceleration coefficients PSO algorithm'
+      call read_chunk   n=1 chunk_id='optimization-algorithms-p136-c2' window=1

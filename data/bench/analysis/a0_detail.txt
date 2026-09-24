@@ -1,0 +1,213 @@
+== A0: 150 rows, 37 cited=false
+--- h0003 [golden/ml/baseline] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=4
+    Q: Why does my reinforcement learning agent's update rule involve multiplying the log probability of each action by the total reward collected from that point onwa
+    positives: ['deepreinforcementlearninghands-on_thirdedition-p173', 'deepreinforcementlearninghands-on_thirdedition-p174', 'deepreinforcementlearninghands-on_thirdedition-p179', 'deepreinforcementlearninghands-on_thirdedition-p184'] ...
+    cited_line: 'understanding-deep-learning-p188-c1, probml-advanced-p1130-c2'
+      call search       n=8 query='reinforcement learning update rule log probability action reward multiplication'
+      call read_chunk   n=1 chunk_id='understanding-deep-learning-p188-c1' window=2
+      call read_chunk   n=1 chunk_id='probml-advanced-p1130-c2' window=1
+--- h0032 [golden/ml/baseline] n_calls=2 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: How do I visualize the tree structure of my hierarchical clustering results with custom label formatting in Python?
+    positives: ['machinelearningwithpytorchandscikit-learn-p154', 'scikit-learncookbook_thirdedition-p110']
+    cited_line: 'machinelearningwithpytorchandscikit-learn-p154-c7, scikit-learncookbook_thirdedition-p110-c2, machinelearningwithpytorchandscikit-learn-p155-c2**'
+      call search       n=5 query='hierarchical clustering tree structure visualization custom labels Python'
+      call search       n=9 query='dendrogram custom labels leaf labels formatting xticks yticks'
+--- h0038 [golden/security/baseline] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=4
+    Q: Why does my three-message authenticated key exchange protocol need specific cryptographic hardness assumptions (like CDH or DDH) when I switch from a generic en
+    positives: ['boneh-shoup-applied-cryptography-p402', 'boneh-shoup-applied-cryptography-p406', 'boneh-shoup-applied-cryptography-p510', 'boneh-shoup-applied-cryptography-p719']
+    cited_line: 'boneh-shoup-applied-cryptography-p719-c2, boneh-shoup-applied-cryptography-p725-c3, boneh-shoup-applied-cryptography-p377-c0, boneh-shoup-applied-cryptography-p347-c0, boneh-shoup-applied-cryptography'
+      call search       n=10 query='authenticated key exchange protocol ElGamal CDH DDH hardness assumptions'
+      call read_chunk   n=1 chunk_id='boneh-shoup-applied-cryptography-p719-c2' window=1
+      call search_book  n=4 {"book": "boneh-shoup-applied-cryptography", "query": "CDH DDH computational discrete Diffie-Hellman assumption definition", "top_k": 5}
+--- h0071 [golden/ml/baseline] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: Why do I need to multiply my log-differenced stock returns by 100 before fitting a volatility model, and how do I check if the squared deviations from the mean 
+    positives: ['machinelearningforalgorithmictradingsecondedition-p166']
+    cited_line: 'crypto-101-p0-c1, crypto-101-p0-c2, crypto-101-p0-c3'
+--- h0088 [golden/ml/baseline] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=4
+    Q: How many data points are typically sampled to keep the nearest neighbor calculations from being too expensive when measuring how much two features share?
+    positives: ['machinelearningforalgorithmictradingsecondedition-p488']
+    cited_line: 'ai-modern-approach-p303-c4, ai-modern-approach-p303-c6'
+      call search       n=7 query='how many data points are sampled for nearest neighbor calculations when measuring feature similarity'
+      call read_chunk   n=1 chunk_id='machinelearningforalgorithmictradingsecondedition-p488-c1' window=1
+      call search       n=8 query='how many data points sampled nearest neighbor calculations expensive feature similarity'
+      call search       n=7 query='sample data points nearest neighbor feature similarity expensive k value'
+      call read_chunk   n=1 chunk_id='ai-modern-approach-p303-c4' window=2
+--- h0090 [golden/ml/baseline] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: What are the exact probability values for each number of successes from 0 to 5 when using a symmetric, bell-shaped discrete distribution with 6 trials and stron
+    positives: ['bayesiananalysiswithpython_thirdedition-p4']
+    cited_line: 'knowledge-base'
+--- h0095 [golden/ml/baseline] n_calls=4 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: Why does my logistic regression model's decision boundary look weird when I train it on data that's been compressed to just two dimensions using PCA?
+    positives: ['machinelearningwithpytorchandscikit-learn-p67']
+    cited_line: 'machinelearningwithpytorchandscikit-learn-p67-c5, machinelearningwithpytorchandscikit-learn-p66-c4**'
+      call search       n=3 query='PCA dimensionality reduction logistic regression decision boundary'
+      call search       n=3 query='PCA compression data two dimensions'
+      call search       n=5 query='PCA decision boundary weird distorted rotated flipped eigenvectors signs'
+      call search       n=3 query='logistic regression PCA principal components orientation eigenvector signs negative positive'
+--- h0096 [golden/databases/baseline] n_calls=1 invalid=0 empty=0 gave_up=False stop=answer turns=2
+    Q: How do I find the common elements across multiple groups in Redis, and is there a way to save that result into a new group instead of just viewing it?
+    positives: ['digitalocean-redis-p10', 'digitalocean-redis-p12', 'digitalocean-redis-p13']
+    cited_line: '** digitalocean-redis-p10-c6'
+      call search       n=3 query='Redis intersect sets save result into new set'
+--- h0114 [golden/databases/baseline] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=4
+    Q: How can I find all the comparison operators that PostgreSQL uses internally for B-tree indexes when sorting integers with the less-than operation?
+    positives: ['postgresql-14-internals-p81']
+    cited_line: 'postgresql-14-internals-p112-c0, postgresql-14-internals-p80-c1, postgresql-14-internals-p79-c6, postgresql-14-internals-p111-c8'
+      call search       n=5 query='PostgreSQL B-tree index comparison operators less-than integer sorting'
+      call read_chunk   n=1 chunk_id='postgresql-14-internals-p112-c0' window=1
+      call search_book  n=3 {"book": "postgresql-14-internals", "query": "int4_ops integer comparison operators btree less than strategy", "top_k": 5}
+--- h0116 [golden/ml/baseline] n_calls=2 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: Why does my reinforcement learning model for Atari games keep crashing when I try to use the same image-processing layers for both deciding what action to take 
+    positives: ['deepreinforcementlearninghands-on_thirdedition-p187']
+    cited_line: 'understanding-deep-learning-p186-c5, probml-advanced-p1126-c1, hands-onartificialintelligenceforiot_secondedition-p113-c1, hands-onartificialintelligenceforiot_secondedition-p110-c4**'
+      call search       n=7 query='reinforcement learning Atari games image processing action decision evaluation'
+      call search       n=6 query='Deep Q-network image processing layers action selection reward estimation crash convergence'
+--- h0127 [golden/distributed/baseline] n_calls=2 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: Why does adding just one more cache server sometimes cause almost all of my cached data to become invalid or need to be remapped, and how can I avoid that massi
+    positives: ['designing-distributed-systems-p53', 'designing-distributed-systems-p54', 'distributed-systems-fun-profit-p46']
+    cited_line: 'designing-distributed-systems-2e-p55-c2, designing-distributed-systems-2e-p56-c0, site-reliability-engineering-p243-c3'
+      call search       n=8 query='cache server redistribution remapping hash consistent hashing'
+      call read_chunk   n=1 chunk_id='designing-distributed-systems-2e-p55-c2' window=1
+--- h0129 [golden/security/baseline] n_calls=2 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: Why does my encryption sometimes map a value to itself, and should I be worried that this means my cipher is broken?
+    positives: ['crypto-101-p11']
+    cited_line: 'None'
+      call search       n=8 query='encryption value maps to itself fixed point cipher broken'
+      call read_chunk   n=1 chunk_id='crypto-101-p11-c4' window=1
+--- h0133 [golden/ml/baseline] n_calls=4 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: How can I make my forecast uncertainty bands narrower when my model is more accurate for certain data groups, and wider when it's less reliable, while still kee
+    positives: ['moderntimeseriesforecastingwithpython_secondedition-p325', 'moderntimeseriesforecastingwithpython_secondedition-p326', 'moderntimeseriesforecastingwithpython_secondedition-p331']
+    cited_line: 'moderntimeseriesforecastingwithpython_secondedition-p325-c2, moderntimeseriesforecastingwithpython_secondedition-p329-c0, moderntimeseriesforecastingwithpython_secondedition-p329-c1, moderntimeseriesf'
+      call search       n=10 query='forecast uncertainty bands narrower wider model accuracy data groups error guarantees'
+      call read_chunk   n=1 chunk_id='moderntimeseriesforecastingwithpython_secondedition-p325-c2' window=2
+      call read_chunk   n=1 chunk_id='moderntimeseriesforecastingwithpython_secondedition-p329-c0' window=2
+      call read_chunk   n=1 chunk_id='moderntimeseriesforecastingwithpython_secondedition-p333-c4' window=1
+--- h0140 [golden/security/baseline] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=4
+    Q: In a security proof for a public-key encryption scheme where the encryption is followed by a zero-knowledge proof, what kinds of requests can an attacker make t
+    positives: ['boneh-shoup-applied-cryptography-p661']
+    cited_line: 'boneh-shoup-applied-cryptography-p661-c3, boneh-shoup-applied-cryptography-p392-c4**'
+      call search       n=9 query='security proof public-key encryption zero-knowledge proof attacker requests challenger before challenge ciphertext'
+      call read_chunk   n=1 chunk_id='boneh-shoup-applied-cryptography-p661-c3' window=1
+      call read_chunk   n=1 chunk_id='boneh-shoup-applied-cryptography-p392-c4' window=1
+--- h0158 [golden/security/baseline] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: How can one party compute an encrypted sum of products involving secret values from both sides, when it only has encrypted versions of the other party’s inputs?
+    positives: ['boneh-shoup-applied-cryptography-p836', 'boneh-shoup-applied-cryptography-p837', 'boneh-shoup-applied-cryptography-p925', 'boneh-shoup-applied-cryptography-p926']
+    cited_line: 'crypto-101-p0-c1, crypto-101-p0-c2, crypto-101-p0-c3, crypto-101-p0-c4, crypto-101-p0-c5, crypto-101-p0-c6, crypto-101-p0-c7, crypto-101-p0-c8, crypto-101-p0-c9'
+--- h0165 [golden/rust/baseline] n_calls=1 invalid=0 empty=0 gave_up=False stop=answer turns=2
+    Q: How do I get started with the Rust programming language on my machine, including setting up its build system and package manager?
+    positives: ['gamedevelopmentwithrustandwebassembly-p20', 'practicalsystemprogrammingforrustdevelopers-p24', 'practicalsystemprogrammingforrustdevelopers-p25', 'rust_ebook-p34'] ...
+    cited_line: 'None'
+      call search       n=9 query='getting started with Rust programming language installation build system package manager'
+--- h0167 [golden/security/baseline] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=4
+    Q: Why does generating a fake execution trace for a secret-sharing protocol ensure that an attacker who controls some of the participants still learns nothing abou
+    positives: ['boneh-shoup-applied-cryptography-p915']
+    cited_line: 'boneh-shoup-applied-cryptography-p806-c0'
+      call search       n=8 query='fake execution trace secret-sharing protocol attacker learns nothing hidden value'
+      call search       n=8 query='fake execution trace simulator honest parties attacker learns nothing zero-knowledge'
+      call read_chunk   n=1 chunk_id='boneh-shoup-applied-cryptography-p806-c0' window=1
+--- h0201 [golden/rust/keyword] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=4
+    Q: aws ec2 key pair create ssh
+    positives: ['masteringpytorch_secondedition-p196', 'rustwebprogramming-p287']
+    cited_line: 'masteringlinuxadministration-p342-c4, masteringlinuxadministration-p349-c1'
+      call search       n=7 query='aws ec2 key pair create ssh'
+      call read_chunk   n=1 chunk_id='masteringlinuxadministration-p342-c4' window=1
+      call read_chunk   n=1 chunk_id='masteringlinuxadministration-p349-c1' window=1
+--- h0202 [golden/ml/keyword] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: causal forest dowhy econml
+    positives: ['causalinferenceanddiscoveryinpython-p133']
+    cited_line: ''
+--- h0231 [golden/ml/keyword] n_calls=2 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: matrix factorizations special transformations
+    positives: ['mathematicsofmachinelearning-p90', 'mathematicsofmachinelearning-p92']
+    cited_line: 'mathematicalsofmachinelearning-p90-c0, mathematicalsofmachinelearning-p91-c1, mathematicalsofmachinelearning-p92-c2, mathematicalsofmachinelearning-p101-c1, mathematicalsofmachinelearning-p103-c0'
+      call search       n=5 query='matrix factorizations special transformations'
+      call search_book  n=5 {"book": "mathematicsofmachinelearning", "query": "spectral decomposition QR decomposition LU", "top_k": 10}
+--- h0246 [golden/security/keyword] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: mac not prf
+    positives: ['joy-of-cryptography-p113']
+    cited_line: 'None'
+--- h0326 [golden/databases/navigational] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=4
+    Q: where is sorting explained in the documentation
+    positives: ['little-redis-book-p11', 'little-redis-book-p12', 'little-redis-book-p8', 'postgresql-14-internals-p101']
+    cited_line: 'intro-to-algorithms-clrs-p54-c0, intro-to-algorithms-clrs-p54-c4, intro-to-algorithms-clrs-p55-c0, intro-to-algorithms-clrs-p56-c1, intro-to-algorithms-clrs-p62-c2, intro-to-algorithms-clrs-p3-c2, int'
+      call search       n=8 query='sorting explanation'
+      call search       n=6 query='algorithm sorting data structures'
+      call search       n=5 query='sorting chapter 2 insertion sort merge sort quicksort' book='intro-to-algorithms-clrs'
+--- h0352 [golden/ml/error_symbol] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: `pd.read_parquet`
+    positives: ['machinelearningforalgorithmictradingsecondedition-p327', 'moderntimeseriesforecastingwithpython_secondedition-p101', 'moderntimeseriesforecastingwithpython_secondedition-p122', 'moderntimeseriesforecastingwithpython_secondedition-p81'] ...
+    cited_line: 'search-0, search-1'
+--- h0356 [golden/ml/error_symbol] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: `tsfel.time_series_features_extractor`
+    positives: ['moderntimeseriesforecastingwithpython_secondedition-p164']
+    cited_line: 'tsfel-1.0-p0-c0, tsfel-1.0-p0-c1, tsfel-1.0-p0-c2, tsfel-1.0-p0-c3'
+--- h0358 [golden/ml/error_symbol] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: `memory usage: 6.1+ GB`
+    positives: ['machinelearningforalgorithmictradingsecondedition-p261']
+    cited_line: ''
+--- h0367 [golden/rust/error_symbol] n_calls=3 invalid=1 empty=0 gave_up=False stop=answer turns=4
+    Q: `log_info` `log_warn` `log_error` `log_debug` `log_trace`
+    positives: ['machinelearningengineeringwithpython_secondedition-p88', 'rustwebprogramming-p234', 'rustwebprogramming-p240']
+    cited_line: 'None'
+      call grep_books   n=8 {"pattern": "log_info|log_warn|log_error|log_debug|log_trace", "max_results": 10}
+      call read_chunk   n=1 ERROR='Book not found: rustwebprogramming-14927' chunk_id='rustwebprogramming-14927-p0-c0' window=2
+      call search       n=5 query='log_info log_warn log_error log_debug log_trace'
+--- h0397 [golden/ml/error_symbol] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: `agent.replay(batch_size)`
+    positives: ['hands-onartificialintelligenceforiot_secondedition-p110', 'machinelearningwithpytorchandscikit-learn-p354']
+    cited_line: 'None'
+--- h0398 [golden/rust/error_symbol] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: `RefCell::borrow`
+    positives: ['rust_ebook-p197', 'rust_ebook-p200', 'rustprogramminghandbook-p176']
+    cited_line: 'std::cell::RefCell documentation, Rust ownership model'
+--- h0407 [golden/ml/error_symbol] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: `nn.Softmax(dim=1)`
+    positives: ['deepreinforcementlearninghands-on_thirdedition-p136', 'deepreinforcementlearninghands-on_thirdedition-p283', 'deepreinforcementlearninghands-on_thirdedition-p37', 'hands-onmachinelearningwithcplusplus_secondedition-p228'] ...
+    cited_line: ''
+--- h0408 [golden/ml/error_symbol] n_calls=3 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: `torch.set_grad_enabled`
+    positives: ['masteringpytorch_secondedition-p24', 'masteringpytorch_secondedition-p254']
+    cited_line: 'masterinpytorch_secondedition-p254-c2, masterinpytorch_secondedition-p24-c6, interpretable-ai-p60-c4, deepreinforcementlearninghands-on_thirdedition-p147-c2'
+      call search       n=7 query='torch.set_grad_enabled'
+      call search_book  n=5 {"book": "masteringpytorch_secondedition", "query": "torch.set_grad_enabled context manager", "top_k": 5}
+      call search_book  n=3 {"book": "interpretable-ai", "query": "torch.set_grad_enabled", "top_k": 3}
+--- h0412 [golden/ml/error_symbol] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: `plt.barh([], [])`
+    positives: ['scikit-learncookbook_thirdedition-p96']
+    cited_line: 'search results for "plt.barh" typically show this usage pattern in matplotlib documentation examples for dynamic plotting.'
+--- n005 [new-books/ai-engineering/baseline] n_calls=7 invalid=0 empty=2 gave_up=False stop=answer turns=8
+    Q: How does cosine similarity score ranking work in vector search for HR policy queries
+    positives: ['building-reliable-ai-systems-p70']
+    cited_line: 'ai-powered-search-p38-c0, ai-powered-search-p206-c4, ai-powered-search-p40-c1**'
+      call search       n=4 query='cosine similarity score ranking vector search'
+      call search       n=0 query='cosine similarity HR policy vector search ranking formula feature weighting' book='AI-Powered Search (Grainger, Turnbull, Irwin)'
+      call search       n=2 query='cosine similarity feature weighting term frequency vector search ranking'
+      call read_chunk   n=1 chunk_id='ai-powered-search-p36-c0' window=0
+      call search       n=0 query='cosine similarity dense vector semantic search for policy queries feature weighting term importance' book='AI-Powered Search (Grainger, Turnbull, Irwin)'
+      call read_chunk   n=1 chunk_id='ai-powered-search-p38-c0' window=0
+      call read_chunk   n=1 chunk_id='ai-powered-search-p206-c4' window=0
+--- n011 [new-books/ai-engineering/baseline] n_calls=0 invalid=0 empty=0 gave_up=False stop=answer turns=1
+    Q: How do I create a dual-axis matplotlib chart with precision on the left and fraud capture rate on the right for top-N% transaction analysis?
+    positives: ['financial-ai-in-practice-p110']
+    cited_line: 'matplotlib-101-p0-c0'
+--- n018 [new-books/ai-engineering/baseline] n_calls=1 invalid=0 empty=0 gave_up=False stop=answer turns=2
+    Q: What are the two main ways to interpret black-box models, and how do they differ in scope and applicability?
+    positives: ['interpretable-ai-p7']
+    cited_line: 'None'
+      call search       n=8 query='two main ways to interpret black-box models scope and applicability'
+--- n021 [new-books/software-engineering/baseline] n_calls=1 invalid=0 empty=0 gave_up=False stop=answer turns=2
+    Q: What are some diagnostic questions to identify if I have a lack of feedback culture in my code reviews?
+    positives: ['looks-good-to-me-p117']
+    cited_line: 'looks-good-to-me-p117-c0**'
+      call search       n=2 query='diagnostic questions lack of feedback culture code reviews'
+--- n022 [new-books/ai-engineering/baseline] n_calls=2 invalid=0 empty=0 gave_up=False stop=answer turns=3
+    Q: What is the minimal directory structure and file layout needed to containerize a FastAPI application that serves a random joke?
+    positives: ['ml-platform-engineering-p29']
+    cited_line: 'ml-platform-engineering-p30-c0'
+      call search       n=7 query='FastAPI container structure directory layout Docker'
+      call read_chunk   n=1 chunk_id='ml-platform-engineering-p30-c0' window=None
+--- n025 [new-books/ml/baseline] n_calls=1 invalid=0 empty=0 gave_up=False stop=answer turns=2
+    Q: What is the role of the acceleration coefficients in the PSO algorithm?
+    positives: ['optimization-algorithms-p260']
+    cited_line: 'optimization-algorithms-p136-c2, optimization-algorithms-p134-c1, optimization-algorithms-p141-c1'
+      call search       n=9 query='acceleration coefficients PSO particle swarm optimization algorithm'
