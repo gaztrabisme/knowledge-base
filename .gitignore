@@ -16,6 +16,8 @@ knowledge-base/systems-ops/
 data/*
 !data/golden/
 !data/bench/
+# The book catalog is reviewed by hand and read at runtime, so it is versioned.
+!data/catalog.json
 data/bench/transcripts/
 data/bench/calls/
 # ...but the audit judge-sample batches are bulky reproducible scratch (regen via audit_prep.py)

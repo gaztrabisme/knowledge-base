@@ -144,6 +144,8 @@ def validate_tags(obj: dict) -> str | None:
     tags = obj.get("tags")
     if not isinstance(tags, list):
         return "tags is not a list"
+    # oMLX's grammar does not enforce uniqueItems, so repeats are dropped here.
+    tags = obj["tags"] = list(dict.fromkeys(tags))
     if not 6 <= len(tags) <= 10:
         return f"{len(tags)} tags, need 6-10"
     if len(set(tags)) != len(tags):
@@ -158,16 +160,20 @@ def validate_tags(obj: dict) -> str | None:
 
 
 def describe(slug: str, title: str, domain: str, toc: str) -> tuple[dict | str, str | None]:
-    """One schema-constrained call per book; retry once, then record "error"."""
+    """One schema-constrained call per book; retry twice, then record "error"."""
     prompt = PROMPT.format(title=title, domain=domain, toc=toc or "(not available)",
                            tags=", ".join(TAGS))
     err = "no attempt made"
     enforcement = None
-    for _attempt in range(2):
+    # Retries sample at a higher temperature (at 0.0 they would repeat the same invalid
+    # answer) and say what was wrong with the previous one.
+    for temperature in (0.0, 0.4, 0.8):
+        content = prompt if err == "no attempt made" else (
+            f"{prompt}\n\nYour previous answer was rejected ({err}). Give 6-10 DIFFERENT tags.")
         try:
             obj, meta = oc.chat_json(
-                [{"role": "user", "content": prompt}], MODEL,
-                schema=SCHEMA, name="catalog",
+                [{"role": "user", "content": content}], MODEL,
+                schema=SCHEMA, name="catalog", temperature=temperature,
                 require=("tags", "summary"), with_meta=True, max_tokens=400,
             )
         except Exception as e:

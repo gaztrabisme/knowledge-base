@@ -1,0 +1,1966 @@
+{
+ "_meta": {
+  "enforcement": "json_schema",
+  "model": "Qwen3.8-Flash-Next-REAP-384-oQ4e-BF16-MTP-PLE"
+ },
+ "agentic-design-patterns": {
+  "domain": "ai-engineering",
+  "summary": "Covers agentic design patterns using LangChain, CrewAI, and Google ADK for building LLM-based applications.",
+  "tags": [
+   "ai-agents",
+   "llm",
+   "prompt-engineering",
+   "rag",
+   "python",
+   "design-patterns",
+   "mlops",
+   "ai-product"
+  ],
+  "title": "Agentic Design Patterns (Gulli)"
+ },
+ "ai-engineering-huyen": {
+  "domain": "ai-engineering",
+  "summary": "Covers building AI applications using foundation models, including prompting, RAG, agents, fine-tuning, evaluation, inference optimization, and production architecture.",
+  "tags": [
+   "llm",
+   "rag",
+   "prompt-engineering",
+   "ai-agents",
+   "fine-tuning",
+   "llm-evaluation",
+   "llm-serving",
+   "ai-security",
+   "mlops",
+   "ai-product"
+  ],
+  "title": "AI Engineering: Building Applications with Foundation Models (Huyen)"
+ },
+ "ai-modern-approach": {
+  "domain": "software-engineering",
+  "summary": "Covers core AI concepts including search, logic, probabilistic reasoning, learning algorithms, and agent architectures.",
+  "tags": [
+   "machine-learning",
+   "reinforcement-learning",
+   "computer-vision",
+   "nlp",
+   "search-relevance",
+   "ai-agents",
+   "probabilistic-modeling",
+   "optimization",
+   "ai-security",
+   "ai-product"
+  ],
+  "title": "Artificial Intelligence: A Modern Approach (Russell & Norvig)"
+ },
+ "ai-powered-search": {
+  "domain": "ai-engineering",
+  "summary": "Covers building AI-powered search systems using NLP, embeddings, vector databases, learning-to-rank, and LLMs for semantic retrieval and question answering.",
+  "tags": [
+   "search-relevance",
+   "nlp",
+   "embeddings",
+   "vector-search",
+   "llm",
+   "rag",
+   "machine-learning",
+   "feature-engineering",
+   "active-learning",
+   "recommender-systems"
+  ],
+  "title": "AI-Powered Search (Grainger, Turnbull, Irwin)"
+ },
+ "architecture-patterns-with-python": {
+  "domain": "architecture",
+  "summary": "Applies domain-driven design, repository patterns, and event-driven architecture to build maintainable Python applications using TDD.",
+  "tags": [
+   "domain-driven-design",
+   "software-architecture",
+   "testing-tdd",
+   "event-driven",
+   "design-patterns",
+   "microservices",
+   "python",
+   "clean-code"
+  ],
+  "title": "Architecture Patterns with Python (Percival & Gregory)"
+ },
+ "art-of-ai-product-development": {
+  "domain": "ai-engineering",
+  "summary": "Covers AI product lifecycle from opportunity discovery and prompt engineering to RAG, agents, governance, and stakeholder management.",
+  "tags": [
+   "ai-product",
+   "llm",
+   "prompt-engineering",
+   "rag",
+   "ai-agents",
+   "fine-tuning",
+   "mlops",
+   "ai-security",
+   "ai-assisted-coding",
+   "nlp"
+  ],
+  "title": "The Art of AI Product Development (Lipenkova)"
+ },
+ "artificialintelligenceforcybersecurity": {
+  "domain": "applied-ml",
+  "summary": "Covers applying machine learning and LLMs to cybersecurity tasks like malware detection, threat intelligence, and anomaly analysis, including data quality and adversarial challenges.",
+  "tags": [
+   "machine-learning",
+   "ai-security",
+   "llm",
+   "nlp",
+   "model-evaluation",
+   "threat-modeling",
+   "python",
+   "feature-engineering"
+  ],
+  "title": "Artificial Intelligence for Cybersecurity"
+ },
+ "asynchronousprogramminginrust": {
+  "domain": "rust",
+  "summary": "Builds async runtimes from scratch using epoll, custom fibers, and pinning to explain Rust's concurrency model.",
+  "tags": [
+   "rust",
+   "async-concurrency",
+   "systems-programming",
+   "linux",
+   "networking",
+   "software-architecture",
+   "design-patterns",
+   "systems-thinking"
+  ],
+  "title": "Asynchronous Programming in Rust"
+ },
+ "azureai-102certificationessentials": {
+  "domain": "applied-ml",
+  "summary": "Covers Azure AI services, including LLMs, RAG, agents, vision, NLP, and MLOps practices for the AI-102 certification.",
+  "tags": [
+   "cloud-ai-services",
+   "llm",
+   "rag",
+   "ai-agents",
+   "computer-vision",
+   "nlp",
+   "mlops",
+   "prompt-engineering"
+  ],
+  "title": "Azure AI-102 Certification Essentials"
+ },
+ "bayesiananalysiswithpython_thirdedition": {
+  "domain": "applied-ml",
+  "summary": "Covers Bayesian modeling, probabilistic programming, and inference techniques using Python libraries like PyMC and ArviZ.",
+  "tags": [
+   "bayesian-inference",
+   "probabilistic-modeling",
+   "statistics",
+   "python",
+   "model-evaluation",
+   "pytorch",
+   "scikit-learn",
+   "pandas"
+  ],
+  "title": "Bayesian Analysis with Python, 3rd Edition"
+ },
+ "bishop-prml": {
+  "domain": "advanced-ml",
+  "summary": "Covers Bayesian inference, probabilistic graphical models, neural networks, kernel methods, and statistical foundations for advanced machine learning.",
+  "tags": [
+   "machine-learning",
+   "bayesian-inference",
+   "probabilistic-modeling",
+   "neural-networks",
+   "math-foundations",
+   "statistics",
+   "graph-ml",
+   "time-series",
+   "model-evaluation",
+   "optimization"
+  ],
+  "title": "Pattern Recognition and Machine Learning (Bishop)"
+ },
+ "boneh-shoup-applied-cryptography": {
+  "domain": "security",
+  "summary": "Covers symmetric and asymmetric encryption, hashing, digital signatures, and secure protocols like key exchange and multi-party computation.",
+  "tags": [
+   "cryptography",
+   "security-testing",
+   "threat-modeling",
+   "authentication-oauth",
+   "math-foundations",
+   "algorithms-data-structures",
+   "distributed-systems",
+   "blockchain"
+  ],
+  "title": "Applied Cryptography (Boneh & Shoup)"
+ },
+ "building-event-driven-microservices": {
+  "domain": "architecture",
+  "summary": "Covers designing, implementing, testing, and deploying event-driven microservices using Kafka, schemas, and various processing frameworks.",
+  "tags": [
+   "event-driven",
+   "microservices",
+   "distributed-systems",
+   "domain-driven-design",
+   "messaging-integration",
+   "data-architecture",
+   "software-architecture",
+   "cloud-native",
+   "testing-tdd",
+   "continuous-delivery"
+  ],
+  "title": "Building Event-Driven Microservices, 2nd Edition (Bellemare)"
+ },
+ "building-evolutionary-architectures": {
+  "domain": "architecture",
+  "summary": "Covers evolutionary architecture principles, fitness functions, incremental change, and governance for building adaptable, resilient software systems.",
+  "tags": [
+   "software-architecture",
+   "microservices",
+   "continuous-delivery",
+   "testing-tdd",
+   "domain-driven-design",
+   "enterprise-architecture",
+   "data-architecture",
+   "distributed-systems",
+   "refactoring",
+   "team-organization"
+  ],
+  "title": "Building Evolutionary Architectures, 2nd Edition (Ford, Parsons, Kua, Sadalage)"
+ },
+ "building-green-software": {
+  "domain": "architecture",
+  "summary": "Covers strategies for reducing software carbon emissions through code efficiency, operational practices, hardware choices, and measurement frameworks.",
+  "tags": [
+   "green-software",
+   "cloud-native",
+   "sre-operations",
+   "observability",
+   "software-architecture",
+   "machine-learning",
+   "networking",
+   "systems-thinking"
+  ],
+  "title": "Building Green Software (Currie, Hsu, Bergman)"
+ },
+ "building-medallion-architectures": {
+  "domain": "architecture",
+  "summary": "Designs medallion data architectures using Microsoft Fabric, covering bronze, silver, and gold layers, governance, and real-world case studies.",
+  "tags": [
+   "data-architecture",
+   "enterprise-architecture",
+   "software-architecture",
+   "cloud-native",
+   "data-labeling",
+   "mlops"
+  ],
+  "title": "Building Medallion Architectures (Strengholt)"
+ },
+ "building-microservices-2e": {
+  "domain": "architecture",
+  "summary": "Covers microservice architecture, domain modeling, communication patterns, deployment, testing, observability, security, and organizational alignment.",
+  "tags": [
+   "microservices",
+   "software-architecture",
+   "domain-driven-design",
+   "distributed-systems",
+   "cloud-native",
+   "api-design",
+   "event-driven",
+   "sre-operations",
+   "team-organization",
+   "continuous-delivery"
+  ],
+  "title": "Building Microservices, 2nd Edition (Newman)"
+ },
+ "building-multi-tenant-saas": {
+  "domain": "architecture",
+  "summary": "Covers multi-tenant SaaS architecture, covering deployment models, data partitioning, isolation strategies, operations, and GenAI integration.",
+  "tags": [
+   "multi-tenant-saas",
+   "software-architecture",
+   "cloud-native",
+   "data-architecture",
+   "sre-operations",
+   "platform-engineering",
+   "rag",
+   "fine-tuning",
+   "llm",
+   "genai-testing"
+  ],
+  "title": "Building Multi-Tenant SaaS Architectures (Golding)"
+ },
+ "building-reliable-ai-systems": {
+  "domain": "ai-engineering",
+  "summary": "Covers building reliable LLM applications via prompt engineering, RAG, fine-tuning, agents, evaluation, and production deployment.",
+  "tags": [
+   "llm",
+   "rag",
+   "prompt-engineering",
+   "ai-agents",
+   "fine-tuning",
+   "llm-evaluation",
+   "mlops",
+   "embeddings",
+   "vector-search",
+   "llm-serving"
+  ],
+  "title": "Building Reliable AI Systems (Shahani)"
+ },
+ "causalinferenceanddiscoveryinpython": {
+  "domain": "applied-ml",
+  "summary": "Covers causal inference and discovery in Python, including DAGs, DoWhy, EconML, meta-learners, and deep learning applications.",
+  "tags": [
+   "causal-inference",
+   "machine-learning",
+   "graph-ml",
+   "statistics",
+   "python",
+   "deep-learning",
+   "nlp",
+   "llm",
+   "model-evaluation",
+   "interpretability"
+  ],
+  "title": "Causal Inference and Discovery in Python"
+ },
+ "clean-architecture": {
+  "domain": "software-engineering",
+  "summary": "Covers SOLID principles, component cohesion, and boundary management to structure maintainable software systems independent of frameworks and databases.",
+  "tags": [
+   "software-architecture",
+   "clean-code",
+   "design-patterns",
+   "domain-driven-design",
+   "testing-tdd",
+   "software-engineering-practice",
+   "systems-thinking",
+   "api-design"
+  ],
+  "title": "Clean Architecture (Martin)"
+ },
+ "clean-code": {
+  "domain": "software-engineering",
+  "summary": "Covers naming, functions, comments, formatting, error handling, testing, and refactoring principles for writing maintainable software.",
+  "tags": [
+   "clean-code",
+   "refactoring",
+   "testing-tdd",
+   "software-engineering-practice",
+   "design-patterns",
+   "code-review",
+   "software-architecture",
+   "conversational-ai"
+  ],
+  "title": "Clean Code (Martin)"
+ },
+ "coding-with-ai": {
+  "domain": "ai-engineering",
+  "summary": "Practical workflows for building web applications using GitHub Copilot, ChatGPT, Cursor, and other AI coding assistants.",
+  "tags": [
+   "ai-assisted-coding",
+   "prompt-engineering",
+   "llm",
+   "testing-tdd",
+   "web-development",
+   "python",
+   "ai-product",
+   "genai-testing"
+  ],
+  "title": "Coding with AI (Morgan)"
+ },
+ "continuous-delivery": {
+  "domain": "software-engineering",
+  "summary": "Covers implementing continuous delivery pipelines, including CI, automated testing, deployment scripting, infrastructure management, and data handling.",
+  "tags": [
+   "continuous-delivery",
+   "testing-tdd",
+   "version-control-git",
+   "software-engineering-practice",
+   "cloud-native",
+   "platform-engineering",
+   "sre-operations",
+   "linux",
+   "shell-scripting",
+   "database-internals"
+  ],
+  "title": "Continuous Delivery (Humble & Farley)"
+ },
+ "creativeprojectsforrustprogrammers": {
+  "domain": "rust",
+  "summary": "Builds Rust projects including REST APIs, web apps, games, parsers, and kernel modules using various databases and tools.",
+  "tags": [
+   "rust",
+   "web-development",
+   "webassembly",
+   "game-development",
+   "database-internals",
+   "redis",
+   "postgresql",
+   "systems-programming",
+   "linux",
+   "api-design"
+  ],
+  "title": "Creative Projects for Rust Programmers"
+ },
+ "crypto-101": {
+  "domain": "security",
+  "summary": "Covers cryptographic primitives, protocols like TLS and PGP, and implementation details including random number generation and side-channel attacks.",
+  "tags": [
+   "cryptography",
+   "security-testing",
+   "web-security",
+   "appsec",
+   "networking",
+   "math-foundations",
+   "algorithms-data-structures",
+   "python"
+  ],
+  "title": "Crypto 101"
+ },
+ "cuda-programming-guide": {
+  "domain": "advanced-ml",
+  "summary": "Covers CUDA C++ programming model, memory hierarchy, kernel optimization, and hardware-specific features for GPU-accelerated computing.",
+  "tags": [
+   "gpu-cuda",
+   "cpp",
+   "systems-programming",
+   "async-concurrency",
+   "optimization",
+   "distributed-systems",
+   "ml-platform",
+   "llm-serving"
+  ],
+  "title": "NVIDIA CUDA C++ Programming Guide"
+ },
+ "d2l-en": {
+  "domain": "advanced-ml",
+  "summary": "Covers deep learning fundamentals, architectures, and implementation in PyTorch, including CNNs, RNNs, Transformers, and optimization techniques.",
+  "tags": [
+   "deep-learning",
+   "pytorch",
+   "neural-networks",
+   "computer-vision",
+   "nlp",
+   "transformers",
+   "optimization",
+   "gpu-cuda",
+   "math-foundations",
+   "python"
+  ],
+  "title": "Dive into Deep Learning"
+ },
+ "database-design-2nd-ed": {
+  "domain": "databases",
+  "summary": "Covers relational database design principles, ER modeling, normalization, and SQL implementation for developers.",
+  "tags": [
+   "relational-design",
+   "sql",
+   "data-architecture",
+   "database-internals",
+   "indexing",
+   "query-optimization",
+   "transactions-mvcc",
+   "software-architecture",
+   "data-labeling",
+   "domain-driven-design"
+  ],
+  "title": "Database Design, 2nd Edition"
+ },
+ "deepreinforcementlearninghands-on_thirdedition": {
+  "domain": "applied-ml",
+  "summary": "Covers reinforcement learning algorithms, PyTorch implementations, and applications in trading, web navigation, and LLMs.",
+  "tags": [
+   "reinforcement-learning",
+   "pytorch",
+   "deep-learning",
+   "ai-agents",
+   "algorithmic-trading",
+   "nlp",
+   "llm",
+   "computer-vision"
+  ],
+  "title": "Deep Reinforcement Learning Hands-On, 3rd Edition"
+ },
+ "design-patterns-gof": {
+  "domain": "software-engineering",
+  "summary": "Defines 23 reusable object-oriented design patterns, categorizing them as creational, structural, or behavioral with examples and notation.",
+  "tags": [
+   "design-patterns",
+   "software-architecture",
+   "software-engineering-practice",
+   "clean-code",
+   "refactoring",
+   "domain-driven-design"
+  ],
+  "title": "Design Patterns: Elements of Reusable OO Software (Gang of Four)"
+ },
+ "designing-distributed-systems": {
+  "domain": "distributed-systems",
+  "summary": "Explores distributed system patterns like sidecars, ambassadors, and sharding using Kubernetes and microservices architectures.",
+  "tags": [
+   "distributed-systems",
+   "microservices",
+   "cloud-native",
+   "design-patterns",
+   "software-architecture",
+   "event-driven",
+   "kaggle",
+   "mlops"
+  ],
+  "title": "Designing Distributed Systems"
+ },
+ "designing-distributed-systems-2e": {
+  "domain": "architecture",
+  "summary": "Covers distributed system patterns like sidecars, sharding, and event-driven processing using Kubernetes and cloud-native tools.",
+  "tags": [
+   "distributed-systems",
+   "microservices",
+   "cloud-native",
+   "kaggle",
+   "event-driven",
+   "observability",
+   "api-design",
+   "software-architecture",
+   "design-patterns",
+   "sre-operations"
+  ],
+  "title": "Designing Distributed Systems, 2nd Edition (Burns)"
+ },
+ "designing-great-web-apis": {
+  "domain": "software-engineering",
+  "summary": "Covers API business context, design-first workflows, HTTP resource modeling, and validation through documentation and prototyping.",
+  "tags": [
+   "api-design",
+   "web-development",
+   "software-architecture",
+   "software-engineering-practice",
+   "domain-driven-design",
+   "microservices",
+   "cloud-native",
+   "testing-tdd"
+  ],
+  "title": "Designing Great Web APIs"
+ },
+ "designing-ml-systems-huyen": {
+  "domain": "ai-engineering",
+  "summary": "Covers end-to-end ML system design, including data engineering, model development, deployment, monitoring, and MLOps infrastructure.",
+  "tags": [
+   "ml-system-design",
+   "mlops",
+   "feature-engineering",
+   "model-evaluation",
+   "data-architecture",
+   "observability",
+   "ai-product",
+   "ml-platform"
+  ],
+  "title": "Designing Machine Learning Systems (Huyen)"
+ },
+ "designpatternsandbestpracticesinrust": {
+  "domain": "rust",
+  "summary": "This book explores Rust-specific design patterns, anti-patterns, and architectural strategies, contrasting traditional OO approaches with Rust's ownership and type system.",
+  "tags": [
+   "rust",
+   "design-patterns",
+   "software-architecture",
+   "clean-code",
+   "refactoring",
+   "systems-programming",
+   "domain-driven-design",
+   "software-engineering-practice"
+  ],
+  "title": "Design Patterns and Best Practices in Rust"
+ },
+ "digitalocean-redis": {
+  "domain": "databases",
+  "summary": "Covers connecting to, managing keys, data structures, replicas, transactions, and troubleshooting Redis on DigitalOcean.",
+  "tags": [
+   "redis",
+   "caching",
+   "nosql",
+   "database-internals",
+   "transactions-mvcc",
+   "cloud-native",
+   "linux",
+   "shell-scripting"
+  ],
+  "title": "DigitalOcean Redis Guide"
+ },
+ "distributed-systems-fun-profit": {
+  "domain": "distributed-systems",
+  "summary": "Covers distributed system fundamentals, including consensus algorithms, replication strategies, consistency models, and time ordering.",
+  "tags": [
+   "distributed-systems",
+   "consensus-replication",
+   "scalability-reliability",
+   "systems-thinking",
+   "database-internals",
+   "software-architecture",
+   "data-architecture",
+   "networking"
+  ],
+  "title": "Distributed Systems for Fun and Profit"
+ },
+ "domain-driven-design-evans": {
+  "domain": "software-engineering",
+  "summary": "This book presents domain-driven design principles, covering strategic modeling, tactical implementation patterns, and refactoring techniques to manage complex software systems.",
+  "tags": [
+   "domain-driven-design",
+   "software-architecture",
+   "refactoring",
+   "design-patterns",
+   "software-engineering-practice",
+   "team-organization",
+   "systems-thinking",
+   "enterprise-architecture"
+  ],
+  "title": "Domain-Driven Design (Evans)"
+ },
+ "effective-conversational-ai": {
+  "domain": "ai-engineering",
+  "summary": "Covers building, evaluating, and improving conversational AI systems using RAG, generative models, and continuous improvement workflows.",
+  "tags": [
+   "conversational-ai",
+   "rag",
+   "llm",
+   "nlp",
+   "ai-product",
+   "mlops",
+   "prompt-engineering",
+   "ai-agents"
+  ],
+  "title": "Effective Conversational AI (Freed, Jacobs, Rozsa)"
+ },
+ "effective-platform-engineering": {
+  "domain": "software-engineering",
+  "summary": "Covers platform engineering principles, building software-defined platforms, governance, observability, and scaling strategies for internal developer platforms.",
+  "tags": [
+   "platform-engineering",
+   "cloud-native",
+   "observability",
+   "sre-operations",
+   "software-architecture",
+   "team-organization",
+   "continuous-delivery",
+   "cloud-ai-services"
+  ],
+  "title": "Effective Platform Engineering (Chankramath, Cheneweth et al.)"
+ },
+ "enterprise-integration-patterns": {
+  "domain": "software-engineering",
+  "summary": "Catalogs patterns for asynchronous messaging, routing, transformation, and system management to solve enterprise application integration challenges.",
+  "tags": [
+   "messaging-integration",
+   "enterprise-architecture",
+   "software-architecture",
+   "event-driven",
+   "distributed-systems",
+   "design-patterns",
+   "data-architecture",
+   "microservices"
+  ],
+  "title": "Enterprise Integration Patterns (Hohpe)"
+ },
+ "facilitating-software-architecture": {
+  "domain": "architecture",
+  "summary": "Covers decentralized architecture practices, architectural decision records, advice processes, and sociotechnical systems for distributed teams.",
+  "tags": [
+   "software-architecture",
+   "architecture-decisions",
+   "team-organization",
+   "software-engineering-practice",
+   "systems-thinking",
+   "enterprise-architecture",
+   "domain-driven-design",
+   "microservices"
+  ],
+  "title": "Facilitating Software Architecture (Harmel-Law)"
+ },
+ "financial-ai-in-practice": {
+  "domain": "ai-engineering",
+  "summary": "Covers building AI systems for credit risk, fraud detection, and investment strategies using ML, LLMs, and RAG pipelines.",
+  "tags": [
+   "machine-learning",
+   "finance",
+   "llm",
+   "rag",
+   "ai-agents",
+   "feature-engineering",
+   "model-evaluation",
+   "mlops",
+   "interpretability",
+   "graph-ml"
+  ],
+  "title": "Financial AI in Practice (Kim, MEAP)"
+ },
+ "flow-architectures": {
+  "domain": "architecture",
+  "summary": "Analyzes flow architectures, event-driven systems, and integration patterns using Wardley mapping to evaluate streaming market evolution and business adoption strategies.",
+  "tags": [
+   "event-driven",
+   "messaging-integration",
+   "software-architecture",
+   "enterprise-architecture",
+   "data-architecture",
+   "iot-edge",
+   "systems-thinking",
+   "design-patterns"
+  ],
+  "title": "Flow Architectures (Urquhart)"
+ },
+ "fundamentals-enterprise-architecture": {
+  "domain": "architecture",
+  "summary": "Covers enterprise architecture concepts, strategy, stakeholder alignment, decision frameworks, and organizational models for effective practice.",
+  "tags": [
+   "enterprise-architecture",
+   "software-architecture",
+   "architecture-decisions",
+   "team-organization",
+   "domain-driven-design",
+   "systems-thinking",
+   "cloud-native",
+   "statistics"
+  ],
+  "title": "Fundamentals of Enterprise Architecture (McCabe)"
+ },
+ "gamedevelopmentwithrustandwebassembly": {
+  "domain": "rust",
+  "summary": "Builds an endless runner game in Rust compiled to WebAssembly, covering rendering, state machines, audio, testing, and CI/CD deployment.",
+  "tags": [
+   "rust",
+   "webassembly",
+   "game-development",
+   "web-development",
+   "testing-tdd",
+   "continuous-delivery",
+   "async-concurrency",
+   "software-architecture"
+  ],
+  "title": "Game Development with Rust and WebAssembly"
+ },
+ "generative-ai-in-action": {
+  "domain": "ai-engineering",
+  "summary": "Covers generative AI foundations, prompt engineering, RAG implementation, fine-tuning, production deployment, and ethical considerations for enterprise applications.",
+  "tags": [
+   "llm",
+   "rag",
+   "prompt-engineering",
+   "fine-tuning",
+   "llm-serving",
+   "ai-security",
+   "mlops",
+   "vector-search",
+   "ai-product",
+   "cloud-ai-services"
+  ],
+  "title": "Generative AI in Action (Bahree)"
+ },
+ "graphmachinelearning_secondedition": {
+  "domain": "applied-ml",
+  "summary": "Covers graph machine learning fundamentals, GNN architectures, and practical applications in social networks, NLP, fraud detection, and LLM integration.",
+  "tags": [
+   "graph-ml",
+   "deep-learning",
+   "neural-networks",
+   "pytorch",
+   "nlp",
+   "llm",
+   "rag",
+   "embeddings",
+   "mlops",
+   "python"
+  ],
+  "title": "Graph Machine Learning, 2nd Edition"
+ },
+ "growing-oo-software-by-tests": {
+  "domain": "software-engineering",
+  "summary": "Demonstrates test-driven development and object-oriented design principles through a worked example of building an auction sniper application.",
+  "tags": [
+   "testing-tdd",
+   "software-engineering-practice",
+   "clean-code",
+   "design-patterns",
+   "domain-driven-design",
+   "software-architecture",
+   "refactoring"
+  ],
+  "title": "Growing Object-Oriented Software, Guided by Tests"
+ },
+ "hands-onartificialintelligenceforiot_secondedition": {
+  "domain": "applied-ml",
+  "summary": "Covers IoT data processing, ML/DL models, edge computing, cloud platforms, and domain-specific applications like predictive maintenance and smart cities.",
+  "tags": [
+   "machine-learning",
+   "deep-learning",
+   "iot-edge",
+   "reinforcement-learning",
+   "computer-vision",
+   "nlp",
+   "cloud-ai-services",
+   "time-series",
+   "optimization",
+   "python"
+  ],
+  "title": "Hands-On AI for IoT, 2nd Edition"
+ },
+ "hands-onconcurrencywithrust": {
+  "domain": "rust",
+  "summary": "Covers Rust concurrency primitives, memory models, parallelism, and FFI integration with practical testing and performance optimization techniques.",
+  "tags": [
+   "rust",
+   "async-concurrency",
+   "systems-programming",
+   "algorithms-data-structures",
+   "testing-tdd",
+   "linux",
+   "software-engineering-practice",
+   "distributed-systems"
+  ],
+  "title": "Hands-On Concurrency with Rust"
+ },
+ "hands-onmachinelearningwithcplusplus_secondedition": {
+  "domain": "applied-ml",
+  "summary": "Covers implementing ML algorithms, neural networks, and model deployment in C++ using libraries like Eigen, Dlib, and ONNX.",
+  "tags": [
+   "machine-learning",
+   "cpp",
+   "deep-learning",
+   "neural-networks",
+   "computer-vision",
+   "nlp",
+   "transformers",
+   "mlops",
+   "model-evaluation",
+   "recommender-systems"
+  ],
+  "title": "Hands-On Machine Learning with C++, 2nd Edition"
+ },
+ "human-in-the-loop-ml": {
+  "domain": "ai-engineering",
+  "summary": "Covers active learning algorithms, annotation workflows, and human-in-the-loop system design for improving ML model performance.",
+  "tags": [
+   "active-learning",
+   "data-labeling",
+   "ml-system-design",
+   "ai-product",
+   "model-evaluation",
+   "computer-vision",
+   "nlp",
+   "mlops"
+  ],
+  "title": "Human-in-the-Loop Machine Learning (Monarch)"
+ },
+ "illustrated-guide-ai-agents": {
+  "domain": "ai-engineering",
+  "summary": "Covers AI agent architecture, including LLMs, memory, tool usage, planning, evaluation, and specialized multi-agent and coding systems.",
+  "tags": [
+   "ai-agents",
+   "llm",
+   "rag",
+   "prompt-engineering",
+   "fine-tuning",
+   "llm-evaluation",
+   "ai-assisted-coding",
+   "multi-tenant-saas"
+  ],
+  "title": "An Illustrated Guide to AI Agents (Grootendorst & Alammar)"
+ },
+ "interpretable-ai": {
+  "domain": "ai-engineering",
+  "summary": "Covers interpretability methods for ML models, including white-box techniques, model-agnostic tools like SHAP and LIME, saliency mapping, and fairness mitigation.",
+  "tags": [
+   "interpretability",
+   "machine-learning",
+   "deep-learning",
+   "neural-networks",
+   "computer-vision",
+   "nlp",
+   "pytorch",
+   "model-evaluation"
+  ],
+  "title": "Interpretable AI (Thampi)"
+ },
+ "intro-to-algorithms-clrs": {
+  "domain": "software-engineering",
+  "summary": "Covers algorithm design, analysis, data structures, graph algorithms, dynamic programming, and mathematical foundations for computing.",
+  "tags": [
+   "algorithms-data-structures",
+   "graph-ml",
+   "optimization",
+   "math-foundations",
+   "distributed-systems",
+   "systems-programming",
+   "cryptography",
+   "database-internals"
+  ],
+  "title": "Introduction to Algorithms (CLRS)"
+ },
+ "joy-of-cryptography": {
+  "domain": "security",
+  "summary": "Covers cryptographic primitives, security definitions, attack models, and mathematical foundations for designing and analyzing secure systems.",
+  "tags": [
+   "cryptography",
+   "security-testing",
+   "threat-modeling",
+   "math-foundations",
+   "algorithms-data-structures",
+   "networking"
+  ],
+  "title": "The Joy of Cryptography"
+ },
+ "kagglebook_secondedition": {
+  "domain": "applied-ml",
+  "summary": "Covers Kaggle competition workflows, including data handling, modeling techniques, validation strategies, and career development for data scientists.",
+  "tags": [
+   "kaggle",
+   "machine-learning",
+   "model-evaluation",
+   "feature-engineering",
+   "ensembles",
+   "computer-vision",
+   "nlp",
+   "llm",
+   "fine-tuning",
+   "mlops"
+  ],
+  "title": "Kaggle Book, 2nd Edition"
+ },
+ "lbdl": {
+  "domain": "advanced-ml",
+  "summary": "Covers deep learning foundations, architectures, training, and deployment, including transformers, LLMs, and compute considerations.",
+  "tags": [
+   "deep-learning",
+   "neural-networks",
+   "transformers",
+   "llm",
+   "model-evaluation",
+   "optimization",
+   "gpu-cuda",
+   "ml-system-design"
+  ],
+  "title": "The Little Book of Deep Learning (Fleuret)"
+ },
+ "learning-api-styles": {
+  "domain": "architecture",
+  "summary": "Covers API concepts, design patterns, network protocols, and specific styles like REST, GraphQL, gRPC, and messaging.",
+  "tags": [
+   "api-design",
+   "networking",
+   "web-development",
+   "software-architecture",
+   "web-security",
+   "messaging-integration",
+   "design-patterns",
+   "cloud-native"
+  ],
+  "title": "Learning API Styles (Dynowski & Dulak)"
+ },
+ "learning-domain-driven-design": {
+  "domain": "architecture",
+  "summary": "Covers strategic and tactical domain-driven design, including bounded contexts, integration patterns, and architectural approaches like microservices and event-driven systems.",
+  "tags": [
+   "domain-driven-design",
+   "software-architecture",
+   "microservices",
+   "event-driven",
+   "design-patterns",
+   "enterprise-architecture",
+   "data-architecture",
+   "systems-thinking"
+  ],
+  "title": "Learning Domain-Driven Design (Khononov)"
+ },
+ "learning-systems-thinking": {
+  "domain": "architecture",
+  "summary": "Teaches systems thinking principles, modeling techniques, and collaborative practices for analyzing complex sociotechnical systems and architectural decisions.",
+  "tags": [
+   "systems-thinking",
+   "software-architecture",
+   "team-organization",
+   "domain-driven-design",
+   "software-engineering-practice",
+   "architecture-decisions",
+   "enterprise-architecture",
+   "data-architecture"
+  ],
+  "title": "Learning Systems Thinking (Montalion)"
+ },
+ "linuxkernelprogramming": {
+  "domain": "systems-ops",
+  "summary": "Covers building the Linux kernel, writing loadable kernel modules, and understanding kernel internals like memory management, scheduling, and synchronization.",
+  "tags": [
+   "linux",
+   "kernel",
+   "systems-programming",
+   "cpp",
+   "linux-hardening",
+   "systemd",
+   "shell-scripting",
+   "security-testing"
+  ],
+  "title": "Linux Kernel Programming, 2nd Edition"
+ },
+ "linuxservicemanagement-systemd": {
+  "domain": "systems-ops",
+  "summary": "Covers systemd units, cgroups, journald, networkd, timekeeping, bootloaders, and logind for Linux service management and operations.",
+  "tags": [
+   "linux",
+   "systemd",
+   "systems-programming",
+   "sre-operations",
+   "observability",
+   "networking",
+   "linux-hardening",
+   "shell-scripting"
+  ],
+  "title": "Linux Service Management Made Easy with systemd"
+ },
+ "little-redis-book": {
+  "domain": "databases",
+  "summary": "Covers Redis data structures, Lua scripting, administration, replication, and clustering for caching and distributed systems.",
+  "tags": [
+   "redis",
+   "caching",
+   "nosql",
+   "data-architecture",
+   "distributed-systems",
+   "scalability-reliability",
+   "database-internals",
+   "transactions-mvcc"
+  ],
+  "title": "The Little Redis Book"
+ },
+ "llms-in-production": {
+  "domain": "ai-engineering",
+  "summary": "Covers LLM fundamentals, RAG pipelines, prompt engineering, model training, and deployment strategies for production AI applications.",
+  "tags": [
+   "llm",
+   "rag",
+   "prompt-engineering",
+   "llm-serving",
+   "mlops",
+   "ai-agents",
+   "fine-tuning",
+   "llm-evaluation",
+   "ai-assisted-coding",
+   "iot-edge"
+  ],
+  "title": "LLMs in Production (Brousseau & Sharp)"
+ },
+ "looks-good-to-me": {
+  "domain": "software-engineering",
+  "summary": "Covers establishing code review processes, team agreements, automation, and integrating reviews with pairing, mob programming, and AI tools.",
+  "tags": [
+   "code-review",
+   "software-engineering-practice",
+   "team-organization",
+   "clean-code",
+   "testing-tdd",
+   "continuous-delivery",
+   "ai-assisted-coding",
+   "version-control-git"
+  ],
+  "title": "Looks Good to Me: Constructive Code Reviews (Braganza)"
+ },
+ "machinelearningengineeringwithpython_secondedition": {
+  "domain": "applied-ml",
+  "summary": "Covers end-to-end ML engineering workflows, including model factories, deployment patterns, scaling, and LLMOps using Python and cloud tools.",
+  "tags": [
+   "mlops",
+   "ml-system-design",
+   "python",
+   "microservices",
+   "llm",
+   "cloud-native",
+   "feature-engineering",
+   "scikit-learn",
+   "pytorch",
+   "data-architecture"
+  ],
+  "title": "Machine Learning Engineering with Python, 2nd Edition"
+ },
+ "machinelearningforalgorithmictradingsecondedition": {
+  "domain": "applied-ml",
+  "summary": "Covers ML workflows for trading, including feature engineering, backtesting, and models from linear regression to deep learning.",
+  "tags": [
+   "machine-learning",
+   "algorithmic-trading",
+   "finance",
+   "time-series",
+   "feature-engineering",
+   "deep-learning",
+   "nlp",
+   "model-evaluation",
+   "pandas",
+   "scikit-learn"
+  ],
+  "title": "Machine Learning for Algorithmic Trading, 2nd Edition"
+ },
+ "machinelearningwithpytorchandscikit-learn": {
+  "domain": "applied-ml",
+  "summary": "Covers classical ML with scikit-learn and deep learning with PyTorch, including CNNs, RNNs, transformers, and GANs.",
+  "tags": [
+   "machine-learning",
+   "deep-learning",
+   "pytorch",
+   "scikit-learn",
+   "nlp",
+   "computer-vision",
+   "reinforcement-learning",
+   "transformers",
+   "model-evaluation",
+   "feature-engineering"
+  ],
+  "title": "Machine Learning with PyTorch and Scikit-Learn"
+ },
+ "mastering-api-architecture": {
+  "domain": "architecture",
+  "summary": "Covers API design, gateway and mesh implementation, testing strategies, security, and evolutionary architecture patterns for distributed systems.",
+  "tags": [
+   "api-design",
+   "microservices",
+   "cloud-native",
+   "software-architecture",
+   "testing-tdd",
+   "security-testing",
+   "sre-operations",
+   "observability",
+   "continuous-delivery"
+  ],
+  "title": "Mastering API Architecture (Gough, Bryant, Auburn)"
+ },
+ "masteringlinuxadministration": {
+  "domain": "systems-ops",
+  "summary": "Covers Linux installation, shell scripting, system administration, networking, security, virtualization, containers, and cloud deployment.",
+  "tags": [
+   "linux",
+   "systemd",
+   "shell-scripting",
+   "networking",
+   "linux-hardening",
+   "cloud-native",
+   "kaggle",
+   "mlops"
+  ],
+  "title": "Mastering Linux Administration"
+ },
+ "masteringlinuxsecurityandhardening": {
+  "domain": "systems-ops",
+  "summary": "Covers Linux system hardening, including firewall configuration, SSH security, SELinux/AppArmor, encryption, and auditing tools.",
+  "tags": [
+   "linux-hardening",
+   "linux",
+   "security-testing",
+   "cryptography",
+   "networking",
+   "systemd",
+   "shell-scripting",
+   "appsec"
+  ],
+  "title": "Mastering Linux Security and Hardening, 3rd Edition"
+ },
+ "masteringpythonnetworking": {
+  "domain": "systems-ops",
+  "summary": "Covers Python networking automation, cloud infrastructure, monitoring, security, and testing workflows using tools like Ansible, Docker, and AWS.",
+  "tags": [
+   "networking",
+   "python",
+   "cloud-native",
+   "testing-tdd",
+   "version-control-git",
+   "continuous-delivery",
+   "web-development",
+   "security-testing",
+   "observability",
+   "async-concurrency"
+  ],
+  "title": "Mastering Python Networking, 4th Edition"
+ },
+ "masteringpytorch_secondedition": {
+  "domain": "applied-ml",
+  "summary": "Covers PyTorch implementations for CNNs, RNNs, transformers, GANs, diffusion models, RL, and production deployment strategies.",
+  "tags": [
+   "pytorch",
+   "deep-learning",
+   "computer-vision",
+   "nlp",
+   "transformers",
+   "reinforcement-learning",
+   "mlops",
+   "model-evaluation"
+  ],
+  "title": "Mastering PyTorch, 2nd Edition"
+ },
+ "mathematicsofmachinelearning": {
+  "domain": "applied-ml",
+  "summary": "Covers linear algebra, calculus, probability, and optimization foundations required for machine learning, with NumPy implementations.",
+  "tags": [
+   "math-foundations",
+   "optimization",
+   "probabilistic-modeling",
+   "statistics",
+   "python",
+   "algorithms-data-structures",
+   "graph-ml",
+   "ml-system-design"
+  ],
+  "title": "Mathematics of Machine Learning"
+ },
+ "microservices-design-to-deploy": {
+  "domain": "software-engineering",
+  "summary": "Covers microservices architecture, design principles, and deployment strategies including CI/CD pipelines and cloud-native infrastructure.",
+  "tags": [
+   "microservices",
+   "software-architecture",
+   "cloud-native",
+   "distributed-systems",
+   "api-design",
+   "domain-driven-design",
+   "continuous-delivery",
+   "mlops"
+  ],
+  "title": "Microservices: From Design to Deployment"
+ },
+ "ml-platform-engineering": {
+  "domain": "ai-engineering",
+  "summary": "Covers building ML platforms using Kubernetes, MLflow, and BentoML, including MLOps workflows, LLM RAG systems, and production monitoring.",
+  "tags": [
+   "mlops",
+   "ml-platform",
+   "ml-system-design",
+   "llm",
+   "rag",
+   "kaggle",
+   "computer-vision",
+   "recommender-systems",
+   "observability",
+   "cloud-native"
+  ],
+  "title": "Build a Machine Learning Platform (From Scratch) (Tan, Padmanabha)"
+ },
+ "modernnetworkobservability": {
+  "domain": "systems-ops",
+  "summary": "Covers building network observability stacks using tools like Prometheus, Grafana, and Telegraf, including data pipelines, alerting, and AI-driven analysis.",
+  "tags": [
+   "observability",
+   "networking",
+   "sre-operations",
+   "scalability-reliability",
+   "data-architecture",
+   "mlops",
+   "ai-agents",
+   "event-driven"
+  ],
+  "title": "Modern Network Observability"
+ },
+ "moderntimeseriesforecastingwithpython_secondedition": {
+  "domain": "applied-ml",
+  "summary": "Covers time series forecasting using Python, covering data processing, feature engineering, classical ML, deep learning architectures, and evaluation strategies.",
+  "tags": [
+   "time-series",
+   "forecasting",
+   "machine-learning",
+   "deep-learning",
+   "pytorch",
+   "feature-engineering",
+   "model-evaluation",
+   "transformers",
+   "pandas",
+   "statistics"
+  ],
+  "title": "Modern Time Series Forecasting with Python, 2nd Edition"
+ },
+ "nosql-distilled": {
+  "domain": "software-engineering",
+  "summary": "Explains NoSQL data models, distribution strategies, consistency trade-offs, and selection criteria for polyglot persistence.",
+  "tags": [
+   "nosql",
+   "data-architecture",
+   "distributed-systems",
+   "consensus-replication",
+   "software-architecture",
+   "database-internals"
+  ],
+  "title": "NoSQL Distilled (Fowler & Sadalage)"
+ },
+ "oauth-rfcs-book": {
+  "domain": "security",
+  "summary": "Covers OAuth 2.0 authorization frameworks, token handling, PKCE, device flows, and security best practices across native, mobile, and browser applications.",
+  "tags": [
+   "authentication-oauth",
+   "web-security",
+   "appsec",
+   "threat-modeling",
+   "api-design",
+   "cryptography",
+   "security-testing",
+   "networking"
+  ],
+  "title": "OAuth RFCs Book"
+ },
+ "optimization-algorithms": {
+  "domain": "applied-ml",
+  "summary": "Covers deterministic, trajectory-based, evolutionary, swarm, and ML-based optimization algorithms with Python implementations and applications to routing and scheduling.",
+  "tags": [
+   "optimization",
+   "algorithms-data-structures",
+   "reinforcement-learning",
+   "graph-ml",
+   "machine-learning",
+   "python",
+   "search-relevance"
+  ],
+  "title": "Optimization Algorithms (Khamis)"
+ },
+ "owasp-asvs-v5": {
+  "domain": "security",
+  "summary": "Defines security requirements and verification levels for web applications, APIs, and authentication systems.",
+  "tags": [
+   "appsec",
+   "owasp",
+   "web-security",
+   "authentication-oauth",
+   "cryptography",
+   "security-testing",
+   "threat-modeling",
+   "api-design"
+  ],
+  "title": "OWASP ASVS v5"
+ },
+ "owasp-cheat-sheets": {
+  "domain": "security",
+  "summary": "A collection of concise reference sheets covering web application security, authentication, cryptography, cloud infrastructure, and AI/ML security practices.",
+  "tags": [
+   "web-security",
+   "appsec",
+   "owasp",
+   "authentication-oauth",
+   "security-testing",
+   "threat-modeling",
+   "llm",
+   "ai-security",
+   "cloud-native",
+   "cryptography"
+  ],
+  "title": "OWASP Cheat Sheet Series"
+ },
+ "owasp-developer-guide": {
+  "domain": "security",
+  "summary": "Covers OWASP security frameworks, threat modeling, secure coding practices, and verification tools for web and mobile applications.",
+  "tags": [
+   "appsec",
+   "owasp",
+   "web-security",
+   "threat-modeling",
+   "security-testing",
+   "cryptography",
+   "software-architecture"
+  ],
+  "title": "OWASP Developer Guide"
+ },
+ "owasp-wstg-v4.2": {
+  "domain": "security",
+  "summary": "Details methodologies and techniques for testing web applications, APIs, and infrastructure against OWASP security risks.",
+  "tags": [
+   "web-security",
+   "appsec",
+   "owasp",
+   "security-testing",
+   "authentication-oauth",
+   "api-design",
+   "cryptography",
+   "threat-modeling"
+  ],
+  "title": "OWASP Web Security Testing Guide v4.2"
+ },
+ "pandascookbook_thirdedition": {
+  "domain": "applied-ml",
+  "summary": "Covers pandas fundamentals, I/O, selection, reshaping, group-by operations, visualization, and ecosystem integration for data manipulation tasks.",
+  "tags": [
+   "pandas",
+   "python",
+   "data-architecture",
+   "sql",
+   "feature-engineering",
+   "time-series",
+   "scikit-learn",
+   "data-labeling"
+  ],
+  "title": "Pandas Cookbook, 3rd Edition"
+ },
+ "patterns-enterprise-application-architecture": {
+  "domain": "software-engineering",
+  "summary": "Catalogs architectural patterns for enterprise applications, covering layering, domain logic, database mapping, web presentation, concurrency, and distribution strategies.",
+  "tags": [
+   "software-architecture",
+   "enterprise-architecture",
+   "domain-driven-design",
+   "data-architecture",
+   "web-development",
+   "distributed-systems",
+   "design-patterns",
+   "relational-design"
+  ],
+  "title": "Patterns of Enterprise Application Architecture (Fowler)"
+ },
+ "postgresql-14-internals": {
+  "domain": "databases",
+  "summary": "Explains PostgreSQL internals including storage, MVCC, WAL, locking, and query execution.",
+  "tags": [
+   "postgresql",
+   "database-internals",
+   "indexing",
+   "query-optimization",
+   "transactions-mvcc",
+   "sql",
+   "caching",
+   "systems-programming"
+  ],
+  "title": "PostgreSQL 14 Internals"
+ },
+ "postgresql-internals-interdb": {
+  "domain": "databases",
+  "summary": "Details PostgreSQL's internal architecture, covering query processing, concurrency control, WAL, replication, and buffer management.",
+  "tags": [
+   "postgresql",
+   "database-internals",
+   "transactions-mvcc",
+   "query-optimization",
+   "indexing",
+   "distributed-systems",
+   "consensus-replication",
+   "systems-programming"
+  ],
+  "title": "The Internals of PostgreSQL (Suzuki)"
+ },
+ "practicalsystemprogrammingforrustdevelopers": {
+  "domain": "rust",
+  "summary": "Covers Rust system programming topics including memory management, file I/O, process control, concurrency, networking, and unsafe FFI interactions.",
+  "tags": [
+   "rust",
+   "systems-programming",
+   "linux",
+   "networking",
+   "async-concurrency",
+   "testing-tdd",
+   "software-engineering-practice",
+   "security-testing"
+  ],
+  "title": "Practical System Programming for Rust Developers"
+ },
+ "pro-git": {
+  "domain": "software-engineering",
+  "summary": "Covers Git fundamentals, branching, remote workflows, server setup, GitHub integration, advanced tools, customization, and internal mechanics.",
+  "tags": [
+   "version-control-git",
+   "software-engineering-practice",
+   "distributed-systems",
+   "continuous-delivery",
+   "code-review",
+   "team-organization",
+   "shell-scripting",
+   "linux"
+  ],
+  "title": "Pro Git, 2nd Edition (Chacon & Straub)"
+ },
+ "probml-advanced": {
+  "domain": "advanced-ml",
+  "summary": "Covers probabilistic methods including Bayesian inference, deep generative models, graphical models, and decision-making under uncertainty.",
+  "tags": [
+   "machine-learning",
+   "bayesian-inference",
+   "probabilistic-modeling",
+   "deep-learning",
+   "reinforcement-learning",
+   "causal-inference",
+   "optimization",
+   "math-foundations",
+   "interpretability",
+   "graph-ml"
+  ],
+  "title": "Probabilistic Machine Learning: Advanced Topics (Murphy)"
+ },
+ "probml-intro": {
+  "domain": "advanced-ml",
+  "summary": "Covers probabilistic foundations, linear models, deep neural networks, and nonparametric methods for supervised, unsupervised, and reinforcement learning tasks.",
+  "tags": [
+   "machine-learning",
+   "probabilistic-modeling",
+   "statistics",
+   "math-foundations",
+   "deep-learning",
+   "neural-networks",
+   "reinforcement-learning",
+   "recommender-systems",
+   "computer-vision",
+   "nlp"
+  ],
+  "title": "Probabilistic Machine Learning: An Introduction (Murphy)"
+ },
+ "production-ready-microservices": {
+  "domain": "software-engineering",
+  "summary": "Covers principles for building stable, scalable, and observable microservices, including deployment pipelines, dependency management, and production-readiness checklists.",
+  "tags": [
+   "microservices",
+   "distributed-systems",
+   "scalability-reliability",
+   "sre-operations",
+   "cloud-native",
+   "software-architecture",
+   "continuous-delivery",
+   "observability"
+  ],
+  "title": "Production-Ready Microservices"
+ },
+ "pythonmachinelearningbyexample_fourthedition": {
+  "domain": "applied-ml",
+  "summary": "Covers practical implementation of ML algorithms including classification, regression, CNNs, RNNs, transformers, and reinforcement learning using scikit-learn, TensorFlow, and PyTorch.",
+  "tags": [
+   "machine-learning",
+   "deep-learning",
+   "scikit-learn",
+   "pytorch",
+   "nlp",
+   "computer-vision",
+   "reinforcement-learning",
+   "transformers"
+  ],
+  "title": "Python Machine Learning by Example, 4th Edition"
+ },
+ "redis-for-dummies": {
+  "domain": "databases",
+  "summary": "Covers Redis fundamentals, data structures, clustering, enterprise deployment, and specific use cases like RediSearch and CRDTs.",
+  "tags": [
+   "redis",
+   "nosql",
+   "caching",
+   "distributed-systems",
+   "data-architecture",
+   "vector-search",
+   "search-relevance",
+   "consensus-replication",
+   "cloud-native",
+   "multi-tenant-saas"
+  ],
+  "title": "Redis for Dummies"
+ },
+ "refactoring": {
+  "domain": "software-engineering",
+  "summary": "Techniques for restructuring existing code to improve design and maintainability without changing external behavior.",
+  "tags": [
+   "refactoring",
+   "clean-code",
+   "design-patterns",
+   "software-architecture",
+   "software-engineering-practice",
+   "code-review",
+   "testing-tdd"
+  ],
+  "title": "Refactoring: Improving the Design of Existing Code (Fowler)"
+ },
+ "release-it": {
+  "domain": "software-engineering",
+  "summary": "Covers stability, capacity, design, and operations patterns for building resilient, production-ready software systems.",
+  "tags": [
+   "software-architecture",
+   "scalability-reliability",
+   "sre-operations",
+   "distributed-systems",
+   "cloud-native",
+   "systems-thinking",
+   "software-engineering-practice",
+   "design-patterns"
+  ],
+  "title": "Release It! Design and Deploy Production-Ready Software (Nygard)"
+ },
+ "rest-in-practice": {
+  "domain": "software-engineering",
+  "summary": "Covers RESTful API design, hypermedia, security protocols, caching strategies, and architectural patterns for building distributed web services.",
+  "tags": [
+   "api-design",
+   "web-development",
+   "software-architecture",
+   "web-security",
+   "authentication-oauth",
+   "caching",
+   "distributed-systems",
+   "messaging-integration",
+   "domain-driven-design",
+   "scalability-reliability"
+  ],
+  "title": "REST in Practice (Webber, Parastatidis, Robinson)"
+ },
+ "rust_ebook": {
+  "domain": "rust",
+  "summary": "Covers Rust fundamentals, ownership, generics, concurrency, testing, and practical applications like web servers and data structures.",
+  "tags": [
+   "rust",
+   "systems-programming",
+   "async-concurrency",
+   "web-development",
+   "testing-tdd",
+   "design-patterns",
+   "algorithms-data-structures",
+   "software-engineering-practice"
+  ],
+  "title": "Rust Programming (Nouman Azam)"
+ },
+ "rustforblockchainapplicationdevelopment": {
+  "domain": "rust",
+  "summary": "This book covers building blockchains and decentralized applications using Rust, including Ethereum, Solana, NEAR, and Polkadot frameworks.",
+  "tags": [
+   "rust",
+   "blockchain",
+   "systems-programming",
+   "distributed-systems",
+   "consensus-replication",
+   "cryptography",
+   "web-development",
+   "software-architecture"
+  ],
+  "title": "Rust for Blockchain Application Development"
+ },
+ "rustforcplusplusdeveloper": {
+  "domain": "rust",
+  "summary": "Teaches Rust syntax, safety model, Cargo tooling, standard library, and C++ interoperability for developers transitioning from C++.",
+  "tags": [
+   "rust",
+   "cpp",
+   "systems-programming",
+   "async-concurrency",
+   "algorithms-data-structures",
+   "software-engineering-practice",
+   "testing-tdd",
+   "refactoring"
+  ],
+  "title": "Rust for C++ Developers"
+ },
+ "rustprogramminghandbook": {
+  "domain": "rust",
+  "summary": "Covers Rust syntax, ownership, error handling, concurrency, web development with Axum, system programming, and testing.",
+  "tags": [
+   "rust",
+   "systems-programming",
+   "web-development",
+   "async-concurrency",
+   "testing-tdd",
+   "design-patterns",
+   "webassembly",
+   "linux"
+  ],
+  "title": "The Rust Programming Handbook"
+ },
+ "rustwebdevelopmentwithrocket": {
+  "domain": "rust",
+  "summary": "Covers building Rocket web apps in Rust, including CRUD, security, testing, deployment, and WebAssembly integration.",
+  "tags": [
+   "rust",
+   "web-development",
+   "web-security",
+   "testing-tdd",
+   "webassembly",
+   "api-design",
+   "database-internals",
+   "cloud-native"
+  ],
+  "title": "Rust Web Development with Rocket"
+ },
+ "rustwebprogramming": {
+  "domain": "rust",
+  "summary": "Builds full-stack Rust web applications using async patterns, PostgreSQL, Redis caching, authentication, testing, and AWS deployment.",
+  "tags": [
+   "rust",
+   "web-development",
+   "async-concurrency",
+   "web-security",
+   "postgresql",
+   "redis",
+   "microservices",
+   "testing-tdd",
+   "cloud-native",
+   "webassembly"
+  ],
+  "title": "Rust Web Programming"
+ },
+ "scikit-learncookbook_thirdedition": {
+  "domain": "applied-ml",
+  "summary": "Covers scikit-learn workflows including preprocessing, model building, evaluation, and deployment for applied machine learning tasks.",
+  "tags": [
+   "scikit-learn",
+   "feature-engineering",
+   "model-evaluation",
+   "ensembles",
+   "mlops",
+   "python"
+  ],
+  "title": "Scikit-Learn Cookbook, 3rd Edition"
+ },
+ "semantic-software-design": {
+  "domain": "architecture",
+  "summary": "Covers semantic design principles, architectural artifacts, and organizational strategies for building scalable software systems.",
+  "tags": [
+   "software-architecture",
+   "domain-driven-design",
+   "enterprise-architecture",
+   "data-architecture",
+   "microservices",
+   "api-design",
+   "design-patterns",
+   "team-organization",
+   "software-engineering-practice",
+   "systems-thinking"
+  ],
+  "title": "Semantic Software Design (Hewitt)"
+ },
+ "seriouspython": {
+  "domain": "systems-ops",
+  "summary": "Covers Python software engineering practices including testing, API design, distribution, performance optimization, and database management.",
+  "tags": [
+   "python",
+   "software-engineering-practice",
+   "testing-tdd",
+   "api-design",
+   "distributed-systems",
+   "scalability-reliability",
+   "database-internals",
+   "clean-code",
+   "refactoring",
+   "python-interop"
+  ],
+  "title": "Serious Python (Danjou)"
+ },
+ "site-reliability-engineering": {
+  "domain": "software-engineering",
+  "summary": "Covers Google's SRE principles, practices, and management strategies for building and maintaining reliable, scalable distributed systems.",
+  "tags": [
+   "sre-operations",
+   "distributed-systems",
+   "observability",
+   "scalability-reliability",
+   "cloud-native",
+   "platform-engineering",
+   "consensus-replication",
+   "continuous-delivery",
+   "team-organization",
+   "systems-thinking"
+  ],
+  "title": "Site Reliability Engineering (Google SRE)"
+ },
+ "software-architect-elevator": {
+  "domain": "architecture",
+  "summary": "Explores architectural roles, decision-making frameworks, communication strategies, and organizational dynamics for modern software systems.",
+  "tags": [
+   "software-architecture",
+   "enterprise-architecture",
+   "systems-thinking",
+   "team-organization",
+   "software-engineering-practice",
+   "architecture-decisions",
+   "cloud-native",
+   "microservices",
+   "domain-driven-design",
+   "platform-engineering"
+  ],
+  "title": "The Software Architect Elevator (Hohpe)"
+ },
+ "software-architecture-hard-parts": {
+  "domain": "architecture",
+  "summary": "Covers microservice decomposition, data ownership, distributed workflows, and trade-off analysis using architectural decision records and fitness functions.",
+  "tags": [
+   "software-architecture",
+   "microservices",
+   "distributed-systems",
+   "data-architecture",
+   "domain-driven-design",
+   "architecture-decisions",
+   "event-driven",
+   "systems-thinking",
+   "cloud-native"
+  ],
+  "title": "Software Architecture: The Hard Parts (Ford, Richards, Sadalage, Dehghani)"
+ },
+ "software-architecture-metrics": {
+  "domain": "architecture",
+  "summary": "Covers defining, instrumenting, and using software architecture metrics to guide design decisions, improve maintainability, and support evolutionary architecture practices.",
+  "tags": [
+   "software-architecture",
+   "architecture-decisions",
+   "testing-tdd",
+   "continuous-delivery",
+   "observability",
+   "software-engineering-practice",
+   "team-organization",
+   "systems-thinking"
+  ],
+  "title": "Software Architecture Metrics (Ciceri, Farley, Ford et al.)"
+ },
+ "software-architecture-patterns": {
+  "domain": "software-engineering",
+  "summary": "Covers five core architectural patterns\u2014layered, event-driven, microkernel, microservices, and space-based\u2014with examples and analysis.",
+  "tags": [
+   "software-architecture",
+   "microservices",
+   "event-driven",
+   "distributed-systems",
+   "design-patterns",
+   "cloud-native",
+   "architecture-decisions",
+   "systems-thinking"
+  ],
+  "title": "Software Architecture Patterns (Richards)"
+ },
+ "software-testing-with-genai": {
+  "domain": "ai-engineering",
+  "summary": "Covers using LLMs, prompt engineering, RAG, and fine-tuning to assist testing, automation, and development workflows.",
+  "tags": [
+   "llm",
+   "prompt-engineering",
+   "ai-agents",
+   "fine-tuning",
+   "rag",
+   "genai-testing",
+   "testing-tdd",
+   "ai-assisted-coding"
+  ],
+  "title": "Software Testing with Generative AI (Winteringham)"
+ },
+ "speedupyourpythonwithrust": {
+  "domain": "rust",
+  "summary": "Teaches integrating Rust extensions into Python applications using PyO3, covering performance optimization, Flask/Celery integration, and data processing.",
+  "tags": [
+   "rust",
+   "python",
+   "python-interop",
+   "systems-programming",
+   "async-concurrency",
+   "web-development",
+   "pandas",
+   "postgresql"
+  ],
+  "title": "Speed Up Your Python with Rust"
+ },
+ "sql-relational-theory": {
+  "domain": "databases",
+  "summary": "Explores relational theory, SQL implementation details, and logical foundations for database design and querying.",
+  "tags": [
+   "sql",
+   "relational-design",
+   "database-internals",
+   "nosql",
+   "data-architecture",
+   "software-architecture",
+   "math-foundations",
+   "systems-thinking"
+  ],
+  "title": "SQL and Relational Theory, 3rd Edition (Date)"
+ },
+ "swebok": {
+  "domain": "software-engineering",
+  "summary": "Defines software engineering practice, including requirements, design, construction, testing, maintenance, configuration management, computing foundations, and professional standards.",
+  "tags": [
+   "software-engineering-practice",
+   "software-architecture",
+   "testing-tdd",
+   "algorithms-data-structures",
+   "math-foundations",
+   "database-internals",
+   "distributed-systems",
+   "computer-vision",
+   "domain-driven-design",
+   "systems-thinking"
+  ],
+  "title": "Guide to the Software Engineering Body of Knowledge (SWEBOK)"
+ },
+ "tdd-by-example": {
+  "domain": "software-engineering",
+  "summary": "Demonstrates test-driven development methodology through practical Java examples, covering unit testing, refactoring, and iterative design principles.",
+  "tags": [
+   "testing-tdd",
+   "software-engineering-practice",
+   "clean-code",
+   "refactoring",
+   "design-patterns",
+   "software-architecture",
+   "continuous-delivery",
+   "code-review"
+  ],
+  "title": "Test-Driven Development by Example (Beck)"
+ },
+ "transformers-in-action": {
+  "domain": "ai-engineering",
+  "summary": "Covers transformer architectures, LLM training, RAG, prompt engineering, fine-tuning, inference optimization, and ethical considerations for building AI systems.",
+  "tags": [
+   "transformers",
+   "llm",
+   "rag",
+   "prompt-engineering",
+   "fine-tuning",
+   "llm-serving",
+   "ai-agents",
+   "multi-tenant-saas",
+   "gpu-cuda",
+   "model-evaluation"
+  ],
+  "title": "Transformers in Action (Koenigstein)"
+ },
+ "ultimatelinuxshellscriptingguide": {
+  "domain": "systems-ops",
+  "summary": "Covers bash and zsh scripting, text processing tools, security hardening, debugging techniques, and cross-platform automation for Linux systems administration.",
+  "tags": [
+   "shell-scripting",
+   "linux",
+   "systems-programming",
+   "linux-hardening",
+   "security-testing",
+   "sre-operations",
+   "python-interop",
+   "cloud-native"
+  ],
+  "title": "The Ultimate Linux Shell Scripting Guide"
+ },
+ "ultimateubuntuhandbook": {
+  "domain": "systems-ops",
+  "summary": "Covers Ubuntu installation, desktop usage, security hardening, command-line tools, and containerized development environments like LXD and MicroK8s.",
+  "tags": [
+   "linux",
+   "security-testing",
+   "linux-hardening",
+   "cloud-native",
+   "platform-engineering",
+   "shell-scripting",
+   "networking",
+   "systemd"
+  ],
+  "title": "The Ultimate Ubuntu Handbook"
+ },
+ "understanding-deep-learning": {
+  "domain": "advanced-ml",
+  "summary": "Covers deep learning theory, architectures like transformers and CNNs, and practical implementation details including optimization and ethics.",
+  "tags": [
+   "deep-learning",
+   "neural-networks",
+   "transformers",
+   "reinforcement-learning",
+   "graph-ml",
+   "computer-vision",
+   "nlp",
+   "optimization",
+   "math-foundations",
+   "pytorch"
+  ],
+  "title": "Understanding Deep Learning (Prince)"
+ },
+ "use-the-index-luke": {
+  "domain": "databases",
+  "summary": "Explains SQL indexing mechanics, execution plans, and tuning strategies for improving query performance and scalability.",
+  "tags": [
+   "sql",
+   "database-internals",
+   "indexing",
+   "query-optimization",
+   "relational-design",
+   "scalability-reliability"
+  ],
+  "title": "Use The Index, Luke \u2014 SQL Indexing"
+ }
+}
