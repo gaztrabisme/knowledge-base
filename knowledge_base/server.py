@@ -8,7 +8,7 @@ from fastmcp import FastMCP
 
 from .calllog import logged
 from .config import BOOKS, CHUNKS_DIR, MARKDOWN_DIR
-from .books import _chapter_title, book_chapters, book_domain, resolve_book
+from .books import DOMAINS, _chapter_title, book_chapters, book_domain, load_catalog, resolve_book
 from .search import get_client, hybrid_search
 
 _CHUNK_ID_RE = re.compile(r"^(.+)-p(\d+)-c(\d+)$")
@@ -39,6 +39,31 @@ def _format_search_result(result, detail: str) -> dict:
     return full
 
 
+def _token_count(value: object) -> int:
+    import tiktoken
+
+    return len(tiktoken.get_encoding("cl100k_base").encode(json.dumps(value)))
+
+
+def _catalog_book(slug: str, fallback_title: str | None = None) -> dict:
+    entry = load_catalog().get(slug, {})
+    return {
+        "slug": slug,
+        "title": entry.get("title") or fallback_title or slug,
+        "domain": entry.get("domain") or book_domain(slug),
+        "tags": entry.get("tags") or [],
+        "summary": entry.get("summary") or "",
+    }
+
+
+def _catalog_tags() -> list[str]:
+    return sorted({
+        tag
+        for entry in load_catalog().values()
+        for tag in entry.get("tags", [])
+    })
+
+
 @mcp.tool()
 @logged
 def search(
@@ -49,13 +74,17 @@ def search(
     extra_queries: list[str] | None = None,
     bm25_keywords: list[str] | None = None,
     detail: str = "brief",
+    books: list[str] | None = None,
+    domain: str | None = None,
 ) -> list[dict]:
-    """Search across all indexed books using hybrid semantic + keyword search.
+    """Search across the library: advanced-ml, ai-engineering, applied-ml, architecture,
+    databases, distributed-systems, rust, security, software-engineering, systems-ops.
+    Use find_books(query=...) to choose books before narrowing a search.
 
     Args:
         query: Natural language search query.
         top_k: Number of results to return (default 10).
-        book: Optional book slug or title to filter results to a single book.
+        book: Optional legacy single-book slug or title filter.
         hyde_passage: Optional hypothetical answer paragraph. When provided, this
             text is embedded instead of the query for the dense retrieval leg,
             bridging vocabulary gaps between questions and textbook prose. The
@@ -68,6 +97,8 @@ def search(
             terms drive lexical matching instead of the natural-language query,
             separating semantic intent (dense leg) from exact-term matching.
             Use when you know the precise vocabulary the source text would use.
+        books: Optional book slugs or titles; use find_books() to choose them.
+        domain: Optional library domain filter.
         detail: "brief" returns short passages for scanning; call read_chunk(chunk_id)
             for the surrounding passage, or use "full" for the full result.
 
@@ -77,11 +108,29 @@ def search(
     """
     if detail not in {"brief", "full"}:
         return [{"error": "detail must be 'brief' or 'full'"}]
-    book_slug = None
+    if domain is not None and domain not in DOMAINS:
+        return [{"error": f"Unknown domain '{domain}'. Domains: {', '.join(DOMAINS)}"}]
+
+    resolved_books: list[str] = []
+    for name in books or []:
+        slug, suggestions = resolve_book(name)
+        if slug is None:
+            return [{"error": _unknown_book_error(name, suggestions)}]
+        if slug not in resolved_books:
+            resolved_books.append(slug)
+
+    legacy_slug = None
     if book is not None:
-        book_slug, suggestions = resolve_book(book)
-        if book_slug is None:
+        legacy_slug, suggestions = resolve_book(book)
+        if legacy_slug is None:
             return [{"error": _unknown_book_error(book, suggestions)}]
+        if legacy_slug not in resolved_books:
+            resolved_books.append(legacy_slug)
+
+    if books is None and book is not None:
+        book_filter: str | list[str] | None = legacy_slug
+    else:
+        book_filter = resolved_books or None
 
     # ⚡2: reuse the long-lived client singleton (no per-call open/close).
     client = get_client()
@@ -89,7 +138,8 @@ def search(
         query=query,
         client=client,
         top_k=top_k,
-        book_filter=book_slug,
+        book_filter=book_filter,
+        domain_filter=domain,
         hyde_passage=hyde_passage,
         extra_queries=extra_queries,
         bm25_keywords=bm25_keywords,
@@ -300,27 +350,146 @@ def list_books(book: str | None = None) -> list[dict] | dict:
         if slug is None:
             return {"error": _unknown_book_error(book, suggestions)}
         chapters = book_chapters(slug)
+        entry = _catalog_book(slug, BOOKS[slug])
         return {
             "slug": slug,
-            "title": BOOKS[slug],
-            "domain": book_domain(slug),
+            "title": entry["title"],
+            "domain": entry["domain"],
+            "tags": entry["tags"],
             "chapters": [
                 {"index": i, "title": title}
                 for i, title in enumerate(chapters, start=1)
             ],
         }
 
-    return [
-        {
+    rows = []
+    for slug, title in sorted(
+        BOOKS.items(), key=lambda item: (_catalog_book(item[0], item[1])["domain"], item[1].casefold())
+    ):
+        entry = _catalog_book(slug, title)
+        rows.append({
             "slug": slug,
-            "title": title,
-            "domain": book_domain(slug),
+            "title": entry["title"],
+            "domain": entry["domain"],
             "chapter_count": len(book_chapters(slug)),
-        }
-        for slug, title in sorted(
-            BOOKS.items(), key=lambda item: (book_domain(item[0]), item[1].casefold())
-        )
-    ]
+            "tags": entry["tags"],
+        })
+    if _token_count(rows) > 8000:
+        for row in rows:
+            row.pop("tags")
+    return rows
+
+
+@mcp.tool()
+@logged
+def find_books(
+    query: str | None = None,
+    domain: str | None = None,
+    tags: list[str] | None = None,
+    top_k: int = 5,
+) -> list[dict]:
+    """Call first when you don't know which books cover a topic. Domains: advanced-ml,
+    ai-engineering, applied-ml, architecture, databases, distributed-systems, rust,
+    security, software-engineering, systems-ops. matching_sections shows the words books
+    use; reuse them in the next search query. After choosing books, call
+    search(query, books=[...]).
+
+    Without query, list matching catalog entries sorted by domain then title. With query,
+    rank books by matching sections.
+
+    Args:
+        query: Topic or question to rank books for; omit to browse the catalog.
+        domain: Optional domain filter.
+        tags: Optional tags; a book must have every supplied tag.
+        top_k: Maximum number of ranked books to return when query is given (default 5).
+
+    Returns:
+        Catalog entries, or ranked entries with score and up to four matching sections.
+    """
+    if domain is not None and domain not in DOMAINS:
+        return [{"error": f"Unknown domain '{domain}'. Domains: {', '.join(DOMAINS)}"}]
+
+    valid_tags = _catalog_tags()
+    invalid_tags = sorted(set(tags or []) - set(valid_tags))
+    if invalid_tags:
+        return [{
+            "error": f"Unknown tag(s) {', '.join(invalid_tags)}. Tags: {', '.join(valid_tags)}"
+        }]
+
+    catalog = load_catalog()
+    source = catalog or {slug: {} for slug in BOOKS}
+    rows = []
+    for slug, fallback in source.items():
+        row = _catalog_book(slug, fallback.get("title") or BOOKS.get(slug, slug))
+        if domain is not None and row["domain"] != domain:
+            continue
+        if not set(tags or []).issubset(row["tags"]):
+            continue
+        rows.append(row)
+
+    limit = max(0, top_k)
+    if query is None:
+        # Browsing returns every match; top_k only limits a ranked query.
+        rows.sort(key=lambda row: (row["domain"], row["title"].casefold()))
+        # Over the cap, drop summaries before dropping books: a silently shortened catalog
+        # reads as the whole library.
+        if _token_count(rows) >= 10000:
+            rows = [{k: v for k, v in row.items() if k != "summary"} for row in rows]
+        return rows
+
+    client = get_client()
+    reranked = hybrid_search(
+        query=query,
+        client=client,
+        top_k=40,
+        candidates=100,
+        domain_filter=domain,
+    )
+    fusion_only = hybrid_search(
+        query=query,
+        client=client,
+        rerank=False,
+        top_k=100,
+        candidates=100,
+        domain_filter=domain,
+    )
+
+    ranked_books: dict[str, dict] = {}
+    for weight, hits in ((1.0, reranked), (0.5, fusion_only)):
+        for rank, hit in enumerate(hits):
+            slug = hit.book
+            book_row = ranked_books.setdefault(
+                slug, {**_catalog_book(slug, hit.book_title), "score": 0.0, "matching_sections": []}
+            )
+            book_row["score"] += weight / (rank + 1)
+            heading = re.sub(r"\s*\(part\s+\d+\)\s*$", "", hit.heading_path, flags=re.IGNORECASE)
+            heading = re.sub(r"\s+", " ", heading).strip()
+            if heading and heading not in book_row["matching_sections"]:
+                book_row["matching_sections"].append(heading)
+
+    ranked = sorted(
+        ranked_books.values(),
+        key=lambda row: (-row["score"], row["domain"], row["title"].casefold(), row["slug"]),
+    )
+    if tags:
+        required_tags = set(tags)
+        ranked = [row for row in ranked if required_tags.issubset(row["tags"])]
+
+    output = []
+    for row in ranked[:limit]:
+        output.append({
+            "slug": row["slug"],
+            "title": row["title"],
+            "domain": row["domain"],
+            "tags": row["tags"],
+            "summary": row["summary"],
+            "score": round(row["score"], 3),
+            "matching_sections": row["matching_sections"][:4],
+        })
+        if _token_count(output) > 1500:
+            output.pop()
+            break
+    return output
 
 
 @mcp.tool()

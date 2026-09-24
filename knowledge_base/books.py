@@ -4,7 +4,19 @@ import difflib
 import re
 from functools import lru_cache
 
-from .config import BOOKS, MARKDOWN_DIR, SOURCE_DIRS
+from .config import BOOKS, MARKDOWN_DIR, ROOT, SOURCE_DIRS
+
+
+@lru_cache(maxsize=1)
+def load_catalog() -> dict[str, dict]:
+    """Load the generated book catalog, omitting its metadata row."""
+    path = ROOT / "data" / "catalog.json"
+    if not path.exists():
+        return {}
+    import json
+
+    raw = json.loads(path.read_text(encoding="utf-8"))
+    return {slug: value for slug, value in raw.items() if slug != "_meta"}
 
 
 def _normalise(value: str) -> str:
@@ -40,6 +52,14 @@ def _source_domains() -> dict[str, str]:
 def book_domain(slug: str) -> str:
     """Return the configured source directory key for a book, or "unknown"."""
     return _source_domains().get(slug, "unknown")
+
+
+_catalog = load_catalog()
+DOMAINS = sorted({
+    (_catalog.get(slug, {}).get("domain") or book_domain(slug))
+    for slug in BOOKS
+    if (_catalog.get(slug, {}).get("domain") or book_domain(slug)) != "unknown"
+})
 
 
 @lru_cache(maxsize=None)

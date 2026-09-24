@@ -80,11 +80,12 @@ def hybrid_search(
     client: QdrantClient,
     top_k: int = 10,
     candidates: int = 50,
-    book_filter: str | None = None,
+    book_filter: str | list[str] | None = None,
     rerank: bool = True,
     hyde_passage: str | None = None,
     extra_queries: list[str] | None = None,
     bm25_keywords: list[str] | None = None,
+    domain_filter: str | None = None,
 ) -> list[SearchResult]:
     # ⚡4: embed the query, the optional HyDE passage, and all extra-query variants
     # in ONE batch instead of one embed_texts() call per variant.
@@ -104,14 +105,23 @@ def hybrid_search(
     bm25_text = " ".join(bm25_keywords) if bm25_keywords else query
     query_sparse = text_to_sparse_vector(bm25_text)
 
-    filter_conditions = None
-    if book_filter:
-        filter_conditions = models.Filter(
-            must=[models.FieldCondition(
-                key="book",
-                match=models.MatchValue(value=book_filter),
-            )]
-        )
+    must = []
+    if isinstance(book_filter, str) and book_filter:
+        must.append(models.FieldCondition(
+            key="book",
+            match=models.MatchValue(value=book_filter),
+        ))
+    elif book_filter:
+        must.append(models.FieldCondition(
+            key="book",
+            match=models.MatchAny(any=book_filter),
+        ))
+    if domain_filter is not None:
+        must.append(models.FieldCondition(
+            key="domain",
+            match=models.MatchValue(value=domain_filter),
+        ))
+    filter_conditions = models.Filter(must=must) if must else None
 
     def _dense_prefetch(vec):
         return models.Prefetch(query=vec, using="", filter=filter_conditions, limit=candidates)
