@@ -582,6 +582,11 @@ Reusable infra: `scripts/gpu_sweep.sh` (unattended index→eval driver for candi
 **Decision:** Add `related_headings` from already-ranked overflow after the existing cutoff, keeping the `overflow=None` path identical. Default tool guidance reuses corpus headings; `KB_TOOL_DOCS=hyde` provides the opposite advice as a description-only experiment, with the same parameters. The search response wrapper is reflected in benchmark and call-log result counts.
 **Evidence:** [Stage 3 interface report](../data/bench/stage3-report.md) records both live query outputs, schema parity, token counts, and helper checks. The first hard-gate run read 0.7699 against the 0.7700 reference. Two reruns on the same Qdrant state, one with the Stage 2 code and one with the Stage 3 code, both read 0.7700 (`pq-s2code-rerun.jsonl`, `pq-s3code-rerun.jsonl`), so the 0.0001 was run-to-run noise from the MPS reranker under load. The gate holds.
 
+### Stage 1 of the interface refinement: short results and a slim catalog — KEPT (2026-09-25)
+**Context:** `list_books()` returned 103k tokens, over the MCP output limit, and `search()` returned 10–23k tokens a call. Small agents either bounced off the size limit or filled their context with parent passages.
+**Decision:** Keep A1: `search` returns child passages by default (`detail="full"` restores parents), `list_books()` is a 4.9k-token catalog, chapter lists skip code-block headings, and book names resolve fuzzily with suggestions.
+**Evidence:** Agent benchmark, 150 questions × Gemma-4-12B and Qwen3.6-35B-A3B, paired (see [interface-bench.md](interface-bench.md)). Pooled: found 0.833 → 0.880 (p=0.044), cited 0.780 → 0.840 (p=0.025), prompt tokens −41%, tool-output tokens −89%, invalid calls 0.35 → 0, calls before the first correct passage −0.12 (p<0.001). Total calls rose 0.3, all `read_chunk` after a hit. Retrieval gate unchanged (0.7704).
+
 ## Rejected Approaches
 
 ### Embedding upgrade (Qwen3-Embedding-0.6B / EmbeddingGemma-300M) — v6.3 → re-tested v6.6

@@ -1,0 +1,3 @@
+Qwen3.6-35B-A3B-OptiQ-4bit-REAP-19B pairs 125 mean first_hit_call A0 1.16 A1 1.18 later 5 earlier 5
+gemma-4-12B-it-qat-OptiQ-4bit pairs 111 mean first_hit_call A0 1.78 A1 1.51 later 6 earlier 35
+pooled pairs 236 mean delta -0.119 CI [-0.212, -0.025] wilcoxon p 0.000876035998845337
