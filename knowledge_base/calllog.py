@@ -58,6 +58,14 @@ def _ids(value: object) -> tuple[list[str], list[str]]:
     return chunk_ids, parent_ids
 
 
+def _result_count(value: object) -> int:
+    if isinstance(value, dict) and isinstance(value.get("results"), list):
+        return len(value["results"])
+    if isinstance(value, (list, tuple)):
+        return len(value)
+    return int(value is not None and value != "")
+
+
 def _result_error(result: object) -> str | None:
     if isinstance(result, str) and "not found" in result.lower():
         return result
@@ -83,7 +91,7 @@ def _append(path: str, function, args: tuple, kwargs: dict, result: object,
     try:
         bound = inspect.signature(function).bind_partial(*args, **kwargs)
         chunk_ids, parent_ids = _ids(result)
-        n_results = len(result) if isinstance(result, (list, tuple)) else int(result is not None and result != "")
+        n_results = _result_count(result)
         row = {
             "ts": datetime.now(timezone.utc).isoformat(),
             "run_id": _run_id.get(),

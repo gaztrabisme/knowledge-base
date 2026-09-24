@@ -80,6 +80,20 @@ def parent_ids(value: object) -> set[str]:
     return found
 
 
+def is_empty_result(value: object) -> bool:
+    if isinstance(value, dict) and isinstance(value.get("results"), list):
+        return value["results"] == []
+    return isinstance(value, list) and value == []
+
+
+def result_count(value: object) -> int:
+    if isinstance(value, dict) and isinstance(value.get("results"), list):
+        return len(value["results"])
+    if isinstance(value, list):
+        return len(value)
+    return int(value is not None and value != "")
+
+
 def cited_ids(answer: str) -> list[str]:
     cited_line = None
     for line in answer.splitlines():
@@ -211,7 +225,7 @@ async def _run_question(question: dict, args, client, offered_tools, tools_by_na
                         error = result_error(raw_result)
                         if error:
                             invalid = True
-                        if isinstance(raw_result, list) and len(raw_result) == 0:
+                        if is_empty_result(raw_result):
                             empty_results += 1
                         if result_tokens > args.max_tool_tokens:
                             error = (
@@ -238,7 +252,7 @@ async def _run_question(question: dict, args, client, offered_tools, tools_by_na
             tool_tokens_total += result_tokens
             if invalid:
                 invalid_calls += 1
-            n_results = len(raw_result) if isinstance(raw_result, list) else int(raw_result is not None and raw_result != "")
+            n_results = result_count(raw_result)
             calls.append({
                 "tool": name,
                 "args": parsed_args,

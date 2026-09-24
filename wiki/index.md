@@ -46,6 +46,7 @@ PREVIOUS (v6.4 gate-audit round: **audited the golden gate itself — overall gr
 - [Gate Audit Report Card](gate-audit.md) — **v6.4.** Rigorous audit of the golden eval gate (D+): statistical power, label completeness (44% incomplete), query realism, coverage. Significance harness. Why v6.3's embedding rejection is inconclusive.
 - [DSPy Enrichment Plan](dspy-enrichment-plan.md) — **CLOSED.** Phase 1+2 done (DSPy lost the prompt gate); Phase 3 done — full-index enrichment regressed the hard gate (0.7907→0.7759) so it was **reverted**. Corpus stays no-enrichment. Post-mortem in [decisions.md](decisions.md).
 - [Agent Benchmark](agent-benchmark.md) — Tool-call measurement harness, fixed 120-question sample, smoke results, and paired comparison commands.
+- [Stage 3 Interface Report](../data/bench/stage3-report.md) — Search result wrapper, description arms, token counts, and acceptance output.
 
 ## Project Summary
 

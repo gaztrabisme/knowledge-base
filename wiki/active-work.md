@@ -1,8 +1,8 @@
 # Active Work
 
 ## KB interface refinement, measured on small agents
-**Status:** Stage 0 (measurement harness) done. Stages 1–5 pending.
-**Current state:** `scripts/agent_bench.py` runs an agent loop against oMLX models over the in-process tools; `knowledge_base/calllog.py` logs every tool call when `KB_CALL_LOG` is set; `scripts/bench_compare.py` compares two arms paired per question.
-**Next step:** Extend the question set with 30 v7.1-book questions, then run the A0 baseline on three models.
+**Status:** Stage 3 implementation complete; retrieval gate `s3-check` completed with a strict metric mismatch.
+**Current state:** Search and search_book wrap hits with related headings. Tool descriptions support the default and `KB_TOOL_DOCS=hyde` arms. Harness and call-log counts handle the results wrapper. Live search and helper checks pass. Gate NDCG@10 was 0.7699 versus required 0.7700; see [Stage 3 interface report](../data/bench/stage3-report.md).
+**Next step:** User runs the agent smoke test and reviews the −0.0001 gate difference. Do not run `agent_bench.py` against a model in this stage.
 
 Details in [Agent Benchmark](agent-benchmark.md).

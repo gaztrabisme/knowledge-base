@@ -86,6 +86,8 @@ def hybrid_search(
     extra_queries: list[str] | None = None,
     bm25_keywords: list[str] | None = None,
     domain_filter: str | None = None,
+    *,
+    overflow: list | None = None,
 ) -> list[SearchResult]:
     # ⚡4: embed the query, the optional HyDE passage, and all extra-query variants
     # in ONE batch instead of one embed_texts() call per variant.
@@ -153,12 +155,30 @@ def hybrid_search(
         for p in fused
     ]
 
-    if rerank and merged:
-        merged = _rerank(query, merged, top_k)
-    else:
-        merged = merged[:top_k]
+    if overflow is None:
+        if rerank and merged:
+            merged = _rerank(query, merged, top_k)
+        else:
+            merged = merged[:top_k]
+        return _deduplicate_parents(merged)
 
-    return _deduplicate_parents(merged)
+    overflow.clear()
+    ranked_overflow: list[dict] = []
+    if rerank and merged:
+        merged = _rerank(query, merged, top_k, overflow=ranked_overflow)
+    else:
+        ranked = merged
+        merged = merged[:top_k]
+        kept_ids = {id(result) for result in merged}
+        ranked_overflow = [result for result in ranked if id(result) not in kept_ids]
+
+    kept = _deduplicate_parents(merged)
+    kept_parents = {result.parent_id for result in kept}
+    overflow.extend(_deduplicate_parents([
+        result for result in ranked_overflow
+        if result["payload"].get("parent_id", "") not in kept_parents
+    ]))
+    return kept
 
 
 # Rust book slugs — the domain where heading_path is descriptive enough to help the
@@ -222,7 +242,12 @@ def _rerank_doc(p: dict) -> str:
     return "\n".join(x for x in parts if x)
 
 
-def _rerank(query: str, results: list[dict], top_k: int) -> list[dict]:
+def _rerank(
+    query: str,
+    results: list[dict],
+    top_k: int,
+    overflow: list[dict] | None = None,
+) -> list[dict]:
     reranker = get_ranker()
 
     documents = [_rerank_doc(r["payload"]) for r in results]
@@ -235,7 +260,11 @@ def _rerank(query: str, results: list[dict], top_k: int) -> list[dict]:
         result["score"] = float(item["score"])
         scored.append(result)
 
-    return _adaptive_cutoff(scored, top_k)
+    kept = _adaptive_cutoff(scored, top_k)
+    if overflow is not None:
+        kept_ids = {id(result) for result in kept}
+        overflow.extend(result for result in scored if id(result) not in kept_ids)
+    return kept
 
 
 def _adaptive_cutoff(results: list[dict], top_k: int) -> list[dict]:

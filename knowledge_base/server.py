@@ -1,6 +1,7 @@
 """FastMCP server exposing semantic search over ML books."""
 
 import json
+import os
 import re
 import subprocess
 
@@ -17,6 +18,44 @@ mcp = FastMCP(
     "Developer Knowledge Base",
     instructions="Semantic search over technical books: ML, databases, security, distributed systems",
 )
+
+TOOL_DESCRIPTIONS = {
+    "search": {
+        "default": (
+            "Search the library for passages that answer a technical question. "
+            "If you don't know which books cover the topic, call find_books first. "
+            "For follow-up searches, reuse words from related_headings or "
+            "find_books matching_sections instead of guessing vocabulary. "
+            "Use read_chunk(chunk_id) to read around a hit."
+        ),
+        "hyde": (
+            "Search the library for passages that answer a technical question. "
+            "For conceptual questions, always write a hyde_passage: a 3–5 sentence "
+            "hypothetical textbook answer. If you don't know which books cover the "
+            "topic, call find_books first. Use read_chunk(chunk_id) to read around a hit."
+        ),
+    },
+    "search_book": "Search a selected book for passages that answer a technical question.",
+    "read_chunk": "Read a search hit with neighboring chunks and its parent passage.",
+    "get_chapter": "Read a chapter by book and chapter number or title.",
+    "list_books": "List the library catalog or one book's chapters.",
+    "find_books": {
+        "default": (
+            "Find books that cover a topic and show the vocabulary used in their sections. "
+            "Call this first if you don't know which books cover the topic."
+        ),
+        "hyde": "Find books that cover a topic and show the vocabulary used in their sections.",
+    },
+    "grep_books": "Find exact text matches in the books.",
+}
+_TOOL_DOC_MODE = "hyde" if os.environ.get("KB_TOOL_DOCS") == "hyde" else "default"
+
+
+def _tool_description(name: str) -> str:
+    description = TOOL_DESCRIPTIONS[name]
+    if isinstance(description, dict):
+        return description[_TOOL_DOC_MODE]
+    return description
 
 
 def _unknown_book_error(book: str, suggestions: list[str]) -> str:
@@ -37,6 +76,24 @@ def _format_search_result(result, detail: str) -> dict:
     full = result.to_dict()
     full["book_slug"] = result.book
     return full
+
+
+def _normalized_heading(value: str) -> str:
+    heading = re.sub(r"\s*\(part\s+\d+\)\s*$", "", value, flags=re.IGNORECASE)
+    return re.sub(r"\s+", " ", heading).strip()
+
+
+def _search_response(results, overflow, detail: str) -> dict:
+    formatted = [_format_search_result(result, detail) for result in results]
+    result_headings = {_normalized_heading(result.heading_path) for result in results}
+    related_headings = []
+    for result in overflow:
+        heading = _normalized_heading(result.heading_path)
+        if heading and heading not in result_headings and heading not in related_headings:
+            related_headings.append(heading)
+            if len(related_headings) == 8:
+                break
+    return {"results": formatted, "related_headings": related_headings}
 
 
 def _token_count(value: object) -> int:
@@ -64,7 +121,7 @@ def _catalog_tags() -> list[str]:
     })
 
 
-@mcp.tool()
+@mcp.tool(description=_tool_description("search"))
 @logged
 def search(
     query: str,
@@ -76,35 +133,19 @@ def search(
     detail: str = "brief",
     books: list[str] | None = None,
     domain: str | None = None,
-) -> list[dict]:
-    """Search across the library: advanced-ml, ai-engineering, applied-ml, architecture,
-    databases, distributed-systems, rust, security, software-engineering, systems-ops.
-    Use find_books(query=...) to choose books before narrowing a search.
+) -> dict | list[dict]:
+    """Search the library.
 
     Args:
-        query: Natural language search query.
-        top_k: Number of results to return (default 10).
-        book: Optional legacy single-book slug or title filter.
-        hyde_passage: Optional hypothetical answer paragraph. When provided, this
-            text is embedded instead of the query for the dense retrieval leg,
-            bridging vocabulary gaps between questions and textbook prose. The
-            BM25 keyword leg still uses the original query (or bm25_keywords).
-        extra_queries: Optional list of alternative query phrasings to broaden
-            recall. Each extra query adds its own dense + BM25 retrieval legs,
-            and all candidates are fused before reranking.
-        bm25_keywords: Optional list of exact terms for the BM25 keyword leg
-            (e.g. ["MVCC", "xmin", "snapshot isolation"]). When provided, these
-            terms drive lexical matching instead of the natural-language query,
-            separating semantic intent (dense leg) from exact-term matching.
-            Use when you know the precise vocabulary the source text would use.
-        books: Optional book slugs or titles; use find_books() to choose them.
+        query: Natural-language question or topic.
+        top_k: Maximum number of hits to return.
+        book: Optional legacy single-book filter.
+        hyde_passage: Advanced: hypothetical answer added as a second dense query; helps broad concepts and can hurt precise terminology.
+        extra_queries: Advanced: alternative phrasings added as dense and BM25 queries.
+        bm25_keywords: Advanced: exact terms used for the BM25 leg instead of the query.
+        detail: Use "brief" hits or "full" parent passages.
+        books: Optional book filters; use find_books to choose them.
         domain: Optional library domain filter.
-        detail: "brief" returns short passages for scanning; call read_chunk(chunk_id)
-            for the surrounding passage, or use "full" for the full result.
-
-    Returns:
-        List of search results. Brief results contain the matching child passage;
-        full results include the parent passage and legacy fields.
     """
     if detail not in {"brief", "full"}:
         return [{"error": "detail must be 'brief' or 'full'"}]
@@ -134,6 +175,7 @@ def search(
 
     # ⚡2: reuse the long-lived client singleton (no per-call open/close).
     client = get_client()
+    overflow = []
     results = hybrid_search(
         query=query,
         client=client,
@@ -143,29 +185,26 @@ def search(
         hyde_passage=hyde_passage,
         extra_queries=extra_queries,
         bm25_keywords=bm25_keywords,
+        overflow=overflow,
     )
-    return [_format_search_result(r, detail) for r in results]
+    return _search_response(results, overflow, detail)
 
 
-@mcp.tool()
+@mcp.tool(description=_tool_description("search_book"))
 @logged
 def search_book(
     book: str,
     query: str,
     top_k: int = 5,
     detail: str = "brief",
-) -> list[dict]:
-    """Search within a specific book.
+) -> dict | list[dict]:
+    """Search within one book.
 
     Args:
-        book: Book slug or title (use list_books() to see available books).
-        query: Natural language search query.
-        top_k: Number of results to return (default 5).
-        detail: "brief" returns short passages for scanning; call read_chunk(chunk_id)
-            for the surrounding passage, or use "full" for the full result.
-
-    Returns:
-        List of search results scoped to the specified book.
+        book: Book slug or title.
+        query: Natural-language question or topic.
+        top_k: Maximum number of hits to return.
+        detail: Use "brief" hits or "full" parent passages.
     """
     if detail not in {"brief", "full"}:
         return [{"error": "detail must be 'brief' or 'full'"}]
@@ -175,34 +214,25 @@ def search_book(
 
     # ⚡2: reuse the long-lived client singleton (no per-call open/close).
     client = get_client()
+    overflow = []
     results = hybrid_search(
         query=query,
         client=client,
         top_k=top_k,
         book_filter=book_slug,
+        overflow=overflow,
     )
-    return [_format_search_result(r, detail) for r in results]
+    return _search_response(results, overflow, detail)
 
 
-@mcp.tool()
+@mcp.tool(description=_tool_description("read_chunk"))
 @logged
 def read_chunk(chunk_id: str, window: int = 1) -> dict:
-    """Expand context around a search hit: read a chunk plus its neighbours.
-
-    Pass the `chunk_id` from a search() / search_book() result to pull the exact
-    chunk, its parent passage, and the adjacent sibling chunks — without
-    re-searching or loading a whole chapter via get_chapter(). Useful for
-    following a promising hit forward/backward through the surrounding text.
+    """Read the chunk and surrounding context.
 
     Args:
-        chunk_id: A chunk id from search results, e.g. "crypto-101-p0-c1".
-        window: Number of sibling chunks to include on each side (default 1;
-            window=0 returns only the chunk itself).
-
-    Returns:
-        Dict with the chunk text, its parent passage, neighbouring siblings
-        (`previous`/`next`), heading_path, and `seen_chunk_ids` (every id
-        returned) so repeated calls can skip already-seen chunks.
+        chunk_id: Chunk id from a search result.
+        window: Number of sibling chunks to include on each side.
     """
     m = _CHUNK_ID_RE.match(chunk_id)
     if not m:
@@ -242,17 +272,14 @@ def read_chunk(chunk_id: str, window: int = 1) -> dict:
     }
 
 
-@mcp.tool()
+@mcp.tool(description=_tool_description("get_chapter"))
 @logged
 def get_chapter(book: str, chapter: str | int) -> str:
-    """Get the full text of a specific chapter from a book.
+    """Read a chapter from a book.
 
     Args:
-        book: Book slug or title (use list_books() to see available books).
-        chapter: 1-based chapter index, exact or partial title, or title prefix.
-
-    Returns:
-        Full markdown text of the chapter, or an error message.
+        book: Book slug or title.
+        chapter: 1-based number or exact, partial, or prefix title.
     """
     slug, suggestions = resolve_book(book)
     if slug is None:
@@ -335,15 +362,13 @@ def get_chapter(book: str, chapter: str | int) -> str:
     return result
 
 
-@mcp.tool()
+@mcp.tool(description=_tool_description("list_books"))
 @logged
 def list_books(book: str | None = None) -> list[dict] | dict:
-    """List the catalog, or the chapters for one book.
+    """List books or chapters.
 
-    Call without arguments for the catalog; pass a book slug or title for its chapters.
-
-    Returns:
-        Catalog rows, or one book with indexed chapter titles.
+    Args:
+        book: Optional slug or title to list that book's chapters.
     """
     if book is not None:
         slug, suggestions = resolve_book(book)
@@ -380,7 +405,7 @@ def list_books(book: str | None = None) -> list[dict] | dict:
     return rows
 
 
-@mcp.tool()
+@mcp.tool(description=_tool_description("find_books"))
 @logged
 def find_books(
     query: str | None = None,
@@ -388,23 +413,13 @@ def find_books(
     tags: list[str] | None = None,
     top_k: int = 5,
 ) -> list[dict]:
-    """Call first when you don't know which books cover a topic. Domains: advanced-ml,
-    ai-engineering, applied-ml, architecture, databases, distributed-systems, rust,
-    security, software-engineering, systems-ops. matching_sections shows the words books
-    use; reuse them in the next search query. After choosing books, call
-    search(query, books=[...]).
-
-    Without query, list matching catalog entries sorted by domain then title. With query,
-    rank books by matching sections.
+    """Find books by topic and optional filters.
 
     Args:
-        query: Topic or question to rank books for; omit to browse the catalog.
-        domain: Optional domain filter.
-        tags: Optional tags; a book must have every supplied tag.
-        top_k: Maximum number of ranked books to return when query is given (default 5).
-
-    Returns:
-        Catalog entries, or ranked entries with score and up to four matching sections.
+        query: Optional topic or question to rank books for.
+        domain: Optional library domain filter.
+        tags: Optional tags; books must have every supplied tag.
+        top_k: Maximum number of ranked books to return.
     """
     if domain is not None and domain not in DOMAINS:
         return [{"error": f"Unknown domain '{domain}'. Domains: {', '.join(DOMAINS)}"}]
@@ -492,25 +507,19 @@ def find_books(
     return output
 
 
-@mcp.tool()
+@mcp.tool(description=_tool_description("grep_books"))
 @logged
 def grep_books(
     pattern: str,
     book: str | None = None,
     max_results: int = 20,
 ) -> list[dict]:
-    """Exact-match keyword search across book markdown files using ripgrep (with Python fallback).
-
-    Unlike semantic search, this finds exact text matches — useful for finding specific
-    function names, error messages, code snippets, or terms that semantic search may miss.
+    """Find exact text matches in book markdown.
 
     Args:
-        pattern: Regex pattern to search for (case-insensitive).
-        book: Optional book slug to restrict search to a single book.
-        max_results: Maximum total results to return (default 20).
-
-    Returns:
-        List of matches with book slug, line_number, and context (matching line + 1 line of surrounding context).
+        pattern: Case-insensitive regex pattern.
+        book: Optional book slug filter.
+        max_results: Maximum number of matches to return.
     """
     if book is not None:
         slug, suggestions = resolve_book(book)

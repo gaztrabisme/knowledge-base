@@ -211,7 +211,7 @@ class Stage2ContractTests(unittest.TestCase):
             books=["PostgreSQL 14 Internals"],
             book="postgresql-internals-interdb",
             domain="databases",
-        ), [])
+        ), {"results": [], "related_headings": []})
         self.assertEqual(set(calls[0]["book_filter"]), {
             "postgresql-14-internals", "postgresql-internals-interdb",
         })

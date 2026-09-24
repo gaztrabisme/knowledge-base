@@ -577,6 +577,11 @@ Reusable infra: `scripts/gpu_sweep.sh` (unattended index→eval driver for candi
 **Decision:** Add opt-in JSONL call logging, a seed-42 stratified 120-query set, an in-process OpenAI-compatible agent loop, and paired per-qid comparisons. Keep transcripts and call logs ignored; keep the question set and run rows versionable. Citation success maps each cited child chunk to its parent before matching the graded gold parents.
 **Evidence:** [agent benchmark report](../data/bench/report.md) records exact schema parity and the three-question smoke outputs. The smoke was not used to draw a model-quality conclusion.
 
+### Stage 3 search vocabulary hints and description arms (2026-09-24)
+**Context:** Small local models may not know the corpus's terminology for useful follow-up searches. HyDE is optional and has not shown an overall retrieval gain; precise-vocabulary Rust queries can regress.
+**Decision:** Add `related_headings` from already-ranked overflow after the existing cutoff, keeping the `overflow=None` path identical. Default tool guidance reuses corpus headings; `KB_TOOL_DOCS=hyde` provides the opposite advice as a description-only experiment, with the same parameters. The search response wrapper is reflected in benchmark and call-log result counts.
+**Evidence:** [Stage 3 interface report](../data/bench/stage3-report.md) records both live query outputs, schema parity, token counts, and helper checks. The first hard-gate run read 0.7699 against the 0.7700 reference. Two reruns on the same Qdrant state, one with the Stage 2 code and one with the Stage 3 code, both read 0.7700 (`pq-s2code-rerun.jsonl`, `pq-s3code-rerun.jsonl`), so the 0.0001 was run-to-run noise from the MPS reranker under load. The gate holds.
+
 ## Rejected Approaches
 
 ### Embedding upgrade (Qwen3-Embedding-0.6B / EmbeddingGemma-300M) — v6.3 → re-tested v6.6
