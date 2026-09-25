@@ -60,3 +60,28 @@ Per model:
 Retrieval gate: NDCG@10 0.7704, unchanged.
 
 Full tables are in `data/bench/compare-A1-vs-A0.md` and `data/bench/compare-A1-vs-A0-firsthit.txt`. The failure analysis is in `data/bench/analysis/failures-qwen36-A0-A1.md`.
+
+## Stage 2 (A2): catalog, `find_books`, book and domain filters — REJECTED
+
+What changed:
+- `data/catalog.json` gives every book a domain, 6–10 tags from a fixed vocabulary and a one-line summary; Qdrant points carry `domain` and `tags`.
+- `find_books(query, domain, tags)` ranks books for a query by their search hits and returns the matching section headings.
+- `search` gained `books=[...]` and `domain=` filters.
+
+Results, pooled across both small models, 300 paired runs (A1 → A2):
+
+| Metric | A1 | A2 | Change | Verdict |
+|---|---:|---:|---:|---|
+| found | 0.880 | 0.723 | discordant 62 / 15 | worse (p<0.0001) |
+| cited | 0.840 | 0.670 | discordant 70 / 19 | worse (p<0.0001) |
+| gave up | 0.023 | 0.070 | 4 / 18 | worse (p=0.004) |
+| prompt tokens per question | 15,350 | 17,989 | +2,640 [+156, +4,887] | worse |
+| tool-output tokens per question | 5,447 | 4,628 | −820 [−1,343, −315] | better |
+| total calls per question | 2.3 | 3.0 | +0.8 [+0.6, +1.0] | worse |
+| invalid calls per question | 0.0 | 0.3 | +0.3 [+0.2, +0.3] | worse |
+
+Per model:
+- **Gemma-4-12B:** found 0.867 → 0.580, cited 0.840 → 0.553. It called `find_books` first on 138 of 150 questions, usually with a guessed `domain`, then restricted `search` to the books that came back. When the guess was wrong the right book never appeared (45 questions lost).
+- **Qwen3.6-35B-A3B:** found and cited n.s., but gave up on 13% of questions (A1: 5%), made 0.6 invalid calls a question, and used 36% more prompt tokens. 61 of its calls passed `books` as a JSON string, which the server read character by character.
+
+Full tables: `data/bench/compare-A2-vs-A1.md`.

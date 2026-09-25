@@ -587,6 +587,13 @@ Reusable infra: `scripts/gpu_sweep.sh` (unattended index→eval driver for candi
 **Decision:** Keep A1: `search` returns child passages by default (`detail="full"` restores parents), `list_books()` is a 4.9k-token catalog, chapter lists skip code-block headings, and book names resolve fuzzily with suggestions.
 **Evidence:** Agent benchmark, 150 questions × Gemma-4-12B and Qwen3.6-35B-A3B, paired (see [interface-bench.md](interface-bench.md)). Pooled: found 0.833 → 0.880 (p=0.044), cited 0.780 → 0.840 (p=0.025), prompt tokens −41%, tool-output tokens −89%, invalid calls 0.35 → 0, calls before the first correct passage −0.12 (p<0.001). Total calls rose 0.3, all `read_chunk` after a hit. Retrieval gate unchanged (0.7704).
 
+### Stage 2 of the interface refinement: `find_books` with domain filters — REJECTED (2026-09-25)
+**Context:** Stage 2 added the book catalog (domain, tags, summary), a `find_books` tool that ranks books for a query, and `books`/`domain` filters on `search`, so an agent could see the shelf before searching.
+**Decision:** Reject A2 as built. Keep the catalog and Qdrant payload; rework how they are exposed (Stage 2b).
+**Evidence:** Agent benchmark vs A1, 300 paired runs ([compare-A2-vs-A1.md](../data/bench/compare-A2-vs-A1.md)). Pooled found 0.880 → 0.723 and cited 0.840 → 0.670 (both p<0.0001), gave-up 0.023 → 0.070, invalid calls 0 → 0.3 a question; tool-output tokens fell 15%. Gemma-4-12B lost most (found 0.867 → 0.580).
+**Mechanism, from the call logs:** (1) Gemma passed a guessed `domain` to `find_books` and `search` (`software-engineering` for a Rust question, `advanced-ml` for a reinforcement-learning one), so it only ever saw the wrong books: 45 questions A1 answered were lost this way. A small model does not know the library's domain boundaries, the same limit that makes HyDE unreliable for it. (2) Qwen3.6 passed `books` as a JSON-encoded string; the server iterated it by character and answered `Unknown book '['` 61 times.
+**Next:** Stage 2b ranks `find_books(query)` across the whole library regardless of `domain`/`tags`, drops `domain` from `search`, accepts list arguments as JSON or comma strings, and adds up to 3 results from other books when a book-scoped search is weak.
+
 ## Rejected Approaches
 
 ### Embedding upgrade (Qwen3-Embedding-0.6B / EmbeddingGemma-300M) — v6.3 → re-tested v6.6
