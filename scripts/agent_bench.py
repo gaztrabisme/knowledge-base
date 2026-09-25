@@ -126,15 +126,14 @@ def _tool_definitions(function_tools: list) -> tuple[list[dict], dict[str, objec
     return offered, by_name
 
 
-async def _chat(client, model: str, messages: list[dict], tools: list[dict], thinking: bool,
+async def _chat(client, model: str, messages: list[dict], tools: list[dict],
                 tool_choice: str = "auto"):
+    # No generation parameters: oMLX's per-model settings own sampling, max_tokens and thinking.
     return await client.chat.completions.create(
         model=model,
         messages=messages,
         tools=tools,
         tool_choice=tool_choice,
-        max_tokens=2048,
-        extra_body={"chat_template_kwargs": {"enable_thinking": thinking}},
     )
 
 
@@ -162,7 +161,7 @@ async def _run_question(question: dict, args, client, offered_tools, tools_by_na
     while True:
         turns += 1
         try:
-            response = await _chat(client, args.model, messages, offered_tools, args.thinking == "on")
+            response = await _chat(client, args.model, messages, offered_tools)
         except Exception as exc:
             stop_reason = "error"
             run_error = str(exc)
@@ -280,7 +279,7 @@ async def _run_question(question: dict, args, client, offered_tools, tools_by_na
             turns += 1
             try:
                 response = await _chat(client, args.model, messages, offered_tools,
-                                       args.thinking == "on", tool_choice="none")
+                                       tool_choice="none")
                 choice = response.choices[0]
                 message = choice.message.model_dump(exclude_none=True)
                 transcript.append({"role": "assistant", **message})
@@ -368,7 +367,6 @@ def main() -> None:
     parser.add_argument("--concurrency", type=int, default=4)
     parser.add_argument("--max-calls", type=int, default=8)
     parser.add_argument("--max-tool-tokens", type=int, default=25000)
-    parser.add_argument("--thinking", choices=("off", "on"), default="off")
     args = parser.parse_args()
 
     os.environ["KB_CALL_LOG"] = f"data/bench/calls/{args.arm}-{args.model}.jsonl"
