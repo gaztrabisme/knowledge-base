@@ -594,6 +594,22 @@ Reusable infra: `scripts/gpu_sweep.sh` (unattended index→eval driver for candi
 **Mechanism, from the call logs:** (1) Gemma passed a guessed `domain` to `find_books` and `search` (`software-engineering` for a Rust question, `advanced-ml` for a reinforcement-learning one), so it only ever saw the wrong books: 45 questions A1 answered were lost this way. A small model does not know the library's domain boundaries, the same limit that makes HyDE unreliable for it. (2) Qwen3.6 passed `books` as a JSON-encoded string; the server iterated it by character and answered `Unknown book '['` 61 times.
 **Next:** Stage 2b ranks `find_books(query)` across the whole library regardless of `domain`/`tags`, drops `domain` from `search`, accepts list arguments as JSON or comma strings, and adds up to 3 results from other books when a book-scoped search is weak.
 
+### Stage 2b of the interface refinement: `find_books` ranks the whole library — REJECTED (2026-09-26)
+**Context:** Stage 2 lost because small agents guessed a domain and passed list arguments as JSON strings.
+**Decision:** Reject A2b. The defects are fixed, but found and cited remain below A1.
+**Evidence:** Pooled vs A1, 300 paired runs: found 0.880 → 0.753, cited 0.840 → 0.720 (both p<0.0001); invalid calls and give-ups back to A1's level. In 30 of the 37 Gemma questions lost after a `find_books` call, the right book was in `find_books`' top 5 and Gemma scoped `search` to other books from that list.
+**Lesson:** Do not make a small agent choose a subset of the library before it has seen passages. It chooses wrong often enough to outweigh any token saving.
+
+### Stage 3 of the interface refinement: `related_headings` and the HyDE test — REJECTED (2026-09-26)
+**Context:** Small models cannot write a hypothetical passage in a book's vocabulary they do not know. Stage 3 offered the corpus's own headings instead, and an A3hb arm tested encouraging HyDE directly.
+**Decision:** Reject A3b and A3hb. Do not advise HyDE to agents in tool descriptions.
+**Evidence:** Pooled, 300 paired runs: A3b vs A1 found 0.880 → 0.760, cited 0.840 → 0.713 (both p<0.0001); A3b vs A2b n.s. on found and cited, +1,089 tool-output tokens. A3hb vs A3b found 0.760 → 0.687 (p=0.007), cited 0.713 → 0.640 (p=0.013), with 6,422 fewer prompt tokens; the loss is Qwen3.6 (found 0.840 → 0.673), Gemma n.s.
+
+### Stage 4 of the interface refinement: five tools — REJECTED (2026-09-26)
+**Context:** Remove `search_book` and merge `read_chunk` with `get_chapter` into `read`.
+**Decision:** Reject A4b.
+**Evidence:** Pooled vs A1: found 0.880 → 0.743, cited 0.840 → 0.703 (both p<0.0001), invalid calls 0 → 0.3. Against A3b, the tool merge alone is n.s. on found and cited, −2,291 prompt tokens, +0.1 invalid calls.
+
 ## Rejected Approaches
 
 ### Embedding upgrade (Qwen3-Embedding-0.6B / EmbeddingGemma-300M) — v6.3 → re-tested v6.6
