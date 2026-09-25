@@ -365,7 +365,7 @@ def main() -> None:
     parser.add_argument("--limit", type=int)
     parser.add_argument("--qids", help="Comma-separated question IDs")
     parser.add_argument("--concurrency", type=int, default=4)
-    parser.add_argument("--max-calls", type=int, default=8)
+    parser.add_argument("--max-calls", type=int, default=25)
     parser.add_argument("--max-tool-tokens", type=int, default=25000)
     args = parser.parse_args()
 
