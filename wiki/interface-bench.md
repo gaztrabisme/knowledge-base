@@ -81,7 +81,7 @@ Results, pooled across both small models, 300 paired runs (A1 → A2):
 | invalid calls per question | 0.0 | 0.3 | +0.3 [+0.2, +0.3] | worse |
 
 Per model:
-- **Gemma-4-12B:** found 0.867 → 0.580, cited 0.840 → 0.553. It called `find_books` first on 138 of 150 questions, usually with a guessed `domain`, then restricted `search` to the books that came back. When the guess was wrong the right book never appeared (45 questions lost).
+- **Gemma-4-12B:** found 0.867 → 0.580, cited 0.840 → 0.553. It called `find_books` on 136 of 150 questions, and passed a guessed `domain` in 87 of its 138 calls, then restricted `search` to the books that came back. When the guess was wrong the right book never appeared (45 questions lost).
 - **Qwen3.6-35B-A3B:** found and cited n.s., but gave up on 13% of questions (A1: 5%), made 0.6 invalid calls a question, and used 36% more prompt tokens. 61 of its calls passed `books` as a JSON string, which the server read character by character.
 
 Full tables: `data/bench/compare-A2-vs-A1.md`.
