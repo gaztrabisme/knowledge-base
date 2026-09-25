@@ -1,0 +1,16 @@
+{
+  "pos_control_rate_B": 0.8,
+  "neg_control_rate_B": 0.08333333333333333,
+  "agreement_B_ref_on_sample": 0.925,
+  "n_sample": 40,
+  "B_calibrated": false,
+  "kappa_A_B_2_vs_not2": 0.04371584699453549,
+  "n_decision": 273,
+  "dropped_flagged": 20,
+  "specific_extras_rejected": 0,
+  "added": 77,
+  "removed": 5,
+  "dropped_no_positive": 2,
+  "rows": 128,
+  "reference_adjudicated": 273
+}

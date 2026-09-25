@@ -1,0 +1,393 @@
+{"id": "v07dd944947", "grade": 1, "reason": "Explains tokio tasks, await, and non-blocking yielding, but never covers the move keyword the question asks about."}
+{"id": "vba1c678957", "grade": 1, "reason": "Uses torch.set_grad_enabled(False) in a fine-tuning code example but never explains what the function does."}
+{"id": "vd05acfc8da", "grade": 0, "reason": "Passage covers WAL and checkpoints, nothing about Sort nodes, join ordering, or plan costs."}
+{"id": "vf4229b0eb0", "grade": 2, "reason": "This is exactly the section on panic, errors, signals, and logging that the question asks to locate."}
+{"id": "v601b46af69", "grade": 1, "reason": "Covers matrices as linear transformations and matrix operations, but not factorizations or special transformations."}
+{"id": "v9ba657519c", "grade": 1, "reason": "Gives background on market microstructure and backtest simulation but does not explain live-trading validity of backtests."}
+{"id": "vf72b3e1883", "grade": 2, "reason": "Defines reflected intelligence via its model categories and shows the signals-boosting relevance feedback loop."}
+{"id": "v0a5177b93c", "grade": 1, "reason": "Shows pd.read_parquet loading a parquet file into a DataFrame but never explains the function."}
+{"id": "v6a8ba7215f", "grade": 2, "reason": "Gives the sigmoid derivative and its implementation as the prime method on a Sigmoid class."}
+{"id": "v13a9abdbf8", "grade": 1, "reason": "Only poses the acceleration-coefficient question as an unanswered multiple-choice quiz item, with no explanation."}
+{"id": "v2b3befe295", "grade": 2, "reason": "Directly contrasts PyTorch eager/dynamic graphs with TensorFlow's graph-based deferred execution."}
+{"id": "vd641137181", "grade": 2, "reason": "Explains GLIE and exploration functions that force each state-action pair to be tried enough times."}
+{"id": "v880f8354d7", "grade": 2, "reason": "States Option is defined in the standard library, shows its definition, and notes it is in the prelude."}
+{"id": "v8ec34f42f1", "grade": 2, "reason": "Explains RefCell::borrow, the Ref it returns, runtime borrow checking, and clashes with borrow_mut."}
+{"id": "v4d016e01f9", "grade": 2, "reason": "Shows how to emit debug, info, warning and error log messages with Python's logging module and its levels."}
+{"id": "v9f055d6458", "grade": 2, "reason": "States that pandas fillna performs the same mean imputation directly on the DataFrame."}
+{"id": "vc539cb9130", "grade": 2, "reason": "This is the Graph representations section, defining the adjacency matrix and edge list."}
+{"id": "v64d3824f07", "grade": 1, "reason": "A further-reading list whose AFL bullet points to the AFL website and its documentation, but no crash-searching content."}
+{"id": "vefc0a17970", "grade": 2, "reason": "Introduces the movie review sentiment project and names the sections where the LSTM network is developed."}
+{"id": "vec7863975b", "grade": 2, "reason": "Explains why training accuracy is unreliable and demonstrates learning/validation curves and cross-validation for generalization."}
+{"id": "v6b2358446b", "grade": 2, "reason": "Names the MiniSom parameters to tune (neurons, sigma, learning rate, iterations) to improve the TSP route length."}
+{"id": "v9177747e03", "grade": 1, "reason": "Chapter review that lists degree among the properties of relations but never defines degree or its properties."}
+{"id": "v26b85836f3", "grade": 1, "reason": "Outlines the ML workflow steps including train/test/tune but says nothing about a validation strategy."}
+{"id": "v5b5f281a9f", "grade": 2, "reason": "Names and describes the four learning paradigms: supervised, unsupervised, adversarial, and reinforcement."}
+{"id": "v20950ae287", "grade": 2, "reason": "Walks through creating an EC2 key pair and using it to SSH into the instance."}
+{"id": "v8719b9ff0e", "grade": 2, "reason": "Presents nonce-based encryption and the formal nonce-based CPA security definition and attack game."}
+{"id": "v141c4f639f", "grade": 2, "reason": "This is the sponge construction section, which also explains how SHA3 is based on it."}
+{"id": "v8ab1478e7f", "grade": 1, "reason": "Chapter summary on topic modeling covering LSI and LDA, but it never discusses pLSA."}
+{"id": "v8fd958b9af", "grade": 1, "reason": "A table of contents that names a 'Memory use and manipulation' heading in the memory management chapter, but gives no content."}
+{"id": "v71788277be", "grade": 2, "reason": "Compares Tabnine and GitHub Copilot pros and cons specifically for AI-assisted test generation."}
+{"id": "v31b4f29a10", "grade": 2, "reason": "Shows the PyTorch style transfer loss as the weighted sum of content, style, and total variation losses."}
+{"id": "v29f9026f7d", "grade": 0, "reason": "Only Docker chapter questions and assignments, nothing about login endpoints or credential handling."}
+{"id": "vfd48669983", "grade": 1, "reason": "Builds a FastAPI microservice and defers containerization, but never gives a directory layout or a joke service."}
+{"id": "vbcf3eec208", "grade": 2, "reason": "Describes Azure AI Video Indexer, its features, how it works, and when to use it."}
+{"id": "v3ddcb122ac", "grade": 2, "reason": "Computes Gini impurity and entropy/information gain for splits and compares the two criteria."}
+{"id": "v5cb26a10f0", "grade": 1, "reason": "Same terminal text viewer cursor topic and notes repositioning requires repainting, but addresses scrolling rather than arrow-key cursor bugs."}
+{"id": "vcd506c83df", "grade": 2, "reason": "Shows a pub struct with private fields, the resulting errors, and the new constructor workaround."}
+{"id": "vb31b7ce99a", "grade": 2, "reason": "Shows EndOfEpisodeHandler plus the episode_completed and game_solved event handlers in the common library."}
+{"id": "v5e5f12e440", "grade": 2, "reason": "Explains that per-team observability leaves visibility gaps, no unified view, and slower cross-service diagnosis."}
+{"id": "vcd488f0094", "grade": 2, "reason": "Presents the REINFORCE update rule and interprets the sum of returns times gradient of log policy."}
+{"id": "vfdb35a5dda", "grade": 2, "reason": "Explains consistent hashing so adding a shard remaps only about K/n keys, with an nginx consistent-hash example."}
+{"id": "v62f3ff3ac8", "grade": 1, "reason": "Covers the experience replay buffer and batch sampling but never shows an agent.replay(batch_size) method."}
+{"id": "v7c72f686e7", "grade": 2, "reason": "Directly defines reflected intelligence and walks through the search feedback loop that improves ranking."}
+{"id": "vf771f7be76", "grade": 1, "reason": "Shows a Rust Docker build bundling its own libraries, but never explains the isolation benefit the question asks about."}
+{"id": "v28a6a66f01", "grade": 1, "reason": "Discusses lack of feedback culture in code reviews in a summary, but offers no diagnostic questions."}
+{"id": "v492b6777fe", "grade": 2, "reason": "Shows matplotlib dendrogram plotting with custom axis tick labels for clustering results."}
+{"id": "v1507456c69", "grade": 1, "reason": "Explains backpropagation layer ordering and weight updates in prose, but the actual formulas are missing from the text."}
+{"id": "v27ff356546", "grade": 1, "reason": "Covers CUDA Graphs reducing kernel launch overhead, but never discusses tensor fusion or memory bandwidth."}
+{"id": "vb085262cc5", "grade": 1, "reason": "Thoroughly covers replay buffer populate/sample(batch) usage but never shows an agent.replay method."}
+{"id": "v8709ae992a", "grade": 1, "reason": "Refers back to the four basic training paradigms without naming them, then moves on to prompt tuning."}
+{"id": "v5f95d5c848", "grade": 2, "reason": "Describes exactly the token-substitution login attack and gives the countermeasure of OpenID/SAML with audience restrictions."}
+{"id": "v6f421b1488", "grade": 2, "reason": "Cites Redis Enterprise ACID benchmark figures of 500k ops/sec with sub-millisecond latency."}
+{"id": "v2cd908f82e", "grade": 1, "reason": "Discusses vertical and horizontal fusion of computation graphs but not kernel launch overhead or memory bandwidth."}
+{"id": "v3e70b11170", "grade": 2, "reason": "States training-set performance is a poor indicator due to overfitting and prescribes validation sets and cross-validation."}
+{"id": "v5d454c78b4", "grade": 1, "reason": "Defines the referential integrity rule for the relational model but says nothing about Transact-SQL."}
+{"id": "v0656e54191", "grade": 1, "reason": "Covers human feedback in RLHF training but contains no musicians, teachers, or audience analogy."}
+{"id": "v3cdbf2ab76", "grade": 2, "reason": "Explains operator and vertical/horizontal graph fusion as a way to avoid redundant memory access and speed up models."}
+{"id": "v55442ad104", "grade": 1, "reason": "Discusses feedback during training via constitutional AI with a peer-review analogy, but no musicians analogy."}
+{"id": "v7c95307e5e", "grade": 2, "reason": "This section builds, trains, and evaluates the LSTM model for movie review sentiment."}
+{"id": "v9b82e3d66e", "grade": 2, "reason": "Shows how hash modulo sharding invalidates the cache on resize and how consistent hashing limits remapping."}
+{"id": "v6e2caa11d3", "grade": 2, "reason": "Describes Kusama's open, community-driven governance model where token holders propose and vote."}
+{"id": "v58689d92c4", "grade": 1, "reason": "Shows the config file being swapped during the Docker build and migrations run in the container, but not why the config is hardcoded."}
+{"id": "v244d5c6fe6", "grade": 2, "reason": "Gives the output-layer delta rule, the back-propagated delta for hidden layers, and the weight-update algorithm."}
+{"id": "va3f0101388", "grade": 1, "reason": "An Azure Video Indexer upload/insights exercise that never covers zone-based or boundary-crossing alerts."}
+{"id": "v7b7460ef47", "grade": 1, "reason": "Argues for shared observability hooks across teams but does not explain the problems of per-team observability."}
+{"id": "v300a344cac", "grade": 1, "reason": "Documents zremrangebyscore and other sorted set commands but says nothing about their relative performance."}
+{"id": "vcd16982f18", "grade": 1, "reason": "About planner statistics and operators, not about locating the B-tree comparison operators for a type."}
+{"id": "v4465d9f2d4", "grade": 1, "reason": "A chapter summary that only names RLVR and format/correctness signals without explaining scoring or weight updates."}
+{"id": "vb2ccf7cf78", "grade": 1, "reason": "Introduces Axolotl and its setup but never gives the preprocessing or tokenization command."}
+{"id": "v664854f0fb", "grade": 0, "reason": "Just the book index, listing page numbers for AWS EC2 and SSH topics without any content."}
+{"id": "v55afa029ca", "grade": 1, "reason": "Introduces decision tree splitting with gini impurity or cross-entropy, but the formulas and comparison are missing."}
+{"id": "v3836822d1e", "grade": 1, "reason": "Covers manual MLflow logging of params and metrics, but never uses mlflow.xgboost.autolog."}
+{"id": "v06bf4df0bb", "grade": 2, "reason": "Gives a FastAPI Dockerfile plus the minimal directory layout needed to containerize it."}
+{"id": "v54aaf2cd56", "grade": 2, "reason": "Defines a random variable as a function assigning a number to each outcome, with discrete and continuous cases."}
+{"id": "v3dffe60aec", "grade": 2, "reason": "States the nonce-based CPA security definition and introduces nonce-based generic hybrid encryption."}
+{"id": "v66b6464f0f", "grade": 2, "reason": "Explains model-agnostic methods and contrasts global versus local interpretability scope."}
+{"id": "ve5882d0f56", "grade": 1, "reason": "Describes Tabnine versus Copilot as code assistants but not for test generation specifically."}
+{"id": "v7042e05c9d", "grade": 1, "reason": "Exercise solutions show RefCell borrow and borrow_mut calls but never explain how borrow works."}
+{"id": "v50a1e0b7f5", "grade": 1, "reason": "Discusses keys, superkeys, and foreign keys, mentioning degree only in passing."}
+{"id": "v483fe67209", "grade": 2, "reason": "Explains exploring starts, epsilon-greedy, and off-policy exploration to cover untried state-action pairs."}
+{"id": "v9be5f7191f", "grade": 1, "reason": "Gives self-check questions about review comment tone, not about diagnosing a missing feedback culture."}
+{"id": "v316a7c9ec6", "grade": 2, "reason": "Explains computing cosine similarity between query and document vectors and using it as the ranking score."}
+{"id": "v1c6c33b2da", "grade": 0, "reason": "About integration points and TCP failures in Release It!, with no mention of AFL at all."}
+{"id": "vb79ba2e127", "grade": 1, "reason": "Covers implicit and explicit user feedback for AI products, but no musicians or training-feedback analogy."}
+{"id": "v5de3d5cd8d", "grade": 2, "reason": "Defines degree, cardinality, and the properties of relations in the relational model."}
+{"id": "v36fbe1e876", "grade": 1, "reason": "Explains checking ACF/PACF of squared residuals for GARCH, but not the times-one-hundred scaling."}
+{"id": "vfa9ce792f2", "grade": 1, "reason": "Focuses on hyperparameter tuning, only briefly touching the episode-completed handler in setup_ignite."}
+{"id": "v783c76bd47", "grade": 2, "reason": "Explains signals feedback loops and the reflected intelligence model families they power."}
+{"id": "vbf22619001", "grade": 2, "reason": "Explains why offline test accuracy is insufficient and how to evaluate on new data via backtests and test in production."}
+{"id": "v152d0651d3", "grade": 0, "reason": "This WSTG section covers testing credentials sent over HTTP, not logging."}
+{"id": "v0a1db3eada", "grade": 2, "reason": "Shows and explains OpenOptions::new().append(true) for appending without overwriting a file."}
+{"id": "v10a17c49f9", "grade": 2, "reason": "Names the two ways to interpret black-box models and explains their differing scope and applicability."}
+{"id": "v8ab19a46cb", "grade": 2, "reason": "Explains the cognitive and social acceleration coefficients and how c1 versus c2 balances exploration and exploitation."}
+{"id": "v31d8295141", "grade": 1, "reason": "Covers save versus bgsave, save points, and AOF, but not the durability-versus-latency tradeoff of writing on every command."}
+{"id": "v0fe7fca21c", "grade": 1, "reason": "Discusses RAG evaluation dimensions but never gives a retrieval precision formula."}
+{"id": "v7baab2b402", "grade": 0, "reason": "Only a further-reading list of links, including one Azure AI Video Indexer overview URL."}
+{"id": "v8f7b4ea745", "grade": 2, "reason": "Builds SciPy dendrograms with custom labels, rotation, and font size for hierarchical clustering."}
+{"id": "va069ceb145", "grade": 2, "reason": "Proves MAC security via PRF security and discusses that not every PRF is a MAC."}
+{"id": "vae56810b26", "grade": 1, "reason": "Defines retrieval and context precision in prose but never states an actual formula."}
+{"id": "v97d05743b4", "grade": 2, "reason": "States the white-box vs black-box trade-off directly: white-box models are transparent but low-to-medium predictive power, black-box are opaque but much higher predictive power."}
+{"id": "v80eaae047e", "grade": 2, "reason": "Walks through installing Rust, verifying it, editor setup, and a first Hello World, while naming Cargo as the build system and package manager."}
+{"id": "v68b88f4583", "grade": 1, "reason": "Explains how ATLAS adapts within a cycle (initially sampling uninteresting confusion, then covering areas you care about) but for semantic segmentation, not sequence labeling."}
+{"id": "vbb06d46b46", "grade": 2, "reason": "Explains that a Docker image is a standalone package bundling code, runtime, system tools, system libraries and settings, which is why the host needs nothing extra."}
+{"id": "v0c389cf3aa", "grade": 2, "reason": "Has a dedicated section on referential integrity with Transact-SQL, including CREATE TABLE statements using REFERENCES to set the FK."}
+{"id": "v6d3adc06d5", "grade": 1, "reason": "Shows auth server crate paths in Cargo.toml and imports, hinting at layout, but the focus is wiring and calling the auth server rather than its file structure."}
+{"id": "v394613a4cd", "grade": 1, "reason": "Same DQN training topic and covers turning sampled experience batches into tensors and loss, but never shows an agent.replay(batch_size) method."}
+{"id": "v9a7fb43653", "grade": 2, "reason": "Directly explains how Rust allocates and deallocates on the stack versus the heap, including Box for heap allocation."}
+{"id": "v94ab3d5682", "grade": 2, "reason": "Shows exactly how to compute year-over-year pct_change per crime category on a date/crime-type grouped result using groupby with Grouper and level=0."}
+{"id": "vd0371d92a2", "grade": 1, "reason": "Describes log levels (info, verbose, warning, error) conceptually but never presents log_info/log_warn/log_debug style functions or macros."}
+{"id": "v510dc55bdc", "grade": 2, "reason": "Covers causal forests in EconML including CausalForestDML classes and a DoWhy estimate_effect call passing backdoor.econml.dml.CausalForestDML."}
+{"id": "vf600798c8d", "grade": 2, "reason": "Derives output-layer gradient \u2202L/\u2202W(2) = \u2202L/\u2202o h^T + \u03bbW(2) in matrix form and contrasts it with the hidden-layer gradient obtained by backpropagating further."}
+{"id": "v36f215916a", "grade": 1, "reason": "Touches on snapshotting/AOF load and offloading persistence to a slave, but never explains why per-write disk saves are slow or the durability trade-off."}
+{"id": "v51dcd133ab", "grade": 2, "reason": "Summarizes the special self-adjoint and orthogonal transformations and the factorizations they yield, spectral decomposition and SVD."}
+{"id": "v552b126a12", "grade": 1, "reason": "Recommends anomaly screening and automated outlier filtering to prevent data poisoning, but names no concrete detection tools."}
+{"id": "v8c159f01d6", "grade": 1, "reason": "Explains the matrix-graph correspondence with formal definitions of walks, strong connectivity and irreducibility, but only alludes to how the matrix representation itself is built."}
+{"id": "v69a34f4f15", "grade": 1, "reason": "Same PCA topic (choosing latent dimensions, reconstruction error, scree plots) but says nothing about how PCA compression distorts a logistic regression decision boundary."}
+{"id": "v7c46e613d7", "grade": 1, "reason": "Shows DRF throttling with AnonRateThrottle keyed by client IP and anonymous users, but not per-page limits and not in a cache-server context."}
+{"id": "v37ae6a8a21", "grade": 0, "reason": "Covers snap package refresh and hold behavior, which is unrelated to reloading configuration in a legacy app."}
+{"id": "v5cb66cb9aa", "grade": 1, "reason": "Gives one IDOR testing tip and the Top 10 2013-A4 reference, but the bulk of the text is a session-management table of contents."}
+{"id": "v2024668617", "grade": 2, "reason": "States that Option is defined in src/libcore/option.rs and shows the enum definition."}
+{"id": "vd629619144", "grade": 2, "reason": "Explains random forest feature importance as accumulated decrease in split criterion across trees, accessed via feature_importances_."}
+{"id": "vd57107f9cb", "grade": 1, "reason": "Covers what makes a backtest realistic (look-ahead bias, costs, slippage, execution delays) but not why simulated performance should be trusted to hold live."}
+{"id": "vf541d522cb", "grade": 2, "reason": "Contains a section literally titled Graph representations defining node/edge lists and adjacency matrices with worked examples."}
+{"id": "v694ddc09d4", "grade": 2, "reason": "Explains combining multiple annotations into one label, weighting annotator accuracy and correcting for correlated errors to get confidence in the aggregated label."}
+{"id": "v05d9820ae7", "grade": 1, "reason": "Implements the policy-gradient loss as log probabilities times scaled rewards, but does not derive why log-probabilities are multiplied by future reward."}
+{"id": "vcb148c8f9a", "grade": 1, "reason": "Gives Redis throughput figures (sub-millisecond, millions of requests per second) but ignores durability or full transaction safety guarantees."}
+{"id": "v2130e578b2", "grade": 2, "reason": "Presents stackable expression decorators for logging and timing, plus a range-validating decorator whose evaluate turns a successful result into an Err."}
+{"id": "v459affa467", "grade": 2, "reason": "Shows mean and median imputation of missing values in detail, including SimpleImputer(strategy='mean') code and its effect on model scores."}
+{"id": "vb9dcb9cd87", "grade": 2, "reason": "Gives the retrieval precision formula directly: relevant chunks retrieved divided by total chunks retrieved, with a worked example."}
+{"id": "v37f84563d0", "grade": 2, "reason": "Explains that containers bundle code, runtime and system libraries so no Rust toolchain or library versions need installing on servers, giving consistent environments."}
+{"id": "v94864872f3", "grade": 0, "reason": "Discusses predicate locks, SIReadLock and lock escalation under serializable isolation, unrelated to multi-column index skip scanning."}
+{"id": "v149167f6ba", "grade": 2, "reason": "Gives the auth server's data access layer directory tree file by file, including migrations, connections and users modules."}
+{"id": "v63cd17e82e", "grade": 2, "reason": "Shows neural style transfer total loss computed as the weighted sum of style and content losses in PyTorch, then backpropagated."}
+{"id": "vb58ed63b70", "grade": 0, "reason": "A Java SetupTeardownIncluder listing from Clean Code where append only refers to StringBuffer, unrelated to Rust's OpenOptions::append."}
+{"id": "v998d6a9115", "grade": 2, "reason": "Section on LSTM/recurrent networks with embeddings for sentiment classification over the IMDB movie review dataset, with model code and results."}
+{"id": "vf07c37bef6", "grade": 0, "reason": "Covers row-level, object, relation-extension, page and advisory locks, not the B-tree comparison operators in pg_amop."}
+{"id": "v1455d7dfb5", "grade": 1, "reason": "Describes data sanitation and model modification defenses against poisoning, but recommends no concrete anomaly detection tools."}
+{"id": "v511c9456bd", "grade": 2, "reason": "Contains Definition 82 giving the formal definition of a random variable between probability spaces."}
+{"id": "vfc76bb0cb8", "grade": 2, "reason": "Shows actix unit tests for HTTP endpoints using TestRequest, run_request, tokio::test and assertions on status and body."}
+{"id": "v0300d1c96f", "grade": 2, "reason": "Details UX patterns for calibrated trust, including confidence scores, uncertainty indicators, caveats and footprints for communicating uncertainty."}
+{"id": "v1ba48440fd", "grade": 1, "reason": "Explains tracing's limits with control flow and the tracing vs scripting trade-off, but never mentions a JIT compatibility flag on pretrained models."}
+{"id": "vfd08ca01ec", "grade": 1, "reason": "Shows torchscript=True being set when tracing a Hugging Face GPT-2 model, but does not explain why the flag is needed."}
+{"id": "v0fa75c044a", "grade": 1, "reason": "Categorizes test-time compute into search against verifiers and modifying proposal distribution, not the four LLM training technique categories asked about."}
+{"id": "v568c68b63d", "grade": 2, "reason": "Recommends concrete scikit-learn anomaly detection tools, Isolation Forest, One-Class SVM and LOF, explicitly in the context of data poisoning."}
+{"id": "veb5b9850bb", "grade": 2, "reason": "Explains exactly how ATLAS adapts within one cycle: sampled Incorrect items are relabeled as Correct and the model retrains repeatedly during sampling."}
+{"id": "v4d4e0ea639", "grade": 0, "reason": "Covers pg_stats fields like average field width and correlation, unrelated to multi-column index scanning."}
+{"id": "vbd41268a4f", "grade": 1, "reason": "Mostly about building a Kaggle portfolio, though an interview passage does discuss stratified, grouped and time-based validation splits."}
+{"id": "vbb46fa0180", "grade": 2, "reason": "Shows pandas mean imputation of NaNs directly with inputs.fillna(inputs.mean()) in a data preprocessing walkthrough."}
+{"id": "v8f768c4e88", "grade": 1, "reason": "Discusses fixing a pretrained embedding matrix so only later layers fine-tune, and shows an Embedding layer summary, but not the Keras Embedding(weights=, trainable=False) call."}
+{"id": "vb2c93066f1", "grade": 2, "reason": "Explains that generics get monomorphized for static dispatch enabling inlining and specialization, while trait objects require dynamic dispatch behind pointers."}
+{"id": "vc4977a92ec", "grade": 2, "reason": "Covers authorization code/token injection into a victim's redirect and the countermeasures of state, PKCE and nonce."}
+{"id": "vd781162eac", "grade": 2, "reason": "The table of contents lists the exact section 'Log versus error versus panic' under Chapter 9, Testing, Debugging, and Performance."}
+{"id": "vc27834bb5d", "grade": 1, "reason": "Explains the exploration-exploitation trade-off that forces coverage of untried actions, but gives no mechanism such as epsilon-greedy or optimistic initialization."}
+{"id": "v20fa91013b", "grade": 2, "reason": "Directly addresses whether backtest results generalize out-of-sample, detailing look-ahead, survivorship, outlier, cost and timing biases and their fixes."}
+{"id": "v2c2493d1a0", "grade": 2, "reason": "Shows the DQN training loop calling self.replay(self.batch_size), which samples a minibatch from the buffer and trains on it."}
+{"id": "v8eda6d53d3", "grade": 2, "reason": "Explains that per-team isolated observability fragments the system view, hides cross-service root causes and raises mean time to recovery."}
+{"id": "vbb686bdc0a", "grade": 1, "reason": "Multi-stage build discussion shows the toolchain stays in the builder stage, but it actually warns that runtime system libraries may still need installing."}
+{"id": "v1f98e8454f", "grade": 2, "reason": "Contrasts synchronous replication's strong durability with asynchronous replication's fast responses and only weak, probabilistic guarantees."}
+{"id": "v8958d25be0", "grade": 1, "reason": "States Date's referential integrity rule relationally, but says nothing about Transact-SQL or how it is declared there."}
+{"id": "vc66fd60d18", "grade": 2, "reason": "Names the three signal-driven model types: signals boosting for popularized relevance, collaborative filtering for personalized relevance, and learning to rank for generalized relevance."}
+{"id": "v465687f323", "grade": 2, "reason": "Walks through creating an EC2 key pair during launch and connecting with ssh -i packt-ec2.pem."}
+{"id": "v17dcc1a9d0", "grade": 1, "reason": "Section intro on scoring query and document vectors by cosine similarity for ranking, but no worked mechanics and nothing specific to HR policy queries."}
+{"id": "v156882ae8d", "grade": 2, "reason": "Gives the neural style transfer total loss as a weighted sum of total variation, content and style losses, with the content loss formula."}
+{"id": "v1ce13a33e0", "grade": 2, "reason": "Explains overfitting, the generalization gap, and estimating future performance with test and validation sets."}
+{"id": "vc44b040239", "grade": 2, "reason": "Compares Gini impurity and cross-entropy as split criteria, their sensitivity to node purity and the roughly 20x compute cost of cross-entropy."}
+{"id": "vce394b8281", "grade": 2, "reason": "Demonstrates plt.barh(feature_names, counts) to plot token frequency as a horizontal bar chart."}
+{"id": "v1645d03f5a", "grade": 2, "reason": "Shows actix unit test setup with mock trait handles and an init_service/call_service test service for HTTP endpoints."}
+{"id": "v0dc66885f6", "grade": 2, "reason": "States the three signal-driven model types: signals boosting, collaborative filtering and learning to rank."}
+{"id": "vf1d5993d74", "grade": 1, "reason": "Computes rule precision on fraud data with pandas but contains no matplotlib or dual-axis plotting."}
+{"id": "vb609fde32c", "grade": 1, "reason": "Covers AOF and RDB persistence commands like bgrewriteaof, but not why per-write disk saves are slow or the durability trade-off."}
+{"id": "vea7054c650", "grade": 1, "reason": "Points to the Rust install page and notes installing Rust also provides Cargo, but offers no setup walkthrough."}
+{"id": "vbee8d907b3", "grade": 2, "reason": "Explains that RLVR rewards come from automated verifiers checking format and whether the final answer is correct, and that weights update based on that reward."}
+{"id": "vb818219388", "grade": 1, "reason": "Same game project and shows the game loop starting up, but it is not the 'Start a new Game' section on the state machine redesign."}
+{"id": "vd448d7ab0c", "grade": 2, "reason": "A Memory management section covering the std modules for allocation, smart pointers, and memory manipulation such as mem and ptr."}
+{"id": "v7621545382", "grade": 2, "reason": "Shows plotting a dendrogram of hierarchical clustering with scipy, including custom labels and color palette options."}
+{"id": "v14c97bbf74", "grade": 2, "reason": "Summarizes the Azure AI Video Indexer section covering video analysis, transcription, object detection and tagging."}
+{"id": "vc2916e306e", "grade": 1, "reason": "Covers building OHLCV, VWAP, tick, time, volume and dollar bars from trades, but not how to carry stale bid/ask quotes when NBBO does not update."}
+{"id": "v8c173ad2ac", "grade": 2, "reason": "Places black-box models on the interpretability versus predictive power plane and contrasts them with transparent white-box models like linear regression."}
+{"id": "vcf3fce685a", "grade": 1, "reason": "Discusses handshaking, health checks and demand throttling to protect servers, but no per-IP, per-page or login-based rate limiting."}
+{"id": "v3fc0a2ed5f", "grade": 1, "reason": "Explains why you cannot move out of an Option behind &mut self and shows take(), but not how to borrow the inner value mutably without owning it."}
+{"id": "vf9d1da963e", "grade": 1, "reason": "About the binomial distribution and its tail bounds, but gives no exact per-k probabilities for n=6, p=0.5."}
+{"id": "vcdcc432279", "grade": 1, "reason": "Shows securing the .pem key and the SSH connect command on EC2, but not how to create the key pair."}
+{"id": "v49c1c5c4d9", "grade": 1, "reason": "States that backtest performance should indicate future performance and flags methodological challenges, but does not explain them."}
+{"id": "vd86cc815eb", "grade": 2, "reason": "Implements a dedicated Rocket /login endpoint taking username and password JSON and returning a signed JWT, separate from other API routes."}
+{"id": "vb3e6edcac6", "grade": 2, "reason": "Evaluates accuracy on a held-out test set, defines overfitting as failing to generalize to unseen data, and highlights test examples."}
+{"id": "v078931bc70", "grade": 0, "reason": "A fragment about pg_stats selectivity for arrays and average field width, unrelated to multi-column index scanning."}
+{"id": "v38577098a5", "grade": 2, "reason": "Uses pd.read_parquet to load four Parquet files and shows a full loading and unification pipeline."}
+{"id": "vd21b635016", "grade": 1, "reason": "About detecting drift between training and serving data distributions, not about train-set accuracy versus test-set evaluation."}
+{"id": "veeac501587", "grade": 1, "reason": "Sets up which VGG layers carry the style and content losses, but never assembles or computes the total loss."}
+{"id": "ve595a706db", "grade": 1, "reason": "Introduces static versus dynamic dispatch and why trait objects defer calls to runtime, but never names the actual runtime cost such as vtable indirection."}
+{"id": "v2ef206bc8c", "grade": 1, "reason": "Covers static versus dynamic graph execution and mentions TorchScript and torch.compile, but says nothing about a JIT compatibility flag for tracing a pretrained model."}
+{"id": "v4edf2948e8", "grade": 1, "reason": "Presents basic Lamport signatures and notes the goal of minimizing public key and signature length, but gives no size-reduction technique."}
+{"id": "vbf51494100", "grade": 1, "reason": "A chapter summary covering panic, Result, custom errors and logging errors, close to the topic but not the specific log-versus-error-versus-panic section."}
+{"id": "v5d7803ff05", "grade": 1, "reason": "Notes that Redis persists to disk at configurable intervals for durability, but never explains per-write fsync cost or durability options."}
+{"id": "v894d78238e", "grade": 2, "reason": "Derives the QR factorization from Gram-Schmidt, expressing a matrix via an orthogonal matrix and an upper triangular one, with code."}
+{"id": "v256aabec65", "grade": 2, "reason": "This is the logging section of the guide, covering log rotation permissions, log access control and log review for attacks."}
+{"id": "vb3b248e53f", "grade": 2, "reason": "Explains that hash-based sharding functions with modulo give determinism and uniformity so load spreads evenly across shards, unlike naive partitioning."}
+{"id": "v0de0262f6f", "grade": 2, "reason": "Explains why changing shard count remaps most keys and presents consistent hashing as the fix."}
+{"id": "v158b9592f3", "grade": 1, "reason": "Part-overview that mentions global vs local interpretation methods but does not lay out the two main approaches themselves."}
+{"id": "v58f817463b", "grade": 2, "reason": "Steps through building dedicated /login GET and POST routes with username/password verification."}
+{"id": "vff5f305f75", "grade": 1, "reason": "Introduces DoWhy and EconML and their integration but never covers causal forests."}
+{"id": "va3b74b05c3", "grade": 1, "reason": "Discusses PRF/PRG constructions and seed reuse but says nothing about eager vs lazy seed sampling."}
+{"id": "v3b3d047306", "grade": 0, "reason": "Chapter recap that merely lists referential integrity among covered terms, with nothing on Transact-SQL."}
+{"id": "vcfe025b052", "grade": 1, "reason": "Covers time-series decomposition with statsmodels, same area but never the tsfel extractor API."}
+{"id": "v691771e90d", "grade": 1, "reason": "Surveys topic modeling and names pLSA in a milestones table but details only LSI."}
+{"id": "vc77ce9457d", "grade": 1, "reason": "Shows the WSTG table of contents locating IDOR testing at 4.5.4 but gives no testing content for it."}
+{"id": "v2de4c5c360", "grade": 1, "reason": "Covers IP-based anonymous throttling in DRF plus caching, but not scoping by page or login state."}
+{"id": "v81a6bd53af", "grade": 1, "reason": "Introduces MDPs and value functions, RL background, but never addresses exploration or visiting all actions."}
+{"id": "v5c44952f52", "grade": 2, "reason": "Walks through unit testing actix server networking code with mocked database handles."}
+{"id": "v139c21c60e", "grade": 2, "reason": "Section 6.3.4 directly explains how ATLAS adapts within one active learning cycle for sequence labeling."}
+{"id": "v04783f4a86", "grade": 2, "reason": "Shows sinter to find shared set members and sinterstore to save the result under a new key."}
+{"id": "v5d05140706", "grade": 2, "reason": "Explains validation strategies including ShuffleSplit, subsampling, bootstrap and cross-validation."}
+{"id": "v292943abf7", "grade": 1, "reason": "Recommends a held-out test set to check generalization but does not explain why training accuracy misleads."}
+{"id": "v51e5f7ca81", "grade": 1, "reason": "Gives general AI-UX guidelines on trust calibration and managing uncertainty, not specifics on visualizing prediction uncertainty for supply chain managers."}
+{"id": "vc38cbdc29f", "grade": 1, "reason": "Discusses quantization and floating-point precision but never states bfloat16 versus float32 bit allocations."}
+{"id": "v199345a4ea", "grade": 1, "reason": "Builds a delete workflow test that runs sqlx queries, but shows setup rather than asserting on the delete result."}
+{"id": "v7870c3b1f4", "grade": 2, "reason": "Appendix C.1 defines random variables and their probability distributions."}
+{"id": "vc010146962", "grade": 1, "reason": "Uses pd.read_parquet once inside an embedding example without explaining it."}
+{"id": "vd8686536e6", "grade": 2, "reason": "Shows composing logging, timing and range-validating decorators where validation can turn a success into an error."}
+{"id": "v7700f76d75", "grade": 2, "reason": "Explains Gini impurity and information gain as split criteria with formulas and worked examples."}
+{"id": "ved8593b64b", "grade": 2, "reason": "Explains std::fs::OpenOptions with the builder pattern and an append(true) example."}
+{"id": "vd9dda37f77", "grade": 1, "reason": "Discusses CCA security and decryption-oracle queries for encrypt-then-prove but does not spell out which pre-challenge requests are allowed."}
+{"id": "ve89b2642c8", "grade": 2, "reason": "Section defines graphs via nodes and edges and catalogues directed, acyclic and other graph types."}
+{"id": "v0a6532ceb9", "grade": 1, "reason": "Describes sidecar-based dynamic configuration for legacy apps, but assumes the app can watch files or be signalled."}
+{"id": "vea8a4786d7", "grade": 1, "reason": "Recaps LLM training setups and from-scratch versus finetuning costs without enumerating four training technique categories."}
+{"id": "v7030499993", "grade": 2, "reason": "Builds the LSTM-based RNN model for the movie review sentiment analysis task."}
+{"id": "v98196877d5", "grade": 1, "reason": "Covers density functions and uses random variables, but does not define what a random variable is."}
+{"id": "v60767d1e0d", "grade": 0, "reason": "Fragment about PostgreSQL heap vacuuming source files, unrelated to in-memory store throughput."}
+{"id": "va8a1f18499", "grade": 1, "reason": "Presents an ElGamal-based authenticated key exchange protocol and its assumptions, but not why CDH/DDH is required."}
+{"id": "v477de83db3", "grade": 1, "reason": "Relational-model exercise answers touching on domains, referential integrity and degree, but not a consolidated treatment of degree properties."}
+{"id": "v24dcc06872", "grade": 2, "reason": "PBS example quantifies how raising R shrinks the staleness window while keeping read latency below a strict quorum."}
+{"id": "v944a15838d", "grade": 1, "reason": "Computes precision and fraud capture rate at top-N% thresholds and announces the plot, but the actual matplotlib dual-axis code is cut off."}
+{"id": "v2c352ffbdd", "grade": 2, "reason": "Distinguishes global-scope methods like PDPs from local-scope LIME, SHAP and anchors for black-box models."}
+{"id": "vac8bad1992", "grade": 2, "reason": "Explains holdout and k-fold cross-validation for estimating generalization on unseen data and why test reuse causes overfitting."}
+{"id": "va8712a9a71", "grade": 1, "reason": "Covers agent societies, AI psychology and emotional dependency on LLMs, but never assigns responsibility for failures."}
+{"id": "vf14c0cc5ad", "grade": 2, "reason": "Uses nn.Softmax(dim=1) in a Sequential model and explains that dimension 1 is the feature axis."}
+{"id": "v94c7ba1a59", "grade": 1, "reason": "Discusses generalization to unseen data and train-serving skew rather than why training accuracy alone is unreliable."}
+{"id": "v37f8692267", "grade": 2, "reason": "Section 2.6.3 formally defines random variables as mappings from a sample space."}
+{"id": "v13a130510b", "grade": 2, "reason": "Explains how cosine similarity scores and ranks query-document vectors, including its TF-vector blind spots."}
+{"id": "v38cfe327e7", "grade": 0, "reason": "Rust actix ingress wiring with no FastAPI, joke app or containerization layout."}
+{"id": "v315e83a14e", "grade": 1, "reason": "Discusses read replicas and stale reads qualitatively but gives no numbers on staleness windows or latency."}
+{"id": "v878b03d33f", "grade": 2, "reason": "Gives the standard-library enum definition of Option with Some and None variants."}
+{"id": "vbf2b8a0602", "grade": 2, "reason": "Explains vtable-based dynamic dispatch and lost inlining as the runtime cost of trait objects versus generics."}
+{"id": "v71f94ef050", "grade": 2, "reason": "Describes how siloed DevOps teams force coordination and handoffs that stretch lead times and slow releases."}
+{"id": "vfd72d68f9d", "grade": 1, "reason": "Covers annotation uncertainty and adjudication options rather than how to aggregate conflicting labels into one."}
+{"id": "v1cf938e88d", "grade": 1, "reason": "Covers vacuuming and the database horizon, Postgres cleanup internals, but says nothing about WAL file renaming or removal."}
+{"id": "v893a0ab793", "grade": 2, "reason": "Shows loading AutoModelForSequenceClassification from checkpoint.as_directory() and pushing it with model.push_to_hub()."}
+{"id": "v114a98f61d", "grade": 2, "reason": "Explains time and timing assumptions in distributed systems, including global, local and no-clock models."}
+{"id": "vb41184054e", "grade": 2, "reason": "Explains adaptive intervals that shrink or widen from the observed miscoverage rate while maintaining coverage."}
+{"id": "v2627b881ac", "grade": 2, "reason": "Section 13.2 defines graph representation via nodes, edges and the adjacency, node and edge matrices."}
+{"id": "v4a900d2bf4", "grade": 2, "reason": "Lists OpenOptions::new().append(true).open() as the way to append to a file in a CLI tool."}
+{"id": "v8db05afac9", "grade": 1, "reason": "Introduces dynamic dispatch with Box dyn trait objects but does not contrast the runtime cost against generics."}
+{"id": "v1ab59c78da", "grade": 1, "reason": "Explains rsyslog facilities and severity levels, related to log levels but not the named logging functions."}
+{"id": "vd4a4a10744", "grade": 1, "reason": "Shows the policy-gradient update with log probabilities times future returns, but explains baselines rather than why that product form arises."}
+{"id": "v2b1344afaa", "grade": 1, "reason": "Covers Box pointers and linked lists in Rust, only mentioning vectors in passing."}
+{"id": "vbdba9d25e7", "grade": 1, "reason": "Discusses preprocessing and prompt formatting before fine-tuning but never names an Axolotl command."}
+{"id": "v0b8bcfdb8d", "grade": 2, "reason": "Explains that Docker isolates dependencies inside the image and container, so library and toolchain versions ship with the app."}
+{"id": "vc7fd91c810", "grade": 1, "reason": "Explains tuple structs and positional field access like red.1, but says nothing about derive macros."}
+{"id": "v6bfd39a8bb", "grade": 1, "reason": "Describes SHA-256 properties including the avalanche effect, but not account splitting or load balancing."}
+{"id": "v4749cbeeaa", "grade": 1, "reason": "Introduces TorchScript and JIT compilation for export, but not the specific compatibility flag when tracing a pretrained LM."}
+{"id": "ved23b8a805", "grade": 1, "reason": "Covers relation selectors and properties like no duplicates or nulls, but does not discuss degree of relations."}
+{"id": "v556020b9c8", "grade": 2, "reason": "Presents the PSO motion equations where c1 and c2 weight the cognitive and social pull on each particle."}
+{"id": "v856a5ca610", "grade": 2, "reason": "Case study shows a separate DevOps team's queue and bureaucracy delaying delivery for weeks."}
+{"id": "vd9b32a9e2e", "grade": 2, "reason": "Full WSTG-ATHZ-04 section defining IDOR and how to test for it."}
+{"id": "v4c79ad64a7", "grade": 1, "reason": "Explains tokio tasks and async/await, but never covers the move keyword in spawned tasks."}
+{"id": "vee96e0ea7c", "grade": 0, "reason": "Exploratory testing of a booking calendar, with nothing on prompt delimiters for Java code."}
+{"id": "vd400c0290e", "grade": 1, "reason": "Introduces reinforcement learning and distribution shift, but not exploration or covering every action."}
+{"id": "v0f466e72b2", "grade": 1, "reason": "Introduces DoWhy and EconML plus the causal ecosystem, but does not cover causal forests."}
+{"id": "vaf4c170e69", "grade": 0, "reason": "All about WAL and LSNs, unrelated to sort operators in query plans."}
+{"id": "vd3c42ae2e3", "grade": 2, "reason": "Section 7.3 develops the singular value decomposition and orthogonal factorizations of matrices."}
+{"id": "v69b842dae3", "grade": 2, "reason": "Explains the pLSA model and implements it via sklearn NMF with a KL divergence objective."}
+{"id": "v037f26f259", "grade": 1, "reason": "Covers plotting clustering results, but with a C++ gnuplot wrapper rather than Python or tree structures."}
+{"id": "va445f3f227", "grade": 1, "reason": "Shows pandas horizontal bar charts with kind=barh, not the matplotlib plt.barh call itself."}
+{"id": "v85294cb522", "grade": 2, "reason": "Implements the softmax mapping row-wise in PyTorch, including the normalization along dimension 1."}
+{"id": "vb1a1d60f24", "grade": 2, "reason": "Discusses the sponge construction and its SHA3 and SHAKE instantiations under indifferentiability."}
+{"id": "v8d90e28766", "grade": 1, "reason": "Mentions the OpenAI API can turn text into embeddings, but no ada-002 usage or code."}
+{"id": "vd1fb46dcf0", "grade": 1, "reason": "Covers detecting data distribution shifts in production rather than train versus test evaluation basics."}
+{"id": "v937b8355bd", "grade": 1, "reason": "Discusses file systems, event sourcing and polyglot persistence, but gives no throughput or latency figures."}
+{"id": "v1d44ae7153", "grade": 1, "reason": "Defines moving-average style time-series functions for formulaic alphas, but not TA-Lib's own MA functions."}
+{"id": "vf9f17bdabb", "grade": 1, "reason": "Covers RSA collision resistance and man-in-the-middle attacks on anonymous Diffie-Hellman, not secret-sharing simulation proofs."}
+{"id": "v71faa31a51", "grade": 1, "reason": "Introduces Redis hashes and hset/hget, but never the return value telling new fields from updates."}
+{"id": "ve7548655c6", "grade": 1, "reason": "Describes Yao's garbled circuits for two-party computation on hidden inputs, but not encrypted sums of products."}
+{"id": "v35a98487a8", "grade": 1, "reason": "Explains Redis databases, commands, keys and values, not persistence or durability trade-offs."}
+{"id": "vc5da2dec3e", "grade": 2, "reason": "Shows the OpenAI client and client.embeddings.create call to embed text, swappable to any embedding model."}
+{"id": "vae00f009b9", "grade": 1, "reason": "Covers building trust with supply chain managers via confidence intervals in conversation, not visual uncertainty design."}
+{"id": "va3e6ac7ac2", "grade": 1, "reason": "Chapter intro that lists pLSA among the topic modeling techniques covered without explaining it."}
+{"id": "v106d76a910", "grade": 2, "reason": "Section 8.3.3 shows aggregating disagreeing annotators into a single confidence-weighted label."}
+{"id": "v21d3cbc9a8", "grade": 1, "reason": "Implements a sqlx DELETE query and route, but shows no assertions or test checks."}
+{"id": "v5474575651", "grade": 2, "reason": "Section on managing data in Rust vectors and arrays, with Vec declaration, push and iteration."}
+{"id": "v8cf4127bee", "grade": 2, "reason": "Builds a bidirectional LSTM model for IMDb movie review sentiment analysis."}
+{"id": "v2040ab3085", "grade": 2, "reason": "Connects Hume's philosophy of causation and associative learning to interventions and confounding."}
+{"id": "v924e7a4048", "grade": 2, "reason": "Explains CAP trade-offs and when serving possibly stale results beats refusing requests for consistency."}
+{"id": "vf429f1290d", "grade": 2, "reason": "Plots hierarchical clustering dendrograms in Python with scipy, including label rotation and font size options."}
+{"id": "vc11e7f9b46", "grade": 1, "reason": "Overviews Azure Video Indexer capabilities but says nothing about zone-based or boundary crossing alerts."}
+{"id": "v6f32f2ec92", "grade": 2, "reason": "Walks through Tabnine test generation and explicitly compares its accuracy and test-plan features against Copilot."}
+{"id": "v04cbf2e317", "grade": 1, "reason": "Explains Rust async/await keywords, tasks and mentions tokio as a runtime, but never covers the move keyword or tokio task spawning."}
+{"id": "v2ed267789e", "grade": 1, "reason": "Shows AutoModelForSequenceClassification.from_pretrained with a checkpoint, but says nothing about pushing the model to the Hugging Face Hub."}
+{"id": "v00c2741861", "grade": 2, "reason": "Explains why training error alone is insufficient via overfitting and gives the train/test (and validation) split as the way to check generalization."}
+{"id": "vf071457d47", "grade": 2, "reason": "Has a dedicated stack versus heap section explaining LIFO vs dynamic allocation with Rust examples."}
+{"id": "v347f16e5ee", "grade": 1, "reason": "Only references a random forest feature importance figure and then discusses out-of-bag testing, not how feature importance works."}
+{"id": "v722ba05246", "grade": 1, "reason": "Covers Polkadot NPoS governance and validator selection but only mentions Kusama in a forward-looking sentence."}
+{"id": "v38384c9511", "grade": 2, "reason": "Walks through an end-to-end delete test using sqlx queries with assert_eq checks against the database."}
+{"id": "v02f1d31a53", "grade": 1, "reason": "Explains the delimiter prompting tactic generally but with a SQL data-generation example, not wrapping Java code for comment generation."}
+{"id": "v5bd6f0138a", "grade": 1, "reason": "Describes redirect URI validation attacks that leak tokens via browser redirects plus countermeasures, but not token substitution on the client's own redirect."}
+{"id": "v17cd766e07", "grade": 1, "reason": "Shows vector similarity search scoring and ranking for policy queries but never explains how cosine similarity itself works."}
+{"id": "v4d93a3c50b", "grade": 1, "reason": "Covers sqlx queries including a DELETE macro usage, but contains no assertions or test code."}
+{"id": "v30994ca9b1", "grade": 1, "reason": "Introduces the four families of causal discovery and briefly defines constraint-based methods, deferring detail to later sections."}
+{"id": "v49e1078679", "grade": 2, "reason": "Builds a dedicated login endpoint in Rust with a separate api/auth/login.rs module that extracts email/password credentials."}
+{"id": "vd54ee9b108", "grade": 1, "reason": "Only points out that testing for Insecure Direct Object References is described elsewhere in the guide; the passage itself is about enumerating admin interfaces."}
+{"id": "vc100ebe3bd", "grade": 2, "reason": "Lists TA-Lib's overlap studies functions MA and MAVP and states they wrap the moving averages, with usage examples."}
+{"id": "v4a63353726", "grade": 2, "reason": "Is the section titled 'Log versus error versus panic' and explains when to use log!, console error and panic!."}
+{"id": "v6cb54626c5", "grade": 2, "reason": "Details RefCell's borrow flag and the try_borrow/BorrowRef machinery that underlies RefCell::borrow."}
+{"id": "vc7293a6371", "grade": 0, "reason": "Discusses xtensor lazy versus eager evaluation of array expressions, with nothing about PRF seed sampling."}
+{"id": "v0f035f5ae0", "grade": 2, "reason": "Shows plt.barh(list(tags), list(counts)) used to build a labeled horizontal bar chart."}
+{"id": "v3ea042a4a1", "grade": 1, "reason": "Discusses AFL fuzzing for crashes and lists alternative fuzzers, but does not document crash searching or triage."}
+{"id": "vd32db1d9b2", "grade": 2, "reason": "Presents the ElGamal-based AKE1eg protocol and states the CCA security of its KEM requires modeling H as a random oracle and assuming ICDH holds for the group."}
+{"id": "v5dae4111c3", "grade": 1, "reason": "Plots logistic regression decision regions on PCA-reduced data and discusses loadings, but does not explain why a boundary would look odd."}
+{"id": "vc5590e3021", "grade": 1, "reason": "Explains data distribution shift as a reason accuracy degrades on new data, but offers no method for validating on unseen examples."}
+{"id": "v6d22a2f249", "grade": 2, "reason": "Opens with a concrete pd.read_parquet call loading a parquet file and setting the datetime index."}
+{"id": "v00a1ac824a", "grade": 2, "reason": "Explains monomorphized static dispatch as zero-cost with direct inlined calls versus dynamic dispatch via trait objects that needs runtime lookup."}
+{"id": "v05642d0c0b", "grade": 2, "reason": "Derives the policy gradient update showing the score of a trajectory scaled by its return, the reasoning behind log-probability times reward."}
+{"id": "v5aaa4a2f3d", "grade": 2, "reason": "Shows the auth server's core and networking file trees, Cargo.toml files and module wiring."}
+{"id": "vbdcc98b7f1", "grade": 2, "reason": "Explains holdout, repeated holdout and TimeSeriesSplit validation strategies for forecasting models."}
+{"id": "v62d6185c8b", "grade": 1, "reason": "Covers curating, slicing and bootstrapping evaluation sets, which is evaluation practice rather than why training accuracy misleads."}
+{"id": "v68546ae940", "grade": 1, "reason": "Describes what autologging captures and MLflow's registry, but never shows calling mlflow.xgboost.autolog()."}
+{"id": "v8e8c453a07", "grade": 1, "reason": "Implements a frozen pretrained embedding layer in PyTorch (requires_grad=False) rather than the Keras Embedding(weights=..., trainable=False) API asked about."}
+{"id": "v0887db4862", "grade": 2, "reason": "Explicitly links Hume's theory of causality to conditioning and associative learning, then to machine learning by association."}
+{"id": "v1ef007dc4a", "grade": 2, "reason": "Explains the torchscript=True flag used when loading BERT for tracing and what it does for TorchScript compatibility."}
+{"id": "v6461e66c64", "grade": 2, "reason": "Builds a hybrid retriever for an employee policy chatbot that computes cosine similarity between query and document embeddings and takes the top-k."}
+{"id": "v08f96dd6b4", "grade": 0, "reason": "Fragment about array statistics selectivity and average field width says nothing about B-tree comparison operators."}
+{"id": "v207ed8f0fc", "grade": 1, "reason": "Mentions that ElGamal-based key exchange needs CDH or the stronger ICDH assumption, but defers the reasoning to other sections."}
+{"id": "vda970fd6cd", "grade": 1, "reason": "Explains RefCell's try_borrow_mut and BorrowRefMut internals, covering mutable rather than immutable borrowing."}
+{"id": "vd7ac8294a3", "grade": 1, "reason": "Introduces trait objects and dynamic dispatch but stops before explaining the runtime cost compared to generics."}
+{"id": "vdef044a2af", "grade": 2, "reason": "Explains that struct fields are private by default and how pub, pub(crate) and pub(super) control access, with a worked example."}
+{"id": "v16f6ed5bdb", "grade": 1, "reason": "Demonstrates RefCell interior mutability with borrow_mut and Rc, but not the RefCell::borrow immutable API itself."}
+{"id": "v64144724bc", "grade": 1, "reason": "Loads AutoModelForSequenceClassification from the Hub and saves locally, but never pushes a model to the Hub."}
+{"id": "vd81d977a6b", "grade": 2, "reason": "Presents conformalized adaptive prediction intervals that scale bands by a per-point uncertainty estimate while preserving coverage guarantees."}
+{"id": "v2676e893ed", "grade": 2, "reason": "Covers nonce-based counter mode and proves its CPA security, including the nonce-spacing fix for overlapping keystream intervals."}
+{"id": "v248454d22a", "grade": 1, "reason": "Proves CPA security of PRF-based encryption and mentions the nonce-based option, but does not treat nonce-based counter mode itself."}
+{"id": "v2044c8182b", "grade": 2, "reason": "Places white-box models on an interpretability versus predictive power plane and contrasts them with black-box models."}
+{"id": "vf20d151370", "grade": 1, "reason": "Says moving averages live in TA-Lib's Overlap Studies group and that the section covers them, without naming or defining the functions."}
+{"id": "vd90e1e90a1", "grade": 2, "reason": "Is the Vectors section showing how to create, store, read and modify values in Rust vectors."}
+{"id": "vfeccfea3e5", "grade": 2, "reason": "Explains model selection with cross-validation, train/validation/hold-out splits and the IID and lookahead-bias caveats."}
+{"id": "v11853dd264", "grade": 2, "reason": "Defines graph representations: adjacency matrices, directed and labeled graphs and node/edge feature matrices."}
+{"id": "v89fe1c91a9", "grade": 2, "reason": "Explains when cheap, approximately correct results are acceptable via weak and eventual consistency and the CALM argument for coordination-free execution."}
+{"id": "vd34236a983", "grade": 2, "reason": "Shows computing multi-period pct_change returns over a pandas MultiIndex with stack, pipe and swaplevel."}
+{"id": "v534c4ebde0", "grade": 1, "reason": "Discusses style and content loss curves and weights in PyTorch style transfer, but never states the total loss formula."}
+{"id": "v71fc2e3507", "grade": 1, "reason": "Covers the random oracle model and only points forward to Section 8.8 where the sponge construction is treated."}
+{"id": "vfad9ac6b32", "grade": 2, "reason": "Implements a full Rocket login flow with username/password form, session routes and Argon2 password verification in Rust."}
+{"id": "v3cac048e5f", "grade": 1, "reason": "Derives binomial expectation, variance and shape but never lists the actual probabilities for 6 trials."}
+{"id": "v343d6d0144", "grade": 2, "reason": "Explains that within-sample accuracy overstates performance and recommends out-of-sample accuracy via cross-validation or information criteria."}
+{"id": "v3428b70a11", "grade": 2, "reason": "Shows Option::as_mut giving a mutable reference to the contained value without taking ownership, alongside DerefMut."}
+{"id": "v40ee18924e", "grade": 2, "reason": "Is the section on interpreting a random forest, explaining feature importance averaging across trees with scikit-learn code."}
+{"id": "vaa1458e79d", "grade": 1, "reason": "Chapter notes describe PMAC's improvements over PMAC0, but the construction itself is defined in the earlier PRF sections."}
+{"id": "v45c6e14fc3", "grade": 2, "reason": "Loads a parquet file into a DataFrame with a pd.read_parquet call, including the dtype_backend argument."}
+{"id": "v3ab9c6862d", "grade": 1, "reason": "Scrapes the same OpenTable restaurant fields and notes booking data loads via JavaScript, but gives no technique for safely handling absent elements."}
+{"id": "v00b9e87ec8", "grade": 2, "reason": "Walks through creating an EC2 key pair in the AWS console and storing it with correct permissions for SSH."}
+{"id": "va121d62f66", "grade": 2, "reason": "Shows calling client.embeddings.create with a model name and batching texts, the same recipe as ada-002 embedding calls."}
+{"id": "v874a867abf", "grade": 1, "reason": "Solves the missing booking data with Selenium and regex extraction, but does not address guarding against absent elements."}
+{"id": "vdca0d247de", "grade": 2, "reason": "Derives the policy gradient update showing log action probabilities weighted by the reward from that time onward, i.e. REINFORCE."}
+{"id": "v2da16aaa0d", "grade": 1, "reason": "Is about custom financial news embeddings and merely points to Chapter 15 and its notebook for topic modeling."}
+{"id": "v8158db467b", "grade": 2, "reason": "Defines the content, style and total variation loss terms that make up the neural style transfer total loss in PyTorch."}
+{"id": "vb56b66c53c", "grade": 2, "reason": "Defines a random variable as a function from the sample space to the reals with die and coin examples."}
+{"id": "vc2fe476553", "grade": 2, "reason": "Works through backpropagation, showing the delta rule and the vectorized gradient used to update all output layer weights at once."}
+{"id": "v854088a09b", "grade": 1, "reason": "Covers change of basis, similar matrices and diagonalization, pointing to a later chapter for matrix factorizations."}
+{"id": "v8409c85134", "grade": 1, "reason": "A Scrapy spider extracts the same OpenTable fields, but the selectors never guard against missing elements."}
+{"id": "v1bd120f006", "grade": 1, "reason": "Compares float32, float16, int8 and int4 bit widths for quantization but gives no exponent/mantissa split and bfloat16 is only named."}
+{"id": "v9f97e42df5", "grade": 1, "reason": "Introduces rejection sampling and other sampling methods, but says nothing about birthday probabilities."}
+{"id": "v8e599a2d6d", "grade": 1, "reason": "Quotes Hume on principles of connexion among ideas for discourse coherence, without relating it to associative learning."}
+{"id": "v34d6f6fdcb", "grade": 1, "reason": "Discusses query parsing, planning and the extended protocol, but not why a Sort node carries a given cost."}
+{"id": "v8ef1167b0d", "grade": 2, "reason": "Lists the WSTG authorization testing sections, identifying 4.5.4 as the Insecure Direct Object References test."}
+{"id": "vcbab3127ed", "grade": 2, "reason": "Explains the trade-off between expensive single-system guarantees and cheaper weaker models that sacrifice exactness."}
+{"id": "v39e0ba2753", "grade": 2, "reason": "Defines PRFs with a seed and contrasts eagerly populating the whole table versus lazily sampling entries on demand."}
+{"id": "vc0c89507d2", "grade": 0, "reason": "Is a table of contents listing nonce-based counter mode as section 5.5.2, with no content on CPA security."}
+{"id": "v65cb30303c", "grade": 1, "reason": "Explains how backtesting engines work and their realism limits, but does not argue that simulated performance transfers to live trading."}
+{"id": "v75ebc60f80", "grade": 2, "reason": "Shows zinterstore finding members shared across sorted sets and storing the intersection in a new key."}
+{"id": "vca0dc91b25", "grade": 1, "reason": "Discusses long-term monitoring and alerting health, but not the problem of teams observing systems in isolation."}
+{"id": "v9d31aff08b", "grade": 1, "reason": "Shows wiring alembic's env.py to a config object and database URL, which is related but does not explain the hardcoded config behavior."}
+{"id": "v74dd46f703", "grade": 2, "reason": "Covers topic models, LDA and explicitly explains pLSA (probabilistic LSA) and how it differs from LDA."}
+{"id": "va3213bb556", "grade": 2, "reason": "Gives the feature importance formula for a tree and its averaging over the forest ensemble in section 18.6.1."}
+{"id": "v7b100c4a2b", "grade": 1, "reason": "Explains the Facade pattern for wrapping expression evaluation, not the Decorator pattern asked about for layering behaviors."}
+{"id": "v18dd3c787a", "grade": 2, "reason": "Is the AFL chapter showing how it mutates a corpus to find crashing inputs and how to run cargo afl fuzz with failing outputs."}
+{"id": "v897a715da4", "grade": 1, "reason": "Covers positive definite and orthogonal matrices rather than factorizations or similarity transformations."}
+{"id": "v041a00e58d", "grade": 2, "reason": "Explains feature importance for random forests via MDI, permutation importance and SHAP with scikit-learn code."}
+{"id": "v9836c12431", "grade": 2, "reason": "Covers cross-validation schemes including leave-P-out, ShuffleSplit, TimeSeriesSplit and purged or embargoed financial CV."}
+{"id": "v0bff0c9416", "grade": 2, "reason": "Explains time in distributed systems: clocks as approximations, partial versus total order, and what algorithms actually need."}
+{"id": "vc2a464e0c7", "grade": 2, "reason": "States that the style transfer loss function consists of content loss, style loss and total variation loss."}
+{"id": "v128c46e682", "grade": 2, "reason": "Shows the ElGamal instantiation AKE2eg and states it models H as a random oracle and assumes ICDH holds for the group."}
+{"id": "ve288fbc563", "grade": 2, "reason": "Explains Rust memory allocation, which values go on the stack and which on the heap, with the String smart pointer example."}
+{"id": "vb134bb1f42", "grade": 1, "reason": "Only concludes the randomized counter mode proof and heads into an AES counter mode case study, not nonce-based CPA security."}
+{"id": "v89afb72e11", "grade": 2, "reason": "Is the Storing data in vectors section, covering creation, heap storage, growth and array-versus-vector trade-offs."}
+{"id": "v54b7847eb5", "grade": 1, "reason": "Introduces a chapter on validation strategies and lists its topics without explaining any strategy itself."}
+{"id": "v7c8dc68ac1", "grade": 2, "reason": "States that tuning the inertia weight and cognitive and social acceleration coefficients lets PSO balance exploration and exploitation."}
