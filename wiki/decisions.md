@@ -616,6 +616,12 @@ Reusable infra: `scripts/gpu_sweep.sh` (unattended index→eval driver for candi
 **Evidence:** Pooled over Gemma-4-12B and Qwen3.6-35B-A3B, 256 paired runs: found 0.965 → 0.957 (n.s.), cited 0.945 → 0.926 (n.s.), no token or call metric significant. Gemma alone saved 1,308 prompt tokens and 0.2 calls a question; Qwen3.6 showed no difference. See [interface-bench.md](interface-bench.md) and `data/bench/compare-A5r-vs-A1r-v2.md`.
 **Next:** A0, A3hb, A2b, A3b and A4b rerun under the same condition; the part-1 verdicts are revisited against A1 once they finish.
 
+### Part 2 of the interface refinement: A1 re-checked against A0 with reasoning on — KEPT (2026-09-27)
+**Context:** Stage 1 (A1) was kept under thinking off. Part 2 reran A0 and A1 with oMLX's own settings on the 128 verified questions.
+**Decision:** Keep A1.
+**Evidence:** Pooled, 256 paired runs: found and cited n.s. (0.957 → 0.965, 0.930 → 0.945); prompt tokens −9,573, tool-output tokens −36,980, peak context −9,515, invalid calls 0.3 → 0, all significant. Calls rose 0.6 a question (significant), all after the first correct passage and mostly Qwen3.6's `read_chunk`; calls up to the first hit fell on both models. See [interface-bench.md](interface-bench.md) and `data/bench/compare-A1r-vs-A0r-v2.md`.
+**Caveat:** The rule's "no metric significantly worse" is met only by treating post-hit reads as part of answering rather than as friction, as in Stage 1.
+
 ## Rejected Approaches
 
 ### Embedding upgrade (Qwen3-Embedding-0.6B / EmbeddingGemma-300M) — v6.3 → re-tested v6.6

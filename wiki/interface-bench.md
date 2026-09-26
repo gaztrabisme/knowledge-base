@@ -176,3 +176,26 @@ and 99% (Qwen3.6) of the verified questions, against 88% pooled under thinking o
 headroom is small, which limits what any later arm can show on this set.
 
 Table: `data/bench/compare-A5r-vs-A1r-v2.md`.
+
+### A1 against A0 — A1 kept
+
+A0 is the interface before any refinement: full-section search results, a 103k-token
+`list_books`, exact book names only.
+
+| Model | found A0 → A1 | cited A0 → A1 | prompt tokens per question | tool-output tokens | calls per question | invalid calls |
+|---|---|---|---|---|---|---|
+| Gemma-4-12B | 0.930 → 0.938, n.s. | 0.922 → 0.938, n.s. | 13,043 → 6,257, better | 51,027 → 2,874, better | 1.4 → 1.2, better | 0.4 → 0.0, better |
+| Qwen3.6-35B-A3B | 0.984 → 0.992, n.s. | 0.938 → 0.953, n.s. | 43,140 → 30,780, n.s. | 34,838 → 9,030, better | 2.6 → 4.0, worse | 0.2 → 0.0, better |
+| Pooled (256 pairs) | 0.957 → 0.965, n.s. | 0.930 → 0.945, n.s. | 28,092 → 18,519, better | 42,933 → 5,952, better | 2.0 → 2.6, worse | 0.3 → 0.0, better |
+
+With reasoning on, both models answer as well from A0's long results as from A1's short ones;
+A1's gain is cost: a third less prompt, a seventh of the tool output, no invalid calls.
+
+The pooled call count is worse, which the decision rule forbids read literally. It is kept on the
+same reading as Stage 1: every extra call comes after the first correct passage. Calls up to and
+including the first hit fall on both models (Gemma 1.39 → 1.17, Qwen3.6 1.21 → 1.15); after it,
+Qwen3.6 goes from 1.42 to 2.88 calls a question, and 226 of its 284 post-hit A1 calls are
+`read_chunk`, reading around a short hit that A0 would have returned in full. Those calls are
+the price of the smaller results and are counted inside the prompt-token saving.
+
+Table: `data/bench/compare-A1r-vs-A0r-v2.md`.
