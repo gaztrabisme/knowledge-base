@@ -610,6 +610,12 @@ Reusable infra: `scripts/gpu_sweep.sh` (unattended index→eval driver for candi
 **Decision:** Reject A4b.
 **Evidence:** Pooled vs A1: found 0.880 → 0.743, cited 0.840 → 0.703 (both p<0.0001), invalid calls 0 → 0.3. Against A3b, the tool merge alone is n.s. on found and cited, −2,291 prompt tokens, +0.1 invalid calls.
 
+### Part 2 of the interface refinement: A5 (`find_books` with merged scoped results) — REJECTED (2026-09-26)
+**Context:** Part 1 ran with thinking forced off by the harness and on unverified labels. Part 2 reruns with oMLX's own settings (thinking on, `max_tokens` 32768), a 25-call cap and the 128 verified questions of `questions_v2.jsonl`. A5 adds an optional `find_books` to A1 and merges scoped and unscoped `search` results by reranker score.
+**Decision:** Reject A5; A1 stays the current best arm.
+**Evidence:** Pooled over Gemma-4-12B and Qwen3.6-35B-A3B, 256 paired runs: found 0.965 → 0.957 (n.s.), cited 0.945 → 0.926 (n.s.), no token or call metric significant. Gemma alone saved 1,308 prompt tokens and 0.2 calls a question; Qwen3.6 showed no difference. See [interface-bench.md](interface-bench.md) and `data/bench/compare-A5r-vs-A1r-v2.md`.
+**Next:** A0, A3hb, A2b, A3b and A4b rerun under the same condition; the part-1 verdicts are revisited against A1 once they finish.
+
 ## Rejected Approaches
 
 ### Embedding upgrade (Qwen3-Embedding-0.6B / EmbeddingGemma-300M) — v6.3 → re-tested v6.6

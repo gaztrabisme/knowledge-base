@@ -31,6 +31,15 @@ change was measured and whether it was kept.
   Binary metrics use exact McNemar tests. Counts use a paired bootstrap 95% CI plus a Wilcoxon test. Both are applied at α=0.05, in `scripts/bench_compare.py`.
 - **Citation scoring.** The first `CITED:` parser missed markdown-formatted lines such as `**CITED:**`. Every run file has been rescored with the fixed parser, using `scripts/rescore_citations.py` on the stored answers, so all arms are scored the same way.
 
+## Two conditions: thinking off (part 1) and reasoning on (part 2)
+
+Stages 1 to 4 below ran with the harness forcing `enable_thinking=false` and `max_tokens=2048`,
+an 8-call cap, and the original 150 questions. Their verdicts hold for that condition only.
+Part 2 reruns the arms with no generation parameters in the request (oMLX's per-model settings
+apply: thinking on, `max_tokens` 32768), a 25-call cap, and `data/bench/questions_v2.jsonl`:
+128 questions whose labels were independently verified (`data/bench/analysis/golden-verify.md`).
+Part-2 results are in the section of that name at the end.
+
 ## Stage 1 (A1): short search results, slim catalog, clean chapters, book-name resolution — KEPT
 
 What changed:
@@ -146,3 +155,24 @@ Merging the tools saved prompt tokens against A3b but raised invalid calls, and 
 A1 remains the best arm on both small models. Every arm that adds a narrowing step the agent must choose (a domain, a book list, a hypothetical passage) lowers found and cited for small agents, and the losses are larger than any token saving. The catalog and Qdrant payload are sound: `find_books` ranks the right book in its top 5 for most questions. What fails is handing the narrowing decision to the small model.
 
 Full tables: `data/bench/compare-A2b-vs-A1.md`, `compare-A3b-vs-A1.md`, `compare-A3b-vs-A2b.md`, `compare-A3hb-vs-A3b.md`, `compare-A3hb-vs-A1.md`, `compare-A4b-vs-A1.md`, `compare-A4b-vs-A3b.md`.
+
+## Part 2: reasoning on, verified questions
+
+### A5 against A1 — A5 REJECTED, A1 kept
+
+A5 is A1 plus an optional `find_books(query)` that returns each book's top passage, and a
+`search(books=[...])` that merges scoped and unscoped results by reranker score instead of
+restricting to the chosen books.
+
+| Model | found A1 → A5 | cited A1 → A5 | prompt tokens per question | calls per question |
+|---|---|---|---|---|
+| Gemma-4-12B | 0.938 → 0.922, n.s. | 0.938 → 0.922, n.s. | 6,257 → 4,949, better | 1.2 → 1.0, better |
+| Qwen3.6-35B-A3B | 0.992 → 0.992, n.s. | 0.953 → 0.930, n.s. | 30,780 → 33,294, n.s. | 4.0 → 4.5, n.s. |
+| Pooled (256 pairs) | 0.965 → 0.957, n.s. | 0.945 → 0.926, n.s. | n.s. | n.s. |
+
+No pooled metric moved significantly, so A5 fails the rule's "at least one improves". The token
+and call savings are Gemma's alone. With reasoning on, A1 finds a correct passage for 94% (Gemma)
+and 99% (Qwen3.6) of the verified questions, against 88% pooled under thinking off; the remaining
+headroom is small, which limits what any later arm can show on this set.
+
+Table: `data/bench/compare-A5r-vs-A1r-v2.md`.
