@@ -252,3 +252,28 @@ long results (A0 tool output here is 12.9k tokens a question against 34.8k in-pr
 The one discordant question, h0088, A0 found after 13 calls and A1 missed after 6.
 
 Table: `data/bench/compare-claude-A1-vs-A0-v2.md`. Rows: `data/bench/runs/claude-CA{0,1}-*.jsonl`.
+
+### LiquidAI LFM2.5 on A0 and A1 (2026-09-27)
+
+Same harness, questions and oMLX settings (thinking on through the `deepseek_r1` reasoning
+parser). Both models passed a one-call tool-use check first; LFM2.5-8B-A1B writes its tool
+calls inside its reasoning, and oMLX extracts them from there.
+
+| Model | found A0 → A1 | cited A0 → A1 | prompt tokens per question | calls | invalid calls |
+|---|---|---|---|---|---|
+| LFM2.5-8B-A1B | 0.875 → 0.852, n.s. | 0.492 → 0.547, n.s. | 16,573 → 7,816, better | 1.2 → 1.4, n.s. | 0.0 → 0.0 |
+| LFM2.5-2.6B | 0.906 → 0.938, n.s. | 0.727 → 0.820, n.s. (p=0.065) | 30,260 → 22,877, better | 3.8 → 4.5, worse | 0.9 → 0.4, better |
+| Pooled (256 pairs) | 0.891 → 0.895, n.s. | 0.609 → 0.684, n.s. (p=0.056) | 23,416 → 15,347, better | 2.5 → 2.9, worse | 0.5 → 0.2, better |
+
+A1 helps these models the same way it helps Gemma and Qwen3.6: much less context, fewer invalid
+calls, answers no worse. Both find a correct passage about as often as Gemma-4-12B (0.85–0.94).
+They lose at the citation step:
+
+- **LFM2.5-8B-A1B** finds a correct passage and then fails to cite it in 39–49 of 128 runs,
+  mostly because 49–54 runs end with no `CITED:` line at all. It also answers 11–16 questions
+  without calling any tool. Its limit is following the output format, not retrieval.
+- **LFM2.5-2.6B** always searches and ends with a `CITED:` line in all but 15–26 runs, so it
+  cites far more often than the larger LFM model (0.820 on A1). It takes about 220 s a question
+  against 77–128 s for the 8B, because its conversations run longer.
+
+Table: `data/bench/compare-A1r-vs-A0r-LFM-v2.md`.
