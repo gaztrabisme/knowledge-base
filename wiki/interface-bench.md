@@ -199,3 +199,22 @@ Qwen3.6 goes from 1.42 to 2.88 calls a question, and 226 of its 284 post-hit A1 
 the price of the smaller results and are counted inside the prompt-token saving.
 
 Table: `data/bench/compare-A1r-vs-A0r-v2.md`.
+
+### A3hb (catalog, corpus vocabulary, HyDE advice) against A1 — REJECTED
+
+A3hb is the Stage 3 arm with HyDE advice: A1 plus `find_books`, `related_headings` in results, and
+tool descriptions that tell the agent to write a `hyde_passage` for conceptual questions. It tests
+that package, not HyDE alone.
+
+| Model | found A1 → A3hb | cited A1 → A3hb | calls per question | tool-output tokens |
+|---|---|---|---|---|
+| Gemma-4-12B | 0.938 → 0.875, n.s. (p=0.057) | 0.938 → 0.875, n.s. (p=0.057) | 1.2 → 1.6, worse | n.s. |
+| Qwen3.6-35B-A3B | 0.992 → 0.953, n.s. (p=0.063) | 0.953 → 0.914, n.s. | n.s. | 9,030 → 7,310, better |
+| Pooled (256 pairs) | 0.965 → 0.914, **worse (p=0.004)** | 0.945 → 0.895, **worse (p=0.019)** | n.s. | n.s. |
+
+Of the 19 questions where exactly one arm found a correct passage, A1 found it in 16. Reasoning
+did not rescue the part-1 finding: asking a small model to narrow by book and to write a
+hypothetical passage loses answers. HyDE stays an optional `search` parameter; tool descriptions
+should not push small agents toward it.
+
+Table: `data/bench/compare-A3hbr-vs-A1r-v2.md`.

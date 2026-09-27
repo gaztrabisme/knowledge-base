@@ -622,6 +622,12 @@ Reusable infra: `scripts/gpu_sweep.sh` (unattended index→eval driver for candi
 **Evidence:** Pooled, 256 paired runs: found and cited n.s. (0.957 → 0.965, 0.930 → 0.945); prompt tokens −9,573, tool-output tokens −36,980, peak context −9,515, invalid calls 0.3 → 0, all significant. Calls rose 0.6 a question (significant), all after the first correct passage and mostly Qwen3.6's `read_chunk`; calls up to the first hit fell on both models. See [interface-bench.md](interface-bench.md) and `data/bench/compare-A1r-vs-A0r-v2.md`.
 **Caveat:** The rule's "no metric significantly worse" is met only by treating post-hit reads as part of answering rather than as friction, as in Stage 1.
 
+### Part 2 of the interface refinement: A3hb (find_books + HyDE advice) with reasoning on — REJECTED (2026-09-27)
+**Context:** The open question from part 1 was whether small agents can use HyDE once they are allowed to reason. A3hb is A1 plus `find_books`, `related_headings`, and descriptions that ask for a `hyde_passage` on conceptual questions.
+**Decision:** Reject. A1 stays. HyDE remains an optional parameter with no push in the tool descriptions.
+**Evidence:** Pooled, 256 paired runs: found 0.965 → 0.914 (p=0.004), cited 0.945 → 0.895 (p=0.019); no cost metric significantly better. Both models lean the same way (each p≈0.06 alone). See [interface-bench.md](interface-bench.md) and `data/bench/compare-A3hbr-vs-A1r-v2.md`.
+**Not tested:** A1 with HyDE advice and no `find_books`; the loss cannot be split between the two changes.
+
 ## Rejected Approaches
 
 ### Embedding upgrade (Qwen3-Embedding-0.6B / EmbeddingGemma-300M) — v6.3 → re-tested v6.6
