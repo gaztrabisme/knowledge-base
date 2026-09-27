@@ -21,7 +21,9 @@ from agent_bench import SYSTEM_PROMPT, _load_api_key, cited_ids, parent_ids
 
 
 ROOT = SCRIPTS_DIR.parent
-OMLX_BASE_URL = "http://127.0.0.1:8000"
+# oMLX's own /v1/messages returns tool calls as plain text, so the CLI never calls a tool.
+# Point this at an Anthropic-to-OpenAI proxy in front of oMLX's /v1/chat/completions instead.
+OMLX_BASE_URL = os.environ.get("KB_CLAUDE_BENCH_BASE_URL", "http://127.0.0.1:8000")
 MODEL_SLOTS = (
     "ANTHROPIC_DEFAULT_HAIKU_MODEL",
     "ANTHROPIC_DEFAULT_SONNET_MODEL",

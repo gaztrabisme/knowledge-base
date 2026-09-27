@@ -55,6 +55,9 @@ def summarize(pairs: list[tuple[dict, dict]]) -> dict:
             "verdict": _verdict(metric, delta, p_value, None),
         }
     for metric in COUNT_METRICS:
+        # claude_bench rows carry no peak-context field; skip a metric either side lacks.
+        if any(metric not in left or metric not in right for left, right in pairs):
+            continue
         a = [float(left[metric]) for left, _ in pairs]
         b = [float(right[metric]) for _, right in pairs]
         deltas = [bi - ai for ai, bi in zip(a, b)]
@@ -98,6 +101,8 @@ def _render_table(title: str, groups: list[tuple[str, list[tuple[dict, dict]]]])
     for stratum, pairs in groups:
         summary = summarize(pairs)
         for metric in BINARY_METRICS + COUNT_METRICS:
+            if metric not in summary:
+                continue
             estimate, change, interval, p_value = _metric_cells(metric, summary)
             verdict = summary[metric]["verdict"]
             lines.append(f"| {stratum} | {metric} | {len(pairs)} | {estimate} | {change} | {interval} | {p_value} | {verdict} |")

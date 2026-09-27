@@ -219,20 +219,36 @@ should not push small agents toward it.
 
 Table: `data/bench/compare-A3hbr-vs-A1r-v2.md`.
 
-### Real-harness check through `claude -p` — blocked (2026-09-27)
+### Real-harness check through `claude -p` — A1 holds (2026-09-27)
 
-`scripts/claude_bench.py` runs a question through the Claude Code CLI with the knowledge base as
-its only MCP server and oMLX as the Anthropic endpoint. Its first live run found two problems:
+`scripts/claude_bench.py` runs each question through the Claude Code CLI (2.1.283) with the
+knowledge base as its only MCP server, Qwen3.6-35B-A3B on oMLX as the model, and the tool-call
+cap raised to 25 turns. First 20 questions of `questions_v2.jsonl`, one at a time, A1 then A0.
 
-- **oMLX's `/v1/messages` does not return tool calls.** With one tool defined, Qwen3.6 and
-  Gemma-4-12B both produce the call as plain text (`<tool_call><function=mcp__kb__search>…`)
-  inside a `text` block, the stream ends with `stop_reason: end_turn`, and `usage` reads 0 input
-  and 0 output tokens. Claude Code therefore never calls a tool, so the check cannot run against
-  oMLX directly. The OpenAI endpoint (`/v1/chat/completions`) parses the same calls correctly.
-- **A LiteLLM proxy in front of the OpenAI endpoint** (Anthropic in, OpenAI out) returned
-  reasoning and correct token counts on a non-streaming test. Whether it emits `tool_use` blocks
-  was not confirmed: oMLX hit a Metal GPU hang at 08:23 and disabled GPU submission at 08:30,
-  while a second model was loaded next to a running benchmark.
+oMLX's own Anthropic endpoint (`/v1/messages`) cannot serve this: with a tool defined, Qwen3.6
+and Gemma-4-12B both return the call as plain text in a `text` block, the stream ends with
+`end_turn`, and `usage` reads 0 tokens, so the CLI never calls a tool. The run therefore goes
+through a LiteLLM proxy (Anthropic in, `/v1/chat/completions` out, provider `hosted_vllm`) that
+drops every generation parameter the CLI sends (`max_tokens`, `temperature`, `thinking`, …), so
+oMLX's per-model settings apply as in the in-process benchmark. The LiteLLM `openai` provider is
+unusable here: it routes to oMLX's `/v1/responses`. Point the script at the proxy with
+`KB_CLAUDE_BENCH_BASE_URL`.
 
-Next: restart oMLX, confirm `tool_use` through the proxy on one question, then run A1 and A0 on
-20 questions, one model at a time and alone on oMLX.
+| Metric, 20 paired questions | A0 | A1 | Verdict |
+|---|---:|---:|---|
+| found | 19 | 18 | n.s. (one discordant pair) |
+| cited | 19 | 18 | n.s. |
+| prompt tokens per question | 37,491 | 29,499 | n.s. (p=0.089) |
+| tool-output tokens per question | 12,922 | 12,195 | n.s. |
+| calls per question | 5.7 | 5.0 | n.s. |
+| invalid calls per question | 0.10 | 0.00 | n.s. |
+| wall time per question | 118 s | 97 s | not tested |
+
+Twenty questions cannot show a difference of the size the in-process benchmark found, and none
+is significant. What the check shows is that A1 works in a real client: no invalid calls, no
+give-ups, the same tool mix (search, then `read_chunk` on hits). Its token saving is smaller
+than in-process because Claude Code already truncates oversized MCP output, which caps A0's
+long results (A0 tool output here is 12.9k tokens a question against 34.8k in-process).
+The one discordant question, h0088, A0 found after 13 calls and A1 missed after 6.
+
+Table: `data/bench/compare-claude-A1-vs-A0-v2.md`. Rows: `data/bench/runs/claude-CA{0,1}-*.jsonl`.
