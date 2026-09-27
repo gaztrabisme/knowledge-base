@@ -30,17 +30,22 @@ EPUBs + PDFs + HTML
   → HyDE + multi-query expansion (agent-provided, no LLM dependency)
   → Ettin-150m cross-encoder reranking (sentence-transformers, ModernBERT)
   → adaptive score cutoff (absolute floor + min results)
-  → FastMCP server (5 tools)
+  → FastMCP server (6 tools)
   → Claude Code queries via MCP
 ```
 
 ## MCP Tools
 
-- `search(query, top_k=10, book=None, hyde_passage=None, extra_queries=None)` — hybrid semantic + keyword search across all books
-- `search_book(book, query, top_k=5)` — scoped search within a single book
-- `get_chapter(book, chapter)` — full text of a specific chapter
-- `list_books()` — all indexed books with chapter listings
+- `search(query, top_k=10, book=None, hyde_passage=None, extra_queries=None, bm25_keywords=None, detail="brief")` — hybrid semantic + keyword search across all books. `brief` returns the matched passage; `full` returns the whole parent section. `book` takes a slug or a title and suggests near matches.
+- `search_book(book, query, top_k=5, detail="brief")` — the same search scoped to one book
+- `read_chunk(chunk_id, window=1)` — a search hit with its neighbouring passages
+- `get_chapter(book, chapter)` — full text of a chapter, by title or number
+- `list_books(book=None)` — the catalog (one line per book), or one book's chapters
 - `grep_books(pattern, book=None, max_results=20)` — exact-match keyword search via ripgrep
+
+`hyde_passage`, `extra_queries` and `bm25_keywords` are optional. The agent benchmark
+(`wiki/interface-bench.md`) found that pushing small agents to write HyDE passages or to pick
+books first loses answers, so the tool descriptions leave them as options.
 
 ## Running the Server
 
@@ -111,7 +116,7 @@ knowledge_base/
   enrich.py    — contextual enrichment via LM Studio
   index.py     — Jina v5 dense + FastEmbed BM25 sparse → Qdrant
   search.py    — hybrid search (DBSF fusion) + Ettin-150m cross-encoder reranking + adaptive cutoff
-  server.py    — FastMCP MCP server (5 tools)
+  server.py    — FastMCP MCP server (6 tools)
 scripts/
   ingest_all.py    — end-to-end pipeline runner
   test_search.py   — manual search testing

@@ -80,14 +80,11 @@ def hybrid_search(
     client: QdrantClient,
     top_k: int = 10,
     candidates: int = 50,
-    book_filter: str | list[str] | None = None,
+    book_filter: str | None = None,
     rerank: bool = True,
     hyde_passage: str | None = None,
     extra_queries: list[str] | None = None,
     bm25_keywords: list[str] | None = None,
-    domain_filter: str | None = None,
-    *,
-    overflow: list | None = None,
 ) -> list[SearchResult]:
     # ⚡4: embed the query, the optional HyDE passage, and all extra-query variants
     # in ONE batch instead of one embed_texts() call per variant.
@@ -107,23 +104,14 @@ def hybrid_search(
     bm25_text = " ".join(bm25_keywords) if bm25_keywords else query
     query_sparse = text_to_sparse_vector(bm25_text)
 
-    must = []
-    if isinstance(book_filter, str) and book_filter:
-        must.append(models.FieldCondition(
-            key="book",
-            match=models.MatchValue(value=book_filter),
-        ))
-    elif book_filter:
-        must.append(models.FieldCondition(
-            key="book",
-            match=models.MatchAny(any=book_filter),
-        ))
-    if domain_filter is not None:
-        must.append(models.FieldCondition(
-            key="domain",
-            match=models.MatchValue(value=domain_filter),
-        ))
-    filter_conditions = models.Filter(must=must) if must else None
+    filter_conditions = None
+    if book_filter:
+        filter_conditions = models.Filter(
+            must=[models.FieldCondition(
+                key="book",
+                match=models.MatchValue(value=book_filter),
+            )]
+        )
 
     def _dense_prefetch(vec):
         return models.Prefetch(query=vec, using="", filter=filter_conditions, limit=candidates)
@@ -155,30 +143,12 @@ def hybrid_search(
         for p in fused
     ]
 
-    if overflow is None:
-        if rerank and merged:
-            merged = _rerank(query, merged, top_k)
-        else:
-            merged = merged[:top_k]
-        return _deduplicate_parents(merged)
-
-    overflow.clear()
-    ranked_overflow: list[dict] = []
     if rerank and merged:
-        merged = _rerank(query, merged, top_k, overflow=ranked_overflow)
+        merged = _rerank(query, merged, top_k)
     else:
-        ranked = merged
         merged = merged[:top_k]
-        kept_ids = {id(result) for result in merged}
-        ranked_overflow = [result for result in ranked if id(result) not in kept_ids]
 
-    kept = _deduplicate_parents(merged)
-    kept_parents = {result.parent_id for result in kept}
-    overflow.extend(_deduplicate_parents([
-        result for result in ranked_overflow
-        if result["payload"].get("parent_id", "") not in kept_parents
-    ]))
-    return kept
+    return _deduplicate_parents(merged)
 
 
 # Rust book slugs — the domain where heading_path is descriptive enough to help the
@@ -242,12 +212,7 @@ def _rerank_doc(p: dict) -> str:
     return "\n".join(x for x in parts if x)
 
 
-def _rerank(
-    query: str,
-    results: list[dict],
-    top_k: int,
-    overflow: list[dict] | None = None,
-) -> list[dict]:
+def _rerank(query: str, results: list[dict], top_k: int) -> list[dict]:
     reranker = get_ranker()
 
     documents = [_rerank_doc(r["payload"]) for r in results]
@@ -260,11 +225,7 @@ def _rerank(
         result["score"] = float(item["score"])
         scored.append(result)
 
-    kept = _adaptive_cutoff(scored, top_k)
-    if overflow is not None:
-        kept_ids = {id(result) for result in kept}
-        overflow.extend(result for result in scored if id(result) not in kept_ids)
-    return kept
+    return _adaptive_cutoff(scored, top_k)
 
 
 def _adaptive_cutoff(results: list[dict], top_k: int) -> list[dict]:
