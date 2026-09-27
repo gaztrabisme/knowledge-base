@@ -1,0 +1,14 @@
+# Anthropic-in, OpenAI-out proxy for claude -p against oMLX. Generation parameters the CLI sends are
+# stripped: oMLX's per-model settings own sampling, max_tokens and thinking.
+# Run: OMLX_KEY=<key> uvx --from 'litellm[proxy]' litellm --config scripts/claude_bench_proxy.yaml --port 4011 --host 127.0.0.1
+# then: KB_CLAUDE_BENCH_BASE_URL=http://127.0.0.1:4011 python scripts/claude_bench.py ...
+# Add one model_list entry per oMLX model you run.
+model_list:
+  - model_name: Qwen3.6-35B-A3B-OptiQ-4bit-REAP-19B
+    litellm_params:
+      model: hosted_vllm/Qwen3.6-35B-A3B-OptiQ-4bit-REAP-19B
+      api_base: http://127.0.0.1:8000/v1
+      api_key: os.environ/OMLX_KEY
+      additional_drop_params: ["max_tokens", "max_completion_tokens", "max_output_tokens", "temperature", "top_p", "top_k", "stop", "reasoning_effort", "thinking", "extra_body", "seed"]
+litellm_settings:
+  drop_params: true

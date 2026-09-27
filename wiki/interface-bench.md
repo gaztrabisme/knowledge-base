@@ -231,8 +231,8 @@ and Gemma-4-12B both return the call as plain text in a `text` block, the stream
 through a LiteLLM proxy (Anthropic in, `/v1/chat/completions` out, provider `hosted_vllm`) that
 drops every generation parameter the CLI sends (`max_tokens`, `temperature`, `thinking`, …), so
 oMLX's per-model settings apply as in the in-process benchmark. The LiteLLM `openai` provider is
-unusable here: it routes to oMLX's `/v1/responses`. Point the script at the proxy with
-`KB_CLAUDE_BENCH_BASE_URL`.
+unusable here: it routes to oMLX's `/v1/responses`. The proxy config is `scripts/claude_bench_proxy.yaml`; point the script at it
+with `KB_CLAUDE_BENCH_BASE_URL`.
 
 | Metric, 20 paired questions | A0 | A1 | Verdict |
 |---|---:|---:|---|
