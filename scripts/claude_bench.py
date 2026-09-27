@@ -265,6 +265,7 @@ def run_question(question: dict, args, api_key: str, output_path: Path) -> dict:
     # log can only belong to an abandoned attempt at this same question.
     call_log.unlink(missing_ok=True)
     call_log.parent.mkdir(parents=True, exist_ok=True)
+    transcript.parent.mkdir(parents=True, exist_ok=True)
     started = time.perf_counter()
     with tempfile.TemporaryDirectory(prefix=f"claude-bench-{qid}-") as workdir:
         workdir = Path(workdir)

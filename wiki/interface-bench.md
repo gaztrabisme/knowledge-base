@@ -218,3 +218,21 @@ hypothetical passage loses answers. HyDE stays an optional `search` parameter; t
 should not push small agents toward it.
 
 Table: `data/bench/compare-A3hbr-vs-A1r-v2.md`.
+
+### Real-harness check through `claude -p` — blocked (2026-09-27)
+
+`scripts/claude_bench.py` runs a question through the Claude Code CLI with the knowledge base as
+its only MCP server and oMLX as the Anthropic endpoint. Its first live run found two problems:
+
+- **oMLX's `/v1/messages` does not return tool calls.** With one tool defined, Qwen3.6 and
+  Gemma-4-12B both produce the call as plain text (`<tool_call><function=mcp__kb__search>…`)
+  inside a `text` block, the stream ends with `stop_reason: end_turn`, and `usage` reads 0 input
+  and 0 output tokens. Claude Code therefore never calls a tool, so the check cannot run against
+  oMLX directly. The OpenAI endpoint (`/v1/chat/completions`) parses the same calls correctly.
+- **A LiteLLM proxy in front of the OpenAI endpoint** (Anthropic in, OpenAI out) returned
+  reasoning and correct token counts on a non-streaming test. Whether it emits `tool_use` blocks
+  was not confirmed: oMLX hit a Metal GPU hang at 08:23 and disabled GPU submission at 08:30,
+  while a second model was loaded next to a running benchmark.
+
+Next: restart oMLX, confirm `tool_use` through the proxy on one question, then run A1 and A0 on
+20 questions, one model at a time and alone on oMLX.
