@@ -662,3 +662,15 @@ Reusable infra: `scripts/gpu_sweep.sh` (unattended index→eval driver for candi
 ### Grep replacing BM25 (Anthropic "grep beats RAG")
 **Why considered:** Anthropic's Claude Code team found grep outperformed RAG for codebases.
 **Why rejected for primary search:** That finding is specific to codebases with literal identifiers. Our queries are conceptual ("how does batch normalization work"). Added `grep_books()` as a complement for exact-match lookups, not a replacement.
+
+## Philosophy corpus (C4b)
+
+### Traditional Zhuan Falun is a labelled script conversion
+**Context:** The supplied Traditional PDF extraction failed the common-character check (13,582 / 14,596 characters outside the Hant set), while the accepted Hans markdown passed its check.
+**Decision:** Derive zh-Hant from the accepted Hans markdown with OpenCC `s2t`; preserve its ten `zfl-*` alignment keys, mark the registry/chunks/search results as `derived`, and retain the failed PDF record under `rejected_pdf` and `edition_candidates.zh-Hant`. The Hant common-character check is recorded as a plausibility check, not as validation against a printed edition.
+**Evidence:** C4b acceptance suite passes 8 tests; the generated Hant file has 2,300 children and all ten expected section keys. See [C4 report](../data/philosophy/C4-report.md).
+
+### Normalize custom sparse CJK tokens through OpenCC `t2s`
+**Context:** Character unigrams and bigrams from Simplified and Traditional spellings otherwise hash to different custom sparse terms.
+**Decision:** Convert text to Simplified Chinese before tokenization at query time and remote indexing time; keep the local and inline remote tokenizers in parity. The remote host must install `opencc-python-reimplemented` and the indexer fails clearly when it is absent.
+**Grounding:** Attempted the required KB search for sparse retrieval tokenization and script normalization, but the MCP call returned “requires approval” while this workspace's approval policy is `never`; no KB result was available. The implementation follows the user's explicit mechanism.

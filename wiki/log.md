@@ -19,3 +19,9 @@
 - Tool set is exactly search, read, list_books, find_books, grep_books; JSON tool tokens fell from 1,237 to 1,077 (default) and 1,225 to 1,079 (hyde). Chunk-output parity with HEAD and agent_bench.parent_ids passed.
 - Chapter checks passed; PostgreSQL 14's listed chapters are unnumbered, so chapter 4 fell back to Part V Types of Indexes.
 - The s4-check retrieval run completed with NDCG@10=0.7699 against 0.7700 required (strict FAIL by 0.0001). Full output: [stage4-report.md](../data/bench/stage4-report.md).
+
+## [2026-09-28] session | Philosophy C4b
+- Derived Zhuan Falun zh-Hant from the accepted zh-Hans markdown with OpenCC `s2t`, kept all ten alignment keys, and retained the failed Traditional PDF check in the registry.
+- Added `derived` markers to generated chunk metadata, remote payloads, and philosophy search results; normalized custom sparse CJK tokens with OpenCC `t2s` in both tokenizer copies.
+- Acceptance: `.venv/bin/python -m pytest tests/test_philosophy.py -q` → 8 passed in 4.44s. No model load or embedding run.
+- Full change and check results: [C4 report](../data/philosophy/C4-report.md).
