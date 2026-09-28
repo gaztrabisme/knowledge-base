@@ -68,10 +68,13 @@ def test_build_verify_promote_and_cleanup_scratch(tmp_path: Path) -> None:
     alias_name = f"c3_scratch_alias_{uuid.uuid4().hex[:8]}"
     local: QdrantClient | None = None
     try:
+        # The live name may be a collection or an alias for one (v8 promoted by alias).
         names = {item.name for item in server.get_collections().collections}
-        assert "developer_knowledge" in names and not any(n.startswith("c3_scratch_") for n in names)
+        aliases = {a.alias_name for a in server.get_aliases().aliases}
+        assert "developer_knowledge" in names | aliases
+        assert not any(n.startswith("c3_scratch_") for n in names | aliases)
         baseline_count = server.count("developer_knowledge", exact=True).count
-        assert baseline_count == 132_623
+        assert baseline_count > 0
 
         suffix = uuid.uuid4().hex[:8]
         scratch_src = f"c3_scratch_src_{suffix}"
@@ -239,8 +242,9 @@ def test_build_verify_promote_and_cleanup_scratch(tmp_path: Path) -> None:
             if collection in {item.name for item in server.get_collections().collections}:
                 server.delete_collection(collection)
         remaining = {item.name for item in server.get_collections().collections}
+        remaining |= {a.alias_name for a in server.get_aliases().aliases}
         assert "developer_knowledge" in remaining and not any(n.startswith("c3_scratch_") for n in remaining)
-        assert server.count("developer_knowledge", exact=True).count == 132_623
+        assert server.count("developer_knowledge", exact=True).count == baseline_count
         server.close()
 
 
