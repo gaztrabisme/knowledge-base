@@ -30,12 +30,18 @@ The source repository and release data assets are private. You must create a fin
 
 Because `gaztrabisme/knowledge-base` is a private repository, downloading files through a browser using raw GitHub URLs does not work without being signed in to GitHub. On a new or corporate Windows machine where you cannot sign in to GitHub in a browser, use PowerShell to download `install.ps1` directly through GitHub's Contents API with your token.
 
-Open PowerShell and run this exact 3-line snippet:
+Open PowerShell and run this snippet:
 
 ```powershell
-$token = Read-Host "Enter GitHub Token"
+$secureToken = Read-Host "Enter GitHub Token" -AsSecureString
+$bstr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secureToken)
+try { $token = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($bstr) }
+finally { [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr) }
 $headers = @{ "Authorization" = "Bearer $token"; "Accept" = "application/vnd.github.raw" }
-Invoke-WebRequest "https://api.github.com/repos/gaztrabisme/knowledge-base/contents/install.ps1" -Headers $headers -OutFile install.ps1 -UseBasicParsing
+$proxy = if ($env:HTTPS_PROXY) { $env:HTTPS_PROXY } else { $env:HTTP_PROXY }
+$proxyArgs = @{}
+if ($proxy) { $proxyArgs = @{ Proxy = $proxy; ProxyUseDefaultCredentials = $true } }
+Invoke-WebRequest "https://api.github.com/repos/gaztrabisme/knowledge-base/contents/install.ps1" -Headers $headers -OutFile install.ps1 -UseBasicParsing @proxyArgs
 ```
 
 Next, run the installer:
@@ -141,9 +147,9 @@ To completely remove the knowledge-base MCP server:
     ./install.sh --qdrant-port 6343
     ```
 
-### Corporate Proxy (HTTPS_PROXY)
+### Corporate Proxy (HTTPS_PROXY / HTTP_PROXY)
 - **Symptom**: Network connection times out or fails during download behind an enterprise firewall.
-- **Fix**: Define the standard `HTTPS_PROXY` environment variable before running the installer so both the bootstrap script and `uv` route network requests through the proxy:
+- **Fix**: Define `HTTPS_PROXY` or `HTTP_PROXY` before running the installer. PowerShell 5.1 passes the configured proxy and default Windows credentials to its web requests, including the `uv` bootstrap. If neither variable is set, it uses the system proxy with default credentials. Python's `urllib` honors the standard proxy variables, and local snapshot uploads to `127.0.0.1` bypass proxy settings:
   - Windows:
     ```powershell
     $env:HTTPS_PROXY = "http://proxy.yourcompany.com:8080"

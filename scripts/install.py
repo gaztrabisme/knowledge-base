@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+from http.client import HTTPException
 import json
 import os
 import platform
@@ -14,15 +15,18 @@ import shutil
 import subprocess
 import sys
 import tarfile
+import time
 import uuid
 import zipfile
 from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
 from urllib.error import HTTPError, URLError
 from urllib.parse import quote, urlsplit
-from urllib.request import HTTPRedirectHandler, Request, build_opener
+from urllib.request import HTTPRedirectHandler, Request, build_opener, urlopen
 
 ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 GITHUB_API = "https://api.github.com/repos/gaztrabisme/knowledge-base"
 GITHUB_HEADERS = {"X-GitHub-Api-Version": "2022-11-28"}
 STREAM_SIZE = 8 * 1024 * 1024
@@ -58,23 +62,139 @@ def _sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def _stream_response(response, output: Path, expected_size: int | None = None) -> None:
+def _stream_response(
+    response,
+    output: Path,
+    expected_size: int | None = None,
+    *,
+    append: bool = False,
+    total_size: int | None = None,
+    publish: bool = True,
+) -> Path:
     output.parent.mkdir(parents=True, exist_ok=True)
     temporary = output.with_name(output.name + ".tmp")
-    total = 0
+    initial_size = temporary.stat().st_size if append and temporary.exists() else 0
+    mode = "ab" if append else "wb"
+    total = initial_size
+    display_total = total_size or expected_size
+    next_percent = (total * 100 // display_total // 10 + 1) * 10 if display_total else 110
+    is_tty = bool(getattr(sys.stderr, "isatty", lambda: False)())
     try:
-        with temporary.open("wb") as destination:
+        with temporary.open(mode) as destination:
             while block := response.read(STREAM_SIZE):
                 destination.write(block)
                 total += len(block)
-                print(f"\rDownloaded {total:,} bytes", end="", file=sys.stderr, flush=True)
-        print(file=sys.stderr)
-        if expected_size is not None and total != expected_size:
-            raise ValueError(f"Downloaded {total} bytes; expected {expected_size}")
-        os.replace(temporary, output)
+                if is_tty:
+                    print(f"\rDownloaded {total:,} bytes", end="", file=sys.stderr, flush=True)
+                elif display_total:
+                    downloaded_percent = total * 100 // display_total
+                    while downloaded_percent >= next_percent and next_percent <= 100:
+                        print(f"Downloaded {next_percent}% ({total:,} bytes)", file=sys.stderr)
+                        next_percent += 10
     except Exception:
-        temporary.unlink(missing_ok=True)
+        if is_tty:
+            print(file=sys.stderr)
         raise
+    if is_tty:
+        print(file=sys.stderr)
+    elif not display_total:
+        print(f"Downloaded {total:,} bytes", file=sys.stderr)
+    if expected_size is not None and temporary.stat().st_size != expected_size:
+        raise ValueError(
+            f"Downloaded {temporary.stat().st_size} bytes; expected {expected_size}"
+        )
+    if publish:
+        os.replace(temporary, output)
+    return temporary
+
+
+def _response_total(response, expected_size: int | None, offset: int) -> int | None:
+    if expected_size is not None:
+        return expected_size
+    content_range = response.headers.get("Content-Range", "")
+    match = re.search(r"/([0-9]+)$", content_range)
+    if match:
+        return int(match.group(1))
+    content_length = response.headers.get("Content-Length")
+    return offset + int(content_length) if content_length else None
+
+
+def _download_resumable(
+    url: str,
+    output: Path,
+    headers: dict[str, str] | None = None,
+    *,
+    timeout: int = 120,
+    expected_size: int | None = None,
+    expected_sha256: str | None = None,
+    attempts: int = 5,
+) -> Path:
+    """Download to a resumable .tmp file, publishing only verified content."""
+    temporary = output.with_name(output.name + ".tmp")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    for attempt in range(attempts):
+        offset = temporary.stat().st_size if temporary.exists() else 0
+        if expected_size is not None and offset >= expected_size:
+            if offset == expected_size and (
+                expected_sha256 is None or _sha256(temporary) == expected_sha256
+            ):
+                os.replace(temporary, output)
+                return output
+            temporary.write_bytes(b"")
+            offset = 0
+
+        request_headers = dict(headers or {})
+        if offset:
+            request_headers["Range"] = f"bytes={offset}-"
+        request = Request(url, headers=request_headers, method="GET")
+        try:
+            with _opener().open(request, timeout=timeout) as response:
+                status = getattr(response, "status", None)
+                if status is None:
+                    status = response.getcode()
+                if offset and status == 206:
+                    range_match = re.match(
+                        r"bytes ([0-9]+)-", response.headers.get("Content-Range", ""),
+                    )
+                    if not range_match or int(range_match.group(1)) != offset:
+                        temporary.write_bytes(b"")
+                        raise ValueError("Server returned a mismatched Content-Range")
+                append = bool(offset and status == 206)
+                base = offset if append else 0
+                _stream_response(
+                    response,
+                    output,
+                    expected_size=expected_size,
+                    append=append,
+                    total_size=_response_total(response, expected_size, base),
+                    publish=False,
+                )
+            if expected_sha256 and _sha256(temporary) != expected_sha256:
+                temporary.write_bytes(b"")
+                raise ValueError(f"SHA-256 mismatch while downloading {output.name}")
+            os.replace(temporary, output)
+            return output
+        except (HTTPError, URLError, OSError, TimeoutError, ValueError, EOFError, HTTPException) as exc:
+            if isinstance(exc, HTTPError) and exc.code == 416 and temporary.exists():
+                temporary.write_bytes(b"")
+            if attempt + 1 == attempts:
+                raise RuntimeError(
+                    f"Download failed after {attempts} attempts: {url}: {exc}"
+                ) from exc
+            time.sleep(2 ** attempt)
+    raise AssertionError("unreachable")
+
+
+def _clear_download_tokens() -> None:
+    for name in ("KB_GH_TOKEN", "GH_TOKEN", "GITHUB_TOKEN"):
+        os.environ.pop(name, None)
+
+
+def _child_environment() -> dict[str, str]:
+    environment = os.environ.copy()
+    for name in ("KB_GH_TOKEN", "GH_TOKEN", "GITHUB_TOKEN"):
+        environment.pop(name, None)
+    return environment
 
 
 def _github_json(path: str, token: str | None) -> dict:
@@ -89,14 +209,26 @@ def _github_json(path: str, token: str | None) -> dict:
         raise RuntimeError(f"GitHub API request failed: {exc}") from exc
 
 
-def _github_asset(asset_url: str, output: Path, token: str | None) -> None:
+def _github_asset(
+    asset_url: str,
+    output: Path,
+    token: str | None,
+    *,
+    expected_size: int | None = None,
+    expected_sha256: str | None = None,
+) -> None:
     headers = {"Accept": "application/octet-stream"}
     if token:
         headers["Authorization"] = f"Bearer {token}"
-    request = Request(asset_url, headers=headers)
     try:
-        with _opener().open(request, timeout=120) as response:
-            _stream_response(response, output)
+        _download_resumable(
+            asset_url,
+            output,
+            headers,
+            timeout=120,
+            expected_size=expected_size,
+            expected_sha256=expected_sha256,
+        )
     except (HTTPError, URLError) as exc:
         raise RuntimeError(f"GitHub release asset download failed: {exc}") from exc
 
@@ -118,12 +250,26 @@ def download_part(
         if not source.is_file():
             raise FileNotFoundError(f"Release part not found: {source}")
         with source.open("rb") as response:
-            _stream_response(response, destination, expected_size=int(part["size"]))
+            temporary = _stream_response(
+                response,
+                destination,
+                expected_size=int(part["size"]),
+                publish=False,
+            )
+        if _sha256(temporary) != part["sha256"]:
+            raise ValueError(f"SHA-256 mismatch for {part['name']}")
+        os.replace(temporary, destination)
     else:
         asset = assets.get(part["name"])
         if asset is None:
             raise FileNotFoundError(f"GitHub release has no asset named {part['name']}")
-        _github_asset(asset["url"], destination, token)
+        _github_asset(
+            asset["url"],
+            destination,
+            token,
+            expected_size=int(part["size"]),
+            expected_sha256=part["sha256"],
+        )
 
     actual = _sha256(destination)
     if actual != part["sha256"]:
@@ -182,7 +328,7 @@ def _release_files(
     manifest_asset = assets.get("manifest.json")
     if manifest_asset is None:
         raise FileNotFoundError(f"GitHub release {tag} has no manifest.json asset")
-    manifest_path = cache_dir / "manifest.json"
+    manifest_path = cache_dir / f"manifest-{tag}.json"
     # Keep metadata with the install and never persist credentials.
     _github_asset(manifest_asset["url"], manifest_path, token)
     return json.loads(manifest_path.read_text(encoding="utf-8")), assets
@@ -204,21 +350,26 @@ def _qdrant_asset_name() -> str:
     raise RuntimeError(f"Unsupported Qdrant platform: {system} {platform.machine()}")
 
 
-def _download_qdrant(version: str, install_dir: Path) -> Path:
+def _download_qdrant(version: str, install_dir: Path, port: int = 6333) -> Path:
     asset_name = _qdrant_asset_name()
     executable_name = "qdrant.exe" if os.name == "nt" else "qdrant"
     binary = install_dir / "bin" / executable_name
-    if binary.is_file():
+    version_file = binary.parent / "qdrant.version"
+    try:
+        installed_version = version_file.read_text(encoding="utf-8").strip()
+    except OSError:
+        installed_version = None
+    if binary.is_file() and installed_version == version:
         return binary
+
+    replacing = binary.is_file()
 
     cache_dir = install_dir / ".kb-download"
     cache_dir.mkdir(parents=True, exist_ok=True)
-    archive_path = cache_dir / asset_name
+    archive_path = cache_dir / f"qdrant-{version}-{asset_name}"
     if not archive_path.is_file():
         url = f"https://github.com/qdrant/qdrant/releases/download/v{version}/{asset_name}"
-        request = Request(url, method="GET")
-        with _opener().open(request, timeout=120) as response:
-            _stream_response(response, archive_path)
+        _download_resumable(url, archive_path, timeout=120)
 
     extract_dir = cache_dir / f"qdrant-{version}-extract"
     shutil.rmtree(extract_dir, ignore_errors=True)
@@ -238,9 +389,22 @@ def _download_qdrant(version: str, install_dir: Path) -> Path:
     if not candidates:
         raise FileNotFoundError(f"{executable_name} missing from Qdrant asset {asset_name}")
     binary.parent.mkdir(parents=True, exist_ok=True)
+    if replacing:
+        stopped = _stop_owned_qdrant(install_dir, binary)
+        if stopped is False:
+            raise RuntimeError(
+                "Could not stop the Qdrant process recorded for this storage directory; "
+                "refusing to replace its binary"
+            )
+        if _qdrant_ready(f"http://127.0.0.1:{port}"):
+            raise RuntimeError(
+                f"Qdrant is still running on port {port}, and its process is not "
+                "confirmed stopped for this storage directory; refusing to replace its binary"
+            )
     shutil.copy2(candidates[0], binary)
     if os.name != "nt":
         binary.chmod(binary.stat().st_mode | 0o111)
+    version_file.write_text(f"{version}\n", encoding="utf-8")
     archive_path.unlink(missing_ok=True)
     shutil.rmtree(extract_dir, ignore_errors=True)
     return binary
@@ -268,6 +432,75 @@ def _qdrant_ready(base_url: str) -> bool:
             return response.status == 200
     except (OSError, HTTPError, URLError, ValueError):
         return False
+
+
+def _process_command(pid: int) -> str | None:
+    if os.name == "nt":
+        result = subprocess.run(
+            ["powershell", "-NoProfile", "-Command",
+             f"(Get-CimInstance Win32_Process -Filter 'ProcessId={pid}').CommandLine"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+    else:
+        result = subprocess.run(
+            ["ps", "-p", str(pid), "-o", "command="],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+    return result.stdout.strip() or None
+
+
+def _pid_is_running(pid: int) -> bool:
+    try:
+        os.kill(pid, 0)
+        return True
+    except ProcessLookupError:
+        return False
+    except PermissionError:
+        return True
+
+
+def _stop_owned_qdrant(install_dir: Path, binary: Path) -> bool | None:
+    storage = install_dir / "qdrant-storage"
+    pid_file = storage / ".kb-qdrant-process.json"
+    try:
+        process = json.loads(pid_file.read_text(encoding="utf-8"))
+        pid = int(process["pid"])
+    except (OSError, ValueError, KeyError, TypeError):
+        return None
+    if (
+        process.get("storage") != str(storage.resolve())
+        or process.get("binary") != str(binary.resolve())
+    ):
+        return None
+    if not _pid_is_running(pid):
+        pid_file.unlink(missing_ok=True)
+        return None
+    command = _process_command(pid)
+    if not command or str(binary.resolve()) not in command:
+        return None
+    if os.name == "nt":
+        subprocess.run(["taskkill", "/PID", str(pid), "/T"], check=False)
+    else:
+        os.kill(pid, 15)
+    deadline = time.monotonic() + 15
+    while time.monotonic() < deadline and _pid_is_running(pid):
+        time.sleep(0.2)
+    if _pid_is_running(pid):
+        command = _process_command(pid)
+        if not command or str(binary.resolve()) not in command:
+            return None
+        if os.name == "nt":
+            subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"], check=False)
+        else:
+            os.kill(pid, 9)
+    if _pid_is_running(pid):
+        return False
+    pid_file.unlink(missing_ok=True)
+    return True
 
 
 def _collection_info(base_url: str, name: str) -> dict | None:
@@ -300,6 +533,31 @@ def _change_alias(base_url: str, actions: list[dict]) -> None:
     _qdrant_request(f"{base_url.rstrip('/')}/collections/aliases", "POST", body)
 
 
+def _extract_bundle(bundle_archive: Path, install_dir: Path) -> None:
+    """Extract bundle data without following caller-provided data symlinks."""
+    skip_roots = []
+    for relative in (PurePosixPath("data/markdown"), PurePosixPath("data/chunks")):
+        destination = install_dir
+        has_symlink_parent = False
+        for part in relative.parts:
+            destination = destination / part
+            has_symlink_parent |= destination.is_symlink()
+        if has_symlink_parent:
+            skip_roots.append(relative)
+
+    with tarfile.open(bundle_archive, "r:gz") as archive:
+        members = (
+            member
+            for member in archive
+            if not any(
+                root == PurePosixPath(member.name)
+                or root in PurePosixPath(member.name).parents
+                for root in skip_roots
+            )
+        )
+        archive.extractall(install_dir, members=members, filter="data")
+
+
 def _restore_snapshot(base_url: str, collection: str, snapshot: Path) -> None:
     import httpx
 
@@ -326,7 +584,7 @@ def _restore_snapshot(base_url: str, collection: str, snapshot: Path) -> None:
     )
     # httpx accepts an iterator body; requests' `files=` multipart encoder buffers
     # the full snapshot before sending it, so it cannot safely upload multi-GB files.
-    with httpx.Client(timeout=httpx.Timeout(1800, connect=30)) as client:
+    with httpx.Client(timeout=httpx.Timeout(1800, connect=30), trust_env=False) as client:
         response = client.post(
             url,
             content=body(),
@@ -392,7 +650,6 @@ def _prepare_qdrant(
     from knowledge_base.qdrant_boot import ensure_qdrant
 
     ensure_qdrant()
-    names = _collection_names(base_url)
     matching = set()
     for name, expected in collections.items():
         info = _collection_info(base_url, name)
@@ -420,22 +677,34 @@ def _restore_collections(
     install_dir: Path,
 ) -> None:
     target_names = [
-        name for name in manifest["collections"]
+        name
+        for name, collection_info in manifest["collections"].items()
         if name in COLLECTION_NAMES.values()
+        and collection_info.get("bundle") in bundle_archives
     ]
     restore_names = set(target_names) - matching
     snapshots = {}
     for bundle_name, collection in COLLECTION_NAMES.items():
         if collection not in restore_names:
             continue
-        with tarfile.open(bundle_archives[bundle_name], "r:gz") as archive:
-            archive.extractall(install_dir, filter="data")
+        _extract_bundle(bundle_archives[bundle_name], install_dir)
         snapshot = install_dir / "snapshots" / f"{collection}.snapshot"
         if not snapshot.is_file():
             raise FileNotFoundError(f"Snapshot missing from release bundle: {snapshot}")
         snapshots[collection] = snapshot
 
     existing = _collection_names(base_url)
+    replacing = [name for name in target_names if name in existing and name not in matching]
+    required_bytes = sum(snapshots[name].stat().st_size * 2 for name in replacing)
+    free_bytes = shutil.disk_usage(install_dir).free
+    if free_bytes < required_bytes:
+        required_gib = required_bytes / (1024 ** 3)
+        free_gib = free_bytes / (1024 ** 3)
+        raise RuntimeError(
+            f"Not enough free disk space to replace Qdrant collections: "
+            f"need at least {required_gib:.2f} GiB for snapshot and restored data, "
+            f"have {free_gib:.2f} GiB; the existing collections were left intact"
+        )
     for name in target_names:
         if name in matching:
             continue
@@ -526,14 +795,19 @@ def _register(install_dir: Path, edition: str, port: int, binary: Path) -> None:
         return
 
     listing = _run_claude(
-        claude, ["mcp", "list"], check=False, capture_output=True, text=True,
+        claude,
+        ["mcp", "list"],
+        check=False,
+        capture_output=True,
+        text=True,
+        env=_child_environment(),
     )
     if re.search(r"\bknowledge-base\b", listing.stdout, re.IGNORECASE):
         _run_claude(claude, [
             "mcp", "remove", "knowledge-base", "--scope", "user",
-        ])
+        ], env=_child_environment())
     command[0] = claude
-    _run_claude(claude, command[1:])
+    _run_claude(claude, command[1:], env=_child_environment())
     print("Registered knowledge-base with Claude Code.")
 
 
@@ -560,23 +834,30 @@ def _write_install_state(install_dir: Path, edition: str, tag: str, port: int) -
     )
 
 
+def _collections_match(base_url: str, collections: dict) -> bool:
+    if not _qdrant_ready(base_url):
+        return False
+    for name, expected in collections.items():
+        info = _collection_info(base_url, name)
+        if info is None or int(info.get("points_count", -1)) != int(expected["points"]):
+            return False
+    return True
+
+
+def _check_download_space(install_dir: Path, bundles: list[dict]) -> None:
+    required = sum(int(bundle["size"]) for bundle in bundles) * 3.2
+    free = shutil.disk_usage(install_dir).free
+    if free < required:
+        raise RuntimeError(
+            "Not enough free disk space for the selected release bundles: "
+            f"need {required / (1024 ** 3):.2f} GiB, "
+            f"have {free / (1024 ** 3):.2f} GiB"
+        )
+
+
 def install(args: argparse.Namespace) -> None:
     install_dir = args.dir.resolve()
     install_dir.mkdir(parents=True, exist_ok=True)
-    state_path = install_dir / ".kb-install.json"
-    if args.update and state_path.is_file():
-        state = json.loads(state_path.read_text(encoding="utf-8"))
-        if state.get("tag") == args.release_tag:
-            binary = install_dir / "bin" / ("qdrant.exe" if os.name == "nt" else "qdrant")
-            if not args.skip_register:
-                _register(install_dir, args.edition, args.qdrant_port, binary)
-            _write_install_state(install_dir, args.edition, args.release_tag, args.qdrant_port)
-            if not args.skip_register:
-                print(f"Data release {args.release_tag} is current; refreshed MCP registration.")
-            else:
-                print(f"Data release {args.release_tag} is current.")
-            return
-
     token = os.environ.get("KB_GH_TOKEN")
     local_release = args.local_release.resolve() if args.local_release else None
     download_dir = install_dir / ".kb-download"
@@ -589,11 +870,47 @@ def install(args: argparse.Namespace) -> None:
     bundle_names = ["kb-core"]
     if args.edition == "full":
         bundle_names.append("kb-philosophy")
+    selected_bundles = []
     for bundle_name in bundle_names:
         if bundle_name not in manifest["bundles"]:
             raise ValueError(f"Release manifest is missing bundle {bundle_name}")
+        selected_bundles.append(manifest["bundles"][bundle_name])
 
-    bundle_archives = {}
+    collections = {
+        name: value
+        for name, value in manifest["collections"].items()
+        if value.get("bundle") in bundle_names
+    }
+    state_path = install_dir / ".kb-install.json"
+    if args.update and state_path.is_file():
+        state = json.loads(state_path.read_text(encoding="utf-8"))
+        binary = install_dir / "bin" / ("qdrant.exe" if os.name == "nt" else "qdrant")
+        version_file = binary.parent / "qdrant.version"
+        try:
+            binary_version = version_file.read_text(encoding="utf-8").strip()
+        except OSError:
+            binary_version = None
+        base_url = f"http://127.0.0.1:{args.qdrant_port}"
+        if (
+            state.get("tag") == args.release_tag
+            and state.get("edition") == args.edition
+            and binary.is_file()
+            and binary_version == str(manifest["qdrant_version"])
+            and _collections_match(base_url, collections)
+        ):
+            _clear_download_tokens()
+            token = None
+            if not args.skip_register:
+                _register(install_dir, args.edition, args.qdrant_port, binary)
+            _write_install_state(install_dir, args.edition, args.release_tag, args.qdrant_port)
+            if not args.skip_register:
+                print(f"Data release {args.release_tag} is current; refreshed MCP registration.")
+            else:
+                print(f"Data release {args.release_tag} is current.")
+            return
+
+    _check_download_space(install_dir, selected_bundles)
+
     part_paths = []
     for bundle_name in bundle_names:
         bundle = manifest["bundles"][bundle_name]
@@ -601,16 +918,18 @@ def install(args: argparse.Namespace) -> None:
             part_paths.append(download_part(
                 part, download_dir / part["name"], local_release, assets, token,
             ))
+
+    _clear_download_tokens()
+    token = None
+
+    bundle_archives = {}
+    for bundle_name in bundle_names:
+        bundle = manifest["bundles"][bundle_name]
         archive = download_dir / f"{bundle_name}.tar.gz"
         bundle_archives[bundle_name] = assemble_bundle(bundle, download_dir, archive)
 
     version = str(manifest["qdrant_version"])
-    binary = _download_qdrant(version, install_dir)
-    collections = {
-        name: value
-        for name, value in manifest["collections"].items()
-        if value.get("bundle") in bundle_names
-    }
+    binary = _download_qdrant(version, install_dir, args.qdrant_port)
     base_url, matching = _prepare_qdrant(
         install_dir, args.qdrant_port, binary, collections,
     )

@@ -1,5 +1,10 @@
 # Technical Decisions
 
+## Portable installer Qdrant replacement safety (2026-09-28)
+**Context:** An installer update may replace the Qdrant executable while a detached process started by an earlier install still has it loaded.
+**Decision:** Stop only a process recorded by `qdrant_boot` with the same binary and storage path. If that recorded process will not stop, or the requested Qdrant port is still ready, fail before replacing the binary or writing its version marker. This keeps Windows from failing on a locked executable and prevents Unix installs from claiming a new version while an old process remains active.
+**Evidence:** `tests/test_install.py::test_qdrant_binary_is_not_replaced_when_owned_process_fails_to_stop`; cold review found and closed the ignored-stop-result path.
+
 ## v8 technical shelf: domain review (2026-09-28)
 **Decision:** 166 of the 185 files in `~/Documents/books` are ingested. Of the rest, 2 are byte-identical `-1` copies, 11 are works already indexed, and 6 are philosophy files that go to the separate philosophy collection. Seven domains are new: `frontend`, `design`, `data-engineering`, `data-science`, `cpp`, `reverse-engineering`, `management`.
 **Corrections made in review of C1's domain column:**

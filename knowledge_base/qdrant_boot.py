@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import os
 import subprocess
 import sys
@@ -49,6 +50,8 @@ def ensure_qdrant() -> None:
     log_path = storage / "qdrant.log"
 
     child_env = os.environ.copy()
+    for name in ("KB_GH_TOKEN", "GH_TOKEN", "GITHUB_TOKEN"):
+        child_env.pop(name, None)
     child_env.update({
         "QDRANT__SERVICE__HOST": "127.0.0.1",
         "QDRANT__SERVICE__HTTP_PORT": str(http_port),
@@ -62,6 +65,7 @@ def ensure_qdrant() -> None:
     with log_path.open("ab") as log_file:
         options = {
             "env": child_env,
+            "cwd": str(storage),
             "stdin": subprocess.DEVNULL,
             "stdout": log_file,
             "stderr": log_file,
@@ -75,7 +79,17 @@ def ensure_qdrant() -> None:
             )
         else:
             options["start_new_session"] = True
-        subprocess.Popen([binary], **options)
+        process = subprocess.Popen([binary], **options)
+
+    (storage / ".kb-qdrant-process.json").write_text(
+        json.dumps({
+            "pid": process.pid,
+            "binary": str(Path(binary).resolve()),
+            "storage": str(storage.resolve()),
+            "port": http_port,
+        }, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
     deadline = time.monotonic() + 60
     while time.monotonic() < deadline:

@@ -40,6 +40,7 @@ build/
 bin/
 qdrant-storage/
 qdrant-snapshots/
+.qdrant-initialized
 .kb-install.json
 snapshots/
 

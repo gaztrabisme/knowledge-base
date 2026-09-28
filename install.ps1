@@ -29,6 +29,22 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
+$proxy = if ($env:HTTPS_PROXY) { $env:HTTPS_PROXY } else { $env:HTTP_PROXY }
+$proxyArgs = @{}
+if (-not [string]::IsNullOrWhiteSpace($proxy)) {
+    $webProxy = New-Object -TypeName System.Net.WebProxy -ArgumentList $proxy
+    $webProxy.Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials
+    [System.Net.WebRequest]::DefaultWebProxy = $webProxy
+    $proxyArgs = @{
+        Proxy = $proxy
+        ProxyUseDefaultCredentials = $true
+    }
+} else {
+    if ([System.Net.WebRequest]::DefaultWebProxy) {
+        [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials
+    }
+}
+
 # Ensure TLS 1.2 is enabled for PowerShell 5.1
 try {
     [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
@@ -70,7 +86,8 @@ try {
     # Install uv if missing
     if (-not (Get-Command uv -ErrorAction SilentlyContinue)) {
         Write-Host "uv not found; installing uv..."
-        powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+        $uvInstallScript = Invoke-RestMethod -Uri "https://astral.sh/uv/install.ps1" @proxyArgs
+        & ([scriptblock]::Create([string]$uvInstallScript))
         $profileDir = if ($env:USERPROFILE) { $env:USERPROFILE } else { $HOME }
         $localBin = Join-Path $profileDir ".local\bin"
         if (Test-Path $localBin) {
@@ -102,7 +119,7 @@ try {
     }
 
     try {
-        Invoke-WebRequest -Uri $zipUrl -Headers $headers -OutFile $tempZip -UseBasicParsing
+        Invoke-WebRequest -Uri $zipUrl -Headers $headers -OutFile $tempZip -UseBasicParsing @proxyArgs
     } catch {
         $status = $null
         if ($_.Exception.Response) {

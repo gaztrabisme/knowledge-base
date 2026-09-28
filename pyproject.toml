@@ -2,7 +2,7 @@
 name = "knowledge-base"
 version = "0.1.0"
 description = "MCP server for semantic search over developer knowledge base"
-requires-python = ">=3.11"
+requires-python = ">=3.11.4"
 dependencies = [
     "fastmcp>=2.13",
     "qdrant-client>=1.12",
@@ -17,6 +17,9 @@ dependencies = [
 
 [dependency-groups]
 dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
 
 [project.scripts]
 kb-server = "knowledge_base.server:main"

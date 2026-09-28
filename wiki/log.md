@@ -1,5 +1,10 @@
 # Wiki Log
 
+## [2026-09-28] session | Portable installer hardening, lane A round 2
+- Fixed the install blockers and hardened update, download, proxy, process, and disk-space handling; regression coverage is in `tests/test_install.py`.
+- Full test suite: 58 passed. Local release core install completed and `/collections/developer_knowledge` reported 266,647 points.
+- Scratch Qdrant cleanup remains pending: process signaling was denied by the runner and Activity Monitor/Terminal access was refused. The process is only on test port 6363; see [active-work.md](active-work.md).
+
 ## [2026-09-28] session | v8 technical shelf C2 ingest and audit
 - Ingested and chunked all 166 manifest rows with `.venv/bin/python`; no embeddings, reranking, or indexing were run.
 - Added Markdown/front-back matter and chunk-cap audits, hard chunk splitting, and targeted heading/TOC/PDF extraction repairs. Strict audit passes with 16 source-density exceptions and no other flags.

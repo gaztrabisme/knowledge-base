@@ -15,3 +15,10 @@
 **Status:** Done. Main serves the A1 interface (commit 33ff7ba); the LFM2.5 and `claude -p` checks are recorded in [interface-bench.md](interface-bench.md).
 
 Details in [Agent Benchmark](agent-benchmark.md).
+
+## Portable installer hardening — lane A round 2
+**Status:** Implementation and verification done 2026-09-28; scratch-process cleanup remains pending.
+
+- The lane A fix commit added edition-aware restore/update checks, resumable verified downloads, Qdrant version and process tracking, token scrubbing, proxy handling, and disk-space guards.
+- `uvx pyflakes` passed; the full suite passed 58 tests; a local core release install restored 266,647 points and completed its smoke query.
+- The scratch Qdrant remains ready on port 6363 because this runner denied process signals and refused Terminal/Activity Monitor control. Stop only the PID recorded under the scratch install's `qdrant-storage/.kb-qdrant-process.json` when process control is available.
