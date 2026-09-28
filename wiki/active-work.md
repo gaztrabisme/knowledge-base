@@ -1,7 +1,7 @@
 # Active Work
 
 ## KB v8: technical shelf and philosophy collection
-**Status:** Done 2026-09-28, except the Character section, which waits for Gary's approval.
+**Status:** Done 2026-09-28. The Character section is installed in the global CLAUDE.md.
 
 **Current state:**
 - `developer_knowledge` is an alias for `developer_knowledge_v8`: 291 books, 266,647 vectors. It was promoted on Gary's decision after failing the dilution rule, 22 of 40 against a limit of 20 ([gate report](../data/bench/gate-v8.md)).

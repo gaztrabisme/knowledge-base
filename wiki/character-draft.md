@@ -1,6 +1,6 @@
 # Character section: draft for the global CLAUDE.md
 
-Reader: Gary. The section below is proposed for `~/.claude/CLAUDE.md`, placed after "Voice". It is not installed; the file is unchanged until you approve.
+Reader: Gary. Installed in `~/.claude/CLAUDE.md` after "Voice" on 2026-09-28, on Gary's approval. This page keeps the passages each line rests on.
 
 ## The proposed section
 
