@@ -2,7 +2,7 @@
 
 Reader: Gary. This report decides whether `developer_knowledge_v8` becomes the live search collection. The candidate is the live collection (126 books, 132,623 vectors) plus 165 new technical books (134,024 vectors).
 
-## Verdict: not promoted
+## Verdict: failed the pre-set rule; promoted on Gary's decision (2026-09-28)
 
 The plan fixed three promotion conditions before the run. Two pass. The third fails by 2 queries out of 40:
 
@@ -12,7 +12,7 @@ The plan fixed three promotion conditions before the run. Two pass. The third fa
 | Sanity-set recall@10 (new books findable) | at least 0.85 | 0.867 | yes |
 | Share of sampled regressions that are real dilution | at most 20 of 40 | 22 of 40 | **no** |
 
-Under the plan's rule the candidate stays unpromoted and the decision goes to Gary. The live collection is unchanged.
+Under the plan's rule, a failure goes to Gary. Gary chose to promote. The live name `developer_knowledge` is now a Qdrant alias for `developer_knowledge_v8`. The v7.1 collection was snapshotted to `data/snapshots/developer_knowledge-v71.snapshot` (SHA-256 `4deb2475…fa8e2ce6`, matching the server's checksum) and then dropped, so the alias could take its name. To roll back, restore the snapshot under another name and point the alias at it. After promotion, a live `search("CSS cascade layers")` returned CSS: The Definitive Guide and CSS in Depth.
 
 ## Terms
 

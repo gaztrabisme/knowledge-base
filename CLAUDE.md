@@ -1,18 +1,30 @@
 # Developer Knowledge Base — MCP Server
 
-A local MCP server that serves semantic search over technical books to Claude Code during development sessions. 126 sources indexed across ML, AI engineering, databases, security, distributed systems, Rust, software architecture, software engineering, and systems/ops.
+A local MCP server that serves semantic search over technical books to Claude Code during development sessions. 291 technical sources are indexed across 17 domains. A separate philosophy collection holds the Original Library, three Tao Te Ching translations and Zhuan Falun, searchable in English, Vietnamese and Chinese.
 
-## Status: v7.1 — Manning AI shelf
+## Status: v8 — technical shelf and philosophy collection
 
-126 books are indexed (132,623 vectors). v7.1 adds 17 books: 16 from Manning and one from O'Reilly. Fourteen cover AI and LLM
-engineering, one covers optimization algorithms, and two cover software engineering (platform engineering and code
-review). It also removes the two sources we wrote ourselves: the production RAG guide and the VinSpace research notes.
-The corpus now contains published books only.
+**Technical collection.** 291 books are indexed (266,647 vectors). v8 adds 165 books (134,024 vectors) in seven new domains: frontend, design, data engineering, data science, C++, reverse engineering and management. Some also land in the existing domains.
 
-The hard gate is a 438-query benchmark, and it reads **NDCG 0.7704**. That is 0.0042 below v7.0 on the same queries,
-a statistically significant drop: 30 queries regressed and 8 improved. Recall@10 (0.9680) and the retrieval ceiling
-(0.9886) did not move. The benchmark cannot give credit for a new book, because every query was drawn from the original
-46 books (see Known Limitations). The easy set reads 0.9108 (v7.0: 0.9115).
+The v8 gate compares the candidate with v7.1 on the same GPU:
+
+| Set | Metric | v7.1 | v8 |
+|---|---|---|---|
+| Hard (438 queries) | NDCG@10 | 0.7703 | 0.7429 |
+| | Recall@10 | 0.9680 | 0.9521 |
+| Easy (199 queries) | NDCG@10 | 0.9108 | 0.9042 |
+| Sanity (60 queries written from the new books) | Recall@10 | — | 0.867 |
+
+The candidate failed one of three promotion conditions set in advance. In a blind sample of 40 regressed queries, the passage that pushed the labelled answer down was a worse answer in 22; the limit was 20. It was promoted on Gary's decision. See `data/bench/gate-v8.md` and Known Limitations.
+
+The live name `developer_knowledge` is a Qdrant alias for the collection `developer_knowledge_v8`. The v7.1 collection is kept as a snapshot at `data/snapshots/developer_knowledge-v71.snapshot` for rollback.
+
+**Philosophy collection.** `philosophy` holds 8,432 vectors, kept apart from technical search so it cannot dilute it. It covers:
+- the Original Library in Vietnamese (the source), English and Traditional Chinese, 38 sections each;
+- Tao Te Ching translations by Stephen Mitchell and Jonathan Star (English) and Tse Lao (Spanish);
+- Zhuan Falun in English, Vietnamese and Simplified Chinese, plus a Traditional Chinese text converted from the Simplified.
+
+Sections are aligned across translations, so a hit returns the matching passages in the other languages. The 60-query multilingual eval reads recall@10 of 0.867 for English, 0.867 for Vietnamese, 0.800 for Chinese and 1.000 cross-language.
 
 PDF heading hierarchy comes from PyMuPDF TOC reconstruction, with a markitdown fallback when CID-font garble is detected. Chunk sizing uses real tiktoken counts (child max 250, parent max 1900). Chunks are embedded from heading_path + child_text; contextual enrichment is a deferred background pass (index-now-enrich-later).
 
@@ -30,8 +42,15 @@ EPUBs + PDFs + HTML
   → HyDE + multi-query expansion (agent-provided, no LLM dependency)
   → Ettin-150m cross-encoder reranking (sentence-transformers, ModernBERT)
   → adaptive score cutoff (absolute floor + min results)
-  → FastMCP server (6 tools)
+  → FastMCP server (8 tools: 6 technical, 2 philosophy)
   → Claude Code queries via MCP
+
+Philosophy collection (separate Qdrant collection `philosophy`):
+  PDF/EPUB per work and language → markdown sections keyed for alignment (ol-01…38, ttc-001…081, zfl-L1…L9)
+  → Chinese text check (share of characters outside a common-character list; garbled editions rejected)
+  → Jina v5 dense + custom sparse (words; CJK unigrams+bigrams after OpenCC Traditional→Simplified) + FastEmbed BM25
+  → reranker routed by query language: Ettin for plain-ASCII (English) queries, BGE-reranker-v2-m3 otherwise
+  → each hit carries up to two aligned passages from every other translation of the same work
 ```
 
 ## MCP Tools
@@ -42,6 +61,10 @@ EPUBs + PDFs + HTML
 - `get_chapter(book, chapter)` — full text of a chapter, by title or number
 - `list_books(book=None)` — the catalog (one line per book), or one book's chapters
 - `grep_books(pattern, book=None, max_results=20)` — exact-match keyword search via ripgrep
+- `search_philosophy(query, top_k=5, language=None, work=None, parallel=True)`: searches the separate philosophy collection. Each hit carries up to two aligned passages from each other translation. The Original Library is the entry point.
+- `list_philosophy(work=None)`: the philosophy works and their languages, or one work's aligned sections.
+
+The six technical tools never return philosophy content, and their signatures are unchanged from v7.1, the A1 interface.
 
 `hyde_passage`, `extra_queries` and `bm25_keywords` are optional. The agent benchmark
 (`wiki/interface-bench.md`) found that pushing small agents to write HyDE passages or to pick
@@ -110,18 +133,28 @@ python3 scripts/ingest_all.py --step index
 
 ```
 knowledge_base/
-  config.py    — paths, model names, book metadata (33 entries)
-  ingest.py    — EPUB/PDF/HTML → clean markdown (markitdown)
-  chunk.py     — heading-aware parent/child chunker
+  config.py    — paths, model names, SOURCE_DIRS (17 domains), BOOKS (291 entries)
+  ingest.py    — EPUB/PDF/HTML → clean markdown (markitdown / PyMuPDF TOC), front/back-matter rules
+  chunk.py     — heading-aware parent/child chunker (enforces the 250/1900-token caps)
   enrich.py    — contextual enrichment via LM Studio
   index.py     — Jina v5 dense + FastEmbed BM25 sparse → Qdrant
   search.py    — hybrid search (DBSF fusion) + Ettin-150m cross-encoder reranking + adaptive cutoff
-  server.py    — FastMCP MCP server (6 tools)
+  server.py    — FastMCP MCP server (8 tools)
+  philosophy/  — alignment, chunking, Chinese text check, CJK sparse tokenizer, search with parallels
 scripts/
-  ingest_all.py    — end-to-end pipeline runner
-  test_search.py   — manual search testing
-  remote_index.py  — standalone GPU indexing script (self-contained, rsync-deployable)
-  remote_enrich.py — standalone enrichment script
+  ingest_all.py            — end-to-end pipeline runner
+  build_intake_manifest.py / check_intake.py — register a folder of new books (v8 intake)
+  audit_markdown.py        — per-book ingest quality audit (--strict)
+  regression_ingest.py     — re-ingest sample books and diff against data/markdown
+  remote_index.py          — standalone GPU indexing script (self-contained, rsync-deployable)
+  merge_collection.py      — build/verify a candidate collection; promote by Qdrant alias
+  eval_retrieval.py        — the retrieval gate (--golden picks the query set)
+  ingest_philosophy.py / remote_index_philosophy.py / load_philosophy.py / eval_philosophy.py
+  remote_enrich.py         — standalone enrichment script
+data/
+  intake/       — v8 manifest, audit exceptions, C1/C2 reports (tracked)
+  philosophy/   — works.json registry, eval set, ablation, C4 report (tracked)
+  snapshots/    — developer_knowledge-v71.snapshot, the pre-v8 collection (not tracked)
 ```
 
 ## Key Dependencies
@@ -277,11 +310,68 @@ Learning (Fleuret), and the NVIDIA CUDA Programming Guide.
 | rustwebprogramming | Full-stack Rust web |
 | speedupyourpythonwithrust | PyO3, Rust extensions for Python |
 
+### Frontend (17 sources) — `knowledge-base/frontend/`
+
+CSS (The Definitive Guide; CSS in Depth, 2nd ed.), TypeScript (Effective TypeScript, TypeScript Cookbook),
+React, Vue, Angular, Svelte, Node.js, JavaScript design patterns, micro-frontends, web animation, Three.js,
+WebGPU, HTTP: The Definitive Guide, and two web-performance books.
+
+### Design (19 sources) — `knowledge-base/design/`
+
+UX and UI practice (Laws of UX, Refactoring UI, Designing Interfaces, Lean UX, UX for Lean Startups, Think
+Like a UX Researcher, Design for How People Think, UI Design Principles, Effective UI), design systems and
+decisions, UX writing, accessibility (two books), and data visualisation and storytelling (Storytelling with
+Data, D3.js in Action, Introduction to Data Visualization & Storytelling, Storytelling in Design).
+
+### Data Engineering (24 sources) — `knowledge-base/data-engineering/`
+
+Fundamentals of Data Engineering, Spark (three books), Kafka, Delta Lake, lakehouse, data mesh (two books),
+data governance (two books), data quality (two books), metadata management, Microsoft Fabric, knowledge graphs,
+financial data engineering, enterprise data lakes, data/ML platforms, web scraping.
+
+### Data Science (12 sources) — `knowledge-base/data-science/`
+
+Statistics and EDA (Think Stats, Head First Statistics, Statistics by Simulation, Making Sense of Data, EDA with
+visualisation), Data Science from Scratch, Data Science for Business, Data Science: The Hard Parts, predictive
+analytics, and three Excel/VBA books.
+
+### C++ (22 sources) — `knowledge-base/cpp/`
+
+Modern C++ (STL, templates, memory management, concurrency, design patterns, refactoring, architecture,
+low latency), CMake (two books), LLVM (two books), GPU programming with CUDA, Qt 6, bare-metal embedded C, x86
+assembly (Irvine), and Fundamentals of Computer Graphics.
+
+### Reverse Engineering (7 sources) — `knowledge-base/reverse-engineering/`
+
+Practical Reverse Engineering, Reverse Engineering for Beginners, The Ghidra Book, Arm assembly internals (Blue
+Fox), x86 cracking and countermeasures, Apple debugging, and reverse engineering for cybersecurity.
+
+### Management (5 sources) — `knowledge-base/management/`
+
+Learning Agile, The Scrum Master's Path, User Story Mapping, Holacracy, and Project Management with AI.
+
+### v8 additions to existing domains
+
+AI engineering +12 (LLM application design, RAG, GraphRAG, agents, LLMOps, reasoning models), applied ML +12,
+architecture +6 (API strategy and design), data-intensive and scalable systems +2 (Kleppmann, Gorton),
+databases +5 (Database Internals, CockroachDB, graph data, vector databases, SQL Server tuning), security +10
+(zero trust, supply chain, cloud native, incident response, LLM security), systems/ops +7, software
+engineering +5. Per-book rows are in `data/intake/v8-manifest.json`.
+
+## Philosophy Collection — `data/philosophy/works.json`
+
+| Work | Languages | Aligned by |
+|---|---|---|
+| Original Library (Thư Viện Bản Nguyên / 本源圖書館) | vi (source), en, zh-Hant | 38 sections (ol-01…ol-38) |
+| Tao Te Ching | en (Stephen Mitchell), en (Jonathan Star), es (Tse Lao) | 81 chapters; translators' back matter in `ttc-notes` |
+| Zhuan Falun | en, vi, zh-Hans, zh-Hant (converted from zh-Hans) | Lunyu + lectures 1–9 |
+
 ## Corpus Stats
 
-- 126 sources indexed live; 132,623 child chunks (vectors) in the live collection
-- Disk chunks total 132,678; the 55-chunk gap is postgresql-14-internals, whose on-disk
-  re-chunk is corrupt and deliberately not indexed (see Known Limitations)
+- 291 technical sources indexed live; 266,647 child chunks (vectors) in `developer_knowledge_v8`
+  (132,623 carried over from v7.1 + 134,024 new)
+- The 55 on-disk postgresql-14-internals chunks remain unindexed (corrupt re-chunk; see Known Limitations)
+- Philosophy: 8,432 vectors in the `philosophy` collection (10 language files across 5 work records)
 - **Not yet enriched** — index-now-enrich-later: embedded with heading_path + child_text only; contextual enrichment is a deferred background pass
 - Token counting: tiktoken `cl100k_base` (≈ Jina v5 tokenizer within ~2%). Child max 250 / min 75, parent max 1900 tokens
 - Embedding: heading_path + context_text + child_text → Jina v5-text-small (677M params, 1024-dim)
@@ -289,8 +379,9 @@ Learning (Fleuret), and the NVIDIA CUDA Programming Guide.
 - Reranker: Ettin-150m cross-encoder (ModernBERT, 151M params, 0.5994 NDCG@10)
 - Fusion: Qdrant DBSF (Distribution-Based Score Fusion) via prefetch API
 - Adaptive cutoff: score floor 4.0, min results 3
-- Vector store: Qdrant server at `127.0.0.1:6333` (KB_QDRANT_URL), collection `developer_knowledge`;
-  falls back to the embedded file store at `data/qdrant` when the server is down
+- Vector store: Qdrant server at `127.0.0.1:6333` (KB_QDRANT_URL). `developer_knowledge` is an alias for
+  `developer_knowledge_v8`; `philosophy` is its own collection. If the server is down, search falls back to
+  the embedded store at `data/qdrant`, which still holds v7.1 (126 books) and no philosophy collection
 
 ## Version History
 
@@ -324,8 +415,22 @@ Learning (Fleuret), and the NVIDIA CUDA Programming Guide.
   golden sets drop the 2 rows whose only answers were in the RAG guide in each set: hard
   440 → 438, easy 201 → 199. Removing the sources had no measurable effect (NDCG +0.0002, n.s.).
   Adding the books cost NDCG 0.0042 (significant), with recall unchanged.
+- **v8 (technical shelf + philosophy):** 165 books from a flat 185-file folder, registered by manifest
+  (`data/intake/v8-manifest.json`), 7 new domains, embedded on the RTX 5080 → 291 books / 266,647 vectors.
+  Hard gate NDCG 0.7703 → 0.7429, recall@10 0.9680 → 0.9521; failed the pre-set dilution rule
+  (22/40 > 20/40) and was promoted on Gary's decision. Promotion is a Qdrant alias switch.
+  Separate multilingual `philosophy` collection with aligned translations and two new MCP tools.
 
 ## Known Limitations
+
+- **v8 reranker dilution.** On the hard set, 88 queries got worse and 16 better. The labelled answer mostly stays in the top 10 but ranks lower. In a blind sample of 40 of those 88 queries, 17 had a complete answer pushed below a partial one. The pushing passage came from a new book in 22 of the 40, and from an old book in 18: 134,000 new candidates change which 50 passages reach the reranker. Broad new books displace most often (Designing Data-Intensive Applications, Essential Math for AI, Foundations of Scalable Systems). Rollback is to restore `data/snapshots/developer_knowledge-v71.snapshot` and point the alias at it. Details: `data/bench/gate-v8.md`.
+- **Tukey's *Exploratory Data Analysis* is not indexed.** It is a scanned PDF with no text layer and needs OCR first.
+- **15 v8 books are below the text-density floor.** They are image-heavy or sparse-layout PDFs, and each keeps 81–99% of its extractable text (`data/intake/audit-exceptions.json`).
+- **Philosophy text caveats:**
+  - Zhuan Falun zh-Hant is converted from zh-Hans with OpenCC and flagged `derived`, because the only Traditional PDF extracts as garbled characters.
+  - The "Tse Lao" Tao Te Ching is a Spanish translation.
+  - The philosophy eval has 15 queries per language group, and the reranker routing was chosen on that same set.
+- **The embedded fallback store is stale.** `data/qdrant` holds v7.1 without philosophy. Run the Qdrant server; the fallback is for emergencies only.
 
 - **Two markitdown versions are in use.** The 17 v7.1 books were converted with markitdown
   0.1.7 from the project `.venv`. Every earlier book was converted with the global 0.1.4. If an
@@ -360,8 +465,9 @@ Learning (Fleuret), and the NVIDIA CUDA Programming Guide.
 
 ## Downloaded — Awaiting Ingestion
 
-Nothing. Everything previously listed here (the 7 theory PDFs, the OWASP cheat sheets, and the
-two scraped web books) is ingested and live as of v7.0. Historical listing:
+- **Falun Dafa archive, phase B.** `~/Documents/books/falun-dafa-pdf-archive/` holds 616 PDFs in EN/VI/ZH-Hans/ZH-Hant (`manifest.json` lists every item). Phase A ingested Zhuan Falun only. The remaining lectures and writings go into the `philosophy` collection with one edition per work and language, through `scripts/ingest_philosophy.py` and the same Chinese text check.
+
+Everything below was ingested by v7.0. Historical listing:
 
 ### Advanced ML / Deep Learning (7 PDFs) — `knowledge-base/advanced-ml/`
 
