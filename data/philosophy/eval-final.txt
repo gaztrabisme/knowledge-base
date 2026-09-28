@@ -51,10 +51,10 @@ Primary: BGE reranker + custom multilingual sparse tokenizer
   47/60 cross: hit
   48/60 cross: hit
   49/60 cross: hit
-  50/60 cross: hit
+  50/60 cross: miss
   51/60 cross: hit
   52/60 cross: hit
-  53/60 cross: hit
+  53/60 cross: miss
   54/60 cross: hit
   55/60 cross: hit
   56/60 cross: hit
@@ -66,4 +66,4 @@ Primary recall@10:
   en: 0.867 (87%) — threshold 0.85
   vi: 0.867 (87%) — threshold 0.75
   zh: 0.800 (80%) — threshold 0.75
-  cross: 1.000 (100%) — threshold 0.80
+  cross: 0.867 (87%) — threshold 0.80

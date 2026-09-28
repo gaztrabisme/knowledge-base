@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import json
 import os
-from collections import defaultdict
 from pathlib import Path
 
 from qdrant_client import QdrantClient, models
@@ -30,7 +29,7 @@ def embed_texts(texts: list[str], task: str = "retrieval.query") -> list[list[fl
 def get_ranker() -> CrossEncoder:
     global _ranker
     if _ranker is None:
-        _ranker = CrossEncoder(RERANKER_MODEL, device="cpu", trust_remote_code=True)
+        _ranker = CrossEncoder(RERANKER_MODEL, trust_remote_code=True, max_length=512)
     return _ranker
 
 
@@ -105,40 +104,105 @@ def _rank(query: str, results: list[dict], top_k: int) -> list[dict]:
     )[:top_k]
 
 
-def _attach_parallels(client: QdrantClient, hit: dict) -> dict:
+def _translation_pairs(
+    client: QdrantClient, work_group: str, section_key: str,
+) -> list[tuple[str, str]]:
+    pairs: set[tuple[str, str]] = set()
+    offset = None
+    parallel_filter = models.Filter(must=[
+        models.FieldCondition(key="work_group", match=models.MatchValue(value=work_group)),
+        models.FieldCondition(key="section_key", match=models.MatchValue(value=section_key)),
+    ])
+    while True:
+        points, offset = client.scroll(
+            collection_name=COLLECTION,
+            scroll_filter=parallel_filter,
+            limit=1000,
+            offset=offset,
+            with_payload=["work_id", "lang"],
+            with_vectors=False,
+        )
+        for point in points:
+            payload = point.payload or {}
+            work_id, language = payload.get("work_id"), payload.get("lang")
+            if work_id and language:
+                pairs.add((work_id, language))
+        if offset is None:
+            break
+    return sorted(pairs)
+
+
+def _attach_parallels(
+    client: QdrantClient,
+    hit: dict,
+    dense_vector: list[float] | dict[str, list[float]] | None = None,
+    pair_cache: dict[tuple[str, str], list[tuple[str, str]]] | None = None,
+) -> dict:
     payload = hit.get("payload", hit)
-    work_id, section_key = payload.get("work_id"), payload.get("section_key")
-    if not work_id or not section_key or section_key == "ttc-notes":
+    work_id, language = payload.get("work_id"), payload.get("lang")
+    work_group, section_key = payload.get("work_group"), payload.get("section_key")
+    if (not work_group or not work_id or not language or not section_key
+            or section_key == "ttc-notes" or dense_vector is None):
         hit["parallels"] = []
         return hit
-    points, _ = client.scroll(
-        collection_name=COLLECTION,
-        scroll_filter=models.Filter(must=[
-            models.FieldCondition(key="work_id", match=models.MatchValue(value=work_id)),
-            models.FieldCondition(key="section_key", match=models.MatchValue(value=section_key)),
-        ]),
-        limit=1000,
-        with_payload=True,
-        with_vectors=False,
-    )
-    grouped: dict[str, list[dict]] = defaultdict(list)
-    for point in points:
-        other = point.payload or {}
-        language = other.get("lang", "")
-        if not language or language == payload.get("lang"):
+    if isinstance(dense_vector, dict):
+        dense_vector = dense_vector.get("") or next(
+            (vector for vector in dense_vector.values() if isinstance(vector, list)), None,
+        )
+    if dense_vector is None:
+        hit["parallels"] = []
+        return hit
+
+    pair_key = (work_group, section_key)
+    if pair_cache is not None and pair_key in pair_cache:
+        pairs = pair_cache[pair_key]
+    else:
+        pairs = _translation_pairs(client, work_group, section_key)
+        if pair_cache is not None:
+            pair_cache[pair_key] = pairs
+
+    groups = []
+    for other_work_id, other_language in pairs:
+        if (other_work_id, other_language) == (work_id, language):
             continue
-        chunk_id = other.get("child_id") or str(point.id)
-        text = other.get("child_text", "")
-        grouped[language].append({
-            "chunk_id": chunk_id,
-            "excerpt": text[:360].strip(),
-            "lang": language,
-            "section_title": other.get("section_title", ""),
-        })
-    hit["parallels"] = [
-        {"lang": language, "chunks": chunks}
-        for language, chunks in sorted(grouped.items())
-    ]
+        points = client.query_points(
+            collection_name=COLLECTION,
+            query=dense_vector,
+            query_filter=models.Filter(must=[
+                models.FieldCondition(
+                    key="work_id", match=models.MatchValue(value=other_work_id),
+                ),
+                models.FieldCondition(
+                    key="lang", match=models.MatchValue(value=other_language),
+                ),
+                models.FieldCondition(
+                    key="section_key", match=models.MatchValue(value=section_key),
+                ),
+            ]),
+            limit=2,
+            with_payload=True,
+            with_vectors=False,
+        ).points
+        chunks = []
+        for point in points:
+            other = point.payload or {}
+            text = str(other.get("child_text", ""))
+            chunks.append({
+                "chunk_id": other.get("child_id") or str(point.id),
+                "work_id": other.get("work_id", other_work_id),
+                "lang": other.get("lang", other_language),
+                "section_key": other.get("section_key", section_key),
+                "section_title": other.get("section_title", ""),
+                "derived": bool(other.get("derived", False)),
+                "excerpt": text[:600].strip(),
+            })
+        if chunks:
+            groups.append({
+                "work_id": other_work_id,
+                "lang": other_language,
+                "chunks": chunks,
+            })
+    hit["parallels"] = groups
     return hit
 
 
@@ -165,7 +229,7 @@ def hybrid_search(
     search_filter = models.Filter(must=must) if must else None
     query_dense = embed_texts([query], task="retrieval.query")[0]
     query_sparse = text_to_sparse_vector(query)
-    candidates = max(top_k * 8, 30)
+    candidates = min(max(top_k * 8, 30), 40)
     points = client.query_points(
         collection_name=COLLECTION,
         prefetch=[
@@ -181,6 +245,7 @@ def hybrid_search(
         query=models.FusionQuery(fusion=models.Fusion.DBSF),
         limit=candidates if rerank else top_k,
         with_payload=True,
+        with_vectors=parallel,
     ).points
     hits = []
     for point in points:
@@ -188,13 +253,18 @@ def hybrid_search(
         hit = {"chunk_id": payload.get("child_id", str(point.id)),
                "score": float(point.score), **payload}
         hit["derived"] = bool(payload.get("derived", False))
+        if parallel:
+            hit["_dense_vector"] = point.vector
         hits.append(hit)
     if rerank:
         hits = _rank(query, hits, top_k)
     else:
         hits = hits[:top_k]
     if parallel:
-        hits = [_attach_parallels(client, hit) for hit in hits]
+        pair_cache: dict[tuple[str, str], list[tuple[str, str]]] = {}
+        for hit in hits:
+            dense_vector = hit.pop("_dense_vector", None)
+            _attach_parallels(client, hit, dense_vector, pair_cache)
     else:
         for hit in hits:
             hit["parallels"] = []

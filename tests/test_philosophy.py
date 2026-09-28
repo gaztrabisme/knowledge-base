@@ -296,8 +296,87 @@ def test_ttc_notes_never_attach_parallels() -> None:
             })], None)
 
     hit = {"work_id": "tao-te-ching-stephen-mitchell", "lang": "en",
+           "work_group": "tao-te-ching",
            "section_key": "ttc-notes"}
     assert philosophy_search._attach_parallels(NotesClient(), hit)["parallels"] == []
+
+
+def test_tao_parallels_are_ranked_per_translation_and_bounded() -> None:
+    client = QdrantClient(location=":memory:")
+    client.create_collection(
+        collection_name="philosophy",
+        vectors_config=models.VectorParams(size=4, distance=models.Distance.COSINE),
+    )
+    translations = [
+        ("tao-te-ching-stephen-mitchell", "en", [
+            ("mitchell-1", [1.0, 0.0, 0.0, 0.0]),
+        ]),
+        ("tao-te-ching-jonathan-star", "en", [
+            ("star-1", [1.0, 0.0, 0.0, 0.0]),
+            ("star-2", [0.9, 0.1, 0.0, 0.0]),
+            ("star-3", [0.0, 1.0, 0.0, 0.0]),
+        ]),
+        ("tao-te-ching-tse-lao", "es", [
+            ("tse-1", [1.0, 0.0, 0.0, 0.0]),
+            ("tse-2", [0.9, 0.1, 0.0, 0.0]),
+            ("tse-3", [0.0, 1.0, 0.0, 0.0]),
+        ]),
+    ]
+    points = []
+    point_id = 1
+    for work_id, language, chunks in translations:
+        for chunk_id, vector in chunks:
+            points.append(models.PointStruct(
+                id=point_id,
+                vector=vector,
+                payload={
+                    "work_id": work_id,
+                    "work_group": "tao-te-ching",
+                    "lang": language,
+                    "section_key": "ttc-001",
+                    "section_title": "The way",
+                    "derived": False,
+                    "child_id": chunk_id,
+                    "child_text": chunk_id + " " + "passage " * 200,
+                },
+            ))
+            point_id += 1
+    client.upsert(collection_name="philosophy", points=points)
+
+    hit = {
+        "work_id": "tao-te-ching-stephen-mitchell",
+        "work_group": "tao-te-ching",
+        "lang": "en",
+        "section_key": "ttc-001",
+    }
+    result = philosophy_search._attach_parallels(
+        client, hit, [1.0, 0.0, 0.0, 0.0],
+    )
+
+    groups = result["parallels"]
+    assert {(group["work_id"], group["lang"]) for group in groups} == {
+        ("tao-te-ching-jonathan-star", "en"),
+        ("tao-te-ching-tse-lao", "es"),
+    }
+    assert all(len(group["chunks"]) <= 2 for group in groups)
+    chunks = [chunk for group in groups for chunk in group["chunks"]]
+    assert {chunk["chunk_id"] for chunk in chunks} == {"star-1", "star-2", "tse-1", "tse-2"}
+    assert all(len(chunk["excerpt"]) <= 600 for chunk in chunks)
+    required = {
+        "chunk_id", "work_id", "lang", "section_key", "section_title", "derived", "excerpt",
+    }
+    assert all(set(chunk) == required for chunk in chunks)
+
+
+def test_unaligned_philosophy_hit_has_no_parallels() -> None:
+    class NoCallsClient:
+        def scroll(self, **kwargs):
+            raise AssertionError("unaligned hit should not look up parallels")
+
+    hit = {"work_id": "some-work", "work_group": "some-group", "lang": "en"}
+    assert philosophy_search._attach_parallels(
+        NoCallsClient(), hit, [1.0, 0.0, 0.0, 0.0],
+    )["parallels"] == []
 
 
 class _StubRanker:
@@ -306,6 +385,75 @@ class _StubRanker:
             {"corpus_id": index, "score": 8.0 - index / 10}
             for index in range(len(documents))
         ]
+
+
+def test_reranker_receives_at_most_40_title_and_child_documents(monkeypatch) -> None:
+    class CandidateClient:
+        def __init__(self):
+            self.query_limit = None
+
+        def query_points(self, **kwargs):
+            self.query_limit = kwargs["limit"]
+            return SimpleNamespace(points=[
+                SimpleNamespace(
+                    id=index,
+                    score=1.0,
+                    payload={
+                        "child_id": f"child-{index}",
+                        "section_title": "Useful section",
+                        "child_text": f"child passage {index}",
+                        "parent_text": "PARENT MUST NOT REACH RERANKER",
+                    },
+                    vector=None,
+                )
+                for index in range(kwargs["limit"])
+            ])
+
+    captured = {}
+
+    class CapturingRanker:
+        def rank(self, query: str, documents: list[str]) -> list[dict]:
+            captured["documents"] = documents
+            return [{"corpus_id": index, "score": 1.0}
+                    for index in range(len(documents))]
+
+    client = CandidateClient()
+    monkeypatch.setattr(
+        philosophy_search, "embed_texts",
+        lambda texts, task="retrieval.query": [[1.0, 0.0, 0.0, 0.0] for _ in texts],
+    )
+    monkeypatch.setattr(
+        philosophy_search, "text_to_sparse_vector",
+        lambda text: models.SparseVector(indices=[17], values=[1.0]),
+    )
+    monkeypatch.setattr(philosophy_search, "_ranker_for", lambda query: CapturingRanker())
+
+    hits = philosophy_search.hybrid_search(
+        "query", client=client, top_k=100, parallel=False, rerank=True,
+    )
+
+    assert client.query_limit == 40
+    assert len(captured["documents"]) == 40
+    assert captured["documents"][0] == "Useful section\nchild passage 0"
+    assert all("PARENT MUST NOT REACH RERANKER" not in doc for doc in captured["documents"])
+    assert len(hits) == 40
+
+
+def test_bge_reranker_uses_512_tokens_and_default_device(monkeypatch) -> None:
+    captured = {}
+
+    class CapturingCrossEncoder:
+        def __init__(self, model: str, **kwargs):
+            captured["model"] = model
+            captured["kwargs"] = kwargs
+
+    monkeypatch.setattr(philosophy_search, "_ranker", None)
+    monkeypatch.setattr(philosophy_search, "CrossEncoder", CapturingCrossEncoder)
+
+    philosophy_search.get_ranker()
+
+    assert captured["model"] == philosophy_search.RERANKER_MODEL
+    assert captured["kwargs"] == {"trust_remote_code": True, "max_length": 512}
 
 
 def _parallel_items(value) -> list[dict]:
@@ -356,6 +504,7 @@ def test_hybrid_search_in_memory_qdrant_attaches_parallel_passages(monkeypatch) 
             vector={"": [1.0, 0.0, 0.0, 0.0], "sparse": sparse, "bm25": sparse},
             payload={
                 "work_id": "zhuan-falun",
+                "work_group": "zhuan-falun",
                 "lang": lang,
                 "section_key": "zfl-L1",
                 "section_title": "Returning to the present",

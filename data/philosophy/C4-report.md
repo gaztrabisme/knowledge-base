@@ -105,3 +105,54 @@ Changed files:
 | `tao-te-ching-tse-lao.es.json` | 84 | 84 | Unchanged; no back-matter heading found |
 
 All three translations retain `ttc-001` through `ttc-081`; Mitchell and Star also have the separate notes key. Regeneration wrote only the two affected markdown and chunk pairs. No model was loaded and no embeddings were generated. The first acceptance attempt found an assertion using the wrong chunk text field and reached an existing test path that would fetch the English reranker; it was interrupted before a model loaded. The assertion now checks the actual `text` field, and the hybrid-search test stubs the reranker route. Final verification: `.venv/bin/python -m pytest tests/test_philosophy.py -q` → `10 passed in 5.17s`. No model was loaded and no embeddings were generated.
+
+## C4d — Philosophy search parallels scope and latency
+
+**Verdict: PARTIAL.** Parallel lookup now spans a `work_group` and `section_key`, excludes only the hit’s `(work_id, lang)` translation, and selects up to two dense-nearest chunks per other translation using the hit’s stored vector. Each returned chunk includes `chunk_id`, `work_id`, `lang`, `section_key`, `section_title`, `derived`, and an excerpt capped at 600 characters. The BGE CrossEncoder is configured with `max_length=512` and uses the sentence-transformers default device; the reranker receives at most 40 DBSF candidates and documents built from the section title and child text. The offline contract tests pass. CPU timings were mixed, so this run does not establish a consistent end-to-end latency reduction.
+
+### CPU latency
+
+All live measurements used `.venv/bin/python` with `PYTHONPATH=/private/tmp/claude-501/-Users-GaryT-Documents-Work-tools-knowledge-base/6d8b9f88-0085-46fb-b42a-12bb40f79468/scratchpad/cpuonly` to hide MPS. The cold top-3 timings called `search_philosophy` for both queries in one process, including each model’s first-load cost. The warm top-10 timings primed query embeddings and both rerankers before timing `hybrid_search` (the implementation called by `search_philosophy`).
+
+| Query | Top-k / timing | Before (s) | After (s) | Change |
+|---|---|---:|---:|---:|
+| `the usefulness of emptiness` | 3, cold end-to-end | 25.824 | 31.078 | +20.3% |
+| `空性的用处是什么？` | 3, cold end-to-end | 21.776 | 20.803 | −4.5% |
+| `the usefulness of emptiness` | 10, warm end-to-end | 11.936 | 11.802 | −1.1% |
+| `空性的用处是什么？` | 10, warm end-to-end | 17.081 | 19.273 | +12.8% |
+
+For top-k 10, the fusion candidate limit fell from 80 to 40. Top-k 3 already used 30 candidates before this change, so that call does not exercise the candidate reduction. These measurements were taken on the shared Mac CPU and show no consistent speedup; the GPU-box recall evaluation remains the coordinator’s next step.
+
+### Live top-3 outputs
+
+The parallels count below is the total number of parallel chunks on each hit. “Groups” is the number of other `(work_id, lang)` translations in the response.
+
+| Query | State | Work | Lang | Section | Parallel chunks (groups) |
+|---|---|---|---|---|---:|
+| `the usefulness of emptiness` | Before | `tao-te-ching-stephen-mitchell` | en | `ttc-011` | 0 (0) |
+|  | Before | `zhuan-falun` | en | `zfl-L2` | 728 (3) |
+|  | Before | `zhuan-falun` | en | `zfl-L3` | 803 (3) |
+|  | After | `tao-te-ching-stephen-mitchell` | en | `ttc-011` | 2 (2) |
+|  | After | `zhuan-falun` | en | `zfl-L2` | 6 (3) |
+|  | After | `zhuan-falun` | en | `zfl-L3` | 6 (3) |
+| `空性的用处是什么？` | Before | `zhuan-falun` | zh-Hans | `zfl-L2` | 580 (3) |
+|  | Before | `zhuan-falun` | zh-Hant | `zfl-L3` | 600 (3) |
+|  | Before | `zhuan-falun` | zh-Hans | `zfl-L7` | 462 (3) |
+|  | After | `zhuan-falun` | zh-Hans | `zfl-L2` | 6 (3) |
+|  | After | `zhuan-falun` | zh-Hant | `zfl-L3` | 6 (3) |
+|  | After | `zhuan-falun` | zh-Hans | `zfl-L7` | 6 (3) |
+
+The Tao hit’s two groups are Jonathan Star (`en`, one chunk) and Tse Lao (`es`, one chunk), proving same-language translations are included. No group exceeds two chunks.
+
+### Verification
+
+```text
+.venv/bin/python -m pytest tests/test_philosophy.py -q
+14 passed in 5.47s
+```
+
+Tests use in-memory Qdrant and stub rerankers; no model was loaded by the test suite. The KB grounding search for retrieval/reranking was attempted, but this environment requires tool approval while the approval policy is `never`, so it was unavailable. No philosophy source/chunk data, Qdrant collections, technical search code, or MCP tool signatures were changed.
+
+### Coordinator: C4d measured on the GPU box
+
+`scripts/eval_philosophy.py` on the C4d code (RTX 5080) reads en 0.867, vi 0.867, zh 0.800 and cross 0.867, and exits 0. Cross-language was 1.000 when a hit carried its entire aligned section. It now carries only the two passages per translation nearest to the hit, and stays above the 0.80 threshold. Warm query latency on the GPU is 0.41 s (English) and 0.57 s (Chinese). The first call in a process also loads the models, which took 36 s here, including model download. The Mac CPU timings above do not reflect the live server, which runs its models on the GPU.
