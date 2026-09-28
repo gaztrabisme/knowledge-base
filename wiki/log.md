@@ -1,5 +1,12 @@
 # Wiki Log
 
+## [2026-09-28] session | C3 candidate collection merge
+- Added `scripts/merge_collection.py` to copy source vector, index, HNSW, optimizer, WAL, quantization, and payload-index settings; merge embedded points; verify samples; repair mismatched IDs on resume; and switch aliases atomically.
+- Scratch verification passed via `.venv/bin/python` with pytest isolated under `/private/tmp` (`1 passed`); pytest has since been installed into `.venv`, and the direct command passes.
+- The test exercised a corrupted source point and corrupted addition being repaired on resume, plus undeclared collision refusal and declared overwrite verification.
+- Final Qdrant state: only `developer_knowledge`, 132,623 points, no aliases. Production collection and `.mcp.json` were not changed.
+- Full command and promotion configuration: [C3-report.md](v8/C3-report.md).
+
 ## [2026-09-24] session | Agent tool benchmark harness
 - Added opt-in per-call JSONL logging while preserving the six FastMCP schemas byte-for-byte.
 - Generated the deterministic 120-question set and added resumable oMLX agent, transcript, call, and paired-comparison outputs.

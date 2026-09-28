@@ -1,6 +1,6 @@
 # v8 Technical Shelf Intake
 
-**Status:** Manifest, metadata, domain configuration, `BOOKS` blocks, and catalog rows are prepared. The acceptance gate is blocked because the managed filesystem denies hard-link creation from the source library.
+**Status:** Registered. The coordinator created the 166 hard links outside the Codex sandbox (which denied `os.link`); `check_intake.py` and `check_catalog.py` pass.
 
 The intake covers 185 files: 166 ingest rows, 2 byte-identical duplicate copies, 11 already-indexed works, and 6 philosophy-library files. PyMuPDF opened all sources without errors. The two duplicate pairs were verified by matching SHA-256 hashes.
 

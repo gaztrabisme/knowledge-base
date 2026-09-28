@@ -1,6 +1,6 @@
 # Developer Knowledge Base — Project Wiki
 
-Last updated: 2026-09-28 (v8 shelf metadata/config/catalog prepared; source hard links are blocked by the read-only source boundary).
+Last updated: 2026-09-28 (v8: 166 technical books registered and linked; candidate-collection merge tooling added).
 Historical update (2026-05-31, v6.7.1 GATE-RESTORE): regenerated the 12 queries dropped by the v6.7 strip
 (2 keyword + 10 navigational, whose gold had been index pages) from the **clean** corpus — seeds now
 valid by construction; added a junk-nav phrasing reject (`index for…`/`Index (part N)`) so the
@@ -49,6 +49,7 @@ PREVIOUS (v6.4 gate-audit round: **audited the golden gate itself — overall gr
 - [Agent Benchmark](agent-benchmark.md) — Tool-call measurement harness, fixed 120-question sample, smoke results, and paired comparison commands.
 - [Stage 3 Interface Report](../data/bench/stage3-report.md) — Search result wrapper, description arms, token counts, and acceptance output.
 - [Stage 4 Interface Report](../data/bench/stage4-report.md) — Merged read tool, chapter matching, warm-up, token counts, and the s4-check gate result.
+- [C3 Candidate Merge Report](v8/C3-report.md) — Candidate collection copy/merge, scratch verification evidence, and alias-based promotion configuration.
 
 ## Project Summary
 

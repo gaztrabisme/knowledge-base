@@ -12,6 +12,11 @@
 
 **Evidence:** `data/intake/v8-manifest.json`, `data/intake/C1-report.md`. `scripts/check_intake.py` and `scripts/check_catalog.py` pass. The existing 126 catalog entries and 111 tags are unchanged.
 
+## v8 candidate collection merge (2026-09-28)
+**Decision:** Build a separate candidate collection by copying the source's Qdrant vector/index/search settings, payload-index schema, and stored points, then merge the embedded candidate points; promote by atomically switching a Qdrant alias. Keep `COLLECTION_NAME` default unchanged and use the existing `KB_COLLECTION` override.
+**Rationale:** This preserves stored vectors and payloads without loading models or rewriting the protected live collection. A single alias update then promotes a verified candidate without re-copying it.
+**Evidence:** Scratch integration copied 50 source points and merged 20 additions, repaired two deliberately corrupted IDs on resume, exercised collision handling, verified samples, and created/switched/deleted a scratch alias. [C3-report.md](v8/C3-report.md).
+
 ## Pipeline
 
 ### markitdown over pandoc (v2)
