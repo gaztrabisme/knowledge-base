@@ -1,0 +1,177 @@
+{
+  "report": {
+    "label": "v8-cuda-sanity",
+    "n_queries": 60,
+    "aggregate": {
+      "ndcg": 0.7401,
+      "recall10": 0.8667,
+      "mrr": 0.6989,
+      "recall_ceiling": 0.8833
+    },
+    "per_domain": {
+      "ai-engineering": {
+        "n": 4,
+        "ndcg": 0.6577,
+        "recall10": 0.75,
+        "mrr": 0.625,
+        "recall_ceiling": 0.75
+      },
+      "applied-ml": {
+        "n": 4,
+        "ndcg": 0.3621,
+        "recall10": 0.75,
+        "mrr": 0.2375,
+        "recall_ceiling": 0.75
+      },
+      "architecture": {
+        "n": 2,
+        "ndcg": 1.0,
+        "recall10": 1.0,
+        "mrr": 1.0,
+        "recall_ceiling": 1.0
+      },
+      "cpp": {
+        "n": 8,
+        "ndcg": 0.8705,
+        "recall10": 1.0,
+        "mrr": 0.8304,
+        "recall_ceiling": 1.0
+      },
+      "data-engineering": {
+        "n": 9,
+        "ndcg": 0.7778,
+        "recall10": 0.7778,
+        "mrr": 0.7778,
+        "recall_ceiling": 0.8889
+      },
+      "data-science": {
+        "n": 5,
+        "ndcg": 0.5,
+        "recall10": 0.6,
+        "mrr": 0.4667,
+        "recall_ceiling": 0.6
+      },
+      "databases": {
+        "n": 2,
+        "ndcg": 1.0,
+        "recall10": 1.0,
+        "mrr": 1.0,
+        "recall_ceiling": 1.0
+      },
+      "design": {
+        "n": 7,
+        "ndcg": 0.8946,
+        "recall10": 1.0,
+        "mrr": 0.8571,
+        "recall_ceiling": 1.0
+      },
+      "distributed-systems": {
+        "n": 1,
+        "ndcg": 1.0,
+        "recall10": 1.0,
+        "mrr": 1.0,
+        "recall_ceiling": 1.0
+      },
+      "frontend": {
+        "n": 6,
+        "ndcg": 0.7748,
+        "recall10": 1.0,
+        "mrr": 0.7,
+        "recall_ceiling": 1.0
+      },
+      "management": {
+        "n": 2,
+        "ndcg": 1.0,
+        "recall10": 1.0,
+        "mrr": 1.0,
+        "recall_ceiling": 1.0
+      },
+      "reverse-engineering": {
+        "n": 2,
+        "ndcg": 0.4821,
+        "recall10": 1.0,
+        "mrr": 0.3214,
+        "recall_ceiling": 1.0
+      },
+      "security": {
+        "n": 4,
+        "ndcg": 0.5,
+        "recall10": 0.5,
+        "mrr": 0.5,
+        "recall_ceiling": 0.5
+      },
+      "software-engineering": {
+        "n": 2,
+        "ndcg": 0.8155,
+        "recall10": 1.0,
+        "mrr": 0.75,
+        "recall_ceiling": 1.0
+      },
+      "systems-ops": {
+        "n": 2,
+        "ndcg": 0.6781,
+        "recall10": 1.0,
+        "mrr": 0.5833,
+        "recall_ceiling": 1.0
+      }
+    }
+  },
+  "misses": [
+    {
+      "query": "What supporting pieces let an AI agent use external tools, retain information, and carry out actions reliably?",
+      "book": "building-applications-ai-agents",
+      "domain": "ai-engineering",
+      "in_ceiling": false,
+      "heading_path": "1. Introduction to Agents > Types of Agents"
+    },
+    {
+      "query": "Which pandas calls summarize column types and missingness, then report a table\u2019s row and column counts?",
+      "book": "3d-data-science-python",
+      "domain": "applied-ml",
+      "in_ceiling": false,
+      "heading_path": "Chapter 8. 3D Data Analysis > 3D Data Analytical Tools > Geometry and Shape Analysis (part 1)"
+    },
+    {
+      "query": "A classifier reports 70% accuracy; what simple benchmark can show whether that result is better than chance?",
+      "book": "advanced-analytics-pyspark",
+      "domain": "data-engineering",
+      "in_ceiling": true,
+      "heading_path": "Chapter 4. Making Predictions with Decision Trees > Our First Decision Tree (part 2) (part 2)"
+    },
+    {
+      "query": "How can elapsed time between successive table updates reveal missed or irregular data loads?",
+      "book": "data-quality-fundamentals",
+      "domain": "data-engineering",
+      "in_ceiling": false,
+      "heading_path": "Chapter 4. Monitoring and Anomaly Detection for Your Data Pipelines > Scaling Anomaly Detection with Python and Machine Learning (part 1)"
+    },
+    {
+      "query": "When observations have two numeric features, which chart helps reveal whether their values move together?",
+      "book": "data-science-from-scratch",
+      "domain": "data-science",
+      "in_ceiling": false,
+      "heading_path": "10. Working with Data > Exploring Your Data"
+    },
+    {
+      "query": "Before fitting a model, what kinds of data examination help an analyst understand distributions and identify useful patterns?",
+      "book": "exploratory-data-analysis-visualization",
+      "domain": "data-science",
+      "in_ceiling": false,
+      "heading_path": "Chapter 1 Introduction to Exploratory Data Analysis > 1.1 Data Science and Related Terminologies"
+    },
+    {
+      "query": "What precautions should a security team take with systems deliberately exposed to attackers for observation?",
+      "book": "certified-ethical-hacker",
+      "domain": "security",
+      "in_ceiling": false,
+      "heading_path": "4. Sniffing and Evasion > Evasion > Evasion Techniques (part 2)"
+    },
+    {
+      "query": "Which configuration values are needed to deploy a cloud data scanning setup that can locate sensitive information?",
+      "book": "cloud-native-security-cookbook",
+      "domain": "security",
+      "in_ceiling": false,
+      "heading_path": "Chapter 4. Protecting Your Data > 4.12 Preventing Data Loss on Azure > Solution"
+    }
+  ]
+}

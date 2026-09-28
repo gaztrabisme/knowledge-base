@@ -315,6 +315,33 @@ def normalized(value: Any, *, vector: bool = False) -> Any:
     return value
 
 
+def cosine_vector_names(client: QdrantClient, collection: str) -> set[str]:
+    """Names of dense vectors using cosine distance ("" for the unnamed vector)."""
+    vectors = client.get_collection(collection).config.params.vectors
+    if isinstance(vectors, dict):
+        return {name: params for name, params in vectors.items()
+                if params.distance == models.Distance.COSINE}.keys()
+    return {""} if vectors is not None and vectors.distance == models.Distance.COSINE else set()
+
+
+def vectors_match(origin: Any, candidate: Any, *, cosine: bool) -> bool:
+    """Sparse vectors must match exactly (as float32). Dense vectors in a cosine
+    collection are compared after L2 normalisation: a Qdrant server normalises
+    cosine vectors on insert, while an embedded store keeps them as written, so
+    the same point legitimately differs in norm between the two."""
+    if origin is None or candidate is None:
+        return origin is candidate
+    if isinstance(origin, list) and isinstance(candidate, list) and cosine:
+        if len(origin) != len(candidate):
+            return False
+        a = [float(x) for x in origin]
+        b = [float(x) for x in candidate]
+        na = sum(x * x for x in a) ** 0.5 or 1.0
+        nb = sum(x * x for x in b) ** 0.5 or 1.0
+        return max(abs(x / na - y / nb) for x, y in zip(a, b)) <= 1e-6
+    return normalized(origin, vector=True) == normalized(candidate, vector=True)
+
+
 def reservoir_ids(
     client: QdrantClient,
     collection: str,
@@ -346,6 +373,7 @@ def compare_samples(
 ) -> None:
     if not ids:
         return
+    cosine_names = cosine_vector_names(destination, destination_name)
     expected = origin.retrieve(
         collection_name=origin_name, ids=ids, with_payload=True, with_vectors=True
     )
@@ -357,13 +385,14 @@ def compare_samples(
         candidate = by_id.get(point.id)
         if candidate is None:
             raise ValueError(f"sampled id missing in destination: {point.id}")
-        if normalized(point.vector, vector=True) != normalized(candidate.vector, vector=True):
-            keys = set(point.vector or {}) | set(candidate.vector or {})
-            mismatched = [
-                key for key in keys
-                if normalized((point.vector or {}).get(key), vector=True)
-                != normalized((candidate.vector or {}).get(key), vector=True)
-            ]
+        origin_vectors = point.vector if isinstance(point.vector, dict) else {"": point.vector}
+        candidate_vectors = candidate.vector if isinstance(candidate.vector, dict) else {"": candidate.vector}
+        keys = set(origin_vectors) | set(candidate_vectors)
+        mismatched = [
+            key for key in keys
+            if not vectors_match(origin_vectors.get(key), candidate_vectors.get(key), cosine=key in cosine_names)
+        ]
+        if mismatched:
             raise ValueError(f"vector mismatch for sampled id {point.id}, vector names: {mismatched}")
         if normalized(point.payload) != normalized(candidate.payload):
             raise ValueError(f"payload mismatch for sampled id {point.id}")

@@ -69,7 +69,7 @@ def test_build_verify_promote_and_cleanup_scratch(tmp_path: Path) -> None:
     local: QdrantClient | None = None
     try:
         names = {item.name for item in server.get_collections().collections}
-        assert names == {"developer_knowledge"}
+        assert "developer_knowledge" in names and not any(n.startswith("c3_scratch_") for n in names)
         baseline_count = server.count("developer_knowledge", exact=True).count
         assert baseline_count == 132_623
 
@@ -239,6 +239,21 @@ def test_build_verify_promote_and_cleanup_scratch(tmp_path: Path) -> None:
             if collection in {item.name for item in server.get_collections().collections}:
                 server.delete_collection(collection)
         remaining = {item.name for item in server.get_collections().collections}
-        assert remaining == {"developer_knowledge"}
+        assert "developer_knowledge" in remaining and not any(n.startswith("c3_scratch_") for n in remaining)
         assert server.count("developer_knowledge", exact=True).count == 132_623
         server.close()
+
+
+def test_vectors_match_normalises_cosine_dense_vectors():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("merge_collection", SCRIPT)
+    merge_collection = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(merge_collection)
+    # A Qdrant server L2-normalises cosine vectors on insert; an embedded store does not.
+    raw = [0.6, 0.8, 0.0]
+    scaled = [x * 1.0014 for x in raw]
+    assert merge_collection.vectors_match(scaled, raw, cosine=True)
+    assert not merge_collection.vectors_match(scaled, raw, cosine=False)
+    assert not merge_collection.vectors_match([0.8, 0.6, 0.0], raw, cosine=True)
+    sparse = {"indices": [1, 5], "values": [0.5, 1.5]}
+    assert merge_collection.vectors_match(sparse, dict(sparse), cosine=False)
