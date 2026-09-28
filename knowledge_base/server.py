@@ -18,7 +18,9 @@ mcp = FastMCP(
     instructions=(
         "Hybrid semantic and keyword search over 126 technical books: ML and deep learning, "
         "AI engineering, databases, security, software architecture and engineering, "
-        "distributed systems, Rust, and systems/ops."
+        "distributed systems, Rust, and systems/ops. Separate philosophy tools search and list "
+        "the multilingual philosophy corpus; the Original Library is its entry point, and "
+        "aligned parallel passages are returned so nuance across translations is not lost."
     ),
 )
 
@@ -166,6 +168,8 @@ def read_chunk(chunk_id: str, window: int = 1) -> dict:
 
     chunk_path = CHUNKS_DIR / f"{slug}.json"
     if not chunk_path.exists():
+        chunk_path = CHUNKS_DIR / "philosophy" / f"{slug}.json"
+    if not chunk_path.exists():
         return {"error": f"Book not found: {slug}"}
 
     data = json.loads(chunk_path.read_text(encoding="utf-8"))
@@ -208,6 +212,36 @@ def get_chapter(book: str, chapter: str | int) -> str:
     Returns:
         Full markdown text of the chapter, or an error message.
     """
+    philosophy_path = MARKDOWN_DIR / "philosophy" / f"{book}.md"
+    if philosophy_path.exists():
+        text = philosophy_path.read_text(encoding="utf-8")
+        sections = re.split(r"(?m)(?=^#\s+)", text)
+        sections = [section.strip() for section in sections if section.strip()]
+        query = str(chapter).strip().casefold()
+        selected = None
+        if isinstance(chapter, int) and not isinstance(chapter, bool):
+            index = chapter
+        elif query.isdigit():
+            index = int(query)
+        else:
+            index = None
+        if index is not None and 1 <= index <= len(sections):
+            selected = sections[index - 1]
+        if selected is None:
+            for section in sections:
+                heading = section.splitlines()[0].removeprefix("#").strip()
+                if heading.casefold() == query or heading.casefold().startswith(query):
+                    selected = section
+                    break
+                if "—" in heading:
+                    key, title = [part.strip() for part in heading.split("—", 1)]
+                    if key.casefold() == query or title.casefold() == query or title.casefold().startswith(query):
+                        selected = section
+                        break
+        if selected is None:
+            return f"Philosophy section '{chapter}' not found in {book}."
+        return selected[:50000] + ("\n\n[... truncated at 50,000 characters ...]" if len(selected) > 50000 else "")
+
     slug, suggestions = resolve_book(book)
     if slug is None:
         return _unknown_book_error(book, suggestions)
@@ -359,7 +393,7 @@ def grep_books(
     else:
         md_files = sorted(
             p for p in MARKDOWN_DIR.glob("*.md")
-            if p.stem in BOOKS
+            if p.parent == MARKDOWN_DIR and p.stem in BOOKS
         )
 
     if not md_files:
@@ -371,6 +405,54 @@ def grep_books(
         return _grep_ripgrep(pattern, md_files, per_file_limit, max_results)
     except FileNotFoundError:
         return _grep_python(pattern, md_files, per_file_limit, max_results)
+
+
+@mcp.tool()
+@logged
+def search_philosophy(
+    query: str,
+    top_k: int = 5,
+    language: str | None = None,
+    work: str | None = None,
+    parallel: bool = True,
+) -> list[dict]:
+    """Search the separate multilingual philosophy collection.
+
+    The Original Library is the entry point to this corpus. Results include aligned
+    passages in other available languages so nuance across translations is not lost.
+
+    Args:
+        query: Natural-language query in English, Vietnamese, Chinese, or Spanish.
+        top_k: Number of passages to return.
+        language: Optional language filter (en, vi, es, zh-Hans, zh-Hant, or zh for both).
+        work: Optional work id, work group, or registered title.
+        parallel: Attach same-section passages in other languages when available.
+    """
+    from .philosophy.search import hybrid_search as philosophy_hybrid_search, get_client as get_philosophy_client
+
+    return philosophy_hybrid_search(
+        query=query,
+        client=get_philosophy_client(),
+        top_k=top_k,
+        language=language,
+        work=work,
+        parallel=parallel,
+    )
+
+
+@mcp.tool()
+@logged
+def list_philosophy(work: str | None = None) -> dict:
+    """List philosophy works and available languages, or aligned sections for one work.
+
+    The Original Library is the entry point to the philosophy collection.
+
+    Args:
+        work: Optional work id, group, or registered title.
+    """
+    from .philosophy.search import list_philosophy as list_registered_philosophy
+
+    return list_registered_philosophy(work=work)
 
 
 def _grep_ripgrep(

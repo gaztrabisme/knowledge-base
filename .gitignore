@@ -57,3 +57,6 @@ data/golden/eval_runs/pq-v67-oldindex-hard.jsonl
 
 # Stray session stub some child tooling writes into the cwd
 :memory:.ses
+
+# Philosophy corpus registry, text-quality lists, eval queries, and report
+!data/philosophy/

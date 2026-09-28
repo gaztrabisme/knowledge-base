@@ -38,3 +38,8 @@
 - Added seven domains, 166 `BOOKS` entries in config and remote index, and 166 catalog entries; catalog validation passed with 292 entries and `knowledge_base.books` imported cleanly.
 - `check_intake.py` confirms inventory/config/catalog consistency but fails on 166 absent hard links. `os.link` returned EPERM from the read-only source tree to both workspace and temp targets; no alternate file type was used.
 - Full skips, domain counts, and remaining work: [C1 report](../data/intake/C1-report.md).
+## [2026-09-28] session | Philosophy C4b
+- Derived Zhuan Falun zh-Hant from the accepted zh-Hans markdown with OpenCC `s2t`, kept all ten alignment keys, and retained the failed Traditional PDF check in the registry.
+- Added `derived` markers to generated chunk metadata, remote payloads, and philosophy search results; normalized custom sparse CJK tokens with OpenCC `t2s` in both tokenizer copies.
+- Acceptance: `.venv/bin/python -m pytest tests/test_philosophy.py -q` → 8 passed in 4.44s. No model load or embedding run.
+- Full change and check results: [C4 report](../data/philosophy/C4-report.md).

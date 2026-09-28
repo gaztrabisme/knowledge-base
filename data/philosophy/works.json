@@ -1,0 +1,409 @@
+{
+  "schema_version": 1,
+  "works": [
+    {
+      "work_id": "original-library",
+      "work_group": "original-library",
+      "titles": {
+        "en": "The Original Library",
+        "vi": "Thư Viện Bản Nguyên",
+        "zh-Hant": "本源圖書館"
+      },
+      "languages": {
+        "en": {
+          "file": "/Users/GaryT/Documents/books/ORIGINAL LIBRARY - ENGLISH VERSION.docx.pdf",
+          "edition": "English source edition",
+          "page_count": 88,
+          "text_check": {
+            "status": "not_applicable",
+            "passed": true,
+            "outside_share": 0.0,
+            "reason": "not a Chinese-language edition"
+          },
+          "status": "included",
+          "markdown_file": "data/markdown/philosophy/original-library.en.md",
+          "chunks_file": "data/chunks/philosophy/original-library.en.json",
+          "chunk_count": 216,
+          "section_count": 38,
+          "translator": ""
+        },
+        "zh-Hant": {
+          "file": "/Users/GaryT/Documents/books/本源圖書館 - 繁體中文版.docx.pdf",
+          "edition": "Traditional Chinese source edition",
+          "page_count": 77,
+          "text_check": {
+            "lang": "zh-Hant",
+            "cjk_count": 68669,
+            "outside_count": 928,
+            "outside_share": 0.013514103889673652,
+            "passed": true,
+            "threshold": 0.1,
+            "comparison": {
+              "peer_count": 0,
+              "note": "only one Traditional Chinese edition was supplied"
+            },
+            "reason": "within common-character threshold",
+            "status": "passed"
+          },
+          "status": "included",
+          "markdown_file": "data/markdown/philosophy/original-library.zh-Hant.md",
+          "chunks_file": "data/chunks/philosophy/original-library.zh-Hant.json",
+          "chunk_count": 534,
+          "section_count": 38,
+          "translator": ""
+        },
+        "vi": {
+          "file": "/Users/GaryT/Documents/books/Thư Viện - Master OS .pdf",
+          "edition": "Vietnamese source edition",
+          "page_count": 95,
+          "text_check": {
+            "status": "not_applicable",
+            "passed": true,
+            "outside_share": 0.0,
+            "reason": "not a Chinese-language edition"
+          },
+          "status": "included",
+          "markdown_file": "data/markdown/philosophy/original-library.vi.md",
+          "chunks_file": "data/chunks/philosophy/original-library.vi.json",
+          "chunk_count": 484,
+          "section_count": 38,
+          "translator": ""
+        }
+      }
+    },
+    {
+      "work_id": "tao-te-ching-jonathan-star",
+      "work_group": "tao-te-ching",
+      "titles": {
+        "en": "Tao Te Ching"
+      },
+      "languages": {
+        "en": {
+          "file": "/Users/GaryT/Documents/books/Tao Te Ching (Lao Tzu, Jonathan Star).epub",
+          "edition": "Jonathan Star, 2008-01-10 (The Definitive Edition)",
+          "page_count": null,
+          "text_check": {
+            "status": "not_present",
+            "passed": true,
+            "cjk_count_in_aligned_text": 0,
+            "reason": "no Chinese original in the aligned chapter text"
+          },
+          "status": "included",
+          "markdown_file": "data/markdown/philosophy/tao-te-ching-jonathan-star.en.md",
+          "chunks_file": "data/chunks/philosophy/tao-te-ching-jonathan-star.en.json",
+          "chunk_count": 81,
+          "section_count": 81,
+          "translator": "Jonathan Star"
+        }
+      },
+      "translator": "Jonathan Star"
+    },
+    {
+      "work_id": "tao-te-ching-stephen-mitchell",
+      "work_group": "tao-te-ching",
+      "titles": {
+        "en": "Tao Te Ching"
+      },
+      "languages": {
+        "en": {
+          "file": "/Users/GaryT/Documents/books/Tao Te Ching (Stephen Mitchell, Lao Tzu).pdf",
+          "edition": "Stephen Mitchell English translation (provided PDF)",
+          "page_count": 153,
+          "text_check": {
+            "status": "not_present",
+            "passed": true,
+            "cjk_count_in_aligned_text": 0,
+            "reason": "no Chinese original in the aligned chapter text"
+          },
+          "status": "included",
+          "markdown_file": "data/markdown/philosophy/tao-te-ching-stephen-mitchell.en.md",
+          "chunks_file": "data/chunks/philosophy/tao-te-ching-stephen-mitchell.en.json",
+          "chunk_count": 128,
+          "section_count": 81,
+          "translator": "Stephen Mitchell"
+        }
+      },
+      "translator": "Stephen Mitchell"
+    },
+    {
+      "work_id": "tao-te-ching-tse-lao",
+      "work_group": "tao-te-ching",
+      "titles": {
+        "es": "Tao Te Ching"
+      },
+      "languages": {
+        "es": {
+          "file": "/Users/GaryT/Documents/books/Tao Te Ching (Tse Lao).epub",
+          "edition": "Tse Lao Spanish translation (provided EPUB)",
+          "page_count": null,
+          "text_check": {
+            "status": "not_present",
+            "passed": true,
+            "cjk_count_in_aligned_text": 0,
+            "reason": "no Chinese original in the aligned chapter text"
+          },
+          "status": "included",
+          "markdown_file": "data/markdown/philosophy/tao-te-ching-tse-lao.es.md",
+          "chunks_file": "data/chunks/philosophy/tao-te-ching-tse-lao.es.json",
+          "chunk_count": 84,
+          "section_count": 81,
+          "translator": "Tse Lao"
+        }
+      },
+      "translator": "Tse Lao"
+    },
+    {
+      "work_id": "zhuan-falun",
+      "work_group": "zhuan-falun",
+      "titles": {
+        "en": "Zhuan Falun",
+        "vi": "Chuyển Pháp Luân",
+        "zh-Hans": "转法轮",
+        "zh-Hant": "轉法輪"
+      },
+      "languages": {
+        "en": {
+          "file": "/Users/GaryT/Documents/books/falun-dafa-pdf-archive/EN/Zhuan Falun (The main text of Falun Dafa)/Translated by US & UK Practitioners, Aug 2018__en_book_0001_72806a7225__g01.pdf",
+          "edition": "Translated by US & UK Practitioners, Aug 2018",
+          "page_count": 428,
+          "text_check": {
+            "status": "not_applicable",
+            "passed": true,
+            "reason": "not a Chinese-language edition"
+          },
+          "status": "included",
+          "markdown_file": "data/markdown/philosophy/zhuan-falun.en.md",
+          "chunks_file": "data/chunks/philosophy/zhuan-falun.en.json",
+          "chunk_count": 824,
+          "section_count": 10,
+          "translator": "Translated by US & UK Practitioners, Aug 2018"
+        },
+        "vi": {
+          "file": "/Users/GaryT/Documents/books/falun-dafa-pdf-archive/VI/Chuyển Pháp Luân/primary__vi_book_0001_37ed531443__g01.pdf",
+          "edition": "primary archive edition",
+          "page_count": 440,
+          "text_check": {
+            "status": "not_applicable",
+            "passed": true,
+            "reason": "not a Chinese-language edition"
+          },
+          "status": "included",
+          "markdown_file": "data/markdown/philosophy/zhuan-falun.vi.md",
+          "chunks_file": "data/chunks/philosophy/zhuan-falun.vi.json",
+          "chunk_count": 1772,
+          "section_count": 10,
+          "translator": "vi translation"
+        },
+        "zh-Hans": {
+          "file": "/Users/GaryT/Documents/books/falun-dafa-pdf-archive/ZH-Hans/转法轮/4合1 zfl-四合一中间线装-pdf.zip__gb_book_0001_00d9689de2__g01.pdf",
+          "edition": "4合1 / zfl-四合一中间线装-pdf.zip",
+          "page_count": 175,
+          "text_check": {
+            "lang": "zh-Hans",
+            "cjk_count": 299710,
+            "outside_count": 958,
+            "outside_share": 0.003196423209102132,
+            "passed": true,
+            "threshold": 0.1,
+            "comparison": {
+              "peer_count": 3,
+              "peer_median": 0.003196423209102132,
+              "max_peer_gap": 0.2
+            },
+            "reason": "within common-character threshold",
+            "status": "passed"
+          },
+          "status": "included",
+          "markdown_file": "data/markdown/philosophy/zhuan-falun.zh-Hans.md",
+          "chunks_file": "data/chunks/philosophy/zhuan-falun.zh-Hans.json",
+          "chunk_count": 2008,
+          "section_count": 10,
+          "translator": "Simplified Chinese edition"
+        },
+        "zh-Hant": {
+          "file": "/Users/GaryT/Documents/Work/tools/kb-philosophy/data/markdown/philosophy/zhuan-falun.zh-Hans.md",
+          "edition": "derived from zh-Hans via OpenCC s2t",
+          "page_count": null,
+          "text_check": {
+            "lang": "zh-Hant",
+            "cjk_count": 297118,
+            "outside_count": 729,
+            "outside_share": 0.0024535706352358322,
+            "passed": true,
+            "threshold": 0.1,
+            "comparison": null,
+            "reason": "script-converted from accepted zh-Hans; common-character check only",
+            "status": "passed"
+          },
+          "status": "included",
+          "markdown_file": "data/markdown/philosophy/zhuan-falun.zh-Hant.md",
+          "chunks_file": "data/chunks/philosophy/zhuan-falun.zh-Hant.json",
+          "chunk_count": 2300,
+          "section_count": 10,
+          "translator": "OpenCC s2t (derived from zh-Hans)",
+          "derived": true,
+          "rejected_pdf": {
+            "file": "/Users/GaryT/Documents/books/falun-dafa-pdf-archive/ZH-Hant/轉法輪/primary__big5_book_0001_82bbcae28b__g01.pdf",
+            "edition": "primary",
+            "page_count": 173,
+            "status": "skipped",
+            "text_check": {
+              "lang": "zh-Hant",
+              "cjk_count": 14596,
+              "outside_count": 13582,
+              "outside_share": 0.9305289120306933,
+              "passed": false,
+              "threshold": 0.1,
+              "comparison": {
+                "peer_count": 0,
+                "note": "no other passing candidate in this script group",
+                "other_script_reference": {
+                  "peer_count": 4,
+                  "peer_median_outside_share": 0.003196423209102132,
+                  "note": "reference only; absolute thresholds use the language-specific character set"
+                }
+              },
+              "reason": "outside-common-character share exceeds 10%",
+              "status": "failed"
+            }
+          }
+        }
+      },
+      "edition_candidates": {
+        "zh-Hans": [
+          {
+            "file": "/Users/GaryT/Documents/books/falun-dafa-pdf-archive/ZH-Hans/转法轮/2合1 zfl-二合一边上装订-pdf.zip__gb_book_0001_66fbaa75e0__g01.pdf",
+            "edition": "2合1 / zfl-二合一边上装订-pdf.zip",
+            "layout_or_variant": "2合1 / zfl-二合一边上装订-pdf.zip",
+            "page_count": 345,
+            "text_check": {
+              "lang": "zh-Hans",
+              "cjk_count": 299710,
+              "outside_count": 958,
+              "outside_share": 0.003196423209102132,
+              "passed": true,
+              "threshold": 0.1,
+              "comparison": {
+                "peer_count": 3,
+                "peer_median": 0.003196423209102132,
+                "max_peer_gap": 0.2,
+                "other_script_reference": {
+                  "peer_count": 1,
+                  "peer_median_outside_share": 0.9305289120306933,
+                  "note": "reference only; absolute thresholds use the language-specific character set"
+                }
+              },
+              "reason": "within common-character threshold",
+              "status": "passed"
+            }
+          },
+          {
+            "file": "/Users/GaryT/Documents/books/falun-dafa-pdf-archive/ZH-Hans/转法轮/2合1 zfl-二合一中间线装-pdf.zip__gb_book_0001_66fbaa75e0__g02.pdf",
+            "edition": "2合1 / zfl-二合一中间线装-pdf.zip",
+            "layout_or_variant": "2合1 / zfl-二合一中间线装-pdf.zip",
+            "page_count": 175,
+            "text_check": {
+              "lang": "zh-Hans",
+              "cjk_count": 150136,
+              "outside_count": 485,
+              "outside_share": 0.0032304044333137955,
+              "passed": true,
+              "threshold": 0.1,
+              "comparison": {
+                "peer_count": 3,
+                "peer_median": 0.003196423209102132,
+                "max_peer_gap": 0.2,
+                "other_script_reference": {
+                  "peer_count": 1,
+                  "peer_median_outside_share": 0.9305289120306933,
+                  "note": "reference only; absolute thresholds use the language-specific character set"
+                }
+              },
+              "reason": "within common-character threshold",
+              "status": "passed"
+            }
+          },
+          {
+            "file": "/Users/GaryT/Documents/books/falun-dafa-pdf-archive/ZH-Hans/转法轮/4合1 zfl-四合一中间线装-pdf.zip__gb_book_0001_00d9689de2__g01.pdf",
+            "edition": "4合1 / zfl-四合一中间线装-pdf.zip",
+            "layout_or_variant": "4合1 / zfl-四合一中间线装-pdf.zip",
+            "page_count": 175,
+            "text_check": {
+              "lang": "zh-Hans",
+              "cjk_count": 299710,
+              "outside_count": 958,
+              "outside_share": 0.003196423209102132,
+              "passed": true,
+              "threshold": 0.1,
+              "comparison": {
+                "peer_count": 3,
+                "peer_median": 0.003196423209102132,
+                "max_peer_gap": 0.2,
+                "other_script_reference": {
+                  "peer_count": 1,
+                  "peer_median_outside_share": 0.9305289120306933,
+                  "note": "reference only; absolute thresholds use the language-specific character set"
+                }
+              },
+              "reason": "within common-character threshold",
+              "status": "passed"
+            }
+          },
+          {
+            "file": "/Users/GaryT/Documents/books/falun-dafa-pdf-archive/ZH-Hans/转法轮/4合1 zfl-四合一边上装订-pdf.zip__gb_book_0001_00d9689de2__g02.pdf",
+            "edition": "4合1 / zfl-四合一边上装订-pdf.zip",
+            "layout_or_variant": "4合1 / zfl-四合一边上装订-pdf.zip",
+            "page_count": 345,
+            "text_check": {
+              "lang": "zh-Hans",
+              "cjk_count": 598858,
+              "outside_count": 1904,
+              "outside_share": 0.00317938476233097,
+              "passed": true,
+              "threshold": 0.1,
+              "comparison": {
+                "peer_count": 3,
+                "peer_median": 0.003196423209102132,
+                "max_peer_gap": 0.2,
+                "other_script_reference": {
+                  "peer_count": 1,
+                  "peer_median_outside_share": 0.9305289120306933,
+                  "note": "reference only; absolute thresholds use the language-specific character set"
+                }
+              },
+              "reason": "within common-character threshold",
+              "status": "passed"
+            }
+          }
+        ],
+        "zh-Hant": [
+          {
+            "file": "/Users/GaryT/Documents/books/falun-dafa-pdf-archive/ZH-Hant/轉法輪/primary__big5_book_0001_82bbcae28b__g01.pdf",
+            "edition": "primary",
+            "layout_or_variant": "primary",
+            "page_count": 173,
+            "text_check": {
+              "lang": "zh-Hant",
+              "cjk_count": 14596,
+              "outside_count": 13582,
+              "outside_share": 0.9305289120306933,
+              "passed": false,
+              "threshold": 0.1,
+              "comparison": {
+                "peer_count": 0,
+                "note": "no other passing candidate in this script group",
+                "other_script_reference": {
+                  "peer_count": 4,
+                  "peer_median_outside_share": 0.003196423209102132,
+                  "note": "reference only; absolute thresholds use the language-specific character set"
+                }
+              },
+              "reason": "outside-common-character share exceeds 10%",
+              "status": "failed"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
