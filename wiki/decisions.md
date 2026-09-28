@@ -12,6 +12,19 @@
 
 **Evidence:** `data/intake/v8-manifest.json`, `data/intake/C1-report.md`. `scripts/check_intake.py` and `scripts/check_catalog.py` pass. The existing 126 catalog entries and 111 tags are unchanged.
 
+## v8 technical shelf: ingest audit exceptions (2026-09-28)
+**Decision:** 165 books are ingested and chunked. Tukey's *Exploratory Data Analysis* is dropped: it is a scanned 711-page PDF with no text layer, so PyMuPDF extracts 0 characters. It gets manifest action `skip-no-text` and would need OCR before indexing.
+
+**Accepted:** the 15 remaining audit flags, all density-only. Each book yields fewer markdown characters per page than the calibrated floor, which is the 5th percentile of the existing books at 1,093 characters per page. For every one of them, the markdown still keeps 81–99% of the text PyMuPDF extracts. The low density comes from diagram-heavy or image-led pages (Refactoring UI, UI Design Principles) or sparse layouts, not from lost text. Per-book evidence is in `data/intake/audit-exceptions.json`.
+
+**Ingest changes (C2):**
+- Front- and back-matter rules in `ingest.py` were generalised: explicit chapter headings only, plus the lowercase word-numeral chapters Storytelling with Data uses.
+- `chunk.py` now enforces the documented 250/1900-token caps, which it could exceed before.
+
+**Regression guard:** 15 existing books re-ingest byte-identical under the new rules (`scripts/regression_ingest.py`). Existing chunk files were not regenerated, so the live index is untouched.
+
+**Evidence:** `data/intake/C2-report.md`.
+
 ## v8 candidate collection merge (2026-09-28)
 **Decision:** Build a separate candidate collection by copying the source's Qdrant vector/index/search settings, payload-index schema, and stored points, then merge the embedded candidate points; promote by atomically switching a Qdrant alias. Keep `COLLECTION_NAME` default unchanged and use the existing `KB_COLLECTION` override.
 **Rationale:** This preserves stored vectors and payloads without loading models or rewriting the protected live collection. A single alias update then promotes a verified candidate without re-copying it.

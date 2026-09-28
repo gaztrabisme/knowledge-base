@@ -90,11 +90,11 @@ def merge_small_sections(sections: list[dict]) -> list[dict]:
                 merged.append(section)
             continue
 
-        acc_tokens = estimate_tokens(accumulator["text"])
         same_chapter = section["chapter"] == accumulator["chapter"]
+        combined = accumulator["text"] + "\n\n" + section["text"]
 
-        if same_chapter and acc_tokens + tokens <= PARENT_MAX_TOKENS:
-            accumulator["text"] = accumulator["text"] + "\n\n" + section["text"]
+        if same_chapter and estimate_tokens(combined) <= PARENT_MAX_TOKENS:
+            accumulator["text"] = combined
             if section["section"]:
                 accumulator["section"] = section["section"]
                 accumulator["heading_path"] = section["heading_path"]
@@ -157,7 +157,7 @@ def split_large_section(section: dict) -> list[dict]:
     flush_sub()
 
     if not subsections:
-        return [section]
+        return _force_split(section)
 
     final = []
     for sub in subsections:
@@ -171,22 +171,31 @@ def split_large_section(section: dict) -> list[dict]:
 def _force_split(section: dict) -> list[dict]:
     """Last resort: split on paragraph boundaries when still too large."""
     paragraphs = _split_preserving_code(section["text"])
+    bounded = []
+    for para in paragraphs:
+        if estimate_tokens(para) > PARENT_MAX_TOKENS:
+            bounded.extend(_hard_split_block(para, PARENT_MAX_TOKENS))
+        else:
+            bounded.append(para)
     parts = []
     current: list[str] = []
-    current_tokens = 0
-
-    for para in paragraphs:
-        pt = estimate_tokens(para)
-        if current_tokens + pt > PARENT_MAX_TOKENS and current:
+    for para in bounded:
+        candidate = "\n\n".join(current + [para])
+        if current and estimate_tokens(candidate) > PARENT_MAX_TOKENS:
             parts.append("\n\n".join(current))
             current = [para]
-            current_tokens = pt
         else:
             current.append(para)
-            current_tokens += pt
 
     if current:
         parts.append("\n\n".join(current))
+
+    final_parts = []
+    for part in parts:
+        if estimate_tokens(part) <= PARENT_MAX_TOKENS:
+            final_parts.append(part)
+        else:
+            final_parts.extend(_hard_split_block(part, PARENT_MAX_TOKENS))
 
     return [
         {
@@ -195,7 +204,7 @@ def _force_split(section: dict) -> list[dict]:
             "section": section["section"],
             "heading_path": f"{section['heading_path']} (part {i+1})",
         }
-        for i, part in enumerate(parts)
+        for i, part in enumerate(final_parts)
     ]
 
 
@@ -245,46 +254,61 @@ def _hard_split_block(block: str, max_tokens: int) -> list[str]:
         body = lines[1:]
         if body and body[-1].strip().startswith("```"):
             body = body[:-1]
-        pieces, cur, cur_tok = [], [], 0
-        for ln in body:
-            lt = estimate_tokens(ln) or 1
-            if cur and cur_tok + lt > max_tokens:
-                pieces.append(f"{fence}\n" + "\n".join(cur) + "\n```")
-                cur, cur_tok = [ln], lt
-            else:
-                cur.append(ln)
-                cur_tok += lt
-        if cur:
-            pieces.append(f"{fence}\n" + "\n".join(cur) + "\n```")
+        pieces, current = [], []
+
+        def flush_code():
+            if current:
+                pieces.append(f"{fence}\n" + "\n".join(current) + "\n```")
+                current.clear()
+
+        for line in body:
+            if estimate_tokens(line) > max_tokens - 8:
+                flush_code()
+                for fragment in _split_words_bounded(line, max_tokens - 8):
+                    pieces.append(f"{fence}\n{fragment}\n```")
+                continue
+            candidate = f"{fence}\n" + "\n".join(current + [line]) + "\n```"
+            if current and estimate_tokens(candidate) > max_tokens:
+                flush_code()
+            current.append(line)
+        flush_code()
         return pieces or [block]
 
-    pieces, cur, cur_tok = [], [], 0
-    for sentence in re.split(r"(?<=[.!?])\s+", block):
-        st = estimate_tokens(sentence) or 1
-        if st > max_tokens:
-            if cur:
-                pieces.append(" ".join(cur))
-                cur, cur_tok = [], 0
-            wcur, wtok = [], 0
-            for word in sentence.split():
-                wt = estimate_tokens(word) or 1
-                if wcur and wtok + wt > max_tokens:
-                    pieces.append(" ".join(wcur))
-                    wcur, wtok = [word], wt
-                else:
-                    wcur.append(word)
-                    wtok += wt
-            if wcur:
-                pieces.append(" ".join(wcur))
-        elif cur and cur_tok + st > max_tokens:
-            pieces.append(" ".join(cur))
-            cur, cur_tok = [sentence], st
-        else:
-            cur.append(sentence)
-            cur_tok += st
-    if cur:
-        pieces.append(" ".join(cur))
-    return pieces or [block]
+    return _split_words_bounded(block, max_tokens)
+
+
+def _split_long_word(word: str, max_tokens: int) -> list[str]:
+    pieces = []
+    start = 0
+    while start < len(word):
+        low, high, end = start + 1, len(word), start + 1
+        while low <= high:
+            middle = (low + high) // 2
+            if estimate_tokens(word[start:middle]) <= max_tokens:
+                end = middle
+                low = middle + 1
+            else:
+                high = middle - 1
+        pieces.append(word[start:end])
+        start = end
+    return pieces
+
+
+def _split_words_bounded(text: str, max_tokens: int) -> list[str]:
+    """Pack words below a hard cap, splitting a single oversized word string."""
+    pieces, current = [], []
+    for word in text.split():
+        fragments = _split_long_word(word, max_tokens) if estimate_tokens(word) > max_tokens else [word]
+        for fragment in fragments:
+            candidate = " ".join(current + [fragment])
+            if current and estimate_tokens(candidate) > max_tokens:
+                pieces.append(" ".join(current))
+                current = [fragment]
+            else:
+                current.append(fragment)
+    if current:
+        pieces.append(" ".join(current))
+    return pieces or [text]
 
 
 def create_children(parent_text: str, parent_id: str) -> list[dict]:
@@ -298,7 +322,6 @@ def create_children(parent_text: str, parent_id: str) -> list[dict]:
             paragraphs.append(para)
     children = []
     current: list[str] = []
-    current_tokens = 0
 
     def flush_child():
         if current:
@@ -315,13 +338,11 @@ def create_children(parent_text: str, parent_id: str) -> list[dict]:
     for para in paragraphs:
         pt = estimate_tokens(para)
 
-        if current_tokens + pt > CHILD_MAX_TOKENS and current:
+        if current and estimate_tokens("\n\n".join(current + [para])) > CHILD_MAX_TOKENS:
             flush_child()
             current = [para]
-            current_tokens = pt
         else:
             current.append(para)
-            current_tokens += pt
 
     flush_child()
 
@@ -376,6 +397,14 @@ def chunk_book(book_slug: str) -> dict:
             overlap = _extract_last_sentences(all_parts[i - 1]["text"])
             if overlap:
                 all_parts[i]["text"] = f"{overlap}\n\n{all_parts[i]['text']}"
+
+    bounded_parts = []
+    for part in all_parts:
+        if estimate_tokens(part["text"]) > PARENT_MAX_TOKENS:
+            bounded_parts.extend(_force_split(part))
+        else:
+            bounded_parts.append(part)
+    all_parts = bounded_parts
 
     parents = []
     all_children = []

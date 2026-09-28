@@ -1,9 +1,9 @@
 # Active Work
 
 ## v8 technical shelf intake
-**Status:** Phase 1 done (166 books registered and linked); ingest and chunk (C2) next.
-**Current state:** Manifest covers 185 sources (166 ingest, 19 excluded). Domain directories and `BOOKS`/catalog entries are present. The checker passes all checks except 166 missing hard links; `os.link` from `/Users/GaryT/Documents/books` returns `EPERM` even with a temp target.
-**Next step:** Once the task environment permits hard links from the source root, create the 166 links and rerun `scripts/check_intake.py`. See [intake report](../data/intake/C1-report.md).
+**Status:** C2 complete: all 166 ingest rows have Markdown and nonempty chunks; strict audit passes with 16 documented density exceptions.
+**Current state:** All heading, chapter-structure, garble, front/back matter, and chunk-size checks pass. The 15-book regression set is byte-identical, and the 60-row sanity set references 60 distinct new books across all domains. No embeddings or index writes were made.
+**Next step:** The outputs are ready for the later embedding/index stage on the other machine. See [C1 intake report](../data/intake/C1-report.md) and [C2 ingest report](../data/intake/C2-report.md).
 
 ## KB interface refinement, measured on small agents
 **Status:** Stage 4 implementation complete; retrieval gate strict FAIL.

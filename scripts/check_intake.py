@@ -16,7 +16,7 @@ from knowledge_base.config import SOURCE_DIRS  # noqa: E402
 SOURCE_DIR = Path("/Users/GaryT/Documents/books")
 MANIFEST = ROOT / "data" / "intake" / "v8-manifest.json"
 CATALOG = ROOT / "data" / "catalog.json"
-ACTIONS = {"ingest", "skip-duplicate", "skip-indexed", "philosophy"}
+ACTIONS = {"ingest", "skip-duplicate", "skip-indexed", "skip-no-text", "philosophy"}
 
 
 def books_from(path: Path, baseline: bool = False) -> dict[str, str]:

@@ -1040,8 +1040,8 @@
     "slug": "exploratory-data-analysis-tukey",
     "title": "Exploratory Data Analysis (John W. Tukey)",
     "domain": "data-science",
-    "action": "ingest",
-    "reason": "",
+    "action": "skip-no-text",
+    "reason": "scanned 711-page PDF with no text layer: PyMuPDF extracts 0 characters; needs OCR before it can be indexed",
     "summary": "Introduces Tukey’s exploratory-data-analysis methods for inspecting distributions, patterns, outliers, and structure in data.",
     "tags": [
       "data-science",

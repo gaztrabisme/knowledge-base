@@ -21,8 +21,12 @@ import argparse
 import glob
 import json
 import math
+import sys
 from collections import defaultdict
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
 
 from knowledge_base.config import CHUNKS_DIR
 from knowledge_base.search import get_client, hybrid_search

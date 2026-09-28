@@ -218,7 +218,6 @@ BOOKS = {
     "essential-graphrag": "Essential GraphRAG (Tomaž Bratanič, Oskar Hane)",
     "essential-math-ai": "Essential Math for AI (Hala Nelson)",
     "excel-for-accountants": "Excel for Accountants: Tips, Tricks & Techniques (Conrad Carlberg)",
-    "exploratory-data-analysis-tukey": "Exploratory Data Analysis (John W. Tukey)",
     "exploratory-data-analysis-visualization": "Exploratory Data Analysis Descriptive Analysis, Visualization, and Dashboard Design (with Code Snippets in Python) (Leandro Nunes de Castro)",
     "financial-data-engineering": "Financial Data Engineering (Tamer Khraisha)",
     "fluent-react": "Fluent React (Tejas Kumar)",

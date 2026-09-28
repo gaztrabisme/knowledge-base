@@ -1,0 +1,172 @@
+2026-09-28 16:38:00.903 python[84979:43038494] 2026-09-28 16:38:00.903899 [W:onnxruntime:Default, telemetry.cc:800 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+PDF page-density calibration: n=44 existing books / 126 registered; nearest-rank p05 floor=1093 markdown chars per physical PDF page
+EPUBs have no stable page count; density is reported as n/a for reflowable sources.
+3d-data-science-python: 1134061 chars; pages=690; headings=333 (H2+ 315); parents=333; children=1353; chars/page=1643.6; front matter before first chapter; 24 children exceed 250 tokens; 7 parents exceed 1900 tokens
+apis-a-strategy-guide: 301649 chars; pages=148; headings=170 (H2+ 159); parents=119; children=348; chars/page=2038.2; 2 children exceed 250 tokens
+advanced-analytics-pyspark: 414350 chars; pages=236; headings=116 (H2+ 105); parents=99; children=500; chars/page=1755.7; 11 children exceed 250 tokens; 4 parents exceed 1900 tokens
+advanced-apple-debugging: 704379 chars; pages=475; headings=189 (H2+ 182); parents=202; children=856; chars/page=1482.9; front matter before first chapter; 12 children exceed 250 tokens; 4 parents exceed 1900 tokens
+analytics-tools-optimizing-ux: 71791 chars; pages=98; headings=85 (H2+ 78); parents=15; children=77; chars/page=732.6; markdown density 732.6 chars/page below 1093; front matter before first chapter; 1 children exceed 250 tokens
+angular-up-and-running: 510666 chars; pages=311; headings=788 (H2+ 607); parents=238; children=635; chars/page=1642.0; 32 children exceed 250 tokens; 3 parents exceed 1900 tokens
+architecting-data-ml-platforms: 690482 chars; pages=n/a; headings=475 (H2+ 393); parents=163; children=718; chars/page=n/a; 6 children exceed 250 tokens
+arm-assembly-internals: 780506 chars; pages=476; headings=267 (H2+ 265); parents=298; children=1219; chars/page=1639.7; 118 children exceed 250 tokens; 17 parents exceed 1900 tokens
+articulating-design-decisions: 439113 chars; pages=241; headings=65 (H2+ 52); parents=85; children=470; chars/page=1822.0; 5 children exceed 250 tokens; 2 parents exceed 1900 tokens
+assembly-language-x86-processors: 1340378 chars; pages=747; headings=470 (H2+ 450); parents=501; children=2155; chars/page=1794.3; 144 children exceed 250 tokens; 13 parents exceed 1900 tokens
+automating-data-quality-monitoring: 380623 chars; pages=n/a; headings=311 (H2+ 250); parents=99; children=409; chars/page=n/a; 6 children exceed 250 tokens
+build-reasoning-model: 805843 chars; pages=440; headings=122 (H2+ 99); parents=160; children=1008; chars/page=1831.5; 33 children exceed 250 tokens; 14 parents exceed 1900 tokens
+build-text-to-image-generator: 781311 chars; pages=362; headings=201 (H2+ 186); parents=218; children=1007; chars/page=2158.3; 29 children exceed 250 tokens; 13 parents exceed 1900 tokens
+building-applications-ai-agents: 745081 chars; pages=559; headings=223 (H2+ 209); parents=186; children=834; chars/page=1332.9; 9 children exceed 250 tokens; 10 parents exceed 1900 tokens
+building-design-systems: 469550 chars; pages=345; headings=596 (H2+ 586); parents=440; children=733; chars/page=1361.0; 19 children exceed 250 tokens
+building-genai-services-fastapi: 840723 chars; pages=531; headings=203 (H2+ 199); parents=237; children=939; chars/page=1583.3; 8 children exceed 250 tokens; 5 parents exceed 1900 tokens
+building-knowledge-graphs: 493845 chars; pages=n/a; headings=512 (H2+ 405); parents=150; children=581; chars/page=n/a; 19 children exceed 250 tokens; 6 parents exceed 1900 tokens
+building-machine-learning-pipelines: 733665 chars; pages=n/a; headings=0 (H2+ 0); parents=88; children=779; chars/page=n/a; only 0 headings at level >=2; no chapter-level structure; front matter before first chapter; 19 children exceed 250 tokens; 18 parents exceed 1900 tokens
+building-micro-frontends: 652185 chars; pages=478; headings=302 (H2+ 291); parents=218; children=743; chars/page=1364.4; 1 children exceed 250 tokens; 5 parents exceed 1900 tokens
+building-secure-reliable-systems: 1165148 chars; pages=557; headings=392 (H2+ 385); parents=410; children=1273; chars/page=2091.8; 15 children exceed 250 tokens; 1 parents exceed 1900 tokens
+building-event-driven-data-mesh: 514418 chars; pages=262; headings=171 (H2+ 160); parents=135; children=538; chars/page=1963.4; PASS
+css-definitive-guide: 1853133 chars; pages=1597; headings=578 (H2+ 556); parents=567; children=2422; chars/page=1160.4; 21 children exceed 250 tokens; 22 parents exceed 1900 tokens
+css-in-depth-2e: 943054 chars; pages=545; headings=298 (H2+ 292); parents=303; children=1193; chars/page=1730.4; front matter before first chapter; 25 children exceed 250 tokens; 6 parents exceed 1900 tokens
+certified-ethical-hacker: 990535 chars; pages=894; headings=164 (H2+ 148); parents=210; children=1200; chars/page=1108.0; 3 children exceed 250 tokens; 14 parents exceed 1900 tokens
+chaos-engineering: 602298 chars; pages=n/a; headings=340 (H2+ 229); parents=172; children=639; chars/page=n/a; 6 children exceed 250 tokens; 1 parents exceed 1900 tokens
+cloud-native-devops-kubernetes: 600775 chars; pages=344; headings=453 (H2+ 436); parents=260; children=746; chars/page=1746.4; 6 children exceed 250 tokens
+cloud-native-security-cookbook: 746107 chars; pages=516; headings=487 (H2+ 476); parents=231; children=1048; chars/page=1445.9; 137 children exceed 250 tokens; 25 parents exceed 1900 tokens
+cockroachdb-definitive-guide: 756835 chars; pages=487; headings=370 (H2+ 367); parents=378; children=1018; chars/page=1554.1; 44 children exceed 250 tokens; 4 parents exceed 1900 tokens
+continuous-api-management: 817814 chars; pages=359; headings=189 (H2+ 177); parents=200; children=845; chars/page=2278.0; 3 children exceed 250 tokens; 2 parents exceed 1900 tokens
+creating-web-animations: 225032 chars; pages=210; headings=123 (H2+ 121); parents=114; children=314; chars/page=1071.6; markdown density 1071.6 chars/page below 1093; 17 children exceed 250 tokens
+d3js-in-action: 633036 chars; pages=386; headings=220 (H2+ 217); parents=244; children=936; chars/page=1640.0; 50 children exceed 250 tokens; 9 parents exceed 1900 tokens
+data-governance-definitive-guide: 494531 chars; pages=254; headings=182 (H2+ 171); parents=149; children=544; chars/page=1947.0; 3 children exceed 250 tokens
+data-governance-unity-catalog: 622749 chars; pages=385; headings=177 (H2+ 165); parents=164; children=652; chars/page=1617.5; 5 children exceed 250 tokens; 2 parents exceed 1900 tokens
+data-management-at-scale: 915492 chars; pages=413; headings=251 (H2+ 250); parents=270; children=911; chars/page=2216.7; no chapter-level structure; 16 children exceed 250 tokens; 7 parents exceed 1900 tokens
+data-quality-fundamentals: 580151 chars; pages=311; headings=198 (H2+ 188); parents=188; children=683; chars/page=1865.4; 12 children exceed 250 tokens; 2 parents exceed 1900 tokens
+data-science-hard-parts: 391867 chars; pages=315; headings=213 (H2+ 195); parents=102; children=454; chars/page=1244.0; 3 children exceed 250 tokens; 1 parents exceed 1900 tokens
+data-science-for-business: 817627 chars; pages=409; headings=202 (H2+ 184); parents=195; children=894; chars/page=1999.1; 3 children exceed 250 tokens; 4 parents exceed 1900 tokens
+data-science-from-scratch: 616879 chars; pages=513; headings=267 (H2+ 240); parents=173; children=868; chars/page=1202.5; 26 children exceed 250 tokens; 7 parents exceed 1900 tokens
+database-internals: 700908 chars; pages=371; headings=238 (H2+ 233); parents=252; children=783; chars/page=1889.2; 37 children exceed 250 tokens; 2 parents exceed 1900 tokens
+deciphering-data-architectures: 496791 chars; pages=n/a; headings=296 (H2+ 177); parents=146; children=520; chars/page=n/a; 3 children exceed 250 tokens
+delta-lake-definitive-guide: 701211 chars; pages=383; headings=222 (H2+ 208); parents=219; children=858; chars/page=1830.8; 22 children exceed 250 tokens; 7 parents exceed 1900 tokens
+design-for-how-people-think: 293682 chars; pages=238; headings=135 (H2+ 132); parents=137; children=354; chars/page=1234.0; front matter before first chapter; 1 children exceed 250 tokens
+designing-autonomous-ai: 372276 chars; pages=248; headings=138 (H2+ 133); parents=143; children=433; chars/page=1501.1; 4 children exceed 250 tokens; 1 parents exceed 1900 tokens
+designing-data-intensive-applications: 1310180 chars; pages=613; headings=197 (H2+ 193); parents=275; children=1488; chars/page=2137.3; 4 children exceed 250 tokens; 9 parents exceed 1900 tokens
+designing-interfaces: 690865 chars; pages=602; headings=275 (H2+ 263); parents=209; children=774; chars/page=1147.6; 6 children exceed 250 tokens
+designing-llm-applications: 623962 chars; pages=367; headings=218 (H2+ 215); parents=231; children=712; chars/page=1700.2; 13 children exceed 250 tokens; 1 parents exceed 1900 tokens
+domain-specific-small-language-models: 655612 chars; pages=376; headings=102 (H2+ 98); parents=151; children=844; chars/page=1743.6; 31 children exceed 250 tokens; 15 parents exceed 1900 tokens
+effective-typescript: 671492 chars; pages=569; headings=94 (H2+ 83); parents=129; children=847; chars/page=1180.1; 3 children exceed 250 tokens; 11 parents exceed 1900 tokens
+effective-ui: 587464 chars; pages=314; headings=136 (H2+ 125); parents=146; children=595; chars/page=1870.9; 6 children exceed 250 tokens; 4 parents exceed 1900 tokens
+efficient-linux-command-line: 353826 chars; pages=248; headings=162 (H2+ 157); parents=158; children=534; chars/page=1426.7; 6 children exceed 250 tokens; 1 parents exceed 1900 tokens
+efficient-nodejs: 347154 chars; pages=n/a; headings=261 (H2+ 174); parents=108; children=378; chars/page=n/a; 14 children exceed 250 tokens
+essential-graphrag: 318025 chars; pages=178; headings=104 (H2+ 94); parents=94; children=432; chars/page=1786.7; 30 children exceed 250 tokens; 5 parents exceed 1900 tokens
+essential-math-ai: 1222832 chars; pages=603; headings=401 (H2+ 387); parents=366; children=1436; chars/page=2027.9; front matter before first chapter; 22 children exceed 250 tokens; 5 parents exceed 1900 tokens
+excel-for-accountants: 397176 chars; pages=289; headings=292 (H2+ 262); parents=115; children=499; chars/page=1374.3; 8 children exceed 250 tokens; 4 parents exceed 1900 tokens
+exploratory-data-analysis-tukey: 7445 chars; pages=711; headings=204 (H2+ 171); parents=34; children=34; chars/page=10.5; markdown density 10.5 chars/page below 1093
+exploratory-data-analysis-visualization: 698401 chars; pages=350; headings=182 (H2+ 156); parents=191; children=951; chars/page=1995.4; 100 children exceed 250 tokens; 19 parents exceed 1900 tokens
+financial-data-engineering: 1001686 chars; pages=540; headings=269 (H2+ 254); parents=262; children=1056; chars/page=1855.0; 13 children exceed 250 tokens; 6 parents exceed 1900 tokens
+fluent-react: 605996 chars; pages=n/a; headings=261 (H2+ 161); parents=198; children=701; chars/page=n/a; 18 children exceed 250 tokens; 6 parents exceed 1900 tokens
+foundations-scalable-systems: 628245 chars; pages=340; headings=183 (H2+ 179); parents=190; children=651; chars/page=1847.8; 3 children exceed 250 tokens
+fundamentals-computer-graphics: 1372450 chars; pages=737; headings=28 (H2+ 0); parents=230; children=1753; chars/page=1862.2; only 0 headings at level >=2; 19 children exceed 250 tokens; 21 parents exceed 1900 tokens
+fundamentals-data-engineering: 906797 chars; pages=544; headings=356 (H2+ 341); parents=294; children=990; chars/page=1666.9; 5 children exceed 250 tokens; 5 parents exceed 1900 tokens
+fundamentals-metadata-management: 343976 chars; pages=250; headings=147 (H2+ 142); parents=146; children=392; chars/page=1375.9; 3 children exceed 250 tokens; 1 parents exceed 1900 tokens
+fundamentals-microsoft-fabric: 511719 chars; pages=672; headings=261 (H2+ 241); parents=171; children=589; chars/page=761.5; markdown density 761.5 chars/page below 1093; 2 children exceed 250 tokens; 2 parents exceed 1900 tokens
+generative-deep-learning: 451607 chars; pages=330; headings=190 (H2+ 188); parents=184; children=582; chars/page=1368.5; front matter before first chapter; 7 children exceed 250 tokens
+http-definitive-guide: 1245233 chars; pages=658; headings=817 (H2+ 782); parents=532; children=1719; chars/page=1892.5; 61 children exceed 250 tokens; 12 parents exceed 1900 tokens
+hands-on-large-language-models: 604418 chars; pages=n/a; headings=525 (H2+ 256); parents=334; children=808; chars/page=n/a; 11 children exceed 250 tokens; 10 parents exceed 1900 tokens
+hands-on-rag-production: 702676 chars; pages=359; headings=122 (H2+ 116); parents=154; children=809; chars/page=1957.3; 11 children exceed 250 tokens; 3 parents exceed 1900 tokens
+hands-on-selenium-webdriver: 603335 chars; pages=422; headings=250 (H2+ 244); parents=247; children=780; chars/page=1429.7; 10 children exceed 250 tokens; 1 parents exceed 1900 tokens
+hands-on-unsupervised-learning: 554768 chars; pages=n/a; headings=472 (H2+ 335); parents=195; children=671; chars/page=n/a; 33 children exceed 250 tokens; 1 parents exceed 1900 tokens
+head-first-statistics-analysis: 88745 chars; pages=n/a; headings=136 (H2+ 42); parents=94; children=112; chars/page=n/a; 3 children exceed 250 tokens
+holacracy: 375068 chars; pages=n/a; headings=0 (H2+ 0); parents=42; children=395; chars/page=n/a; only 0 headings at level >=2; no chapter-level structure; front matter before first chapter; 11 children exceed 250 tokens; 6 parents exceed 1900 tokens
+implementing-data-mesh: 401236 chars; pages=515; headings=176 (H2+ 158); parents=114; children=426; chars/page=779.1; markdown density 779.1 chars/page below 1093; 1 children exceed 250 tokens; 1 parents exceed 1900 tokens
+infrastructure-as-code: 707353 chars; pages=430; headings=359 (H2+ 354); parents=359; children=805; chars/page=1645.0; 4 children exceed 250 tokens
+inside-cyber-warfare: 263090 chars; pages=161; headings=115 (H2+ 107); parents=83; children=319; chars/page=1634.1; 2 children exceed 250 tokens; 1 parents exceed 1900 tokens
+intelligence-driven-incident-response: 719270 chars; pages=346; headings=236 (H2+ 233); parents=254; children=786; chars/page=2078.8; 7 children exceed 250 tokens; 5 parents exceed 1900 tokens
+data-visualization-storytelling: 111624 chars; pages=n/a; headings=180 (H2+ 171); parents=31; children=133; chars/page=n/a; 1 children exceed 250 tokens; 1 parents exceed 1900 tokens
+kafka-definitive-guide: 633816 chars; pages=322; headings=244 (H2+ 232); parents=190; children=712; chars/page=1968.4; 9 children exceed 250 tokens; 2 parents exceed 1900 tokens
+kubernetes-security-observability: 337738 chars; pages=195; headings=150 (H2+ 138); parents=106; children=365; chars/page=1732.0; 7 children exceed 250 tokens; 3 parents exceed 1900 tokens
+llmops: 569305 chars; pages=284; headings=250 (H2+ 240); parents=170; children=631; chars/page=2004.6; 17 children exceed 250 tokens; 3 parents exceed 1900 tokens
+langchain-life-sciences-healthcare: 808350 chars; pages=413; headings=89 (H2+ 87); parents=145; children=890; chars/page=1957.3; 42 children exceed 250 tokens; 11 parents exceed 1900 tokens
+laws-of-ux: 173615 chars; pages=153; headings=75 (H2+ 63); parents=48; children=192; chars/page=1134.7; 3 children exceed 250 tokens; 1 parents exceed 1900 tokens
+lean-ux: 291754 chars; pages=205; headings=131 (H2+ 119); parents=92; children=310; chars/page=1423.2; 1 children exceed 250 tokens
+learning-agile: 893567 chars; pages=419; headings=159 (H2+ 149); parents=200; children=984; chars/page=2132.6; 2 children exceed 250 tokens; 9 parents exceed 1900 tokens
+learning-git: 399099 chars; pages=399; headings=123 (H2+ 106); parents=97; children=496; chars/page=1000.2; markdown density 1000.2 chars/page below 1093; 7 children exceed 250 tokens; 8 parents exceed 1900 tokens
+learning-github-actions: 498884 chars; pages=414; headings=197 (H2+ 193); parents=205; children=635; chars/page=1205.0; 9 children exceed 250 tokens; 2 parents exceed 1900 tokens
+learning-javascript-design-patterns: 345744 chars; pages=199; headings=192 (H2+ 177); parents=119; children=445; chars/page=1737.4; 6 children exceed 250 tokens; 3 parents exceed 1900 tokens
+learning-modern-linux: 399295 chars; pages=261; headings=171 (H2+ 160); parents=124; children=513; chars/page=1529.9; 12 children exceed 250 tokens; 1 parents exceed 1900 tokens
+learning-opentelemetry: 283250 chars; pages=266; headings=135 (H2+ 124); parents=95; children=312; chars/page=1064.8; markdown density 1064.8 chars/page below 1093; 3 children exceed 250 tokens
+learning-spark: 465701 chars; pages=274; headings=189 (H2+ 178); parents=135; children=561; chars/page=1699.6; 7 children exceed 250 tokens; 2 parents exceed 1900 tokens
+learning-test-driven-development: 334700 chars; pages=280; headings=176 (H2+ 169); parents=168; children=451; chars/page=1195.4; 4 children exceed 250 tokens; 4 parents exceed 1900 tokens
+learning-threejs: 593479 chars; pages=517; headings=211 (H2+ 198); parents=196; children=777; chars/page=1147.9; 9 children exceed 250 tokens; 8 parents exceed 1900 tokens
+learning-vue: 414664 chars; pages=498; headings=180 (H2+ 167); parents=123; children=543; chars/page=832.7; markdown density 832.7 chars/page below 1093; 1 children exceed 250 tokens; 4 parents exceed 1900 tokens
+machine-learning-production-systems: 856451 chars; pages=985; headings=453 (H2+ 430); parents=270; children=940; chars/page=869.5; markdown density 869.5 chars/page below 1093; front matter before first chapter; 11 children exceed 250 tokens; 4 parents exceed 1900 tokens
+machine-learning-econometrics: 698158 chars; pages=353; headings=241 (H2+ 226); parents=278; children=1127; chars/page=1977.8; 20 children exceed 250 tokens; 8 parents exceed 1900 tokens
+making-sense-of-data: 462798 chars; pages=293; headings=163 (H2+ 150); parents=164; children=843; chars/page=1579.5; 230 children exceed 250 tokens; 26 parents exceed 1900 tokens
+microservice-architecture: 267565 chars; pages=144; headings=111 (H2+ 107); parents=105; children=306; chars/page=1858.1; 1 children exceed 250 tokens
+modern-data-analytics-excel: 253196 chars; pages=244; headings=192 (H2+ 189); parents=193; children=329; chars/page=1037.7; markdown density 1037.7 chars/page below 1093; 2 children exceed 250 tokens
+monolith-to-microservices: 464185 chars; pages=273; headings=218 (H2+ 210); parents=140; children=519; chars/page=1700.3; 1 children exceed 250 tokens; 3 parents exceed 1900 tokens
+nginx-cookbook: 293413 chars; pages=n/a; headings=506 (H2+ 370); parents=140; children=368; chars/page=n/a; 16 children exceed 250 tokens; 1 parents exceed 1900 tokens
+natural-language-processing-transformers: 702397 chars; pages=409; headings=176 (H2+ 165); parents=187; children=919; chars/page=1717.4; 24 children exceed 250 tokens; 17 parents exceed 1900 tokens
+policy-as-code: 837917 chars; pages=1171; headings=210 (H2+ 195); parents=226; children=1102; chars/page=715.6; markdown density 715.6 chars/page below 1093; 13 children exceed 250 tokens; 26 parents exceed 1900 tokens
+practical-lakehouse-architecture: 449142 chars; pages=536; headings=176 (H2+ 167); parents=133; children=471; chars/page=838.0; markdown density 838.0 chars/page below 1093; 2 children exceed 250 tokens; 5 parents exceed 1900 tokens
+practical-linear-algebra-data-science: 511385 chars; pages=328; headings=233 (H2+ 217); parents=149; children=617; chars/page=1559.1; 2 children exceed 250 tokens; 1 parents exceed 1900 tokens
+practical-web-accessibility: 996037 chars; pages=n/a; headings=508 (H2+ 496); parents=336; children=1275; chars/page=n/a; 24 children exceed 250 tokens; 23 parents exceed 1900 tokens
+practical-reverse-engineering: 715639 chars; pages=383; headings=125 (H2+ 116); parents=186; children=1093; chars/page=1868.5; 121 children exceed 250 tokens; 22 parents exceed 1900 tokens
+predictive-analytics-modern-enterprise: 545727 chars; pages=361; headings=123 (H2+ 114); parents=144; children=650; chars/page=1511.7; 22 children exceed 250 tokens; 5 parents exceed 1900 tokens
+project-management-with-ai: 586797 chars; pages=306; headings=284 (H2+ 279); parents=286; children=608; chars/page=1917.6; 1 children exceed 250 tokens
+rest-api-design-rulebook: 187904 chars; pages=114; headings=164 (H2+ 156); parents=97; children=249; chars/page=1648.3; 5 children exceed 250 tokens
+restful-web-apis: 738748 chars; pages=404; headings=388 (H2+ 371); parents=293; children=936; chars/page=1828.6; 11 children exceed 250 tokens; 5 parents exceed 1900 tokens
+real-world-svelte: 460165 chars; pages=282; headings=188 (H2+ 168); parents=141; children=593; chars/page=1631.8; 8 children exceed 250 tokens; 4 parents exceed 1900 tokens; 13 back-of-book index children at end
+refactoring-ui: 100975 chars; pages=252; headings=153 (H2+ 144); parents=25; children=123; chars/page=400.7; markdown density 400.7 chars/page below 1093
+reinforcement-learning-finance: 318920 chars; pages=386; headings=87 (H2+ 74); parents=82; children=426; chars/page=826.2; markdown density 826.2 chars/page below 1093; front matter before first chapter; 21 children exceed 250 tokens; 8 parents exceed 1900 tokens
+reverse-engineering-cybersecurity: 178332 chars; pages=n/a; headings=20 (H2+ 19); parents=29; children=171; chars/page=n/a; no chapter-level structure; 9 children exceed 250 tokens; 9 parents exceed 1900 tokens
+reverse-engineering-for-beginners: 1477860 chars; pages=943; headings=782 (H2+ 767); parents=798; children=3237; chars/page=1567.2; 806 children exceed 250 tokens; 79 parents exceed 1900 tokens
+sql-server-advanced-troubleshooting: 863214 chars; pages=500; headings=309 (H2+ 292); parents=242; children=985; chars/page=1726.4; 54 children exceed 250 tokens; 6 parents exceed 1900 tokens
+scaling-machine-learning-with-spark: 555475 chars; pages=294; headings=171 (H2+ 161); parents=152; children=624; chars/page=1889.4; 4 children exceed 250 tokens; 1 parents exceed 1900 tokens
+software-supply-chain-security: 413609 chars; pages=242; headings=176 (H2+ 164); parents=136; children=468; chars/page=1709.1; 8 children exceed 250 tokens; 2 parents exceed 1900 tokens
+spark-definitive-guide: 1036988 chars; pages=601; headings=650 (H2+ 644); parents=650; children=1541; chars/page=1725.4; front matter before first chapter; 47 children exceed 250 tokens; 4 parents exceed 1900 tokens
+statistics-by-simulation: 1210458 chars; pages=457; headings=108 (H2+ 101); parents=268; children=1759; chars/page=2648.7; 273 children exceed 250 tokens; 43 parents exceed 1900 tokens
+storytelling-in-design: 724561 chars; pages=n/a; headings=542 (H2+ 380); parents=251; children=873; chars/page=n/a; front matter before first chapter; 33 children exceed 250 tokens; 2 parents exceed 1900 tokens
+strategic-writing-for-ux: 275970 chars; pages=195; headings=58 (H2+ 47); parents=64; children=314; chars/page=1415.2; 14 children exceed 250 tokens; 3 parents exceed 1900 tokens
+strengthening-deep-neural-networks: 417731 chars; pages=247; headings=116 (H2+ 111); parents=120; children=473; chars/page=1691.2; front matter before first chapter; 5 children exceed 250 tokens; 3 parents exceed 1900 tokens
+testing-javascript-applications: 1029877 chars; pages=514; headings=164 (H2+ 161); parents=226; children=1259; chars/page=2003.7; 11 children exceed 250 tokens; 18 parents exceed 1900 tokens
+llm-security-playbook: 386000 chars; pages=380; headings=173 (H2+ 161); parents=119; children=359; chars/page=1015.8; markdown density 1015.8 chars/page below 1093; 1 children exceed 250 tokens
+enterprise-big-data-lake: 407642 chars; pages=n/a; headings=271 (H2+ 205); parents=123; children=459; chars/page=n/a; 3 children exceed 250 tokens
+ghidra-book: 1040315 chars; pages=612; headings=350 (H2+ 321); parents=331; children=1303; chars/page=1699.9; 64 children exceed 250 tokens; 10 parents exceed 1900 tokens
+practitioners-guide-graph-data: 690696 chars; pages=420; headings=240 (H2+ 227); parents=207; children=763; chars/page=1644.5; 16 children exceed 250 tokens; 4 parents exceed 1900 tokens
+scrum-masters-path: 331714 chars; pages=n/a; headings=90 (H2+ 88); parents=90; children=391; chars/page=n/a; 2 children exceed 250 tokens; 7 parents exceed 1900 tokens
+webgpu-sourcebook: 694268 chars; pages=385; headings=98 (H2+ 84); parents=139; children=885; chars/page=1803.3; 43 children exceed 250 tokens; 16 parents exceed 1900 tokens
+think-like-ux-researcher: 562460 chars; pages=307; headings=58 (H2+ 51); parents=98; children=591; chars/page=1832.1; front matter before first chapter; 6 children exceed 250 tokens; 8 parents exceed 1900 tokens
+think-stats-3e: 380614 chars; pages=324; headings=182 (H2+ 168); parents=100; children=537; chars/page=1174.7; 13 children exceed 250 tokens
+training-data-for-machine-learning: 601725 chars; pages=331; headings=320 (H2+ 311); parents=216; children=669; chars/page=1817.9; front matter before first chapter; 4 children exceed 250 tokens; 3 parents exceed 1900 tokens
+typescript-cookbook: 656444 chars; pages=n/a; headings=506 (H2+ 387); parents=147; children=751; chars/page=n/a; 26 children exceed 250 tokens; 7 parents exceed 1900 tokens
+ui-design-principles: 217471 chars; pages=323; headings=105 (H2+ 33); parents=81; children=303; chars/page=673.3; markdown density 673.3 chars/page below 1093; 2 children exceed 250 tokens; 2 parents exceed 1900 tokens
+ux-for-lean-startups: 367623 chars; pages=236; headings=16 (H2+ 13); parents=55; children=363; chars/page=1557.7; 9 parents exceed 1900 tokens
+unifying-business-data-code: 577176 chars; pages=n/a; headings=529 (H2+ 399); parents=202; children=638; chars/page=n/a; 11 children exceed 250 tokens; 2 parents exceed 1900 tokens
+user-story-mapping: 408609 chars; pages=324; headings=168 (H2+ 147); parents=109; children=452; chars/page=1261.1; 3 children exceed 250 tokens; 2 parents exceed 1900 tokens
+vector-databases-introduction: 423327 chars; pages=293; headings=9 (H2+ 8); parents=58; children=486; chars/page=1444.8; no chapter-level structure; 8 children exceed 250 tokens; 21 parents exceed 1900 tokens
+web-accessibility-cookbook: 531520 chars; pages=381; headings=90 (H2+ 89); parents=112; children=675; chars/page=1395.1; no chapter-level structure; 7 children exceed 250 tokens; 5 parents exceed 1900 tokens
+web-performance-engineering: 498037 chars; pages=256; headings=215 (H2+ 210); parents=219; children=587; chars/page=1945.5; 1 children exceed 250 tokens
+web-performance-in-action: 722675 chars; pages=378; headings=237 (H2+ 0); parents=239; children=881; chars/page=1911.8; only 0 headings at level >=2; 11 children exceed 250 tokens
+web-scraping-with-python: 542346 chars; pages=306; headings=159 (H2+ 157); parents=170; children=684; chars/page=1772.4; 12 children exceed 250 tokens; 5 parents exceed 1900 tokens
+writing-excel-macros-vba: 856629 chars; pages=490; headings=974 (H2+ 968); parents=214; children=1153; chars/page=1748.2; 100 children exceed 250 tokens; 21 parents exceed 1900 tokens
+zero-trust-networks-2e: 645843 chars; pages=486; headings=286 (H2+ 273); parents=197; children=682; chars/page=1328.9; 6 children exceed 250 tokens; 5 parents exceed 1900 tokens
+asynchronousprogrammingwithcplusplus: 747349 chars; pages=n/a; headings=309 (H2+ 170); parents=235; children=1123; chars/page=n/a; front matter before first chapter; 41 children exceed 250 tokens; 15 parents exceed 1900 tokens; 275 back-of-book index children at end
+bare-metalembeddedcprogramming: 706201 chars; pages=n/a; headings=489 (H2+ 351); parents=243; children=1309; chars/page=n/a; 50 children exceed 250 tokens; 16 parents exceed 1900 tokens; 513 back-of-book index children at end
+buildinglowlatencyapplicationswithc: 1054250 chars; pages=n/a; headings=580 (H2+ 479); parents=309; children=1845; chars/page=n/a; 41 children exceed 250 tokens; 26 parents exceed 1900 tokens; 614 back-of-book index children at end
+candalgorithmicthinkingforthecompletebeginner: 1075299 chars; pages=n/a; headings=581 (H2+ 571); parents=354; children=1435; chars/page=n/a; 197 children exceed 250 tokens; 54 parents exceed 1900 tokens
+cmakebestpractices: 682692 chars; pages=n/a; headings=301 (H2+ 139); parents=259; children=941; chars/page=n/a; front matter before first chapter; 25 children exceed 250 tokens; 12 parents exceed 1900 tokens; 168 back-of-book index children at end
+cplusplus20stlcookbook2e: 601754 chars; pages=n/a; headings=405 (H2+ 260); parents=216; children=765; chars/page=n/a; 53 children exceed 250 tokens; 4 parents exceed 1900 tokens
+cplusplusmemorymanagement: 806835 chars; pages=n/a; headings=256 (H2+ 119); parents=254; children=1045; chars/page=n/a; 35 children exceed 250 tokens; 16 parents exceed 1900 tokens
+cplusplusprogrammersmindset: 715826 chars; pages=n/a; headings=262 (H2+ 123); parents=238; children=872; chars/page=n/a; 14 children exceed 250 tokens; 3 parents exceed 1900 tokens
+datastructuresandalgorithmswiththecplusplusstl: 815396 chars; pages=n/a; headings=790 (H2+ 598); parents=244; children=1258; chars/page=n/a; front matter before first chapter; 41 children exceed 250 tokens; 10 parents exceed 1900 tokens; 434 back-of-book index children at end
+debunkingcplusplusmyths: 451698 chars; pages=n/a; headings=129 (H2+ 27); parents=137; children=555; chars/page=n/a; 17 children exceed 250 tokens; 7 parents exceed 1900 tokens; 48 back-of-book index children at end
+gpuprogrammingwithcplusplusandcuda: 352255 chars; pages=n/a; headings=159 (H2+ 56); parents=131; children=416; chars/page=n/a; 8 children exceed 250 tokens; 2 parents exceed 1900 tokens
+hands-ondesignpatternswithcplusplus2e: 1288996 chars; pages=n/a; headings=350 (H2+ 159); parents=353; children=1720; chars/page=n/a; 37 children exceed 250 tokens; 36 parents exceed 1900 tokens; 163 back-of-book index children at end
+learnllvm17secondedition: 768226 chars; pages=n/a; headings=228 (H2+ 114); parents=225; children=1094; chars/page=n/a; 22 children exceed 250 tokens; 18 parents exceed 1900 tokens; 163 back-of-book index children at end
+llvmcodegeneration: 1273276 chars; pages=n/a; headings=387 (H2+ 230); parents=356; children=1534; chars/page=n/a; 39 children exceed 250 tokens; 27 parents exceed 1900 tokens
+moderncmakeforcplusplus2e: 810803 chars; pages=n/a; headings=452 (H2+ 282); parents=293; children=934; chars/page=n/a; 21 children exceed 250 tokens; 5 parents exceed 1900 tokens
+moderncplusplusprogrammingcookbook3eepub: 1458683 chars; pages=n/a; headings=84 (H2+ 62); parents=230; children=3662; chars/page=n/a; 1391 children exceed 250 tokens; 168 parents exceed 1900 tokens
+qt6cplusplusguiprogrammingcookbook: 536901 chars; pages=n/a; headings=287 (H2+ 168); parents=160; children=737; chars/page=n/a; 15 children exceed 250 tokens; 8 parents exceed 1900 tokens; 76 back-of-book index children at end
+refactoringwithcplusplus: 691580 chars; pages=n/a; headings=410 (H2+ 273); parents=214; children=955; chars/page=n/a; 55 children exceed 250 tokens; 12 parents exceed 1900 tokens; 221 back-of-book index children at end
+softwarearchitecturewithcplusplussecondedition: 1416813 chars; pages=n/a; headings=682 (H2+ 435); parents=484; children=1595; chars/page=n/a; 25 children exceed 250 tokens; 11 parents exceed 1900 tokens
+storytelling-with-data: 383365 chars; pages=284; headings=179 (H2+ 162); parents=128; children=501; chars/page=1349.9; 9 children exceed 250 tokens; 4 parents exceed 1900 tokens
+templatemetaprogrammingwithc: 599028 chars; pages=n/a; headings=150 (H2+ 40); parents=159; children=734; chars/page=n/a; 28 children exceed 250 tokens; 8 parents exceed 1900 tokens
+x86-software-reverse-engineering: 447555 chars; pages=317; headings=407 (H2+ 381); parents=225; children=608; chars/page=1411.8; 25 children exceed 250 tokens; 1 parents exceed 1900 tokens
+
+Audited 166 books; flagged 165; unexcepted flags=165.

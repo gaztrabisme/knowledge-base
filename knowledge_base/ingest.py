@@ -15,7 +15,7 @@ def convert_epub(epub_path: Path) -> str:
     return result.text_content
 
 
-def clean_markdown(text: str) -> str:
+def clean_markdown(text: str, repair_extraction_artifacts: bool = False, repair_unclosed_fence: bool = False) -> str:
     # Strip markitdown metadata header (Title/Authors/Publisher/etc.)
     text = re.sub(r"^\*\*(?:Title|Authors?|Language|Publisher|Date|Description|Identifier)\*\*:.*\n", "", text, flags=re.MULTILINE)
 
@@ -29,45 +29,86 @@ def clean_markdown(text: str) -> str:
     text = text.replace("\\[", "[")
     text = text.replace("\\]", "]")
 
+    if repair_extraction_artifacts:
+        # Some PDF text layers encode a missing glyph as backspace. It has no
+        # meaning in extracted prose and leaks through MarkItDown unchanged.
+        text = text.replace("\x08", "")
+
+        # A drop cap can be split from the rest of a short opening word. Keep
+        # the repair narrow so initials and list markers remain separate.
+        drop_cap_starts = set(
+            "do the this that these those then there their think through they them "
+            "when where what which while who why would with we were will your you "
+            "in into is it if its on one only our out for from as at an and are "
+            "be by but can could had has have he her here how my no not of".split()
+        )
+        text = re.sub(
+            r"(?m)^([A-Z])\n([a-z]{1,3})(?=\s)",
+            lambda m: m.group(1) + m.group(2)
+            if (m.group(1) + m.group(2)).lower() in drop_cap_starts else m.group(0),
+            text,
+        )
+
     text = re.sub(r"</?span[^>]*>", "", text)
     text = re.sub(r"</?div[^>]*>", "", text)
 
     text = re.sub(r"\n{4,}", "\n\n\n", text)
+
+    # MarkItDown occasionally leaves one code fence open through the rest of a
+    # PDF's text layer. Close an unmatched fence so later chapter headings stay
+    # visible to the chunker and markdown auditors.
+    if repair_unclosed_fence and sum(line.strip().startswith("```") for line in text.splitlines()) % 2:
+        text = text.rstrip() + "\n\n```\n"
     return text.strip() + "\n"
 
 
 def strip_front_back_matter(text: str) -> str:
     lines = text.split("\n")
 
-    # A bare "Chapter N"/numeric heading marks the first real chapter — but only
-    # if it appears early. Some books name real chapters descriptively and reserve
-    # "Chapter N" headings for a back-matter answer key; trusting a late match would
-    # discard the whole book as front matter. Guard with a position cap.
+    # A chapter/part opener marks the first real chapter — but only if it appears
+    # early. Some books reserve numbered headings for answer keys at the end.
     numeric_cap = int(len(lines) * 0.4)
-    content_start = None
+    chapter_candidates = []
+    front_positions = []
     for i, line in enumerate(lines):
         if i > numeric_cap:
             break
-        if not re.match(r"^#{1,2}\s+", line):
+        heading = bool(re.match(r"^#{1,3}\s+", line))
+        candidate = line if heading else line.strip()
+        if not heading:
             continue
-        heading_text = re.sub(r"^#{1,6}\s+", "", line).strip()
-        # Titled front matter ("1 Preface") also matches the chapter-1 opener regex.
-        if _is_front_matter_heading(line):
+        if _is_front_matter_heading(candidate):
+            front_positions.append(i)
             continue
-        # Bare "Chapter N"/"7" (Packt), titled chapter 1 / Part 1 openers (Manning),
-        # or O'Reilly's "Chapter 1. Foo" / "Part I. Foo" openers mark real content.
-        if re.match(r"^(\d+|chapter\s+\d+)$", heading_text, re.IGNORECASE) or re.match(
-            r"^(?:1(?:\s+\S|[.:](?!\d)\s*\S)|chapter\s+1\s*[.:]|"
-            r"part\s+(?:i|one|1)(?=$|\s|[.:](?!\d)))",
-            heading_text,
-            re.IGNORECASE,
-        ):
-            content_start = i
-            break
+        embedded_chapter = bool(
+            re.match(r"^#{3}\s+", line)
+            and re.search(r"(?i)\bchapter\s+(?:\d+|[a-z]+|[ivxlcdm]+)\b", candidate)
+        )
+        if _is_chapter_heading(candidate) or embedded_chapter:
+            chapter_candidates.append(i)
+
+    content_start = None
+    if chapter_candidates:
+        last_front = max(front_positions, default=-1)
+        after_front = [i for i in chapter_candidates if i > last_front]
+        content_start = min(after_front or chapter_candidates)
+
+    if content_start is None:
+        # A subset of EPUBs leaves the first chapter opener as plain text.
+        # Accept a short, explicit Chapter 1 title; linked contents entries and
+        # prose such as "Part 3 explores ..." are intentionally excluded.
+        for i, line in enumerate(lines[:numeric_cap + 1]):
+            candidate = line.strip()
+            if "[" in candidate or "](" in candidate or len(candidate) > 160:
+                continue
+            if re.match(r"(?i)^chapter\s+1(?:[.:]\s*|\s+)[A-Z]", candidate):
+                content_start = i
+                lines[i] = "# " + candidate
+                break
 
     if content_start is None:
         for i, line in enumerate(lines):
-            if not re.match(r"^#{1,2}\s+", line):
+            if not re.match(r"^#{1,3}\s+", line):
                 continue
             if not _is_front_matter_heading(line):
                 content_start = i
@@ -77,35 +118,90 @@ def strip_front_back_matter(text: str) -> str:
         content_start = 0
 
     content_end = len(lines)
-    for i in range(len(lines) - 1, content_start, -1):
-        if re.match(r"^#{1,2}\s+", lines[i]) and _is_back_matter_heading(lines[i]):
-            content_end = i
-            break
+    content_headings = []
+    back_headings = []
+    for i in range(content_start, len(lines)):
+        if not re.match(r"^#{1,3}\s+", lines[i]):
+            continue
+        if _is_back_matter_heading(lines[i]):
+            back_headings.append(i)
+        elif _is_auxiliary_index_trailer(lines[i]) and any(
+            _is_back_matter_heading(lines[index])
+            and re.sub(r"^#{1,6}\s+", "", lines[index]).strip().lower()
+            in ("index", "subject index", "author index")
+            for index in range(content_start, i)
+        ):
+            back_headings.append(i)
+        elif not _is_front_matter_heading(lines[i]):
+            content_headings.append(i)
+    if back_headings:
+        # A back-of-book index may be followed by Packt promotions or review
+        # pages. Start at the first back-matter heading after the last real
+        # content heading, while preserving a genuine mid-book "Index" chapter.
+        last_content = max(content_headings, default=content_start - 1)
+        tail_candidates = [i for i in back_headings if i > last_content]
+        # Some EPUBs append the alphabetical index before a repeated contents
+        # page or an inside-back-cover page. Treat a late Index heading as the
+        # tail when no later chapter opener follows it; an Index section near
+        # the front of a book (for example, an API object index) remains content.
+        tail_index = next((
+            i for i in back_headings
+            if i >= int(len(lines) * 0.65)
+            and re.sub(r"^#{1,6}\s+", "", lines[i]).strip().lower()
+                in ("index", "subject index", "author index")
+            and not any(
+                re.match(r"^#{1,3}\s+", lines[j]) and _is_chapter_heading(lines[j])
+                for j in range(i + 1, len(lines))
+            )
+        ), None)
+        if tail_index is not None:
+            tail_candidates.append(tail_index)
+        if tail_candidates:
+            content_end = min(tail_candidates)
 
     return "\n".join(lines[content_start:content_end]).strip() + "\n"
 
 
 def _is_front_matter_heading(line: str) -> bool:
     heading = re.sub(r"^#{1,6}\s+", "", line).strip().lower()
-    front_patterns = [
-        "table of contents", "contents", "copyright", "dedication",
-        "about the author", "about the reviewer", "about the technical",
-        "preface", "acknowledgment", "foreword", "contributor",
-        "join our community", "discord", "landmarks", "cover",
-        "who this book is for", "what this book covers",
-        "what you need for this book", "conventions used",
-        "get in touch", "download the example", "packt.link",
-        "to get the most out", "sections", "reviews", "leave a review",
-        "making the most out", "unlock your book", "how to unlock",
-        "running a jupyter", "conventions", "code in action",
-        "why subscribe", "packtpub", "packt.com", "subscribe",
-        # O'Reilly front matter (curly apostrophes vary, so match without them)
-        "praise for", "revision history", "reilly online learning",
-        "how to contact us", "using code examples", "about this book",
-        "who should read this book", "why i wrote this book",
-        "navigating the book", "staying up-to-date", "safari",
-    ]
-    return any(p in heading for p in front_patterns)
+    heading = re.sub(r"\s+", " ", heading)
+    front_starts = (
+        "table of contents", "brief contents", "copyright", "dedication",
+        "what will you learn", "what you'll learn", "why this book",
+        "a word from the author", "from the author", "overview of the chapters",
+        "overview of the book", "who is this book for", "target audience",
+        "prerequisites", "overview of this book", "about the author",
+        "about the reviewer", "about the technical", "preface", "acknowledgment",
+        "foreword", "contributor", "join our community", "discord", "who this book is for",
+        "what this book covers", "what you need for this book", "conventions used",
+        "get in touch", "download the example", "packt.link", "to get the most out",
+        "reviews", "leave a review", "making the most out", "unlock your book",
+        "how to unlock", "running a jupyter", "conventions", "code in action",
+        "why subscribe", "packtpub", "packt.com", "subscribe", "praise for",
+        "revision history", "reilly online learning", "how to contact us",
+        "using code examples", "about this book", "who should read this book",
+        "why i wrote this book", "navigating the book", "staying up-to-date", "safari",
+    )
+    exact = {"contents", "cover", "landmarks", "sections"}
+    return heading in exact or heading.startswith(front_starts)
+
+
+_WORD_NUMERALS = (
+    "zero|one|two|three|four|five|six|seven|eight|nine|ten|"
+    "first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth"
+)
+_PART_NUMERALS = rf"(?:\d+|{_WORD_NUMERALS}|[ivxlcdm]+)"
+
+
+def _is_chapter_heading(line: str) -> bool:
+    """Recognize chapter and part openers with numeric or written ordinals."""
+    heading = re.sub(r"^#{1,6}\s+", "", line).strip()
+    return bool(re.match(
+        rf"^(?:chapter\s+{_PART_NUMERALS}|part\s+{_PART_NUMERALS}|"
+        r"\d+(?:\s+\S|[.:](?!\d)\s*\S)|\d+)(?=$|\s|[.:—–-])",
+        heading,
+        re.IGNORECASE,
+    ))
 
 
 def _is_back_matter_heading(line: str) -> bool:
@@ -115,10 +211,18 @@ def _is_back_matter_heading(line: str) -> bool:
     if heading in ("index", "subject index", "author index"):
         return True
     back_patterns = [
-        "other books you may enjoy", "packt page",
-        "download a free pdf",
+        "other books you may enjoy", "packt page", "download a free pdf",
+        "inside back cover",
     ]
     return any(p in heading for p in back_patterns)
+
+
+def _is_auxiliary_index_trailer(line: str) -> bool:
+    heading = re.sub(r"^#{1,6}\s+", "", line).strip().lower()
+    return any(p in heading for p in (
+        "colophon", "eula", "share your thoughts",
+        "packt is searching for authors like you",
+    ))
 
 
 def normalize_heading_levels(text: str) -> str:
@@ -136,7 +240,8 @@ def normalize_heading_levels(text: str) -> str:
     if min_level == 1:
         return text
 
-    shift = min_level - 1
+    chapter_count = sum(_is_chapter_heading(line) for line in lines)
+    shift = min_level - 2 if min_level == 3 and chapter_count >= 5 else min_level - 1
     result = []
     in_code = False
     for line in lines:
@@ -153,11 +258,104 @@ def normalize_heading_levels(text: str) -> str:
 
 def ingest_epub(epub_path: Path, output_path: Path) -> Path:
     text = convert_epub(epub_path)
-    text = clean_markdown(text)
+    text = clean_markdown(
+        text,
+        repair_extraction_artifacts=epub_path.stem == "storytelling-with-data",
+        repair_unclosed_fence=epub_path.stem == "vector-databases-introduction",
+    )
+    if sum(bool(re.match(r"^#{2,6}\s+", line)) for line in text.splitlines()) < 5:
+        text = reconstruct_epub_toc(epub_path, text)
     text = strip_front_back_matter(text)
+    if sum(bool(re.match(r"^#{2,6}\s+", line)) for line in text.splitlines()) < 5:
+        text = reconstruct_epub_toc(epub_path, text, allow_plain_labels=True)
     text = normalize_heading_levels(text)
     output_path.write_text(text, encoding="utf-8")
     return output_path
+
+
+def reconstruct_epub_toc(epub_path: Path, text: str, allow_plain_labels: bool = False) -> str:
+    """Rebuild chapter headings from an EPUB's nested navigation document."""
+    import zipfile
+    import xml.etree.ElementTree as ET
+
+    try:
+        with zipfile.ZipFile(epub_path) as archive:
+            toc_name = next((name for name in archive.namelist() if name.lower().endswith(".ncx")), None)
+            if not toc_name:
+                return text
+            root = ET.fromstring(archive.read(toc_name))
+    except (OSError, zipfile.BadZipFile, ET.ParseError):
+        return text
+
+    def local(tag: str) -> str:
+        return tag.rsplit("}", 1)[-1]
+
+    def normalized(value: str) -> str:
+        value = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", value)
+        return re.sub(r"[^\w]+", " ", value.casefold()).strip()
+
+    entries: list[tuple[int, str]] = []
+
+    def visit(parent, depth: int = 0) -> None:
+        for node in parent:
+            if local(node.tag) != "navPoint":
+                visit(node, depth)
+                continue
+            title = next((child.text or "" for child in node.iter() if local(child.tag) == "text"), "").strip()
+            structural = bool(re.match(r"(?i)^(?:chapter|part)\s+", title))
+            if allow_plain_labels:
+                structural = structural or bool(re.match(r"^(?:\d{1,2}[.:]|[A-Z][.:])\s+\S", title))
+            if title and structural:
+                entries.append((depth, title))
+            visit(node, depth + 1)
+
+    visit(root)
+    if not entries:
+        return text
+
+    all_top_level = all(depth == 0 for depth, _ in entries)
+    flat_numbered_outline = sum(
+        depth == 0 and bool(re.match(r"^\d{1,2}[.:]\s+\S", title))
+        for depth, title in entries
+    ) >= 5
+    flat_outline = all_top_level or flat_numbered_outline
+    doc_title = next((
+        (child.text or "").strip()
+        for node in root.iter()
+        if local(node.tag) == "docTitle"
+        for child in node.iter()
+        if local(child.tag) == "text" and (child.text or "").strip()
+    ), "")
+    lines = text.splitlines()
+    cursor = 0
+    for depth, title in entries:
+        title_match = re.match(r"(?i)^(chapter|part)\s+(?:\d+|[a-z]+|[ivxlcdm]+)\s*[:.\-–—]?\s*(.*)$", title)
+        variants = {normalized(title)}
+        if title_match and title_match.group(2):
+            variants.add(normalized(title_match.group(2)))
+        numbered_match = re.match(r"^(\d{1,2})[.:]\s*(.*)$", title)
+        if numbered_match and numbered_match.group(2):
+            variants.add(normalized(f"Chapter {numbered_match.group(1)} {numbered_match.group(2)}"))
+            variants.add(normalized(numbered_match.group(2)))
+        match_at = None
+        for i in range(cursor, len(lines)):
+            if not allow_plain_labels and not ("[" in lines[i] and "](" in lines[i]):
+                continue
+            candidate = normalized(lines[i])
+            if candidate in variants:
+                match_at = i
+                break
+        if match_at is None:
+            continue
+        # A flat navigation list gives no distinction between book chapters and
+        # subheadings. Keep those chapter openers at H2; nested EPUB navigation
+        # retains its part/chapter levels.
+        level = 2 if flat_outline and depth == 0 else min(3, depth + 1)
+        lines[match_at] = "#" * level + " " + title
+        cursor = match_at + 1
+    if flat_outline and doc_title:
+        lines.insert(0, "# " + doc_title)
+    return "\n".join(lines)
 
 
 def convert_pdf_with_toc(pdf_path: Path) -> str | None:
@@ -177,10 +375,18 @@ def convert_pdf_with_toc(pdf_path: Path) -> str | None:
         return None
 
     page_headings: dict[int, list[tuple[int, str]]] = {}
+    levels = {level for level, title, _ in toc if title.strip()}
+    flat_chapter_outline = (
+        len(toc) >= 5
+        and len(levels) == 1
+        and sum(_is_chapter_heading("# " + title) for _, title, _ in toc) >= 5
+    )
     for level, title, page in toc:
         title = title.strip()
         if not title:
             continue
+        if flat_chapter_outline and _is_chapter_heading("# " + title):
+            level = 2
         page_headings.setdefault(page - 1, []).append((level, title))
 
     parts = []
@@ -194,6 +400,69 @@ def convert_pdf_with_toc(pdf_path: Path) -> str | None:
 
     doc.close()
     return "\n\n".join(parts)
+
+
+def convert_pdf_with_layout(pdf_path: Path) -> str:
+    """Use PDF typography to recover headings when bookmarks are absent."""
+    import fitz  # PyMuPDF
+    from collections import Counter
+
+    doc = fitz.open(str(pdf_path))
+    page_dicts = [page.get_text("dict") for page in doc]
+    spans = [
+        span for page in page_dicts for block in page["blocks"]
+        for line in block.get("lines", []) for span in line["spans"]
+        if span["text"].strip()
+    ]
+    if not spans:
+        doc.close()
+        raise ValueError("PDF has no extractable text layer")
+
+    body_size = Counter(round(span["size"] * 2) / 2 for span in spans).most_common(1)[0][0]
+    parts = []
+    for page_number, page in enumerate(page_dicts):
+        extracted = []
+        for block in page["blocks"]:
+            for line in block.get("lines", []):
+                items = [span for span in line["spans"] if span["text"].strip()]
+                if not items:
+                    continue
+                body = re.sub(r"\s+", " ", "".join(s["text"] for s in items)).strip()
+                if not body or re.fullmatch(r"\d{1,4}", body):
+                    continue
+                size = max(s["size"] for s in items)
+                bold = any((s["flags"] & 16) or "bold" in s["font"].lower() for s in items)
+                extracted.append((body, size, bold))
+
+        page_lines = []
+        i = 0
+        while i < len(extracted):
+            body, size, bold = extracted[i]
+            number = re.fullmatch(r"\d{1,2}(?:\.\d{1,2}){1,3}", body)
+            if page_number >= 3 and number and i + 1 < len(extracted):
+                title = extracted[i + 1][0]
+                level = min(3, body.count(".") + 1)
+                page_lines.append("#" * level + " " + body + " " + title)
+                i += 2
+                continue
+            chapter = _is_chapter_heading("# " + body)
+            if page_number >= 3 and (size >= body_size * 1.75 or chapter):
+                page_lines.append("# " + body)
+            elif page_number >= 3 and (
+                    size >= body_size * 1.25 or (bold and size >= body_size * 1.05)
+            ):
+                page_lines.append("## " + body)
+            else:
+                page_lines.append(" " + body if re.match(r"^#{1,6}\s", body) else body)
+            i += 1
+        if page_lines:
+            parts.append("\n".join(page_lines))
+
+    doc.close()
+    text = "\n\n".join(parts)
+    if len(text.strip()) < 500:
+        raise ValueError("PDF text layer is too small to form usable markdown")
+    return text
 
 
 # Glyphs that should never appear in English technical PDFs. Some PDFs embed
@@ -219,13 +488,31 @@ def ingest_pdf(pdf_path: Path, output_path: Path) -> Path:
         print(f"  PyMuPDF text garbled ({_garble_ratio(text):.2%}); falling back to markitdown: {pdf_path.stem}")
         text = None
     if text is None:
-        # markitdown fallback (no TOC bookmarks or garbled body) — yields no
-        # headings, so front-matter stripping would be a no-op; skip it.
-        text = convert_epub(pdf_path)
-        text = clean_markdown(text)
-        text = normalize_heading_levels(text)
+        try:
+            text = convert_epub(pdf_path)
+        except Exception as error:
+            print(f"  MarkItDown PDF fallback unavailable ({error}); using PyMuPDF layout: {pdf_path.stem}")
+            text = convert_pdf_with_layout(pdf_path)
+            text = clean_markdown(
+                text,
+                repair_extraction_artifacts=pdf_path.stem == "storytelling-with-data",
+                repair_unclosed_fence=pdf_path.stem == "vector-databases-introduction",
+            )
+            text = strip_front_back_matter(text)
+            text = normalize_heading_levels(text)
+        else:
+            text = clean_markdown(
+                text,
+                repair_extraction_artifacts=pdf_path.stem == "storytelling-with-data",
+                repair_unclosed_fence=pdf_path.stem == "vector-databases-introduction",
+            )
+            text = normalize_heading_levels(text)
     else:
-        text = clean_markdown(text)
+        text = clean_markdown(
+            text,
+            repair_extraction_artifacts=pdf_path.stem == "storytelling-with-data",
+            repair_unclosed_fence=pdf_path.stem == "vector-databases-introduction",
+        )
         text = strip_front_back_matter(text)
         text = normalize_heading_levels(text)
     output_path.write_text(text, encoding="utf-8")
@@ -253,8 +540,6 @@ def ingest_all() -> list[Path]:
 
     # PDFs from domain directories
     for domain, source_dir in SOURCE_DIRS.items():
-        if domain == "applied-ml":
-            continue  # EPUBs already handled above
         for pdf_file in sorted(source_dir.glob("*.pdf")):
             stem = pdf_file.stem
             if stem not in BOOKS:

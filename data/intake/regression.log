@@ -1,0 +1,19 @@
+2026-09-28 18:34:15.387 python[81494:43676564] 2026-09-28 18:34:15.387944 [W:onnxruntime:Default, telemetry.cc:800 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+PASS ai-powered-search: byte-identical
+PASS llms-in-production: byte-identical
+PASS building-reliable-ai-systems: byte-identical
+PASS generative-ai-in-action: byte-identical
+PASS transformers-in-action: byte-identical
+PASS human-in-the-loop-ml: byte-identical
+PASS interpretable-ai: byte-identical
+PASS ml-platform-engineering: byte-identical
+PASS coding-with-ai: byte-identical
+PASS software-testing-with-genai: byte-identical
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+PASS designing-great-web-apis: byte-identical
+PASS production-ready-microservices: byte-identical
+PASS digitalocean-redis: byte-identical
+PASS release-it: byte-identical
+PASS oauth-rfcs-book: byte-identical
+
+Regression result: 15/15 compared; 0 differences/errors.

@@ -1,0 +1,172 @@
+2026-09-28 18:34:15.387 python[81495:43676565] 2026-09-28 18:34:15.387834 [W:onnxruntime:Default, telemetry.cc:800 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+PDF page-density calibration: n=44 existing books / 126 registered; nearest-rank p05 floor=1093 markdown chars per physical PDF page
+EPUBs have no stable page count; density is reported as n/a for reflowable sources.
+3d-data-science-python: 1117000 chars; pages=690; headings=322 (H2+ 304); parents=336; children=1200; chars/page=1618.8; PASS
+apis-a-strategy-guide: 301649 chars; pages=148; headings=170 (H2+ 159); parents=119; children=301; chars/page=2038.2; PASS
+advanced-analytics-pyspark: 414350 chars; pages=236; headings=116 (H2+ 105); parents=103; children=439; chars/page=1755.7; PASS
+advanced-apple-debugging: 704379 chars; pages=475; headings=189 (H2+ 182); parents=206; children=788; chars/page=1482.9; PASS
+analytics-tools-optimizing-ux: 79566 chars; pages=98; headings=101 (H2+ 92); parents=14; children=85; chars/page=811.9; markdown density 811.9 chars/page below 1093
+angular-up-and-running: 510800 chars; pages=311; headings=923 (H2+ 471); parents=491; children=758; chars/page=1642.4; PASS
+architecting-data-ml-platforms: 770910 chars; pages=n/a; headings=503 (H2+ 418); parents=231; children=1146; chars/page=n/a; PASS
+arm-assembly-internals: 780506 chars; pages=476; headings=267 (H2+ 265); parents=315; children=1103; chars/page=1639.7; PASS
+articulating-design-decisions: 439113 chars; pages=241; headings=65 (H2+ 52); parents=87; children=398; chars/page=1822.0; PASS
+assembly-language-x86-processors: 1302944 chars; pages=747; headings=466 (H2+ 449); parents=502; children=1852; chars/page=1744.2; PASS
+automating-data-quality-monitoring: 440725 chars; pages=n/a; headings=338 (H2+ 274); parents=234; children=1369; chars/page=n/a; PASS
+build-reasoning-model: 781043 chars; pages=440; headings=109 (H2+ 94); parents=165; children=844; chars/page=1775.1; PASS
+build-text-to-image-generator: 750848 chars; pages=362; headings=187 (H2+ 180); parents=221; children=865; chars/page=2074.2; PASS
+building-applications-ai-agents: 745081 chars; pages=559; headings=223 (H2+ 209); parents=196; children=722; chars/page=1332.9; PASS
+building-design-systems: 469550 chars; pages=345; headings=596 (H2+ 586); parents=440; children=652; chars/page=1361.0; PASS
+building-genai-services-fastapi: 840723 chars; pages=531; headings=203 (H2+ 199); parents=242; children=853; chars/page=1583.3; PASS
+building-knowledge-graphs: 554528 chars; pages=n/a; headings=538 (H2+ 428); parents=283; children=1510; chars/page=n/a; PASS
+building-machine-learning-pipelines: 701189 chars; pages=n/a; headings=16 (H2+ 15); parents=277; children=1883; chars/page=n/a; PASS
+building-micro-frontends: 652185 chars; pages=478; headings=302 (H2+ 291); parents=223; children=684; chars/page=1364.4; PASS
+building-secure-reliable-systems: 1165148 chars; pages=557; headings=392 (H2+ 385); parents=411; children=1104; chars/page=2091.8; PASS
+building-event-driven-data-mesh: 514418 chars; pages=262; headings=171 (H2+ 160); parents=135; children=468; chars/page=1963.4; PASS
+css-definitive-guide: 1853133 chars; pages=1597; headings=578 (H2+ 556); parents=589; children=2159; chars/page=1160.4; PASS
+css-in-depth-2e: 974176 chars; pages=545; headings=326 (H2+ 318); parents=324; children=1184; chars/page=1787.5; PASS
+certified-ethical-hacker: 990535 chars; pages=894; headings=164 (H2+ 148); parents=224; children=1040; chars/page=1108.0; PASS
+chaos-engineering: 672734 chars; pages=n/a; headings=368 (H2+ 254); parents=379; children=2157; chars/page=n/a; PASS
+cloud-native-devops-kubernetes: 600775 chars; pages=344; headings=453 (H2+ 436); parents=260; children=686; chars/page=1746.4; PASS
+cloud-native-security-cookbook: 746107 chars; pages=516; headings=487 (H2+ 476); parents=256; children=935; chars/page=1445.9; PASS
+cockroachdb-definitive-guide: 756835 chars; pages=487; headings=370 (H2+ 367); parents=382; children=922; chars/page=1554.1; PASS
+continuous-api-management: 817814 chars; pages=359; headings=189 (H2+ 177); parents=202; children=698; chars/page=2278.0; PASS
+creating-web-animations: 225032 chars; pages=210; headings=123 (H2+ 121); parents=114; children=290; chars/page=1071.6; markdown density 1071.6 chars/page below 1093
+d3js-in-action: 654540 chars; pages=386; headings=247 (H2+ 243); parents=261; children=886; chars/page=1695.7; PASS
+data-governance-definitive-guide: 494531 chars; pages=254; headings=182 (H2+ 171); parents=149; children=468; chars/page=1947.0; PASS
+data-governance-unity-catalog: 622749 chars; pages=385; headings=177 (H2+ 165); parents=166; children=582; chars/page=1617.5; PASS
+data-management-at-scale: 863837 chars; pages=413; headings=246 (H2+ 234); parents=191; children=706; chars/page=2091.6; PASS
+data-quality-fundamentals: 580151 chars; pages=311; headings=198 (H2+ 188); parents=190; children=588; chars/page=1865.4; PASS
+data-science-hard-parts: 391867 chars; pages=315; headings=213 (H2+ 195); parents=103; children=402; chars/page=1244.0; PASS
+data-science-for-business: 817627 chars; pages=409; headings=202 (H2+ 184); parents=199; children=802; chars/page=1999.1; PASS
+data-science-from-scratch: 616879 chars; pages=513; headings=267 (H2+ 240); parents=180; children=758; chars/page=1202.5; PASS
+database-internals: 700908 chars; pages=371; headings=238 (H2+ 233); parents=254; children=709; chars/page=1889.2; PASS
+deciphering-data-architectures: 556689 chars; pages=n/a; headings=322 (H2+ 200); parents=305; children=1655; chars/page=n/a; PASS
+delta-lake-definitive-guide: 701211 chars; pages=383; headings=222 (H2+ 208); parents=226; children=752; chars/page=1830.8; PASS
+design-for-how-people-think: 293682 chars; pages=238; headings=135 (H2+ 132); parents=137; children=324; chars/page=1234.0; PASS
+designing-autonomous-ai: 372276 chars; pages=248; headings=138 (H2+ 133); parents=144; children=384; chars/page=1501.1; PASS
+designing-data-intensive-applications: 1310180 chars; pages=613; headings=197 (H2+ 193); parents=284; children=1283; chars/page=2137.3; PASS
+designing-interfaces: 690865 chars; pages=602; headings=275 (H2+ 263); parents=209; children=704; chars/page=1147.6; PASS
+designing-llm-applications: 623962 chars; pages=367; headings=218 (H2+ 215); parents=232; children=654; chars/page=1700.2; PASS
+domain-specific-small-language-models: 655612 chars; pages=376; headings=102 (H2+ 98); parents=166; children=748; chars/page=1743.6; PASS
+effective-typescript: 671492 chars; pages=569; headings=94 (H2+ 83); parents=140; children=676; chars/page=1180.1; PASS
+effective-ui: 587464 chars; pages=314; headings=136 (H2+ 125); parents=150; children=540; chars/page=1870.9; PASS
+efficient-linux-command-line: 353826 chars; pages=248; headings=162 (H2+ 157); parents=159; children=464; chars/page=1426.7; PASS
+efficient-nodejs: 403764 chars; pages=n/a; headings=289 (H2+ 199); parents=247; children=1361; chars/page=n/a; PASS
+essential-graphrag: 325729 chars; pages=178; headings=126 (H2+ 115); parents=102; children=403; chars/page=1829.9; PASS
+essential-math-ai: 1191034 chars; pages=603; headings=389 (H2+ 375); parents=364; children=1222; chars/page=1975.2; PASS
+excel-for-accountants: 428304 chars; pages=289; headings=628 (H2+ 271); parents=408; children=713; chars/page=1482.0; PASS
+exploratory-data-analysis-tukey: 7445 chars; pages=711; headings=204 (H2+ 171); parents=34; children=34; chars/page=10.5; markdown density 10.5 chars/page below 1093
+exploratory-data-analysis-visualization: 660515 chars; pages=350; headings=167 (H2+ 156); parents=193; children=839; chars/page=1887.2; PASS
+financial-data-engineering: 1001686 chars; pages=540; headings=269 (H2+ 254); parents=268; children=951; chars/page=1855.0; PASS
+fluent-react: 676705 chars; pages=n/a; headings=289 (H2+ 186); parents=382; children=2020; chars/page=n/a; PASS
+foundations-scalable-systems: 628245 chars; pages=340; headings=183 (H2+ 179); parents=190; children=582; chars/page=1847.8; PASS
+fundamentals-computer-graphics: 1372476 chars; pages=737; headings=28 (H2+ 26); parents=230; children=1506; chars/page=1862.2; PASS
+fundamentals-data-engineering: 906797 chars; pages=544; headings=356 (H2+ 341); parents=299; children=902; chars/page=1666.9; PASS
+fundamentals-metadata-management: 343976 chars; pages=250; headings=147 (H2+ 142); parents=147; children=353; chars/page=1375.9; PASS
+fundamentals-microsoft-fabric: 511719 chars; pages=672; headings=261 (H2+ 241); parents=173; children=537; chars/page=761.5; markdown density 761.5 chars/page below 1093
+generative-deep-learning: 439674 chars; pages=330; headings=182 (H2+ 180); parents=182; children=523; chars/page=1332.3; PASS
+http-definitive-guide: 1245233 chars; pages=658; headings=817 (H2+ 782); parents=544; children=1543; chars/page=1892.5; PASS
+hands-on-large-language-models: 706418 chars; pages=n/a; headings=525 (H2+ 256); parents=542; children=2280; chars/page=n/a; PASS
+hands-on-rag-production: 728209 chars; pages=359; headings=122 (H2+ 116); parents=172; children=797; chars/page=2028.4; PASS
+hands-on-selenium-webdriver: 603335 chars; pages=422; headings=250 (H2+ 244); parents=248; children=686; chars/page=1429.7; PASS
+hands-on-unsupervised-learning: 616863 chars; pages=n/a; headings=500 (H2+ 360); parents=262; children=1072; chars/page=n/a; PASS
+head-first-statistics-analysis: 88745 chars; pages=n/a; headings=136 (H2+ 42); parents=94; children=112; chars/page=n/a; PASS
+holacracy: 368822 chars; pages=n/a; headings=13 (H2+ 10); parents=63; children=416; chars/page=n/a; PASS
+implementing-data-mesh: 401236 chars; pages=515; headings=176 (H2+ 158); parents=115; children=424; chars/page=779.1; markdown density 779.1 chars/page below 1093
+infrastructure-as-code: 707353 chars; pages=430; headings=359 (H2+ 354); parents=359; children=746; chars/page=1645.0; PASS
+inside-cyber-warfare: 263090 chars; pages=161; headings=115 (H2+ 107); parents=84; children=273; chars/page=1634.1; PASS
+intelligence-driven-incident-response: 719270 chars; pages=346; headings=236 (H2+ 233); parents=259; children=672; chars/page=2078.8; PASS
+data-visualization-storytelling: 111624 chars; pages=n/a; headings=180 (H2+ 171); parents=32; children=133; chars/page=n/a; PASS
+kafka-definitive-guide: 633816 chars; pages=322; headings=244 (H2+ 232); parents=192; children=610; chars/page=1968.4; PASS
+kubernetes-security-observability: 337738 chars; pages=195; headings=150 (H2+ 138); parents=109; children=316; chars/page=1732.0; PASS
+llmops: 569305 chars; pages=284; headings=250 (H2+ 240); parents=172; children=563; chars/page=2004.6; PASS
+langchain-life-sciences-healthcare: 830881 chars; pages=413; headings=89 (H2+ 87); parents=179; children=854; chars/page=2011.8; PASS
+laws-of-ux: 173615 chars; pages=153; headings=75 (H2+ 63); parents=49; children=172; chars/page=1134.7; PASS
+lean-ux: 291754 chars; pages=205; headings=131 (H2+ 119); parents=92; children=285; chars/page=1423.2; PASS
+learning-agile: 893567 chars; pages=419; headings=159 (H2+ 149); parents=209; children=918; chars/page=2132.6; PASS
+learning-git: 399099 chars; pages=399; headings=123 (H2+ 106); parents=105; children=463; chars/page=1000.2; markdown density 1000.2 chars/page below 1093
+learning-github-actions: 515560 chars; pages=414; headings=208 (H2+ 204); parents=211; children=599; chars/page=1245.3; PASS
+learning-javascript-design-patterns: 345744 chars; pages=199; headings=192 (H2+ 177); parents=122; children=395; chars/page=1737.4; PASS
+learning-modern-linux: 399295 chars; pages=261; headings=171 (H2+ 160); parents=125; children=466; chars/page=1529.9; PASS
+learning-opentelemetry: 283250 chars; pages=266; headings=135 (H2+ 124); parents=95; children=252; chars/page=1064.8; markdown density 1064.8 chars/page below 1093
+learning-spark: 465701 chars; pages=274; headings=189 (H2+ 178); parents=136; children=507; chars/page=1699.6; PASS
+learning-test-driven-development: 351952 chars; pages=280; headings=184 (H2+ 176); parents=180; children=436; chars/page=1257.0; PASS
+learning-threejs: 591660 chars; pages=517; headings=210 (H2+ 198); parents=203; children=713; chars/page=1144.4; PASS
+learning-vue: 414664 chars; pages=498; headings=180 (H2+ 167); parents=127; children=505; chars/page=832.7; markdown density 832.7 chars/page below 1093
+machine-learning-production-systems: 844746 chars; pages=985; headings=442 (H2+ 419); parents=272; children=905; chars/page=857.6; markdown density 857.6 chars/page below 1093
+machine-learning-econometrics: 686033 chars; pages=353; headings=235 (H2+ 226); parents=279; children=974; chars/page=1943.4; PASS
+making-sense-of-data: 462782 chars; pages=293; headings=162 (H2+ 150); parents=195; children=835; chars/page=1579.5; PASS
+microservice-architecture: 267565 chars; pages=144; headings=111 (H2+ 107); parents=105; children=265; chars/page=1858.1; PASS
+modern-data-analytics-excel: 253196 chars; pages=244; headings=192 (H2+ 189); parents=193; children=310; chars/page=1037.7; markdown density 1037.7 chars/page below 1093
+monolith-to-microservices: 464185 chars; pages=273; headings=218 (H2+ 210); parents=143; children=460; chars/page=1700.3; PASS
+nginx-cookbook: 352514 chars; pages=n/a; headings=535 (H2+ 396); parents=338; children=1761; chars/page=n/a; PASS
+natural-language-processing-transformers: 702397 chars; pages=409; headings=176 (H2+ 165); parents=204; children=775; chars/page=1717.4; PASS
+policy-as-code: 837917 chars; pages=1171; headings=210 (H2+ 195); parents=252; children=1095; chars/page=715.6; markdown density 715.6 chars/page below 1093
+practical-lakehouse-architecture: 449142 chars; pages=536; headings=176 (H2+ 167); parents=138; children=425; chars/page=838.0; markdown density 838.0 chars/page below 1093
+practical-linear-algebra-data-science: 511385 chars; pages=328; headings=233 (H2+ 217); parents=150; children=544; chars/page=1559.1; PASS
+practical-web-accessibility: 996037 chars; pages=n/a; headings=508 (H2+ 496); parents=358; children=1289; chars/page=n/a; PASS
+practical-reverse-engineering: 686525 chars; pages=383; headings=122 (H2+ 116); parents=201; children=945; chars/page=1792.5; PASS
+predictive-analytics-modern-enterprise: 545727 chars; pages=361; headings=123 (H2+ 114); parents=149; children=569; chars/page=1511.7; PASS
+project-management-with-ai: 586797 chars; pages=306; headings=284 (H2+ 279); parents=286; children=578; chars/page=1917.6; PASS
+rest-api-design-rulebook: 187904 chars; pages=114; headings=164 (H2+ 156); parents=97; children=230; chars/page=1648.3; PASS
+restful-web-apis: 738748 chars; pages=404; headings=388 (H2+ 371); parents=298; children=841; chars/page=1828.6; PASS
+real-world-svelte: 451048 chars; pages=282; headings=187 (H2+ 168); parents=142; children=512; chars/page=1599.5; PASS
+refactoring-ui: 100975 chars; pages=252; headings=153 (H2+ 144); parents=25; children=123; chars/page=400.7; markdown density 400.7 chars/page below 1093
+reinforcement-learning-finance: 308977 chars; pages=386; headings=78 (H2+ 66); parents=87; children=390; chars/page=800.5; markdown density 800.5 chars/page below 1093
+reverse-engineering-cybersecurity: 165839 chars; pages=n/a; headings=15 (H2+ 15); parents=24; children=145; chars/page=n/a; PASS
+reverse-engineering-for-beginners: 1368923 chars; pages=943; headings=727 (H2+ 713); parents=803; children=2640; chars/page=1451.7; PASS
+sql-server-advanced-troubleshooting: 863214 chars; pages=500; headings=309 (H2+ 292); parents=248; children=895; chars/page=1726.4; PASS
+scaling-machine-learning-with-spark: 555475 chars; pages=294; headings=171 (H2+ 161); parents=153; children=543; chars/page=1889.4; PASS
+software-supply-chain-security: 413609 chars; pages=242; headings=176 (H2+ 164); parents=138; children=398; chars/page=1709.1; PASS
+spark-definitive-guide: 1036988 chars; pages=601; headings=650 (H2+ 644); parents=654; children=1409; chars/page=1725.4; PASS
+statistics-by-simulation: 1210458 chars; pages=457; headings=108 (H2+ 101); parents=315; children=1638; chars/page=2648.7; PASS
+storytelling-in-design: 724561 chars; pages=n/a; headings=542 (H2+ 380); parents=252; children=876; chars/page=n/a; PASS
+strategic-writing-for-ux: 275970 chars; pages=195; headings=58 (H2+ 47); parents=67; children=289; chars/page=1415.2; PASS
+strengthening-deep-neural-networks: 410033 chars; pages=247; headings=109 (H2+ 104); parents=121; children=404; chars/page=1660.1; PASS
+testing-javascript-applications: 1044659 chars; pages=514; headings=189 (H2+ 184); parents=249; children=1145; chars/page=2032.4; PASS
+llm-security-playbook: 386000 chars; pages=380; headings=173 (H2+ 161); parents=119; children=342; chars/page=1015.8; markdown density 1015.8 chars/page below 1093
+enterprise-big-data-lake: 475406 chars; pages=n/a; headings=300 (H2+ 231); parents=271; children=1509; chars/page=n/a; PASS
+ghidra-book: 1040315 chars; pages=612; headings=350 (H2+ 321); parents=341; children=1148; chars/page=1699.9; PASS
+practitioners-guide-graph-data: 690696 chars; pages=420; headings=240 (H2+ 227); parents=211; children=705; chars/page=1644.5; PASS
+scrum-masters-path: 321632 chars; pages=n/a; headings=84 (H2+ 83); parents=92; children=361; chars/page=n/a; PASS
+webgpu-sourcebook: 694268 chars; pages=385; headings=98 (H2+ 84); parents=156; children=800; chars/page=1803.3; PASS
+think-like-ux-researcher: 562460 chars; pages=307; headings=58 (H2+ 51); parents=107; children=545; chars/page=1832.1; PASS
+think-stats-3e: 380614 chars; pages=324; headings=182 (H2+ 168); parents=100; children=474; chars/page=1174.7; PASS
+training-data-for-machine-learning: 593488 chars; pages=331; headings=311 (H2+ 302); parents=216; children=598; chars/page=1793.0; PASS
+typescript-cookbook: 708133 chars; pages=n/a; headings=533 (H2+ 411); parents=277; children=1648; chars/page=n/a; PASS
+ui-design-principles: 203782 chars; pages=323; headings=187 (H2+ 29); parents=157; children=334; chars/page=630.9; markdown density 630.9 chars/page below 1093
+ux-for-lean-startups: 367623 chars; pages=236; headings=16 (H2+ 13); parents=64; children=326; chars/page=1557.7; PASS
+unifying-business-data-code: 666599 chars; pages=n/a; headings=558 (H2+ 425); parents=259; children=927; chars/page=n/a; PASS
+user-story-mapping: 408609 chars; pages=324; headings=168 (H2+ 147); parents=111; children=416; chars/page=1261.1; PASS
+vector-databases-introduction: 423327 chars; pages=293; headings=9 (H2+ 8); parents=78; children=403; chars/page=1444.8; PASS
+web-accessibility-cookbook: 501066 chars; pages=381; headings=86 (H2+ 73); parents=98; children=537; chars/page=1315.1; PASS
+web-performance-engineering: 498037 chars; pages=256; headings=215 (H2+ 210); parents=219; children=522; chars/page=1945.5; PASS
+web-performance-in-action: 758210 chars; pages=378; headings=817 (H2+ 203); parents=630; children=1117; chars/page=2005.8; PASS
+web-scraping-with-python: 542346 chars; pages=306; headings=159 (H2+ 157); parents=175; children=603; chars/page=1772.4; PASS
+writing-excel-macros-vba: 856629 chars; pages=490; headings=974 (H2+ 968); parents=239; children=1033; chars/page=1748.2; PASS
+zero-trust-networks-2e: 645843 chars; pages=486; headings=286 (H2+ 273); parents=202; children=623; chars/page=1328.9; PASS
+asynchronousprogrammingwithcplusplus: 704600 chars; pages=n/a; headings=304 (H2+ 170); parents=231; children=848; chars/page=n/a; PASS
+bare-metalembeddedcprogramming: 645232 chars; pages=n/a; headings=487 (H2+ 351); parents=235; children=801; chars/page=n/a; PASS
+buildinglowlatencyapplicationswithc: 981451 chars; pages=n/a; headings=575 (H2+ 479); parents=306; children=1237; chars/page=n/a; PASS
+candalgorithmicthinkingforthecompletebeginner: 1075299 chars; pages=n/a; headings=581 (H2+ 571); parents=404; children=1456; chars/page=n/a; PASS
+cmakebestpractices: 644722 chars; pages=n/a; headings=296 (H2+ 139); parents=251; children=773; chars/page=n/a; PASS
+cplusplus20stlcookbook2e: 367155 chars; pages=n/a; headings=236 (H2+ 149); parents=132; children=475; chars/page=n/a; PASS
+cplusplusmemorymanagement: 806835 chars; pages=n/a; headings=256 (H2+ 119); parents=269; children=1055; chars/page=n/a; PASS
+cplusplusprogrammersmindset: 715826 chars; pages=n/a; headings=262 (H2+ 123); parents=239; children=875; chars/page=n/a; PASS
+datastructuresandalgorithmswiththecplusplusstl: 754110 chars; pages=n/a; headings=785 (H2+ 598); parents=230; children=822; chars/page=n/a; PASS
+debunkingcplusplusmyths: 431681 chars; pages=n/a; headings=124 (H2+ 27); parents=134; children=510; chars/page=n/a; PASS
+gpuprogrammingwithcplusplusandcuda: 352255 chars; pages=n/a; headings=159 (H2+ 56); parents=133; children=416; chars/page=n/a; PASS
+hands-ondesignpatternswithcplusplus2e: 1254947 chars; pages=n/a; headings=345 (H2+ 159); parents=371; children=1559; chars/page=n/a; PASS
+learnllvm17secondedition: 733421 chars; pages=n/a; headings=223 (H2+ 114); parents=226; children=934; chars/page=n/a; PASS
+llvmcodegeneration: 1273276 chars; pages=n/a; headings=387 (H2+ 230); parents=403; children=1562; chars/page=n/a; PASS
+moderncmakeforcplusplus2e: 810803 chars; pages=n/a; headings=452 (H2+ 282); parents=298; children=942; chars/page=n/a; PASS
+moderncplusplusprogrammingcookbook3eepub: 1414590 chars; pages=n/a; headings=84 (H2+ 62); parents=537; children=3596; chars/page=n/a; PASS
+qt6cplusplusguiprogrammingcookbook: 512327 chars; pages=n/a; headings=282 (H2+ 168); parents=156; children=661; chars/page=n/a; PASS
+refactoringwithcplusplus: 648936 chars; pages=n/a; headings=405 (H2+ 273); parents=209; children=735; chars/page=n/a; PASS
+softwarearchitecturewithcplusplussecondedition: 1416813 chars; pages=n/a; headings=682 (H2+ 435); parents=494; children=1598; chars/page=n/a; PASS
+storytelling-with-data: 352365 chars; pages=284; headings=165 (H2+ 154); parents=109; children=417; chars/page=1240.7; PASS
+templatemetaprogrammingwithc: 601173 chars; pages=n/a; headings=153 (H2+ 40); parents=166; children=745; chars/page=n/a; PASS
+x86-software-reverse-engineering: 418303 chars; pages=317; headings=395 (H2+ 377); parents=214; children=528; chars/page=1319.6; PASS
+
+Audited 166 books; flagged 16; unexcepted flags=0.

@@ -1,0 +1,4033 @@
+2026-09-28 16:13:04.809 python[74294:42985468] 2026-09-28 16:13:04.809184 [W:onnxruntime:Default, telemetry.cc:800 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Step 1: Ingesting EPUBs → markdown...
+  Skipping (exists): artificialintelligenceforcybersecurity
+  Skipping (exists): azureai-102certificationessentials
+  Skipping (exists): bayesiananalysiswithpython_thirdedition
+  Converting: building-machine-learning-pipelines
+  Skipping (exists): causalinferenceanddiscoveryinpython
+  Skipping (exists): deepreinforcementlearninghands-on_thirdedition
+  Skipping (exists): graphmachinelearning_secondedition
+  Converting: hands-on-unsupervised-learning
+  Skipping (exists): hands-onartificialintelligenceforiot_secondedition
+  Skipping (exists): hands-onmachinelearningwithcplusplus_secondedition
+  Skipping (exists): kagglebook_secondedition
+  Skipping (exists): machinelearningengineeringwithpython_secondedition
+  Skipping (exists): machinelearningforalgorithmictradingsecondedition
+  Skipping (exists): machinelearningwithpytorchandscikit-learn
+  Skipping (exists): masteringpytorch_secondedition
+  Skipping (exists): mathematicsofmachinelearning
+  Skipping (exists): moderntimeseriesforecastingwithpython_secondedition
+  Skipping (exists): optimization-algorithms
+  Skipping (exists): pandascookbook_thirdedition
+  Skipping (exists): pythonmachinelearningbyexample_fourthedition
+  Skipping (exists): scikit-learncookbook_thirdedition
+  Skipping (exists): asynchronousprogramminginrust
+  Skipping (exists): creativeprojectsforrustprogrammers
+  Skipping (exists): designpatternsandbestpracticesinrust
+  Skipping (exists): gamedevelopmentwithrustandwebassembly
+  Skipping (exists): hands-onconcurrencywithrust
+  Skipping (exists): practicalsystemprogrammingforrustdevelopers
+  Skipping (exists): rust_ebook
+  Skipping (exists): rustforblockchainapplicationdevelopment
+  Skipping (exists): rustforcplusplusdeveloper
+  Skipping (exists): rustprogramminghandbook
+  Skipping (exists): rustwebdevelopmentwithrocket
+  Skipping (exists): rustwebprogramming
+  Skipping (exists): speedupyourpythonwithrust
+  Skipping (exists): ai-engineering-huyen
+  Skipping (exists): ai-powered-search
+  Skipping (exists): art-of-ai-product-development
+  Skipping (exists): building-reliable-ai-systems
+  Skipping (exists): coding-with-ai
+  Skipping (exists): designing-ml-systems-huyen
+  Skipping (exists): effective-conversational-ai
+  Skipping (exists): financial-ai-in-practice
+  Skipping (exists): generative-ai-in-action
+  Converting: hands-on-large-language-models
+  Skipping (exists): human-in-the-loop-ml
+  Skipping (exists): illustrated-guide-ai-agents
+  Skipping (exists): interpretable-ai
+  Skipping (exists): llms-in-production
+  Skipping (exists): ml-platform-engineering
+  Skipping (exists): software-testing-with-genai
+  Skipping (exists): transformers-in-action
+  Skipping (exists): effective-platform-engineering
+  Skipping (exists): looks-good-to-me
+  Converting: chaos-engineering
+  Skipping (exists): linuxkernelprogramming
+  Skipping (exists): linuxservicemanagement-systemd
+  Skipping (exists): masteringlinuxadministration
+  Skipping (exists): masteringlinuxsecurityandhardening
+  Skipping (exists): masteringpythonnetworking
+  Skipping (exists): modernnetworkobservability
+  Converting: nginx-cookbook
+  Skipping (exists): seriouspython
+  Skipping (exists): ultimatelinuxshellscriptingguide
+  Skipping (exists): ultimateubuntuhandbook
+  Skipping (exists): architecture-patterns-with-python
+  Skipping (exists): building-event-driven-microservices
+  Skipping (exists): building-evolutionary-architectures
+  Skipping (exists): building-green-software
+  Skipping (exists): building-medallion-architectures
+  Skipping (exists): building-microservices-2e
+  Skipping (exists): building-multi-tenant-saas
+  Skipping (exists): designing-distributed-systems-2e
+  Skipping (exists): facilitating-software-architecture
+  Skipping (exists): flow-architectures
+  Skipping (exists): fundamentals-enterprise-architecture
+  Skipping (exists): learning-api-styles
+  Skipping (exists): learning-domain-driven-design
+  Skipping (exists): learning-systems-thinking
+  Skipping (exists): mastering-api-architecture
+  Skipping (exists): semantic-software-design
+  Skipping (exists): software-architect-elevator
+  Skipping (exists): software-architecture-hard-parts
+  Skipping (exists): software-architecture-metrics
+  Converting: efficient-nodejs
+  Converting: fluent-react
+  Converting: typescript-cookbook
+  Converting: data-visualization-storytelling
+  Converting: practical-web-accessibility
+  Converting: storytelling-in-design
+  Converting: architecting-data-ml-platforms
+  Converting: automating-data-quality-monitoring
+  Converting: building-knowledge-graphs
+  Converting: deciphering-data-architectures
+  Converting: enterprise-big-data-lake
+  Converting: unifying-business-data-code
+  Converting: head-first-statistics-analysis
+  Converting: asynchronousprogrammingwithcplusplus
+  Converting: bare-metalembeddedcprogramming
+  Converting: buildinglowlatencyapplicationswithc
+  Converting: candalgorithmicthinkingforthecompletebeginner
+  Converting: cmakebestpractices
+  Converting: cplusplus20stlcookbook2e
+  Converting: cplusplusmemorymanagement
+  Converting: cplusplusprogrammersmindset
+  Converting: datastructuresandalgorithmswiththecplusplusstl
+  Converting: debunkingcplusplusmyths
+  Converting: gpuprogrammingwithcplusplusandcuda
+  Converting: hands-ondesignpatternswithcplusplus2e
+  Converting: learnllvm17secondedition
+  Converting: llvmcodegeneration
+  Converting: moderncmakeforcplusplus2e
+  Converting: moderncplusplusprogrammingcookbook3eepub
+  Converting: qt6cplusplusguiprogrammingcookbook
+  Converting: refactoringwithcplusplus
+  Converting: softwarearchitecturewithcplusplussecondedition
+  Converting: templatemetaprogrammingwithc
+  Converting: reverse-engineering-cybersecurity
+  Converting: holacracy
+  Converting: scrum-masters-path
+  Skipping (exists): bishop-prml
+  Skipping (exists): cuda-programming-guide
+  Skipping (exists): d2l-en
+  Skipping (exists): lbdl
+  Skipping (exists): probml-advanced
+  Skipping (exists): probml-intro
+  Skipping (exists): understanding-deep-learning
+  Converting PDF: cockroachdb-definitive-guide
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+  Skipping (exists): database-design-2nd-ed
+  Converting PDF: database-internals
+  Skipping (exists): digitalocean-redis
+  Skipping (exists): little-redis-book
+  Skipping (exists): postgresql-14-internals
+  Converting PDF: practitioners-guide-graph-data
+  Skipping (exists): redis-for-dummies
+  Skipping (exists): sql-relational-theory
+  Converting PDF: sql-server-advanced-troubleshooting
+  Converting PDF: vector-databases-introduction
+  Skipping (exists): boneh-shoup-applied-cryptography
+  Converting PDF: building-secure-reliable-systems
+  Converting PDF: certified-ethical-hacker
+  Converting PDF: cloud-native-security-cookbook
+  Skipping (exists): crypto-101
+  Converting PDF: inside-cyber-warfare
+  Converting PDF: intelligence-driven-incident-response
+  Skipping (exists): joy-of-cryptography
+  Converting PDF: kubernetes-security-observability
+  Converting PDF: llm-security-playbook
+  Skipping (exists): oauth-rfcs-book
+  Skipping (exists): owasp-asvs-v5
+  Skipping (exists): owasp-developer-guide
+  Skipping (exists): owasp-wstg-v4.2
+  Converting PDF: policy-as-code
+  Converting PDF: software-supply-chain-security
+  Converting PDF: zero-trust-networks-2e
+  Converting PDF: designing-data-intensive-applications
+  Skipping (exists): designing-distributed-systems
+  Converting PDF: foundations-scalable-systems
+  Skipping (exists): agentic-design-patterns
+  Converting PDF: build-reasoning-model
+  Converting PDF: building-applications-ai-agents
+  Converting PDF: building-genai-services-fastapi
+  Converting PDF: designing-autonomous-ai
+  Converting PDF: designing-llm-applications
+  Converting PDF: domain-specific-small-language-models
+  Converting PDF: essential-graphrag
+  Converting PDF: hands-on-rag-production
+  Converting PDF: langchain-life-sciences-healthcare
+  Converting PDF: llmops
+  Converting PDF: natural-language-processing-transformers
+  Skipping (exists): ai-modern-approach
+  Skipping (exists): clean-architecture
+  Skipping (exists): clean-code
+  Skipping (exists): continuous-delivery
+  Skipping (exists): design-patterns-gof
+  Skipping (exists): designing-great-web-apis
+  Skipping (exists): domain-driven-design-evans
+  Skipping (exists): enterprise-integration-patterns
+  Skipping (exists): growing-oo-software-by-tests
+  Converting PDF: hands-on-selenium-webdriver
+  Skipping (exists): intro-to-algorithms-clrs
+  Converting PDF: learning-git
+  Converting PDF: learning-github-actions
+  Converting PDF: learning-test-driven-development
+  Skipping (exists): microservices-design-to-deploy
+  Skipping (exists): nosql-distilled
+  Skipping (exists): patterns-enterprise-application-architecture
+  Skipping (exists): pro-git
+  Skipping (exists): production-ready-microservices
+  Skipping (exists): refactoring
+  Skipping (exists): release-it
+  Skipping (exists): rest-in-practice
+  Skipping (exists): site-reliability-engineering
+  Skipping (exists): software-architecture-patterns
+  Skipping (exists): swebok
+  Skipping (exists): tdd-by-example
+  Converting PDF: testing-javascript-applications
+  Converting PDF: cloud-native-devops-kubernetes
+  Converting PDF: efficient-linux-command-line
+  Converting PDF: infrastructure-as-code
+  Converting PDF: learning-modern-linux
+  Converting PDF: learning-opentelemetry
+  Converting PDF: apis-a-strategy-guide
+  Converting PDF: continuous-api-management
+  Converting PDF: microservice-architecture
+  Converting PDF: monolith-to-microservices
+  Converting PDF: rest-api-design-rulebook
+  Converting PDF: restful-web-apis
+  Converting PDF: angular-up-and-running
+  ERROR converting angular-up-and-running: File conversion failed after 1 attempts:
+ - PdfConverter threw MissingDependencyException with message: PdfConverter recognized the input as a potential .pdf file, but the dependencies needed to read .pdf files have not been installed. To resolve this error, include the optional dependency [pdf] or [all] when installing MarkItDown. For example:
+
+* pip install 'markitdown[pdf]'
+* pip install 'markitdown[all]'
+* pip install 'markitdown[pdf, ...]'
+* etc.
+
+  Converting PDF: building-micro-frontends
+  Converting PDF: creating-web-animations
+  Converting PDF: css-definitive-guide
+  Converting PDF: css-in-depth-2e
+  Converting PDF: effective-typescript
+  Converting PDF: http-definitive-guide
+  Converting PDF: learning-javascript-design-patterns
+  Converting PDF: learning-threejs
+  Converting PDF: learning-vue
+  Converting PDF: real-world-svelte
+  Converting PDF: web-performance-engineering
+  Converting PDF: web-performance-in-action
+  ERROR converting web-performance-in-action: File conversion failed after 1 attempts:
+ - PdfConverter threw MissingDependencyException with message: PdfConverter recognized the input as a potential .pdf file, but the dependencies needed to read .pdf files have not been installed. To resolve this error, include the optional dependency [pdf] or [all] when installing MarkItDown. For example:
+
+* pip install 'markitdown[pdf]'
+* pip install 'markitdown[all]'
+* pip install 'markitdown[pdf, ...]'
+* etc.
+
+  Converting PDF: webgpu-sourcebook
+  Converting PDF: analytics-tools-optimizing-ux
+  Converting PDF: articulating-design-decisions
+  Converting PDF: building-design-systems
+  Converting PDF: d3js-in-action
+  Converting PDF: design-for-how-people-think
+  Converting PDF: designing-interfaces
+  Converting PDF: effective-ui
+  Converting PDF: laws-of-ux
+  Converting PDF: lean-ux
+  Converting PDF: refactoring-ui
+  Converting PDF: storytelling-with-data
+  Converting PDF: strategic-writing-for-ux
+  Converting PDF: think-like-ux-researcher
+  Converting PDF: ui-design-principles
+  ERROR converting ui-design-principles: File conversion failed after 1 attempts:
+ - PdfConverter threw MissingDependencyException with message: PdfConverter recognized the input as a potential .pdf file, but the dependencies needed to read .pdf files have not been installed. To resolve this error, include the optional dependency [pdf] or [all] when installing MarkItDown. For example:
+
+* pip install 'markitdown[pdf]'
+* pip install 'markitdown[all]'
+* pip install 'markitdown[pdf, ...]'
+* etc.
+
+  Converting PDF: ux-for-lean-startups
+  Converting PDF: web-accessibility-cookbook
+  Converting PDF: advanced-analytics-pyspark
+  Converting PDF: building-event-driven-data-mesh
+  Converting PDF: data-governance-definitive-guide
+  Converting PDF: data-governance-unity-catalog
+  Converting PDF: data-management-at-scale
+  Converting PDF: data-quality-fundamentals
+  Converting PDF: delta-lake-definitive-guide
+  Converting PDF: financial-data-engineering
+  Converting PDF: fundamentals-data-engineering
+  Converting PDF: fundamentals-metadata-management
+  Converting PDF: fundamentals-microsoft-fabric
+  Converting PDF: implementing-data-mesh
+  Converting PDF: kafka-definitive-guide
+  Converting PDF: learning-spark
+  Converting PDF: practical-lakehouse-architecture
+  Converting PDF: scaling-machine-learning-with-spark
+  Converting PDF: spark-definitive-guide
+  Converting PDF: web-scraping-with-python
+  Converting PDF: data-science-for-business
+  Converting PDF: data-science-from-scratch
+  Converting PDF: data-science-hard-parts
+  Converting PDF: excel-for-accountants
+  ERROR converting excel-for-accountants: File conversion failed after 1 attempts:
+ - PdfConverter threw MissingDependencyException with message: PdfConverter recognized the input as a potential .pdf file, but the dependencies needed to read .pdf files have not been installed. To resolve this error, include the optional dependency [pdf] or [all] when installing MarkItDown. For example:
+
+* pip install 'markitdown[pdf]'
+* pip install 'markitdown[all]'
+* pip install 'markitdown[pdf, ...]'
+* etc.
+
+  Converting PDF: exploratory-data-analysis-tukey
+  Converting PDF: exploratory-data-analysis-visualization
+  Converting PDF: making-sense-of-data
+  Converting PDF: modern-data-analytics-excel
+  Converting PDF: predictive-analytics-modern-enterprise
+  Converting PDF: statistics-by-simulation
+  Converting PDF: think-stats-3e
+  Converting PDF: writing-excel-macros-vba
+  Converting PDF: assembly-language-x86-processors
+  Converting PDF: fundamentals-computer-graphics
+  Converting PDF: advanced-apple-debugging
+  Converting PDF: arm-assembly-internals
+  Converting PDF: ghidra-book
+  Converting PDF: practical-reverse-engineering
+  Converting PDF: reverse-engineering-for-beginners
+  Converting PDF: x86-software-reverse-engineering
+  Converting PDF: learning-agile
+  Converting PDF: project-management-with-ai
+  Converting PDF: user-story-mapping
+  Skipping (exists): distributed-systems-fun-profit
+  Skipping (exists): postgresql-internals-interdb
+  Skipping (exists): use-the-index-luke
+  Skipping (exists): owasp-cheat-sheets
+2026-09-28 16:16:45.062 python[76637:42995951] 2026-09-28 16:16:45.062500 [W:onnxruntime:Default, telemetry.cc:800 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Step 2: Chunking markdown...
+  Chunking: advanced-analytics-pyspark
+    → 99 parents, 500 children
+  Chunking: advanced-apple-debugging
+    → 202 parents, 856 children
+  Skipping (exists): agentic-design-patterns
+  Skipping (exists): ai-engineering-huyen
+  Skipping (exists): ai-modern-approach
+  Skipping (exists): ai-powered-search
+  Chunking: analytics-tools-optimizing-ux
+    → 15 parents, 77 children
+  Chunking: apis-a-strategy-guide
+    → 119 parents, 348 children
+  Chunking: architecting-data-ml-platforms
+    → 163 parents, 718 children
+  Skipping (exists): architecture-patterns-with-python
+  Chunking: arm-assembly-internals
+    → 298 parents, 1219 children
+  Skipping (exists): art-of-ai-product-development
+  Chunking: articulating-design-decisions
+    → 85 parents, 470 children
+  Skipping (exists): artificialintelligenceforcybersecurity
+  Chunking: assembly-language-x86-processors
+    → 501 parents, 2155 children
+  Skipping (exists): asynchronousprogramminginrust
+  Chunking: asynchronousprogrammingwithcplusplus
+    → 235 parents, 1123 children
+  Chunking: automating-data-quality-monitoring
+    → 99 parents, 409 children
+  Skipping (exists): azureai-102certificationessentials
+  Chunking: bare-metalembeddedcprogramming
+    → 243 parents, 1309 children
+  Skipping (exists): bayesiananalysiswithpython_thirdedition
+  Skipping (exists): bishop-prml
+  Skipping (exists): boneh-shoup-applied-cryptography
+  Chunking: build-reasoning-model
+    → 160 parents, 1008 children
+  Chunking: building-applications-ai-agents
+    → 186 parents, 834 children
+  Chunking: building-design-systems
+    → 440 parents, 733 children
+  Chunking: building-event-driven-data-mesh
+    → 135 parents, 538 children
+  Skipping (exists): building-event-driven-microservices
+  Skipping (exists): building-evolutionary-architectures
+  Chunking: building-genai-services-fastapi
+    → 237 parents, 939 children
+  Skipping (exists): building-green-software
+  Chunking: building-knowledge-graphs
+    → 150 parents, 581 children
+  Chunking: building-machine-learning-pipelines
+    → 88 parents, 779 children
+  Skipping (exists): building-medallion-architectures
+  Chunking: building-micro-frontends
+    → 218 parents, 743 children
+  Skipping (exists): building-microservices-2e
+  Skipping (exists): building-multi-tenant-saas
+  Skipping (exists): building-reliable-ai-systems
+  Chunking: building-secure-reliable-systems
+    → 410 parents, 1273 children
+  Chunking: buildinglowlatencyapplicationswithc
+    → 309 parents, 1845 children
+  Chunking: candalgorithmicthinkingforthecompletebeginner
+    → 354 parents, 1435 children
+  Skipping (exists): causalinferenceanddiscoveryinpython
+  Chunking: certified-ethical-hacker
+    → 210 parents, 1200 children
+  Chunking: chaos-engineering
+    → 172 parents, 639 children
+  Skipping (exists): clean-architecture
+  Skipping (exists): clean-code
+  Chunking: cloud-native-devops-kubernetes
+    → 260 parents, 746 children
+  Chunking: cloud-native-security-cookbook
+    → 231 parents, 1048 children
+  Chunking: cmakebestpractices
+    → 259 parents, 941 children
+  Chunking: cockroachdb-definitive-guide
+    → 378 parents, 1018 children
+  Skipping (exists): coding-with-ai
+  Chunking: continuous-api-management
+    → 200 parents, 845 children
+  Skipping (exists): continuous-delivery
+  Chunking: cplusplus20stlcookbook2e
+    → 216 parents, 765 children
+  Chunking: cplusplusmemorymanagement
+    → 254 parents, 1045 children
+  Chunking: cplusplusprogrammersmindset
+    → 238 parents, 872 children
+  Chunking: creating-web-animations
+    → 114 parents, 314 children
+  Skipping (exists): creativeprojectsforrustprogrammers
+  Skipping (exists): crypto-101
+  Chunking: css-definitive-guide
+    → 567 parents, 2422 children
+  Chunking: css-in-depth-2e
+    → 303 parents, 1193 children
+  Skipping (exists): cuda-programming-guide
+  Skipping (exists): d2l-en
+  Chunking: d3js-in-action
+    → 244 parents, 936 children
+  Chunking: data-governance-definitive-guide
+    → 149 parents, 544 children
+  Chunking: data-governance-unity-catalog
+    → 164 parents, 652 children
+  Chunking: data-management-at-scale
+    → 270 parents, 911 children
+  Chunking: data-quality-fundamentals
+    → 188 parents, 683 children
+  Chunking: data-science-for-business
+    → 195 parents, 894 children
+  Chunking: data-science-from-scratch
+    → 173 parents, 868 children
+  Chunking: data-science-hard-parts
+    → 102 parents, 454 children
+  Chunking: data-visualization-storytelling
+    → 31 parents, 133 children
+  Skipping (exists): database-design-2nd-ed
+  Chunking: database-internals
+    → 252 parents, 783 children
+  Chunking: datastructuresandalgorithmswiththecplusplusstl
+    → 244 parents, 1258 children
+  Chunking: debunkingcplusplusmyths
+    → 137 parents, 555 children
+  Chunking: deciphering-data-architectures
+    → 146 parents, 520 children
+  Skipping (exists): deepreinforcementlearninghands-on_thirdedition
+  Chunking: delta-lake-definitive-guide
+    → 219 parents, 858 children
+  Chunking: design-for-how-people-think
+    → 137 parents, 354 children
+  Skipping (exists): design-patterns-gof
+  Chunking: designing-autonomous-ai
+    → 143 parents, 433 children
+  Chunking: designing-data-intensive-applications
+    → 275 parents, 1488 children
+  Skipping (exists): designing-distributed-systems-2e
+  Skipping (exists): designing-distributed-systems
+  Skipping (exists): designing-great-web-apis
+  Chunking: designing-interfaces
+    → 209 parents, 774 children
+  Chunking: designing-llm-applications
+    → 231 parents, 712 children
+  Skipping (exists): designing-ml-systems-huyen
+  Skipping (exists): designpatternsandbestpracticesinrust
+  Skipping (exists): digitalocean-redis
+  Skipping (exists): distributed-systems-fun-profit
+  Skipping (exists): domain-driven-design-evans
+  Chunking: domain-specific-small-language-models
+    → 151 parents, 844 children
+  Skipping (exists): effective-conversational-ai
+  Skipping (exists): effective-platform-engineering
+  Chunking: effective-typescript
+    → 129 parents, 847 children
+  Chunking: effective-ui
+    → 146 parents, 595 children
+  Chunking: efficient-linux-command-line
+    → 158 parents, 534 children
+  Chunking: efficient-nodejs
+    → 108 parents, 378 children
+  Chunking: enterprise-big-data-lake
+    → 123 parents, 459 children
+  Skipping (exists): enterprise-integration-patterns
+  Chunking: essential-graphrag
+    → 94 parents, 432 children
+  Chunking: exploratory-data-analysis-tukey
+    → 34 parents, 34 children
+  Chunking: exploratory-data-analysis-visualization
+    → 191 parents, 951 children
+  Skipping (exists): facilitating-software-architecture
+  Skipping (exists): financial-ai-in-practice
+  Chunking: financial-data-engineering
+    → 262 parents, 1056 children
+  Skipping (exists): flow-architectures
+  Chunking: fluent-react
+    → 198 parents, 701 children
+  Chunking: foundations-scalable-systems
+    → 190 parents, 651 children
+  Chunking: fundamentals-computer-graphics
+    → 230 parents, 1753 children
+  Chunking: fundamentals-data-engineering
+    → 294 parents, 990 children
+  Skipping (exists): fundamentals-enterprise-architecture
+  Chunking: fundamentals-metadata-management
+    → 146 parents, 392 children
+  Chunking: fundamentals-microsoft-fabric
+    → 171 parents, 589 children
+  Skipping (exists): gamedevelopmentwithrustandwebassembly
+  Skipping (exists): generative-ai-in-action
+  Chunking: ghidra-book
+    → 331 parents, 1303 children
+  Chunking: gpuprogrammingwithcplusplusandcuda
+    → 131 parents, 416 children
+  Skipping (exists): graphmachinelearning_secondedition
+  Skipping (exists): growing-oo-software-by-tests
+  Chunking: hands-on-large-language-models
+    → 334 parents, 808 children
+  Chunking: hands-on-rag-production
+    → 154 parents, 809 children
+  Chunking: hands-on-selenium-webdriver
+    → 247 parents, 780 children
+  Chunking: hands-on-unsupervised-learning
+    → 195 parents, 671 children
+  Skipping (exists): hands-onartificialintelligenceforiot_secondedition
+  Skipping (exists): hands-onconcurrencywithrust
+  Chunking: hands-ondesignpatternswithcplusplus2e
+    → 353 parents, 1720 children
+  Skipping (exists): hands-onmachinelearningwithcplusplus_secondedition
+  Chunking: head-first-statistics-analysis
+    → 94 parents, 112 children
+  Chunking: holacracy
+    → 42 parents, 395 children
+  Chunking: http-definitive-guide
+    → 532 parents, 1719 children
+  Skipping (exists): human-in-the-loop-ml
+  Skipping (exists): illustrated-guide-ai-agents
+  Chunking: implementing-data-mesh
+    → 114 parents, 426 children
+  Chunking: infrastructure-as-code
+    → 359 parents, 805 children
+  Chunking: inside-cyber-warfare
+    → 83 parents, 319 children
+  Chunking: intelligence-driven-incident-response
+    → 254 parents, 786 children
+  Skipping (exists): interpretable-ai
+  Skipping (exists): intro-to-algorithms-clrs
+  Skipping (exists): joy-of-cryptography
+  Chunking: kafka-definitive-guide
+    → 190 parents, 712 children
+  Skipping (exists): kagglebook_secondedition
+  Chunking: kubernetes-security-observability
+    → 106 parents, 365 children
+  Chunking: langchain-life-sciences-healthcare
+    → 145 parents, 890 children
+  Chunking: laws-of-ux
+    → 48 parents, 192 children
+  Skipping (exists): lbdl
+  Chunking: lean-ux
+    → 92 parents, 310 children
+  Chunking: learning-agile
+    → 200 parents, 984 children
+  Skipping (exists): learning-api-styles
+  Skipping (exists): learning-domain-driven-design
+  Chunking: learning-git
+    → 97 parents, 496 children
+  Chunking: learning-github-actions
+    → 205 parents, 635 children
+  Chunking: learning-javascript-design-patterns
+    → 119 parents, 445 children
+  Chunking: learning-modern-linux
+    → 124 parents, 513 children
+  Chunking: learning-opentelemetry
+    → 95 parents, 312 children
+  Chunking: learning-spark
+    → 135 parents, 561 children
+  Skipping (exists): learning-systems-thinking
+  Chunking: learning-test-driven-development
+    → 168 parents, 451 children
+  Chunking: learning-threejs
+    → 196 parents, 777 children
+  Chunking: learning-vue
+    → 123 parents, 543 children
+  Chunking: learnllvm17secondedition
+    → 225 parents, 1094 children
+  Skipping (exists): linuxkernelprogramming
+  Skipping (exists): linuxservicemanagement-systemd
+  Skipping (exists): little-redis-book
+  Chunking: llm-security-playbook
+    → 119 parents, 359 children
+  Chunking: llmops
+    → 170 parents, 631 children
+  Skipping (exists): llms-in-production
+  Chunking: llvmcodegeneration
+    → 356 parents, 1534 children
+  Skipping (exists): looks-good-to-me
+  Skipping (exists): machinelearningengineeringwithpython_secondedition
+  Skipping (exists): machinelearningforalgorithmictradingsecondedition
+  Skipping (exists): machinelearningwithpytorchandscikit-learn
+  Chunking: making-sense-of-data
+    → 164 parents, 843 children
+  Skipping (exists): mastering-api-architecture
+  Skipping (exists): masteringlinuxadministration
+  Skipping (exists): masteringlinuxsecurityandhardening
+  Skipping (exists): masteringpythonnetworking
+  Skipping (exists): masteringpytorch_secondedition
+  Skipping (exists): mathematicsofmachinelearning
+  Chunking: microservice-architecture
+    → 105 parents, 306 children
+  Skipping (exists): microservices-design-to-deploy
+  Skipping (exists): ml-platform-engineering
+  Chunking: modern-data-analytics-excel
+    → 193 parents, 329 children
+  Chunking: moderncmakeforcplusplus2e
+    → 293 parents, 934 children
+  Chunking: moderncplusplusprogrammingcookbook3eepub
+    → 230 parents, 3662 children
+  Skipping (exists): modernnetworkobservability
+  Skipping (exists): moderntimeseriesforecastingwithpython_secondedition
+  Chunking: monolith-to-microservices
+    → 140 parents, 519 children
+  Chunking: natural-language-processing-transformers
+    → 187 parents, 919 children
+  Chunking: nginx-cookbook
+    → 140 parents, 368 children
+  Skipping (exists): nosql-distilled
+  Skipping (exists): oauth-rfcs-book
+  Skipping (exists): optimization-algorithms
+  Skipping (exists): owasp-asvs-v5
+  Skipping (exists): owasp-cheat-sheets
+  Skipping (exists): owasp-developer-guide
+  Skipping (exists): owasp-wstg-v4.2
+  Skipping (exists): pandascookbook_thirdedition
+  Skipping (exists): patterns-enterprise-application-architecture
+  Chunking: policy-as-code
+    → 226 parents, 1102 children
+  Skipping (exists): postgresql-14-internals
+  Skipping (exists): postgresql-internals-interdb
+  Chunking: practical-lakehouse-architecture
+    → 133 parents, 471 children
+  Chunking: practical-reverse-engineering
+    → 186 parents, 1093 children
+  Chunking: practical-web-accessibility
+    → 336 parents, 1275 children
+  Skipping (exists): practicalsystemprogrammingforrustdevelopers
+  Chunking: practitioners-guide-graph-data
+    → 207 parents, 763 children
+  Chunking: predictive-analytics-modern-enterprise
+    → 144 parents, 650 children
+  Skipping (exists): pro-git
+  Skipping (exists): probml-advanced
+  Skipping (exists): probml-intro
+  Skipping (exists): production-ready-microservices
+  Chunking: project-management-with-ai
+    → 286 parents, 608 children
+  Skipping (exists): pythonmachinelearningbyexample_fourthedition
+  Chunking: qt6cplusplusguiprogrammingcookbook
+    → 160 parents, 737 children
+  Chunking: real-world-svelte
+    → 141 parents, 593 children
+  Skipping (exists): redis-for-dummies
+  Chunking: refactoring-ui
+    → 25 parents, 123 children
+  Skipping (exists): refactoring
+  Chunking: refactoringwithcplusplus
+    → 214 parents, 955 children
+  Skipping (exists): release-it
+  Chunking: rest-api-design-rulebook
+    → 97 parents, 249 children
+  Skipping (exists): rest-in-practice
+  Chunking: restful-web-apis
+    → 293 parents, 936 children
+  Chunking: reverse-engineering-cybersecurity
+    → 29 parents, 171 children
+  Chunking: reverse-engineering-for-beginners
+    → 798 parents, 3237 children
+  Skipping (exists): rust_ebook
+  Skipping (exists): rustforblockchainapplicationdevelopment
+  Skipping (exists): rustforcplusplusdeveloper
+  Skipping (exists): rustprogramminghandbook
+  Skipping (exists): rustwebdevelopmentwithrocket
+  Skipping (exists): rustwebprogramming
+  Chunking: scaling-machine-learning-with-spark
+    → 152 parents, 624 children
+  Skipping (exists): scikit-learncookbook_thirdedition
+  Chunking: scrum-masters-path
+    → 90 parents, 391 children
+  Skipping (exists): semantic-software-design
+  Skipping (exists): seriouspython
+  Skipping (exists): site-reliability-engineering
+  Skipping (exists): software-architect-elevator
+  Skipping (exists): software-architecture-hard-parts
+  Skipping (exists): software-architecture-metrics
+  Skipping (exists): software-architecture-patterns
+  Chunking: software-supply-chain-security
+    → 136 parents, 468 children
+  Skipping (exists): software-testing-with-genai
+  Chunking: softwarearchitecturewithcplusplussecondedition
+    → 484 parents, 1595 children
+  Chunking: spark-definitive-guide
+    → 650 parents, 1541 children
+  Skipping (exists): speedupyourpythonwithrust
+  Skipping (exists): sql-relational-theory
+  Chunking: sql-server-advanced-troubleshooting
+    → 242 parents, 985 children
+  Chunking: statistics-by-simulation
+    → 268 parents, 1759 children
+  Chunking: storytelling-in-design
+    → 251 parents, 873 children
+  Chunking: storytelling-with-data
+    → 128 parents, 501 children
+  Chunking: strategic-writing-for-ux
+    → 64 parents, 314 children
+  Skipping (exists): swebok
+  Skipping (exists): tdd-by-example
+  Chunking: templatemetaprogrammingwithc
+    → 159 parents, 734 children
+  Chunking: testing-javascript-applications
+    → 226 parents, 1259 children
+  Chunking: think-like-ux-researcher
+    → 98 parents, 591 children
+  Chunking: think-stats-3e
+    → 100 parents, 537 children
+  Skipping (exists): transformers-in-action
+  Chunking: typescript-cookbook
+    → 147 parents, 751 children
+  Skipping (exists): ultimatelinuxshellscriptingguide
+  Skipping (exists): ultimateubuntuhandbook
+  Skipping (exists): understanding-deep-learning
+  Chunking: unifying-business-data-code
+    → 202 parents, 638 children
+  Skipping (exists): use-the-index-luke
+  Chunking: user-story-mapping
+    → 109 parents, 452 children
+  Chunking: ux-for-lean-startups
+    → 55 parents, 363 children
+  Chunking: vector-databases-introduction
+    → 58 parents, 486 children
+  Chunking: web-accessibility-cookbook
+    → 112 parents, 675 children
+  Chunking: web-performance-engineering
+    → 219 parents, 587 children
+  Chunking: web-scraping-with-python
+    → 170 parents, 684 children
+  Chunking: webgpu-sourcebook
+    → 139 parents, 885 children
+  Chunking: writing-excel-macros-vba
+    → 214 parents, 1153 children
+  Chunking: x86-software-reverse-engineering
+    → 225 parents, 608 children
+  Chunking: zero-trust-networks-2e
+    → 197 parents, 682 children
+2026-09-28 16:33:30.006 python[82554:43028590] 2026-09-28 16:33:30.006057 [W:onnxruntime:Default, telemetry.cc:800 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Step 1: Ingesting EPUBs → markdown...
+  Skipping (exists): artificialintelligenceforcybersecurity
+  Skipping (exists): azureai-102certificationessentials
+  Skipping (exists): bayesiananalysiswithpython_thirdedition
+  Skipping (exists): building-machine-learning-pipelines
+  Skipping (exists): causalinferenceanddiscoveryinpython
+  Skipping (exists): deepreinforcementlearninghands-on_thirdedition
+  Skipping (exists): graphmachinelearning_secondedition
+  Skipping (exists): hands-on-unsupervised-learning
+  Skipping (exists): hands-onartificialintelligenceforiot_secondedition
+  Skipping (exists): hands-onmachinelearningwithcplusplus_secondedition
+  Skipping (exists): kagglebook_secondedition
+  Skipping (exists): machinelearningengineeringwithpython_secondedition
+  Skipping (exists): machinelearningforalgorithmictradingsecondedition
+  Skipping (exists): machinelearningwithpytorchandscikit-learn
+  Skipping (exists): masteringpytorch_secondedition
+  Skipping (exists): mathematicsofmachinelearning
+  Skipping (exists): moderntimeseriesforecastingwithpython_secondedition
+  Skipping (exists): optimization-algorithms
+  Skipping (exists): pandascookbook_thirdedition
+  Skipping (exists): pythonmachinelearningbyexample_fourthedition
+  Skipping (exists): scikit-learncookbook_thirdedition
+  Skipping (exists): asynchronousprogramminginrust
+  Skipping (exists): creativeprojectsforrustprogrammers
+  Skipping (exists): designpatternsandbestpracticesinrust
+  Skipping (exists): gamedevelopmentwithrustandwebassembly
+  Skipping (exists): hands-onconcurrencywithrust
+  Skipping (exists): practicalsystemprogrammingforrustdevelopers
+  Skipping (exists): rust_ebook
+  Skipping (exists): rustforblockchainapplicationdevelopment
+  Skipping (exists): rustforcplusplusdeveloper
+  Skipping (exists): rustprogramminghandbook
+  Skipping (exists): rustwebdevelopmentwithrocket
+  Skipping (exists): rustwebprogramming
+  Skipping (exists): speedupyourpythonwithrust
+  Skipping (exists): ai-engineering-huyen
+  Skipping (exists): ai-powered-search
+  Skipping (exists): art-of-ai-product-development
+  Skipping (exists): building-reliable-ai-systems
+  Skipping (exists): coding-with-ai
+  Skipping (exists): designing-ml-systems-huyen
+  Skipping (exists): effective-conversational-ai
+  Skipping (exists): financial-ai-in-practice
+  Skipping (exists): generative-ai-in-action
+  Skipping (exists): hands-on-large-language-models
+  Skipping (exists): human-in-the-loop-ml
+  Skipping (exists): illustrated-guide-ai-agents
+  Skipping (exists): interpretable-ai
+  Skipping (exists): llms-in-production
+  Skipping (exists): ml-platform-engineering
+  Skipping (exists): software-testing-with-genai
+  Skipping (exists): transformers-in-action
+  Skipping (exists): effective-platform-engineering
+  Skipping (exists): looks-good-to-me
+  Skipping (exists): chaos-engineering
+  Skipping (exists): linuxkernelprogramming
+  Skipping (exists): linuxservicemanagement-systemd
+  Skipping (exists): masteringlinuxadministration
+  Skipping (exists): masteringlinuxsecurityandhardening
+  Skipping (exists): masteringpythonnetworking
+  Skipping (exists): modernnetworkobservability
+  Skipping (exists): nginx-cookbook
+  Skipping (exists): seriouspython
+  Skipping (exists): ultimatelinuxshellscriptingguide
+  Skipping (exists): ultimateubuntuhandbook
+  Skipping (exists): architecture-patterns-with-python
+  Skipping (exists): building-event-driven-microservices
+  Skipping (exists): building-evolutionary-architectures
+  Skipping (exists): building-green-software
+  Skipping (exists): building-medallion-architectures
+  Skipping (exists): building-microservices-2e
+  Skipping (exists): building-multi-tenant-saas
+  Skipping (exists): designing-distributed-systems-2e
+  Skipping (exists): facilitating-software-architecture
+  Skipping (exists): flow-architectures
+  Skipping (exists): fundamentals-enterprise-architecture
+  Skipping (exists): learning-api-styles
+  Skipping (exists): learning-domain-driven-design
+  Skipping (exists): learning-systems-thinking
+  Skipping (exists): mastering-api-architecture
+  Skipping (exists): semantic-software-design
+  Skipping (exists): software-architect-elevator
+  Skipping (exists): software-architecture-hard-parts
+  Skipping (exists): software-architecture-metrics
+  Skipping (exists): efficient-nodejs
+  Skipping (exists): fluent-react
+  Skipping (exists): typescript-cookbook
+  Skipping (exists): data-visualization-storytelling
+  Skipping (exists): practical-web-accessibility
+  Skipping (exists): storytelling-in-design
+  Skipping (exists): architecting-data-ml-platforms
+  Skipping (exists): automating-data-quality-monitoring
+  Skipping (exists): building-knowledge-graphs
+  Skipping (exists): deciphering-data-architectures
+  Skipping (exists): enterprise-big-data-lake
+  Skipping (exists): unifying-business-data-code
+  Skipping (exists): head-first-statistics-analysis
+  Skipping (exists): asynchronousprogrammingwithcplusplus
+  Skipping (exists): bare-metalembeddedcprogramming
+  Skipping (exists): buildinglowlatencyapplicationswithc
+  Skipping (exists): candalgorithmicthinkingforthecompletebeginner
+  Skipping (exists): cmakebestpractices
+  Skipping (exists): cplusplus20stlcookbook2e
+  Skipping (exists): cplusplusmemorymanagement
+  Skipping (exists): cplusplusprogrammersmindset
+  Skipping (exists): datastructuresandalgorithmswiththecplusplusstl
+  Skipping (exists): debunkingcplusplusmyths
+  Skipping (exists): gpuprogrammingwithcplusplusandcuda
+  Skipping (exists): hands-ondesignpatternswithcplusplus2e
+  Skipping (exists): learnllvm17secondedition
+  Skipping (exists): llvmcodegeneration
+  Skipping (exists): moderncmakeforcplusplus2e
+  Skipping (exists): moderncplusplusprogrammingcookbook3eepub
+  Skipping (exists): qt6cplusplusguiprogrammingcookbook
+  Skipping (exists): refactoringwithcplusplus
+  Skipping (exists): softwarearchitecturewithcplusplussecondedition
+  Skipping (exists): templatemetaprogrammingwithc
+  Skipping (exists): reverse-engineering-cybersecurity
+  Skipping (exists): holacracy
+  Skipping (exists): scrum-masters-path
+  Converting PDF: 3d-data-science-python
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+  Converting PDF: build-text-to-image-generator
+  Converting PDF: essential-math-ai
+  Converting PDF: generative-deep-learning
+  Converting PDF: machine-learning-econometrics
+  Converting PDF: machine-learning-production-systems
+  Converting PDF: practical-linear-algebra-data-science
+  Converting PDF: reinforcement-learning-finance
+  Converting PDF: strengthening-deep-neural-networks
+  Converting PDF: training-data-for-machine-learning
+  Skipping (exists): bishop-prml
+  Skipping (exists): cuda-programming-guide
+  Skipping (exists): d2l-en
+  Skipping (exists): lbdl
+  Skipping (exists): probml-advanced
+  Skipping (exists): probml-intro
+  Skipping (exists): understanding-deep-learning
+  Skipping (exists): cockroachdb-definitive-guide
+  Skipping (exists): database-design-2nd-ed
+  Skipping (exists): database-internals
+  Skipping (exists): digitalocean-redis
+  Skipping (exists): little-redis-book
+  Skipping (exists): postgresql-14-internals
+  Skipping (exists): practitioners-guide-graph-data
+  Skipping (exists): redis-for-dummies
+  Skipping (exists): sql-relational-theory
+  Skipping (exists): sql-server-advanced-troubleshooting
+  Skipping (exists): vector-databases-introduction
+  Skipping (exists): boneh-shoup-applied-cryptography
+  Skipping (exists): building-secure-reliable-systems
+  Skipping (exists): certified-ethical-hacker
+  Skipping (exists): cloud-native-security-cookbook
+  Skipping (exists): crypto-101
+  Skipping (exists): inside-cyber-warfare
+  Skipping (exists): intelligence-driven-incident-response
+  Skipping (exists): joy-of-cryptography
+  Skipping (exists): kubernetes-security-observability
+  Skipping (exists): llm-security-playbook
+  Skipping (exists): oauth-rfcs-book
+  Skipping (exists): owasp-asvs-v5
+  Skipping (exists): owasp-developer-guide
+  Skipping (exists): owasp-wstg-v4.2
+  Skipping (exists): policy-as-code
+  Skipping (exists): software-supply-chain-security
+  Skipping (exists): zero-trust-networks-2e
+  Skipping (exists): designing-data-intensive-applications
+  Skipping (exists): designing-distributed-systems
+  Skipping (exists): foundations-scalable-systems
+  Skipping (exists): agentic-design-patterns
+  Skipping (exists): build-reasoning-model
+  Skipping (exists): building-applications-ai-agents
+  Skipping (exists): building-genai-services-fastapi
+  Skipping (exists): designing-autonomous-ai
+  Skipping (exists): designing-llm-applications
+  Skipping (exists): domain-specific-small-language-models
+  Skipping (exists): essential-graphrag
+  Skipping (exists): hands-on-rag-production
+  Skipping (exists): langchain-life-sciences-healthcare
+  Skipping (exists): llmops
+  Skipping (exists): natural-language-processing-transformers
+  Skipping (exists): ai-modern-approach
+  Skipping (exists): clean-architecture
+  Skipping (exists): clean-code
+  Skipping (exists): continuous-delivery
+  Skipping (exists): design-patterns-gof
+  Skipping (exists): designing-great-web-apis
+  Skipping (exists): domain-driven-design-evans
+  Skipping (exists): enterprise-integration-patterns
+  Skipping (exists): growing-oo-software-by-tests
+  Skipping (exists): hands-on-selenium-webdriver
+  Skipping (exists): intro-to-algorithms-clrs
+  Skipping (exists): learning-git
+  Skipping (exists): learning-github-actions
+  Skipping (exists): learning-test-driven-development
+  Skipping (exists): microservices-design-to-deploy
+  Skipping (exists): nosql-distilled
+  Skipping (exists): patterns-enterprise-application-architecture
+  Skipping (exists): pro-git
+  Skipping (exists): production-ready-microservices
+  Skipping (exists): refactoring
+  Skipping (exists): release-it
+  Skipping (exists): rest-in-practice
+  Skipping (exists): site-reliability-engineering
+  Skipping (exists): software-architecture-patterns
+  Skipping (exists): swebok
+  Skipping (exists): tdd-by-example
+  Skipping (exists): testing-javascript-applications
+  Skipping (exists): cloud-native-devops-kubernetes
+  Skipping (exists): efficient-linux-command-line
+  Skipping (exists): infrastructure-as-code
+  Skipping (exists): learning-modern-linux
+  Skipping (exists): learning-opentelemetry
+  Skipping (exists): apis-a-strategy-guide
+  Skipping (exists): continuous-api-management
+  Skipping (exists): microservice-architecture
+  Skipping (exists): monolith-to-microservices
+  Skipping (exists): rest-api-design-rulebook
+  Skipping (exists): restful-web-apis
+  Converting PDF: angular-up-and-running
+  MarkItDown PDF fallback unavailable (File conversion failed after 1 attempts:
+ - PdfConverter threw MissingDependencyException with message: PdfConverter recognized the input as a potential .pdf file, but the dependencies needed to read .pdf files have not been installed. To resolve this error, include the optional dependency [pdf] or [all] when installing MarkItDown. For example:
+
+* pip install 'markitdown[pdf]'
+* pip install 'markitdown[all]'
+* pip install 'markitdown[pdf, ...]'
+* etc.
+); using PyMuPDF layout: angular-up-and-running
+  Skipping (exists): building-micro-frontends
+  Skipping (exists): creating-web-animations
+  Skipping (exists): css-definitive-guide
+  Skipping (exists): css-in-depth-2e
+  Skipping (exists): effective-typescript
+  Skipping (exists): http-definitive-guide
+  Skipping (exists): learning-javascript-design-patterns
+  Skipping (exists): learning-threejs
+  Skipping (exists): learning-vue
+  Skipping (exists): real-world-svelte
+  Skipping (exists): web-performance-engineering
+  Converting PDF: web-performance-in-action
+  MarkItDown PDF fallback unavailable (File conversion failed after 1 attempts:
+ - PdfConverter threw MissingDependencyException with message: PdfConverter recognized the input as a potential .pdf file, but the dependencies needed to read .pdf files have not been installed. To resolve this error, include the optional dependency [pdf] or [all] when installing MarkItDown. For example:
+
+* pip install 'markitdown[pdf]'
+* pip install 'markitdown[all]'
+* pip install 'markitdown[pdf, ...]'
+* etc.
+); using PyMuPDF layout: web-performance-in-action
+  Skipping (exists): webgpu-sourcebook
+  Skipping (exists): analytics-tools-optimizing-ux
+  Skipping (exists): articulating-design-decisions
+  Skipping (exists): building-design-systems
+  Skipping (exists): d3js-in-action
+  Skipping (exists): design-for-how-people-think
+  Skipping (exists): designing-interfaces
+  Skipping (exists): effective-ui
+  Skipping (exists): laws-of-ux
+  Skipping (exists): lean-ux
+  Skipping (exists): refactoring-ui
+  Skipping (exists): storytelling-with-data
+  Skipping (exists): strategic-writing-for-ux
+  Skipping (exists): think-like-ux-researcher
+  Converting PDF: ui-design-principles
+  MarkItDown PDF fallback unavailable (File conversion failed after 1 attempts:
+ - PdfConverter threw MissingDependencyException with message: PdfConverter recognized the input as a potential .pdf file, but the dependencies needed to read .pdf files have not been installed. To resolve this error, include the optional dependency [pdf] or [all] when installing MarkItDown. For example:
+
+* pip install 'markitdown[pdf]'
+* pip install 'markitdown[all]'
+* pip install 'markitdown[pdf, ...]'
+* etc.
+); using PyMuPDF layout: ui-design-principles
+  Skipping (exists): ux-for-lean-startups
+  Skipping (exists): web-accessibility-cookbook
+  Skipping (exists): advanced-analytics-pyspark
+  Skipping (exists): building-event-driven-data-mesh
+  Skipping (exists): data-governance-definitive-guide
+  Skipping (exists): data-governance-unity-catalog
+  Skipping (exists): data-management-at-scale
+  Skipping (exists): data-quality-fundamentals
+  Skipping (exists): delta-lake-definitive-guide
+  Skipping (exists): financial-data-engineering
+  Skipping (exists): fundamentals-data-engineering
+  Skipping (exists): fundamentals-metadata-management
+  Skipping (exists): fundamentals-microsoft-fabric
+  Skipping (exists): implementing-data-mesh
+  Skipping (exists): kafka-definitive-guide
+  Skipping (exists): learning-spark
+  Skipping (exists): practical-lakehouse-architecture
+  Skipping (exists): scaling-machine-learning-with-spark
+  Skipping (exists): spark-definitive-guide
+  Skipping (exists): web-scraping-with-python
+  Skipping (exists): data-science-for-business
+  Skipping (exists): data-science-from-scratch
+  Skipping (exists): data-science-hard-parts
+  Converting PDF: excel-for-accountants
+  MarkItDown PDF fallback unavailable (File conversion failed after 1 attempts:
+ - PdfConverter threw MissingDependencyException with message: PdfConverter recognized the input as a potential .pdf file, but the dependencies needed to read .pdf files have not been installed. To resolve this error, include the optional dependency [pdf] or [all] when installing MarkItDown. For example:
+
+* pip install 'markitdown[pdf]'
+* pip install 'markitdown[all]'
+* pip install 'markitdown[pdf, ...]'
+* etc.
+); using PyMuPDF layout: excel-for-accountants
+  Skipping (exists): exploratory-data-analysis-tukey
+  Skipping (exists): exploratory-data-analysis-visualization
+  Skipping (exists): making-sense-of-data
+  Skipping (exists): modern-data-analytics-excel
+  Skipping (exists): predictive-analytics-modern-enterprise
+  Skipping (exists): statistics-by-simulation
+  Skipping (exists): think-stats-3e
+  Skipping (exists): writing-excel-macros-vba
+  Skipping (exists): assembly-language-x86-processors
+  Skipping (exists): fundamentals-computer-graphics
+  Skipping (exists): advanced-apple-debugging
+  Skipping (exists): arm-assembly-internals
+  Skipping (exists): ghidra-book
+  Skipping (exists): practical-reverse-engineering
+  Skipping (exists): reverse-engineering-for-beginners
+  Skipping (exists): x86-software-reverse-engineering
+  Skipping (exists): learning-agile
+  Skipping (exists): project-management-with-ai
+  Skipping (exists): user-story-mapping
+  Skipping (exists): distributed-systems-fun-profit
+  Skipping (exists): postgresql-internals-interdb
+  Skipping (exists): use-the-index-luke
+  Skipping (exists): owasp-cheat-sheets
+2026-09-28 16:37:24.950 python[84616:43037003] 2026-09-28 16:37:24.949968 [W:onnxruntime:Default, telemetry.cc:800 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Step 2: Chunking markdown...
+  Chunking: 3d-data-science-python
+    → 333 parents, 1353 children
+  Skipping (exists): advanced-analytics-pyspark
+  Skipping (exists): advanced-apple-debugging
+  Skipping (exists): agentic-design-patterns
+  Skipping (exists): ai-engineering-huyen
+  Skipping (exists): ai-modern-approach
+  Skipping (exists): ai-powered-search
+  Skipping (exists): analytics-tools-optimizing-ux
+  Chunking: angular-up-and-running
+    → 238 parents, 635 children
+  Skipping (exists): apis-a-strategy-guide
+  Skipping (exists): architecting-data-ml-platforms
+  Skipping (exists): architecture-patterns-with-python
+  Skipping (exists): arm-assembly-internals
+  Skipping (exists): art-of-ai-product-development
+  Skipping (exists): articulating-design-decisions
+  Skipping (exists): artificialintelligenceforcybersecurity
+  Skipping (exists): assembly-language-x86-processors
+  Skipping (exists): asynchronousprogramminginrust
+  Skipping (exists): asynchronousprogrammingwithcplusplus
+  Skipping (exists): automating-data-quality-monitoring
+  Skipping (exists): azureai-102certificationessentials
+  Skipping (exists): bare-metalembeddedcprogramming
+  Skipping (exists): bayesiananalysiswithpython_thirdedition
+  Skipping (exists): bishop-prml
+  Skipping (exists): boneh-shoup-applied-cryptography
+  Skipping (exists): build-reasoning-model
+  Chunking: build-text-to-image-generator
+    → 218 parents, 1007 children
+  Skipping (exists): building-applications-ai-agents
+  Skipping (exists): building-design-systems
+  Skipping (exists): building-event-driven-data-mesh
+  Skipping (exists): building-event-driven-microservices
+  Skipping (exists): building-evolutionary-architectures
+  Skipping (exists): building-genai-services-fastapi
+  Skipping (exists): building-green-software
+  Skipping (exists): building-knowledge-graphs
+  Skipping (exists): building-machine-learning-pipelines
+  Skipping (exists): building-medallion-architectures
+  Skipping (exists): building-micro-frontends
+  Skipping (exists): building-microservices-2e
+  Skipping (exists): building-multi-tenant-saas
+  Skipping (exists): building-reliable-ai-systems
+  Skipping (exists): building-secure-reliable-systems
+  Skipping (exists): buildinglowlatencyapplicationswithc
+  Skipping (exists): candalgorithmicthinkingforthecompletebeginner
+  Skipping (exists): causalinferenceanddiscoveryinpython
+  Skipping (exists): certified-ethical-hacker
+  Skipping (exists): chaos-engineering
+  Skipping (exists): clean-architecture
+  Skipping (exists): clean-code
+  Skipping (exists): cloud-native-devops-kubernetes
+  Skipping (exists): cloud-native-security-cookbook
+  Skipping (exists): cmakebestpractices
+  Skipping (exists): cockroachdb-definitive-guide
+  Skipping (exists): coding-with-ai
+  Skipping (exists): continuous-api-management
+  Skipping (exists): continuous-delivery
+  Skipping (exists): cplusplus20stlcookbook2e
+  Skipping (exists): cplusplusmemorymanagement
+  Skipping (exists): cplusplusprogrammersmindset
+  Skipping (exists): creating-web-animations
+  Skipping (exists): creativeprojectsforrustprogrammers
+  Skipping (exists): crypto-101
+  Skipping (exists): css-definitive-guide
+  Skipping (exists): css-in-depth-2e
+  Skipping (exists): cuda-programming-guide
+  Skipping (exists): d2l-en
+  Skipping (exists): d3js-in-action
+  Skipping (exists): data-governance-definitive-guide
+  Skipping (exists): data-governance-unity-catalog
+  Skipping (exists): data-management-at-scale
+  Skipping (exists): data-quality-fundamentals
+  Skipping (exists): data-science-for-business
+  Skipping (exists): data-science-from-scratch
+  Skipping (exists): data-science-hard-parts
+  Skipping (exists): data-visualization-storytelling
+  Skipping (exists): database-design-2nd-ed
+  Skipping (exists): database-internals
+  Skipping (exists): datastructuresandalgorithmswiththecplusplusstl
+  Skipping (exists): debunkingcplusplusmyths
+  Skipping (exists): deciphering-data-architectures
+  Skipping (exists): deepreinforcementlearninghands-on_thirdedition
+  Skipping (exists): delta-lake-definitive-guide
+  Skipping (exists): design-for-how-people-think
+  Skipping (exists): design-patterns-gof
+  Skipping (exists): designing-autonomous-ai
+  Skipping (exists): designing-data-intensive-applications
+  Skipping (exists): designing-distributed-systems-2e
+  Skipping (exists): designing-distributed-systems
+  Skipping (exists): designing-great-web-apis
+  Skipping (exists): designing-interfaces
+  Skipping (exists): designing-llm-applications
+  Skipping (exists): designing-ml-systems-huyen
+  Skipping (exists): designpatternsandbestpracticesinrust
+  Skipping (exists): digitalocean-redis
+  Skipping (exists): distributed-systems-fun-profit
+  Skipping (exists): domain-driven-design-evans
+  Skipping (exists): domain-specific-small-language-models
+  Skipping (exists): effective-conversational-ai
+  Skipping (exists): effective-platform-engineering
+  Skipping (exists): effective-typescript
+  Skipping (exists): effective-ui
+  Skipping (exists): efficient-linux-command-line
+  Skipping (exists): efficient-nodejs
+  Skipping (exists): enterprise-big-data-lake
+  Skipping (exists): enterprise-integration-patterns
+  Skipping (exists): essential-graphrag
+  Chunking: essential-math-ai
+    → 366 parents, 1436 children
+  Chunking: excel-for-accountants
+    → 115 parents, 499 children
+  Skipping (exists): exploratory-data-analysis-tukey
+  Skipping (exists): exploratory-data-analysis-visualization
+  Skipping (exists): facilitating-software-architecture
+  Skipping (exists): financial-ai-in-practice
+  Skipping (exists): financial-data-engineering
+  Skipping (exists): flow-architectures
+  Skipping (exists): fluent-react
+  Skipping (exists): foundations-scalable-systems
+  Skipping (exists): fundamentals-computer-graphics
+  Skipping (exists): fundamentals-data-engineering
+  Skipping (exists): fundamentals-enterprise-architecture
+  Skipping (exists): fundamentals-metadata-management
+  Skipping (exists): fundamentals-microsoft-fabric
+  Skipping (exists): gamedevelopmentwithrustandwebassembly
+  Skipping (exists): generative-ai-in-action
+  Chunking: generative-deep-learning
+    → 184 parents, 582 children
+  Skipping (exists): ghidra-book
+  Skipping (exists): gpuprogrammingwithcplusplusandcuda
+  Skipping (exists): graphmachinelearning_secondedition
+  Skipping (exists): growing-oo-software-by-tests
+  Skipping (exists): hands-on-large-language-models
+  Skipping (exists): hands-on-rag-production
+  Skipping (exists): hands-on-selenium-webdriver
+  Skipping (exists): hands-on-unsupervised-learning
+  Skipping (exists): hands-onartificialintelligenceforiot_secondedition
+  Skipping (exists): hands-onconcurrencywithrust
+  Skipping (exists): hands-ondesignpatternswithcplusplus2e
+  Skipping (exists): hands-onmachinelearningwithcplusplus_secondedition
+  Skipping (exists): head-first-statistics-analysis
+  Skipping (exists): holacracy
+  Skipping (exists): http-definitive-guide
+  Skipping (exists): human-in-the-loop-ml
+  Skipping (exists): illustrated-guide-ai-agents
+  Skipping (exists): implementing-data-mesh
+  Skipping (exists): infrastructure-as-code
+  Skipping (exists): inside-cyber-warfare
+  Skipping (exists): intelligence-driven-incident-response
+  Skipping (exists): interpretable-ai
+  Skipping (exists): intro-to-algorithms-clrs
+  Skipping (exists): joy-of-cryptography
+  Skipping (exists): kafka-definitive-guide
+  Skipping (exists): kagglebook_secondedition
+  Skipping (exists): kubernetes-security-observability
+  Skipping (exists): langchain-life-sciences-healthcare
+  Skipping (exists): laws-of-ux
+  Skipping (exists): lbdl
+  Skipping (exists): lean-ux
+  Skipping (exists): learning-agile
+  Skipping (exists): learning-api-styles
+  Skipping (exists): learning-domain-driven-design
+  Skipping (exists): learning-git
+  Skipping (exists): learning-github-actions
+  Skipping (exists): learning-javascript-design-patterns
+  Skipping (exists): learning-modern-linux
+  Skipping (exists): learning-opentelemetry
+  Skipping (exists): learning-spark
+  Skipping (exists): learning-systems-thinking
+  Skipping (exists): learning-test-driven-development
+  Skipping (exists): learning-threejs
+  Skipping (exists): learning-vue
+  Skipping (exists): learnllvm17secondedition
+  Skipping (exists): linuxkernelprogramming
+  Skipping (exists): linuxservicemanagement-systemd
+  Skipping (exists): little-redis-book
+  Skipping (exists): llm-security-playbook
+  Skipping (exists): llmops
+  Skipping (exists): llms-in-production
+  Skipping (exists): llvmcodegeneration
+  Skipping (exists): looks-good-to-me
+  Chunking: machine-learning-econometrics
+    → 278 parents, 1127 children
+  Chunking: machine-learning-production-systems
+    → 270 parents, 940 children
+  Skipping (exists): machinelearningengineeringwithpython_secondedition
+  Skipping (exists): machinelearningforalgorithmictradingsecondedition
+  Skipping (exists): machinelearningwithpytorchandscikit-learn
+  Skipping (exists): making-sense-of-data
+  Skipping (exists): mastering-api-architecture
+  Skipping (exists): masteringlinuxadministration
+  Skipping (exists): masteringlinuxsecurityandhardening
+  Skipping (exists): masteringpythonnetworking
+  Skipping (exists): masteringpytorch_secondedition
+  Skipping (exists): mathematicsofmachinelearning
+  Skipping (exists): microservice-architecture
+  Skipping (exists): microservices-design-to-deploy
+  Skipping (exists): ml-platform-engineering
+  Skipping (exists): modern-data-analytics-excel
+  Skipping (exists): moderncmakeforcplusplus2e
+  Skipping (exists): moderncplusplusprogrammingcookbook3eepub
+  Skipping (exists): modernnetworkobservability
+  Skipping (exists): moderntimeseriesforecastingwithpython_secondedition
+  Skipping (exists): monolith-to-microservices
+  Skipping (exists): natural-language-processing-transformers
+  Skipping (exists): nginx-cookbook
+  Skipping (exists): nosql-distilled
+  Skipping (exists): oauth-rfcs-book
+  Skipping (exists): optimization-algorithms
+  Skipping (exists): owasp-asvs-v5
+  Skipping (exists): owasp-cheat-sheets
+  Skipping (exists): owasp-developer-guide
+  Skipping (exists): owasp-wstg-v4.2
+  Skipping (exists): pandascookbook_thirdedition
+  Skipping (exists): patterns-enterprise-application-architecture
+  Skipping (exists): policy-as-code
+  Skipping (exists): postgresql-14-internals
+  Skipping (exists): postgresql-internals-interdb
+  Skipping (exists): practical-lakehouse-architecture
+  Chunking: practical-linear-algebra-data-science
+    → 149 parents, 617 children
+  Skipping (exists): practical-reverse-engineering
+  Skipping (exists): practical-web-accessibility
+  Skipping (exists): practicalsystemprogrammingforrustdevelopers
+  Skipping (exists): practitioners-guide-graph-data
+  Skipping (exists): predictive-analytics-modern-enterprise
+  Skipping (exists): pro-git
+  Skipping (exists): probml-advanced
+  Skipping (exists): probml-intro
+  Skipping (exists): production-ready-microservices
+  Skipping (exists): project-management-with-ai
+  Skipping (exists): pythonmachinelearningbyexample_fourthedition
+  Skipping (exists): qt6cplusplusguiprogrammingcookbook
+  Skipping (exists): real-world-svelte
+  Skipping (exists): redis-for-dummies
+  Skipping (exists): refactoring-ui
+  Skipping (exists): refactoring
+  Skipping (exists): refactoringwithcplusplus
+  Chunking: reinforcement-learning-finance
+    → 82 parents, 426 children
+  Skipping (exists): release-it
+  Skipping (exists): rest-api-design-rulebook
+  Skipping (exists): rest-in-practice
+  Skipping (exists): restful-web-apis
+  Skipping (exists): reverse-engineering-cybersecurity
+  Skipping (exists): reverse-engineering-for-beginners
+  Skipping (exists): rust_ebook
+  Skipping (exists): rustforblockchainapplicationdevelopment
+  Skipping (exists): rustforcplusplusdeveloper
+  Skipping (exists): rustprogramminghandbook
+  Skipping (exists): rustwebdevelopmentwithrocket
+  Skipping (exists): rustwebprogramming
+  Skipping (exists): scaling-machine-learning-with-spark
+  Skipping (exists): scikit-learncookbook_thirdedition
+  Skipping (exists): scrum-masters-path
+  Skipping (exists): semantic-software-design
+  Skipping (exists): seriouspython
+  Skipping (exists): site-reliability-engineering
+  Skipping (exists): software-architect-elevator
+  Skipping (exists): software-architecture-hard-parts
+  Skipping (exists): software-architecture-metrics
+  Skipping (exists): software-architecture-patterns
+  Skipping (exists): software-supply-chain-security
+  Skipping (exists): software-testing-with-genai
+  Skipping (exists): softwarearchitecturewithcplusplussecondedition
+  Skipping (exists): spark-definitive-guide
+  Skipping (exists): speedupyourpythonwithrust
+  Skipping (exists): sql-relational-theory
+  Skipping (exists): sql-server-advanced-troubleshooting
+  Skipping (exists): statistics-by-simulation
+  Skipping (exists): storytelling-in-design
+  Skipping (exists): storytelling-with-data
+  Skipping (exists): strategic-writing-for-ux
+  Chunking: strengthening-deep-neural-networks
+    → 120 parents, 473 children
+  Skipping (exists): swebok
+  Skipping (exists): tdd-by-example
+  Skipping (exists): templatemetaprogrammingwithc
+  Skipping (exists): testing-javascript-applications
+  Skipping (exists): think-like-ux-researcher
+  Skipping (exists): think-stats-3e
+  Chunking: training-data-for-machine-learning
+    → 216 parents, 669 children
+  Skipping (exists): transformers-in-action
+  Skipping (exists): typescript-cookbook
+  Chunking: ui-design-principles
+    → 81 parents, 303 children
+  Skipping (exists): ultimatelinuxshellscriptingguide
+  Skipping (exists): ultimateubuntuhandbook
+  Skipping (exists): understanding-deep-learning
+  Skipping (exists): unifying-business-data-code
+  Skipping (exists): use-the-index-luke
+  Skipping (exists): user-story-mapping
+  Skipping (exists): ux-for-lean-startups
+  Skipping (exists): vector-databases-introduction
+  Skipping (exists): web-accessibility-cookbook
+  Skipping (exists): web-performance-engineering
+  Chunking: web-performance-in-action
+    → 239 parents, 881 children
+  Skipping (exists): web-scraping-with-python
+  Skipping (exists): webgpu-sourcebook
+  Skipping (exists): writing-excel-macros-vba
+  Skipping (exists): x86-software-reverse-engineering
+  Skipping (exists): zero-trust-networks-2e
+2026-09-28 17:09:32.378 python[93122:43090680] 2026-09-28 17:09:32.378833 [W:onnxruntime:Default, telemetry.cc:800 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Step 1: Ingesting EPUBs → markdown...
+  Skipping (exists): artificialintelligenceforcybersecurity
+  Skipping (exists): azureai-102certificationessentials
+  Skipping (exists): bayesiananalysiswithpython_thirdedition
+  Converting: building-machine-learning-pipelines
+  Skipping (exists): causalinferenceanddiscoveryinpython
+  Skipping (exists): deepreinforcementlearninghands-on_thirdedition
+  Skipping (exists): graphmachinelearning_secondedition
+  Converting: hands-on-unsupervised-learning
+  Skipping (exists): hands-onartificialintelligenceforiot_secondedition
+  Skipping (exists): hands-onmachinelearningwithcplusplus_secondedition
+  Skipping (exists): kagglebook_secondedition
+  Skipping (exists): machinelearningengineeringwithpython_secondedition
+  Skipping (exists): machinelearningforalgorithmictradingsecondedition
+  Skipping (exists): machinelearningwithpytorchandscikit-learn
+  Skipping (exists): masteringpytorch_secondedition
+  Skipping (exists): mathematicsofmachinelearning
+  Skipping (exists): moderntimeseriesforecastingwithpython_secondedition
+  Skipping (exists): optimization-algorithms
+  Skipping (exists): pandascookbook_thirdedition
+  Skipping (exists): pythonmachinelearningbyexample_fourthedition
+  Skipping (exists): scikit-learncookbook_thirdedition
+  Skipping (exists): asynchronousprogramminginrust
+  Skipping (exists): creativeprojectsforrustprogrammers
+  Skipping (exists): designpatternsandbestpracticesinrust
+  Skipping (exists): gamedevelopmentwithrustandwebassembly
+  Skipping (exists): hands-onconcurrencywithrust
+  Skipping (exists): practicalsystemprogrammingforrustdevelopers
+  Skipping (exists): rust_ebook
+  Skipping (exists): rustforblockchainapplicationdevelopment
+  Skipping (exists): rustforcplusplusdeveloper
+  Skipping (exists): rustprogramminghandbook
+  Skipping (exists): rustwebdevelopmentwithrocket
+  Skipping (exists): rustwebprogramming
+  Skipping (exists): speedupyourpythonwithrust
+  Skipping (exists): ai-engineering-huyen
+  Skipping (exists): ai-powered-search
+  Skipping (exists): art-of-ai-product-development
+  Skipping (exists): building-reliable-ai-systems
+  Skipping (exists): coding-with-ai
+  Skipping (exists): designing-ml-systems-huyen
+  Skipping (exists): effective-conversational-ai
+  Skipping (exists): financial-ai-in-practice
+  Skipping (exists): generative-ai-in-action
+  Converting: hands-on-large-language-models
+  Skipping (exists): human-in-the-loop-ml
+  Skipping (exists): illustrated-guide-ai-agents
+  Skipping (exists): interpretable-ai
+  Skipping (exists): llms-in-production
+  Skipping (exists): ml-platform-engineering
+  Skipping (exists): software-testing-with-genai
+  Skipping (exists): transformers-in-action
+  Skipping (exists): effective-platform-engineering
+  Skipping (exists): looks-good-to-me
+  Converting: chaos-engineering
+  Skipping (exists): linuxkernelprogramming
+  Skipping (exists): linuxservicemanagement-systemd
+  Skipping (exists): masteringlinuxadministration
+  Skipping (exists): masteringlinuxsecurityandhardening
+  Skipping (exists): masteringpythonnetworking
+  Skipping (exists): modernnetworkobservability
+  Converting: nginx-cookbook
+  Skipping (exists): seriouspython
+  Skipping (exists): ultimatelinuxshellscriptingguide
+  Skipping (exists): ultimateubuntuhandbook
+  Skipping (exists): architecture-patterns-with-python
+  Skipping (exists): building-event-driven-microservices
+  Skipping (exists): building-evolutionary-architectures
+  Skipping (exists): building-green-software
+  Skipping (exists): building-medallion-architectures
+  Skipping (exists): building-microservices-2e
+  Skipping (exists): building-multi-tenant-saas
+  Skipping (exists): designing-distributed-systems-2e
+  Skipping (exists): facilitating-software-architecture
+  Skipping (exists): flow-architectures
+  Skipping (exists): fundamentals-enterprise-architecture
+  Skipping (exists): learning-api-styles
+  Skipping (exists): learning-domain-driven-design
+  Skipping (exists): learning-systems-thinking
+  Skipping (exists): mastering-api-architecture
+  Skipping (exists): semantic-software-design
+  Skipping (exists): software-architect-elevator
+  Skipping (exists): software-architecture-hard-parts
+  Skipping (exists): software-architecture-metrics
+  Converting: efficient-nodejs
+  Converting: fluent-react
+  Converting: typescript-cookbook
+  Converting: data-visualization-storytelling
+  Converting: practical-web-accessibility
+  Converting: storytelling-in-design
+  Converting: architecting-data-ml-platforms
+  Converting: automating-data-quality-monitoring
+  Converting: building-knowledge-graphs
+  Converting: deciphering-data-architectures
+  Converting: enterprise-big-data-lake
+  Converting: unifying-business-data-code
+  Converting: head-first-statistics-analysis
+  Converting: asynchronousprogrammingwithcplusplus
+  Converting: bare-metalembeddedcprogramming
+  Converting: buildinglowlatencyapplicationswithc
+  Converting: candalgorithmicthinkingforthecompletebeginner
+  Converting: cmakebestpractices
+  Converting: cplusplus20stlcookbook2e
+  Converting: cplusplusmemorymanagement
+  Converting: cplusplusprogrammersmindset
+  Converting: datastructuresandalgorithmswiththecplusplusstl
+  Converting: debunkingcplusplusmyths
+  Converting: gpuprogrammingwithcplusplusandcuda
+  Converting: hands-ondesignpatternswithcplusplus2e
+  Converting: learnllvm17secondedition
+  Converting: llvmcodegeneration
+  Converting: moderncmakeforcplusplus2e
+  Converting: moderncplusplusprogrammingcookbook3eepub
+  Converting: qt6cplusplusguiprogrammingcookbook
+  Converting: refactoringwithcplusplus
+  Converting: softwarearchitecturewithcplusplussecondedition
+  Converting: templatemetaprogrammingwithc
+  Converting: reverse-engineering-cybersecurity
+  Converting: holacracy
+  Converting: scrum-masters-path
+  Converting PDF: 3d-data-science-python
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+  Converting PDF: build-text-to-image-generator
+  Converting PDF: essential-math-ai
+  Converting PDF: generative-deep-learning
+  Converting PDF: machine-learning-econometrics
+  Converting PDF: machine-learning-production-systems
+  Converting PDF: practical-linear-algebra-data-science
+  Converting PDF: reinforcement-learning-finance
+  Converting PDF: strengthening-deep-neural-networks
+  Converting PDF: training-data-for-machine-learning
+  Skipping (exists): bishop-prml
+  Skipping (exists): cuda-programming-guide
+  Skipping (exists): d2l-en
+  Skipping (exists): lbdl
+  Skipping (exists): probml-advanced
+  Skipping (exists): probml-intro
+  Skipping (exists): understanding-deep-learning
+  Converting PDF: cockroachdb-definitive-guide
+  Skipping (exists): database-design-2nd-ed
+  Converting PDF: database-internals
+  Skipping (exists): digitalocean-redis
+  Skipping (exists): little-redis-book
+  Skipping (exists): postgresql-14-internals
+  Converting PDF: practitioners-guide-graph-data
+  Skipping (exists): redis-for-dummies
+  Skipping (exists): sql-relational-theory
+  Converting PDF: sql-server-advanced-troubleshooting
+  Converting PDF: vector-databases-introduction
+  Skipping (exists): boneh-shoup-applied-cryptography
+  Converting PDF: building-secure-reliable-systems
+  Converting PDF: certified-ethical-hacker
+  Converting PDF: cloud-native-security-cookbook
+  Skipping (exists): crypto-101
+  Converting PDF: inside-cyber-warfare
+  Converting PDF: intelligence-driven-incident-response
+  Skipping (exists): joy-of-cryptography
+  Converting PDF: kubernetes-security-observability
+  Converting PDF: llm-security-playbook
+  Skipping (exists): oauth-rfcs-book
+  Skipping (exists): owasp-asvs-v5
+  Skipping (exists): owasp-developer-guide
+  Skipping (exists): owasp-wstg-v4.2
+  Converting PDF: policy-as-code
+  Converting PDF: software-supply-chain-security
+  Converting PDF: zero-trust-networks-2e
+  Converting PDF: designing-data-intensive-applications
+  Skipping (exists): designing-distributed-systems
+  Converting PDF: foundations-scalable-systems
+  Skipping (exists): agentic-design-patterns
+  Converting PDF: build-reasoning-model
+  Converting PDF: building-applications-ai-agents
+  Converting PDF: building-genai-services-fastapi
+  Converting PDF: designing-autonomous-ai
+  Converting PDF: designing-llm-applications
+  Converting PDF: domain-specific-small-language-models
+  Converting PDF: essential-graphrag
+  Converting PDF: hands-on-rag-production
+  Converting PDF: langchain-life-sciences-healthcare
+  Converting PDF: llmops
+  Converting PDF: natural-language-processing-transformers
+  Skipping (exists): ai-modern-approach
+  Skipping (exists): clean-architecture
+  Skipping (exists): clean-code
+  Skipping (exists): continuous-delivery
+  Skipping (exists): design-patterns-gof
+  Skipping (exists): designing-great-web-apis
+  Skipping (exists): domain-driven-design-evans
+  Skipping (exists): enterprise-integration-patterns
+  Skipping (exists): growing-oo-software-by-tests
+  Converting PDF: hands-on-selenium-webdriver
+  Skipping (exists): intro-to-algorithms-clrs
+  Converting PDF: learning-git
+  Converting PDF: learning-github-actions
+  Converting PDF: learning-test-driven-development
+  Skipping (exists): microservices-design-to-deploy
+  Skipping (exists): nosql-distilled
+  Skipping (exists): patterns-enterprise-application-architecture
+  Skipping (exists): pro-git
+  Skipping (exists): production-ready-microservices
+  Skipping (exists): refactoring
+  Skipping (exists): release-it
+  Skipping (exists): rest-in-practice
+  Skipping (exists): site-reliability-engineering
+  Skipping (exists): software-architecture-patterns
+  Skipping (exists): swebok
+  Skipping (exists): tdd-by-example
+  Converting PDF: testing-javascript-applications
+  Converting PDF: cloud-native-devops-kubernetes
+  Converting PDF: efficient-linux-command-line
+  Converting PDF: infrastructure-as-code
+  Converting PDF: learning-modern-linux
+  Converting PDF: learning-opentelemetry
+  Converting PDF: apis-a-strategy-guide
+  Converting PDF: continuous-api-management
+  Converting PDF: microservice-architecture
+  Converting PDF: monolith-to-microservices
+  Converting PDF: rest-api-design-rulebook
+  Converting PDF: restful-web-apis
+  Converting PDF: angular-up-and-running
+  MarkItDown PDF fallback unavailable (File conversion failed after 1 attempts:
+ - PdfConverter threw MissingDependencyException with message: PdfConverter recognized the input as a potential .pdf file, but the dependencies needed to read .pdf files have not been installed. To resolve this error, include the optional dependency [pdf] or [all] when installing MarkItDown. For example:
+
+* pip install 'markitdown[pdf]'
+* pip install 'markitdown[all]'
+* pip install 'markitdown[pdf, ...]'
+* etc.
+); using PyMuPDF layout: angular-up-and-running
+  Converting PDF: building-micro-frontends
+  Converting PDF: creating-web-animations
+  Converting PDF: css-definitive-guide
+  Converting PDF: css-in-depth-2e
+  Converting PDF: effective-typescript
+  Converting PDF: http-definitive-guide
+  Converting PDF: learning-javascript-design-patterns
+  Converting PDF: learning-threejs
+  Converting PDF: learning-vue
+  Converting PDF: real-world-svelte
+  Converting PDF: web-performance-engineering
+  Converting PDF: web-performance-in-action
+  MarkItDown PDF fallback unavailable (File conversion failed after 1 attempts:
+ - PdfConverter threw MissingDependencyException with message: PdfConverter recognized the input as a potential .pdf file, but the dependencies needed to read .pdf files have not been installed. To resolve this error, include the optional dependency [pdf] or [all] when installing MarkItDown. For example:
+
+* pip install 'markitdown[pdf]'
+* pip install 'markitdown[all]'
+* pip install 'markitdown[pdf, ...]'
+* etc.
+); using PyMuPDF layout: web-performance-in-action
+  Converting PDF: webgpu-sourcebook
+  Converting PDF: analytics-tools-optimizing-ux
+  Converting PDF: articulating-design-decisions
+  Converting PDF: building-design-systems
+  Converting PDF: d3js-in-action
+  Converting PDF: design-for-how-people-think
+  Converting PDF: designing-interfaces
+  Converting PDF: effective-ui
+  Converting PDF: laws-of-ux
+  Converting PDF: lean-ux
+  Converting PDF: refactoring-ui
+  Converting PDF: storytelling-with-data
+  Converting PDF: strategic-writing-for-ux
+  Converting PDF: think-like-ux-researcher
+  Converting PDF: ui-design-principles
+  MarkItDown PDF fallback unavailable (File conversion failed after 1 attempts:
+ - PdfConverter threw MissingDependencyException with message: PdfConverter recognized the input as a potential .pdf file, but the dependencies needed to read .pdf files have not been installed. To resolve this error, include the optional dependency [pdf] or [all] when installing MarkItDown. For example:
+
+* pip install 'markitdown[pdf]'
+* pip install 'markitdown[all]'
+* pip install 'markitdown[pdf, ...]'
+* etc.
+); using PyMuPDF layout: ui-design-principles
+  Converting PDF: ux-for-lean-startups
+  Converting PDF: web-accessibility-cookbook
+  Converting PDF: advanced-analytics-pyspark
+  Converting PDF: building-event-driven-data-mesh
+  Converting PDF: data-governance-definitive-guide
+  Converting PDF: data-governance-unity-catalog
+  Converting PDF: data-management-at-scale
+  Converting PDF: data-quality-fundamentals
+  Converting PDF: delta-lake-definitive-guide
+  Converting PDF: financial-data-engineering
+  Converting PDF: fundamentals-data-engineering
+  Converting PDF: fundamentals-metadata-management
+  Converting PDF: fundamentals-microsoft-fabric
+  Converting PDF: implementing-data-mesh
+  Converting PDF: kafka-definitive-guide
+  Converting PDF: learning-spark
+  Converting PDF: practical-lakehouse-architecture
+  Converting PDF: scaling-machine-learning-with-spark
+  Converting PDF: spark-definitive-guide
+  Converting PDF: web-scraping-with-python
+  Converting PDF: data-science-for-business
+  Converting PDF: data-science-from-scratch
+  Converting PDF: data-science-hard-parts
+  Converting PDF: excel-for-accountants
+  MarkItDown PDF fallback unavailable (File conversion failed after 1 attempts:
+ - PdfConverter threw MissingDependencyException with message: PdfConverter recognized the input as a potential .pdf file, but the dependencies needed to read .pdf files have not been installed. To resolve this error, include the optional dependency [pdf] or [all] when installing MarkItDown. For example:
+
+* pip install 'markitdown[pdf]'
+* pip install 'markitdown[all]'
+* pip install 'markitdown[pdf, ...]'
+* etc.
+); using PyMuPDF layout: excel-for-accountants
+  Converting PDF: exploratory-data-analysis-tukey
+  Converting PDF: exploratory-data-analysis-visualization
+  Converting PDF: making-sense-of-data
+  Converting PDF: modern-data-analytics-excel
+  Converting PDF: predictive-analytics-modern-enterprise
+  Converting PDF: statistics-by-simulation
+  Converting PDF: think-stats-3e
+  Converting PDF: writing-excel-macros-vba
+  Converting PDF: assembly-language-x86-processors
+  Converting PDF: fundamentals-computer-graphics
+  Converting PDF: advanced-apple-debugging
+  Converting PDF: arm-assembly-internals
+  Converting PDF: ghidra-book
+  Converting PDF: practical-reverse-engineering
+  Converting PDF: reverse-engineering-for-beginners
+  Converting PDF: x86-software-reverse-engineering
+  Converting PDF: learning-agile
+  Converting PDF: project-management-with-ai
+  Converting PDF: user-story-mapping
+  Skipping (exists): distributed-systems-fun-profit
+  Skipping (exists): postgresql-internals-interdb
+  Skipping (exists): use-the-index-luke
+  Skipping (exists): owasp-cheat-sheets
+2026-09-28 17:14:57.845 python[8474:43191754] 2026-09-28 17:14:57.845408 [W:onnxruntime:Default, telemetry.cc:800 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Step 2: Chunking markdown...
+  Chunking: 3d-data-science-python
+    → 375 parents, 1458 children
+  Chunking: advanced-analytics-pyspark
+    → 134 parents, 639 children
+  Chunking: advanced-apple-debugging
+    → 206 parents, 788 children
+  Skipping (exists): agentic-design-patterns
+  Skipping (exists): ai-engineering-huyen
+  Skipping (exists): ai-modern-approach
+  Skipping (exists): ai-powered-search
+  Chunking: analytics-tools-optimizing-ux
+    → 14 parents, 85 children
+  Chunking: angular-up-and-running
+    → 521 parents, 794 children
+  Chunking: apis-a-strategy-guide
+    → 119 parents, 301 children
+  Chunking: architecting-data-ml-platforms
+    → 231 parents, 1146 children
+  Skipping (exists): architecture-patterns-with-python
+  Chunking: arm-assembly-internals
+    → 333 parents, 1216 children
+  Skipping (exists): art-of-ai-product-development
+  Chunking: articulating-design-decisions
+    → 87 parents, 398 children
+  Skipping (exists): artificialintelligenceforcybersecurity
+  Chunking: assembly-language-x86-processors
+    → 516 parents, 1934 children
+  Skipping (exists): asynchronousprogramminginrust
+  Chunking: asynchronousprogrammingwithcplusplus
+    → 270 parents, 1131 children
+  Chunking: automating-data-quality-monitoring
+    → 234 parents, 1369 children
+  Skipping (exists): azureai-102certificationessentials
+  Chunking: bare-metalembeddedcprogramming
+    → 315 parents, 1363 children
+  Skipping (exists): bayesiananalysiswithpython_thirdedition
+  Skipping (exists): bishop-prml
+  Skipping (exists): boneh-shoup-applied-cryptography
+  Chunking: build-reasoning-model
+    → 165 parents, 844 children
+  Chunking: build-text-to-image-generator
+    → 221 parents, 865 children
+  Chunking: building-applications-ai-agents
+    → 196 parents, 722 children
+  Chunking: building-design-systems
+    → 440 parents, 652 children
+  Chunking: building-event-driven-data-mesh
+    → 143 parents, 507 children
+  Skipping (exists): building-event-driven-microservices
+  Skipping (exists): building-evolutionary-architectures
+  Chunking: building-genai-services-fastapi
+    → 257 parents, 938 children
+  Skipping (exists): building-green-software
+  Chunking: building-knowledge-graphs
+    → 283 parents, 1510 children
+  Chunking: building-machine-learning-pipelines
+    → 134 parents, 686 children
+  Skipping (exists): building-medallion-architectures
+  Chunking: building-micro-frontends
+    → 223 parents, 684 children
+  Skipping (exists): building-microservices-2e
+  Skipping (exists): building-multi-tenant-saas
+  Skipping (exists): building-reliable-ai-systems
+  Chunking: building-secure-reliable-systems
+    → 447 parents, 1344 children
+  Chunking: buildinglowlatencyapplicationswithc
+    → 388 parents, 1856 children
+  Chunking: candalgorithmicthinkingforthecompletebeginner
+    → 404 parents, 1456 children
+  Skipping (exists): causalinferenceanddiscoveryinpython
+  Chunking: certified-ethical-hacker
+    → 224 parents, 1040 children
+  Chunking: chaos-engineering
+    → 379 parents, 2157 children
+  Skipping (exists): clean-architecture
+  Skipping (exists): clean-code
+  Chunking: cloud-native-devops-kubernetes
+    → 268 parents, 725 children
+  Chunking: cloud-native-security-cookbook
+    → 256 parents, 935 children
+  Chunking: cmakebestpractices
+    → 282 parents, 993 children
+  Chunking: cockroachdb-definitive-guide
+    → 412 parents, 1111 children
+  Skipping (exists): coding-with-ai
+  Chunking: continuous-api-management
+    → 213 parents, 756 children
+  Skipping (exists): continuous-delivery
+  Chunking: cplusplus20stlcookbook2e
+    → 246 parents, 967 children
+  Chunking: cplusplusmemorymanagement
+    → 269 parents, 1055 children
+  Chunking: cplusplusprogrammersmindset
+    → 239 parents, 875 children
+  Chunking: creating-web-animations
+    → 119 parents, 310 children
+  Skipping (exists): creativeprojectsforrustprogrammers
+  Skipping (exists): crypto-101
+  Chunking: css-definitive-guide
+    → 589 parents, 2159 children
+  Chunking: css-in-depth-2e
+    → 324 parents, 1184 children
+  Skipping (exists): cuda-programming-guide
+  Skipping (exists): d2l-en
+  Chunking: d3js-in-action
+    → 261 parents, 886 children
+  Chunking: data-governance-definitive-guide
+    → 163 parents, 550 children
+  Chunking: data-governance-unity-catalog
+    → 211 parents, 893 children
+  Chunking: data-management-at-scale
+    → 191 parents, 706 children
+  Chunking: data-quality-fundamentals
+    → 204 parents, 669 children
+  Chunking: data-science-for-business
+    → 199 parents, 802 children
+  Chunking: data-science-from-scratch
+    → 180 parents, 758 children
+  Chunking: data-science-hard-parts
+    → 103 parents, 402 children
+  Chunking: data-visualization-storytelling
+    → 32 parents, 133 children
+  Skipping (exists): database-design-2nd-ed
+  Chunking: database-internals
+    → 272 parents, 816 children
+  Chunking: datastructuresandalgorithmswiththecplusplusstl
+    → 289 parents, 1258 children
+  Chunking: debunkingcplusplusmyths
+    → 147 parents, 586 children
+  Chunking: deciphering-data-architectures
+    → 305 parents, 1655 children
+  Skipping (exists): deepreinforcementlearninghands-on_thirdedition
+  Chunking: delta-lake-definitive-guide
+    → 253 parents, 925 children
+  Chunking: design-for-how-people-think
+    → 137 parents, 324 children
+  Skipping (exists): design-patterns-gof
+  Chunking: designing-autonomous-ai
+    → 157 parents, 462 children
+  Chunking: designing-data-intensive-applications
+    → 392 parents, 2065 children
+  Skipping (exists): designing-distributed-systems-2e
+  Skipping (exists): designing-distributed-systems
+  Skipping (exists): designing-great-web-apis
+  Chunking: designing-interfaces
+    → 254 parents, 998 children
+  Chunking: designing-llm-applications
+    → 253 parents, 779 children
+  Skipping (exists): designing-ml-systems-huyen
+  Skipping (exists): designpatternsandbestpracticesinrust
+  Skipping (exists): digitalocean-redis
+  Skipping (exists): distributed-systems-fun-profit
+  Skipping (exists): domain-driven-design-evans
+  Chunking: domain-specific-small-language-models
+    → 166 parents, 748 children
+  Skipping (exists): effective-conversational-ai
+  Skipping (exists): effective-platform-engineering
+  Chunking: effective-typescript
+    → 140 parents, 676 children
+  Chunking: effective-ui
+    → 150 parents, 540 children
+  Chunking: efficient-linux-command-line
+    → 183 parents, 598 children
+  Chunking: efficient-nodejs
+    → 247 parents, 1361 children
+  Chunking: enterprise-big-data-lake
+    → 271 parents, 1509 children
+  Skipping (exists): enterprise-integration-patterns
+  Chunking: essential-graphrag
+    → 102 parents, 403 children
+  Chunking: essential-math-ai
+    → 409 parents, 1523 children
+  Chunking: excel-for-accountants
+    → 408 parents, 713 children
+  Chunking: exploratory-data-analysis-tukey
+    → 34 parents, 34 children
+  Chunking: exploratory-data-analysis-visualization
+    → 193 parents, 839 children
+  Skipping (exists): facilitating-software-architecture
+  Skipping (exists): financial-ai-in-practice
+  Chunking: financial-data-engineering
+    → 268 parents, 951 children
+  Skipping (exists): flow-architectures
+  Chunking: fluent-react
+    → 382 parents, 2020 children
+  Chunking: foundations-scalable-systems
+    → 205 parents, 668 children
+  Chunking: fundamentals-computer-graphics
+    → 251 parents, 1560 children
+  Chunking: fundamentals-data-engineering
+    → 299 parents, 902 children
+  Skipping (exists): fundamentals-enterprise-architecture
+  Chunking: fundamentals-metadata-management
+    → 154 parents, 388 children
+  Chunking: fundamentals-microsoft-fabric
+    → 173 parents, 537 children
+  Skipping (exists): gamedevelopmentwithrustandwebassembly
+  Skipping (exists): generative-ai-in-action
+  Chunking: generative-deep-learning
+    → 189 parents, 552 children
+  Chunking: ghidra-book
+    → 341 parents, 1148 children
+  Chunking: gpuprogrammingwithcplusplusandcuda
+    → 133 parents, 416 children
+  Skipping (exists): graphmachinelearning_secondedition
+  Skipping (exists): growing-oo-software-by-tests
+  Chunking: hands-on-large-language-models
+    → 542 parents, 2280 children
+  Chunking: hands-on-rag-production
+    → 172 parents, 797 children
+  Chunking: hands-on-selenium-webdriver
+    → 309 parents, 1109 children
+  Chunking: hands-on-unsupervised-learning
+    → 262 parents, 1072 children
+  Skipping (exists): hands-onartificialintelligenceforiot_secondedition
+  Skipping (exists): hands-onconcurrencywithrust
+  Chunking: hands-ondesignpatternswithcplusplus2e
+    → 396 parents, 1727 children
+  Skipping (exists): hands-onmachinelearningwithcplusplus_secondedition
+  Chunking: head-first-statistics-analysis
+    → 94 parents, 112 children
+  Chunking: holacracy
+    → 43 parents, 396 children
+  Chunking: http-definitive-guide
+    → 544 parents, 1543 children
+  Skipping (exists): human-in-the-loop-ml
+  Skipping (exists): illustrated-guide-ai-agents
+  Chunking: implementing-data-mesh
+    → 115 parents, 424 children
+  Chunking: infrastructure-as-code
+    → 389 parents, 942 children
+  Chunking: inside-cyber-warfare
+    → 92 parents, 308 children
+  Chunking: intelligence-driven-incident-response
+    → 279 parents, 788 children
+  Skipping (exists): interpretable-ai
+  Skipping (exists): intro-to-algorithms-clrs
+  Skipping (exists): joy-of-cryptography
+  Chunking: kafka-definitive-guide
+    → 203 parents, 671 children
+  Skipping (exists): kagglebook_secondedition
+  Chunking: kubernetes-security-observability
+    → 128 parents, 426 children
+  Chunking: langchain-life-sciences-healthcare
+    → 179 parents, 854 children
+  Chunking: laws-of-ux
+    → 49 parents, 172 children
+  Skipping (exists): lbdl
+  Chunking: lean-ux
+    → 92 parents, 285 children
+  Chunking: learning-agile
+    → 209 parents, 918 children
+  Skipping (exists): learning-api-styles
+  Skipping (exists): learning-domain-driven-design
+  Chunking: learning-git
+    → 105 parents, 463 children
+  Chunking: learning-github-actions
+    → 235 parents, 768 children
+  Chunking: learning-javascript-design-patterns
+    → 122 parents, 395 children
+  Chunking: learning-modern-linux
+    → 132 parents, 502 children
+  Chunking: learning-opentelemetry
+    → 95 parents, 252 children
+  Chunking: learning-spark
+    → 136 parents, 507 children
+  Skipping (exists): learning-systems-thinking
+  Chunking: learning-test-driven-development
+    → 192 parents, 510 children
+  Chunking: learning-threejs
+    → 203 parents, 713 children
+  Chunking: learning-vue
+    → 127 parents, 505 children
+  Chunking: learnllvm17secondedition
+    → 251 parents, 1101 children
+  Skipping (exists): linuxkernelprogramming
+  Skipping (exists): linuxservicemanagement-systemd
+  Skipping (exists): little-redis-book
+  Chunking: llm-security-playbook
+    → 119 parents, 342 children
+  Chunking: llmops
+    → 191 parents, 679 children
+  Skipping (exists): llms-in-production
+  Chunking: llvmcodegeneration
+    → 403 parents, 1562 children
+  Skipping (exists): looks-good-to-me
+  Chunking: machine-learning-econometrics
+    → 279 parents, 974 children
+  Chunking: machine-learning-production-systems
+    → 272 parents, 905 children
+  Skipping (exists): machinelearningengineeringwithpython_secondedition
+  Skipping (exists): machinelearningforalgorithmictradingsecondedition
+  Skipping (exists): machinelearningwithpytorchandscikit-learn
+  Chunking: making-sense-of-data
+    → 195 parents, 835 children
+  Skipping (exists): mastering-api-architecture
+  Skipping (exists): masteringlinuxadministration
+  Skipping (exists): masteringlinuxsecurityandhardening
+  Skipping (exists): masteringpythonnetworking
+  Skipping (exists): masteringpytorch_secondedition
+  Skipping (exists): mathematicsofmachinelearning
+  Chunking: microservice-architecture
+    → 110 parents, 287 children
+  Skipping (exists): microservices-design-to-deploy
+  Skipping (exists): ml-platform-engineering
+  Chunking: modern-data-analytics-excel
+    → 203 parents, 363 children
+  Chunking: moderncmakeforcplusplus2e
+    → 298 parents, 942 children
+  Chunking: moderncplusplusprogrammingcookbook3eepub
+    → 537 parents, 3596 children
+  Skipping (exists): modernnetworkobservability
+  Skipping (exists): moderntimeseriesforecastingwithpython_secondedition
+  Chunking: monolith-to-microservices
+    → 154 parents, 515 children
+  Chunking: natural-language-processing-transformers
+    → 229 parents, 930 children
+  Chunking: nginx-cookbook
+    → 338 parents, 1761 children
+  Skipping (exists): nosql-distilled
+  Skipping (exists): oauth-rfcs-book
+  Skipping (exists): optimization-algorithms
+  Skipping (exists): owasp-asvs-v5
+  Skipping (exists): owasp-cheat-sheets
+  Skipping (exists): owasp-developer-guide
+  Skipping (exists): owasp-wstg-v4.2
+  Skipping (exists): pandascookbook_thirdedition
+  Skipping (exists): patterns-enterprise-application-architecture
+  Chunking: policy-as-code
+    → 252 parents, 1095 children
+  Skipping (exists): postgresql-14-internals
+  Skipping (exists): postgresql-internals-interdb
+  Chunking: practical-lakehouse-architecture
+    → 138 parents, 425 children
+  Chunking: practical-linear-algebra-data-science
+    → 163 parents, 621 children
+  Chunking: practical-reverse-engineering
+    → 201 parents, 945 children
+  Chunking: practical-web-accessibility
+    → 358 parents, 1289 children
+  Skipping (exists): practicalsystemprogrammingforrustdevelopers
+  Chunking: practitioners-guide-graph-data
+    → 233 parents, 845 children
+  Chunking: predictive-analytics-modern-enterprise
+    → 154 parents, 588 children
+  Skipping (exists): pro-git
+  Skipping (exists): probml-advanced
+  Skipping (exists): probml-intro
+  Skipping (exists): production-ready-microservices
+  Chunking: project-management-with-ai
+    → 304 parents, 681 children
+  Skipping (exists): pythonmachinelearningbyexample_fourthedition
+  Chunking: qt6cplusplusguiprogrammingcookbook
+    → 170 parents, 744 children
+  Chunking: real-world-svelte
+    → 142 parents, 512 children
+  Skipping (exists): redis-for-dummies
+  Chunking: refactoring-ui
+    → 25 parents, 123 children
+  Skipping (exists): refactoring
+  Chunking: refactoringwithcplusplus
+    → 241 parents, 960 children
+  Chunking: reinforcement-learning-finance
+    → 87 parents, 390 children
+  Skipping (exists): release-it
+  Chunking: rest-api-design-rulebook
+    → 97 parents, 230 children
+  Skipping (exists): rest-in-practice
+  Chunking: restful-web-apis
+    → 298 parents, 841 children
+  Chunking: reverse-engineering-cybersecurity
+    → 36 parents, 177 children
+  Chunking: reverse-engineering-for-beginners
+    → 523 parents, 1928 children
+  Skipping (exists): rust_ebook
+  Skipping (exists): rustforblockchainapplicationdevelopment
+  Skipping (exists): rustforcplusplusdeveloper
+  Skipping (exists): rustprogramminghandbook
+  Skipping (exists): rustwebdevelopmentwithrocket
+  Skipping (exists): rustwebprogramming
+  Chunking: scaling-machine-learning-with-spark
+    → 180 parents, 709 children
+  Skipping (exists): scikit-learncookbook_thirdedition
+  Chunking: scrum-masters-path
+    → 97 parents, 391 children
+  Skipping (exists): semantic-software-design
+  Skipping (exists): seriouspython
+  Skipping (exists): site-reliability-engineering
+  Skipping (exists): software-architect-elevator
+  Skipping (exists): software-architecture-hard-parts
+  Skipping (exists): software-architecture-metrics
+  Skipping (exists): software-architecture-patterns
+  Chunking: software-supply-chain-security
+    → 182 parents, 692 children
+  Skipping (exists): software-testing-with-genai
+  Chunking: softwarearchitecturewithcplusplussecondedition
+    → 494 parents, 1598 children
+  Chunking: spark-definitive-guide
+    → 654 parents, 1409 children
+  Skipping (exists): speedupyourpythonwithrust
+  Skipping (exists): sql-relational-theory
+  Chunking: sql-server-advanced-troubleshooting
+    → 275 parents, 1064 children
+  Chunking: statistics-by-simulation
+    → 315 parents, 1638 children
+  Chunking: storytelling-in-design
+    → 252 parents, 876 children
+  Chunking: storytelling-with-data
+    → 111 parents, 425 children
+  Chunking: strategic-writing-for-ux
+    → 67 parents, 289 children
+  Chunking: strengthening-deep-neural-networks
+    → 129 parents, 443 children
+  Skipping (exists): swebok
+  Skipping (exists): tdd-by-example
+  Chunking: templatemetaprogrammingwithc
+    → 166 parents, 745 children
+  Chunking: testing-javascript-applications
+    → 249 parents, 1145 children
+  Chunking: think-like-ux-researcher
+    → 107 parents, 545 children
+  Chunking: think-stats-3e
+    → 131 parents, 669 children
+  Chunking: training-data-for-machine-learning
+    → 227 parents, 653 children
+  Skipping (exists): transformers-in-action
+  Chunking: typescript-cookbook
+    → 277 parents, 1648 children
+  Chunking: ui-design-principles
+    → 157 parents, 334 children
+  Skipping (exists): ultimatelinuxshellscriptingguide
+  Skipping (exists): ultimateubuntuhandbook
+  Skipping (exists): understanding-deep-learning
+  Chunking: unifying-business-data-code
+    → 259 parents, 927 children
+  Skipping (exists): use-the-index-luke
+  Chunking: user-story-mapping
+    → 111 parents, 416 children
+  Chunking: ux-for-lean-startups
+    → 64 parents, 326 children
+  Chunking: vector-databases-introduction
+    → 85 parents, 445 children
+  Chunking: web-accessibility-cookbook
+    → 98 parents, 537 children
+  Chunking: web-performance-engineering
+    → 229 parents, 579 children
+  Chunking: web-performance-in-action
+    → 643 parents, 1151 children
+  Chunking: web-scraping-with-python
+    → 184 parents, 645 children
+  Chunking: webgpu-sourcebook
+    → 156 parents, 800 children
+  Chunking: writing-excel-macros-vba
+    → 239 parents, 1033 children
+  Chunking: x86-software-reverse-engineering
+    → 222 parents, 569 children
+  Chunking: zero-trust-networks-2e
+    → 202 parents, 623 children
+2026-09-28 17:30:38.541 python[32093:43351677] 2026-09-28 17:30:38.541318 [W:onnxruntime:Default, telemetry.cc:800 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Step 1: Ingesting EPUBs → markdown...
+  Skipping (exists): artificialintelligenceforcybersecurity
+  Skipping (exists): azureai-102certificationessentials
+  Skipping (exists): bayesiananalysiswithpython_thirdedition
+  Skipping (exists): building-machine-learning-pipelines
+  Skipping (exists): causalinferenceanddiscoveryinpython
+  Skipping (exists): deepreinforcementlearninghands-on_thirdedition
+  Skipping (exists): graphmachinelearning_secondedition
+  Skipping (exists): hands-on-unsupervised-learning
+  Skipping (exists): hands-onartificialintelligenceforiot_secondedition
+  Skipping (exists): hands-onmachinelearningwithcplusplus_secondedition
+  Skipping (exists): kagglebook_secondedition
+  Skipping (exists): machinelearningengineeringwithpython_secondedition
+  Skipping (exists): machinelearningforalgorithmictradingsecondedition
+  Skipping (exists): machinelearningwithpytorchandscikit-learn
+  Skipping (exists): masteringpytorch_secondedition
+  Skipping (exists): mathematicsofmachinelearning
+  Skipping (exists): moderntimeseriesforecastingwithpython_secondedition
+  Skipping (exists): optimization-algorithms
+  Skipping (exists): pandascookbook_thirdedition
+  Skipping (exists): pythonmachinelearningbyexample_fourthedition
+  Skipping (exists): scikit-learncookbook_thirdedition
+  Skipping (exists): asynchronousprogramminginrust
+  Skipping (exists): creativeprojectsforrustprogrammers
+  Skipping (exists): designpatternsandbestpracticesinrust
+  Skipping (exists): gamedevelopmentwithrustandwebassembly
+  Skipping (exists): hands-onconcurrencywithrust
+  Skipping (exists): practicalsystemprogrammingforrustdevelopers
+  Skipping (exists): rust_ebook
+  Skipping (exists): rustforblockchainapplicationdevelopment
+  Skipping (exists): rustforcplusplusdeveloper
+  Skipping (exists): rustprogramminghandbook
+  Skipping (exists): rustwebdevelopmentwithrocket
+  Skipping (exists): rustwebprogramming
+  Skipping (exists): speedupyourpythonwithrust
+  Skipping (exists): ai-engineering-huyen
+  Skipping (exists): ai-powered-search
+  Skipping (exists): art-of-ai-product-development
+  Skipping (exists): building-reliable-ai-systems
+  Skipping (exists): coding-with-ai
+  Skipping (exists): designing-ml-systems-huyen
+  Skipping (exists): effective-conversational-ai
+  Skipping (exists): financial-ai-in-practice
+  Skipping (exists): generative-ai-in-action
+  Skipping (exists): hands-on-large-language-models
+  Skipping (exists): human-in-the-loop-ml
+  Skipping (exists): illustrated-guide-ai-agents
+  Skipping (exists): interpretable-ai
+  Skipping (exists): llms-in-production
+  Skipping (exists): ml-platform-engineering
+  Skipping (exists): software-testing-with-genai
+  Skipping (exists): transformers-in-action
+  Skipping (exists): effective-platform-engineering
+  Skipping (exists): looks-good-to-me
+  Skipping (exists): chaos-engineering
+  Skipping (exists): linuxkernelprogramming
+  Skipping (exists): linuxservicemanagement-systemd
+  Skipping (exists): masteringlinuxadministration
+  Skipping (exists): masteringlinuxsecurityandhardening
+  Skipping (exists): masteringpythonnetworking
+  Skipping (exists): modernnetworkobservability
+  Skipping (exists): nginx-cookbook
+  Skipping (exists): seriouspython
+  Skipping (exists): ultimatelinuxshellscriptingguide
+  Skipping (exists): ultimateubuntuhandbook
+  Skipping (exists): architecture-patterns-with-python
+  Skipping (exists): building-event-driven-microservices
+  Skipping (exists): building-evolutionary-architectures
+  Skipping (exists): building-green-software
+  Skipping (exists): building-medallion-architectures
+  Skipping (exists): building-microservices-2e
+  Skipping (exists): building-multi-tenant-saas
+  Skipping (exists): designing-distributed-systems-2e
+  Skipping (exists): facilitating-software-architecture
+  Skipping (exists): flow-architectures
+  Skipping (exists): fundamentals-enterprise-architecture
+  Skipping (exists): learning-api-styles
+  Skipping (exists): learning-domain-driven-design
+  Skipping (exists): learning-systems-thinking
+  Skipping (exists): mastering-api-architecture
+  Skipping (exists): semantic-software-design
+  Skipping (exists): software-architect-elevator
+  Skipping (exists): software-architecture-hard-parts
+  Skipping (exists): software-architecture-metrics
+  Skipping (exists): efficient-nodejs
+  Skipping (exists): fluent-react
+  Skipping (exists): typescript-cookbook
+  Skipping (exists): data-visualization-storytelling
+  Skipping (exists): practical-web-accessibility
+  Skipping (exists): storytelling-in-design
+  Skipping (exists): architecting-data-ml-platforms
+  Skipping (exists): automating-data-quality-monitoring
+  Skipping (exists): building-knowledge-graphs
+  Skipping (exists): deciphering-data-architectures
+  Skipping (exists): enterprise-big-data-lake
+  Skipping (exists): unifying-business-data-code
+  Skipping (exists): head-first-statistics-analysis
+  Skipping (exists): asynchronousprogrammingwithcplusplus
+  Skipping (exists): bare-metalembeddedcprogramming
+  Skipping (exists): buildinglowlatencyapplicationswithc
+  Skipping (exists): candalgorithmicthinkingforthecompletebeginner
+  Skipping (exists): cmakebestpractices
+  Skipping (exists): cplusplus20stlcookbook2e
+  Skipping (exists): cplusplusmemorymanagement
+  Skipping (exists): cplusplusprogrammersmindset
+  Skipping (exists): datastructuresandalgorithmswiththecplusplusstl
+  Skipping (exists): debunkingcplusplusmyths
+  Skipping (exists): gpuprogrammingwithcplusplusandcuda
+  Skipping (exists): hands-ondesignpatternswithcplusplus2e
+  Skipping (exists): learnllvm17secondedition
+  Skipping (exists): llvmcodegeneration
+  Skipping (exists): moderncmakeforcplusplus2e
+  Skipping (exists): moderncplusplusprogrammingcookbook3eepub
+  Skipping (exists): qt6cplusplusguiprogrammingcookbook
+  Skipping (exists): refactoringwithcplusplus
+  Skipping (exists): softwarearchitecturewithcplusplussecondedition
+  Skipping (exists): templatemetaprogrammingwithc
+  Skipping (exists): reverse-engineering-cybersecurity
+  Converting: holacracy
+  Skipping (exists): scrum-masters-path
+  Skipping (exists): 3d-data-science-python
+  Skipping (exists): build-text-to-image-generator
+  Skipping (exists): essential-math-ai
+  Skipping (exists): generative-deep-learning
+  Skipping (exists): machine-learning-econometrics
+  Skipping (exists): machine-learning-production-systems
+  Skipping (exists): practical-linear-algebra-data-science
+  Skipping (exists): reinforcement-learning-finance
+  Skipping (exists): strengthening-deep-neural-networks
+  Skipping (exists): training-data-for-machine-learning
+  Skipping (exists): bishop-prml
+  Skipping (exists): cuda-programming-guide
+  Skipping (exists): d2l-en
+  Skipping (exists): lbdl
+  Skipping (exists): probml-advanced
+  Skipping (exists): probml-intro
+  Skipping (exists): understanding-deep-learning
+  Skipping (exists): cockroachdb-definitive-guide
+  Skipping (exists): database-design-2nd-ed
+  Skipping (exists): database-internals
+  Skipping (exists): digitalocean-redis
+  Skipping (exists): little-redis-book
+  Skipping (exists): postgresql-14-internals
+  Skipping (exists): practitioners-guide-graph-data
+  Skipping (exists): redis-for-dummies
+  Skipping (exists): sql-relational-theory
+  Skipping (exists): sql-server-advanced-troubleshooting
+  Skipping (exists): vector-databases-introduction
+  Skipping (exists): boneh-shoup-applied-cryptography
+  Skipping (exists): building-secure-reliable-systems
+  Skipping (exists): certified-ethical-hacker
+  Skipping (exists): cloud-native-security-cookbook
+  Skipping (exists): crypto-101
+  Skipping (exists): inside-cyber-warfare
+  Skipping (exists): intelligence-driven-incident-response
+  Skipping (exists): joy-of-cryptography
+  Skipping (exists): kubernetes-security-observability
+  Skipping (exists): llm-security-playbook
+  Skipping (exists): oauth-rfcs-book
+  Skipping (exists): owasp-asvs-v5
+  Skipping (exists): owasp-developer-guide
+  Skipping (exists): owasp-wstg-v4.2
+  Skipping (exists): policy-as-code
+  Skipping (exists): software-supply-chain-security
+  Skipping (exists): zero-trust-networks-2e
+  Skipping (exists): designing-data-intensive-applications
+  Skipping (exists): designing-distributed-systems
+  Skipping (exists): foundations-scalable-systems
+  Skipping (exists): agentic-design-patterns
+  Skipping (exists): build-reasoning-model
+  Skipping (exists): building-applications-ai-agents
+  Skipping (exists): building-genai-services-fastapi
+  Skipping (exists): designing-autonomous-ai
+  Skipping (exists): designing-llm-applications
+  Skipping (exists): domain-specific-small-language-models
+  Skipping (exists): essential-graphrag
+  Skipping (exists): hands-on-rag-production
+  Skipping (exists): langchain-life-sciences-healthcare
+  Skipping (exists): llmops
+  Skipping (exists): natural-language-processing-transformers
+  Skipping (exists): ai-modern-approach
+  Skipping (exists): clean-architecture
+  Skipping (exists): clean-code
+  Skipping (exists): continuous-delivery
+  Skipping (exists): design-patterns-gof
+  Skipping (exists): designing-great-web-apis
+  Skipping (exists): domain-driven-design-evans
+  Skipping (exists): enterprise-integration-patterns
+  Skipping (exists): growing-oo-software-by-tests
+  Skipping (exists): hands-on-selenium-webdriver
+  Skipping (exists): intro-to-algorithms-clrs
+  Skipping (exists): learning-git
+  Skipping (exists): learning-github-actions
+  Skipping (exists): learning-test-driven-development
+  Skipping (exists): microservices-design-to-deploy
+  Skipping (exists): nosql-distilled
+  Skipping (exists): patterns-enterprise-application-architecture
+  Skipping (exists): pro-git
+  Skipping (exists): production-ready-microservices
+  Skipping (exists): refactoring
+  Skipping (exists): release-it
+  Skipping (exists): rest-in-practice
+  Skipping (exists): site-reliability-engineering
+  Skipping (exists): software-architecture-patterns
+  Skipping (exists): swebok
+  Skipping (exists): tdd-by-example
+  Skipping (exists): testing-javascript-applications
+  Skipping (exists): cloud-native-devops-kubernetes
+  Skipping (exists): efficient-linux-command-line
+  Skipping (exists): infrastructure-as-code
+  Skipping (exists): learning-modern-linux
+  Skipping (exists): learning-opentelemetry
+  Skipping (exists): apis-a-strategy-guide
+  Skipping (exists): continuous-api-management
+  Skipping (exists): microservice-architecture
+  Skipping (exists): monolith-to-microservices
+  Skipping (exists): rest-api-design-rulebook
+  Skipping (exists): restful-web-apis
+  Skipping (exists): angular-up-and-running
+  Skipping (exists): building-micro-frontends
+  Skipping (exists): creating-web-animations
+  Skipping (exists): css-definitive-guide
+  Skipping (exists): css-in-depth-2e
+  Skipping (exists): effective-typescript
+  Skipping (exists): http-definitive-guide
+  Skipping (exists): learning-javascript-design-patterns
+  Skipping (exists): learning-threejs
+  Skipping (exists): learning-vue
+  Skipping (exists): real-world-svelte
+  Skipping (exists): web-performance-engineering
+  Skipping (exists): web-performance-in-action
+  Skipping (exists): webgpu-sourcebook
+  Skipping (exists): analytics-tools-optimizing-ux
+  Skipping (exists): articulating-design-decisions
+  Skipping (exists): building-design-systems
+  Skipping (exists): d3js-in-action
+  Skipping (exists): design-for-how-people-think
+  Skipping (exists): designing-interfaces
+  Skipping (exists): effective-ui
+  Skipping (exists): laws-of-ux
+  Skipping (exists): lean-ux
+  Skipping (exists): refactoring-ui
+  Skipping (exists): storytelling-with-data
+  Skipping (exists): strategic-writing-for-ux
+  Skipping (exists): think-like-ux-researcher
+  Skipping (exists): ui-design-principles
+  Skipping (exists): ux-for-lean-startups
+  Skipping (exists): web-accessibility-cookbook
+  Skipping (exists): advanced-analytics-pyspark
+  Skipping (exists): building-event-driven-data-mesh
+  Skipping (exists): data-governance-definitive-guide
+  Skipping (exists): data-governance-unity-catalog
+  Skipping (exists): data-management-at-scale
+  Skipping (exists): data-quality-fundamentals
+  Skipping (exists): delta-lake-definitive-guide
+  Skipping (exists): financial-data-engineering
+  Skipping (exists): fundamentals-data-engineering
+  Skipping (exists): fundamentals-metadata-management
+  Skipping (exists): fundamentals-microsoft-fabric
+  Skipping (exists): implementing-data-mesh
+  Skipping (exists): kafka-definitive-guide
+  Skipping (exists): learning-spark
+  Skipping (exists): practical-lakehouse-architecture
+  Skipping (exists): scaling-machine-learning-with-spark
+  Skipping (exists): spark-definitive-guide
+  Skipping (exists): web-scraping-with-python
+  Skipping (exists): data-science-for-business
+  Skipping (exists): data-science-from-scratch
+  Skipping (exists): data-science-hard-parts
+  Skipping (exists): excel-for-accountants
+  Skipping (exists): exploratory-data-analysis-tukey
+  Skipping (exists): exploratory-data-analysis-visualization
+  Skipping (exists): making-sense-of-data
+  Skipping (exists): modern-data-analytics-excel
+  Skipping (exists): predictive-analytics-modern-enterprise
+  Skipping (exists): statistics-by-simulation
+  Skipping (exists): think-stats-3e
+  Skipping (exists): writing-excel-macros-vba
+  Skipping (exists): assembly-language-x86-processors
+  Converting PDF: fundamentals-computer-graphics
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+  Skipping (exists): advanced-apple-debugging
+  Skipping (exists): arm-assembly-internals
+  Skipping (exists): ghidra-book
+  Skipping (exists): practical-reverse-engineering
+  Skipping (exists): reverse-engineering-for-beginners
+  Skipping (exists): x86-software-reverse-engineering
+  Skipping (exists): learning-agile
+  Skipping (exists): project-management-with-ai
+  Skipping (exists): user-story-mapping
+  Skipping (exists): distributed-systems-fun-profit
+  Skipping (exists): postgresql-internals-interdb
+  Skipping (exists): use-the-index-luke
+  Skipping (exists): owasp-cheat-sheets
+2026-09-28 17:30:49.297 python[32162:43351896] 2026-09-28 17:30:49.297180 [W:onnxruntime:Default, telemetry.cc:800 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Step 2: Chunking markdown...
+  Skipping (exists): 3d-data-science-python
+  Skipping (exists): advanced-analytics-pyspark
+  Skipping (exists): advanced-apple-debugging
+  Skipping (exists): agentic-design-patterns
+  Skipping (exists): ai-engineering-huyen
+  Skipping (exists): ai-modern-approach
+  Skipping (exists): ai-powered-search
+  Skipping (exists): analytics-tools-optimizing-ux
+  Skipping (exists): angular-up-and-running
+  Skipping (exists): apis-a-strategy-guide
+  Skipping (exists): architecting-data-ml-platforms
+  Skipping (exists): architecture-patterns-with-python
+  Skipping (exists): arm-assembly-internals
+  Skipping (exists): art-of-ai-product-development
+  Skipping (exists): articulating-design-decisions
+  Skipping (exists): artificialintelligenceforcybersecurity
+  Skipping (exists): assembly-language-x86-processors
+  Skipping (exists): asynchronousprogramminginrust
+  Skipping (exists): asynchronousprogrammingwithcplusplus
+  Skipping (exists): automating-data-quality-monitoring
+  Skipping (exists): azureai-102certificationessentials
+  Skipping (exists): bare-metalembeddedcprogramming
+  Skipping (exists): bayesiananalysiswithpython_thirdedition
+  Skipping (exists): bishop-prml
+  Skipping (exists): boneh-shoup-applied-cryptography
+  Skipping (exists): build-reasoning-model
+  Skipping (exists): build-text-to-image-generator
+  Skipping (exists): building-applications-ai-agents
+  Skipping (exists): building-design-systems
+  Skipping (exists): building-event-driven-data-mesh
+  Skipping (exists): building-event-driven-microservices
+  Skipping (exists): building-evolutionary-architectures
+  Skipping (exists): building-genai-services-fastapi
+  Skipping (exists): building-green-software
+  Skipping (exists): building-knowledge-graphs
+  Skipping (exists): building-machine-learning-pipelines
+  Skipping (exists): building-medallion-architectures
+  Skipping (exists): building-micro-frontends
+  Skipping (exists): building-microservices-2e
+  Skipping (exists): building-multi-tenant-saas
+  Skipping (exists): building-reliable-ai-systems
+  Skipping (exists): building-secure-reliable-systems
+  Skipping (exists): buildinglowlatencyapplicationswithc
+  Skipping (exists): candalgorithmicthinkingforthecompletebeginner
+  Skipping (exists): causalinferenceanddiscoveryinpython
+  Skipping (exists): certified-ethical-hacker
+  Skipping (exists): chaos-engineering
+  Skipping (exists): clean-architecture
+  Skipping (exists): clean-code
+  Skipping (exists): cloud-native-devops-kubernetes
+  Skipping (exists): cloud-native-security-cookbook
+  Skipping (exists): cmakebestpractices
+  Skipping (exists): cockroachdb-definitive-guide
+  Skipping (exists): coding-with-ai
+  Skipping (exists): continuous-api-management
+  Skipping (exists): continuous-delivery
+  Skipping (exists): cplusplus20stlcookbook2e
+  Skipping (exists): cplusplusmemorymanagement
+  Skipping (exists): cplusplusprogrammersmindset
+  Skipping (exists): creating-web-animations
+  Skipping (exists): creativeprojectsforrustprogrammers
+  Skipping (exists): crypto-101
+  Skipping (exists): css-definitive-guide
+  Skipping (exists): css-in-depth-2e
+  Skipping (exists): cuda-programming-guide
+  Skipping (exists): d2l-en
+  Skipping (exists): d3js-in-action
+  Skipping (exists): data-governance-definitive-guide
+  Skipping (exists): data-governance-unity-catalog
+  Skipping (exists): data-management-at-scale
+  Skipping (exists): data-quality-fundamentals
+  Skipping (exists): data-science-for-business
+  Skipping (exists): data-science-from-scratch
+  Skipping (exists): data-science-hard-parts
+  Skipping (exists): data-visualization-storytelling
+  Skipping (exists): database-design-2nd-ed
+  Skipping (exists): database-internals
+  Skipping (exists): datastructuresandalgorithmswiththecplusplusstl
+  Skipping (exists): debunkingcplusplusmyths
+  Skipping (exists): deciphering-data-architectures
+  Skipping (exists): deepreinforcementlearninghands-on_thirdedition
+  Skipping (exists): delta-lake-definitive-guide
+  Skipping (exists): design-for-how-people-think
+  Skipping (exists): design-patterns-gof
+  Skipping (exists): designing-autonomous-ai
+  Skipping (exists): designing-data-intensive-applications
+  Skipping (exists): designing-distributed-systems-2e
+  Skipping (exists): designing-distributed-systems
+  Skipping (exists): designing-great-web-apis
+  Skipping (exists): designing-interfaces
+  Skipping (exists): designing-llm-applications
+  Skipping (exists): designing-ml-systems-huyen
+  Skipping (exists): designpatternsandbestpracticesinrust
+  Skipping (exists): digitalocean-redis
+  Skipping (exists): distributed-systems-fun-profit
+  Skipping (exists): domain-driven-design-evans
+  Skipping (exists): domain-specific-small-language-models
+  Skipping (exists): effective-conversational-ai
+  Skipping (exists): effective-platform-engineering
+  Skipping (exists): effective-typescript
+  Skipping (exists): effective-ui
+  Skipping (exists): efficient-linux-command-line
+  Skipping (exists): efficient-nodejs
+  Skipping (exists): enterprise-big-data-lake
+  Skipping (exists): enterprise-integration-patterns
+  Skipping (exists): essential-graphrag
+  Skipping (exists): essential-math-ai
+  Skipping (exists): excel-for-accountants
+  Skipping (exists): exploratory-data-analysis-tukey
+  Skipping (exists): exploratory-data-analysis-visualization
+  Skipping (exists): facilitating-software-architecture
+  Skipping (exists): financial-ai-in-practice
+  Skipping (exists): financial-data-engineering
+  Skipping (exists): flow-architectures
+  Skipping (exists): fluent-react
+  Skipping (exists): foundations-scalable-systems
+  Chunking: fundamentals-computer-graphics
+    → 230 parents, 1506 children
+  Skipping (exists): fundamentals-data-engineering
+  Skipping (exists): fundamentals-enterprise-architecture
+  Skipping (exists): fundamentals-metadata-management
+  Skipping (exists): fundamentals-microsoft-fabric
+  Skipping (exists): gamedevelopmentwithrustandwebassembly
+  Skipping (exists): generative-ai-in-action
+  Skipping (exists): generative-deep-learning
+  Skipping (exists): ghidra-book
+  Skipping (exists): gpuprogrammingwithcplusplusandcuda
+  Skipping (exists): graphmachinelearning_secondedition
+  Skipping (exists): growing-oo-software-by-tests
+  Skipping (exists): hands-on-large-language-models
+  Skipping (exists): hands-on-rag-production
+  Skipping (exists): hands-on-selenium-webdriver
+  Skipping (exists): hands-on-unsupervised-learning
+  Skipping (exists): hands-onartificialintelligenceforiot_secondedition
+  Skipping (exists): hands-onconcurrencywithrust
+  Skipping (exists): hands-ondesignpatternswithcplusplus2e
+  Skipping (exists): hands-onmachinelearningwithcplusplus_secondedition
+  Skipping (exists): head-first-statistics-analysis
+  Chunking: holacracy
+    → 63 parents, 416 children
+  Skipping (exists): http-definitive-guide
+  Skipping (exists): human-in-the-loop-ml
+  Skipping (exists): illustrated-guide-ai-agents
+  Skipping (exists): implementing-data-mesh
+  Skipping (exists): infrastructure-as-code
+  Skipping (exists): inside-cyber-warfare
+  Skipping (exists): intelligence-driven-incident-response
+  Skipping (exists): interpretable-ai
+  Skipping (exists): intro-to-algorithms-clrs
+  Skipping (exists): joy-of-cryptography
+  Skipping (exists): kafka-definitive-guide
+  Skipping (exists): kagglebook_secondedition
+  Skipping (exists): kubernetes-security-observability
+  Skipping (exists): langchain-life-sciences-healthcare
+  Skipping (exists): laws-of-ux
+  Skipping (exists): lbdl
+  Skipping (exists): lean-ux
+  Skipping (exists): learning-agile
+  Skipping (exists): learning-api-styles
+  Skipping (exists): learning-domain-driven-design
+  Skipping (exists): learning-git
+  Skipping (exists): learning-github-actions
+  Skipping (exists): learning-javascript-design-patterns
+  Skipping (exists): learning-modern-linux
+  Skipping (exists): learning-opentelemetry
+  Skipping (exists): learning-spark
+  Skipping (exists): learning-systems-thinking
+  Skipping (exists): learning-test-driven-development
+  Skipping (exists): learning-threejs
+  Skipping (exists): learning-vue
+  Skipping (exists): learnllvm17secondedition
+  Skipping (exists): linuxkernelprogramming
+  Skipping (exists): linuxservicemanagement-systemd
+  Skipping (exists): little-redis-book
+  Skipping (exists): llm-security-playbook
+  Skipping (exists): llmops
+  Skipping (exists): llms-in-production
+  Skipping (exists): llvmcodegeneration
+  Skipping (exists): looks-good-to-me
+  Skipping (exists): machine-learning-econometrics
+  Skipping (exists): machine-learning-production-systems
+  Skipping (exists): machinelearningengineeringwithpython_secondedition
+  Skipping (exists): machinelearningforalgorithmictradingsecondedition
+  Skipping (exists): machinelearningwithpytorchandscikit-learn
+  Skipping (exists): making-sense-of-data
+  Skipping (exists): mastering-api-architecture
+  Skipping (exists): masteringlinuxadministration
+  Skipping (exists): masteringlinuxsecurityandhardening
+  Skipping (exists): masteringpythonnetworking
+  Skipping (exists): masteringpytorch_secondedition
+  Skipping (exists): mathematicsofmachinelearning
+  Skipping (exists): microservice-architecture
+  Skipping (exists): microservices-design-to-deploy
+  Skipping (exists): ml-platform-engineering
+  Skipping (exists): modern-data-analytics-excel
+  Skipping (exists): moderncmakeforcplusplus2e
+  Skipping (exists): moderncplusplusprogrammingcookbook3eepub
+  Skipping (exists): modernnetworkobservability
+  Skipping (exists): moderntimeseriesforecastingwithpython_secondedition
+  Skipping (exists): monolith-to-microservices
+  Skipping (exists): natural-language-processing-transformers
+  Skipping (exists): nginx-cookbook
+  Skipping (exists): nosql-distilled
+  Skipping (exists): oauth-rfcs-book
+  Skipping (exists): optimization-algorithms
+  Skipping (exists): owasp-asvs-v5
+  Skipping (exists): owasp-cheat-sheets
+  Skipping (exists): owasp-developer-guide
+  Skipping (exists): owasp-wstg-v4.2
+  Skipping (exists): pandascookbook_thirdedition
+  Skipping (exists): patterns-enterprise-application-architecture
+  Skipping (exists): policy-as-code
+  Skipping (exists): postgresql-14-internals
+  Skipping (exists): postgresql-internals-interdb
+  Skipping (exists): practical-lakehouse-architecture
+  Skipping (exists): practical-linear-algebra-data-science
+  Skipping (exists): practical-reverse-engineering
+  Skipping (exists): practical-web-accessibility
+  Skipping (exists): practicalsystemprogrammingforrustdevelopers
+  Skipping (exists): practitioners-guide-graph-data
+  Skipping (exists): predictive-analytics-modern-enterprise
+  Skipping (exists): pro-git
+  Skipping (exists): probml-advanced
+  Skipping (exists): probml-intro
+  Skipping (exists): production-ready-microservices
+  Skipping (exists): project-management-with-ai
+  Skipping (exists): pythonmachinelearningbyexample_fourthedition
+  Skipping (exists): qt6cplusplusguiprogrammingcookbook
+  Skipping (exists): real-world-svelte
+  Skipping (exists): redis-for-dummies
+  Skipping (exists): refactoring-ui
+  Skipping (exists): refactoring
+  Skipping (exists): refactoringwithcplusplus
+  Skipping (exists): reinforcement-learning-finance
+  Skipping (exists): release-it
+  Skipping (exists): rest-api-design-rulebook
+  Skipping (exists): rest-in-practice
+  Skipping (exists): restful-web-apis
+  Skipping (exists): reverse-engineering-cybersecurity
+  Skipping (exists): reverse-engineering-for-beginners
+  Skipping (exists): rust_ebook
+  Skipping (exists): rustforblockchainapplicationdevelopment
+  Skipping (exists): rustforcplusplusdeveloper
+  Skipping (exists): rustprogramminghandbook
+  Skipping (exists): rustwebdevelopmentwithrocket
+  Skipping (exists): rustwebprogramming
+  Skipping (exists): scaling-machine-learning-with-spark
+  Skipping (exists): scikit-learncookbook_thirdedition
+  Skipping (exists): scrum-masters-path
+  Skipping (exists): semantic-software-design
+  Skipping (exists): seriouspython
+  Skipping (exists): site-reliability-engineering
+  Skipping (exists): software-architect-elevator
+  Skipping (exists): software-architecture-hard-parts
+  Skipping (exists): software-architecture-metrics
+  Skipping (exists): software-architecture-patterns
+  Skipping (exists): software-supply-chain-security
+  Skipping (exists): software-testing-with-genai
+  Skipping (exists): softwarearchitecturewithcplusplussecondedition
+  Skipping (exists): spark-definitive-guide
+  Skipping (exists): speedupyourpythonwithrust
+  Skipping (exists): sql-relational-theory
+  Skipping (exists): sql-server-advanced-troubleshooting
+  Skipping (exists): statistics-by-simulation
+  Skipping (exists): storytelling-in-design
+  Skipping (exists): storytelling-with-data
+  Skipping (exists): strategic-writing-for-ux
+  Skipping (exists): strengthening-deep-neural-networks
+  Skipping (exists): swebok
+  Skipping (exists): tdd-by-example
+  Skipping (exists): templatemetaprogrammingwithc
+  Skipping (exists): testing-javascript-applications
+  Skipping (exists): think-like-ux-researcher
+  Skipping (exists): think-stats-3e
+  Skipping (exists): training-data-for-machine-learning
+  Skipping (exists): transformers-in-action
+  Skipping (exists): typescript-cookbook
+  Skipping (exists): ui-design-principles
+  Skipping (exists): ultimatelinuxshellscriptingguide
+  Skipping (exists): ultimateubuntuhandbook
+  Skipping (exists): understanding-deep-learning
+  Skipping (exists): unifying-business-data-code
+  Skipping (exists): use-the-index-luke
+  Skipping (exists): user-story-mapping
+  Skipping (exists): ux-for-lean-startups
+  Skipping (exists): vector-databases-introduction
+  Skipping (exists): web-accessibility-cookbook
+  Skipping (exists): web-performance-engineering
+  Skipping (exists): web-performance-in-action
+  Skipping (exists): web-scraping-with-python
+  Skipping (exists): webgpu-sourcebook
+  Skipping (exists): writing-excel-macros-vba
+  Skipping (exists): x86-software-reverse-engineering
+  Skipping (exists): zero-trust-networks-2e
+2026-09-28 17:51:44.829 python[72501:43605179] 2026-09-28 17:51:44.829651 [W:onnxruntime:Default, telemetry.cc:800 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Step 1: Ingesting EPUBs → markdown...
+  Skipping (exists): artificialintelligenceforcybersecurity
+  Skipping (exists): azureai-102certificationessentials
+  Skipping (exists): bayesiananalysiswithpython_thirdedition
+  Converting: building-machine-learning-pipelines
+  Skipping (exists): causalinferenceanddiscoveryinpython
+  Skipping (exists): deepreinforcementlearninghands-on_thirdedition
+  Skipping (exists): graphmachinelearning_secondedition
+  Skipping (exists): hands-on-unsupervised-learning
+  Skipping (exists): hands-onartificialintelligenceforiot_secondedition
+  Skipping (exists): hands-onmachinelearningwithcplusplus_secondedition
+  Skipping (exists): kagglebook_secondedition
+  Skipping (exists): machinelearningengineeringwithpython_secondedition
+  Skipping (exists): machinelearningforalgorithmictradingsecondedition
+  Skipping (exists): machinelearningwithpytorchandscikit-learn
+  Skipping (exists): masteringpytorch_secondedition
+  Skipping (exists): mathematicsofmachinelearning
+  Skipping (exists): moderntimeseriesforecastingwithpython_secondedition
+  Skipping (exists): optimization-algorithms
+  Skipping (exists): pandascookbook_thirdedition
+  Skipping (exists): pythonmachinelearningbyexample_fourthedition
+  Skipping (exists): scikit-learncookbook_thirdedition
+  Skipping (exists): asynchronousprogramminginrust
+  Skipping (exists): creativeprojectsforrustprogrammers
+  Skipping (exists): designpatternsandbestpracticesinrust
+  Skipping (exists): gamedevelopmentwithrustandwebassembly
+  Skipping (exists): hands-onconcurrencywithrust
+  Skipping (exists): practicalsystemprogrammingforrustdevelopers
+  Skipping (exists): rust_ebook
+  Skipping (exists): rustforblockchainapplicationdevelopment
+  Skipping (exists): rustforcplusplusdeveloper
+  Skipping (exists): rustprogramminghandbook
+  Skipping (exists): rustwebdevelopmentwithrocket
+  Skipping (exists): rustwebprogramming
+  Skipping (exists): speedupyourpythonwithrust
+  Skipping (exists): ai-engineering-huyen
+  Skipping (exists): ai-powered-search
+  Skipping (exists): art-of-ai-product-development
+  Skipping (exists): building-reliable-ai-systems
+  Skipping (exists): coding-with-ai
+  Skipping (exists): designing-ml-systems-huyen
+  Skipping (exists): effective-conversational-ai
+  Skipping (exists): financial-ai-in-practice
+  Skipping (exists): generative-ai-in-action
+  Skipping (exists): hands-on-large-language-models
+  Skipping (exists): human-in-the-loop-ml
+  Skipping (exists): illustrated-guide-ai-agents
+  Skipping (exists): interpretable-ai
+  Skipping (exists): llms-in-production
+  Skipping (exists): ml-platform-engineering
+  Skipping (exists): software-testing-with-genai
+  Skipping (exists): transformers-in-action
+  Skipping (exists): effective-platform-engineering
+  Skipping (exists): looks-good-to-me
+  Skipping (exists): chaos-engineering
+  Skipping (exists): linuxkernelprogramming
+  Skipping (exists): linuxservicemanagement-systemd
+  Skipping (exists): masteringlinuxadministration
+  Skipping (exists): masteringlinuxsecurityandhardening
+  Skipping (exists): masteringpythonnetworking
+  Skipping (exists): modernnetworkobservability
+  Skipping (exists): nginx-cookbook
+  Skipping (exists): seriouspython
+  Skipping (exists): ultimatelinuxshellscriptingguide
+  Skipping (exists): ultimateubuntuhandbook
+  Skipping (exists): architecture-patterns-with-python
+  Skipping (exists): building-event-driven-microservices
+  Skipping (exists): building-evolutionary-architectures
+  Skipping (exists): building-green-software
+  Skipping (exists): building-medallion-architectures
+  Skipping (exists): building-microservices-2e
+  Skipping (exists): building-multi-tenant-saas
+  Skipping (exists): designing-distributed-systems-2e
+  Skipping (exists): facilitating-software-architecture
+  Skipping (exists): flow-architectures
+  Skipping (exists): fundamentals-enterprise-architecture
+  Skipping (exists): learning-api-styles
+  Skipping (exists): learning-domain-driven-design
+  Skipping (exists): learning-systems-thinking
+  Skipping (exists): mastering-api-architecture
+  Skipping (exists): semantic-software-design
+  Skipping (exists): software-architect-elevator
+  Skipping (exists): software-architecture-hard-parts
+  Skipping (exists): software-architecture-metrics
+  Skipping (exists): efficient-nodejs
+  Skipping (exists): fluent-react
+  Skipping (exists): typescript-cookbook
+  Skipping (exists): data-visualization-storytelling
+  Skipping (exists): practical-web-accessibility
+  Skipping (exists): storytelling-in-design
+  Skipping (exists): architecting-data-ml-platforms
+  Skipping (exists): automating-data-quality-monitoring
+  Skipping (exists): building-knowledge-graphs
+  Skipping (exists): deciphering-data-architectures
+  Skipping (exists): enterprise-big-data-lake
+  Skipping (exists): unifying-business-data-code
+  Skipping (exists): head-first-statistics-analysis
+  Converting: asynchronousprogrammingwithcplusplus
+  Converting: bare-metalembeddedcprogramming
+  Converting: buildinglowlatencyapplicationswithc
+  Skipping (exists): candalgorithmicthinkingforthecompletebeginner
+  Converting: cmakebestpractices
+  Converting: cplusplus20stlcookbook2e
+  Skipping (exists): cplusplusmemorymanagement
+  Skipping (exists): cplusplusprogrammersmindset
+  Converting: datastructuresandalgorithmswiththecplusplusstl
+  Converting: debunkingcplusplusmyths
+  Skipping (exists): gpuprogrammingwithcplusplusandcuda
+  Converting: hands-ondesignpatternswithcplusplus2e
+  Converting: learnllvm17secondedition
+  Skipping (exists): llvmcodegeneration
+  Skipping (exists): moderncmakeforcplusplus2e
+  Skipping (exists): moderncplusplusprogrammingcookbook3eepub
+  Converting: qt6cplusplusguiprogrammingcookbook
+  Converting: refactoringwithcplusplus
+  Skipping (exists): softwarearchitecturewithcplusplussecondedition
+  Skipping (exists): templatemetaprogrammingwithc
+  Converting: reverse-engineering-cybersecurity
+  Skipping (exists): holacracy
+  Converting: scrum-masters-path
+  Converting PDF: 3d-data-science-python
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+  Skipping (exists): build-text-to-image-generator
+  Converting PDF: essential-math-ai
+  Converting PDF: generative-deep-learning
+  Skipping (exists): machine-learning-econometrics
+  Skipping (exists): machine-learning-production-systems
+  Converting PDF: practical-linear-algebra-data-science
+  Skipping (exists): reinforcement-learning-finance
+  Converting PDF: strengthening-deep-neural-networks
+  Converting PDF: training-data-for-machine-learning
+  Skipping (exists): bishop-prml
+  Skipping (exists): cuda-programming-guide
+  Skipping (exists): d2l-en
+  Skipping (exists): lbdl
+  Skipping (exists): probml-advanced
+  Skipping (exists): probml-intro
+  Skipping (exists): understanding-deep-learning
+  Converting PDF: cockroachdb-definitive-guide
+  Skipping (exists): database-design-2nd-ed
+  Converting PDF: database-internals
+  Skipping (exists): digitalocean-redis
+  Skipping (exists): little-redis-book
+  Skipping (exists): postgresql-14-internals
+  Converting PDF: practitioners-guide-graph-data
+  Skipping (exists): redis-for-dummies
+  Skipping (exists): sql-relational-theory
+  Converting PDF: sql-server-advanced-troubleshooting
+  Converting PDF: vector-databases-introduction
+  Skipping (exists): boneh-shoup-applied-cryptography
+  Converting PDF: building-secure-reliable-systems
+  Skipping (exists): certified-ethical-hacker
+  Skipping (exists): cloud-native-security-cookbook
+  Skipping (exists): crypto-101
+  Converting PDF: inside-cyber-warfare
+  Converting PDF: intelligence-driven-incident-response
+  Skipping (exists): joy-of-cryptography
+  Converting PDF: kubernetes-security-observability
+  Skipping (exists): llm-security-playbook
+  Skipping (exists): oauth-rfcs-book
+  Skipping (exists): owasp-asvs-v5
+  Skipping (exists): owasp-developer-guide
+  Skipping (exists): owasp-wstg-v4.2
+  Skipping (exists): policy-as-code
+  Converting PDF: software-supply-chain-security
+  Skipping (exists): zero-trust-networks-2e
+  Converting PDF: designing-data-intensive-applications
+  Skipping (exists): designing-distributed-systems
+  Converting PDF: foundations-scalable-systems
+  Skipping (exists): agentic-design-patterns
+  Skipping (exists): build-reasoning-model
+  Skipping (exists): building-applications-ai-agents
+  Converting PDF: building-genai-services-fastapi
+  Converting PDF: designing-autonomous-ai
+  Converting PDF: designing-llm-applications
+  Skipping (exists): domain-specific-small-language-models
+  Skipping (exists): essential-graphrag
+  Skipping (exists): hands-on-rag-production
+  Skipping (exists): langchain-life-sciences-healthcare
+  Converting PDF: llmops
+  Converting PDF: natural-language-processing-transformers
+  Skipping (exists): ai-modern-approach
+  Skipping (exists): clean-architecture
+  Skipping (exists): clean-code
+  Skipping (exists): continuous-delivery
+  Skipping (exists): design-patterns-gof
+  Skipping (exists): designing-great-web-apis
+  Skipping (exists): domain-driven-design-evans
+  Skipping (exists): enterprise-integration-patterns
+  Skipping (exists): growing-oo-software-by-tests
+  Converting PDF: hands-on-selenium-webdriver
+  Skipping (exists): intro-to-algorithms-clrs
+  Skipping (exists): learning-git
+  Converting PDF: learning-github-actions
+  Converting PDF: learning-test-driven-development
+  Skipping (exists): microservices-design-to-deploy
+  Skipping (exists): nosql-distilled
+  Skipping (exists): patterns-enterprise-application-architecture
+  Skipping (exists): pro-git
+  Skipping (exists): production-ready-microservices
+  Skipping (exists): refactoring
+  Skipping (exists): release-it
+  Skipping (exists): rest-in-practice
+  Skipping (exists): site-reliability-engineering
+  Skipping (exists): software-architecture-patterns
+  Skipping (exists): swebok
+  Skipping (exists): tdd-by-example
+  Skipping (exists): testing-javascript-applications
+  Converting PDF: cloud-native-devops-kubernetes
+  Converting PDF: efficient-linux-command-line
+  Converting PDF: infrastructure-as-code
+  Converting PDF: learning-modern-linux
+  Skipping (exists): learning-opentelemetry
+  Skipping (exists): apis-a-strategy-guide
+  Converting PDF: continuous-api-management
+  Converting PDF: microservice-architecture
+  Converting PDF: monolith-to-microservices
+  Skipping (exists): rest-api-design-rulebook
+  Skipping (exists): restful-web-apis
+  Skipping (exists): angular-up-and-running
+  Skipping (exists): building-micro-frontends
+  Converting PDF: creating-web-animations
+  Skipping (exists): css-definitive-guide
+  Skipping (exists): css-in-depth-2e
+  Skipping (exists): effective-typescript
+  Skipping (exists): http-definitive-guide
+  Skipping (exists): learning-javascript-design-patterns
+  Skipping (exists): learning-threejs
+  Skipping (exists): learning-vue
+  Skipping (exists): real-world-svelte
+  Converting PDF: web-performance-engineering
+  Skipping (exists): web-performance-in-action
+  Skipping (exists): webgpu-sourcebook
+  Skipping (exists): analytics-tools-optimizing-ux
+  Skipping (exists): articulating-design-decisions
+  Skipping (exists): building-design-systems
+  Skipping (exists): d3js-in-action
+  Skipping (exists): design-for-how-people-think
+  Converting PDF: designing-interfaces
+  Skipping (exists): effective-ui
+  Skipping (exists): laws-of-ux
+  Skipping (exists): lean-ux
+  Skipping (exists): refactoring-ui
+  Converting PDF: storytelling-with-data
+  Skipping (exists): strategic-writing-for-ux
+  Skipping (exists): think-like-ux-researcher
+  Skipping (exists): ui-design-principles
+  Skipping (exists): ux-for-lean-startups
+  Skipping (exists): web-accessibility-cookbook
+  Converting PDF: advanced-analytics-pyspark
+  Converting PDF: building-event-driven-data-mesh
+  Converting PDF: data-governance-definitive-guide
+  Converting PDF: data-governance-unity-catalog
+  Skipping (exists): data-management-at-scale
+  Converting PDF: data-quality-fundamentals
+  Converting PDF: delta-lake-definitive-guide
+  Skipping (exists): financial-data-engineering
+  Skipping (exists): fundamentals-data-engineering
+  Converting PDF: fundamentals-metadata-management
+  Skipping (exists): fundamentals-microsoft-fabric
+  Skipping (exists): implementing-data-mesh
+  Converting PDF: kafka-definitive-guide
+  Skipping (exists): learning-spark
+  Skipping (exists): practical-lakehouse-architecture
+  Converting PDF: scaling-machine-learning-with-spark
+  Skipping (exists): spark-definitive-guide
+  Converting PDF: web-scraping-with-python
+  Skipping (exists): data-science-for-business
+  Skipping (exists): data-science-from-scratch
+  Skipping (exists): data-science-hard-parts
+  Skipping (exists): excel-for-accountants
+  Skipping (exists): exploratory-data-analysis-tukey
+  Skipping (exists): exploratory-data-analysis-visualization
+  Skipping (exists): making-sense-of-data
+  Converting PDF: modern-data-analytics-excel
+  Converting PDF: predictive-analytics-modern-enterprise
+  Skipping (exists): statistics-by-simulation
+  Converting PDF: think-stats-3e
+  Skipping (exists): writing-excel-macros-vba
+  Skipping (exists): assembly-language-x86-processors
+  Skipping (exists): fundamentals-computer-graphics
+  Skipping (exists): advanced-apple-debugging
+  Converting PDF: arm-assembly-internals
+  Skipping (exists): ghidra-book
+  Skipping (exists): practical-reverse-engineering
+  Converting PDF: reverse-engineering-for-beginners
+  Converting PDF: x86-software-reverse-engineering
+  Skipping (exists): learning-agile
+  Converting PDF: project-management-with-ai
+  Skipping (exists): user-story-mapping
+  Skipping (exists): distributed-systems-fun-profit
+  Skipping (exists): postgresql-internals-interdb
+  Skipping (exists): use-the-index-luke
+  Skipping (exists): owasp-cheat-sheets
+2026-09-28 17:52:37.218 python[72871:43607825] 2026-09-28 17:52:37.217999 [W:onnxruntime:Default, telemetry.cc:800 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Step 2: Chunking markdown...
+  Chunking: 3d-data-science-python
+    → 336 parents, 1200 children
+  Chunking: advanced-analytics-pyspark
+    → 103 parents, 439 children
+  Skipping (exists): advanced-apple-debugging
+  Skipping (exists): agentic-design-patterns
+  Skipping (exists): ai-engineering-huyen
+  Skipping (exists): ai-modern-approach
+  Skipping (exists): ai-powered-search
+  Skipping (exists): analytics-tools-optimizing-ux
+  Skipping (exists): angular-up-and-running
+  Skipping (exists): apis-a-strategy-guide
+  Skipping (exists): architecting-data-ml-platforms
+  Skipping (exists): architecture-patterns-with-python
+  Chunking: arm-assembly-internals
+    → 315 parents, 1103 children
+  Skipping (exists): art-of-ai-product-development
+  Skipping (exists): articulating-design-decisions
+  Skipping (exists): artificialintelligenceforcybersecurity
+  Skipping (exists): assembly-language-x86-processors
+  Skipping (exists): asynchronousprogramminginrust
+  Chunking: asynchronousprogrammingwithcplusplus
+    → 231 parents, 848 children
+  Skipping (exists): automating-data-quality-monitoring
+  Skipping (exists): azureai-102certificationessentials
+  Chunking: bare-metalembeddedcprogramming
+    → 235 parents, 801 children
+  Skipping (exists): bayesiananalysiswithpython_thirdedition
+  Skipping (exists): bishop-prml
+  Skipping (exists): boneh-shoup-applied-cryptography
+  Skipping (exists): build-reasoning-model
+  Skipping (exists): build-text-to-image-generator
+  Skipping (exists): building-applications-ai-agents
+  Skipping (exists): building-design-systems
+  Chunking: building-event-driven-data-mesh
+    → 135 parents, 468 children
+  Skipping (exists): building-event-driven-microservices
+  Skipping (exists): building-evolutionary-architectures
+  Chunking: building-genai-services-fastapi
+    → 242 parents, 853 children
+  Skipping (exists): building-green-software
+  Skipping (exists): building-knowledge-graphs
+  Chunking: building-machine-learning-pipelines
+    → 286 parents, 1890 children
+  Skipping (exists): building-medallion-architectures
+  Skipping (exists): building-micro-frontends
+  Skipping (exists): building-microservices-2e
+  Skipping (exists): building-multi-tenant-saas
+  Skipping (exists): building-reliable-ai-systems
+  Chunking: building-secure-reliable-systems
+    → 446 parents, 1342 children
+  Chunking: buildinglowlatencyapplicationswithc
+    → 306 parents, 1237 children
+  Skipping (exists): candalgorithmicthinkingforthecompletebeginner
+  Skipping (exists): causalinferenceanddiscoveryinpython
+  Skipping (exists): certified-ethical-hacker
+  Skipping (exists): chaos-engineering
+  Skipping (exists): clean-architecture
+  Skipping (exists): clean-code
+  Chunking: cloud-native-devops-kubernetes
+    → 260 parents, 686 children
+  Skipping (exists): cloud-native-security-cookbook
+  Chunking: cmakebestpractices
+    → 251 parents, 773 children
+  Chunking: cockroachdb-definitive-guide
+    → 382 parents, 922 children
+  Skipping (exists): coding-with-ai
+  Chunking: continuous-api-management
+    → 202 parents, 698 children
+  Skipping (exists): continuous-delivery
+  Chunking: cplusplus20stlcookbook2e
+    → 246 parents, 967 children
+  Skipping (exists): cplusplusmemorymanagement
+  Skipping (exists): cplusplusprogrammersmindset
+  Chunking: creating-web-animations
+    → 114 parents, 290 children
+  Skipping (exists): creativeprojectsforrustprogrammers
+  Skipping (exists): crypto-101
+  Skipping (exists): css-definitive-guide
+  Skipping (exists): css-in-depth-2e
+  Skipping (exists): cuda-programming-guide
+  Skipping (exists): d2l-en
+  Skipping (exists): d3js-in-action
+  Chunking: data-governance-definitive-guide
+    → 149 parents, 468 children
+  Chunking: data-governance-unity-catalog
+    → 166 parents, 582 children
+  Skipping (exists): data-management-at-scale
+  Chunking: data-quality-fundamentals
+    → 190 parents, 588 children
+  Skipping (exists): data-science-for-business
+  Skipping (exists): data-science-from-scratch
+  Skipping (exists): data-science-hard-parts
+  Skipping (exists): data-visualization-storytelling
+  Skipping (exists): database-design-2nd-ed
+  Chunking: database-internals
+    → 254 parents, 709 children
+  Chunking: datastructuresandalgorithmswiththecplusplusstl
+    → 230 parents, 822 children
+  Chunking: debunkingcplusplusmyths
+    → 134 parents, 510 children
+  Skipping (exists): deciphering-data-architectures
+  Skipping (exists): deepreinforcementlearninghands-on_thirdedition
+  Chunking: delta-lake-definitive-guide
+    → 226 parents, 752 children
+  Skipping (exists): design-for-how-people-think
+  Skipping (exists): design-patterns-gof
+  Chunking: designing-autonomous-ai
+    → 144 parents, 384 children
+  Chunking: designing-data-intensive-applications
+    → 284 parents, 1283 children
+  Skipping (exists): designing-distributed-systems-2e
+  Skipping (exists): designing-distributed-systems
+  Skipping (exists): designing-great-web-apis
+  Chunking: designing-interfaces
+    → 209 parents, 704 children
+  Chunking: designing-llm-applications
+    → 232 parents, 654 children
+  Skipping (exists): designing-ml-systems-huyen
+  Skipping (exists): designpatternsandbestpracticesinrust
+  Skipping (exists): digitalocean-redis
+  Skipping (exists): distributed-systems-fun-profit
+  Skipping (exists): domain-driven-design-evans
+  Skipping (exists): domain-specific-small-language-models
+  Skipping (exists): effective-conversational-ai
+  Skipping (exists): effective-platform-engineering
+  Skipping (exists): effective-typescript
+  Skipping (exists): effective-ui
+  Chunking: efficient-linux-command-line
+    → 159 parents, 464 children
+  Skipping (exists): efficient-nodejs
+  Skipping (exists): enterprise-big-data-lake
+  Skipping (exists): enterprise-integration-patterns
+  Skipping (exists): essential-graphrag
+  Chunking: essential-math-ai
+    → 364 parents, 1222 children
+  Skipping (exists): excel-for-accountants
+  Skipping (exists): exploratory-data-analysis-tukey
+  Skipping (exists): exploratory-data-analysis-visualization
+  Skipping (exists): facilitating-software-architecture
+  Skipping (exists): financial-ai-in-practice
+  Skipping (exists): financial-data-engineering
+  Skipping (exists): flow-architectures
+  Skipping (exists): fluent-react
+  Chunking: foundations-scalable-systems
+    → 190 parents, 582 children
+  Skipping (exists): fundamentals-computer-graphics
+  Skipping (exists): fundamentals-data-engineering
+  Skipping (exists): fundamentals-enterprise-architecture
+  Chunking: fundamentals-metadata-management
+    → 147 parents, 353 children
+  Skipping (exists): fundamentals-microsoft-fabric
+  Skipping (exists): gamedevelopmentwithrustandwebassembly
+  Skipping (exists): generative-ai-in-action
+  Chunking: generative-deep-learning
+    → 182 parents, 523 children
+  Skipping (exists): ghidra-book
+  Skipping (exists): gpuprogrammingwithcplusplusandcuda
+  Skipping (exists): graphmachinelearning_secondedition
+  Skipping (exists): growing-oo-software-by-tests
+  Skipping (exists): hands-on-large-language-models
+  Skipping (exists): hands-on-rag-production
+  Chunking: hands-on-selenium-webdriver
+    → 248 parents, 686 children
+  Skipping (exists): hands-on-unsupervised-learning
+  Skipping (exists): hands-onartificialintelligenceforiot_secondedition
+  Skipping (exists): hands-onconcurrencywithrust
+  Chunking: hands-ondesignpatternswithcplusplus2e
+    → 371 parents, 1559 children
+  Skipping (exists): hands-onmachinelearningwithcplusplus_secondedition
+  Skipping (exists): head-first-statistics-analysis
+  Skipping (exists): holacracy
+  Skipping (exists): http-definitive-guide
+  Skipping (exists): human-in-the-loop-ml
+  Skipping (exists): illustrated-guide-ai-agents
+  Skipping (exists): implementing-data-mesh
+  Chunking: infrastructure-as-code
+    → 359 parents, 746 children
+  Chunking: inside-cyber-warfare
+    → 84 parents, 273 children
+  Chunking: intelligence-driven-incident-response
+    → 259 parents, 672 children
+  Skipping (exists): interpretable-ai
+  Skipping (exists): intro-to-algorithms-clrs
+  Skipping (exists): joy-of-cryptography
+  Chunking: kafka-definitive-guide
+    → 192 parents, 610 children
+  Skipping (exists): kagglebook_secondedition
+  Chunking: kubernetes-security-observability
+    → 109 parents, 316 children
+  Skipping (exists): langchain-life-sciences-healthcare
+  Skipping (exists): laws-of-ux
+  Skipping (exists): lbdl
+  Skipping (exists): lean-ux
+  Skipping (exists): learning-agile
+  Skipping (exists): learning-api-styles
+  Skipping (exists): learning-domain-driven-design
+  Skipping (exists): learning-git
+  Chunking: learning-github-actions
+    → 211 parents, 599 children
+  Skipping (exists): learning-javascript-design-patterns
+  Chunking: learning-modern-linux
+    → 125 parents, 466 children
+  Skipping (exists): learning-opentelemetry
+  Skipping (exists): learning-spark
+  Skipping (exists): learning-systems-thinking
+  Chunking: learning-test-driven-development
+    → 180 parents, 436 children
+  Skipping (exists): learning-threejs
+  Skipping (exists): learning-vue
+  Chunking: learnllvm17secondedition
+    → 226 parents, 934 children
+  Skipping (exists): linuxkernelprogramming
+  Skipping (exists): linuxservicemanagement-systemd
+  Skipping (exists): little-redis-book
+  Skipping (exists): llm-security-playbook
+  Chunking: llmops
+    → 172 parents, 563 children
+  Skipping (exists): llms-in-production
+  Skipping (exists): llvmcodegeneration
+  Skipping (exists): looks-good-to-me
+  Skipping (exists): machine-learning-econometrics
+  Skipping (exists): machine-learning-production-systems
+  Skipping (exists): machinelearningengineeringwithpython_secondedition
+  Skipping (exists): machinelearningforalgorithmictradingsecondedition
+  Skipping (exists): machinelearningwithpytorchandscikit-learn
+  Skipping (exists): making-sense-of-data
+  Skipping (exists): mastering-api-architecture
+  Skipping (exists): masteringlinuxadministration
+  Skipping (exists): masteringlinuxsecurityandhardening
+  Skipping (exists): masteringpythonnetworking
+  Skipping (exists): masteringpytorch_secondedition
+  Skipping (exists): mathematicsofmachinelearning
+  Chunking: microservice-architecture
+    → 105 parents, 265 children
+  Skipping (exists): microservices-design-to-deploy
+  Skipping (exists): ml-platform-engineering
+  Chunking: modern-data-analytics-excel
+    → 193 parents, 310 children
+  Skipping (exists): moderncmakeforcplusplus2e
+  Skipping (exists): moderncplusplusprogrammingcookbook3eepub
+  Skipping (exists): modernnetworkobservability
+  Skipping (exists): moderntimeseriesforecastingwithpython_secondedition
+  Chunking: monolith-to-microservices
+    → 143 parents, 460 children
+  Chunking: natural-language-processing-transformers
+    → 204 parents, 775 children
+  Skipping (exists): nginx-cookbook
+  Skipping (exists): nosql-distilled
+  Skipping (exists): oauth-rfcs-book
+  Skipping (exists): optimization-algorithms
+  Skipping (exists): owasp-asvs-v5
+  Skipping (exists): owasp-cheat-sheets
+  Skipping (exists): owasp-developer-guide
+  Skipping (exists): owasp-wstg-v4.2
+  Skipping (exists): pandascookbook_thirdedition
+  Skipping (exists): patterns-enterprise-application-architecture
+  Skipping (exists): policy-as-code
+  Skipping (exists): postgresql-14-internals
+  Skipping (exists): postgresql-internals-interdb
+  Skipping (exists): practical-lakehouse-architecture
+  Chunking: practical-linear-algebra-data-science
+    → 150 parents, 544 children
+  Skipping (exists): practical-reverse-engineering
+  Skipping (exists): practical-web-accessibility
+  Skipping (exists): practicalsystemprogrammingforrustdevelopers
+  Chunking: practitioners-guide-graph-data
+    → 211 parents, 705 children
+  Chunking: predictive-analytics-modern-enterprise
+    → 149 parents, 569 children
+  Skipping (exists): pro-git
+  Skipping (exists): probml-advanced
+  Skipping (exists): probml-intro
+  Skipping (exists): production-ready-microservices
+  Chunking: project-management-with-ai
+    → 286 parents, 578 children
+  Skipping (exists): pythonmachinelearningbyexample_fourthedition
+  Chunking: qt6cplusplusguiprogrammingcookbook
+    → 156 parents, 661 children
+  Skipping (exists): real-world-svelte
+  Skipping (exists): redis-for-dummies
+  Skipping (exists): refactoring-ui
+  Skipping (exists): refactoring
+  Chunking: refactoringwithcplusplus
+    → 209 parents, 735 children
+  Skipping (exists): reinforcement-learning-finance
+  Skipping (exists): release-it
+  Skipping (exists): rest-api-design-rulebook
+  Skipping (exists): rest-in-practice
+  Skipping (exists): restful-web-apis
+  Chunking: reverse-engineering-cybersecurity
+    → 24 parents, 146 children
+  Chunking: reverse-engineering-for-beginners
+    → 817 parents, 2729 children
+  Skipping (exists): rust_ebook
+  Skipping (exists): rustforblockchainapplicationdevelopment
+  Skipping (exists): rustforcplusplusdeveloper
+  Skipping (exists): rustprogramminghandbook
+  Skipping (exists): rustwebdevelopmentwithrocket
+  Skipping (exists): rustwebprogramming
+  Chunking: scaling-machine-learning-with-spark
+    → 153 parents, 543 children
+  Skipping (exists): scikit-learncookbook_thirdedition
+  Chunking: scrum-masters-path
+    → 92 parents, 361 children
+  Skipping (exists): semantic-software-design
+  Skipping (exists): seriouspython
+  Skipping (exists): site-reliability-engineering
+  Skipping (exists): software-architect-elevator
+  Skipping (exists): software-architecture-hard-parts
+  Skipping (exists): software-architecture-metrics
+  Skipping (exists): software-architecture-patterns
+  Chunking: software-supply-chain-security
+    → 138 parents, 398 children
+  Skipping (exists): software-testing-with-genai
+  Skipping (exists): softwarearchitecturewithcplusplussecondedition
+  Skipping (exists): spark-definitive-guide
+  Skipping (exists): speedupyourpythonwithrust
+  Skipping (exists): sql-relational-theory
+  Chunking: sql-server-advanced-troubleshooting
+    → 248 parents, 895 children
+  Skipping (exists): statistics-by-simulation
+  Skipping (exists): storytelling-in-design
+  Chunking: storytelling-with-data
+    → 109 parents, 417 children
+  Skipping (exists): strategic-writing-for-ux
+  Chunking: strengthening-deep-neural-networks
+    → 121 parents, 404 children
+  Skipping (exists): swebok
+  Skipping (exists): tdd-by-example
+  Skipping (exists): templatemetaprogrammingwithc
+  Skipping (exists): testing-javascript-applications
+  Skipping (exists): think-like-ux-researcher
+  Chunking: think-stats-3e
+    → 100 parents, 474 children
+  Chunking: training-data-for-machine-learning
+    → 216 parents, 598 children
+  Skipping (exists): transformers-in-action
+  Skipping (exists): typescript-cookbook
+  Skipping (exists): ui-design-principles
+  Skipping (exists): ultimatelinuxshellscriptingguide
+  Skipping (exists): ultimateubuntuhandbook
+  Skipping (exists): understanding-deep-learning
+  Skipping (exists): unifying-business-data-code
+  Skipping (exists): use-the-index-luke
+  Skipping (exists): user-story-mapping
+  Skipping (exists): ux-for-lean-startups
+  Chunking: vector-databases-introduction
+    → 78 parents, 403 children
+  Skipping (exists): web-accessibility-cookbook
+  Chunking: web-performance-engineering
+    → 219 parents, 522 children
+  Skipping (exists): web-performance-in-action
+  Chunking: web-scraping-with-python
+    → 175 parents, 603 children
+  Skipping (exists): webgpu-sourcebook
+  Skipping (exists): writing-excel-macros-vba
+  Chunking: x86-software-reverse-engineering
+    → 214 parents, 528 children
+  Skipping (exists): zero-trust-networks-2e
+2026-09-28 18:14:30.340 python[76497:43641129] 2026-09-28 18:14:30.340716 [W:onnxruntime:Default, telemetry.cc:800 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Step 1: Ingesting EPUBs → markdown...
+  Skipping (exists): artificialintelligenceforcybersecurity
+  Skipping (exists): azureai-102certificationessentials
+  Skipping (exists): bayesiananalysiswithpython_thirdedition
+  Converting: building-machine-learning-pipelines
+  Skipping (exists): causalinferenceanddiscoveryinpython
+  Skipping (exists): deepreinforcementlearninghands-on_thirdedition
+  Skipping (exists): graphmachinelearning_secondedition
+  Skipping (exists): hands-on-unsupervised-learning
+  Skipping (exists): hands-onartificialintelligenceforiot_secondedition
+  Skipping (exists): hands-onmachinelearningwithcplusplus_secondedition
+  Skipping (exists): kagglebook_secondedition
+  Skipping (exists): machinelearningengineeringwithpython_secondedition
+  Skipping (exists): machinelearningforalgorithmictradingsecondedition
+  Skipping (exists): machinelearningwithpytorchandscikit-learn
+  Skipping (exists): masteringpytorch_secondedition
+  Skipping (exists): mathematicsofmachinelearning
+  Skipping (exists): moderntimeseriesforecastingwithpython_secondedition
+  Skipping (exists): optimization-algorithms
+  Skipping (exists): pandascookbook_thirdedition
+  Skipping (exists): pythonmachinelearningbyexample_fourthedition
+  Skipping (exists): scikit-learncookbook_thirdedition
+  Skipping (exists): asynchronousprogramminginrust
+  Skipping (exists): creativeprojectsforrustprogrammers
+  Skipping (exists): designpatternsandbestpracticesinrust
+  Skipping (exists): gamedevelopmentwithrustandwebassembly
+  Skipping (exists): hands-onconcurrencywithrust
+  Skipping (exists): practicalsystemprogrammingforrustdevelopers
+  Skipping (exists): rust_ebook
+  Skipping (exists): rustforblockchainapplicationdevelopment
+  Skipping (exists): rustforcplusplusdeveloper
+  Skipping (exists): rustprogramminghandbook
+  Skipping (exists): rustwebdevelopmentwithrocket
+  Skipping (exists): rustwebprogramming
+  Skipping (exists): speedupyourpythonwithrust
+  Skipping (exists): ai-engineering-huyen
+  Skipping (exists): ai-powered-search
+  Skipping (exists): art-of-ai-product-development
+  Skipping (exists): building-reliable-ai-systems
+  Skipping (exists): coding-with-ai
+  Skipping (exists): designing-ml-systems-huyen
+  Skipping (exists): effective-conversational-ai
+  Skipping (exists): financial-ai-in-practice
+  Skipping (exists): generative-ai-in-action
+  Skipping (exists): hands-on-large-language-models
+  Skipping (exists): human-in-the-loop-ml
+  Skipping (exists): illustrated-guide-ai-agents
+  Skipping (exists): interpretable-ai
+  Skipping (exists): llms-in-production
+  Skipping (exists): ml-platform-engineering
+  Skipping (exists): software-testing-with-genai
+  Skipping (exists): transformers-in-action
+  Skipping (exists): effective-platform-engineering
+  Skipping (exists): looks-good-to-me
+  Skipping (exists): chaos-engineering
+  Skipping (exists): linuxkernelprogramming
+  Skipping (exists): linuxservicemanagement-systemd
+  Skipping (exists): masteringlinuxadministration
+  Skipping (exists): masteringlinuxsecurityandhardening
+  Skipping (exists): masteringpythonnetworking
+  Skipping (exists): modernnetworkobservability
+  Skipping (exists): nginx-cookbook
+  Skipping (exists): seriouspython
+  Skipping (exists): ultimatelinuxshellscriptingguide
+  Skipping (exists): ultimateubuntuhandbook
+  Skipping (exists): architecture-patterns-with-python
+  Skipping (exists): building-event-driven-microservices
+  Skipping (exists): building-evolutionary-architectures
+  Skipping (exists): building-green-software
+  Skipping (exists): building-medallion-architectures
+  Skipping (exists): building-microservices-2e
+  Skipping (exists): building-multi-tenant-saas
+  Skipping (exists): designing-distributed-systems-2e
+  Skipping (exists): facilitating-software-architecture
+  Skipping (exists): flow-architectures
+  Skipping (exists): fundamentals-enterprise-architecture
+  Skipping (exists): learning-api-styles
+  Skipping (exists): learning-domain-driven-design
+  Skipping (exists): learning-systems-thinking
+  Skipping (exists): mastering-api-architecture
+  Skipping (exists): semantic-software-design
+  Skipping (exists): software-architect-elevator
+  Skipping (exists): software-architecture-hard-parts
+  Skipping (exists): software-architecture-metrics
+  Skipping (exists): efficient-nodejs
+  Skipping (exists): fluent-react
+  Skipping (exists): typescript-cookbook
+  Skipping (exists): data-visualization-storytelling
+  Skipping (exists): practical-web-accessibility
+  Skipping (exists): storytelling-in-design
+  Skipping (exists): architecting-data-ml-platforms
+  Skipping (exists): automating-data-quality-monitoring
+  Skipping (exists): building-knowledge-graphs
+  Skipping (exists): deciphering-data-architectures
+  Skipping (exists): enterprise-big-data-lake
+  Skipping (exists): unifying-business-data-code
+  Skipping (exists): head-first-statistics-analysis
+  Skipping (exists): asynchronousprogrammingwithcplusplus
+  Skipping (exists): bare-metalembeddedcprogramming
+  Skipping (exists): buildinglowlatencyapplicationswithc
+  Skipping (exists): candalgorithmicthinkingforthecompletebeginner
+  Skipping (exists): cmakebestpractices
+  Converting: cplusplus20stlcookbook2e
+  Skipping (exists): cplusplusmemorymanagement
+  Skipping (exists): cplusplusprogrammersmindset
+  Skipping (exists): datastructuresandalgorithmswiththecplusplusstl
+  Skipping (exists): debunkingcplusplusmyths
+  Skipping (exists): gpuprogrammingwithcplusplusandcuda
+  Skipping (exists): hands-ondesignpatternswithcplusplus2e
+  Skipping (exists): learnllvm17secondedition
+  Skipping (exists): llvmcodegeneration
+  Skipping (exists): moderncmakeforcplusplus2e
+  Skipping (exists): moderncplusplusprogrammingcookbook3eepub
+  Skipping (exists): qt6cplusplusguiprogrammingcookbook
+  Skipping (exists): refactoringwithcplusplus
+  Skipping (exists): softwarearchitecturewithcplusplussecondedition
+  Skipping (exists): templatemetaprogrammingwithc
+  Converting: reverse-engineering-cybersecurity
+  Skipping (exists): holacracy
+  Skipping (exists): scrum-masters-path
+  Skipping (exists): 3d-data-science-python
+  Skipping (exists): build-text-to-image-generator
+  Skipping (exists): essential-math-ai
+  Skipping (exists): generative-deep-learning
+  Skipping (exists): machine-learning-econometrics
+  Skipping (exists): machine-learning-production-systems
+  Skipping (exists): practical-linear-algebra-data-science
+  Skipping (exists): reinforcement-learning-finance
+  Skipping (exists): strengthening-deep-neural-networks
+  Skipping (exists): training-data-for-machine-learning
+  Skipping (exists): bishop-prml
+  Skipping (exists): cuda-programming-guide
+  Skipping (exists): d2l-en
+  Skipping (exists): lbdl
+  Skipping (exists): probml-advanced
+  Skipping (exists): probml-intro
+  Skipping (exists): understanding-deep-learning
+  Skipping (exists): cockroachdb-definitive-guide
+  Skipping (exists): database-design-2nd-ed
+  Skipping (exists): database-internals
+  Skipping (exists): digitalocean-redis
+  Skipping (exists): little-redis-book
+  Skipping (exists): postgresql-14-internals
+  Skipping (exists): practitioners-guide-graph-data
+  Skipping (exists): redis-for-dummies
+  Skipping (exists): sql-relational-theory
+  Skipping (exists): sql-server-advanced-troubleshooting
+  Skipping (exists): vector-databases-introduction
+  Skipping (exists): boneh-shoup-applied-cryptography
+  Converting PDF: building-secure-reliable-systems
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+  Skipping (exists): certified-ethical-hacker
+  Skipping (exists): cloud-native-security-cookbook
+  Skipping (exists): crypto-101
+  Skipping (exists): inside-cyber-warfare
+  Skipping (exists): intelligence-driven-incident-response
+  Skipping (exists): joy-of-cryptography
+  Skipping (exists): kubernetes-security-observability
+  Skipping (exists): llm-security-playbook
+  Skipping (exists): oauth-rfcs-book
+  Skipping (exists): owasp-asvs-v5
+  Skipping (exists): owasp-developer-guide
+  Skipping (exists): owasp-wstg-v4.2
+  Skipping (exists): policy-as-code
+  Skipping (exists): software-supply-chain-security
+  Skipping (exists): zero-trust-networks-2e
+  Skipping (exists): designing-data-intensive-applications
+  Skipping (exists): designing-distributed-systems
+  Skipping (exists): foundations-scalable-systems
+  Skipping (exists): agentic-design-patterns
+  Skipping (exists): build-reasoning-model
+  Skipping (exists): building-applications-ai-agents
+  Skipping (exists): building-genai-services-fastapi
+  Skipping (exists): designing-autonomous-ai
+  Skipping (exists): designing-llm-applications
+  Skipping (exists): domain-specific-small-language-models
+  Skipping (exists): essential-graphrag
+  Skipping (exists): hands-on-rag-production
+  Skipping (exists): langchain-life-sciences-healthcare
+  Skipping (exists): llmops
+  Skipping (exists): natural-language-processing-transformers
+  Skipping (exists): ai-modern-approach
+  Skipping (exists): clean-architecture
+  Skipping (exists): clean-code
+  Skipping (exists): continuous-delivery
+  Skipping (exists): design-patterns-gof
+  Skipping (exists): designing-great-web-apis
+  Skipping (exists): domain-driven-design-evans
+  Skipping (exists): enterprise-integration-patterns
+  Skipping (exists): growing-oo-software-by-tests
+  Skipping (exists): hands-on-selenium-webdriver
+  Skipping (exists): intro-to-algorithms-clrs
+  Skipping (exists): learning-git
+  Skipping (exists): learning-github-actions
+  Skipping (exists): learning-test-driven-development
+  Skipping (exists): microservices-design-to-deploy
+  Skipping (exists): nosql-distilled
+  Skipping (exists): patterns-enterprise-application-architecture
+  Skipping (exists): pro-git
+  Skipping (exists): production-ready-microservices
+  Skipping (exists): refactoring
+  Skipping (exists): release-it
+  Skipping (exists): rest-in-practice
+  Skipping (exists): site-reliability-engineering
+  Skipping (exists): software-architecture-patterns
+  Skipping (exists): swebok
+  Skipping (exists): tdd-by-example
+  Skipping (exists): testing-javascript-applications
+  Skipping (exists): cloud-native-devops-kubernetes
+  Skipping (exists): efficient-linux-command-line
+  Skipping (exists): infrastructure-as-code
+  Skipping (exists): learning-modern-linux
+  Skipping (exists): learning-opentelemetry
+  Skipping (exists): apis-a-strategy-guide
+  Skipping (exists): continuous-api-management
+  Skipping (exists): microservice-architecture
+  Skipping (exists): monolith-to-microservices
+  Skipping (exists): rest-api-design-rulebook
+  Skipping (exists): restful-web-apis
+  Converting PDF: angular-up-and-running
+  MarkItDown PDF fallback unavailable (File conversion failed after 1 attempts:
+ - PdfConverter threw MissingDependencyException with message: PdfConverter recognized the input as a potential .pdf file, but the dependencies needed to read .pdf files have not been installed. To resolve this error, include the optional dependency [pdf] or [all] when installing MarkItDown. For example:
+
+* pip install 'markitdown[pdf]'
+* pip install 'markitdown[all]'
+* pip install 'markitdown[pdf, ...]'
+* etc.
+); using PyMuPDF layout: angular-up-and-running
+  Skipping (exists): building-micro-frontends
+  Skipping (exists): creating-web-animations
+  Skipping (exists): css-definitive-guide
+  Skipping (exists): css-in-depth-2e
+  Skipping (exists): effective-typescript
+  Skipping (exists): http-definitive-guide
+  Skipping (exists): learning-javascript-design-patterns
+  Skipping (exists): learning-threejs
+  Skipping (exists): learning-vue
+  Skipping (exists): real-world-svelte
+  Skipping (exists): web-performance-engineering
+  Converting PDF: web-performance-in-action
+  MarkItDown PDF fallback unavailable (File conversion failed after 1 attempts:
+ - PdfConverter threw MissingDependencyException with message: PdfConverter recognized the input as a potential .pdf file, but the dependencies needed to read .pdf files have not been installed. To resolve this error, include the optional dependency [pdf] or [all] when installing MarkItDown. For example:
+
+* pip install 'markitdown[pdf]'
+* pip install 'markitdown[all]'
+* pip install 'markitdown[pdf, ...]'
+* etc.
+); using PyMuPDF layout: web-performance-in-action
+  Skipping (exists): webgpu-sourcebook
+  Skipping (exists): analytics-tools-optimizing-ux
+  Skipping (exists): articulating-design-decisions
+  Skipping (exists): building-design-systems
+  Skipping (exists): d3js-in-action
+  Skipping (exists): design-for-how-people-think
+  Skipping (exists): designing-interfaces
+  Skipping (exists): effective-ui
+  Skipping (exists): laws-of-ux
+  Skipping (exists): lean-ux
+  Skipping (exists): refactoring-ui
+  Skipping (exists): storytelling-with-data
+  Skipping (exists): strategic-writing-for-ux
+  Skipping (exists): think-like-ux-researcher
+  Skipping (exists): ui-design-principles
+  Skipping (exists): ux-for-lean-startups
+  Skipping (exists): web-accessibility-cookbook
+  Skipping (exists): advanced-analytics-pyspark
+  Skipping (exists): building-event-driven-data-mesh
+  Skipping (exists): data-governance-definitive-guide
+  Skipping (exists): data-governance-unity-catalog
+  Skipping (exists): data-management-at-scale
+  Skipping (exists): data-quality-fundamentals
+  Skipping (exists): delta-lake-definitive-guide
+  Skipping (exists): financial-data-engineering
+  Skipping (exists): fundamentals-data-engineering
+  Skipping (exists): fundamentals-metadata-management
+  Skipping (exists): fundamentals-microsoft-fabric
+  Skipping (exists): implementing-data-mesh
+  Skipping (exists): kafka-definitive-guide
+  Skipping (exists): learning-spark
+  Skipping (exists): practical-lakehouse-architecture
+  Skipping (exists): scaling-machine-learning-with-spark
+  Skipping (exists): spark-definitive-guide
+  Skipping (exists): web-scraping-with-python
+  Skipping (exists): data-science-for-business
+  Skipping (exists): data-science-from-scratch
+  Skipping (exists): data-science-hard-parts
+  Skipping (exists): excel-for-accountants
+  Skipping (exists): exploratory-data-analysis-tukey
+  Skipping (exists): exploratory-data-analysis-visualization
+  Converting PDF: making-sense-of-data
+  Skipping (exists): modern-data-analytics-excel
+  Skipping (exists): predictive-analytics-modern-enterprise
+  Skipping (exists): statistics-by-simulation
+  Skipping (exists): think-stats-3e
+  Skipping (exists): writing-excel-macros-vba
+  Converting PDF: assembly-language-x86-processors
+  Skipping (exists): fundamentals-computer-graphics
+  Skipping (exists): advanced-apple-debugging
+  Skipping (exists): arm-assembly-internals
+  Skipping (exists): ghidra-book
+  Skipping (exists): practical-reverse-engineering
+  Converting PDF: reverse-engineering-for-beginners
+  Skipping (exists): x86-software-reverse-engineering
+  Skipping (exists): learning-agile
+  Skipping (exists): project-management-with-ai
+  Skipping (exists): user-story-mapping
+  Skipping (exists): distributed-systems-fun-profit
+  Skipping (exists): postgresql-internals-interdb
+  Skipping (exists): use-the-index-luke
+  Skipping (exists): owasp-cheat-sheets
+2026-09-28 18:14:57.473 python[76545:43641617] 2026-09-28 18:14:57.473898 [W:onnxruntime:Default, telemetry.cc:800 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+Step 2: Chunking markdown...
+  Skipping (exists): 3d-data-science-python
+  Skipping (exists): advanced-analytics-pyspark
+  Skipping (exists): advanced-apple-debugging
+  Skipping (exists): agentic-design-patterns
+  Skipping (exists): ai-engineering-huyen
+  Skipping (exists): ai-modern-approach
+  Skipping (exists): ai-powered-search
+  Skipping (exists): analytics-tools-optimizing-ux
+  Chunking: angular-up-and-running
+    → 491 parents, 758 children
+  Skipping (exists): apis-a-strategy-guide
+  Skipping (exists): architecting-data-ml-platforms
+  Skipping (exists): architecture-patterns-with-python
+  Skipping (exists): arm-assembly-internals
+  Skipping (exists): art-of-ai-product-development
+  Skipping (exists): articulating-design-decisions
+  Skipping (exists): artificialintelligenceforcybersecurity
+  Chunking: assembly-language-x86-processors
+    → 502 parents, 1852 children
+  Skipping (exists): asynchronousprogramminginrust
+  Skipping (exists): asynchronousprogrammingwithcplusplus
+  Skipping (exists): automating-data-quality-monitoring
+  Skipping (exists): azureai-102certificationessentials
+  Skipping (exists): bare-metalembeddedcprogramming
+  Skipping (exists): bayesiananalysiswithpython_thirdedition
+  Skipping (exists): bishop-prml
+  Skipping (exists): boneh-shoup-applied-cryptography
+  Skipping (exists): build-reasoning-model
+  Skipping (exists): build-text-to-image-generator
+  Skipping (exists): building-applications-ai-agents
+  Skipping (exists): building-design-systems
+  Skipping (exists): building-event-driven-data-mesh
+  Skipping (exists): building-event-driven-microservices
+  Skipping (exists): building-evolutionary-architectures
+  Skipping (exists): building-genai-services-fastapi
+  Skipping (exists): building-green-software
+  Skipping (exists): building-knowledge-graphs
+  Chunking: building-machine-learning-pipelines
+    → 277 parents, 1883 children
+  Skipping (exists): building-medallion-architectures
+  Skipping (exists): building-micro-frontends
+  Skipping (exists): building-microservices-2e
+  Skipping (exists): building-multi-tenant-saas
+  Skipping (exists): building-reliable-ai-systems
+  Chunking: building-secure-reliable-systems
+    → 411 parents, 1104 children
+  Skipping (exists): buildinglowlatencyapplicationswithc
+  Skipping (exists): candalgorithmicthinkingforthecompletebeginner
+  Skipping (exists): causalinferenceanddiscoveryinpython
+  Skipping (exists): certified-ethical-hacker
+  Skipping (exists): chaos-engineering
+  Skipping (exists): clean-architecture
+  Skipping (exists): clean-code
+  Skipping (exists): cloud-native-devops-kubernetes
+  Skipping (exists): cloud-native-security-cookbook
+  Skipping (exists): cmakebestpractices
+  Skipping (exists): cockroachdb-definitive-guide
+  Skipping (exists): coding-with-ai
+  Skipping (exists): continuous-api-management
+  Skipping (exists): continuous-delivery
+  Chunking: cplusplus20stlcookbook2e
+    → 132 parents, 475 children
+  Skipping (exists): cplusplusmemorymanagement
+  Skipping (exists): cplusplusprogrammersmindset
+  Skipping (exists): creating-web-animations
+  Skipping (exists): creativeprojectsforrustprogrammers
+  Skipping (exists): crypto-101
+  Skipping (exists): css-definitive-guide
+  Skipping (exists): css-in-depth-2e
+  Skipping (exists): cuda-programming-guide
+  Skipping (exists): d2l-en
+  Skipping (exists): d3js-in-action
+  Skipping (exists): data-governance-definitive-guide
+  Skipping (exists): data-governance-unity-catalog
+  Skipping (exists): data-management-at-scale
+  Skipping (exists): data-quality-fundamentals
+  Skipping (exists): data-science-for-business
+  Skipping (exists): data-science-from-scratch
+  Skipping (exists): data-science-hard-parts
+  Skipping (exists): data-visualization-storytelling
+  Skipping (exists): database-design-2nd-ed
+  Skipping (exists): database-internals
+  Skipping (exists): datastructuresandalgorithmswiththecplusplusstl
+  Skipping (exists): debunkingcplusplusmyths
+  Skipping (exists): deciphering-data-architectures
+  Skipping (exists): deepreinforcementlearninghands-on_thirdedition
+  Skipping (exists): delta-lake-definitive-guide
+  Skipping (exists): design-for-how-people-think
+  Skipping (exists): design-patterns-gof
+  Skipping (exists): designing-autonomous-ai
+  Skipping (exists): designing-data-intensive-applications
+  Skipping (exists): designing-distributed-systems-2e
+  Skipping (exists): designing-distributed-systems
+  Skipping (exists): designing-great-web-apis
+  Skipping (exists): designing-interfaces
+  Skipping (exists): designing-llm-applications
+  Skipping (exists): designing-ml-systems-huyen
+  Skipping (exists): designpatternsandbestpracticesinrust
+  Skipping (exists): digitalocean-redis
+  Skipping (exists): distributed-systems-fun-profit
+  Skipping (exists): domain-driven-design-evans
+  Skipping (exists): domain-specific-small-language-models
+  Skipping (exists): effective-conversational-ai
+  Skipping (exists): effective-platform-engineering
+  Skipping (exists): effective-typescript
+  Skipping (exists): effective-ui
+  Skipping (exists): efficient-linux-command-line
+  Skipping (exists): efficient-nodejs
+  Skipping (exists): enterprise-big-data-lake
+  Skipping (exists): enterprise-integration-patterns
+  Skipping (exists): essential-graphrag
+  Skipping (exists): essential-math-ai
+  Skipping (exists): excel-for-accountants
+  Skipping (exists): exploratory-data-analysis-tukey
+  Skipping (exists): exploratory-data-analysis-visualization
+  Skipping (exists): facilitating-software-architecture
+  Skipping (exists): financial-ai-in-practice
+  Skipping (exists): financial-data-engineering
+  Skipping (exists): flow-architectures
+  Skipping (exists): fluent-react
+  Skipping (exists): foundations-scalable-systems
+  Skipping (exists): fundamentals-computer-graphics
+  Skipping (exists): fundamentals-data-engineering
+  Skipping (exists): fundamentals-enterprise-architecture
+  Skipping (exists): fundamentals-metadata-management
+  Skipping (exists): fundamentals-microsoft-fabric
+  Skipping (exists): gamedevelopmentwithrustandwebassembly
+  Skipping (exists): generative-ai-in-action
+  Skipping (exists): generative-deep-learning
+  Skipping (exists): ghidra-book
+  Skipping (exists): gpuprogrammingwithcplusplusandcuda
+  Skipping (exists): graphmachinelearning_secondedition
+  Skipping (exists): growing-oo-software-by-tests
+  Skipping (exists): hands-on-large-language-models
+  Skipping (exists): hands-on-rag-production
+  Skipping (exists): hands-on-selenium-webdriver
+  Skipping (exists): hands-on-unsupervised-learning
+  Skipping (exists): hands-onartificialintelligenceforiot_secondedition
+  Skipping (exists): hands-onconcurrencywithrust
+  Skipping (exists): hands-ondesignpatternswithcplusplus2e
+  Skipping (exists): hands-onmachinelearningwithcplusplus_secondedition
+  Skipping (exists): head-first-statistics-analysis
+  Skipping (exists): holacracy
+  Skipping (exists): http-definitive-guide
+  Skipping (exists): human-in-the-loop-ml
+  Skipping (exists): illustrated-guide-ai-agents
+  Skipping (exists): implementing-data-mesh
+  Skipping (exists): infrastructure-as-code
+  Skipping (exists): inside-cyber-warfare
+  Skipping (exists): intelligence-driven-incident-response
+  Skipping (exists): interpretable-ai
+  Skipping (exists): intro-to-algorithms-clrs
+  Skipping (exists): joy-of-cryptography
+  Skipping (exists): kafka-definitive-guide
+  Skipping (exists): kagglebook_secondedition
+  Skipping (exists): kubernetes-security-observability
+  Skipping (exists): langchain-life-sciences-healthcare
+  Skipping (exists): laws-of-ux
+  Skipping (exists): lbdl
+  Skipping (exists): lean-ux
+  Skipping (exists): learning-agile
+  Skipping (exists): learning-api-styles
+  Skipping (exists): learning-domain-driven-design
+  Skipping (exists): learning-git
+  Skipping (exists): learning-github-actions
+  Skipping (exists): learning-javascript-design-patterns
+  Skipping (exists): learning-modern-linux
+  Skipping (exists): learning-opentelemetry
+  Skipping (exists): learning-spark
+  Skipping (exists): learning-systems-thinking
+  Skipping (exists): learning-test-driven-development
+  Skipping (exists): learning-threejs
+  Skipping (exists): learning-vue
+  Skipping (exists): learnllvm17secondedition
+  Skipping (exists): linuxkernelprogramming
+  Skipping (exists): linuxservicemanagement-systemd
+  Skipping (exists): little-redis-book
+  Skipping (exists): llm-security-playbook
+  Skipping (exists): llmops
+  Skipping (exists): llms-in-production
+  Skipping (exists): llvmcodegeneration
+  Skipping (exists): looks-good-to-me
+  Skipping (exists): machine-learning-econometrics
+  Skipping (exists): machine-learning-production-systems
+  Skipping (exists): machinelearningengineeringwithpython_secondedition
+  Skipping (exists): machinelearningforalgorithmictradingsecondedition
+  Skipping (exists): machinelearningwithpytorchandscikit-learn
+  Chunking: making-sense-of-data
+    → 195 parents, 835 children
+  Skipping (exists): mastering-api-architecture
+  Skipping (exists): masteringlinuxadministration
+  Skipping (exists): masteringlinuxsecurityandhardening
+  Skipping (exists): masteringpythonnetworking
+  Skipping (exists): masteringpytorch_secondedition
+  Skipping (exists): mathematicsofmachinelearning
+  Skipping (exists): microservice-architecture
+  Skipping (exists): microservices-design-to-deploy
+  Skipping (exists): ml-platform-engineering
+  Skipping (exists): modern-data-analytics-excel
+  Skipping (exists): moderncmakeforcplusplus2e
+  Skipping (exists): moderncplusplusprogrammingcookbook3eepub
+  Skipping (exists): modernnetworkobservability
+  Skipping (exists): moderntimeseriesforecastingwithpython_secondedition
+  Skipping (exists): monolith-to-microservices
+  Skipping (exists): natural-language-processing-transformers
+  Skipping (exists): nginx-cookbook
+  Skipping (exists): nosql-distilled
+  Skipping (exists): oauth-rfcs-book
+  Skipping (exists): optimization-algorithms
+  Skipping (exists): owasp-asvs-v5
+  Skipping (exists): owasp-cheat-sheets
+  Skipping (exists): owasp-developer-guide
+  Skipping (exists): owasp-wstg-v4.2
+  Skipping (exists): pandascookbook_thirdedition
+  Skipping (exists): patterns-enterprise-application-architecture
+  Skipping (exists): policy-as-code
+  Skipping (exists): postgresql-14-internals
+  Skipping (exists): postgresql-internals-interdb
+  Skipping (exists): practical-lakehouse-architecture
+  Skipping (exists): practical-linear-algebra-data-science
+  Skipping (exists): practical-reverse-engineering
+  Skipping (exists): practical-web-accessibility
+  Skipping (exists): practicalsystemprogrammingforrustdevelopers
+  Skipping (exists): practitioners-guide-graph-data
+  Skipping (exists): predictive-analytics-modern-enterprise
+  Skipping (exists): pro-git
+  Skipping (exists): probml-advanced
+  Skipping (exists): probml-intro
+  Skipping (exists): production-ready-microservices
+  Skipping (exists): project-management-with-ai
+  Skipping (exists): pythonmachinelearningbyexample_fourthedition
+  Skipping (exists): qt6cplusplusguiprogrammingcookbook
+  Skipping (exists): real-world-svelte
+  Skipping (exists): redis-for-dummies
+  Skipping (exists): refactoring-ui
+  Skipping (exists): refactoring
+  Skipping (exists): refactoringwithcplusplus
+  Skipping (exists): reinforcement-learning-finance
+  Skipping (exists): release-it
+  Skipping (exists): rest-api-design-rulebook
+  Skipping (exists): rest-in-practice
+  Skipping (exists): restful-web-apis
+  Chunking: reverse-engineering-cybersecurity
+    → 24 parents, 145 children
+  Chunking: reverse-engineering-for-beginners
+    → 803 parents, 2640 children
+  Skipping (exists): rust_ebook
+  Skipping (exists): rustforblockchainapplicationdevelopment
+  Skipping (exists): rustforcplusplusdeveloper
+  Skipping (exists): rustprogramminghandbook
+  Skipping (exists): rustwebdevelopmentwithrocket
+  Skipping (exists): rustwebprogramming
+  Skipping (exists): scaling-machine-learning-with-spark
+  Skipping (exists): scikit-learncookbook_thirdedition
+  Skipping (exists): scrum-masters-path
+  Skipping (exists): semantic-software-design
+  Skipping (exists): seriouspython
+  Skipping (exists): site-reliability-engineering
+  Skipping (exists): software-architect-elevator
+  Skipping (exists): software-architecture-hard-parts
+  Skipping (exists): software-architecture-metrics
+  Skipping (exists): software-architecture-patterns
+  Skipping (exists): software-supply-chain-security
+  Skipping (exists): software-testing-with-genai
+  Skipping (exists): softwarearchitecturewithcplusplussecondedition
+  Skipping (exists): spark-definitive-guide
+  Skipping (exists): speedupyourpythonwithrust
+  Skipping (exists): sql-relational-theory
+  Skipping (exists): sql-server-advanced-troubleshooting
+  Skipping (exists): statistics-by-simulation
+  Skipping (exists): storytelling-in-design
+  Skipping (exists): storytelling-with-data
+  Skipping (exists): strategic-writing-for-ux
+  Skipping (exists): strengthening-deep-neural-networks
+  Skipping (exists): swebok
+  Skipping (exists): tdd-by-example
+  Skipping (exists): templatemetaprogrammingwithc
+  Skipping (exists): testing-javascript-applications
+  Skipping (exists): think-like-ux-researcher
+  Skipping (exists): think-stats-3e
+  Skipping (exists): training-data-for-machine-learning
+  Skipping (exists): transformers-in-action
+  Skipping (exists): typescript-cookbook
+  Skipping (exists): ui-design-principles
+  Skipping (exists): ultimatelinuxshellscriptingguide
+  Skipping (exists): ultimateubuntuhandbook
+  Skipping (exists): understanding-deep-learning
+  Skipping (exists): unifying-business-data-code
+  Skipping (exists): use-the-index-luke
+  Skipping (exists): user-story-mapping
+  Skipping (exists): ux-for-lean-startups
+  Skipping (exists): vector-databases-introduction
+  Skipping (exists): web-accessibility-cookbook
+  Skipping (exists): web-performance-engineering
+  Chunking: web-performance-in-action
+    → 630 parents, 1117 children
+  Skipping (exists): web-scraping-with-python
+  Skipping (exists): webgpu-sourcebook
+  Skipping (exists): writing-excel-macros-vba
+  Skipping (exists): x86-software-reverse-engineering
+  Skipping (exists): zero-trust-networks-2e

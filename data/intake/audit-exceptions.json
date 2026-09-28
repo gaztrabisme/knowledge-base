@@ -1,0 +1,17 @@
+{
+  "analytics-tools-optimizing-ux": "98-page text PDF: PyMuPDF extracts 89,960 characters (918/page); Markdown retains 79,566 (88.4%). Seven pages have under 100 extracted characters, consistent with the visual, diagram-heavy layout.",
+  "creating-web-animations": "210-page text PDF: PyMuPDF extracts 252,177 characters (1,201/page); Markdown retains 225,032 (89.2%). Fifteen pages have under 100 extracted characters; the density miss is from sparse illustrated pages, not a missing text layer.",
+  "fundamentals-microsoft-fabric": "672-page text PDF: PyMuPDF extracts 596,351 characters (887/page); Markdown retains 511,719 (85.8%). Twenty-three pages have under 100 extracted characters, reflecting sparse diagrams and page layout.",
+  "implementing-data-mesh": "515-page text PDF: PyMuPDF extracts 462,140 characters (897/page); Markdown retains 401,236 (86.8%). Thirteen pages have under 100 extracted characters; the source itself falls below the calibrated density floor.",
+  "learning-git": "399-page text PDF: PyMuPDF extracts 416,003 characters (1,043/page); Markdown retains 399,099 (95.9%). Fourteen pages have under 100 extracted characters; nearly all available page text is present.",
+  "learning-opentelemetry": "266-page text PDF: PyMuPDF extracts 323,110 characters (1,215/page); Markdown retains 283,250 (87.7%). The 1,065-character Markdown density is just below the 1,093 p05 floor, with six sparse pages.",
+  "learning-vue": "498-page text PDF: PyMuPDF extracts 511,485 characters (1,027/page); Markdown retains 414,664 (81.1%). Nine pages have under 100 extracted characters; source density is below the calibrated floor.",
+  "machine-learning-production-systems": "985-page text PDF: PyMuPDF extracts 939,561 characters (954/page); Markdown retains 844,746 (89.9%). Seven pages have under 100 extracted characters; source density is below the calibrated floor.",
+  "modern-data-analytics-excel": "244-page text PDF: PyMuPDF extracts 307,191 characters (1,259/page); Markdown retains 253,196 (82.4%). Fourteen pages have under 100 extracted characters; remaining density loss is from tables and page layout.",
+  "policy-as-code": "1,171-page text PDF: PyMuPDF extracts 958,669 characters (819/page); Markdown retains 837,917 (87.4%). Nine pages have under 100 extracted characters; source density is below the calibrated floor.",
+  "practical-lakehouse-architecture": "536-page text PDF: PyMuPDF extracts 546,822 characters (1,020/page); Markdown retains 449,142 (82.1%). Eight pages have under 100 extracted characters; source density is below the calibrated floor.",
+  "refactoring-ui": "252-page highly visual text PDF: PyMuPDF extracts 102,025 characters (405/page); Markdown retains 100,975 (99.0%). Forty-six pages have under 100 extracted characters, so low density reflects the image-led layout rather than lost text.",
+  "reinforcement-learning-finance": "386-page text PDF: PyMuPDF extracts 339,446 characters (879/page); Markdown retains 308,977 (91.0%). Five pages have under 100 extracted characters; source density is below the calibrated floor.",
+  "llm-security-playbook": "380-page text PDF: PyMuPDF extracts 424,249 characters (1,116/page); Markdown retains 386,000 (91.0%). The 1,016-character Markdown density is slightly below the 1,093 p05 floor; two pages are sparse.",
+  "ui-design-principles": "323-page highly visual text PDF: PyMuPDF extracts 221,294 characters (685/page); Markdown retains 203,782 (92.1%). Five pages have under 100 extracted characters, consistent with the visual layout."
+}

@@ -1,5 +1,11 @@
 # Wiki Log
 
+## [2026-09-28] session | v8 technical shelf C2 ingest and audit
+- Ingested and chunked all 166 manifest rows with `.venv/bin/python`; no embeddings, reranking, or indexing were run.
+- Added Markdown/front-back matter and chunk-cap audits, hard chunk splitting, and targeted heading/TOC/PDF extraction repairs. Strict audit passes with 16 source-density exceptions and no other flags.
+- Regression guard passed 15/15 byte-identical comparisons. Wrote a 60-row sanity set from 60 different new books across all 15 domains; all positive child IDs resolve.
+- Full per-book metrics, calibration, changes, and exception details: [C2 report](../data/intake/C2-report.md).
+
 ## [2026-09-28] session | C3 candidate collection merge
 - Added `scripts/merge_collection.py` to copy source vector, index, HNSW, optimizer, WAL, quantization, and payload-index settings; merge embedded points; verify samples; repair mismatched IDs on resume; and switch aliases atomically.
 - Scratch verification passed via `.venv/bin/python` with pytest isolated under `/private/tmp` (`1 passed`); pytest has since been installed into `.venv`, and the direct command passes.

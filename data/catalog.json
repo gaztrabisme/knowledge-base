@@ -1519,19 +1519,6 @@
   ],
   "title": "Excel for Accountants: Tips, Tricks & Techniques (Conrad Carlberg)"
  },
- "exploratory-data-analysis-tukey": {
-  "domain": "data-science",
-  "summary": "Introduces Tukey\u2019s exploratory-data-analysis methods for inspecting distributions, patterns, outliers, and structure in data.",
-  "tags": [
-   "data-science",
-   "statistics",
-   "exploratory-data-analysis",
-   "data-visualization",
-   "data-cleaning",
-   "data-analysis"
-  ],
-  "title": "Exploratory Data Analysis (John W. Tukey)"
- },
  "exploratory-data-analysis-visualization": {
   "domain": "data-science",
   "summary": "Combines Python examples with exploratory analysis, descriptive statistics, visualization, and dashboard design for data work.",
