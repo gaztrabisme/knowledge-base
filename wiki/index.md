@@ -1,6 +1,6 @@
 # Developer Knowledge Base — Project Wiki
 
-Last updated: 2026-09-24 (Stage 4 tool interface implemented; s4-check NDCG@10=0.7699, 0.0001 under the required value; corpus/gate history below remains the 2026-05-31 v6.7.1 record).
+Last updated: 2026-09-28 (v8 shelf metadata/config/catalog prepared; source hard links are blocked by the read-only source boundary).
 Historical update (2026-05-31, v6.7.1 GATE-RESTORE): regenerated the 12 queries dropped by the v6.7 strip
 (2 keyword + 10 navigational, whose gold had been index pages) from the **clean** corpus — seeds now
 valid by construction; added a junk-nav phrasing reject (`index for…`/`Index (part N)`) so the
@@ -37,6 +37,7 @@ PREVIOUS (v6.4 gate-audit round: **audited the golden gate itself — overall gr
 ## Quick Links
 
 - [Active Work](active-work.md) — Current work in progress.
+- [v8 Technical Shelf Intake](v8-technical-shelf.md) — Intake status, validation, and the hard-link blocker.
 - [Wiki Log](log.md) — Dated session outcomes and evidence pointers.
 - [Architecture](architecture.md) — Pipeline design, data flow, component interactions
 - [Decisions](decisions.md) — Key technical decisions and their rationale

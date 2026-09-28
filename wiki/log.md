@@ -19,3 +19,9 @@
 - Tool set is exactly search, read, list_books, find_books, grep_books; JSON tool tokens fell from 1,237 to 1,077 (default) and 1,225 to 1,079 (hyde). Chunk-output parity with HEAD and agent_bench.parent_ids passed.
 - Chapter checks passed; PostgreSQL 14's listed chapters are unnumbered, so chapter 4 fell back to Part V Types of Indexes.
 - The s4-check retrieval run completed with NDCG@10=0.7699 against 0.7700 required (strict FAIL by 0.0001). Full output: [stage4-report.md](../data/bench/stage4-report.md).
+
+## [2026-09-28] session | v8 technical shelf intake
+- Curated 185 source files into the manifest: 166 ingest, 2 verified duplicate copies, 11 indexed works, and 6 philosophy files.
+- Added seven domains, 166 `BOOKS` entries in config and remote index, and 166 catalog entries; catalog validation passed with 292 entries and `knowledge_base.books` imported cleanly.
+- `check_intake.py` confirms inventory/config/catalog consistency but fails on 166 absent hard links. `os.link` returned EPERM from the read-only source tree to both workspace and temp targets; no alternate file type was used.
+- Full skips, domain counts, and remaining work: [C1 report](../data/intake/C1-report.md).

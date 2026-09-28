@@ -1,5 +1,17 @@
 # Technical Decisions
 
+## v8 technical shelf: domain review (2026-09-28)
+**Decision:** 166 of the 185 files in `~/Documents/books` are ingested. Of the rest, 2 are byte-identical `-1` copies, 11 are works already indexed, and 6 are philosophy files that go to the separate philosophy collection. Seven domains are new: `frontend`, `design`, `data-engineering`, `data-science`, `cpp`, `reverse-engineering`, `management`.
+**Corrections made in review of C1's domain column:**
+- `reverse-engineering-cybersecurity` moves from `security` to `reverse-engineering`, beside the other six reversing books.
+- Four titles cut short during extraction are restored: `spark-definitive-guide`, `data-science-hard-parts`, `analytics-tools-optimizing-ux`, `reverse-engineering-cybersecurity`.
+
+**Kept as assigned:**
+- `fundamentals-computer-graphics` stays in `cpp`; no graphics domain exists and its code is C++.
+- `storytelling-with-data` goes to `design`, not `applied-ml` as first proposed. It is a data-visualisation book and sits with the other visualisation titles.
+
+**Evidence:** `data/intake/v8-manifest.json`, `data/intake/C1-report.md`. `scripts/check_intake.py` and `scripts/check_catalog.py` pass. The existing 126 catalog entries and 111 tags are unchanged.
+
 ## Pipeline
 
 ### markitdown over pandoc (v2)

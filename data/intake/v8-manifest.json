@@ -1,0 +1,3177 @@
+[
+  {
+    "file": "3D Data Science with Python Building Accurate Digital Environments with 3D Point Cloud Workflows (Florent Poux).pdf",
+    "slug": "3d-data-science-python",
+    "title": "3D Data Science with Python (Florent Poux)",
+    "domain": "applied-ml",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Uses Python point-cloud workflows for 3D data acquisition, cleaning, registration, visualization, and machine-learning applications.",
+    "tags": [
+      "machine-learning",
+      "python",
+      "computer-vision",
+      "3d-graphics",
+      "deep-learning",
+      "model-evaluation"
+    ]
+  },
+  {
+    "file": "APIs A Strategy Guide (Daniel Jacobson, Greg Brail, Dan Woods).pdf",
+    "slug": "apis-a-strategy-guide",
+    "title": "APIs: A Strategy Guide (Daniel Jacobson, Greg Brail, Dan Woods)",
+    "domain": "architecture",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains API strategy through product value, business models, platform design, developer experience, and organizational adoption.",
+    "tags": [
+      "software-architecture",
+      "architecture-decisions",
+      "api-design",
+      "api-management",
+      "developer-experience",
+      "platform-engineering"
+    ]
+  },
+  {
+    "file": "Advanced Analytics with PySpark Patterns for Learning from Data at Scale Using Python and Spark (Akash Tandon, Sandy Ryza, Uri Laserson etc.).pdf",
+    "slug": "advanced-analytics-pyspark",
+    "title": "Advanced Analytics with Pyspark (Akash Tandon, Sandy Ryza, Uri Laserson etc.)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Applies PySpark to large-scale data analysis, feature engineering, machine learning, and scalable analytics workflows.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "spark",
+      "pyspark",
+      "analytics",
+      "machine-learning"
+    ]
+  },
+  {
+    "file": "Advanced Apple Debugging and Reverse Engineering (Derek Selander).pdf",
+    "slug": "advanced-apple-debugging",
+    "title": "Advanced Apple Debugging and Reverse Engineering (Derek Selander)",
+    "domain": "reverse-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Shows LLDB-based debugging and reverse engineering of Apple platforms, including runtime behavior, binaries, and system protections.",
+    "tags": [
+      "reverse-engineering",
+      "binary-analysis",
+      "debugging",
+      "assembly-language",
+      "security-testing",
+      "malware-analysis"
+    ]
+  },
+  {
+    "file": "Analytics Tools for Optimizing UX (Simon Mackie)-1.pdf",
+    "slug": "analytics-tools-optimizing-ux",
+    "title": "Analytics Tools for Optimizing UX (Simon Mackie)",
+    "domain": "design",
+    "action": "skip-duplicate",
+    "reason": "byte-identical copy of the kept file Analytics Tools for Optimizing UX (Simon Mackie).pdf",
+    "summary": "Uses product analytics, funnels, and experimentation to identify user behavior and improve the usability of web experiences.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "analytics",
+      "product-analytics",
+      "conversion-optimization",
+      "user-research"
+    ]
+  },
+  {
+    "file": "Analytics Tools for Optimizing UX (Simon Mackie).pdf",
+    "slug": "analytics-tools-optimizing-ux",
+    "title": "Analytics Tools for Optimizing UX (Simon Mackie)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Uses product analytics, funnels, and experimentation to identify user behavior and improve the usability of web experiences.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "analytics",
+      "product-analytics",
+      "conversion-optimization",
+      "user-research"
+    ]
+  },
+  {
+    "file": "Angular Up and Running Learning Angular, Step by Step (Shyam Seshadri).pdf",
+    "slug": "angular-up-and-running",
+    "title": "Angular: Up and Running : Learning Angular, Step by Step (Shyam Seshadri)",
+    "domain": "frontend",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Introduces Angular application structure, components, templates, routing, forms, services, and the framework development workflow.",
+    "tags": [
+      "frontend",
+      "web-development",
+      "angular",
+      "javascript-typescript",
+      "frontend-frameworks",
+      "css"
+    ]
+  },
+  {
+    "file": "Architecting Data and Machine Learning Platforms Enable Analytics and AI-Driven Innovation in the Cloud (Marco Tranquillin).epub",
+    "slug": "architecting-data-ml-platforms",
+    "title": "Architecting Data and Machine Learning Platforms (Marco Tranquillin)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Covers cloud data and machine-learning platforms, data lifecycle design, platform modernization, analytics, and AI capabilities.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "cloud-native",
+      "ml-platform",
+      "data-pipelines",
+      "analytics"
+    ]
+  },
+  {
+    "file": "Architecture Patterns with Python (Bob Gregory, Harry Percival).pdf",
+    "slug": "architecture-patterns-with-python",
+    "title": "Architecture Patterns with Python (Percival & Gregory)",
+    "domain": "architecture",
+    "action": "skip-indexed",
+    "reason": "already registered in BOOKS as architecture-patterns-with-python",
+    "summary": "Applies domain-driven design, repository patterns, and event-driven architecture to build maintainable Python applications using TDD.",
+    "tags": [
+      "domain-driven-design",
+      "software-architecture",
+      "testing-tdd",
+      "event-driven",
+      "design-patterns",
+      "microservices",
+      "python",
+      "clean-code"
+    ]
+  },
+  {
+    "file": "Arm Assembly Internals Reverse Engineering (Maria Markstedter).pdf",
+    "slug": "arm-assembly-internals",
+    "title": "Blue Fox: Arm Assembly Internals & Reverse Engineering (Maria Markstedter)",
+    "domain": "reverse-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains ARM assembly, instruction sets, binary analysis, and practical reverse-engineering techniques for security work.",
+    "tags": [
+      "reverse-engineering",
+      "binary-analysis",
+      "assembly-language",
+      "debugging",
+      "firmware-analysis",
+      "security-testing"
+    ]
+  },
+  {
+    "file": "Articulating Design Decisions Communicate with Stakeholders, Keep Your Sanity, and Deliver the Best User Experience, 2nd (Tom Greever).pdf",
+    "slug": "articulating-design-decisions",
+    "title": "Articulating Design Decisions (Tom Greever)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Teaches designers to explain decisions, understand stakeholder perspectives, present evidence, and navigate critique and collaboration.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "design-communication",
+      "product-design",
+      "user-research",
+      "interaction-design"
+    ]
+  },
+  {
+    "file": "Assembly Language for x86 Processors (6th Edition) (Kip Irvine).pdf",
+    "slug": "assembly-language-x86-processors",
+    "title": "Assembly Language for x86 Processors (Sixth edition) (Kip Irvine)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Teaches x86 assembly fundamentals, registers, arithmetic, procedures, stack use, control flow, and low-level program execution.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "assembly-language",
+      "algorithms-data-structures",
+      "programming-languages",
+      "compilers"
+    ]
+  },
+  {
+    "file": "Automating Data Quality Monitoring at Scale Scaling Beyond Rules with Machine Learning (Jeremy Stanley, Paige Schwartz).epub",
+    "slug": "automating-data-quality-monitoring",
+    "title": "Automating Data Quality Monitoring (Jeremy Stanley, Paige Schwartz)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds data-quality monitoring from rule-based checks through machine-learning detection, alerting, and large-scale operations.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "data-quality",
+      "data-governance",
+      "machine-learning",
+      "data-pipelines"
+    ]
+  },
+  {
+    "file": "Build a Reasoning Model (From Scratch) (Sebastian Raschka).pdf",
+    "slug": "build-reasoning-model",
+    "title": "Build a Reasoning Model (From Scratch) (Sebastian Raschka)",
+    "domain": "ai-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds a reasoning language model from transformer foundations through training data, fine-tuning, and reasoning-oriented evaluation.",
+    "tags": [
+      "llm",
+      "software-engineering-practice",
+      "reasoning-models",
+      "transformers",
+      "fine-tuning",
+      "ai-agents"
+    ]
+  },
+  {
+    "file": "Build a Text-to-Image Generator (from Scratch) With transformers and diffusions (Mark Liu).pdf",
+    "slug": "build-text-to-image-generator",
+    "title": "Build a Text-to-Image Generator (from Scratch) (Mark Liu)",
+    "domain": "applied-ml",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Implements text-to-image generation with transformer encoders and diffusion models, including latent U-Nets and sampling workflows.",
+    "tags": [
+      "machine-learning",
+      "python",
+      "text-to-image",
+      "diffusion-models",
+      "deep-learning",
+      "model-evaluation"
+    ]
+  },
+  {
+    "file": "Building Applications with AI Agents Designing and Implementing Multiagent Systems (Michael Albada).pdf",
+    "slug": "building-applications-ai-agents",
+    "title": "Building Applications with AI Agents (Michael Albada)",
+    "domain": "ai-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Designs multi-agent applications around agent roles, tools, coordination, memory, and deployment in practical systems.",
+    "tags": [
+      "llm",
+      "software-engineering-practice",
+      "ai-agents",
+      "multi-agent-systems",
+      "rag",
+      "transformers"
+    ]
+  },
+  {
+    "file": "Building Design Systems, Second Edition Unify User Experiences Through a Shared Design Language (Design Thinking) (Sarrah Vesselov).pdf",
+    "slug": "building-design-systems",
+    "title": "Building Design Systems (Sarrah Vesselov)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains how to establish, document, build, and evolve a shared design system across product teams and interfaces.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "design-systems",
+      "design-tokens",
+      "frontend",
+      "team-organization"
+    ]
+  },
+  {
+    "file": "Building Generative AI Services with FastAPI A Practical Approach to Developing Context-Rich Generative AI Applications (Alireza Parandeh).pdf",
+    "slug": "building-genai-services-fastapi",
+    "title": "Building Generative AI Services with FastAPI A Practical Approach to Developing Context-Rich Generative AI Applications (Alireza Parandeh)",
+    "domain": "ai-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds context-rich generative-AI services with FastAPI, retrieval, application architecture, and production deployment practices.",
+    "tags": [
+      "llm",
+      "software-engineering-practice",
+      "rag",
+      "llm-serving",
+      "python",
+      "ai-agents"
+    ]
+  },
+  {
+    "file": "Building Knowledge Graphs (Jesus Barrasa, Maya Natarajan, Jim Webber).epub",
+    "slug": "building-knowledge-graphs",
+    "title": "Building Knowledge Graphs (Jesus Barrasa, Maya Natarajan, Jim Webber)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Introduces graph concepts, knowledge-graph models, data integration, graph databases, and practical graph construction.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "knowledge-graphs",
+      "data-pipelines",
+      "data-governance",
+      "analytics"
+    ]
+  },
+  {
+    "file": "Building Machine Learning Pipelines (Hannes Hapke).epub",
+    "slug": "building-machine-learning-pipelines",
+    "title": "Building Machine Learning Pipelines (Hannes Hapke)",
+    "domain": "applied-ml",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds repeatable machine-learning pipelines with TensorFlow Extended, covering data validation, training, orchestration, and serving.",
+    "tags": [
+      "machine-learning",
+      "python",
+      "mlops",
+      "ml-system-design",
+      "data-pipelines",
+      "deep-learning"
+    ]
+  },
+  {
+    "file": "Building Micro-Frontends (Luca Mezzalira).pdf",
+    "slug": "building-micro-frontends",
+    "title": "Building Micro-Frontends (Luca Mezzalira)",
+    "domain": "frontend",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains micro-frontend architecture, independent deployment, integration patterns, runtime composition, and scaling frontend teams.",
+    "tags": [
+      "frontend",
+      "web-development",
+      "javascript-typescript",
+      "software-architecture",
+      "scalability-reliability",
+      "css"
+    ]
+  },
+  {
+    "file": "Building Microservices (Sam Newman).pdf",
+    "slug": "building-microservices-2e",
+    "title": "Building Microservices, 2nd Edition (Newman)",
+    "domain": "architecture",
+    "action": "skip-indexed",
+    "reason": "same work is already registered as building-microservices-2e; the live second edition is retained",
+    "summary": "Covers microservice architecture, domain modeling, communication patterns, deployment, testing, observability, security, and organizational alignment.",
+    "tags": [
+      "microservices",
+      "software-architecture",
+      "domain-driven-design",
+      "distributed-systems",
+      "cloud-native",
+      "api-design",
+      "event-driven",
+      "sre-operations",
+      "team-organization",
+      "continuous-delivery"
+    ]
+  },
+  {
+    "file": "Building Microservices Designing Fine-Grained Systems (Sam Newman).pdf",
+    "slug": "building-microservices-2e",
+    "title": "Building Microservices, 2nd Edition (Newman)",
+    "domain": "architecture",
+    "action": "skip-indexed",
+    "reason": "second edition is already registered as building-microservices-2e",
+    "summary": "Covers microservice architecture, domain modeling, communication patterns, deployment, testing, observability, security, and organizational alignment.",
+    "tags": [
+      "microservices",
+      "software-architecture",
+      "domain-driven-design",
+      "distributed-systems",
+      "cloud-native",
+      "api-design",
+      "event-driven",
+      "sre-operations",
+      "team-organization",
+      "continuous-delivery"
+    ]
+  },
+  {
+    "file": "Building Multi-Tenant SaaS Architectures (Tod Golding).pdf",
+    "slug": "building-multi-tenant-saas",
+    "title": "Building Multi-Tenant SaaS Architectures (Golding)",
+    "domain": "architecture",
+    "action": "skip-indexed",
+    "reason": "already registered in BOOKS as building-multi-tenant-saas",
+    "summary": "Covers multi-tenant SaaS architecture, covering deployment models, data partitioning, isolation strategies, operations, and GenAI integration.",
+    "tags": [
+      "multi-tenant-saas",
+      "software-architecture",
+      "cloud-native",
+      "data-architecture",
+      "sre-operations",
+      "platform-engineering",
+      "rag",
+      "fine-tuning",
+      "llm",
+      "genai-testing"
+    ]
+  },
+  {
+    "file": "Building Secure and Reliable Systems Best Practices for Designing, Implementing, and Maintaining Systems (Heather Adkins, Betsy Beyer etc.).pdf",
+    "slug": "building-secure-reliable-systems",
+    "title": "Building Secure and Reliable Systems (Heather Adkins, Betsy Beyer etc.)",
+    "domain": "security",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Presents engineering practices for secure and reliable systems, including risk management, infrastructure, incident response, and culture.",
+    "tags": [
+      "appsec",
+      "threat-modeling",
+      "sre-operations",
+      "reliability-engineering",
+      "security-testing",
+      "web-security"
+    ]
+  },
+  {
+    "file": "Building an Event-Driven Data Mesh Patterns for Designing Building Event-Driven Architectures (Adam Bellemare).pdf",
+    "slug": "building-event-driven-data-mesh",
+    "title": "Building an Event-Driven Data Mesh (Adam Bellemare)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Designs event-driven data mesh systems using domain ownership, event streams, data products, and operational data exchange.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "data-mesh",
+      "event-driven",
+      "kafka",
+      "data-products"
+    ]
+  },
+  {
+    "file": "CSS The Definitive Guide Web Layout and Presentation (Eric A. Meyer, Estelle Weyl).pdf",
+    "slug": "css-definitive-guide",
+    "title": "CSS: The Definitive Guide (Eric A. Meyer, Estelle Weyl)",
+    "domain": "frontend",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Details CSS syntax, selectors, the cascade, box model, layout, responsive design, and modern web presentation.",
+    "tags": [
+      "frontend",
+      "web-development",
+      "css",
+      "accessibility",
+      "javascript-typescript",
+      "web-performance"
+    ]
+  },
+  {
+    "file": "CSS in Depth, Second Edition (Keith J. Grant).pdf",
+    "slug": "css-in-depth-2e",
+    "title": "CSS in Depth, Second Edition (Keith J. Grant)",
+    "domain": "frontend",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Develops practical CSS fluency through layout, responsive interfaces, component styling, and maintainable front-end patterns.",
+    "tags": [
+      "frontend",
+      "web-development",
+      "css",
+      "design-systems",
+      "javascript-typescript",
+      "accessibility"
+    ]
+  },
+  {
+    "file": "Certified Ethical Hacker (CEH) Study Guide (Matt Walker).pdf",
+    "slug": "certified-ethical-hacker",
+    "title": "Certified Ethical Hacker (CEH) Study Guide (Matt Walker)",
+    "domain": "security",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Prepares for Certified Ethical Hacker topics including reconnaissance, attack methods, vulnerability testing, and security controls.",
+    "tags": [
+      "appsec",
+      "threat-modeling",
+      "security-testing",
+      "networking",
+      "web-security",
+      "incident-response"
+    ]
+  },
+  {
+    "file": "Chaos Engineering System Resiliency in Practice (Casey Rosenthal Nora Jones).epub",
+    "slug": "chaos-engineering",
+    "title": "Chaos Engineering (Casey Rosenthal Nora Jones)",
+    "domain": "systems-ops",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains chaos experiments, hypothesis-driven testing, and resilience practices for finding weaknesses in production systems.",
+    "tags": [
+      "linux",
+      "cloud-native",
+      "chaos-engineering",
+      "scalability-reliability",
+      "sre-operations",
+      "reliability-engineering"
+    ]
+  },
+  {
+    "file": "Cloud Native DevOps with Kubernetes (John Arundel, Justin Domingus).pdf",
+    "slug": "cloud-native-devops-kubernetes",
+    "title": "Cloud Native DevOps with Kubernetes (John Arundel, Justin Domingus)",
+    "domain": "systems-ops",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Covers cloud-native delivery with Kubernetes, containers, application deployment, monitoring, and DevOps team practices.",
+    "tags": [
+      "linux",
+      "cloud-native",
+      "continuous-delivery",
+      "observability",
+      "networking",
+      "sre-operations"
+    ]
+  },
+  {
+    "file": "Cloud Native Security Cookbook Recipes for a Secure Cloud (Josh Armitage).pdf",
+    "slug": "cloud-native-security-cookbook",
+    "title": "Cloud Native Security Cookbook (Josh Armitage)",
+    "domain": "security",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Provides hands-on recipes for securing cloud-native workloads, identities, networks, containers, and deployment pipelines.",
+    "tags": [
+      "appsec",
+      "threat-modeling",
+      "cloud-security",
+      "kubernetes-security",
+      "cloud-native",
+      "security-testing"
+    ]
+  },
+  {
+    "file": "CockroachDB The Definitive Guide Distributed Data at Scale (Guy Harrison, Jesse Seldess, Ben Darnell).pdf",
+    "slug": "cockroachdb-definitive-guide",
+    "title": "CockroachDB: The Definitive Guide (Guy Harrison, Jesse Seldess, Ben Darnell)",
+    "domain": "databases",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains CockroachDB architecture, distributed SQL, transactions, replication, operations, and application development at scale.",
+    "tags": [
+      "sql",
+      "database-internals",
+      "transactions-mvcc",
+      "query-optimization",
+      "nosql",
+      "indexing"
+    ]
+  },
+  {
+    "file": "Continuous API Management, 2nd Edition Making the Right Decisions in an Evolving Landscape (Mehdi Medjaoui, Erik Wilde, Ronnie Mitra etc.).pdf",
+    "slug": "continuous-api-management",
+    "title": "Continuous API Management (Mehdi Medjaoui, Erik Wilde, Ronnie Mitra etc.)",
+    "domain": "architecture",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Guides API lifecycle decisions across design, governance, platform strategy, developer experience, and organizational adoption.",
+    "tags": [
+      "software-architecture",
+      "architecture-decisions",
+      "api-management",
+      "api-design",
+      "product-management",
+      "microservices"
+    ]
+  },
+  {
+    "file": "Creating Web Animations Bringing Your UIs to Life (Kirupa Chinnathambi).pdf",
+    "slug": "creating-web-animations",
+    "title": "Creating Web Animations (Kirupa Chinnathambi)",
+    "domain": "frontend",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds browser animations with HTML, CSS, and JavaScript, covering timing, transitions, interaction, and practical UI effects.",
+    "tags": [
+      "frontend",
+      "web-development",
+      "javascript-typescript",
+      "css",
+      "interaction-design",
+      "accessibility"
+    ]
+  },
+  {
+    "file": "D3.js in Action Data visualization with JavaScript (Elijah Meeks).pdf",
+    "slug": "d3js-in-action",
+    "title": "D3.js in Action Data visualization with JavaScript (Elijah Meeks)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Teaches D3.js data visualization through selections, data binding, scales, axes, layouts, and interactive chart construction.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "data-visualization",
+      "javascript-typescript",
+      "statistics",
+      "interaction-design"
+    ]
+  },
+  {
+    "file": "Data Governance The Definitive Guide (Evren Eryurek, Uri Gilad etc.).pdf",
+    "slug": "data-governance-definitive-guide",
+    "title": "Data Governance: the Definitive Guide (Evren Eryurek, Uri Gilad etc.)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Defines data-governance frameworks, roles, policies, cloud operating models, and implementation practices for organizations.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "data-governance",
+      "cloud-native",
+      "data-quality",
+      "metadata-management"
+    ]
+  },
+  {
+    "file": "Data Governance with Unity Catalog on Databricks Implement Data and AI Governance with Databricks Data Intelligence Platform (Kiran Sreekumar, Karthik Subbarao).pdf",
+    "slug": "data-governance-unity-catalog",
+    "title": "Data Governance with Unity Catalog on Databricks (Kiran Sreekumar, Karthik Subbarao)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Implements governance for data and AI using Databricks Unity Catalog, access control, lineage, discovery, and platform workflows.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "data-governance",
+      "databricks",
+      "lakehouse",
+      "data-pipelines"
+    ]
+  },
+  {
+    "file": "Data Management at Scale Modern Data Architecture with Data Mesh and Data Fabric (2nd Edition) (Piethein Strengholt).pdf",
+    "slug": "data-management-at-scale",
+    "title": "Data Management at Scale: Modern Data Architecture with Data Mesh and Data Fabric (Piethein Strengholt)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Compares enterprise data architectures and explains data mesh, fabric, lakehouse, warehouses, and data-management operating models.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "data-mesh",
+      "lakehouse",
+      "data-fabric",
+      "data-governance"
+    ]
+  },
+  {
+    "file": "Data Quality Fundamentals A Practitioners Guide to Building Trustworthy Data Pipelines (Barr Moses, Lior Gavish, Molly Vorwerck).pdf",
+    "slug": "data-quality-fundamentals",
+    "title": "Data Quality Fundamentals (Barr Moses, Lior Gavish, Molly Vorwerck)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds trustworthy data pipelines through quality dimensions, testing, monitoring, incident response, and data-downtime practices.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "data-quality",
+      "data-pipelines",
+      "data-governance",
+      "observability"
+    ]
+  },
+  {
+    "file": "Data Science The Hard Parts Techniques for Excelling at Data Science (Daniel Vaughan).pdf",
+    "slug": "data-science-hard-parts",
+    "title": "Data Science: The Hard Parts (Daniel Vaughan)",
+    "domain": "data-science",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Connects data-science methods to business value through analysis, communication, evaluation, and practical decision-making.",
+    "tags": [
+      "data-science",
+      "statistics",
+      "analytics",
+      "product-management",
+      "data-visualization",
+      "data-analysis"
+    ]
+  },
+  {
+    "file": "Data Science for Business What You Need to Know About Data Mining and Data-Analytic Thinking (Foster Provost, Tom Fawcett).pdf",
+    "slug": "data-science-for-business",
+    "title": "Data Science for Business (Foster Provost, Tom Fawcett)",
+    "domain": "data-science",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Introduces data mining and analytic thinking through prediction, classification, evaluation, and business problem framing.",
+    "tags": [
+      "data-science",
+      "statistics",
+      "data-mining",
+      "predictive-analytics",
+      "analytics",
+      "data-visualization"
+    ]
+  },
+  {
+    "file": "Data Science from Scratch (Joel Grus).pdf",
+    "slug": "data-science-from-scratch",
+    "title": "Data Science from Scratch (Joel Grus)",
+    "domain": "data-science",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds core data-science techniques in Python, including statistics, probability, machine learning, and data analysis from first principles.",
+    "tags": [
+      "data-science",
+      "statistics",
+      "python",
+      "machine-learning",
+      "algorithms-data-structures",
+      "data-analysis"
+    ]
+  },
+  {
+    "file": "Database Internals A Deep-Dive into How Distributed Data Systems Work (Alex Petrov).pdf",
+    "slug": "database-internals",
+    "title": "Database Internals A Deep-Dive into How Distributed Data Systems Work (Alex Petrov)",
+    "domain": "databases",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explores database storage engines, B-trees, logs, replication, distributed storage, and the internal design of data systems.",
+    "tags": [
+      "sql",
+      "database-internals",
+      "transactions-mvcc",
+      "distributed-systems",
+      "query-optimization",
+      "nosql"
+    ]
+  },
+  {
+    "file": "Deciphering Data Architectures Choosing Between a Modern Data Warehous, Data Fabric, Data Lakehouse, and Data Mesh (James Serra).epub",
+    "slug": "deciphering-data-architectures",
+    "title": "Deciphering Data Architectures (James Serra)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Compares modern data-architecture choices including warehouses, data fabric, lakehouses, mesh, and business intelligence.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "lakehouse",
+      "data-mesh",
+      "data-pipelines",
+      "data-governance"
+    ]
+  },
+  {
+    "file": "Delta Lake The Definitive Guide (Denny Lee, Tristen Wentling etc.).pdf",
+    "slug": "delta-lake-definitive-guide",
+    "title": "Delta Lake The Definitive Guide (Denny Lee, Tristen Wentling etc.)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains Delta Lake tables, transactions, schema enforcement, streaming, lakehouse design, and production data pipelines.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "lakehouse",
+      "delta-lake",
+      "spark",
+      "data-pipelines"
+    ]
+  },
+  {
+    "file": "Design for how People Think (John Whalen).pdf",
+    "slug": "design-for-how-people-think",
+    "title": "Design for How People Think (John Whalen)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Uses cognitive psychology and user research to explain attention, memory, language, emotion, and how people experience products.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "cognitive-psychology",
+      "user-research",
+      "human-centered-design",
+      "interaction-design"
+    ]
+  },
+  {
+    "file": "Designing Autonomous AI A Guide for Machine Teaching (Kence Anderson).pdf",
+    "slug": "designing-autonomous-ai",
+    "title": "Designing Autonomous AI (Kence Anderson)",
+    "domain": "ai-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Introduces machine teaching and autonomous AI through knowledge modeling, task design, data, feedback, and operational workflows.",
+    "tags": [
+      "llm",
+      "software-engineering-practice",
+      "machine-teaching",
+      "ai-agents",
+      "rag",
+      "transformers"
+    ]
+  },
+  {
+    "file": "Designing Data-Intensive Applications The Big Ideas Behind Reliable, Scalable, and Maintainable Systems (Martin Kleppmann).pdf",
+    "slug": "designing-data-intensive-applications",
+    "title": "Designing Data-Intensive Applications (Martin Kleppmann)",
+    "domain": "distributed-systems",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains reliable data-intensive systems through data models, storage, replication, partitioning, transactions, and stream processing.",
+    "tags": [
+      "distributed-systems",
+      "scalability-reliability",
+      "data-architecture",
+      "consensus-replication",
+      "data-pipelines",
+      "microservices"
+    ]
+  },
+  {
+    "file": "Designing Interfaces Patterns for Effective Interaction Design (Jenifer Tidwell, Charles Brewer etc.).pdf",
+    "slug": "designing-interfaces",
+    "title": "Designing Interfaces Patterns for Effective Interaction Design (Jenifer Tidwell, Charles Brewer etc.)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Catalogs interaction patterns for navigation, forms, tables, search, mobile interfaces, and other screen-based products.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "interaction-design",
+      "design-patterns",
+      "web-development",
+      "user-research"
+    ]
+  },
+  {
+    "file": "Designing Large Language Model Applications A Holistic Approach to LLMs (Suhas Pai).pdf",
+    "slug": "designing-llm-applications",
+    "title": "Designing Large Language Model Applications A Holistic Approach to LLMs (Suhas Pai)",
+    "domain": "ai-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Surveys LLM application architecture, prompting, retrieval, evaluation, deployment, and the components surrounding language models.",
+    "tags": [
+      "llm",
+      "software-engineering-practice",
+      "rag",
+      "llm-evaluation",
+      "prompt-engineering",
+      "software-architecture"
+    ]
+  },
+  {
+    "file": "Designing distributed systems patterns and paradigms for scalable, reliable services (Brendan Burns).pdf",
+    "slug": "designing-distributed-systems",
+    "title": "Designing Distributed Systems",
+    "domain": "distributed-systems",
+    "action": "skip-indexed",
+    "reason": "already registered in BOOKS as designing-distributed-systems",
+    "summary": "Explores distributed system patterns like sidecars, ambassadors, and sharding using Kubernetes and microservices architectures.",
+    "tags": [
+      "distributed-systems",
+      "microservices",
+      "cloud-native",
+      "design-patterns",
+      "software-architecture",
+      "event-driven",
+      "kaggle",
+      "mlops"
+    ]
+  },
+  {
+    "file": "Domain-Specific Small Language Models Efficient AI for local deployment (Guglielmo Iozzia).pdf",
+    "slug": "domain-specific-small-language-models",
+    "title": "Domain-Specific Small Language Models Efficient AI for local deployment (Guglielmo Iozzia)",
+    "domain": "ai-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Covers efficient small-language-model selection, training, adaptation, evaluation, and deployment on local or constrained hardware.",
+    "tags": [
+      "llm",
+      "software-engineering-practice",
+      "small-language-models",
+      "fine-tuning",
+      "ai-agents",
+      "rag"
+    ]
+  },
+  {
+    "file": "Effective TypeScript (Dan Vanderkam).pdf",
+    "slug": "effective-typescript",
+    "title": "Effective TypeScript (Dan Vanderkam)",
+    "domain": "frontend",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Presents TypeScript practices for safer JavaScript, type design, compiler options, API boundaries, and maintainable application code.",
+    "tags": [
+      "frontend",
+      "web-development",
+      "javascript-typescript",
+      "software-engineering-practice",
+      "css",
+      "accessibility"
+    ]
+  },
+  {
+    "file": "Effective UI The Art of Building Great User Experience in Software (Jonathan Anderson, John McRee, Robb Wilson).pdf",
+    "slug": "effective-ui",
+    "title": "Effective UI The Art of Building Great User Experience in Software (Jonathan Anderson, John McRee, Robb Wilson)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains how teams define, measure, and build effective software interfaces through user needs, interaction, and organizational alignment.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "user-research",
+      "product-design",
+      "product-management",
+      "usability-testing"
+    ]
+  },
+  {
+    "file": "Efficient Linux at the Command Line Boost Your Command-Line Skills (Daniel J. Barrett).pdf",
+    "slug": "efficient-linux-command-line",
+    "title": "Efficient Linux at the Command Line (Daniel J. Barrett)",
+    "domain": "systems-ops",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Improves Linux command-line work through shell composition, pipelines, text tools, process control, and reusable command patterns.",
+    "tags": [
+      "linux",
+      "cloud-native",
+      "shell-scripting",
+      "systems-programming",
+      "observability",
+      "networking"
+    ]
+  },
+  {
+    "file": "Efficient Node.js (Samer Buna).epub",
+    "slug": "efficient-nodejs",
+    "title": "Efficient Node.js (Samer Buna)",
+    "domain": "frontend",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains Node.js performance and runtime behavior, including event loops, asynchronous work, modules, and efficient application design.",
+    "tags": [
+      "frontend",
+      "web-development",
+      "nodejs",
+      "javascript-typescript",
+      "async-concurrency",
+      "css"
+    ]
+  },
+  {
+    "file": "Essential GraphRAG Knowledge Graph-Enhanced RAG (Tomaž Bratanič, Oskar Hane).pdf",
+    "slug": "essential-graphrag",
+    "title": "Essential GraphRAG (Tomaž Bratanič, Oskar Hane)",
+    "domain": "ai-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds GraphRAG systems by combining knowledge graphs with retrieval, graph construction, entity relationships, and LLM generation.",
+    "tags": [
+      "llm",
+      "software-engineering-practice",
+      "rag",
+      "knowledge-graphs",
+      "vector-search",
+      "llm-evaluation"
+    ]
+  },
+  {
+    "file": "Essential Math for AI. Next-Level Mathematics for Efficient and Successful AI Systems (Hala Nelson).pdf",
+    "slug": "essential-math-ai",
+    "title": "Essential Math for AI (Hala Nelson)",
+    "domain": "applied-ml",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Reviews mathematics used in AI systems, including linear algebra, calculus, probability, optimization, and numerical methods.",
+    "tags": [
+      "machine-learning",
+      "python",
+      "math-foundations",
+      "statistics",
+      "optimization",
+      "deep-learning"
+    ]
+  },
+  {
+    "file": "Excel for Accountants Tips, Tricks Techniques (Conrad Carlberg).pdf",
+    "slug": "excel-for-accountants",
+    "title": "Excel for Accountants: Tips, Tricks & Techniques (Conrad Carlberg)",
+    "domain": "data-science",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Applies Excel techniques to accounting work, including formulas, reporting, data analysis, and productivity-oriented spreadsheet workflows.",
+    "tags": [
+      "data-science",
+      "statistics",
+      "excel-bi",
+      "analytics",
+      "data-visualization",
+      "data-analysis"
+    ]
+  },
+  {
+    "file": "Exploratory Data Analysis (John W. Tukey).pdf",
+    "slug": "exploratory-data-analysis-tukey",
+    "title": "Exploratory Data Analysis (John W. Tukey)",
+    "domain": "data-science",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Introduces Tukey’s exploratory-data-analysis methods for inspecting distributions, patterns, outliers, and structure in data.",
+    "tags": [
+      "data-science",
+      "statistics",
+      "exploratory-data-analysis",
+      "data-visualization",
+      "data-cleaning",
+      "data-analysis"
+    ]
+  },
+  {
+    "file": "Exploratory Data Analysis Descriptive Analysis, Visualization, and Dashboard Design (with Code Snippets in Python) (Leandro Nunes de Castro).pdf",
+    "slug": "exploratory-data-analysis-visualization",
+    "title": "Exploratory Data Analysis Descriptive Analysis, Visualization, and Dashboard Design (with Code Snippets in Python) (Leandro Nunes de Castro)",
+    "domain": "data-science",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Combines Python examples with exploratory analysis, descriptive statistics, visualization, and dashboard design for data work.",
+    "tags": [
+      "data-science",
+      "statistics",
+      "exploratory-data-analysis",
+      "data-visualization",
+      "python",
+      "analytics"
+    ]
+  },
+  {
+    "file": "Financial Data Engineering Design and Build Data-Driven Financial Products (Tamer Khraisha).pdf",
+    "slug": "financial-data-engineering",
+    "title": "Financial Data Engineering (Tamer Khraisha)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Designs data platforms and workflows for financial products, covering sources, processing, controls, analytics, and delivery.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "finance",
+      "data-pipelines",
+      "data-products",
+      "data-governance"
+    ]
+  },
+  {
+    "file": "Fluent React (Tejas Kumar).epub",
+    "slug": "fluent-react",
+    "title": "Fluent React (Tejas Kumar)",
+    "domain": "frontend",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains React through its rendering model, components, state, hooks, data flow, and practical application patterns.",
+    "tags": [
+      "frontend",
+      "web-development",
+      "react",
+      "javascript-typescript",
+      "frontend-frameworks",
+      "css"
+    ]
+  },
+  {
+    "file": "Foundations of Scalable Systems Designing Distributed Architectures (Ian Gorton).pdf",
+    "slug": "foundations-scalable-systems",
+    "title": "Foundations of Scalable Systems (Ian Gorton)",
+    "domain": "distributed-systems",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Introduces scalable distributed architecture through performance, availability, resilience, communication, and system design trade-offs.",
+    "tags": [
+      "distributed-systems",
+      "scalability-reliability",
+      "software-architecture",
+      "cloud-native",
+      "consensus-replication",
+      "microservices"
+    ]
+  },
+  {
+    "file": "Fundamentals of Computer Graphics, Fourth Edition (Steve Marschner, Peter Shirley).pdf",
+    "slug": "fundamentals-computer-graphics",
+    "title": "Fundamentals of Computer Graphics, Fourth Edition (Steve Marschner, Peter Shirley)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Covers computer-graphics foundations including image formation, ray tracing, transformations, geometry, shading, and rendering pipelines.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "computer-graphics",
+      "3d-graphics",
+      "rendering",
+      "algorithms-data-structures"
+    ]
+  },
+  {
+    "file": "Fundamentals of Data Engineering Plan and Build Robust Data Systems (Joe Reis, Matt Housley).pdf",
+    "slug": "fundamentals-data-engineering",
+    "title": "Fundamentals of Data Engineering (Joe Reis, Matt Housley)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains the data-engineering lifecycle from ingestion and storage through transformation, orchestration, serving, and governance.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "data-pipelines",
+      "cloud-native",
+      "analytics",
+      "data-governance"
+    ]
+  },
+  {
+    "file": "Fundamentals of Metadata Management Uncover the Meta Grid and Unlock IT, Data, Information, and Knowledge Management (Ole Olesen-Bagneux).pdf",
+    "slug": "fundamentals-metadata-management",
+    "title": "Fundamentals of Metadata Management Uncover the Meta Grid and Unlock IT, Data, Information, and Knowledge Management (Ole Olesen-Bagneux)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Reframes metadata management around discovery, governance, lineage, information models, and enterprise knowledge practices.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "metadata-management",
+      "data-governance",
+      "data-pipelines",
+      "analytics"
+    ]
+  },
+  {
+    "file": "Fundamentals of Microsoft Fabric (for True Epub) (Nikola Ilic, Ben Weissman).pdf",
+    "slug": "fundamentals-microsoft-fabric",
+    "title": "Fundamentals of Microsoft Fabric (Nikola Ilic, Ben Weissman)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Introduces Microsoft Fabric for end-to-end analytics, including OneLake, Data Factory, lakehouses, warehouses, and Power BI.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "lakehouse",
+      "data-pipelines",
+      "data-governance",
+      "analytics"
+    ]
+  },
+  {
+    "file": "Generative Deep Learning (David Foster).pdf",
+    "slug": "generative-deep-learning",
+    "title": "Generative Deep Learning (David Foster)",
+    "domain": "applied-ml",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains generative deep-learning models including variational autoencoders, GANs, autoregressive models, and image generation.",
+    "tags": [
+      "machine-learning",
+      "python",
+      "deep-learning",
+      "model-evaluation",
+      "statistics",
+      "optimization"
+    ]
+  },
+  {
+    "file": "HTTP - The Definitive Guide (David Gourley, Brian Totty, Marjorie Sayer etc.).pdf",
+    "slug": "http-definitive-guide",
+    "title": "HTTP - The Definitive Guide (David Gourley, Brian Totty, Marjorie Sayer etc.)",
+    "domain": "frontend",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains HTTP clients, servers, methods, headers, caching, proxies, authentication, and the protocol underlying the web.",
+    "tags": [
+      "frontend",
+      "web-development",
+      "networking",
+      "javascript-typescript",
+      "css",
+      "accessibility"
+    ]
+  },
+  {
+    "file": "Hands-On Large Language Models (Jay Alammar, Maarten Grootendorst).epub",
+    "slug": "hands-on-large-language-models",
+    "title": "Hands-On Large Language Models (Jay Alammar, Maarten Grootendorst)",
+    "domain": "ai-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds intuition for language models and applies pretrained transformers to inference, prompting, fine-tuning, and deployment.",
+    "tags": [
+      "llm",
+      "software-engineering-practice",
+      "transformers",
+      "fine-tuning",
+      "nlp",
+      "model-evaluation"
+    ]
+  },
+  {
+    "file": "Hands-On RAG for Production Design, Develop, and Deploy Production-Ready RAG Applications (Ofer Mendelevitch, Forrest Sheng Bao).pdf",
+    "slug": "hands-on-rag-production",
+    "title": "Hands-On RAG for Production (Ofer Mendelevitch, Forrest Sheng Bao)",
+    "domain": "ai-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds production RAG systems through document ingestion, retrieval, chunking, vector stores, evaluation, and deployment.",
+    "tags": [
+      "llm",
+      "software-engineering-practice",
+      "rag",
+      "vector-search",
+      "llm-evaluation",
+      "llm-serving"
+    ]
+  },
+  {
+    "file": "Hands-On Selenium WebDriver with Java A Deep Dive into the Development of End-to-End Tests (Boni Garcia).pdf",
+    "slug": "hands-on-selenium-webdriver",
+    "title": "Hands-On Selenium WebDriver with Java (Boni Garcia)",
+    "domain": "software-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Uses Java and Selenium WebDriver to build browser-based end-to-end tests, manage drivers, and test web applications.",
+    "tags": [
+      "software-engineering-practice",
+      "design-patterns",
+      "testing-tdd",
+      "refactoring",
+      "continuous-delivery",
+      "version-control-git"
+    ]
+  },
+  {
+    "file": "Hands-On Unsupervised Learning Using Python (Ankur A. Patel).epub",
+    "slug": "hands-on-unsupervised-learning",
+    "title": "Hands-On Unsupervised Learning Using Python (Ankur A. Patel)",
+    "domain": "applied-ml",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Applies unsupervised learning to unlabeled data through clustering, dimensionality reduction, anomaly detection, and feature learning.",
+    "tags": [
+      "machine-learning",
+      "python",
+      "model-evaluation",
+      "deep-learning",
+      "statistics",
+      "optimization"
+    ]
+  },
+  {
+    "file": "Head First Statistics for Data Analysis (Dawn Griffiths).epub",
+    "slug": "head-first-statistics-analysis",
+    "title": "Head First Statistics for Data Analysis (Dawn Griffiths)",
+    "domain": "data-science",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Teaches descriptive statistics and data analysis in Excel through frequency tables, distributions, charts, and inference.",
+    "tags": [
+      "data-science",
+      "statistics",
+      "excel-bi",
+      "data-visualization",
+      "analytics",
+      "data-analysis"
+    ]
+  },
+  {
+    "file": "Holacracy (Brian J. Robertson).epub",
+    "slug": "holacracy",
+    "title": "Holacracy (Brian J. Robertson)",
+    "domain": "management",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains Holacracy’s distributed authority, roles, governance meetings, operational processes, and organizational adoption.",
+    "tags": [
+      "team-organization",
+      "agile",
+      "organization-design",
+      "leadership",
+      "product-management",
+      "project-management"
+    ]
+  },
+  {
+    "file": "Implementing Data Mesh (for True Epub) (Jean-Georges Perrin Eric Broda).pdf",
+    "slug": "implementing-data-mesh",
+    "title": "Implementing Data Mesh (Jean-Georges Perrin Eric Broda)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Guides implementation of data mesh through domain-oriented data products, contracts, platform capabilities, and governance.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "data-mesh",
+      "data-products",
+      "data-contracts",
+      "data-governance"
+    ]
+  },
+  {
+    "file": "Infrastructure as Code Dynamic Systems for the Cloud Age (Kief Morris).pdf",
+    "slug": "infrastructure-as-code",
+    "title": "Infrastructure as Code (Kief Morris)",
+    "domain": "systems-ops",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Develops infrastructure-as-code principles and patterns for versioned, testable, repeatable cloud infrastructure and delivery.",
+    "tags": [
+      "linux",
+      "cloud-native",
+      "continuous-delivery",
+      "observability",
+      "networking",
+      "sre-operations"
+    ]
+  },
+  {
+    "file": "Inside Cyber Warfare Mapping the Cyber Underworld (Jeffrey Caruso).pdf",
+    "slug": "inside-cyber-warfare",
+    "title": "Inside Cyber Warfare (Jeffrey Caruso)",
+    "domain": "security",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Examines cyber conflict, state and criminal actors, infrastructure exposure, information operations, and security policy.",
+    "tags": [
+      "appsec",
+      "threat-modeling",
+      "threat-intelligence",
+      "security-testing",
+      "web-security",
+      "incident-response"
+    ]
+  },
+  {
+    "file": "Intelligence-Driven Incident Response, 2nd Edition Outwitting the Adversary (Rebekah Brown, Scott Roberts).pdf",
+    "slug": "intelligence-driven-incident-response",
+    "title": "Intelligence-Driven Incident Response (Rebekah Brown, Scott Roberts)",
+    "domain": "security",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds threat-intelligence-led incident-response practices for investigation, hunting, adversary analysis, and coordinated defense.",
+    "tags": [
+      "appsec",
+      "threat-modeling",
+      "incident-response",
+      "threat-intelligence",
+      "security-testing",
+      "web-security"
+    ]
+  },
+  {
+    "file": "Introduction to Data Visualization Storytelling A Guide For The Data Scientist ( etc.).epub",
+    "slug": "data-visualization-storytelling",
+    "title": "Introduction to Data Visualization & Storytelling (Jose Berengueres, Marybeth Sandell & Ali Fenwick)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains how narrative, visual perception, chart choice, and bias shape effective data visualization and communication.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "data-visualization",
+      "data-storytelling",
+      "visual-design",
+      "statistics"
+    ]
+  },
+  {
+    "file": "Kafka The Definitive Guide Real-Time Data and Stream Processing at Scale (Neha Narkhede, Gwen Shapira, Todd Palino).pdf",
+    "slug": "kafka-definitive-guide",
+    "title": "Kafka: The Definitive Guide (Neha Narkhede, Gwen Shapira, Todd Palino)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Covers Kafka architecture and operations for event streams, publishers, consumers, storage, replication, and real-time processing.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "kafka",
+      "event-driven",
+      "data-pipelines",
+      "data-governance"
+    ]
+  },
+  {
+    "file": "Kubernetes Security and Observability A Holistic Approach to Securing Containers and Cloud Native Applications (Brendan Creane, Amit Gupta).pdf",
+    "slug": "kubernetes-security-observability",
+    "title": "Kubernetes Security and Observability (Brendan Creane, Amit Gupta)",
+    "domain": "security",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Combines Kubernetes security and observability across cluster setup, workload protection, networking, compliance, and operations.",
+    "tags": [
+      "appsec",
+      "threat-modeling",
+      "kubernetes-security",
+      "observability",
+      "cloud-security",
+      "cloud-native"
+    ]
+  },
+  {
+    "file": "LLMOps Managing Large Language Models in Production (Abi Aryan).pdf",
+    "slug": "llmops",
+    "title": "LLMOps (Abi Aryan)",
+    "domain": "ai-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Covers the LLM lifecycle in production, including deployment, monitoring, evaluation, cost, reliability, and operations.",
+    "tags": [
+      "llm",
+      "software-engineering-practice",
+      "llm-serving",
+      "llm-evaluation",
+      "mlops",
+      "observability"
+    ]
+  },
+  {
+    "file": "LangChain for Life Sciences and Healthcare Innovation Through LLMs and Generative AI Agents (Ivan Reznikov).pdf",
+    "slug": "langchain-life-sciences-healthcare",
+    "title": "LangChain for Life Sciences and Healthcare (Ivan Reznikov)",
+    "domain": "ai-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds life-sciences and healthcare applications with LangChain, LLMs, retrieval, agents, and domain-specific workflows.",
+    "tags": [
+      "llm",
+      "software-engineering-practice",
+      "ai-agents",
+      "rag",
+      "transformers",
+      "mlops"
+    ]
+  },
+  {
+    "file": "Laws of UX - Using Psychology to Design Better Products Services (Jon Yablonski).pdf",
+    "slug": "laws-of-ux",
+    "title": "Laws of UX (Jon Yablonski)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Applies psychological principles such as Jakob’s, Fitts’s, and Hick’s laws to interface design and product decisions.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "cognitive-psychology",
+      "interaction-design",
+      "product-design",
+      "user-research"
+    ]
+  },
+  {
+    "file": "Lean UX - Designing Great Products with Agile Teams (Jeff Gothelf, Josh Seiden).pdf",
+    "slug": "lean-ux",
+    "title": "Lean UX (Jeff Gothelf, Josh Seiden)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Applies Lean UX through hypotheses, collaboration, experiments, rapid research, and iterative product design with agile teams.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "product-discovery",
+      "user-research",
+      "usability-testing",
+      "interaction-design"
+    ]
+  },
+  {
+    "file": "Learning API Styles (for Raymond Rhine) (Lukasz Dynowski, Marcin Dulak).pdf",
+    "slug": "learning-api-styles",
+    "title": "Learning API Styles (Dynowski & Dulak)",
+    "domain": "architecture",
+    "action": "skip-indexed",
+    "reason": "already registered in BOOKS as learning-api-styles",
+    "summary": "Covers API concepts, design patterns, network protocols, and specific styles like REST, GraphQL, gRPC, and messaging.",
+    "tags": [
+      "api-design",
+      "networking",
+      "web-development",
+      "software-architecture",
+      "web-security",
+      "messaging-integration",
+      "design-patterns",
+      "cloud-native"
+    ]
+  },
+  {
+    "file": "Learning Agile Understanding Scrum, XP, Lean, and Kanban (Andrew Stellman, Jennifer Greene).pdf",
+    "slug": "learning-agile",
+    "title": "Learning Agile (Andrew Stellman, Jennifer Greene)",
+    "domain": "management",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Introduces Agile values and practices through Scrum, XP, Lean, and Kanban, with guidance for teams and organizations.",
+    "tags": [
+      "team-organization",
+      "agile",
+      "scrum",
+      "software-engineering-practice",
+      "product-management",
+      "project-management"
+    ]
+  },
+  {
+    "file": "Learning Domain-Driven Design Aligning Software Architecture and Business Strategy (Vladik Khononov).pdf",
+    "slug": "learning-domain-driven-design",
+    "title": "Learning Domain-Driven Design (Khononov)",
+    "domain": "architecture",
+    "action": "skip-indexed",
+    "reason": "already registered in BOOKS as learning-domain-driven-design",
+    "summary": "Covers strategic and tactical domain-driven design, including bounded contexts, integration patterns, and architectural approaches like microservices and event-driven systems.",
+    "tags": [
+      "domain-driven-design",
+      "software-architecture",
+      "microservices",
+      "event-driven",
+      "design-patterns",
+      "enterprise-architecture",
+      "data-architecture",
+      "systems-thinking"
+    ]
+  },
+  {
+    "file": "Learning Git A Hands-On and Visual Guide to the Basics of Git (Anna Skoulikari).pdf",
+    "slug": "learning-git",
+    "title": "Learning Git (Anna Skoulikari)",
+    "domain": "software-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Teaches Git concepts and workflows with a visual approach to commits, branches, merging, and version-control collaboration.",
+    "tags": [
+      "software-engineering-practice",
+      "design-patterns",
+      "version-control-git",
+      "testing-tdd",
+      "refactoring",
+      "continuous-delivery"
+    ]
+  },
+  {
+    "file": "Learning GitHub Actions Automation and Integration of CICD with GitHub (Brent Laster).pdf",
+    "slug": "learning-github-actions",
+    "title": "Learning GitHub Actions (Brent Laster)",
+    "domain": "software-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Automates CI/CD and repository workflows with GitHub Actions, including testing, deployment, security, and monitoring.",
+    "tags": [
+      "software-engineering-practice",
+      "design-patterns",
+      "continuous-delivery",
+      "testing-tdd",
+      "refactoring",
+      "version-control-git"
+    ]
+  },
+  {
+    "file": "Learning JavaScript Design Patterns (Addy Osmani).pdf",
+    "slug": "learning-javascript-design-patterns",
+    "title": "Learning JavaScript Design Patterns (Addy Osmani)",
+    "domain": "frontend",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains JavaScript design patterns, their structure and trade-offs, and how to apply patterns without overengineering applications.",
+    "tags": [
+      "frontend",
+      "web-development",
+      "javascript-typescript",
+      "design-patterns",
+      "software-engineering-practice",
+      "refactoring"
+    ]
+  },
+  {
+    "file": "Learning Modern Linux A Handbook for the Cloud Native Practitioner (Michael Hausenblas).pdf",
+    "slug": "learning-modern-linux",
+    "title": "Learning Modern Linux (Michael Hausenblas)",
+    "domain": "systems-ops",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Introduces modern Linux for cloud-native environments, covering processes, filesystems, containers, networking, and operations.",
+    "tags": [
+      "linux",
+      "cloud-native",
+      "observability",
+      "networking",
+      "sre-operations",
+      "systems-programming"
+    ]
+  },
+  {
+    "file": "Learning OpenTelemetry (Ted Young, Austin Parker).pdf",
+    "slug": "learning-opentelemetry",
+    "title": "Learning OpenTelemetry (Ted Young, Austin Parker)",
+    "domain": "systems-ops",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Shows how to instrument and operate observability systems with OpenTelemetry traces, metrics, logs, and collector pipelines.",
+    "tags": [
+      "linux",
+      "cloud-native",
+      "observability",
+      "distributed-systems",
+      "networking",
+      "sre-operations"
+    ]
+  },
+  {
+    "file": "Learning Spark Lightning-Fast Big Data Analysis (Holden Karau, Andy Konwinski etc.).pdf",
+    "slug": "learning-spark",
+    "title": "Learning Spark Lightning-Fast Big Data Analysis (Holden Karau, Andy Konwinski etc.)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Introduces Apache Spark for data analysis, covering distributed execution, Spark SQL, DataFrames, streaming, and machine learning.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "spark",
+      "distributed-systems",
+      "data-pipelines",
+      "data-governance"
+    ]
+  },
+  {
+    "file": "Learning Test-Driven Development A Polyglot Guide to Writing Uncluttered Code (Saleem Siddiqui).pdf",
+    "slug": "learning-test-driven-development",
+    "title": "Learning Test-Driven Development (Saleem Siddiqui)",
+    "domain": "software-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Teaches test-driven development across programming languages, using short feedback cycles to shape simple, maintainable code.",
+    "tags": [
+      "software-engineering-practice",
+      "design-patterns",
+      "testing-tdd",
+      "refactoring",
+      "continuous-delivery",
+      "version-control-git"
+    ]
+  },
+  {
+    "file": "Learning Three.js programming 3D animations and visualizations for the web with HTML5 and WebGL (Jos Dirksen).pdf",
+    "slug": "learning-threejs",
+    "title": "Learning Three.js programming 3D animations and visualizations for the web with HTML5 and WebGL (Jos Dirksen)",
+    "domain": "frontend",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds interactive 3D scenes and browser visualizations with Three.js, WebGL, cameras, materials, lights, and animation.",
+    "tags": [
+      "frontend",
+      "web-development",
+      "web-graphics",
+      "javascript-typescript",
+      "webgl",
+      "css"
+    ]
+  },
+  {
+    "file": "Learning Vue (Maya Shavin).pdf",
+    "slug": "learning-vue",
+    "title": "Learning Vue (Maya Shavin)",
+    "domain": "frontend",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains Vue’s core model, components, state, composition, routing, and practical patterns for reusable interfaces.",
+    "tags": [
+      "frontend",
+      "web-development",
+      "vue",
+      "javascript-typescript",
+      "frontend-frameworks",
+      "css"
+    ]
+  },
+  {
+    "file": "Machine Learning Production Systems (for True Epub) (Robert Crowe, Hannes Hapke etc.).pdf",
+    "slug": "machine-learning-production-systems",
+    "title": "Machine Learning Production Systems (Robert Crowe, Hannes Hapke etc.)",
+    "domain": "applied-ml",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Covers production machine-learning systems, including data preparation, model pipelines, deployment, monitoring, and maintenance.",
+    "tags": [
+      "machine-learning",
+      "python",
+      "mlops",
+      "ml-system-design",
+      "model-evaluation",
+      "data-pipelines"
+    ]
+  },
+  {
+    "file": "Machine Learning for Econometrics (Christophe Gaillac, Jérémy LHour).pdf",
+    "slug": "machine-learning-econometrics",
+    "title": "Machine Learning for Econometrics (Christophe Gaillac, Jérémy LHour)",
+    "domain": "applied-ml",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Applies machine learning to econometrics problems such as high-dimensional selection, heterogeneous effects, forecasting, and text data.",
+    "tags": [
+      "machine-learning",
+      "python",
+      "causal-inference",
+      "time-series",
+      "statistics",
+      "deep-learning"
+    ]
+  },
+  {
+    "file": "Making Sense of Data A Practical Guide to Exploratory Data Analysis and Data Mining (Glenn J. Myatt).pdf",
+    "slug": "making-sense-of-data",
+    "title": "Making Sense of Data: A Practical Guide to Exploratory Data Analysis and Data Mining (Glenn J. Myatt)",
+    "domain": "data-science",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Presents an end-to-end exploratory-analysis and data-mining workflow from problem definition through preparation, implementation, and delivery.",
+    "tags": [
+      "data-science",
+      "statistics",
+      "exploratory-data-analysis",
+      "data-mining",
+      "data-visualization",
+      "analytics"
+    ]
+  },
+  {
+    "file": "Microservice Architecture Aligning Principles, Practices, and Culture (Irakli Nadareishvili, Ronnie Mitra etc.).pdf",
+    "slug": "microservice-architecture",
+    "title": "Microservice Architecture (Irakli Nadareishvili, Ronnie Mitra etc.)",
+    "domain": "architecture",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Connects microservice architecture to organizational culture, value delivery, service boundaries, and implementation practices.",
+    "tags": [
+      "software-architecture",
+      "architecture-decisions",
+      "microservices",
+      "api-design",
+      "team-organization",
+      "distributed-systems"
+    ]
+  },
+  {
+    "file": "Modern Data Analytics in Excel Using Power Query, Power Pivot, and More for Enhanced Data Analytics (George Mount).pdf",
+    "slug": "modern-data-analytics-excel",
+    "title": "Modern Data Analytics in Excel (George Mount)",
+    "domain": "data-science",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Uses Power Query, Power Pivot, and Excel tools for data cleaning, modeling, analysis, and interactive reporting.",
+    "tags": [
+      "data-science",
+      "statistics",
+      "excel-bi",
+      "data-cleaning",
+      "analytics",
+      "data-visualization"
+    ]
+  },
+  {
+    "file": "Monolith to Microservices Evolutionary Patterns to Transform Your Monolith (Sam Newman).pdf",
+    "slug": "monolith-to-microservices",
+    "title": "Monolith to Microservices Evolutionary Patterns to Transform Your Monolith (Sam Newman)",
+    "domain": "architecture",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Presents evolutionary paths from monoliths to microservices through decomposition, data ownership, deployment, and incremental change.",
+    "tags": [
+      "software-architecture",
+      "architecture-decisions",
+      "microservices",
+      "domain-driven-design",
+      "data-architecture",
+      "api-design"
+    ]
+  },
+  {
+    "file": "NGINX Cookbook (Derek DeJonghe).epub",
+    "slug": "nginx-cookbook",
+    "title": "NGINX Cookbook (Derek DeJonghe)",
+    "domain": "systems-ops",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Provides NGINX configuration recipes for web serving, reverse proxying, caching, load balancing, and performance.",
+    "tags": [
+      "linux",
+      "cloud-native",
+      "networking",
+      "web-performance",
+      "observability",
+      "sre-operations"
+    ]
+  },
+  {
+    "file": "Natural Language Processing with Transformers (Lewis Tunstall etc.).pdf",
+    "slug": "natural-language-processing-transformers",
+    "title": "Natural Language Processing with Transformers (Lewis Tunstall etc.)",
+    "domain": "ai-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Applies transformer models to NLP tasks, covering tokenization, classification, generation, transfer learning, and fine-tuning.",
+    "tags": [
+      "llm",
+      "software-engineering-practice",
+      "nlp",
+      "transformers",
+      "fine-tuning",
+      "machine-learning"
+    ]
+  },
+  {
+    "file": "ORIGINAL LIBRARY - ENGLISH VERSION.docx.pdf",
+    "slug": "original-library-english-version",
+    "title": "The Original Library (English Version)",
+    "domain": "management",
+    "action": "philosophy",
+    "reason": "personal philosophical library material; excluded from the technical shelf",
+    "summary": "Explores spiritual and metaphysical ideas through essays on creation, perception, belief, and human experience.",
+    "tags": [
+      "philosophy",
+      "spirituality",
+      "systems-thinking",
+      "ethics",
+      "product-management",
+      "project-management"
+    ]
+  },
+  {
+    "file": "Policy as Code (for True Epub) (Jimmy Ray).pdf",
+    "slug": "policy-as-code",
+    "title": "Policy as Code (Jimmy Ray)",
+    "domain": "security",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Introduces policy as code for defining, testing, and enforcing policies and guardrails across applications and cloud infrastructure.",
+    "tags": [
+      "appsec",
+      "threat-modeling",
+      "policy-as-code",
+      "cloud-security",
+      "guardrails",
+      "security-testing"
+    ]
+  },
+  {
+    "file": "Practical Lakehouse Architecture (Gaurav Ashok Thalpati)-1.pdf",
+    "slug": "practical-lakehouse-architecture",
+    "title": "Practical Lakehouse Architecture (Gaurav Ashok Thalpati)",
+    "domain": "data-engineering",
+    "action": "skip-duplicate",
+    "reason": "byte-identical copy of the kept file Practical Lakehouse Architecture (Gaurav Ashok Thalpati).pdf",
+    "summary": "Designs lakehouse platforms and explains the data architecture, storage, processing, governance, and implementation decisions behind them.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "lakehouse",
+      "data-platforms",
+      "data-pipelines",
+      "data-governance"
+    ]
+  },
+  {
+    "file": "Practical Lakehouse Architecture (Gaurav Ashok Thalpati).pdf",
+    "slug": "practical-lakehouse-architecture",
+    "title": "Practical Lakehouse Architecture (Gaurav Ashok Thalpati)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Designs lakehouse platforms and explains the data architecture, storage, processing, governance, and implementation decisions behind them.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "lakehouse",
+      "data-platforms",
+      "data-pipelines",
+      "data-governance"
+    ]
+  },
+  {
+    "file": "Practical Linear Algebra for Data Science (Cohen, Mike X.).pdf",
+    "slug": "practical-linear-algebra-data-science",
+    "title": "Practical Linear Algebra for Data Science (Cohen, Mike X.)",
+    "domain": "applied-ml",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds applied linear-algebra intuition through vectors, matrices, transformations, decompositions, and data-science examples in Python.",
+    "tags": [
+      "machine-learning",
+      "python",
+      "math-foundations",
+      "statistics",
+      "deep-learning",
+      "model-evaluation"
+    ]
+  },
+  {
+    "file": "Practical Web Accessibility A Comprehensive Guide to Digital Inclusion (Ashley Firth).epub",
+    "slug": "practical-web-accessibility",
+    "title": "Practical Web Accessibility (Ashley Firth)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains accessibility needs across vision, motor, hearing, cognitive, and mental-health contexts, with practical audits and design guidance.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "accessibility",
+      "web-accessibility",
+      "frontend",
+      "interaction-design"
+    ]
+  },
+  {
+    "file": "Practical reverse engineering x86, x64, ARM, Windows Kernel, reversing tools, and obfuscation (Bruce Dang, Alexandre Gazet etc.).pdf",
+    "slug": "practical-reverse-engineering",
+    "title": "Practical Reverse Engineering (Bruce Dang, Alexandre Gazet etc.)",
+    "domain": "reverse-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Teaches x86, x64, and ARM analysis alongside Windows internals, debugging tools, kernel concepts, and obfuscation.",
+    "tags": [
+      "reverse-engineering",
+      "binary-analysis",
+      "assembly-language",
+      "debugging",
+      "malware-analysis",
+      "security-testing"
+    ]
+  },
+  {
+    "file": "Predictive Analytics for the Modern Enterprise A Practitioners Guide to Designing and Implementing Solutions (Nooruddin Abbas Ali).pdf",
+    "slug": "predictive-analytics-modern-enterprise",
+    "title": "Predictive Analytics for the Modern Enterprise (Nooruddin Abbas Ali)",
+    "domain": "data-science",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Guides enterprise predictive-analytics projects from business framing and descriptive analysis to modeling and implementation.",
+    "tags": [
+      "data-science",
+      "statistics",
+      "predictive-analytics",
+      "analytics",
+      "machine-learning",
+      "data-visualization"
+    ]
+  },
+  {
+    "file": "Production-Ready Microservices Building Standardized Systems Across an Engineering Organization (Susan J. Fowler).pdf",
+    "slug": "production-ready-microservices",
+    "title": "Production-Ready Microservices",
+    "domain": "software-engineering",
+    "action": "skip-indexed",
+    "reason": "already registered in BOOKS as production-ready-microservices",
+    "summary": "Covers principles for building stable, scalable, and observable microservices, including deployment pipelines, dependency management, and production-readiness checklists.",
+    "tags": [
+      "microservices",
+      "distributed-systems",
+      "scalability-reliability",
+      "sre-operations",
+      "cloud-native",
+      "software-architecture",
+      "continuous-delivery",
+      "observability"
+    ]
+  },
+  {
+    "file": "Project Management with AI For Dummies (4th edition) (Daniel Stanton).pdf",
+    "slug": "project-management-with-ai",
+    "title": "Project Management with AI For Dummies (Daniel Stanton)",
+    "domain": "management",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Applies AI concepts and tools to project planning, estimation, risk, delivery workflows, and project-management decisions.",
+    "tags": [
+      "team-organization",
+      "agile",
+      "project-management",
+      "ai-product",
+      "product-management",
+      "organization-design"
+    ]
+  },
+  {
+    "file": "REST API Design Rulebook (Mark Masse).pdf",
+    "slug": "rest-api-design-rulebook",
+    "title": "REST API Design Rulebook (Mark Masse)",
+    "domain": "architecture",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Defines practical REST API rules for resource naming, representations, methods, status codes, and predictable interface design.",
+    "tags": [
+      "software-architecture",
+      "architecture-decisions",
+      "api-design",
+      "web-apis",
+      "microservices",
+      "distributed-systems"
+    ]
+  },
+  {
+    "file": "RESTful Web APIs (Leonard Richardson, Mike Amundsen, Sam Ruby).pdf",
+    "slug": "restful-web-apis",
+    "title": "RESTful Web APIs (Leonard Richardson, Mike Amundsen, Sam Ruby)",
+    "domain": "architecture",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains web API standards, hypermedia, representations, and resource linking for discoverable RESTful applications.",
+    "tags": [
+      "software-architecture",
+      "architecture-decisions",
+      "api-design",
+      "web-apis",
+      "microservices",
+      "distributed-systems"
+    ]
+  },
+  {
+    "file": "Real-World Svelte Supercharge your apps with Svelte 4 by mastering advanced web development concepts (Tan Li Hau).pdf",
+    "slug": "real-world-svelte",
+    "title": "Real-World Svelte (Tan Li Hau)",
+    "domain": "frontend",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds advanced Svelte 4 applications through component lifecycles, stores, reactivity, server rendering, and performance patterns.",
+    "tags": [
+      "frontend",
+      "web-development",
+      "svelte",
+      "javascript-typescript",
+      "frontend-frameworks",
+      "css"
+    ]
+  },
+  {
+    "file": "Refactoring UI (Adam Wathan, Steve Schoger).pdf",
+    "slug": "refactoring-ui",
+    "title": "Refactoring UI (Adam Wathan, Steve Schoger)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Teaches visual interface refinement through spacing, typography, color, hierarchy, layout, and practical UI styling choices.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "visual-design",
+      "design-systems",
+      "frontend",
+      "interaction-design"
+    ]
+  },
+  {
+    "file": "Reinforcement Learning for Finance (for True Epub) (Yves Hilpisch).pdf",
+    "slug": "reinforcement-learning-finance",
+    "title": "Reinforcement Learning for Finance (Yves Hilpisch)",
+    "domain": "applied-ml",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Introduces reinforcement learning for finance, using Python to model decisions, learn strategies, and evaluate trading policies.",
+    "tags": [
+      "machine-learning",
+      "python",
+      "reinforcement-learning",
+      "finance",
+      "algorithmic-trading",
+      "deep-learning"
+    ]
+  },
+  {
+    "file": "Reverse Engineering for Cybersecurity Protecting Systems Through Vulnerability Analysis. (Felix K. Jackson).epub",
+    "slug": "reverse-engineering-cybersecurity",
+    "title": "Reverse Engineering for Cybersecurity (Felix K. Jackson)",
+    "domain": "reverse-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Uses reverse engineering for security analysis across software, malware, web applications, circuit boards, firmware, and incident response.",
+    "tags": [
+      "appsec",
+      "threat-modeling",
+      "firmware-analysis",
+      "malware-analysis",
+      "security-testing",
+      "debugging"
+    ]
+  },
+  {
+    "file": "Reverse engineering for beginners (Yurichev D.).pdf",
+    "slug": "reverse-engineering-for-beginners",
+    "title": "Reverse Engineering for Beginners (Yurichev D.)",
+    "domain": "reverse-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains software behavior by examining compiled programs, assembly patterns, calling conventions, and examples across x86, ARM, and MIPS.",
+    "tags": [
+      "reverse-engineering",
+      "binary-analysis",
+      "assembly-language",
+      "debugging",
+      "security-testing",
+      "malware-analysis"
+    ]
+  },
+  {
+    "file": "SQL Server Advanced Troubleshooting and Performance Tuning (Dmitri Korotkevitch).pdf",
+    "slug": "sql-server-advanced-troubleshooting",
+    "title": "SQL Server Advanced Troubleshooting and Performance Tuning (Dmitri Korotkevitch)",
+    "domain": "databases",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Diagnoses and tunes SQL Server through query plans, indexing, waits, memory, configuration, and performance troubleshooting.",
+    "tags": [
+      "sql",
+      "database-internals",
+      "query-optimization",
+      "indexing",
+      "transactions-mvcc",
+      "nosql"
+    ]
+  },
+  {
+    "file": "Scaling Machine Learning with Spark Distributed ML with MLlib, TensorFlow, and PyTorch (Adi Polak).pdf",
+    "slug": "scaling-machine-learning-with-spark",
+    "title": "Scaling Machine Learning with Spark (Adi Polak)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Scales machine learning with Spark and distributed libraries, connecting MLlib with TensorFlow, PyTorch, and cluster workflows.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "spark",
+      "machine-learning",
+      "data-pipelines",
+      "data-governance"
+    ]
+  },
+  {
+    "file": "Site Reliability Engineering How Google Runs Production Systems (Betsy Beyer, Chris Jones, Jennifer Petoff etc.).pdf",
+    "slug": "site-reliability-engineering",
+    "title": "Site Reliability Engineering (Google SRE)",
+    "domain": "systems-ops",
+    "action": "skip-indexed",
+    "reason": "already registered in BOOKS as site-reliability-engineering",
+    "summary": "Covers Google's SRE principles, practices, and management strategies for building and maintaining reliable, scalable distributed systems.",
+    "tags": [
+      "sre-operations",
+      "distributed-systems",
+      "observability",
+      "scalability-reliability",
+      "cloud-native",
+      "platform-engineering",
+      "consensus-replication",
+      "continuous-delivery",
+      "team-organization",
+      "systems-thinking"
+    ]
+  },
+  {
+    "file": "Software Architecture Metrics Case Studies to Improve the Quality of Your Architecture (Christian Ciceri, Dave Farley, Neal Ford etc.).pdf",
+    "slug": "software-architecture-metrics",
+    "title": "Software Architecture Metrics (Ciceri, Farley, Ford et al.)",
+    "domain": "architecture",
+    "action": "skip-indexed",
+    "reason": "already registered in BOOKS as software-architecture-metrics",
+    "summary": "Covers defining, instrumenting, and using software architecture metrics to guide design decisions, improve maintainability, and support evolutionary architecture practices.",
+    "tags": [
+      "software-architecture",
+      "architecture-decisions",
+      "testing-tdd",
+      "continuous-delivery",
+      "observability",
+      "software-engineering-practice",
+      "team-organization",
+      "systems-thinking"
+    ]
+  },
+  {
+    "file": "Software Supply Chain Security Securing the End-to-end Supply Chain for Software, Firmware, and Hardware (Cassie Crossley).pdf",
+    "slug": "software-supply-chain-security",
+    "title": "Software Supply Chain Security (Cassie Crossley)",
+    "domain": "security",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains software supply-chain threats and controls across source, dependencies, build systems, releases, firmware, and hardware.",
+    "tags": [
+      "appsec",
+      "threat-modeling",
+      "security-testing",
+      "web-security",
+      "incident-response",
+      "cloud-security"
+    ]
+  },
+  {
+    "file": "Spark The Definitive Guide Big Data Processing Made Simple (Bill Chambers, Matei Zaharia).pdf",
+    "slug": "spark-definitive-guide",
+    "title": "Spark: The Definitive Guide (Bill Chambers, Matei Zaharia)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Presents Spark’s distributed data-processing model, APIs, SQL, streaming, machine learning, and cluster operations.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "spark",
+      "distributed-systems",
+      "data-pipelines",
+      "data-governance"
+    ]
+  },
+  {
+    "file": "Statistics by Simulation A Synthetic Data Approach (Carsten F. Dormann, Aaron M. Ellison).pdf",
+    "slug": "statistics-by-simulation",
+    "title": "Statistics by Simulation (Carsten F. Dormann, Aaron M. Ellison)",
+    "domain": "data-science",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Teaches statistical simulation as a way to build synthetic data, examine models, and understand statistical behavior computationally.",
+    "tags": [
+      "data-science",
+      "statistics",
+      "probabilistic-modeling",
+      "data-analysis",
+      "analytics",
+      "data-visualization"
+    ]
+  },
+  {
+    "file": "Storytelling in Design Defining, Designing, and Selling Multidevice Products (Anna Dahlström).epub",
+    "slug": "storytelling-in-design",
+    "title": "Storytelling in Design (Anna Dahlström)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Uses storytelling methods to explain and sell multidevice product experiences, UX concepts, and design decisions.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "data-storytelling",
+      "interaction-design",
+      "product-design",
+      "user-research"
+    ]
+  },
+  {
+    "file": "Strategic Writing for UX Drive Engagement, Conversion, and Retention with Every Word (Torrey Podmajersky).pdf",
+    "slug": "strategic-writing-for-ux",
+    "title": "Strategic Writing for UX (Torrey Podmajersky)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Shows how UX writing aligns language with user and organizational goals through voice, content strategy, and iterative design.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "ux-writing",
+      "product-design",
+      "user-research",
+      "interaction-design"
+    ]
+  },
+  {
+    "file": "Strengthening Deep Neural Networks Making AI Less Susceptible to Adversarial Trickery (Katy Warr).pdf",
+    "slug": "strengthening-deep-neural-networks",
+    "title": "Strengthening Deep Neural Networks (Katy Warr)",
+    "domain": "applied-ml",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains adversarial attacks on deep neural networks and techniques for making models more robust to manipulated inputs.",
+    "tags": [
+      "machine-learning",
+      "python",
+      "deep-learning",
+      "neural-networks",
+      "security-testing",
+      "model-evaluation"
+    ]
+  },
+  {
+    "file": "Tao Te Ching (Lao Tzu, Jonathan Star).epub",
+    "slug": "tao-te-ching-jonathan-star",
+    "title": "Tao Te Ching (Lao Tzu, translated by Jonathan Star)",
+    "domain": "management",
+    "action": "philosophy",
+    "reason": "Tao Te Ching philosophical work; excluded from the technical shelf",
+    "summary": "A translation of Lao Tzu’s verses on the Tao, virtue, simplicity, leadership, and living in balance.",
+    "tags": [
+      "philosophy",
+      "taoism",
+      "ethics",
+      "leadership",
+      "systems-thinking",
+      "classical-texts"
+    ]
+  },
+  {
+    "file": "Tao Te Ching (Stephen Mitchell, Lao Tzu).pdf",
+    "slug": "tao-te-ching-stephen-mitchell",
+    "title": "Tao Te Ching (Lao Tzu, translated by Stephen Mitchell)",
+    "domain": "management",
+    "action": "philosophy",
+    "reason": "Tao Te Ching philosophical work; excluded from the technical shelf",
+    "summary": "A modern English rendering of the Tao Te Ching’s short teachings on wisdom, humility, power, and the way.",
+    "tags": [
+      "philosophy",
+      "taoism",
+      "ethics",
+      "leadership",
+      "systems-thinking",
+      "classical-texts"
+    ]
+  },
+  {
+    "file": "Tao Te Ching (Tse Lao).epub",
+    "slug": "tao-te-ching-tse-lao",
+    "title": "Tao Te Ching (Lao Tse)",
+    "domain": "management",
+    "action": "philosophy",
+    "reason": "Tao Te Ching philosophical work; excluded from the technical shelf",
+    "summary": "A Spanish-language presentation of the Tao Te Ching, introducing Laozi and presenting its numbered verses.",
+    "tags": [
+      "philosophy",
+      "taoism",
+      "ethics",
+      "classical-texts",
+      "world-literature",
+      "systems-thinking"
+    ]
+  },
+  {
+    "file": "Testing JavaScript Applications (Lucas da Costa).pdf",
+    "slug": "testing-javascript-applications",
+    "title": "Testing JavaScript Applications (Lucas da Costa)",
+    "domain": "software-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds confidence in JavaScript applications with unit, integration, and end-to-end testing, test design, and automation.",
+    "tags": [
+      "software-engineering-practice",
+      "design-patterns",
+      "javascript-typescript",
+      "testing-tdd",
+      "refactoring",
+      "continuous-delivery"
+    ]
+  },
+  {
+    "file": "The Developer’s Playbook for Large Language Model Security (for True Epub) (Steve Wilson).pdf",
+    "slug": "llm-security-playbook",
+    "title": "The Developer’s Playbook for Large Language Model Security (Steve Wilson)",
+    "domain": "security",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Maps LLM security risks, attack patterns, safeguards, and development practices for building safer language-model applications.",
+    "tags": [
+      "appsec",
+      "threat-modeling",
+      "ai-security",
+      "llm",
+      "security-testing",
+      "web-security"
+    ]
+  },
+  {
+    "file": "The Enterprise Big Data Lake (Gorelik, Alex).epub",
+    "slug": "enterprise-big-data-lake",
+    "title": "The Enterprise Big Data Lake (Gorelik, Alex)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains enterprise data lakes, platform maturity, architecture choices, governance, and practices for avoiding data swamps.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "data-lakes",
+      "data-governance",
+      "data-pipelines",
+      "analytics"
+    ]
+  },
+  {
+    "file": "The Ghidra Book The Definitive Guide (Chris Eagle Kara Nance).pdf",
+    "slug": "ghidra-book",
+    "title": "The Ghidra Book The Definitive Guide (Chris Eagle Kara Nance)",
+    "domain": "reverse-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Teaches Ghidra workflows for disassembly, analysis, scripting, debugging, and understanding compiled programs.",
+    "tags": [
+      "reverse-engineering",
+      "binary-analysis",
+      "ghidra",
+      "debugging",
+      "assembly-language",
+      "security-testing"
+    ]
+  },
+  {
+    "file": "The Practitioner’s Guide To Graph Data Applying Graph Thinking And Graph Technologies To Solve Complex Problems (Denise Koessler Gosnell etc.).pdf",
+    "slug": "practitioners-guide-graph-data",
+    "title": "The Practitioner's Guide to Graph Data (Denise Koessler Gosnell etc.)",
+    "domain": "databases",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Applies graph thinking and graph technologies to model connected data and solve business problems with graph databases.",
+    "tags": [
+      "sql",
+      "database-internals",
+      "graph-ml",
+      "nosql",
+      "query-optimization",
+      "transactions-mvcc"
+    ]
+  },
+  {
+    "file": "The Scrum Master’s Path 2 in 1 Bundle. A Guide for Servant Leaders Navigating Growth and Change Using SCRUM and the Agile… (Liam Taylor [Taylor, Liam]).epub",
+    "slug": "scrum-masters-path",
+    "title": "The Scrum Master’s Path: 2 in 1 Bundle. A Guide for Servant Leaders Navigating Growth and Change Using SCRUM and the Agile Project Management (Liam Taylor [Taylor, Liam])",
+    "domain": "management",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains Scrum Master responsibilities, servant leadership, facilitation, team growth, and navigating organizational change.",
+    "tags": [
+      "team-organization",
+      "agile",
+      "scrum",
+      "leadership",
+      "organization-design",
+      "product-management"
+    ]
+  },
+  {
+    "file": "The WebGPU Sourcebook High-Performance Graphics and Machine Learning in the Browser (Matthew Scarpino).pdf",
+    "slug": "webgpu-sourcebook",
+    "title": "The WebGPU Sourcebook: High-Performance Graphics and Machine Learning in the Browser (Matthew Scarpino)",
+    "domain": "frontend",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Introduces browser-side WebGPU programming for high-performance graphics and machine-learning workloads using GPU resources.",
+    "tags": [
+      "frontend",
+      "web-development",
+      "webgpu",
+      "web-graphics",
+      "gpu-cuda",
+      "javascript-typescript"
+    ]
+  },
+  {
+    "file": "Think Like a UX Researcher How to Observe Users, Influence Design, and Shape Business Strategy (David Travis Philip Hodgson).pdf",
+    "slug": "think-like-ux-researcher",
+    "title": "Think Like a UX Researcher : How to Observe Users, Influence Design, and Shape Business Strategy (David Travis Philip Hodgson)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Presents UX-research methods for observing users, framing questions, interpreting evidence, and influencing product strategy.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "user-research",
+      "cognitive-psychology",
+      "product-design",
+      "interaction-design"
+    ]
+  },
+  {
+    "file": "Think Stats, 3rd Edition Exploratory Data Analysis (Allen B. Downey).pdf",
+    "slug": "think-stats-3e",
+    "title": "Think Stats (Allen B. Downey)",
+    "domain": "data-science",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Uses Python to explore distributions, summarize data, test hypotheses, and investigate real datasets with statistical methods.",
+    "tags": [
+      "data-science",
+      "statistics",
+      "exploratory-data-analysis",
+      "python",
+      "data-visualization",
+      "analytics"
+    ]
+  },
+  {
+    "file": "Thư Viện - Master OS .pdf",
+    "slug": "thu-vien-master-os",
+    "title": "Thư Viện - Master OS",
+    "domain": "management",
+    "action": "philosophy",
+    "reason": "personal philosophical library material; excluded from the technical shelf",
+    "summary": "A Vietnamese-language collection of essays about spiritual practice, perception, history, and human origins.",
+    "tags": [
+      "philosophy",
+      "spirituality",
+      "systems-thinking",
+      "ethics",
+      "product-management",
+      "project-management"
+    ]
+  },
+  {
+    "file": "Training Data for Machine Learning (Anthony Sarkis).pdf",
+    "slug": "training-data-for-machine-learning",
+    "title": "Training Data for Machine Learning (Anthony Sarkis)",
+    "domain": "applied-ml",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Covers collection, labeling, quality, and management of training datasets for machine-learning projects and model development.",
+    "tags": [
+      "machine-learning",
+      "python",
+      "data-labeling",
+      "active-learning",
+      "model-evaluation",
+      "deep-learning"
+    ]
+  },
+  {
+    "file": "TypeScript Cookbook (Stefan Baumgartner).epub",
+    "slug": "typescript-cookbook",
+    "title": "TypeScript Cookbook (Stefan Baumgartner)",
+    "domain": "frontend",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Provides TypeScript recipes for project setup, type checking, migration, type modeling, and practical JavaScript interoperability.",
+    "tags": [
+      "frontend",
+      "web-development",
+      "javascript-typescript",
+      "programming-languages",
+      "css",
+      "accessibility"
+    ]
+  },
+  {
+    "file": "UI Design Principles Learn to create beautiful and usable interfaces from scratch (Michael Filipiuk).pdf",
+    "slug": "ui-design-principles",
+    "title": "UI Design Principles Learn to create beautiful and usable interfaces from scratch (Michael Filipiuk)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Introduces interface design through layout, typography, color, forms, icons, imagery, navigation, and usability fundamentals.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "visual-design",
+      "design-systems",
+      "accessibility",
+      "interaction-design"
+    ]
+  },
+  {
+    "file": "UX for Lean Startups Faster, Smarter User Experience Research and Design (Laura Klein).pdf",
+    "slug": "ux-for-lean-startups",
+    "title": "UX for Lean Startups (Laura Klein)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Applies lean-startup methods to UX research and design, including early validation, rapid learning, prototypes, and MVP decisions.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "user-research",
+      "product-discovery",
+      "usability-testing",
+      "interaction-design"
+    ]
+  },
+  {
+    "file": "Unifying Business, Data, and Code (Ron Itelman, Juan Cruz Viotti).epub",
+    "slug": "unifying-business-data-code",
+    "title": "Unifying Business, Data, and Code (Ron Itelman, Juan Cruz Viotti)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Introduces a data-product approach that aligns business goals, data models, contracts, and software development using JSON Schema.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "data-products",
+      "data-contracts",
+      "data-governance",
+      "data-pipelines"
+    ]
+  },
+  {
+    "file": "User Story Mapping (Jeff Patton).pdf",
+    "slug": "user-story-mapping",
+    "title": "User Story Mapping: Discover the Whole Story, Build the Right Product (Jeff Patton)",
+    "domain": "management",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Uses story maps to connect user activities, product scope, release planning, backlog prioritization, and ongoing discovery.",
+    "tags": [
+      "team-organization",
+      "agile",
+      "user-story-mapping",
+      "product-management",
+      "product-discovery",
+      "project-management"
+    ]
+  },
+  {
+    "file": "Vector Databases A Practical Introduction (Nitin Borwankar).pdf",
+    "slug": "vector-databases-introduction",
+    "title": "Vector Databases A Practical Introduction (Nitin Borwankar)",
+    "domain": "databases",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Introduces vector databases, embeddings, similarity search, indexing, and practical design choices for vector retrieval systems.",
+    "tags": [
+      "sql",
+      "database-internals",
+      "vector-search",
+      "embeddings",
+      "search-relevance",
+      "query-optimization"
+    ]
+  },
+  {
+    "file": "Web Accessibility Cookbook Creating Inclusive Experiences (Manuel Matuzovic).pdf",
+    "slug": "web-accessibility-cookbook",
+    "title": "Web Accessibility Cookbook (Manuel Matuzovic)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Provides implementation recipes for accessible web structure, navigation, forms, labels, media, and inclusive frontend experiences.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "accessibility",
+      "web-accessibility",
+      "frontend",
+      "usability-testing"
+    ]
+  },
+  {
+    "file": "Web Performance Engineering in the Age of AI Mastering Speed and Quality for AI-Generated Applications (Addy Osmani).pdf",
+    "slug": "web-performance-engineering",
+    "title": "Web Performance Engineering in the Age of AI Mastering Speed and Quality for AI-Generated Applications (Addy Osmani)",
+    "domain": "frontend",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Connects web performance with user experience and explains measurement, optimization, and quality for AI-generated applications.",
+    "tags": [
+      "frontend",
+      "web-development",
+      "web-performance",
+      "javascript-typescript",
+      "css",
+      "accessibility"
+    ]
+  },
+  {
+    "file": "Web Performance in Action Building Faster Web Pages (Jeremy Wagner).pdf",
+    "slug": "web-performance-in-action",
+    "title": "Web Performance in Action Building Faster Web Pages (Jeremy Wagner)",
+    "domain": "frontend",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Improves page speed through browser rendering, network transfer, images, scripts, caching, and practical performance techniques.",
+    "tags": [
+      "frontend",
+      "web-development",
+      "web-performance",
+      "javascript-typescript",
+      "css",
+      "accessibility"
+    ]
+  },
+  {
+    "file": "Web Scraping with Python (Ryan Mitchell).pdf",
+    "slug": "web-scraping-with-python",
+    "title": "Web Scraping with Python (Ryan Mitchell)",
+    "domain": "data-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds Python web scrapers with HTTP, HTML parsing, APIs, crawling, data extraction, and responsible collection practices.",
+    "tags": [
+      "data-engineering",
+      "data-architecture",
+      "python",
+      "data-pipelines",
+      "data-governance",
+      "analytics"
+    ]
+  },
+  {
+    "file": "Writing Excel Macros with VBA (Steven Roman).pdf",
+    "slug": "writing-excel-macros-vba",
+    "title": "Writing Excel Macros with VBA (Steven Roman)",
+    "domain": "data-science",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Automates Excel tasks with VBA macros, including workbook objects, procedures, user interaction, and application workflows.",
+    "tags": [
+      "data-science",
+      "statistics",
+      "excel-bi",
+      "analytics",
+      "data-visualization",
+      "data-analysis"
+    ]
+  },
+  {
+    "file": "Zero Trust Networks, 2nd Edition (Razi Rais, Christina Morillo, Evan Gilman etc.).pdf",
+    "slug": "zero-trust-networks-2e",
+    "title": "Zero Trust Networks (Razi Rais, Christina Morillo, Evan Gilman etc.)",
+    "domain": "security",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains zero-trust network architecture, identity and access, segmentation, policy enforcement, and secure service communication.",
+    "tags": [
+      "appsec",
+      "threat-modeling",
+      "zero-trust",
+      "networking",
+      "authentication-oauth",
+      "security-testing"
+    ]
+  },
+  {
+    "file": "asynchronousprogrammingwithcplusplus.epub",
+    "slug": "asynchronousprogrammingwithcplusplus",
+    "title": "Asynchronous Programming with C++ (Javier Reguera-Salgado | Juan Antonio Rufes)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Covers asynchronous C++ and concurrency through threads, futures, event loops, parallel execution, and process coordination.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "async-concurrency",
+      "algorithms-data-structures",
+      "programming-languages",
+      "compilers"
+    ]
+  },
+  {
+    "file": "bare-metalembeddedcprogramming.epub",
+    "slug": "bare-metalembeddedcprogramming",
+    "title": "Bare-Metal Embedded C Programming (Israel Gbati)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Guides bare-metal C development for microcontrollers, toolchains, memory, peripherals, interrupts, and embedded debugging.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "embedded",
+      "algorithms-data-structures",
+      "programming-languages",
+      "compilers"
+    ]
+  },
+  {
+    "file": "buildinglowlatencyapplicationswithc.epub",
+    "slug": "buildinglowlatencyapplicationswithc",
+    "title": "Building Low Latency Applications with C++ (Sourav Ghosh)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains C++ techniques for latency-sensitive applications, including concurrency, memory, networking, and performance measurement.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "algorithms-data-structures",
+      "programming-languages",
+      "compilers",
+      "embedded"
+    ]
+  },
+  {
+    "file": "candalgorithmicthinkingforthecompletebeginner.epub",
+    "slug": "candalgorithmicthinkingforthecompletebeginner",
+    "title": "CPP and Algorithmic Thinking for the Complete Beginner - Third Edition (Aristides S. Bouras)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Introduces computational and algorithmic thinking with C++, covering hardware, software, compilers, data, and problem decomposition.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "algorithms-data-structures",
+      "programming-languages",
+      "compilers",
+      "embedded"
+    ]
+  },
+  {
+    "file": "cmakebestpractices.epub",
+    "slug": "cmakebestpractices",
+    "title": "CMake Best Practices (Dominik Berner and Mustafa Kemal Gilor)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Applies CMake best practices to project setup, targets, dependencies, testing, packaging, and portable C++ build systems.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "cmake",
+      "software-engineering-practice",
+      "algorithms-data-structures",
+      "programming-languages"
+    ]
+  },
+  {
+    "file": "cplusplus20stlcookbook2e.epub",
+    "slug": "cplusplus20stlcookbook2e",
+    "title": "C++23 STL Cookbook (Bill Weinman)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Provides practical C++23 STL recipes for ranges, containers, algorithms, formatting, views, and modern library features.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "algorithms-data-structures",
+      "programming-languages",
+      "compilers",
+      "embedded"
+    ]
+  },
+  {
+    "file": "cplusplusmemorymanagement.epub",
+    "slug": "cplusplusmemorymanagement",
+    "title": "C++ Memory Management (Patrice Roy)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explores C++ object lifetime, allocation, ownership, smart pointers, allocators, and memory-management trade-offs.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "programming-languages",
+      "algorithms-data-structures",
+      "compilers",
+      "embedded"
+    ]
+  },
+  {
+    "file": "cplusplusprogrammersmindset.epub",
+    "slug": "cplusplusprogrammersmindset",
+    "title": "The C++ Programmer's Mindset (Sam Morley)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Develops a C++ programmer’s computational and systems mindset through decomposition, algorithms, constraints, and problem-solving strategies.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "algorithms-data-structures",
+      "programming-languages",
+      "software-engineering-practice",
+      "compilers"
+    ]
+  },
+  {
+    "file": "datastructuresandalgorithmswiththecplusplusstl.epub",
+    "slug": "datastructuresandalgorithmswiththecplusplusstl",
+    "title": "Data Structures and Algorithms with the C++ STL (John E. Farrier)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Uses C++ STL containers and algorithms to implement data structures, solve problems, and reason about complexity and performance.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "algorithms-data-structures",
+      "programming-languages",
+      "compilers",
+      "embedded"
+    ]
+  },
+  {
+    "file": "debunkingcplusplusmyths.epub",
+    "slug": "debunkingcplusplusmyths",
+    "title": "Debunking C++ Myths (Alexandru Bolboacă | Ferenc-Lajos Deák)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Challenges common C++ misconceptions while explaining language complexity, memory behavior, modern features, and practical learning strategies.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "programming-languages",
+      "software-engineering-practice",
+      "algorithms-data-structures",
+      "compilers"
+    ]
+  },
+  {
+    "file": "gpuprogrammingwithcplusplusandcuda.epub",
+    "slug": "gpuprogrammingwithcplusplusandcuda",
+    "title": "GPU Programming with C++ and CUDA (Paulo Motta)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Introduces parallel GPU programming with C++ and CUDA, covering execution models, kernels, memory, and performance optimization.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "gpu-cuda",
+      "algorithms-data-structures",
+      "programming-languages",
+      "compilers"
+    ]
+  },
+  {
+    "file": "hands-ondesignpatternswithcplusplus2e.epub",
+    "slug": "hands-ondesignpatternswithcplusplus2e",
+    "title": "Hands-On Design Patterns with C++ (Fedor G. Pikus)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Applies object-oriented and modern C++ features to reusable design patterns, architecture, and maintainable implementations.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "design-patterns",
+      "software-architecture",
+      "programming-languages",
+      "algorithms-data-structures"
+    ]
+  },
+  {
+    "file": "learnllvm17secondedition.epub",
+    "slug": "learnllvm17secondedition",
+    "title": "Learn LLVM 17 (Kai Nacke and Amy Kwan)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds LLVM 17 from source and introduces compiler construction, intermediate representation, toolchains, and LLVM-based development.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "compilers",
+      "llvm",
+      "programming-languages",
+      "algorithms-data-structures"
+    ]
+  },
+  {
+    "file": "llvmcodegeneration.epub",
+    "slug": "llvmcodegeneration",
+    "title": "LLVM Code Generation (Quentin Colombet)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explores LLVM backend code generation, target support, instruction selection, and compiler development workflows.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "compilers",
+      "llvm",
+      "algorithms-data-structures",
+      "programming-languages"
+    ]
+  },
+  {
+    "file": "moderncmakeforcplusplus2e.epub",
+    "slug": "moderncmakeforcplusplus2e",
+    "title": "Modern CMake for C++ (Rafał Świdziński)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains modern CMake configuration, generation, builds, dependencies, installation, and cross-platform C++ project structure.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "cmake",
+      "software-engineering-practice",
+      "algorithms-data-structures",
+      "programming-languages"
+    ]
+  },
+  {
+    "file": "moderncplusplusprogrammingcookbook3eepub.epub",
+    "slug": "moderncplusplusprogrammingcookbook3eepub",
+    "title": "Modern C++ Programming Cookbook (Marius Bancila)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Covers modern C++ language and standard-library features through recipes aligned with C++23 and earlier standards.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "programming-languages",
+      "algorithms-data-structures",
+      "compilers",
+      "embedded"
+    ]
+  },
+  {
+    "file": "qt6cplusplusguiprogrammingcookbook.epub",
+    "slug": "qt6cplusplusguiprogrammingcookbook",
+    "title": "Qt 6 C++ GUI Programming Cookbook (Lee Zhi Eng)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Builds desktop interfaces with Qt 6 and C++, covering Qt Designer, widgets, styling, signals, and application development.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "qt",
+      "ui-design",
+      "algorithms-data-structures",
+      "programming-languages"
+    ]
+  },
+  {
+    "file": "refactoringwithcplusplus.epub",
+    "slug": "refactoringwithcplusplus",
+    "title": "Refactoring with C++ (Dmitry Danilov)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Applies refactoring techniques to C++ code, including coding standards, design improvement, testing, and safer change.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "refactoring",
+      "clean-code",
+      "software-engineering-practice",
+      "design-patterns"
+    ]
+  },
+  {
+    "file": "rustforcplusplusdeveloper.epub",
+    "slug": "rustforcplusplusdeveloper",
+    "title": "Rust for C++ Developers",
+    "domain": "rust",
+    "action": "skip-indexed",
+    "reason": "already registered in BOOKS as rustforcplusplusdeveloper",
+    "summary": "Teaches Rust syntax, safety model, Cargo tooling, standard library, and C++ interoperability for developers transitioning from C++.",
+    "tags": [
+      "rust",
+      "cpp",
+      "systems-programming",
+      "async-concurrency",
+      "algorithms-data-structures",
+      "software-engineering-practice",
+      "testing-tdd",
+      "refactoring"
+    ]
+  },
+  {
+    "file": "softwarearchitecturewithcplusplussecondedition.epub",
+    "slug": "softwarearchitecturewithcplusplussecondedition",
+    "title": "Software Architecture with C++ (Mr. Andrey Gavrilin | Mr. Adrian Ostrowski | Mr. Piotr Gaczkowski)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explains C++ software architecture through components, design principles, communication, team practices, and robust system structure.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "software-architecture",
+      "design-patterns",
+      "team-organization",
+      "algorithms-data-structures"
+    ]
+  },
+  {
+    "file": "storytelling-with-data-cole-nussbaumer-knaflic.pdf",
+    "slug": "storytelling-with-data",
+    "title": "Storytelling with Data (Cole Nussbaumer Knaflic)",
+    "domain": "design",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Teaches business-focused data storytelling through context, visual choice, decluttering, focus, and clear chart communication.",
+    "tags": [
+      "ux-design",
+      "ui-design",
+      "data-visualization",
+      "data-storytelling",
+      "analytics",
+      "interaction-design"
+    ]
+  },
+  {
+    "file": "templatemetaprogrammingwithc.epub",
+    "slug": "templatemetaprogrammingwithc",
+    "title": "Template Metaprogramming with C++ (Marius Bancila)",
+    "domain": "cpp",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Covers C++ templates and compile-time programming, from generic abstractions to metaprogramming techniques and practical applications.",
+    "tags": [
+      "cpp",
+      "systems-programming",
+      "programming-languages",
+      "algorithms-data-structures",
+      "compilers",
+      "embedded"
+    ]
+  },
+  {
+    "file": "x86 Software Reverse-Engineering, Cracking, and Counter-Measures (Stephanie Domas, Christopher Domas).pdf",
+    "slug": "x86-software-reverse-engineering",
+    "title": "X86 Software Reverse-Engineering, Cracking, and Counter-Measures (Stephanie Domas, Christopher Domas)",
+    "domain": "reverse-engineering",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Explores x86 decompilation, reverse engineering, software cracking, analysis tools, and defensive countermeasures.",
+    "tags": [
+      "reverse-engineering",
+      "binary-analysis",
+      "assembly-language",
+      "malware-analysis",
+      "security-testing",
+      "threat-modeling"
+    ]
+  },
+  {
+    "file": "本源圖書館 - 繁體中文版.docx.pdf",
+    "slug": "benyuan-library-traditional-chinese",
+    "title": "本源圖書館 (繁體中文版)",
+    "domain": "management",
+    "action": "philosophy",
+    "reason": "personal philosophical library material; excluded from the technical shelf",
+    "summary": "A Traditional Chinese edition of essays about spiritual practice, perception, history, and human origins.",
+    "tags": [
+      "philosophy",
+      "spirituality",
+      "systems-thinking",
+      "ethics",
+      "product-management",
+      "project-management"
+    ]
+  }
+]

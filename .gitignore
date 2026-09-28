@@ -9,6 +9,13 @@ knowledge-base/architecture/
 knowledge-base/ai-engineering/
 knowledge-base/software-engineering/
 knowledge-base/systems-ops/
+knowledge-base/management/
+knowledge-base/reverse-engineering/
+knowledge-base/cpp/
+knowledge-base/data-science/
+knowledge-base/data-engineering/
+knowledge-base/design/
+knowledge-base/frontend/
 
 # Pipeline outputs (regenerable from source + code) — all of data/ is derived
 # ...except data/golden/ (eval benchmark + recorded baselines — version-controlled
@@ -18,6 +25,7 @@ data/*
 !data/bench/
 # The book catalog is reviewed by hand and read at runtime, so it is versioned.
 !data/catalog.json
+!data/intake/
 data/bench/transcripts/
 data/bench/calls/
 # ...but the audit judge-sample batches are bulky reproducible scratch (regen via audit_prep.py)
