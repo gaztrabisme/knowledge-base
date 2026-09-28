@@ -1,5 +1,10 @@
 # Gotchas & Known Issues
 
+## Qdrant cosine vectors across embedded and server stores
+
+**Problem:** Qdrant normalizes vectors for cosine collections when writing to the server. An unnormalized synthetic vector from an embedded store therefore changes on server upsert, and the local and HTTP clients can render stored float32 values with different decimal precision.
+**Fix:** Generate unit-length random vectors in the scratch test and compare dense/sparse vector values at float32 storage precision; compare sparse indices and payloads exactly. An added point that is not already in the destination's cosine representation should fail verification.
+
 ## Golden-Set Vocabulary Bias (measure-the-wrong-thing trap)
 
 **Problem:** LLM-generating a benchmark query FROM the chunk it should retrieve makes the query inherit the chunk's rare terms, so BM25/dense match trivially. The v6 eval baseline came back near-ceiling (NDCG 0.93, Recall@50 1.00) — which looks great but means the set can't measure recall-improving changes like enrichment (recall is already maxed).
