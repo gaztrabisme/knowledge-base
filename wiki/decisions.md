@@ -704,3 +704,20 @@ Reusable infra: `scripts/gpu_sweep.sh` (unattended index→eval driver for candi
 **Context:** Character unigrams and bigrams from Simplified and Traditional spellings otherwise hash to different custom sparse terms.
 **Decision:** Convert text to Simplified Chinese before tokenization at query time and remote indexing time; keep the local and inline remote tokenizers in parity. The remote host must install `opencc-python-reimplemented` and the indexer fails clearly when it is absent.
 **Grounding:** Attempted the required KB search for sparse retrieval tokenization and script normalization, but the MCP call returned “requires approval” while this workspace's approval policy is `never`; no KB result was available. The implementation follows the user's explicit mechanism.
+
+## v8 promotion despite the dilution rule (2026-09-28)
+**Decision:** Gary promoted `developer_knowledge_v8`: 291 books, 266,647 vectors.
+**The failed rule:** the gate set three conditions in advance. It passed hard-set recall@10 (−0.016, limit −0.02) and new-book sanity recall@10 (0.867 against a threshold of 0.85). It failed the dilution sample: 22 of 40 regressions were worse answers, against a limit of 20.
+**Why promote anyway:**
+- 22 of 40 is not distinguishable from 50% at n=40.
+- The labelled answers mostly stay in the top 10, only lower.
+- The benchmark cannot credit the 165 new books.
+
+**How it was done:** the v7.1 collection was snapshotted to `data/snapshots/developer_knowledge-v71.snapshot`, and its SHA-256 was checked against the server's. The collection was then dropped, and `developer_knowledge` was made an alias for `developer_knowledge_v8`, so no config changed.
+**Evidence:** [gate report](../data/bench/gate-v8.md).
+
+## Philosophy search: reranker routed by query language (2026-09-28)
+**Decision:** Search both sparse legs: the custom CJK-aware tokenizer and FastEmbed BM25. Rerank English (plain-ASCII) queries with Ettin and all other queries with BGE-reranker-v2-m3.
+**Why:** it was the only one of 12 configurations to meet every per-language recall threshold (`data/philosophy/ablation.json`). The design matches each language with a component built for it; no numeric parameter was tuned.
+**Parallels:** each hit carries at most two passages per other translation, the ones nearest the hit's own vector. Matching is on `work_group` + `section_key`, so Tao Te Ching translations are parallels of each other.
+**Evidence:** `data/philosophy/C4-report.md`, `data/philosophy/eval-final.txt`.
