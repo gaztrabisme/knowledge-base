@@ -43,3 +43,8 @@
 - Added `derived` markers to generated chunk metadata, remote payloads, and philosophy search results; normalized custom sparse CJK tokens with OpenCC `t2s` in both tokenizer copies.
 - Acceptance: `.venv/bin/python -m pytest tests/test_philosophy.py -q` → 8 passed in 4.44s. No model load or embedding run.
 - Full change and check results: [C4 report](../data/philosophy/C4-report.md).
+
+## 2026-09-28: v8 live check over MCP
+A fresh `knowledge_base.server` was started over stdio and called through a FastMCP client. It lists 8 tools, including `search_philosophy` and `list_philosophy`.
+- `search_philosophy("the usefulness of emptiness")` returned Tao Te Ching ch. 11 (Mitchell). Its parallels were the Jonathan Star (en) and Tse Lao (es) passages, then Zhuan Falun hits with 2 passages each in vi, zh-Hans and zh-Hant.
+- `search("CSS cascade layers")` returned css-definitive-guide and css-in-depth-2e.
