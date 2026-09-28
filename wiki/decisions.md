@@ -721,3 +721,8 @@ Reusable infra: `scripts/gpu_sweep.sh` (unattended index→eval driver for candi
 **Why:** it was the only one of 12 configurations to meet every per-language recall threshold (`data/philosophy/ablation.json`). The design matches each language with a component built for it; no numeric parameter was tuned.
 **Parallels:** each hit carries at most two passages per other translation, the ones nearest the hit's own vector. Matching is on `work_group` + `section_key`, so Tao Te Ching translations are parallels of each other.
 **Evidence:** `data/philosophy/C4-report.md`, `data/philosophy/eval-final.txt`.
+
+## Portable release installer (2026-09-28)
+**Decision:** Keep downloads on the standard library and use `httpx` only for the multipart snapshot upload. Its iterator request body streams the snapshot; the common `requests` `files=` path buffers the whole file.
+**Dependency exception:** Declare `opencc-python-reimplemented` because full philosophy search imports `OpenCC` and raises without it. Keep pytest in uv's dev dependency group so the documented project test command uses the project environment.
+**Evidence:** `tests/test_editions.py`, and live dry-run point counts.

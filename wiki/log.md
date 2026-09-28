@@ -48,3 +48,8 @@
 A fresh `knowledge_base.server` was started over stdio and called through a FastMCP client. It lists 8 tools, including `search_philosophy` and `list_philosophy`.
 - `search_philosophy("the usefulness of emptiness")` returned Tao Te Ching ch. 11 (Mitchell). Its parallels were the Jonathan Star (en) and Tse Lao (es) passages, then Zhuan Falun hits with 2 passages each in vi, zh-Hans and zh-Hant.
 - `search("CSS cascade layers")` returned css-definitive-guide and css-in-depth-2e.
+
+## [2026-09-28] session | Portable release packaging lane A
+- Added `KB_EDITION` registration, detached local Qdrant startup, split release bundles with SHA-256 manifests, and a stdlib-download installer with streamed snapshot restores.
+- `uv run pytest tests -q` → 35 passed. Core registered six tools; full registered eight. Release dry-run read both live collections without creating snapshots and reported 266,647 technical points and 8,432 philosophy points.
+- HEAD requests for all five Qdrant v1.18.2 platform assets returned HTTP 200. No release snapshot or restore was run against the local Qdrant server.

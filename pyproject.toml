@@ -10,9 +10,13 @@ dependencies = [
     "sentence-transformers>=5.5",
     "markitdown>=0.1",
     "fastembed>=0.3",
+    "opencc-python-reimplemented>=0.1.7",
     "tiktoken>=0.7",
     "pymupdf>=1.24",
 ]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
 
 [project.scripts]
 kb-server = "knowledge_base.server:main"

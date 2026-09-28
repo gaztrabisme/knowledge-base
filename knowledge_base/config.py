@@ -27,6 +27,14 @@ SOURCE_DIRS = {
 MARKDOWN_DIR = ROOT / "data" / "markdown"
 CHUNKS_DIR = ROOT / "data" / "chunks"
 
+_requested_edition = os.environ.get("KB_EDITION")
+if _requested_edition is None:
+    EDITION = "full" if (CHUNKS_DIR / "philosophy").exists() else "core"
+elif _requested_edition in {"core", "full"}:
+    EDITION = _requested_edition
+else:
+    raise ValueError("KB_EDITION must be 'core' or 'full'")
+
 # Experiment knobs (env-overridable so a candidate index can be built/eval'd into its
 # own collection+dir without code edits). Defaults = the shipped v6.2 production index.
 QDRANT_DIR = Path(os.environ.get("KB_QDRANT_DIR", str(ROOT / "data" / "qdrant")))

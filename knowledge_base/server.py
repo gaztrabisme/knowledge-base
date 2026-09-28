@@ -7,22 +7,25 @@ import subprocess
 from fastmcp import FastMCP
 
 from .calllog import logged
-from .config import BOOKS, CHUNKS_DIR, MARKDOWN_DIR
+from .config import BOOKS, CHUNKS_DIR, EDITION, MARKDOWN_DIR
 from .books import _chapter_title, book_chapters, book_domain, resolve_book
 from .search import get_client, hybrid_search
 
 _CHUNK_ID_RE = re.compile(r"^(.+)-p(\d+)-c(\d+)$")
 
-mcp = FastMCP(
-    "Developer Knowledge Base",
-    instructions=(
-        "Hybrid semantic and keyword search over 126 technical books: ML and deep learning, "
-        "AI engineering, databases, security, software architecture and engineering, "
-        "distributed systems, Rust, and systems/ops. Separate philosophy tools search and list "
-        "the multilingual philosophy corpus; the Original Library is its entry point, and "
-        "aligned parallel passages are returned so nuance across translations is not lost."
-    ),
+_instructions = (
+    "Hybrid semantic and keyword search over 126 technical books: ML and deep learning, "
+    "AI engineering, databases, security, software architecture and engineering, "
+    "distributed systems, Rust, and systems/ops."
 )
+if EDITION == "full":
+    _instructions += (
+        " Separate philosophy tools search and list the multilingual philosophy corpus; "
+        "the Original Library is its entry point, and aligned parallel passages are "
+        "returned so nuance across translations is not lost."
+    )
+
+mcp = FastMCP("Developer Knowledge Base", instructions=_instructions)
 
 
 def _unknown_book_error(book: str, suggestions: list[str]) -> str:
@@ -407,7 +410,6 @@ def grep_books(
         return _grep_python(pattern, md_files, per_file_limit, max_results)
 
 
-@mcp.tool()
 @logged
 def search_philosophy(
     query: str,
@@ -440,7 +442,6 @@ def search_philosophy(
     )
 
 
-@mcp.tool()
 @logged
 def list_philosophy(work: str | None = None) -> dict:
     """List philosophy works and available languages, or aligned sections for one work.
@@ -453,6 +454,11 @@ def list_philosophy(work: str | None = None) -> dict:
     from .philosophy.search import list_philosophy as list_registered_philosophy
 
     return list_registered_philosophy(work=work)
+
+
+if EDITION == "full":
+    mcp.tool()(search_philosophy)
+    mcp.tool()(list_philosophy)
 
 
 def _grep_ripgrep(
@@ -585,6 +591,9 @@ def _grep_python(
 
 
 def main():
+    from .qdrant_boot import ensure_qdrant
+
+    ensure_qdrant()
     mcp.run()
 
 

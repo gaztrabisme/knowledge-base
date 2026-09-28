@@ -37,6 +37,11 @@ __pycache__/
 *.egg-info/
 dist/
 build/
+bin/
+qdrant-storage/
+qdrant-snapshots/
+.kb-install.json
+snapshots/
 
 # Environment
 .env
