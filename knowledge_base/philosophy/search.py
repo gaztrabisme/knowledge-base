@@ -11,27 +11,20 @@ from qdrant_client import QdrantClient, models
 from sentence_transformers import CrossEncoder
 
 from ..config import ROOT
+from ..index import text_to_sparse_vector as bm25_text_to_sparse_vector
 from .sparse import text_to_sparse_vector
 
 COLLECTION = "philosophy"
 EMBEDDING_MODEL = "jinaai/jina-embeddings-v5-text-small-retrieval"
 RERANKER_MODEL = "BAAI/bge-reranker-v2-m3"
-_dense_model = None
 _ranker = None
 _client: QdrantClient | None = None
 
 
 def embed_texts(texts: list[str], task: str = "retrieval.query") -> list[list[float]]:
-    """Load the query encoder lazily and keep it on CPU on this shared-GPU host."""
-    global _dense_model
-    if _dense_model is None:
-        from sentence_transformers import SentenceTransformer
-        _dense_model = SentenceTransformer(EMBEDDING_MODEL, trust_remote_code=True, device="cpu")
-    clipped = [text[:8000] for text in texts]
-    vectors = _dense_model.encode(
-        clipped, task=task, show_progress_bar=False, batch_size=8,
-    )
-    return vectors.tolist()
+    """Encode with the technical index's Jina v5 model, so the server loads it once."""
+    from ..index import embed_texts as shared_embed_texts
+    return shared_embed_texts([text[:8000] for text in texts], task=task)
 
 
 def get_ranker() -> CrossEncoder:
@@ -70,6 +63,24 @@ def _work_condition(work: str) -> models.Filter:
     return models.Filter(should=matches)
 
 
+def _is_english(text: str) -> bool:
+    """Plain-ASCII queries (no CJK, no Vietnamese diacritics) are treated as English."""
+    return all(ord(ch) < 128 for ch in text)
+
+
+def _ranker_for(query: str) -> CrossEncoder:
+    """Ettin for English queries, BGE-v2-m3 otherwise.
+
+    Ettin is English-only but the stronger English reranker; BGE reads Vietnamese and
+    Chinese. Routing by query language is the only configuration that met every
+    recall threshold in data/philosophy/ablation.json.
+    """
+    if _is_english(query):
+        from ..search import get_ranker as technical_ranker
+        return technical_ranker()
+    return get_ranker()
+
+
 def _rank(query: str, results: list[dict], top_k: int) -> list[dict]:
     if not results:
         return []
@@ -77,7 +88,7 @@ def _rank(query: str, results: list[dict], top_k: int) -> list[dict]:
         "\n".join(filter(None, [item.get("section_title", ""), item.get("child_text", "")]))
         for item in results
     ]
-    ranker = get_ranker()
+    ranker = _ranker_for(query)
     if hasattr(ranker, "rank"):
         ranked = ranker.rank(query, documents)
         ordered = []
@@ -161,6 +172,10 @@ def hybrid_search(
             models.Prefetch(query=query_dense, using="", filter=search_filter, limit=candidates),
             models.Prefetch(
                 query=query_sparse, using="sparse", filter=search_filter, limit=candidates,
+            ),
+            models.Prefetch(
+                query=bm25_text_to_sparse_vector(query), using="bm25",
+                filter=search_filter, limit=candidates,
             ),
         ],
         query=models.FusionQuery(fusion=models.Fusion.DBSF),

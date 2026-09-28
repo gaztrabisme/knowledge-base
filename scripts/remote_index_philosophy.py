@@ -103,13 +103,18 @@ def main() -> None:
     for path in sorted(chunks_dir.glob("*.json")):
         data = json.loads(path.read_text(encoding="utf-8"))
         work_id = data["work_id"]
-        found, _ = client.scroll(
+        # One work has several language files, so a file is done only when every
+        # child of this work+language is present. Point ids are deterministic, so
+        # a partially indexed file is simply re-upserted.
+        present = client.count(
             collection_name=COLLECTION,
-            scroll_filter=models.Filter(must=[models.FieldCondition(
-                key="work_id", match=models.MatchValue(value=work_id),
-            )]), limit=1,
-        )
-        if found:
+            count_filter=models.Filter(must=[
+                models.FieldCondition(key="work_id", match=models.MatchValue(value=work_id)),
+                models.FieldCondition(key="lang", match=models.MatchValue(value=data.get("lang", ""))),
+            ]),
+            exact=True,
+        ).count
+        if present >= len(data.get("children", [])):
             print(f"{path.name}: already indexed; skipping")
             continue
         parent_map = {parent["parent_id"]: parent["text"] for parent in data.get("parents", [])}

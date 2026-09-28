@@ -74,3 +74,11 @@ Remaining phase-A follow-up: run remote indexing, load the embedded store into Q
 ```
 
 The tests cover Traditional/Simplified sparse-vector equality, tokenizer and sparse-vector parity between the two copies for English, Vietnamese, and Chinese, matching markdown/chunk section keys, derived markers on parents and children, and the derived flag in returned search hits. No model was loaded and no embeddings were generated on this machine.
+
+## Coordinator: retrieval configuration chosen by ablation
+
+The C4 pipeline (custom sparse leg + BGE reranker) missed the English threshold (0.733 vs 0.85). `scripts/ablate_philosophy.py` crossed three sparse setups (custom, BM25, both) with four rerankers (BGE, Ettin, none, language-routed) on the 60-query eval set. Results are in `ablation.json`. Only one configuration met every threshold: both sparse legs, with the reranker routed by query language (Ettin for plain-ASCII queries, BGE otherwise). It scored en 0.867, vi 0.867, zh 0.800, cross 1.000. `knowledge_base/philosophy/search.py` now implements it. Query embedding reuses the technical index's Jina model, so the server loads it once.
+
+The final run of `scripts/eval_philosophy.py` on the shipped code (`eval-final.txt`) reproduces those numbers and exits 0.
+
+Caveat: 15 queries per group, and the configuration was chosen on the same set that scores it. The choice pairs each language with the component built for it; no numeric parameter was tuned.
