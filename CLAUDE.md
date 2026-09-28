@@ -78,6 +78,16 @@ python3 -m knowledge_base.server
 
 Configured in `.mcp.json` (project) and `~/.claude.json` (global, via PYTHONPATH).
 
+`KB_EDITION=core|full` picks the tool set: core serves the 6 technical tools, full adds the 2 philosophy tools. Unset, it is full when `data/chunks/philosophy/` exists. When `KB_QDRANT_BIN` is set and nothing answers at `KB_QDRANT_URL`, the server starts that Qdrant binary itself on storage `KB_QDRANT_STORAGE` (`knowledge_base/qdrant_boot.py`); this Mac leaves it unset because launchd runs Qdrant.
+
+## Distribution
+
+The private repo is `gaztrabisme/knowledge-base`. Other machines install it with `install.ps1` (Windows) or `install.sh` (macOS/Linux) and a fine-grained GitHub token that can only read this repo; `README.md` is the guide for that reader.
+
+- Data ships as GitHub Release `data-v8`: `kb-core.part00` (technical snapshot, markdown, chunks), `kb-philosophy.part00`, and `manifest.json` with point counts and sha256 per part.
+- Rebuild the release after an index change: `uv run python scripts/package_release.py` (snapshots the live Qdrant, writes `dist/release/`), then upload under a new tag and bump the installer's `--release-tag` default.
+- `scripts/install.py --dir <dir> --edition core|full [--update] [--qdrant-port N]` downloads and verifies the parts, fetches the pinned Qdrant binary, restores the snapshots, and runs `claude mcp add`.
+
 ## Pipeline Commands
 
 ```bash
