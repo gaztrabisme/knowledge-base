@@ -6,7 +6,9 @@ import inspect
 import importlib.util
 import json
 from pathlib import Path
+import re
 import sys
+from types import SimpleNamespace
 
 import pytest
 from qdrant_client import QdrantClient, models
@@ -138,19 +140,36 @@ def _load_chunk_file(work_id: str, lang: str) -> tuple[Path, list[dict]]:
     return path, [_child_metadata(child) for child in children]
 
 
+def _markdown_sections(path: Path, prefix: str) -> dict[str, tuple[str, str]]:
+    text = path.read_text(encoding="utf-8")
+    matches = list(re.finditer(
+        rf"(?m)^# (?P<key>{re.escape(prefix)}[^ ]*) — (?P<title>.*?)\s*$", text,
+    ))
+    return {
+        match.group("key"): (
+            match.group("title"),
+            text[match.end():matches[index + 1].start() if index + 1 < len(matches) else len(text)].strip(),
+        )
+        for index, match in enumerate(matches)
+    }
+
+
 def _assert_section_keys(
-    work_id: str, lang: str, expected: set[str], *, allow_named_front_sections: bool = False
+    work_id: str, lang: str, expected: set[str], *, allow_named_front_sections: bool = False,
+    allow_ttc_notes: bool = False,
 ) -> None:
     _, children = _load_chunk_file(work_id, lang)
     for child in children:
         assert child.get("work_id") == work_id
         assert child.get("lang") == lang
         key = child.get("section_key")
-        assert key in expected or (allow_named_front_sections and str(key).startswith("zfl-"))
+        assert (key in expected
+                or (allow_named_front_sections and str(key).startswith("zfl-"))
+                or (allow_ttc_notes and key == "ttc-notes"))
         assert child.get("section_title")
         assert child.get("edition") or child.get("translator")
     found = {child["section_key"] for child in children}
-    if allow_named_front_sections:
+    if allow_named_front_sections or allow_ttc_notes:
         assert expected <= found
     else:
         assert found == expected
@@ -195,10 +214,10 @@ def test_chunk_files_have_complete_alignment_keys_and_registry_links() -> None:
         # The supplied Tse Lao EPUB is actually Spanish; the source language is
         # recorded faithfully while retaining the same 81 aligned chapter keys.
         assert lang == ("es" if work_id == "tao-te-ching-tse-lao" else "en")
-        _assert_section_keys(work_id, lang, ttc_expected)
+        _assert_section_keys(work_id, lang, ttc_expected, allow_ttc_notes=True)
         for lang, record in languages.items():
             if lang != "en" and _is_included(record):
-                _assert_section_keys(work_id, lang, ttc_expected)
+                _assert_section_keys(work_id, lang, ttc_expected, allow_ttc_notes=True)
 
     zfl_works = [work for work in works if "zhuan falun" in _title_blob(work)]
     assert len(zfl_works) == 1
@@ -253,6 +272,32 @@ def test_chunk_files_have_complete_alignment_keys_and_registry_links() -> None:
                     assert chunk_path.is_file()
                 else:
                     assert (PHILOSOPHY_CHUNKS / f"{work_id}.{lang}.json").is_file()
+
+
+def test_mitchell_tao_chapter_81_and_translator_notes_are_separate() -> None:
+    work_id = "tao-te-ching-stephen-mitchell"
+    markdown_path = ROOT / "data" / "markdown" / "philosophy" / f"{work_id}.en.md"
+    sections = _markdown_sections(markdown_path, "ttc-")
+
+    assert len(sections["ttc-081"][1]) < 3000
+    assert sections["ttc-notes"][0] == "Notes"
+    notes_path, notes_children = _load_chunk_file(work_id, "en")
+    assert notes_path.is_file()
+    assert any(child.get("section_key") == "ttc-notes" and child.get("text")
+               for child in notes_children)
+
+
+def test_ttc_notes_never_attach_parallels() -> None:
+    class NotesClient:
+        def scroll(self, **kwargs):
+            return ([SimpleNamespace(id="other-notes", payload={
+                "work_id": "tao-te-ching-star", "lang": "en", "section_key": "ttc-notes",
+                "child_text": "translator commentary", "section_title": "About the Author",
+            })], None)
+
+    hit = {"work_id": "tao-te-ching-stephen-mitchell", "lang": "en",
+           "section_key": "ttc-notes"}
+    assert philosophy_search._attach_parallels(NotesClient(), hit)["parallels"] == []
 
 
 class _StubRanker:
@@ -335,6 +380,7 @@ def test_hybrid_search_in_memory_qdrant_attaches_parallel_passages(monkeypatch) 
         lambda text: models.SparseVector(indices=[17], values=[1.0]),
     )
     monkeypatch.setattr(philosophy_search, "get_ranker", lambda: _StubRanker())
+    monkeypatch.setattr(philosophy_search, "_ranker_for", lambda query: _StubRanker())
 
     hits = philosophy_search.hybrid_search(
         "How can attention become calm?",

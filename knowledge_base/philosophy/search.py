@@ -108,7 +108,7 @@ def _rank(query: str, results: list[dict], top_k: int) -> list[dict]:
 def _attach_parallels(client: QdrantClient, hit: dict) -> dict:
     payload = hit.get("payload", hit)
     work_id, section_key = payload.get("work_id"), payload.get("section_key")
-    if not work_id or not section_key:
+    if not work_id or not section_key or section_key == "ttc-notes":
         hit["parallels"] = []
         return hit
     points, _ = client.scroll(

@@ -27,6 +27,10 @@ from knowledge_base.philosophy.textcheck import TextCheck, check_pdf, check_text
 BOOKS_DIR = Path("/Users/GaryT/Documents/books")
 ARCHIVE = BOOKS_DIR / "falun-dafa-pdf-archive"
 REGISTRY_PATH = ROOT / "data" / "philosophy" / "works.json"
+TTC_BACK_MATTER_HEADINGS = {
+    "notes", "endnotes", "commentary", "afterword", "about the translator",
+    "about the author", "acknowledgments", "acknowledgements", "bibliography",
+}
 
 
 def _result(check: TextCheck, *, status: str | None = None) -> dict:
@@ -88,6 +92,33 @@ def _sections_from_markdown(path: Path) -> list[Section]:
     found = [section.section_key for section in sections]
     if found != expected:
         raise ValueError(f"Expected Zhuan Falun section keys {expected} in {path.name}, got {found}")
+    return sections
+
+
+def _split_tao_back_matter(sections: list[Section]) -> list[Section]:
+    """Move chapter 81 back matter to a searchable section outside alignment."""
+    chapter = next((section for section in sections if section.section_key == "ttc-081"), None)
+    if chapter is None:
+        raise ValueError("Tao Te Ching input is missing ttc-081")
+
+    lines = chapter.text.splitlines()
+    for index, line in enumerate(lines):
+        heading = re.sub(r"^[ \t]{0,3}#{1,6}[ \t]*", "", line).strip()
+        heading = re.sub(r"[*`_]", "", heading).strip().rstrip(":").strip()
+        if heading.casefold() not in TTC_BACK_MATTER_HEADINGS:
+            continue
+
+        chapter_text = "\n".join(lines[:index]).strip()
+        back_matter = "\n".join(lines[index + 1:]).strip()
+        if not chapter_text or not back_matter:
+            raise ValueError(f"Incomplete back matter at {heading!r} in ttc-081")
+        split = sections.index(chapter)
+        return [
+            *sections[:split],
+            Section(chapter.section_key, chapter.section_title, chapter_text),
+            Section("ttc-notes", heading, back_matter),
+            *sections[split + 1:],
+        ]
     return sections
 
 
@@ -153,6 +184,7 @@ def build() -> dict:
             sections, page_count = tao_pdf_sections(source)
         else:
             sections, page_count = tao_epub_sections(source, verse_heading=verse_heading)
+        sections = _split_tao_back_matter(sections)
         body_han = sum(1 for section in sections for char in section.text
                        if "\u3400" <= char <= "\u9fff")
         work = {

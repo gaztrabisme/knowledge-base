@@ -82,3 +82,26 @@ The C4 pipeline (custom sparse leg + BGE reranker) missed the English threshold 
 The final run of `scripts/eval_philosophy.py` on the shipped code (`eval-final.txt`) reproduces those numbers and exits 0.
 
 Caveat: 15 queries per group, and the configuration was chosen on the same set that scores it. The choice pairs each language with the component built for it; no numeric parameter was tuned.
+
+## C4c — Translator back matter separation
+
+**Verdict: PASS.** The ingestion rule splits chapter 81 at its first recognized back-matter heading into a separate `ttc-notes` section. `ttc-notes` remains searchable and receives no parallels. Mitchell and Jonathan Star both contain such material; Tse Lao does not.
+
+Changed files:
+
+- `scripts/ingest_philosophy.py`
+- `knowledge_base/philosophy/search.py`
+- `tests/test_philosophy.py`
+- `data/markdown/philosophy/tao-te-ching-stephen-mitchell.en.md`
+- `data/chunks/philosophy/tao-te-ching-stephen-mitchell.en.json`
+- `data/markdown/philosophy/tao-te-ching-jonathan-star.en.md`
+- `data/chunks/philosophy/tao-te-ching-jonathan-star.en.json`
+- `data/philosophy/C4-report.md`
+
+| Chunk file | Old child chunks | New child chunks | Result |
+|---|---:|---:|---|
+| `tao-te-ching-stephen-mitchell.en.json` | 128 | 128 | Split at `Notes`; chapter 81 is 347 characters |
+| `tao-te-ching-jonathan-star.en.json` | 81 | 82 | Split at `About the Author`; chapter 81 is 655 characters |
+| `tao-te-ching-tse-lao.es.json` | 84 | 84 | Unchanged; no back-matter heading found |
+
+All three translations retain `ttc-001` through `ttc-081`; Mitchell and Star also have the separate notes key. Regeneration wrote only the two affected markdown and chunk pairs. No model was loaded and no embeddings were generated. The first acceptance attempt found an assertion using the wrong chunk text field and reached an existing test path that would fetch the English reranker; it was interrupted before a model loaded. The assertion now checks the actual `text` field, and the hybrid-search test stubs the reranker route. Final verification: `.venv/bin/python -m pytest tests/test_philosophy.py -q` → `10 passed in 5.17s`. No model was loaded and no embeddings were generated.
