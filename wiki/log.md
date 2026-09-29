@@ -58,3 +58,8 @@ A fresh `knowledge_base.server` was started over stdio and called through a Fast
 - Added `KB_EDITION` registration, detached local Qdrant startup, split release bundles with SHA-256 manifests, and a stdlib-download installer with streamed snapshot restores.
 - `uv run pytest tests -q` → 35 passed. Core registered six tools; full registered eight. Release dry-run read both live collections without creating snapshots and reported 266,647 technical points and 8,432 philosophy points.
 - HEAD requests for all five Qdrant v1.18.2 platform assets returned HTTP 200. No release snapshot or restore was run against the local Qdrant server.
+
+## [2026-09-28] session | Laya model fit check
+- Inspected the Laya model card and SDK batch API against the live technical and philosophy search paths.
+- Identified one viable experiment: batched two-option relevance scoring of the same 50 fused candidates, compared with Ettin on parent-level quality and warmed latency. No model was downloaded or installed and no search code was changed.
+- Recorded the fit check, alternatives, and trial gate in [decisions.md](decisions.md).
