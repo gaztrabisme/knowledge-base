@@ -57,6 +57,20 @@
   ],
   "title": "Agentic Design Patterns (Gulli)"
  },
+ "agentic-mesh": {
+  "domain": "ai-engineering",
+  "summary": "Explains an enterprise agentic mesh for coordinating autonomous AI agents across business processes and systems.",
+  "tags": [
+   "ai-agents",
+   "multi-agent-systems",
+   "distributed-systems",
+   "enterprise-architecture",
+   "software-architecture",
+   "cloud-native",
+   "systems-thinking"
+  ],
+  "title": "Agentic Mesh: The GenAI-Powered Autonomous Agent Ecosystem (Eric Broda, Davis Broda)"
+ },
  "ai-engineering-huyen": {
   "domain": "ai-engineering",
   "summary": "Covers building AI applications using foundation models, including prompting, RAG, agents, fine-tuning, evaluation, inference optimization, and production architecture.",
@@ -205,6 +219,20 @@
   ],
   "title": "The Art of AI Product Development (Lipenkova)"
  },
+ "art-of-assembly-language": {
+  "domain": "cpp",
+  "summary": "Teaches assembly language and low-level program behavior, including data representation, control structures, and processor architecture.",
+  "tags": [
+   "cpp",
+   "assembly-language",
+   "systems-programming",
+   "algorithms-data-structures",
+   "compilers",
+   "embedded",
+   "reverse-engineering"
+  ],
+  "title": "The Art of Assembly Language (Randall Hyde)"
+ },
  "articulating-design-decisions": {
   "domain": "design",
   "summary": "Teaches designers to explain decisions, understand stakeholder perspectives, present evidence, and navigate critique and collaboration.",
@@ -314,6 +342,19 @@
    "compilers"
   ],
   "title": "Bare-Metal Embedded C Programming (Israel Gbati)"
+ },
+ "bargaining-for-advantage": {
+  "domain": "sales",
+  "summary": "Presents a practical framework for preparing, negotiating, and reaching agreements while adapting to different bargaining styles.",
+  "tags": [
+   "negotiation",
+   "sales-methodology",
+   "communication",
+   "leadership",
+   "ethics",
+   "systems-thinking"
+  ],
+  "title": "Bargaining for Advantage: Negotiation Strategies for Reasonable People (G. Richard Shell)"
  },
  "bayesiananalysiswithpython_thirdedition": {
   "domain": "applied-ml",
@@ -661,6 +702,20 @@
   ],
   "title": "Certified Ethical Hacker (CEH) Study Guide (Matt Walker)"
  },
+ "challenger-sale": {
+  "domain": "sales",
+  "summary": "Presents a sales approach that teaches customers new perspectives, tailors conversations, and guides complex purchase decisions.",
+  "tags": [
+   "sales-methodology",
+   "negotiation",
+   "account-management",
+   "communication",
+   "leadership",
+   "business-writing",
+   "critical-thinking"
+  ],
+  "title": "The Challenger Sale: Taking Control of the Customer Conversation (Matthew Dixon, Brent Adamson)"
+ },
  "chaos-engineering": {
   "domain": "systems-ops",
   "summary": "Explains chaos experiments, hypothesis-driven testing, and resilience practices for finding weaknesses in production systems.",
@@ -771,6 +826,20 @@
   ],
   "title": "Coding with AI (Morgan)"
  },
+ "container-security": {
+  "domain": "security",
+  "summary": "Covers container isolation, image security, runtime threats, and practical controls for protecting containerized applications.",
+  "tags": [
+   "cloud-security",
+   "appsec",
+   "security-testing",
+   "threat-modeling",
+   "linux-hardening",
+   "kubernetes-security",
+   "cloud-native"
+  ],
+  "title": "Container Security: Fundamental Technology Concepts That Protect Containerized Applications (Liz Rice)"
+ },
  "continuous-api-management": {
   "domain": "architecture",
   "summary": "Guides API lifecycle decisions across design, governance, platform strategy, developer experience, and organizational adoption.",
@@ -829,7 +898,7 @@
  },
  "cplusplusprogrammersmindset": {
   "domain": "cpp",
-  "summary": "Develops a C++ programmer\u2019s computational and systems mindset through decomposition, algorithms, constraints, and problem-solving strategies.",
+  "summary": "Develops a C++ programmer’s computational and systems mindset through decomposition, algorithms, constraints, and problem-solving strategies.",
   "tags": [
    "cpp",
    "systems-programming",
@@ -869,6 +938,20 @@
    "api-design"
   ],
   "title": "Creative Projects for Rust Programmers"
+ },
+ "critical-thinking-about-research": {
+  "domain": "research-methods",
+  "summary": "Teaches readers to evaluate research questions, methods, evidence, statistics, and conclusions in psychology and related fields.",
+  "tags": [
+   "research-methods",
+   "statistics",
+   "statistics-inference",
+   "cognitive-psychology",
+   "critical-thinking",
+   "data-analysis",
+   "ethics"
+  ],
+  "title": "Critical Thinking About Research: Psychology and Related Fields (Julian Meltzoff, Harris M. Cooper)"
  },
  "crypto-101": {
   "domain": "security",
@@ -1114,7 +1197,7 @@
    "algorithms-data-structures",
    "compilers"
   ],
-  "title": "Debunking C++ Myths (Alexandru Bolboac\u0103 | Ferenc-Lajos De\u00e1k)"
+  "title": "Debunking C++ Myths (Alexandru Bolboacă | Ferenc-Lajos Deák)"
  },
  "deciphering-data-architectures": {
   "domain": "data-engineering",
@@ -1182,6 +1265,20 @@
    "domain-driven-design"
   ],
   "title": "Design Patterns: Elements of Reusable OO Software (Gang of Four)"
+ },
+ "designing-ai-interfaces": {
+  "domain": "design",
+  "summary": "Develops interface principles for AI systems, focusing on user control, interaction, trust, and creative or autonomous behavior.",
+  "tags": [
+   "ai-product",
+   "ai-agents",
+   "interaction-design",
+   "ux-design",
+   "ui-design",
+   "user-research",
+   "human-centered-design"
+  ],
+  "title": "Designing AI Interfaces: Design Principles for Creative and Autonomous AI (Louise Macfadyen)"
  },
  "designing-autonomous-ai": {
   "domain": "ai-engineering",
@@ -1491,7 +1588,7 @@
    "vector-search",
    "llm-evaluation"
   ],
-  "title": "Essential GraphRAG (Toma\u017e Bratani\u010d, Oskar Hane)"
+  "title": "Essential GraphRAG (Tomaž Bratanič, Oskar Hane)"
  },
  "essential-math-ai": {
   "domain": "applied-ml",
@@ -1576,6 +1673,34 @@
    "data-governance"
   ],
   "title": "Financial Data Engineering (Tamer Khraisha)"
+ },
+ "flawless-consulting": {
+  "domain": "sales",
+  "summary": "Guides consultants through contracting, discovery, feedback, implementation, and building client commitment to useful change.",
+  "tags": [
+   "consulting",
+   "organization-design",
+   "communication",
+   "leadership",
+   "team-organization",
+   "systems-thinking",
+   "product-discovery"
+  ],
+  "title": "Flawless Consulting: A Guide to Getting Your Expertise Used, 3rd Edition (Peter Block)"
+ },
+ "flawless-consulting-fieldbook-companion-2e": {
+  "domain": "sales",
+  "summary": "Provides exercises and guidance for applying consulting skills, understanding client systems, and supporting organizational change.",
+  "tags": [
+   "consulting",
+   "organization-design",
+   "communication",
+   "leadership",
+   "systems-thinking",
+   "team-organization",
+   "product-discovery"
+  ],
+  "title": "The Flawless Consulting Fieldbook Companion: A Guide to Understanding Your Expertise, 2nd Edition (Peter Block)"
  },
  "flow-architectures": {
   "domain": "architecture",
@@ -1730,6 +1855,19 @@
   ],
   "title": "Generative Deep Learning (David Foster)"
  },
+ "getting-to-yes": {
+  "domain": "sales",
+  "summary": "Introduces principled negotiation: separate people from problems, focus on interests, invent options, and use objective criteria.",
+  "tags": [
+   "negotiation",
+   "communication",
+   "ethics",
+   "leadership",
+   "systems-thinking",
+   "organization-design"
+  ],
+  "title": "Getting to Yes: Negotiating Agreement Without Giving In (Roger Fisher, William Ury, Bruce Patton)"
+ },
  "ghidra-book": {
   "domain": "reverse-engineering",
   "summary": "Teaches Ghidra workflows for disassembly, analysis, scripting, debugging, and understanding compiled programs.",
@@ -1826,6 +1964,20 @@
   ],
   "title": "Hands-On Selenium WebDriver with Java (Boni Garcia)"
  },
+ "hands-on-site-reliability-engineering": {
+  "domain": "systems-ops",
+  "summary": "Presents hands-on practices for operating reliable services, including monitoring, incident response, automation, and service objectives.",
+  "tags": [
+   "sre-operations",
+   "observability",
+   "reliability-engineering",
+   "incident-response",
+   "scalability-reliability",
+   "cloud-native",
+   "systems-thinking"
+  ],
+  "title": "Hands-On Site Reliability Engineering"
+ },
  "hands-on-unsupervised-learning": {
   "domain": "applied-ml",
   "summary": "Applies unsupervised learning to unlabeled data through clustering, dimensionality reduction, anomaly detection, and feature learning.",
@@ -1901,6 +2053,19 @@
   ],
   "title": "Hands-On Machine Learning with C++, 2nd Edition"
  },
+ "hbr-guide-business-writing": {
+  "domain": "sales",
+  "summary": "Offers practical methods for writing clear business emails, reports, proposals, and other professional documents.",
+  "tags": [
+   "business-writing",
+   "communication",
+   "ux-writing",
+   "team-organization",
+   "software-engineering-practice",
+   "leadership"
+  ],
+  "title": "HBR Guide to Better Business Writing (Bryan A. Garner)"
+ },
  "head-first-statistics-analysis": {
   "domain": "data-science",
   "summary": "Teaches descriptive statistics and data analysis in Excel through frequency tables, distributions, charts, and inference.",
@@ -1914,9 +2079,23 @@
   ],
   "title": "Head First Statistics for Data Analysis (Dawn Griffiths)"
  },
+ "high-performance-browser-networking": {
+  "domain": "frontend",
+  "summary": "Explains browser networking protocols and techniques for reducing latency and improving web application performance.",
+  "tags": [
+   "web-performance",
+   "networking",
+   "frontend",
+   "web-development",
+   "web-apis",
+   "javascript-typescript",
+   "caching"
+  ],
+  "title": "High Performance Browser Networking (Ilya Grigorik)"
+ },
  "holacracy": {
   "domain": "management",
-  "summary": "Explains Holacracy\u2019s distributed authority, roles, governance meetings, operational processes, and organizational adoption.",
+  "summary": "Explains Holacracy’s distributed authority, roles, governance meetings, operational processes, and organizational adoption.",
   "tags": [
    "team-organization",
    "agile",
@@ -1926,6 +2105,20 @@
    "project-management"
   ],
   "title": "Holacracy (Brian J. Robertson)"
+ },
+ "how-to-read-a-paper": {
+  "domain": "research-methods",
+  "summary": "Shows how to assess study design, results, statistics, and applicability when reading clinical and health research.",
+  "tags": [
+   "research-methods",
+   "research-ethics",
+   "statistics",
+   "statistics-inference",
+   "critical-thinking",
+   "data-analysis",
+   "ethics"
+  ],
+  "title": "How to Read a Paper: The Basics of Evidence-Based Healthcare (Trisha Greenhalgh, Paul Dijkstra)"
  },
  "http-definitive-guide": {
   "domain": "frontend",
@@ -2095,6 +2288,19 @@
   ],
   "title": "Kaggle Book, 2nd Edition"
  },
+ "key-account-management": {
+  "domain": "sales",
+  "summary": "Explains how to select, develop, and manage strategic customer accounts through planning, relationships, and measurable value.",
+  "tags": [
+   "account-management",
+   "sales-methodology",
+   "leadership",
+   "organization-design",
+   "team-organization",
+   "systems-thinking"
+  ],
+  "title": "Key Account Management: The Definitive Guide, 2nd Edition (Malcolm McDonald, Diana Woodburn)"
+ },
  "kubernetes-security-observability": {
   "domain": "security",
   "summary": "Combines Kubernetes security and observability across cluster setup, workload protection, networking, compliance, and operations.",
@@ -2123,7 +2329,7 @@
  },
  "laws-of-ux": {
   "domain": "design",
-  "summary": "Applies psychological principles such as Jakob\u2019s, Fitts\u2019s, and Hick\u2019s laws to interface design and product decisions.",
+  "summary": "Applies psychological principles such as Jakob’s, Fitts’s, and Hick’s laws to interface design and product decisions.",
   "tags": [
    "ux-design",
    "ui-design",
@@ -2326,7 +2532,7 @@
  },
  "learning-vue": {
   "domain": "frontend",
-  "summary": "Explains Vue\u2019s core model, components, state, composition, routing, and practical patterns for reusable interfaces.",
+  "summary": "Explains Vue’s core model, components, state, composition, routing, and practical patterns for reusable interfaces.",
   "tags": [
    "frontend",
    "web-development",
@@ -2406,7 +2612,7 @@
    "security-testing",
    "web-security"
   ],
-  "title": "The Developer\u2019s Playbook for Large Language Model Security (Steve Wilson)"
+  "title": "The Developer’s Playbook for Large Language Model Security (Steve Wilson)"
  },
  "llmops": {
   "domain": "ai-engineering",
@@ -2477,7 +2683,7 @@
    "statistics",
    "deep-learning"
   ],
-  "title": "Machine Learning for Econometrics (Christophe Gaillac, J\u00e9r\u00e9my LHour)"
+  "title": "Machine Learning for Econometrics (Christophe Gaillac, Jérémy LHour)"
  },
  "machine-learning-production-systems": {
   "domain": "applied-ml",
@@ -2649,6 +2855,20 @@
   ],
   "title": "Mathematics of Machine Learning"
  },
+ "meddicc": {
+  "domain": "sales",
+  "summary": "Describes the MEDDICC qualification framework for understanding decision criteria, stakeholders, value, and risk in complex sales.",
+  "tags": [
+   "sales-methodology",
+   "account-management",
+   "negotiation",
+   "communication",
+   "leadership",
+   "product-management",
+   "organization-design"
+  ],
+  "title": "MEDDICC: The Ultimate Guide to Staying One Step Ahead in the Complex Sale (Andy Whyte)"
+ },
  "microservice-architecture": {
   "domain": "architecture",
   "summary": "Connects microservice architecture to organizational culture, value delivery, service boundaries, and implementation practices.",
@@ -2718,7 +2938,7 @@
    "algorithms-data-structures",
    "programming-languages"
   ],
-  "title": "Modern CMake for C++ (Rafa\u0142 \u015awidzi\u0144ski)"
+  "title": "Modern CMake for C++ (Rafał Świdziński)"
  },
  "moderncplusplusprogrammingcookbook3eepub": {
   "domain": "cpp",
@@ -2790,6 +3010,20 @@
    "machine-learning"
   ],
   "title": "Natural Language Processing with Transformers (Lewis Tunstall etc.)"
+ },
+ "new-ethics-of-journalism": {
+  "domain": "research-methods",
+  "summary": "Explores ethical principles and decision making for journalism amid changing media, technology, and public expectations.",
+  "tags": [
+   "journalism",
+   "media-ethics",
+   "ethics",
+   "communication",
+   "critical-thinking",
+   "research-methods",
+   "privacy"
+  ],
+  "title": "The New Ethics of Journalism: Principles for the 21st Century (Kelly McBride, Tom Rosenstiel)"
  },
  "nginx-cookbook": {
   "domain": "systems-ops",
@@ -2980,6 +3214,20 @@
   ],
   "title": "The Internals of PostgreSQL (Suzuki)"
  },
+ "practical-cloud-security": {
+  "domain": "security",
+  "summary": "Covers security architecture and operational controls for designing and deploying applications in cloud environments.",
+  "tags": [
+   "cloud-security",
+   "appsec",
+   "security-testing",
+   "threat-modeling",
+   "linux-hardening",
+   "zero-trust",
+   "cloud-native"
+  ],
+  "title": "Practical Cloud Security: A Guide for Secure Design and Deployment (Chris Dotson)"
+ },
  "practical-lakehouse-architecture": {
   "domain": "data-engineering",
   "summary": "Designs lakehouse platforms and explains the data architecture, storage, processing, governance, and implementation decisions behind them.",
@@ -3073,6 +3321,20 @@
   ],
   "title": "Predictive Analytics for the Modern Enterprise (Nooruddin Abbas Ali)"
  },
+ "privacy-in-context": {
+  "domain": "research-methods",
+  "summary": "Develops contextual integrity as a framework for understanding privacy expectations, information flows, technology, and policy.",
+  "tags": [
+   "privacy",
+   "research-ethics",
+   "ethics",
+   "data-governance",
+   "cloud-security",
+   "systems-thinking",
+   "research-methods"
+  ],
+  "title": "Privacy in Context: Technology, Policy, and the Integrity of Social Life (Helen Nissenbaum)"
+ },
  "pro-git": {
   "domain": "software-engineering",
   "summary": "Covers Git fundamentals, branching, remote workflows, server setup, GitHub integration, advanced tools, customization, and internal mechanics.",
@@ -3150,6 +3412,34 @@
   ],
   "title": "Project Management with AI For Dummies (Daniel Stanton)"
  },
+ "project-planning-scheduling-control": {
+  "domain": "management",
+  "summary": "Provides practical methods for defining project work, building schedules, tracking progress, and controlling cost and delivery.",
+  "tags": [
+   "project-management",
+   "agile",
+   "leadership",
+   "organization-design",
+   "team-organization",
+   "continuous-delivery",
+   "systems-thinking"
+  ],
+  "title": "Project Planning, Scheduling, and Control (James P. Lewis)"
+ },
+ "python-for-devops": {
+  "domain": "systems-ops",
+  "summary": "Uses Python and command-line tools to automate infrastructure, testing, deployment, and operational workflows.",
+  "tags": [
+   "python",
+   "shell-scripting",
+   "linux",
+   "sre-operations",
+   "continuous-delivery",
+   "platform-engineering",
+   "observability"
+  ],
+  "title": "Python for DevOps: Learn Ruthlessly Effective Automation (Noah Gift, Kennedy Behrman, Alfredo Deza et al.)"
+ },
  "pythonmachinelearningbyexample_fourthedition": {
   "domain": "applied-ml",
   "summary": "Covers practical implementation of ML algorithms including classification, regression, CNNs, RNNs, transformers, and reinforcement learning using scikit-learn, TensorFlow, and PyTorch.",
@@ -3177,6 +3467,20 @@
    "programming-languages"
   ],
   "title": "Qt 6 C++ GUI Programming Cookbook (Lee Zhi Eng)"
+ },
+ "real-world-software-development": {
+  "domain": "software-engineering",
+  "summary": "Teaches practical software development through maintainable design, testing, version control, and collaborative engineering practices.",
+  "tags": [
+   "software-engineering-practice",
+   "clean-code",
+   "refactoring",
+   "design-patterns",
+   "testing-tdd",
+   "software-architecture",
+   "programming-languages"
+  ],
+  "title": "Real-World Software Development (Raoul-Gabriel Urma, Richard Warburton)"
  },
  "real-world-svelte": {
   "domain": "frontend",
@@ -3275,6 +3579,34 @@
    "design-patterns"
   ],
   "title": "Release It! Design and Deploy Production-Ready Software (Nygard)"
+ },
+ "research-ethics-integrity-social-scientists": {
+  "domain": "research-methods",
+  "summary": "Examines ethical research practice, integrity, governance, and researchers' responsibilities across the social sciences.",
+  "tags": [
+   "research-methods",
+   "research-ethics",
+   "ethics",
+   "data-governance",
+   "privacy",
+   "critical-thinking",
+   "team-organization"
+  ],
+  "title": "Research Ethics and Integrity for Social Scientists, 2nd Edition (Mark Israel)"
+ },
+ "research-methods-psychology": {
+  "domain": "research-methods",
+  "summary": "Introduces psychological research design, measurement, experiments, surveys, statistics, and the evaluation of evidence.",
+  "tags": [
+   "research-methods",
+   "statistics",
+   "statistics-inference",
+   "cognitive-psychology",
+   "user-research",
+   "data-analysis",
+   "critical-thinking"
+  ],
+  "title": "Research Methods in Psychology (Beth Morling)"
  },
  "rest-api-design-rulebook": {
   "domain": "architecture",
@@ -3474,7 +3806,21 @@
    "organization-design",
    "product-management"
   ],
-  "title": "The Scrum Master\u2019s Path: 2 in 1 Bundle. A Guide for Servant Leaders Navigating Growth and Change Using SCRUM and the Agile Project Management (Liam Taylor [Taylor, Liam])"
+  "title": "The Scrum Master’s Path: 2 in 1 Bundle. A Guide for Servant Leaders Navigating Growth and Change Using SCRUM and the Agile Project Management (Liam Taylor [Taylor, Liam])"
+ },
+ "selling-to-big-companies": {
+  "domain": "sales",
+  "summary": "Offers strategies for prospecting, reaching decision makers, and winning business with large organizations.",
+  "tags": [
+   "sales-methodology",
+   "account-management",
+   "negotiation",
+   "communication",
+   "leadership",
+   "project-management",
+   "organization-design"
+  ],
+  "title": "Selling to Big Companies (Jill Konrath)"
  },
  "semantic-software-design": {
   "domain": "architecture",
@@ -3577,7 +3923,7 @@
  },
  "software-architecture-patterns": {
   "domain": "software-engineering",
-  "summary": "Covers five core architectural patterns\u2014layered, event-driven, microkernel, microservices, and space-based\u2014with examples and analysis.",
+  "summary": "Covers five core architectural patterns—layered, event-driven, microkernel, microservices, and space-based—with examples and analysis.",
   "tags": [
    "software-architecture",
    "microservices",
@@ -3589,6 +3935,20 @@
    "systems-thinking"
   ],
   "title": "Software Architecture Patterns (Richards)"
+ },
+ "software-engineering-at-google": {
+  "domain": "software-engineering",
+  "summary": "Describes Google's engineering practices for building and maintaining large codebases through testing, review, and team collaboration.",
+  "tags": [
+   "software-engineering-practice",
+   "team-organization",
+   "code-review",
+   "testing-tdd",
+   "continuous-delivery",
+   "software-architecture",
+   "leadership"
+  ],
+  "title": "Software Engineering at Google (Hyrum Wright, Tom Manshreck, Titus Winters)"
  },
  "software-supply-chain-security": {
   "domain": "security",
@@ -3633,7 +3993,7 @@
  },
  "spark-definitive-guide": {
   "domain": "data-engineering",
-  "summary": "Presents Spark\u2019s distributed data-processing model, APIs, SQL, streaming, machine learning, and cluster operations.",
+  "summary": "Presents Spark’s distributed data-processing model, APIs, SQL, streaming, machine learning, and cluster operations.",
   "tags": [
    "data-engineering",
    "data-architecture",
@@ -3711,7 +4071,7 @@
    "product-design",
    "user-research"
   ],
-  "title": "Storytelling in Design (Anna Dahlstr\u00f6m)"
+  "title": "Storytelling in Design (Anna Dahlström)"
  },
  "storytelling-with-data": {
   "domain": "design",
@@ -3963,7 +4323,7 @@
    "relational-design",
    "scalability-reliability"
   ],
-  "title": "Use The Index, Luke \u2014 SQL Indexing"
+  "title": "Use The Index, Luke — SQL Indexing"
  },
  "user-story-mapping": {
   "domain": "management",
@@ -3990,6 +4350,20 @@
    "interaction-design"
   ],
   "title": "UX for Lean Startups (Laura Klein)"
+ },
+ "value-based-fees": {
+  "domain": "sales",
+  "summary": "Shows consultants how to price professional services around client value, negotiate engagements, and communicate fees.",
+  "tags": [
+   "consulting",
+   "sales-methodology",
+   "negotiation",
+   "account-management",
+   "leadership",
+   "project-management",
+   "systems-thinking"
+  ],
+  "title": "Value-Based Fees: How to Charge What You're Worth and Get What You Charge (Alan Weiss)"
  },
  "vector-databases-introduction": {
   "domain": "databases",

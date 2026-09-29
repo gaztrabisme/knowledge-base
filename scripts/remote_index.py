@@ -330,6 +330,35 @@ BOOKS = {
     "templatemetaprogrammingwithc": "Template Metaprogramming with C++ (Marius Bancila)",
     "x86-software-reverse-engineering": "X86 Software Reverse-Engineering, Cracking, and Counter-Measures (Stephanie Domas, Christopher Domas)",
     # v8 technical shelf END
+    # v9 intake START
+    "agentic-mesh": "Agentic Mesh: The GenAI-Powered Autonomous Agent Ecosystem (Eric Broda, Davis Broda)",
+    "art-of-assembly-language": "The Art of Assembly Language (Randall Hyde)",
+    "bargaining-for-advantage": "Bargaining for Advantage: Negotiation Strategies for Reasonable People (G. Richard Shell)",
+    "challenger-sale": "The Challenger Sale: Taking Control of the Customer Conversation (Matthew Dixon, Brent Adamson)",
+    "container-security": "Container Security: Fundamental Technology Concepts That Protect Containerized Applications (Liz Rice)",
+    "critical-thinking-about-research": "Critical Thinking About Research: Psychology and Related Fields (Julian Meltzoff, Harris M. Cooper)",
+    "designing-ai-interfaces": "Designing AI Interfaces: Design Principles for Creative and Autonomous AI (Louise Macfadyen)",
+    "flawless-consulting": "Flawless Consulting: A Guide to Getting Your Expertise Used, 3rd Edition (Peter Block)",
+    "flawless-consulting-fieldbook-companion-2e": "The Flawless Consulting Fieldbook Companion: A Guide to Understanding Your Expertise, 2nd Edition (Peter Block)",
+    "getting-to-yes": "Getting to Yes: Negotiating Agreement Without Giving In (Roger Fisher, William Ury, Bruce Patton)",
+    "hands-on-site-reliability-engineering": "Hands-On Site Reliability Engineering",
+    "hbr-guide-business-writing": "HBR Guide to Better Business Writing (Bryan A. Garner)",
+    "high-performance-browser-networking": "High Performance Browser Networking (Ilya Grigorik)",
+    "how-to-read-a-paper": "How to Read a Paper: The Basics of Evidence-Based Healthcare (Trisha Greenhalgh, Paul Dijkstra)",
+    "key-account-management": "Key Account Management: The Definitive Guide, 2nd Edition (Malcolm McDonald, Diana Woodburn)",
+    "meddicc": "MEDDICC: The Ultimate Guide to Staying One Step Ahead in the Complex Sale (Andy Whyte)",
+    "new-ethics-of-journalism": "The New Ethics of Journalism: Principles for the 21st Century (Kelly McBride, Tom Rosenstiel)",
+    "practical-cloud-security": "Practical Cloud Security: A Guide for Secure Design and Deployment (Chris Dotson)",
+    "privacy-in-context": "Privacy in Context: Technology, Policy, and the Integrity of Social Life (Helen Nissenbaum)",
+    "project-planning-scheduling-control": "Project Planning, Scheduling, and Control (James P. Lewis)",
+    "python-for-devops": "Python for DevOps: Learn Ruthlessly Effective Automation (Noah Gift, Kennedy Behrman, Alfredo Deza et al.)",
+    "real-world-software-development": "Real-World Software Development (Raoul-Gabriel Urma, Richard Warburton)",
+    "research-ethics-integrity-social-scientists": "Research Ethics and Integrity for Social Scientists, 2nd Edition (Mark Israel)",
+    "research-methods-psychology": "Research Methods in Psychology (Beth Morling)",
+    "selling-to-big-companies": "Selling to Big Companies (Jill Konrath)",
+    "software-engineering-at-google": "Software Engineering at Google (Hyrum Wright, Tom Manshreck, Titus Winters)",
+    "value-based-fees": "Value-Based Fees: How to Charge What You're Worth and Get What You Charge (Alan Weiss)",
+    # v9 intake END
 
 }
 

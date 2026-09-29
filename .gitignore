@@ -16,6 +16,8 @@ knowledge-base/data-science/
 knowledge-base/data-engineering/
 knowledge-base/design/
 knowledge-base/frontend/
+knowledge-base/sales/
+knowledge-base/research-methods/
 
 # Pipeline outputs (regenerable from source + code) — all of data/ is derived
 # ...except data/golden/ (eval benchmark + recorded baselines — version-controlled

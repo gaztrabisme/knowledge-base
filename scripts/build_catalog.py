@@ -251,6 +251,19 @@ TAGS = [
     'classical-texts',
     'ethics',
     'world-literature',
+    'negotiation',
+    'sales-methodology',
+    'account-management',
+    'consulting',
+    'business-writing',
+    'research-methods',
+    'research-ethics',
+    'statistics-inference',
+    'privacy',
+    'journalism',
+    'critical-thinking',
+    'communication',
+    'media-ethics',
 ]
 
 SCHEMA = {

@@ -1,6 +1,7 @@
-"""Check v8 intake inventory, configuration, catalog, and hard links."""
+"""Check an intake batch's inventory, registrations, catalog, and source links."""
 from __future__ import annotations
 
+import argparse
 import ast
 import json
 import os
@@ -13,21 +14,22 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from knowledge_base.config import SOURCE_DIRS  # noqa: E402
 
-SOURCE_DIR = Path("/Users/GaryT/Documents/books")
-MANIFEST = ROOT / "data" / "intake" / "v8-manifest.json"
+DEFAULT_SOURCE_DIR = Path("/Users/GaryT/Documents/books")
+DEFAULT_MANIFEST = ROOT / "data" / "intake" / "v8-manifest.json"
+DEFAULT_BLOCK = "v8 technical shelf"
 CATALOG = ROOT / "data" / "catalog.json"
 ACTIONS = {"ingest", "skip-duplicate", "skip-indexed", "skip-no-text", "philosophy"}
 
 
-def books_from(path: Path, baseline: bool = False) -> dict[str, str]:
+def books_from(path: Path, block: str, baseline: bool = False) -> dict[str, str]:
     source = path.read_text(encoding="utf-8")
     if baseline:
         source, count = re.subn(
-            r"^\s*# v8 technical shelf START\s*$.*?^\s*# v8 technical shelf END\s*$\n?",
+            rf"^[ \t]*# {re.escape(block)} START[ \t]*$.*?^[ \t]*# {re.escape(block)} END[ \t]*\n?",
             "", source, flags=re.M | re.S,
         )
         if count != 1:
-            raise ValueError(f"Expected one v8 BOOKS block in {path}; found {count}")
+            raise ValueError(f"Expected one {block!r} BOOKS block in {path}; found {count}")
     tree = ast.parse(source, filename=str(path))
     assignment = next(n for n in tree.body if isinstance(n, ast.Assign)
                       and any(isinstance(t, ast.Name) and t.id == "BOOKS" for t in n.targets))
@@ -35,10 +37,17 @@ def books_from(path: Path, baseline: bool = False) -> dict[str, str]:
 
 
 def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--source-dir", default=str(DEFAULT_SOURCE_DIR))
+    ap.add_argument("--manifest", default=str(DEFAULT_MANIFEST))
+    ap.add_argument("--block", default=DEFAULT_BLOCK, help="BOOKS block marker name")
+    args = ap.parse_args()
+    source_dir = Path(args.source_dir)
+    manifest = Path(args.manifest)
     errors: list[str] = []
-    rows = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    rows = json.loads(manifest.read_text(encoding="utf-8"))
     names = [row.get("file") for row in rows]
-    sources = sorted(p.name for p in SOURCE_DIR.iterdir()
+    sources = sorted(p.name for p in source_dir.iterdir()
                      if p.is_file() and p.name != ".DS_Store")
     counts = Counter(names)
     if set(sources) != set(names) or any(counts[name] != 1 for name in sources):
@@ -52,10 +61,10 @@ def main() -> int:
             errors.append(f"{row.get('file')}: missing skip reason")
     config_path = ROOT / "knowledge_base" / "config.py"
     remote_path = ROOT / "scripts" / "remote_index.py"
-    config_books = books_from(config_path)
-    remote_books = books_from(remote_path)
-    old_config = books_from(config_path, baseline=True)
-    old_remote = books_from(remote_path, baseline=True)
+    config_books = books_from(config_path, args.block)
+    remote_books = books_from(remote_path, args.block)
+    old_config = books_from(config_path, args.block, baseline=True)
+    old_remote = books_from(remote_path, args.block, baseline=True)
     preexisting = set(old_config) | set(old_remote)
     ingest = [row for row in rows if row["action"] == "ingest"]
     slugs = [row["slug"] for row in ingest]
@@ -68,7 +77,7 @@ def main() -> int:
         block_keys = set(books) - set(preexisting)
         expected = set(slugs)
         if block_keys != expected:
-            errors.append(f"{path.name}: v8 BOOKS keys mismatch: missing={sorted(expected-block_keys)} extra={sorted(block_keys-expected)}")
+            errors.append(f"{path.name}: {args.block} BOOKS keys mismatch: missing={sorted(expected-block_keys)} extra={sorted(block_keys-expected)}")
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
     link_errors: list[str] = []
     for row in ingest:
@@ -80,10 +89,19 @@ def main() -> int:
         expected = {key: row[key] for key in ("title", "domain", "summary", "tags")}
         if not isinstance(entry, dict) or any(entry.get(key) != value for key, value in expected.items()):
             errors.append(f"catalog: {slug} entry missing or does not match manifest")
-        source = SOURCE_DIR / row["file"]
-        target = SOURCE_DIRS[row["domain"]] / f"{slug}{source.suffix.lower()}"
+        source = source_dir / row["file"]
+        converted = row.get("converted")
+        if converted is not None and (not isinstance(converted, str) or Path(converted).name != converted
+                                      or Path(converted).suffix.lower() != ".epub"):
+            link_errors.append(f"invalid converted EPUB name: {converted!r}")
+            continue
+        target_suffix = ".epub" if converted else source.suffix.lower()
+        target = SOURCE_DIRS[row["domain"]] / f"{slug}{target_suffix}"
         if not source.exists():
             link_errors.append(f"source missing: {source}")
+        elif converted:
+            if not target.is_file() or target.is_symlink() or target.suffix.lower() != ".epub":
+                link_errors.append(f"converted EPUB missing or invalid: {target}")
         elif not target.exists() or target.is_symlink():
             link_errors.append(f"hard link missing or is symlink: {target}")
         else:
