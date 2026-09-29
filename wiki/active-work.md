@@ -1,5 +1,29 @@
 # Active Work
 
+## KB v9: 29 new books with heading repair
+**Status:** Built and gated 2026-09-30. **Not promoted:** the gate failed one of its three pre-set conditions, so Gary decides next.
+
+**Current state:**
+- `developer_knowledge_v9` exists on the Mac's Qdrant and on bppc's: 286,723 points, which is v8's 266,647 plus 20,076 from 29 new books. The live alias `developer_knowledge` still points to `developer_knowledge_v8`.
+- Gate results ([gate-v9](../data/bench/gate-v9.md)):
+  - hard NDCG@10 drop 0.0020 (limit 0.010, pass);
+  - hard recall@10 drop 0 (limit 0.005, pass);
+  - sanity recall@10 23/29 = 0.793 (threshold 0.80, **fail by one query**).
+- The six sanity misses are PMBOK Guide, Agentic Mesh, Head First PMP, Python for DevOps, Selling to Big Companies and the Flawless Consulting Fieldbook Companion.
+- Two new domains: `sales` (10 books) and `research-methods` (6). v9 also adds 3 books to `management` and 10 technical titles to existing domains.
+- Heading repair is in the pipeline:
+  - `knowledge_base/headings.py` checks heading quality and recovers headings. It runs only for books whose headings fail the check.
+  - Heading maps for five books are in `data/intake/heading-maps/`.
+- No `data-v9` release exists; the installer still pins `data-v8`.
+
+**Next step (Gary):**
+- Choose one:
+  - promote v9 anyway, as was done for v8;
+  - look at the six missed sanity queries first. The query-writing pass was single and unreviewed, so some may be badly posed;
+  - keep v8 live.
+- If promoting, [v9-promotion-brief.md](../data/intake/v9-promotion-brief.md) is the ready brief. It covers the alias switch, the data-v9 release, the installer default, the docs and the push.
+- Four live books have no headings at all and are listed in `data/intake/heading-exceptions.json` as repair candidates: ai-modern-approach, microservices-design-to-deploy, refactoring, tdd-by-example.
+
 ## KB v8: technical shelf and philosophy collection
 **Status:** Done 2026-09-28. The Character section is installed in the global CLAUDE.md.
 

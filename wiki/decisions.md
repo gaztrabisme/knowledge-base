@@ -1,5 +1,32 @@
 # Technical Decisions
 
+## v9: gate verdict, not promoted (2026-09-30)
+**Context:** The promotion conditions were fixed before the run:
+- hard NDCG@10 drop ≤ 0.010;
+- hard recall@10 drop ≤ 0.005;
+- sanity recall@10 on the new books ≥ 0.80.
+
+**Result:** 0.0020 and 0 pass. Sanity is 23/29 = 0.793, one query short.
+**Decision:** v9 is not promoted, and the live alias stays on `developer_knowledge_v8`. Unlike v8, this failure was not overridden inside the run. The call is Gary's.
+**Rejected:** promoting on the grounds that one query is noise. The v8 precedent had shown that a failed pre-set rule gets overridden silently, and the plan's decision 6 exists to stop that.
+**Note for the decision:** the sanity set was written in one pass by the gate agent and never reviewed. At n = 29, each query is worth 0.034 of recall.
+
+## v9 heading repair: rules first, maps for the rest (2026-09-29)
+**Decision:** Heading quality is checked by measurable features, not keyword lists (`knowledge_base/headings.py`, calibrated on the 291 live books). Recovery (EPUB navigation, PDF contents pages and typography) runs only when a book's output fails that check, which keeps every existing book byte-identical by construction. Books the rules cannot fix get a heading map in `data/intake/heading-maps/`: verbatim titles, with anchors placed in the text. A map in the `replace_existing` form is authoritative for three things: the headings, where content starts, and optionally where back matter starts.
+**Rejected:**
+- Subagents repairing headings book by book with no rules. Nothing would carry over to the next batch.
+- Loosening the check until the broken PDFs failed it. Its footnote threshold already sits just above the worst live book, 4.4% against 4.14%.
+**Known limit:** the check passes books that still carry some junk headings. The four PDFs passed it while broken, and PMBOK kept only 23 of its 207 navigation entries. Reading the actual headings caught these; the check did not.
+**Evidence:** `.claude/plan-goal/verify/u1.sh`, `u3.sh`, `u3_epub.sh`, `u4.sh`, `u6c.sh`; [v9 C2 report](../data/intake/v9-C2-report.md).
+
+## v9 domains (2026-09-29)
+**Decision:** Sales, presale, negotiation, consulting and business-writing books go in a new `sales` domain (10 books). Research-methods, privacy and journalism-ethics books go in `research-methods` (6), not in `sales`. The PMP books go in `management`. OCR scans and image-only books are skipped, with no OCR: 5 scans and The Pyramid Principle.
+
+## v9 C2 recovered front matter and audit chapter starts (2026-09-30)
+**Context:** EPUB heading recovery runs after the first front/back-matter cut and can restore navigation headings for front matter. Some recovered books have no explicit “Chapter 1” heading, so the ordinary fallback mistakes the book title for the first content section. The critical-thinking PDF opens with the numbered heading `## 1 Seeking Trustworthy Knowledge`; its copyright running header appears later at line 33, but the audit only recognized explicit Chapter/Part labels and H1 chapter starts.
+**Decision:** Reapply `strip_front_back_matter` only when heading recovery changes the text. In that recovery-only pass, cut after the leading recognized front-matter headings when no explicit chapter opener exists and preserve the book-title H1. Make the audit use the same `_is_chapter_heading` rule as ingestion so numbered headings are the content boundary.
+**Evidence:** Recovery tests cover changed and unchanged EPUB/PDF outputs; `u3.sh` passed with 15/15 existing-book regressions and no newly flagged clean sources. The v9 audit passed with one recorded `getting-to-yes` heading-count exception. Pre-existing data hash check passed 582/582; see [v9 C2 report](../data/intake/v9-C2-report.md).
+
 ## Portable installer Qdrant replacement safety (2026-09-28)
 **Context:** An installer update may replace the Qdrant executable while a detached process started by an earlier install still has it loaded.
 **Decision:** Stop only a process recorded by `qdrant_boot` with the same binary and storage path. If that recorded process will not stop, or the requested Qdrant port is still ready, fail before replacing the binary or writing its version marker. This keeps Windows from failing on a locked executable and prevents Unix installs from claiming a new version while an old process remains active.

@@ -35,6 +35,12 @@
 **Fix:** Position guard — only trust a numeric/"Chapter N" heading within the first 40% of lines; otherwise fall through to the descriptive-heading fallback.
 **Watch for:** Suspiciously small markdown output (`wc -c data/markdown/*.md | sort -n`) is the tell. A 4MB EPUB yielding 23KB markdown means stripping ate the content.
 
+## EPUB Recovery Can Recreate Front Matter
+
+**Problem:** EPUB heading recovery runs after the initial front-matter strip. Recovered navigation headings can put copyright, contents, foreword, or author sections back into the Markdown. If the EPUB lacks an explicit “Chapter 1” heading, the ordinary fallback may select the book title before those sections and retain them.
+**Fix:** Run the strip again only when recovery changes the text. On that second pass, use the last recognized front-matter heading to find the first following content heading, retaining the original book-title H1. Leave the no-change recovery path untouched.
+**Watch for:** A front-matter audit flag on a recovered EPUB with no numbered chapter opener; see the [v9 C2 decision](decisions.md#v9-c2-recovered-front-matter-and-audit-chapter-starts-2026-09-30).
+
 ## Tailscale Unreachable After GPU Wake
 
 **Problem:** After Wake-on-LAN, the GPU box responds on its LAN IP (192.168.2.42) but the Tailscale IP (100.106.185.34) can time out for a while (tailscaled re-establishing).

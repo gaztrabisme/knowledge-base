@@ -1,0 +1,21 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 27573.62it/s]
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]Loading weights: 100%|██████████| 134/134 [00:00<00:00, 25408.53it/s]
+  25/29...
+  per-query dump (29 rows) -> /home/bppc/kb-work/gate-v9/gate-v9-v9-sanity-per-query.jsonl
+
+===== gate-v9-v9-sanity  (n=29) =====
+  NDCG@10=0.6000  Recall@10=0.7931  MRR=0.5359  Recall@50(ceiling)=0.8276
+  per-domain:
+    ai-engineering n=  1  NDCG@10=0.000  R@10=0.000  MRR=0.000  R@50=0.000
+    cpp          n=  1  NDCG@10=1.000  R@10=1.000  MRR=1.000  R@50=1.000
+    design       n=  1  NDCG@10=0.500  R@10=1.000  MRR=0.333  R@50=1.000
+    frontend     n=  1  NDCG@10=0.500  R@10=1.000  MRR=0.333  R@50=1.000
+    management   n=  3  NDCG@10=0.167  R@10=0.333  MRR=0.111  R@50=0.333
+    research-methods n=  6  NDCG@10=0.905  R@10=1.000  MRR=0.875  R@50=1.000
+    sales        n= 10  NDCG@10=0.558  R@10=0.800  MRR=0.479  R@50=0.900
+    security     n=  2  NDCG@10=0.631  R@10=1.000  MRR=0.500  R@50=1.000
+    software-engineering n=  2  NDCG@10=0.816  R@10=1.000  MRR=0.750  R@50=1.000
+    systems-ops  n=  2  NDCG@10=0.500  R@10=0.500  MRR=0.500  R@50=0.500
+
+  retrieval ceiling - delivered recall = 0.0345 (reranker keeping retrieved hits)
+  full report + 6 misses -> /home/bppc/kb-work/v8repo/data/golden/eval_runs/gate-v9-v9-sanity.json

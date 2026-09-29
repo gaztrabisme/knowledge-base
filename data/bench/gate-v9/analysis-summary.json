@@ -1,0 +1,214 @@
+{
+  "hard_queries": 438,
+  "easy_queries": 199,
+  "sanity_queries": 29,
+  "sanity_books_covered": 29,
+  "hard_v8": {
+    "ndcg": 0.7428904543378992,
+    "recall10": 0.952054794520548,
+    "mrr": 0.8323747785388127,
+    "ceiling_hit": 0.9748858447488584
+  },
+  "hard_v9": {
+    "ndcg": 0.7409324315068493,
+    "recall10": 0.952054794520548,
+    "mrr": 0.8306624497716893,
+    "ceiling_hit": 0.9748858447488584
+  },
+  "hard_delta_v9_minus_v8": {
+    "ndcg": -0.0019580228310499548,
+    "recall10": 0.0,
+    "mrr": -0.00171232876712335,
+    "ceiling_hit": 0.0
+  },
+  "easy_v8": {
+    "ndcg": 0.9042990251256282,
+    "recall10": 1.0,
+    "mrr": 0.9638669547738694,
+    "ceiling_hit": 1.0
+  },
+  "easy_v9": {
+    "ndcg": 0.9043902864321608,
+    "recall10": 1.0,
+    "mrr": 0.9663795175879397,
+    "ceiling_hit": 1.0
+  },
+  "easy_delta_v9_minus_v8": {
+    "ndcg": 9.126130653258624e-05,
+    "recall10": 0.0,
+    "mrr": 0.002512562814070307,
+    "ceiling_hit": 0.0
+  },
+  "sanity_v9": {
+    "ndcg": 0.6000273103448275,
+    "recall10": 0.7931034482758621,
+    "mrr": 0.5359194827586207,
+    "ceiling_hit": 0.8275862068965517
+  },
+  "hard_regression_breakdown": {
+    "regressed": 10,
+    "improved": 3,
+    "did_not_move": 425,
+    "basis": "per-query NDCG@10"
+  },
+  "ten_worst_hard_regressions": [
+    {
+      "query": "Why does my Docker image metadata show the wrong CPU architecture and missing environment variables when I inspect it?",
+      "ndcg_v8": 1.0,
+      "ndcg_v9": 0.63093,
+      "delta_v9_minus_v8": -0.36907,
+      "rank_v8": 1,
+      "rank_v9": 2,
+      "displacer_book": "container-security",
+      "displacer_parent_id": "container-security-p42",
+      "displacer_rank_v9": 1,
+      "displacer_rank_v8": null,
+      "displacer_labeled_parents_pushed": [
+        "rustwebprogramming-p333"
+      ],
+      "displacer_is_v9_book": true
+    },
+    {
+      "query": "What are the current minimum recommended settings for hashing passwords with different algorithms, specifically how many iterations for older methods and how much memory for newer ones?",
+      "ndcg_v8": 0.24336,
+      "ndcg_v9": 0.073277,
+      "delta_v9_minus_v8": -0.17008299999999998,
+      "rank_v8": 3,
+      "rank_v9": 3,
+      "displacer_book": "practical-cloud-security",
+      "displacer_parent_id": "practical-cloud-security-p32",
+      "displacer_rank_v9": 4,
+      "displacer_rank_v8": null,
+      "displacer_labeled_parents_pushed": [
+        "owasp-asvs-v5-p51"
+      ],
+      "displacer_is_v9_book": true
+    },
+    {
+      "query": "Why do older machine learning models like logistic regression and SVMs still get used in production even though deep learning is more powerful?",
+      "ndcg_v8": 0.63093,
+      "ndcg_v9": 0.5,
+      "delta_v9_minus_v8": -0.13093,
+      "rank_v8": 2,
+      "rank_v9": 3,
+      "displacer_book": "python-for-devops",
+      "displacer_parent_id": "python-for-devops-p211",
+      "displacer_rank_v9": 2,
+      "displacer_rank_v8": null,
+      "displacer_labeled_parents_pushed": [
+        "artificialintelligenceforcybersecurity-p37"
+      ],
+      "displacer_is_v9_book": true
+    },
+    {
+      "query": "`string.punctuation`",
+      "ndcg_v8": 0.639909,
+      "ndcg_v9": 0.521296,
+      "delta_v9_minus_v8": -0.11861299999999997,
+      "rank_v8": 2,
+      "rank_v9": 2,
+      "displacer_book": "hands-on-large-language-models",
+      "displacer_parent_id": "hands-on-large-language-models-p146",
+      "displacer_rank_v9": 4,
+      "displacer_rank_v8": 5,
+      "displacer_labeled_parents_pushed": [
+        "hands-onartificialintelligenceforiot_secondedition-p207"
+      ],
+      "displacer_is_v9_book": false
+    },
+    {
+      "query": "Why are my error messages not showing up in my application log file even though I'm using the standard logging setup?",
+      "ndcg_v8": 0.430677,
+      "ndcg_v9": 0.356207,
+      "delta_v9_minus_v8": -0.07446999999999998,
+      "rank_v8": 4,
+      "rank_v9": 6,
+      "displacer_book": "python-for-devops",
+      "displacer_parent_id": "python-for-devops-p103",
+      "displacer_rank_v9": 1,
+      "displacer_rank_v8": null,
+      "displacer_labeled_parents_pushed": [
+        "machinelearningengineeringwithpython_secondedition-p88"
+      ],
+      "displacer_is_v9_book": true
+    },
+    {
+      "query": "gram-schmidt process discord",
+      "ndcg_v8": 0.866307,
+      "ndcg_v9": 0.794323,
+      "delta_v9_minus_v8": -0.07198400000000005,
+      "rank_v8": 1,
+      "rank_v9": 1,
+      "displacer_book": null,
+      "displacer_parent_id": null,
+      "displacer_rank_v9": null,
+      "displacer_rank_v8": null,
+      "displacer_labeled_parents_pushed": [],
+      "displacer_is_v9_book": null
+    },
+    {
+      "query": "where is the References section",
+      "ndcg_v8": 0.342222,
+      "ndcg_v9": 0.321245,
+      "delta_v9_minus_v8": -0.020977000000000023,
+      "rank_v8": 2,
+      "rank_v9": 2,
+      "displacer_book": "research-methods-psychology",
+      "displacer_parent_id": "research-methods-psychology-p220",
+      "displacer_rank_v9": 3,
+      "displacer_rank_v8": null,
+      "displacer_labeled_parents_pushed": [
+        "artificialintelligenceforcybersecurity-p105"
+      ],
+      "displacer_is_v9_book": true
+    },
+    {
+      "query": "How do I check that my application is actually encrypting data while it's being processed in RAM, not just at rest or in transit, so that other processes or users on the same machine can't read it?",
+      "ndcg_v8": 0.96394,
+      "ndcg_v9": 0.944848,
+      "delta_v9_minus_v8": -0.019091999999999998,
+      "rank_v8": 1,
+      "rank_v9": 1,
+      "displacer_book": "practical-cloud-security",
+      "displacer_parent_id": "practical-cloud-security-p11",
+      "displacer_rank_v9": 2,
+      "displacer_rank_v8": null,
+      "displacer_labeled_parents_pushed": [
+        "owasp-asvs-v5-p36"
+      ],
+      "displacer_is_v9_book": true
+    },
+    {
+      "query": "Why does my document processing tool have ready-made templates for pulling data from things like bills, payment slips, and driver's licenses?",
+      "ndcg_v8": 0.944848,
+      "ndcg_v9": 0.932778,
+      "delta_v9_minus_v8": -0.012070000000000025,
+      "rank_v8": 1,
+      "rank_v9": 1,
+      "displacer_book": "training-data-for-machine-learning",
+      "displacer_parent_id": "training-data-for-machine-learning-p103",
+      "displacer_rank_v9": 4,
+      "displacer_rank_v8": null,
+      "displacer_labeled_parents_pushed": [
+        "azureai-102certificationessentials-p120"
+      ],
+      "displacer_is_v9_book": false
+    },
+    {
+      "query": "risk mitigation strategies",
+      "ndcg_v8": 0.536404,
+      "ndcg_v9": 0.528572,
+      "delta_v9_minus_v8": -0.00783199999999995,
+      "rank_v8": 1,
+      "rank_v9": 1,
+      "displacer_book": "pmbok-guide-7e",
+      "displacer_parent_id": "pmbok-guide-7e-p112",
+      "displacer_rank_v9": 6,
+      "displacer_rank_v8": null,
+      "displacer_labeled_parents_pushed": [
+        "azureai-102certificationessentials-p46"
+      ],
+      "displacer_is_v9_book": true
+    }
+  ]
+}

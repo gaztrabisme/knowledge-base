@@ -1,6 +1,6 @@
 # Developer Knowledge Base — Project Wiki
 
-Last updated: 2026-09-28 (v8: 166 technical books registered and linked; candidate-collection merge tooling added).
+Last updated: 2026-09-30 (v9: 29 books built into `developer_knowledge_v9`, 286,723 points; not promoted, because sanity recall was 0.793 against 0.80).
 Historical update (2026-05-31, v6.7.1 GATE-RESTORE): regenerated the 12 queries dropped by the v6.7 strip
 (2 keyword + 10 navigational, whose gold had been index pages) from the **clean** corpus — seeds now
 valid by construction; added a junk-nav phrasing reject (`index for…`/`Index (part N)`) so the
@@ -38,6 +38,8 @@ PREVIOUS (v6.4 gate-audit round: **audited the golden gate itself — overall gr
 
 - [Active Work](active-work.md) — Current work in progress.
 - [v8 Technical Shelf Intake](v8-technical-shelf.md) — Intake status, validation, and the hard-link blocker.
+- [v9 C2 Intake Report](../data/intake/v9-C2-report.md) — 29-book audit, repaired front matter, parent/child totals, and acceptance evidence.
+- [Gate v9](../data/bench/gate-v9.md) — v8 vs v9 retrieval gate and the promotion verdict.
 - [Wiki Log](log.md) — Dated session outcomes and evidence pointers.
 - [Architecture](architecture.md) — Pipeline design, data flow, component interactions
 - [Decisions](decisions.md) — Key technical decisions and their rationale
