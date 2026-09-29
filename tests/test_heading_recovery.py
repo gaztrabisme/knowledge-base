@@ -400,7 +400,9 @@ def test_ingest_epub_keeps_original_text_when_heading_recovery_raises(tmp_path, 
         "recover_epub_headings",
         lambda *_args: (_ for _ in ()).throw(ValueError("bad navigation")),
     )
-    monkeypatch.setattr(ingest, "_apply_output_heading_map", lambda text, _path: text)
+    monkeypatch.setattr(
+        ingest, "_apply_output_heading_map", lambda text, _path, _map=None: text
+    )
 
     result_path = ingest.ingest_epub(epub_path, output_path)
 
@@ -449,6 +451,81 @@ def test_replacement_heading_map_demotes_junk_and_keeps_book_title_and_fenced_co
         "# This heading is code content\n"
         "```\n"
     )
+
+
+def test_authoritative_map_skips_a_contents_row_when_placing_its_first_heading():
+    body = (
+        "# How to Read a Paper\n\n"
+        "Why read papers at all?\t\n1\n\n"
+        "Why read papers at all?\nChapter 1\n"
+        "The actual chapter body starts here.\n"
+    )
+    heading_map = {
+        "replace_existing": True,
+        "entries": [
+            {"title": "Why read papers at all?", "level": 2, "anchor": "Why read papers at all?"},
+        ],
+    }
+
+    result, unmatched = apply_heading_map(body, heading_map)
+
+    lines = result.splitlines()
+    body_title_positions = [
+        i for i, line in enumerate(lines) if line == "Why read papers at all?"
+    ]
+    assert unmatched == []
+    assert len(body_title_positions) == 1
+    assert lines.index("## Why read papers at all?") == body_title_positions[0] - 1
+    assert lines.index("## Why read papers at all?") > lines.index("1")
+
+
+def test_authoritative_map_content_start_keeps_chapter_one_and_discards_prefix(tmp_path):
+    output_path = tmp_path / "how-to-read-a-paper.md"
+    heading_map = {
+        "replace_existing": True,
+        "entries": [
+            {"title": "Chapter 1: Opening", "level": 2, "anchor": "The first chapter body"},
+        ],
+    }
+    extracted = (
+        "# How to Read a Paper\n\n"
+        "# Contents\n"
+        "A contents row that points to later material.\n\n"
+        "Preface-only text.\n\n"
+        "Chapter 1: Opening\n"
+        "The first chapter body starts here and remains in the output.\n"
+    )
+
+    mapped, unmatched = apply_heading_map(extracted, heading_map)
+    result = ingest._trim_to_first_map_heading(mapped, heading_map, output_path)
+
+    assert unmatched == []
+    assert result.startswith("# How to Read a Paper\n\n## Chapter 1: Opening\n")
+    assert "Preface-only text" not in result
+    assert "The first chapter body starts here" in result
+
+
+def test_pdf_ingest_without_map_keeps_the_existing_front_matter_cut(tmp_path, monkeypatch):
+    source_path = tmp_path / "no-map-source.pdf"
+    output_path = tmp_path / "no-map-output.md"
+    monkeypatch.setattr(
+        ingest,
+        "_load_output_heading_map",
+        lambda _path: None,
+    )
+    monkeypatch.setattr(
+        ingest,
+        "convert_pdf_with_toc",
+        lambda _path: "## Preface\nFront matter text.\n\n## Chapter 1 Opening\nChapter one body.\n",
+    )
+    monkeypatch.setattr(ingest, "evaluate", lambda _text: {"flagged": False})
+
+    ingest.ingest_pdf(source_path, output_path)
+
+    result = output_path.read_text(encoding="utf-8")
+    assert "Front matter text" not in result
+    assert "Chapter one body" in result
+    assert result.lstrip().startswith("# Chapter 1 Opening")
 
 
 def test_replacement_heading_map_demotes_existing_title_when_map_has_h1():

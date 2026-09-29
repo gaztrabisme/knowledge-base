@@ -1,5 +1,23 @@
 [
   {
+    "file": "A Guide to the Project Management Body of Knowledge (PMBOK® Guide) - 7th Edition.epub",
+    "slug": "pmbok-guide-7e",
+    "title": "A Guide to the Project Management Body of Knowledge (PMBOK® Guide), 7th Edition (PMI)",
+    "domain": "management",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Defines the principles, value delivery system, eight project performance domains, tailoring guidance, and standard models, methods, and artifacts for project work.",
+    "tags": [
+      "project-management",
+      "agile",
+      "leadership",
+      "team-organization",
+      "organization-design",
+      "product-management",
+      "systems-thinking"
+    ]
+  },
+  {
     "file": "Agentic Mesh The GenAI-Powered Autonomous Agent Ecosystem (Eric Broda, Davis Broda).pdf",
     "slug": "agentic-mesh",
     "title": "Agentic Mesh: The GenAI-Powered Autonomous Agent Ecosystem (Eric Broda, Davis Broda)",
@@ -157,6 +175,24 @@
       "scalability-reliability",
       "cloud-native",
       "systems-thinking"
+    ]
+  },
+  {
+    "file": "Head First PMP (Jennifer Greene).epub",
+    "slug": "head-first-pmp",
+    "title": "Head First PMP (Jennifer Greene, Andrew Stellman)",
+    "domain": "management",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Teaches PMP exam topics with visual, example-driven coverage of integration, scope, schedule, cost, quality, resource, communications, risk, and stakeholder management.",
+    "tags": [
+      "project-management",
+      "agile",
+      "leadership",
+      "team-organization",
+      "organization-design",
+      "communication",
+      "product-management"
     ]
   },
   {

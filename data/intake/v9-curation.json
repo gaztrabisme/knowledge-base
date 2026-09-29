@@ -1,5 +1,23 @@
 [
   {
+    "file": "A Guide to the Project Management Body of Knowledge (PMBOK® Guide) - 7th Edition.epub",
+    "slug": "pmbok-guide-7e",
+    "title": "A Guide to the Project Management Body of Knowledge (PMBOK® Guide), 7th Edition (PMI)",
+    "domain": "management",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Defines the principles, value delivery system, eight project performance domains, tailoring guidance, and standard models, methods, and artifacts for project work.",
+    "tags": [
+      "project-management",
+      "agile",
+      "leadership",
+      "team-organization",
+      "organization-design",
+      "product-management",
+      "systems-thinking"
+    ]
+  },
+  {
     "file": "Agentic Mesh The GenAI-Powered Autonomous Agent Ecosystem (Eric Broda, Davis Broda).pdf",
     "slug": "agentic-mesh",
     "title": "Agentic Mesh: The GenAI-Powered Autonomous Agent Ecosystem (Eric Broda, Davis Broda)",
@@ -7,7 +25,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Explains an enterprise agentic mesh for coordinating autonomous AI agents across business processes and systems.",
-    "tags": ["ai-agents", "multi-agent-systems", "distributed-systems", "enterprise-architecture", "software-architecture", "cloud-native", "systems-thinking"]
+    "tags": [
+      "ai-agents",
+      "multi-agent-systems",
+      "distributed-systems",
+      "enterprise-architecture",
+      "software-architecture",
+      "cloud-native",
+      "systems-thinking"
+    ]
   },
   {
     "file": "Bargaining for advantage negotiation strategies for reasonable people (Shell, G. Richard, 1949-).pdf",
@@ -17,7 +43,14 @@
     "action": "ingest",
     "reason": "",
     "summary": "Presents a practical framework for preparing, negotiating, and reaching agreements while adapting to different bargaining styles.",
-    "tags": ["negotiation", "sales-methodology", "communication", "leadership", "ethics", "systems-thinking"]
+    "tags": [
+      "negotiation",
+      "sales-methodology",
+      "communication",
+      "leadership",
+      "ethics",
+      "systems-thinking"
+    ]
   },
   {
     "file": "Container Security Fundamental Technology Concepts that Protect Containerized Applications (Liz Rice).pdf",
@@ -27,7 +60,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Covers container isolation, image security, runtime threats, and practical controls for protecting containerized applications.",
-    "tags": ["cloud-security", "appsec", "security-testing", "threat-modeling", "linux-hardening", "kubernetes-security", "cloud-native"]
+    "tags": [
+      "cloud-security",
+      "appsec",
+      "security-testing",
+      "threat-modeling",
+      "linux-hardening",
+      "kubernetes-security",
+      "cloud-native"
+    ]
   },
   {
     "file": "Critical thinking about research psychology and related fields (Julian Meltzoff, Harris M. Cooper).pdf",
@@ -37,7 +78,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Teaches readers to evaluate research questions, methods, evidence, statistics, and conclusions in psychology and related fields.",
-    "tags": ["research-methods", "statistics", "statistics-inference", "cognitive-psychology", "critical-thinking", "data-analysis", "ethics"]
+    "tags": [
+      "research-methods",
+      "statistics",
+      "statistics-inference",
+      "cognitive-psychology",
+      "critical-thinking",
+      "data-analysis",
+      "ethics"
+    ]
   },
   {
     "file": "Designing AI Interfaces Design Principles for Creative and Autonomous AI (Louise Macfadyen).pdf",
@@ -47,7 +96,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Develops interface principles for AI systems, focusing on user control, interaction, trust, and creative or autonomous behavior.",
-    "tags": ["ai-product", "ai-agents", "interaction-design", "ux-design", "ui-design", "user-research", "human-centered-design"]
+    "tags": [
+      "ai-product",
+      "ai-agents",
+      "interaction-design",
+      "ux-design",
+      "ui-design",
+      "user-research",
+      "human-centered-design"
+    ]
   },
   {
     "file": "Flawless Consulting A Guide to Getting Your Expertise Used (3rd Edition) (Peter Block).epub",
@@ -57,7 +114,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Guides consultants through contracting, discovery, feedback, implementation, and building client commitment to useful change.",
-    "tags": ["consulting", "organization-design", "communication", "leadership", "team-organization", "systems-thinking", "product-discovery"]
+    "tags": [
+      "consulting",
+      "organization-design",
+      "communication",
+      "leadership",
+      "team-organization",
+      "systems-thinking",
+      "product-discovery"
+    ]
   },
   {
     "file": "Getting to Yes Negotiating Agreement Without Giving In ( etc.).mobi",
@@ -67,7 +132,14 @@
     "action": "ingest",
     "reason": "",
     "summary": "Introduces principled negotiation: separate people from problems, focus on interests, invent options, and use objective criteria.",
-    "tags": ["negotiation", "communication", "ethics", "leadership", "systems-thinking", "organization-design"],
+    "tags": [
+      "negotiation",
+      "communication",
+      "ethics",
+      "leadership",
+      "systems-thinking",
+      "organization-design"
+    ],
     "converted": "getting-to-yes.epub"
   },
   {
@@ -78,7 +150,14 @@
     "action": "ingest",
     "reason": "",
     "summary": "Offers practical methods for writing clear business emails, reports, proposals, and other professional documents.",
-    "tags": ["business-writing", "communication", "ux-writing", "team-organization", "software-engineering-practice", "leadership"]
+    "tags": [
+      "business-writing",
+      "communication",
+      "ux-writing",
+      "team-organization",
+      "software-engineering-practice",
+      "leadership"
+    ]
   },
   {
     "file": "Hands-on Site Reliability Engineering ( etc.).epub",
@@ -88,7 +167,33 @@
     "action": "ingest",
     "reason": "",
     "summary": "Presents hands-on practices for operating reliable services, including monitoring, incident response, automation, and service objectives.",
-    "tags": ["sre-operations", "observability", "reliability-engineering", "incident-response", "scalability-reliability", "cloud-native", "systems-thinking"]
+    "tags": [
+      "sre-operations",
+      "observability",
+      "reliability-engineering",
+      "incident-response",
+      "scalability-reliability",
+      "cloud-native",
+      "systems-thinking"
+    ]
+  },
+  {
+    "file": "Head First PMP (Jennifer Greene).epub",
+    "slug": "head-first-pmp",
+    "title": "Head First PMP (Jennifer Greene, Andrew Stellman)",
+    "domain": "management",
+    "action": "ingest",
+    "reason": "",
+    "summary": "Teaches PMP exam topics with visual, example-driven coverage of integration, scope, schedule, cost, quality, resource, communications, risk, and stakeholder management.",
+    "tags": [
+      "project-management",
+      "agile",
+      "leadership",
+      "team-organization",
+      "organization-design",
+      "communication",
+      "product-management"
+    ]
   },
   {
     "file": "High Performance Browser Networking What every web developer should know about networking and web performance (Ilya Grigorik).pdf",
@@ -98,7 +203,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Explains browser networking protocols and techniques for reducing latency and improving web application performance.",
-    "tags": ["web-performance", "networking", "frontend", "web-development", "web-apis", "javascript-typescript", "caching"]
+    "tags": [
+      "web-performance",
+      "networking",
+      "frontend",
+      "web-development",
+      "web-apis",
+      "javascript-typescript",
+      "caching"
+    ]
   },
   {
     "file": "How to Read a Paper The Basics of Evidence-Based Healthcare (Trisha Greenhalgh, Paul Dijkstra).pdf",
@@ -108,7 +221,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Shows how to assess study design, results, statistics, and applicability when reading clinical and health research.",
-    "tags": ["research-methods", "research-ethics", "statistics", "statistics-inference", "critical-thinking", "data-analysis", "ethics"]
+    "tags": [
+      "research-methods",
+      "research-ethics",
+      "statistics",
+      "statistics-inference",
+      "critical-thinking",
+      "data-analysis",
+      "ethics"
+    ]
   },
   {
     "file": "Key Account Management, Second Edition - The Definitive Guide (Malcolm McDonald, Diana Woodburn).pdf",
@@ -118,7 +239,14 @@
     "action": "ingest",
     "reason": "",
     "summary": "Explains how to select, develop, and manage strategic customer accounts through planning, relationships, and measurable value.",
-    "tags": ["account-management", "sales-methodology", "leadership", "organization-design", "team-organization", "systems-thinking"]
+    "tags": [
+      "account-management",
+      "sales-methodology",
+      "leadership",
+      "organization-design",
+      "team-organization",
+      "systems-thinking"
+    ]
   },
   {
     "file": "MEDDICC The ultimate guide to staying one step ahead in the complex sale (Andy Whyte).epub",
@@ -128,7 +256,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Describes the MEDDICC qualification framework for understanding decision criteria, stakeholders, value, and risk in complex sales.",
-    "tags": ["sales-methodology", "account-management", "negotiation", "communication", "leadership", "product-management", "organization-design"]
+    "tags": [
+      "sales-methodology",
+      "account-management",
+      "negotiation",
+      "communication",
+      "leadership",
+      "product-management",
+      "organization-design"
+    ]
   },
   {
     "file": "Practical Cloud Security A Guide for Secure Design and Deployment (Chris Dotson).pdf",
@@ -138,7 +274,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Covers security architecture and operational controls for designing and deploying applications in cloud environments.",
-    "tags": ["cloud-security", "appsec", "security-testing", "threat-modeling", "linux-hardening", "zero-trust", "cloud-native"]
+    "tags": [
+      "cloud-security",
+      "appsec",
+      "security-testing",
+      "threat-modeling",
+      "linux-hardening",
+      "zero-trust",
+      "cloud-native"
+    ]
   },
   {
     "file": "Privacy in Context Technology, Policy, and the Integrity of Social Life (Helen Nissenbaum).epub",
@@ -148,7 +292,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Develops contextual integrity as a framework for understanding privacy expectations, information flows, technology, and policy.",
-    "tags": ["privacy", "research-ethics", "ethics", "data-governance", "cloud-security", "systems-thinking", "research-methods"]
+    "tags": [
+      "privacy",
+      "research-ethics",
+      "ethics",
+      "data-governance",
+      "cloud-security",
+      "systems-thinking",
+      "research-methods"
+    ]
   },
   {
     "file": "Project Planning, Scheduling Control The Ultimate Hands-On Guide to Bringing Projects in On Time and On Budget, Sixth… (James P. Lewis).pdf",
@@ -158,7 +310,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Provides practical methods for defining project work, building schedules, tracking progress, and controlling cost and delivery.",
-    "tags": ["project-management", "agile", "leadership", "organization-design", "team-organization", "continuous-delivery", "systems-thinking"]
+    "tags": [
+      "project-management",
+      "agile",
+      "leadership",
+      "organization-design",
+      "team-organization",
+      "continuous-delivery",
+      "systems-thinking"
+    ]
   },
   {
     "file": "Python for DevOps Learn Ruthlessly Effective Automation (Noah Gift, Kennedy Behrman, Alfredo Deza etc.).epub",
@@ -168,7 +328,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Uses Python and command-line tools to automate infrastructure, testing, deployment, and operational workflows.",
-    "tags": ["python", "shell-scripting", "linux", "sre-operations", "continuous-delivery", "platform-engineering", "observability"]
+    "tags": [
+      "python",
+      "shell-scripting",
+      "linux",
+      "sre-operations",
+      "continuous-delivery",
+      "platform-engineering",
+      "observability"
+    ]
   },
   {
     "file": "Real-World Software Development (Raoul-Gabriel Urma, Richard Warburton).epub",
@@ -178,7 +346,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Teaches practical software development through maintainable design, testing, version control, and collaborative engineering practices.",
-    "tags": ["software-engineering-practice", "clean-code", "refactoring", "design-patterns", "testing-tdd", "software-architecture", "programming-languages"]
+    "tags": [
+      "software-engineering-practice",
+      "clean-code",
+      "refactoring",
+      "design-patterns",
+      "testing-tdd",
+      "software-architecture",
+      "programming-languages"
+    ]
   },
   {
     "file": "Research Ethics and Integrity for Social Scientists (Mark Israel).epub",
@@ -188,7 +364,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Examines ethical research practice, integrity, governance, and researchers' responsibilities across the social sciences.",
-    "tags": ["research-methods", "research-ethics", "ethics", "data-governance", "privacy", "critical-thinking", "team-organization"]
+    "tags": [
+      "research-methods",
+      "research-ethics",
+      "ethics",
+      "data-governance",
+      "privacy",
+      "critical-thinking",
+      "team-organization"
+    ]
   },
   {
     "file": "Research Methods in Psychology (Beth Morling).pdf",
@@ -198,7 +382,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Introduces psychological research design, measurement, experiments, surveys, statistics, and the evaluation of evidence.",
-    "tags": ["research-methods", "statistics", "statistics-inference", "cognitive-psychology", "user-research", "data-analysis", "critical-thinking"]
+    "tags": [
+      "research-methods",
+      "statistics",
+      "statistics-inference",
+      "cognitive-psychology",
+      "user-research",
+      "data-analysis",
+      "critical-thinking"
+    ]
   },
   {
     "file": "Research ethics for social scientists between ethical conduct and regulatory compliance (Israel, Mark, Hay, Iain).pdf",
@@ -208,7 +400,15 @@
     "action": "skip-no-text",
     "reason": "scanned or image-only, no usable text layer; owner ruled no OCR; superseded by the second edition",
     "summary": "Discusses ethical conduct and institutional regulation in social science research.",
-    "tags": ["research-methods", "research-ethics", "ethics", "data-governance", "privacy", "critical-thinking", "team-organization"]
+    "tags": [
+      "research-methods",
+      "research-ethics",
+      "ethics",
+      "data-governance",
+      "privacy",
+      "critical-thinking",
+      "team-organization"
+    ]
   },
   {
     "file": "Selling to Big Companies (Jill Konrath).mobi",
@@ -218,7 +418,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Offers strategies for prospecting, reaching decision makers, and winning business with large organizations.",
-    "tags": ["sales-methodology", "account-management", "negotiation", "communication", "leadership", "project-management", "organization-design"],
+    "tags": [
+      "sales-methodology",
+      "account-management",
+      "negotiation",
+      "communication",
+      "leadership",
+      "project-management",
+      "organization-design"
+    ],
     "converted": "selling-to-big-companies.epub"
   },
   {
@@ -229,7 +437,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Describes Google's engineering practices for building and maintaining large codebases through testing, review, and team collaboration.",
-    "tags": ["software-engineering-practice", "team-organization", "code-review", "testing-tdd", "continuous-delivery", "software-architecture", "leadership"]
+    "tags": [
+      "software-engineering-practice",
+      "team-organization",
+      "code-review",
+      "testing-tdd",
+      "continuous-delivery",
+      "software-architecture",
+      "leadership"
+    ]
   },
   {
     "file": "Successful IT Project Delivery Learning the Lessons of Project Failure (David Yardley).pdf",
@@ -239,7 +455,14 @@
     "action": "skip-no-text",
     "reason": "scanned or image-only, no usable text layer; owner ruled no OCR",
     "summary": "Examines the causes of IT project failure and practices for improving project delivery.",
-    "tags": ["project-management", "software-engineering-practice", "systems-thinking", "leadership", "organization-design", "team-organization"]
+    "tags": [
+      "project-management",
+      "software-engineering-practice",
+      "systems-thinking",
+      "leadership",
+      "organization-design",
+      "team-organization"
+    ]
   },
   {
     "file": "The Art of Assembly Language (Randall Hyde).pdf",
@@ -249,7 +472,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Teaches assembly language and low-level program behavior, including data representation, control structures, and processor architecture.",
-    "tags": ["cpp", "assembly-language", "systems-programming", "algorithms-data-structures", "compilers", "embedded", "reverse-engineering"]
+    "tags": [
+      "cpp",
+      "assembly-language",
+      "systems-programming",
+      "algorithms-data-structures",
+      "compilers",
+      "embedded",
+      "reverse-engineering"
+    ]
   },
   {
     "file": "The Challenger Sale Taking Control of the Customer Conversation (Matthew Dixon).epub",
@@ -259,7 +490,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Presents a sales approach that teaches customers new perspectives, tailors conversations, and guides complex purchase decisions.",
-    "tags": ["sales-methodology", "negotiation", "account-management", "communication", "leadership", "business-writing", "critical-thinking"]
+    "tags": [
+      "sales-methodology",
+      "negotiation",
+      "account-management",
+      "communication",
+      "leadership",
+      "business-writing",
+      "critical-thinking"
+    ]
   },
   {
     "file": "The Flawless Consulting Fieldbook Companion A Guide to Understanding Your Expertise, 2nd Edition (Peter Block)(1).epub",
@@ -269,7 +508,15 @@
     "action": "skip-duplicate",
     "reason": "byte-identical copy of The Flawless Consulting Fieldbook Companion A Guide to Understanding Your Expertise, 2nd Edition (Peter Block).epub",
     "summary": "Provides exercises and guidance for applying consulting skills, understanding client systems, and supporting organizational change.",
-    "tags": ["consulting", "organization-design", "communication", "leadership", "systems-thinking", "team-organization", "product-discovery"]
+    "tags": [
+      "consulting",
+      "organization-design",
+      "communication",
+      "leadership",
+      "systems-thinking",
+      "team-organization",
+      "product-discovery"
+    ]
   },
   {
     "file": "The Flawless Consulting Fieldbook Companion A Guide to Understanding Your Expertise, 2nd Edition (Peter Block).epub",
@@ -279,7 +526,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Provides exercises and guidance for applying consulting skills, understanding client systems, and supporting organizational change.",
-    "tags": ["consulting", "organization-design", "communication", "leadership", "systems-thinking", "team-organization", "product-discovery"]
+    "tags": [
+      "consulting",
+      "organization-design",
+      "communication",
+      "leadership",
+      "systems-thinking",
+      "team-organization",
+      "product-discovery"
+    ]
   },
   {
     "file": "The Flawless Consulting Fieldbook and Companion (Peter Block, Andrea Markowitz).pdf",
@@ -289,7 +544,15 @@
     "action": "skip-no-text",
     "reason": "scanned or image-only, no usable text layer; 567 pages yield 6 KB of text; owner ruled no OCR",
     "summary": "A field guide for applying consulting methods and helping clients make use of expert advice.",
-    "tags": ["consulting", "organization-design", "communication", "leadership", "systems-thinking", "team-organization", "product-discovery"]
+    "tags": [
+      "consulting",
+      "organization-design",
+      "communication",
+      "leadership",
+      "systems-thinking",
+      "team-organization",
+      "product-discovery"
+    ]
   },
   {
     "file": "The New Ethics of Journalism Principles for the 21st Century (Kelly McBride Tom Rosenstiel).pdf",
@@ -299,7 +562,15 @@
     "action": "ingest",
     "reason": "",
     "summary": "Explores ethical principles and decision making for journalism amid changing media, technology, and public expectations.",
-    "tags": ["journalism", "media-ethics", "ethics", "communication", "critical-thinking", "research-methods", "privacy"]
+    "tags": [
+      "journalism",
+      "media-ethics",
+      "ethics",
+      "communication",
+      "critical-thinking",
+      "research-methods",
+      "privacy"
+    ]
   },
   {
     "file": "The Pyramid Principle Logic in Writing and Thinking (Barbara Minto).mobi",
@@ -309,7 +580,15 @@
     "action": "skip-no-text",
     "reason": "image-only MOBI with 236 page images and no text records; owner ruled no OCR",
     "summary": "Presents a structured approach to organizing reasoning and writing clear, top-down business communication.",
-    "tags": ["business-writing", "communication", "ux-writing", "software-engineering-practice", "team-organization", "leadership", "critical-thinking"]
+    "tags": [
+      "business-writing",
+      "communication",
+      "ux-writing",
+      "software-engineering-practice",
+      "team-organization",
+      "leadership",
+      "critical-thinking"
+    ]
   },
   {
     "file": "The jolt effect how high performers overcome customer indecision (Dixon, Matthew, 1972- author).pdf",
@@ -319,7 +598,15 @@
     "action": "skip-no-text",
     "reason": "scanned or image-only, no usable text layer; owner ruled no OCR",
     "summary": "Describes ways sales teams can reduce customer indecision and help buyers move forward with complex purchases.",
-    "tags": ["sales-methodology", "negotiation", "account-management", "communication", "leadership", "critical-thinking", "business-writing"]
+    "tags": [
+      "sales-methodology",
+      "negotiation",
+      "account-management",
+      "communication",
+      "leadership",
+      "critical-thinking",
+      "business-writing"
+    ]
   },
   {
     "file": "The new successful large account management how to hold onto your most important customers and turn them into long-term… (Miller, Robert B. (Robert Bruce), 1931- etc.).pdf",
@@ -329,7 +616,14 @@
     "action": "skip-no-text",
     "reason": "scanned or image-only, no usable text layer; owner ruled no OCR",
     "summary": "Explains how to retain important customers and develop long-term strategic account relationships.",
-    "tags": ["account-management", "sales-methodology", "leadership", "organization-design", "team-organization", "systems-thinking"]
+    "tags": [
+      "account-management",
+      "sales-methodology",
+      "leadership",
+      "organization-design",
+      "team-organization",
+      "systems-thinking"
+    ]
   },
   {
     "file": "Value-Based Fees How to Charge What Youre Worth and Get What You Charge (Alan Weiss).epub",
@@ -339,6 +633,14 @@
     "action": "ingest",
     "reason": "",
     "summary": "Shows consultants how to price professional services around client value, negotiate engagements, and communicate fees.",
-    "tags": ["consulting", "sales-methodology", "negotiation", "account-management", "leadership", "project-management", "systems-thinking"]
+    "tags": [
+      "consulting",
+      "sales-methodology",
+      "negotiation",
+      "account-management",
+      "leadership",
+      "project-management",
+      "systems-thinking"
+    ]
   }
 ]

@@ -26,4 +26,14 @@ kept as the book title when the map has no level-1 entry; otherwise all existing
 headings are demoted. The list form keeps its existing behavior and leaves
 headings already in the Markdown alone.
 
+An object-form map with `replace_existing: true` also defines the book's content
+start. Ingest skips the heading-based front-matter cut, applies the map after
+heading recovery, then removes everything before the first mapped heading. If a
+book-title H1 precedes that heading, it is retained; when no title H1 is present,
+ingest adds one from the book title when available. For the first map entry,
+obvious contents rows followed by a printed page number are skipped so a title
+listed in the contents does not become the content start. The existing trailing
+index and back-matter cut still runs on the retained content. Books without a map
+and books using the list form keep the previous heading-based front-matter cut.
+
 Each `anchor` is matched case-insensitively after normalizing whitespace and punctuation. The ingest step inserts the heading immediately before the first later non-heading body line whose normalized text starts with the anchor. Entries are applied in order. A title whose anchor is not found is reported as unmatched; the ingest step does not guess a location. Map application adds heading lines only and leaves the body lines unchanged.

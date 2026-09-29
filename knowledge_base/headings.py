@@ -1082,6 +1082,18 @@ def _demote_existing_headings(text: str, *, keep_first_h1: bool) -> str:
     return "".join(output)
 
 
+def _looks_like_contents_row(lines: list[str], index: int) -> bool:
+    """Avoid anchoring an authoritative map to a title listed in the contents."""
+    line = lines[index].rstrip()
+    if re.search(r"(?:\.{2,}|[ \t]{2,})[ \t]*(?:\d{1,4}|[ivxlcdm]+)$", line, re.I):
+        return True
+    for following in lines[index + 1 : index + 4]:
+        if not following.strip():
+            continue
+        return bool(re.fullmatch(r"(?:\d{1,4}|[ivxlcdm]+)", following.strip(), re.I))
+    return False
+
+
 def apply_heading_map(
     text: str,
     entries: list[dict[str, Any]] | dict[str, Any],
@@ -1130,7 +1142,7 @@ def apply_heading_map(
     output: list[str] = []
     cursor = 0
     unmatched: list[str] = []
-    for entry in entries:
+    for entry_index, entry in enumerate(entries):
         title = str(entry.get("title", "")).strip()
         anchor = normalize_heading_text(str(entry.get("anchor", "")))
         try:
@@ -1142,6 +1154,8 @@ def apply_heading_map(
         for index in range(cursor, len(lines)):
             line = lines[index]
             if fenced_lines[index] or not line.strip() or HEADING_RE.match(line):
+                continue
+            if replace_existing and entry_index == 0 and _looks_like_contents_row(lines, index):
                 continue
             if normalize_heading_text(line).startswith(anchor) and anchor:
                 match_at = index

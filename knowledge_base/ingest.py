@@ -8,6 +8,7 @@ from markitdown import MarkItDown
 from .headings import (
     apply_heading_map,
     evaluate,
+    normalize_heading_text,
     parse_epub_navigation_documents,
     recover_epub_headings,
     recover_pdf_headings,
@@ -125,6 +126,15 @@ def strip_front_back_matter(text: str) -> str:
     if content_start is None:
         content_start = 0
 
+    return _strip_back_matter(lines, content_start)
+
+
+def strip_back_matter(text: str) -> str:
+    """Apply the existing trailing index/promotion cut without a front cut."""
+    return _strip_back_matter(text.split("\n"), 0)
+
+
+def _strip_back_matter(lines: list[str], content_start: int) -> str:
     content_end = len(lines)
     content_headings = []
     back_headings = []
@@ -306,38 +316,109 @@ def _epub_book_title(epub_path: Path) -> str | None:
     return None
 
 
-def _apply_output_heading_map(text: str, output_path: Path) -> str:
+_UNLOADED_HEADING_MAP = object()
+
+
+def _load_output_heading_map(output_path: Path):
     import json
 
     map_path = Path(__file__).resolve().parents[1] / "data" / "intake" / "heading-maps" / f"{output_path.stem}.json"
     if not map_path.is_file():
-        return text
+        return None
     try:
         heading_map = json.loads(map_path.read_text(encoding="utf-8"))
         if isinstance(heading_map, list):
             entries = heading_map
-            apply_map = entries
         elif (
             isinstance(heading_map, dict)
             and isinstance(heading_map.get("replace_existing"), bool)
             and isinstance(heading_map.get("entries"), list)
         ):
             entries = heading_map["entries"]
-            apply_map = heading_map
         else:
             raise ValueError("map must be a JSON list or an object with replace_existing and entries")
         if any(not isinstance(entry, dict) for entry in entries):
             raise ValueError("map entries must be JSON objects")
     except (OSError, ValueError, json.JSONDecodeError) as error:
         print(f"  Invalid heading map {map_path}: {error}")
+        return None
+    return heading_map
+
+
+def _is_authoritative_heading_map(heading_map) -> bool:
+    return isinstance(heading_map, dict) and heading_map.get("replace_existing") is True
+
+
+def _apply_output_heading_map(
+    text: str,
+    output_path: Path,
+    heading_map=_UNLOADED_HEADING_MAP,
+) -> str:
+    if heading_map is _UNLOADED_HEADING_MAP:
+        heading_map = _load_output_heading_map(output_path)
+    if heading_map is None:
         return text
+    apply_map = heading_map if isinstance(heading_map, dict) else heading_map
     text, unmatched = apply_heading_map(text, apply_map)
     if unmatched:
         print(f"  Unmatched heading-map titles for {output_path.stem}: {', '.join(unmatched)}")
     return text
 
 
+def _book_title(output_path: Path) -> str | None:
+    title = BOOKS.get(output_path.stem)
+    if not title:
+        return None
+    return re.sub(r"\s+\([^()]*\)$", "", title).strip()
+
+
+def _trim_to_first_map_heading(text: str, heading_map: dict, output_path: Path) -> str:
+    entries = heading_map.get("entries", [])
+    if not entries:
+        print(f"  Empty authoritative heading map for {output_path.stem}; preserving extracted text")
+        return strip_back_matter(text)
+
+    first = entries[0]
+    title = str(first.get("title", "")).strip()
+    try:
+        level = max(1, min(6, int(first.get("level", 2))))
+    except (TypeError, ValueError):
+        level = 2
+    mapped_line = "#" * level + " " + title
+    lines = text.splitlines()
+    start = next((i for i, line in enumerate(lines) if line.strip() == mapped_line), None)
+    if not title or start is None:
+        print(f"  First heading-map entry was not placed for {output_path.stem}: {title or '<untitled>'}")
+        return strip_back_matter(text)
+
+    expected_title = _book_title(output_path)
+    title_line = None
+    if expected_title:
+        expected_normalized = normalize_heading_text(expected_title)
+        for line in lines[:start]:
+            match = re.match(r"^#{1,6}\s+(.+?)\s*#*\s*$", line)
+            if not match:
+                continue
+            candidate = normalize_heading_text(match.group(1))
+            if candidate == expected_normalized or (
+                len(candidate) >= 5 and expected_normalized.startswith(candidate)
+            ):
+                title_line = "# " + match.group(1).strip()
+                break
+        if title_line is None:
+            title_line = "# " + expected_title
+
+    # Use the original line span for index heuristics so its 65% threshold and
+    # all other trailing-cut decisions remain identical to the pre-map pass.
+    content = _strip_back_matter(lines, start)
+    if title_line:
+        return title_line + "\n\n" + content.lstrip("\n")
+    return content
+
+
 def ingest_epub(epub_path: Path, output_path: Path) -> Path:
+    heading_map = _load_output_heading_map(output_path)
+    authoritative_map = _is_authoritative_heading_map(heading_map)
     text = convert_epub(epub_path)
     text = clean_markdown(
         text,
@@ -346,7 +427,8 @@ def ingest_epub(epub_path: Path, output_path: Path) -> Path:
     )
     if sum(bool(re.match(r"^#{2,6}\s+", line)) for line in text.splitlines()) < 5:
         text = reconstruct_epub_toc(epub_path, text)
-    text = strip_front_back_matter(text)
+    if not authoritative_map:
+        text = strip_front_back_matter(text)
     if sum(bool(re.match(r"^#{2,6}\s+", line)) for line in text.splitlines()) < 5:
         text = reconstruct_epub_toc(epub_path, text, allow_plain_labels=True)
     text = normalize_heading_levels(text)
@@ -357,7 +439,9 @@ def ingest_epub(epub_path: Path, output_path: Path) -> Path:
             )
         except Exception as error:
             print(f"  EPUB heading recovery unavailable ({error}): {epub_path.stem}")
-    text = _apply_output_heading_map(text, output_path)
+    text = _apply_output_heading_map(text, output_path, heading_map)
+    if authoritative_map:
+        text = _trim_to_first_map_heading(text, heading_map, output_path)
     output_path.write_text(text, encoding="utf-8")
     return output_path
 
@@ -570,6 +654,8 @@ def _garble_ratio(text: str) -> float:
 
 
 def ingest_pdf(pdf_path: Path, output_path: Path) -> Path:
+    heading_map = _load_output_heading_map(output_path)
+    authoritative_map = _is_authoritative_heading_map(heading_map)
     text = convert_pdf_with_toc(pdf_path)
     if text is not None and _garble_ratio(text) > _GARBLE_RATIO_THRESHOLD:
         # CID-font subset with no ToUnicode map: PyMuPDF text is corrupt. Headings
@@ -587,7 +673,8 @@ def ingest_pdf(pdf_path: Path, output_path: Path) -> Path:
                 repair_extraction_artifacts=pdf_path.stem == "storytelling-with-data",
                 repair_unclosed_fence=pdf_path.stem == "vector-databases-introduction",
             )
-            text = strip_front_back_matter(text)
+            if not authoritative_map:
+                text = strip_front_back_matter(text)
             text = normalize_heading_levels(text)
         else:
             text = clean_markdown(
@@ -602,14 +689,17 @@ def ingest_pdf(pdf_path: Path, output_path: Path) -> Path:
             repair_extraction_artifacts=pdf_path.stem == "storytelling-with-data",
             repair_unclosed_fence=pdf_path.stem == "vector-databases-introduction",
         )
-        text = strip_front_back_matter(text)
+        if not authoritative_map:
+            text = strip_front_back_matter(text)
         text = normalize_heading_levels(text)
     if evaluate(text)["flagged"]:
         try:
             text = recover_pdf_headings(pdf_path, text)
         except Exception as error:
             print(f"  PDF heading recovery unavailable ({error}): {pdf_path.stem}")
-    text = _apply_output_heading_map(text, output_path)
+    text = _apply_output_heading_map(text, output_path, heading_map)
+    if authoritative_map:
+        text = _trim_to_first_map_heading(text, heading_map, output_path)
     output_path.write_text(text, encoding="utf-8")
     return output_path
 

@@ -1,0 +1,885 @@
+{
+  "replace_existing": true,
+  "entries": [
+    {
+      "title": "Why read papers at all?",
+      "level": 2,
+      "anchor": "Why read papers at all?"
+    },
+    {
+      "title": "Does ‘evidence-based medicine’ simply mean ‘reading papers in medical journals’?",
+      "level": 3,
+      "anchor": "Does ‘evidence-­based medicine’ simply mean ‘reading"
+    },
+    {
+      "title": "Why do people sometimes groan when you mention evidence-based healthcare?",
+      "level": 3,
+      "anchor": "Why do people sometimes groan when you mention"
+    },
+    {
+      "title": "Decision-making by anecdote",
+      "level": 3,
+      "anchor": "Decision-­making by anecdote"
+    },
+    {
+      "title": "Decision-making by press cutting",
+      "level": 3,
+      "anchor": "Decision-­making by press cutting"
+    },
+    {
+      "title": "Decision-making by GOBSAT (good old boys sat around a table)",
+      "level": 3,
+      "anchor": "Decision-­making by GOBSAT (good old boys sat around a table)"
+    },
+    {
+      "title": "Decision-making by cost minimisation",
+      "level": 3,
+      "anchor": "Decision-­making by cost minimisation"
+    },
+    {
+      "title": "Before you start: formulate the problem",
+      "level": 3,
+      "anchor": "Before you start: formulate the problem"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this chapter"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Searching the literature",
+      "level": 2,
+      "anchor": "Searching the literature"
+    },
+    {
+      "title": "The information jungle",
+      "level": 3,
+      "anchor": "The information jungle"
+    },
+    {
+      "title": "What are you looking for?",
+      "level": 3,
+      "anchor": "What are you looking for?"
+    },
+    {
+      "title": "Levels upon levels of evidence",
+      "level": 3,
+      "anchor": "Levels upon levels of evidence"
+    },
+    {
+      "title": "Synthesised sources: systems, summaries and syntheses",
+      "level": 3,
+      "anchor": "Synthesised sources: systems, summaries and syntheses"
+    },
+    {
+      "title": "Pre-appraised sources: synopses of systematic reviews and primary studies",
+      "level": 3,
+      "anchor": "Pre-­appraised sources: synopses of systematic reviews"
+    },
+    {
+      "title": "Specialised resources",
+      "level": 3,
+      "anchor": "Specialised resources"
+    },
+    {
+      "title": "Primary studies: tackling the jungle",
+      "level": 3,
+      "anchor": "Primary studies: tackling the jungle"
+    },
+    {
+      "title": "PubMed",
+      "level": 3,
+      "anchor": "PubMed"
+    },
+    {
+      "title": "SPORTDiscus",
+      "level": 3,
+      "anchor": "SPORTDiscus"
+    },
+    {
+      "title": "Google Scholar",
+      "level": 3,
+      "anchor": "Google Scholar"
+    },
+    {
+      "title": "One-stop shopping: federated search engines",
+      "level": 3,
+      "anchor": "One-­stop shopping: federated search engines"
+    },
+    {
+      "title": "Using artificial intelligence to search the literature",
+      "level": 3,
+      "anchor": "Using artificial intelligence to search the literature"
+    },
+    {
+      "title": "Asking for help and asking around",
+      "level": 3,
+      "anchor": "Asking for help and asking around"
+    },
+    {
+      "title": "Online tutorials for effective searching",
+      "level": 3,
+      "anchor": "Online tutorials for effective searching"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this chapter"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Getting your bearings: what is this paper about?",
+      "level": 2,
+      "anchor": "Getting your bearings: what"
+    },
+    {
+      "title": "The science of ‘trashing’ papers",
+      "level": 3,
+      "anchor": "The science of ‘trashing’"
+    },
+    {
+      "title": "Three preliminary questions to get your bearings",
+      "level": 3,
+      "anchor": "Three preliminary questions to"
+    },
+    {
+      "title": "What are randomised controlled trials and why do they matter?",
+      "level": 3,
+      "anchor": "What are randomised controlled"
+    },
+    {
+      "title": "What are cohort studies?",
+      "level": 3,
+      "anchor": "What are cohort studies?"
+    },
+    {
+      "title": "What are case–control studies?",
+      "level": 3,
+      "anchor": "What are case–control studies?"
+    },
+    {
+      "title": "What are cross-sectional surveys?",
+      "level": 3,
+      "anchor": "What are cross-­sectional surveys?"
+    },
+    {
+      "title": "What are case reports?",
+      "level": 3,
+      "anchor": "What are case reports?"
+    },
+    {
+      "title": "The traditional hierarchy of evidence",
+      "level": 3,
+      "anchor": "The traditional hierarchy of"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Assessing methodological quality",
+      "level": 2,
+      "anchor": "Assessing methodological"
+    },
+    {
+      "title": "Was the study original?",
+      "level": 3,
+      "anchor": "There is, in theory, no point in testing"
+    },
+    {
+      "title": "Who is the study about?",
+      "level": 3,
+      "anchor": "Who is the study"
+    },
+    {
+      "title": "Was the design of the study sensible?",
+      "level": 3,
+      "anchor": "Was the design of"
+    },
+    {
+      "title": "Was bias avoided or minimised?",
+      "level": 3,
+      "anchor": "Was bias avoided or"
+    },
+    {
+      "title": "Was assessment ‘blind’?",
+      "level": 3,
+      "anchor": "Was assessment ‘blind’?"
+    },
+    {
+      "title": "Were preliminary statistical questions addressed?",
+      "level": 3,
+      "anchor": "Were preliminary statistical questions"
+    },
+    {
+      "title": "A note on ethical considerations",
+      "level": 3,
+      "anchor": "A note on ethical"
+    },
+    {
+      "title": "Summing up",
+      "level": 3,
+      "anchor": "Summing up"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Statistics for the non-statistician",
+      "level": 2,
+      "anchor": "Statistics for the"
+    },
+    {
+      "title": "How can non-statisticians evaluate statistical tests?",
+      "level": 3,
+      "anchor": "How can non-­statisticians evaluate"
+    },
+    {
+      "title": "Have the authors set the scene correctly?",
+      "level": 3,
+      "anchor": "Have the authors set"
+    },
+    {
+      "title": "Paired data, tails and outliers",
+      "level": 3,
+      "anchor": "Paired data, tails and"
+    },
+    {
+      "title": "Correlation, regression and causation",
+      "level": 3,
+      "anchor": "Correlation, regression and causation"
+    },
+    {
+      "title": "Probability and confidence",
+      "level": 3,
+      "anchor": "Probability and confidence"
+    },
+    {
+      "title": "The bottom line (quantifying the chance of benefit and harm)",
+      "level": 3,
+      "anchor": "The bottom line (quantifying"
+    },
+    {
+      "title": "Summary",
+      "level": 3,
+      "anchor": "Summary"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Papers that report clinical trials of simple interventions",
+      "level": 2,
+      "anchor": "Papers that report clinical"
+    },
+    {
+      "title": "What is a clinical trial?",
+      "level": 3,
+      "anchor": "What is a clinical"
+    },
+    {
+      "title": "Drug trials: ‘evidence’ and marketing",
+      "level": 3,
+      "anchor": "Drug trials: ‘evidence’ and"
+    },
+    {
+      "title": "Making decisions about therapy",
+      "level": 3,
+      "anchor": "Making decisions about therapy"
+    },
+    {
+      "title": "Surrogate endpoints",
+      "level": 3,
+      "anchor": "Surrogate endpoints"
+    },
+    {
+      "title": "What information to expect in a paper describing a randomised controlled trial: the CONSORT statement",
+      "level": 3,
+      "anchor": "What information to expect"
+    },
+    {
+      "title": "Getting worthwhile evidence from pharmaceutical representatives",
+      "level": 3,
+      "anchor": "Getting worthwhile evidence from"
+    },
+    {
+      "title": "A note on vaccine trials",
+      "level": 3,
+      "anchor": "A note on vaccine"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Papers that report trials of complex interventions",
+      "level": 2,
+      "anchor": "Papers that report trials"
+    },
+    {
+      "title": "Complex interventions",
+      "level": 3,
+      "anchor": "Complex interventions"
+    },
+    {
+      "title": "Ten questions to ask about a paper describing a complex intervention",
+      "level": 3,
+      "anchor": "Ten questions to ask"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Papers that report diagnostic or screening tests",
+      "level": 2,
+      "anchor": "Papers that report diagnostic"
+    },
+    {
+      "title": "Ten suspects in the dock",
+      "level": 3,
+      "anchor": "Ten suspects in the"
+    },
+    {
+      "title": "Validating diagnostic tests against a gold standard",
+      "level": 3,
+      "anchor": "Validating diagnostic tests against"
+    },
+    {
+      "title": "Ten questions to ask about a paper that claims to validate a diagnostic or screening test",
+      "level": 3,
+      "anchor": "Ten questions to ask"
+    },
+    {
+      "title": "Likelihood ratios",
+      "level": 3,
+      "anchor": "Likelihood ratios"
+    },
+    {
+      "title": "Clinical prediction models",
+      "level": 3,
+      "anchor": "Clinical prediction models"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Papers that summarise other papers (systematic reviews and meta-analyses)",
+      "level": 2,
+      "anchor": "Papers that summarise other"
+    },
+    {
+      "title": "When is a review systematic?",
+      "level": 3,
+      "anchor": "When is a review"
+    },
+    {
+      "title": "Evaluating systematic reviews: five questions to ask",
+      "level": 3,
+      "anchor": "Evaluating systematic reviews: five"
+    },
+    {
+      "title": "Meta-analysis for the non-statistician",
+      "level": 3,
+      "anchor": "Meta-­analysis for the non-­statistician"
+    },
+    {
+      "title": "Explaining heterogeneity",
+      "level": 3,
+      "anchor": "Explaining heterogeneity"
+    },
+    {
+      "title": "New approaches to systematic review",
+      "level": 3,
+      "anchor": "New approaches to systematic"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Papers that advise you what to do (guidelines)",
+      "level": 2,
+      "anchor": "Papers that advise you"
+    },
+    {
+      "title": "The great guidelines debate",
+      "level": 3,
+      "anchor": "The great guidelines debate"
+    },
+    {
+      "title": "Ten questions to ask about a clinical guideline",
+      "level": 3,
+      "anchor": "Ten questions to ask"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Papers that estimate what things cost (health economic evaluations)",
+      "level": 2,
+      "anchor": "Papers that estimate what"
+    },
+    {
+      "title": "What is an economic evaluation?",
+      "level": 3,
+      "anchor": "What is an economic"
+    },
+    {
+      "title": "Health economics studies: two key approaches",
+      "level": 3,
+      "anchor": "Health economics studies: two"
+    },
+    {
+      "title": "Costs and benefits of health interventions",
+      "level": 3,
+      "anchor": "Costs and benefits of"
+    },
+    {
+      "title": "Measuring the value of health states",
+      "level": 3,
+      "anchor": "Measuring the value of"
+    },
+    {
+      "title": "Quality-adjusted life-years",
+      "level": 3,
+      "anchor": "Quality-­adjusted life-­years"
+    },
+    {
+      "title": "Low-value health: choosing wisely",
+      "level": 3,
+      "anchor": "Low-­value health: choosing wisely"
+    },
+    {
+      "title": "Twelve questions to ask about a health economic evaluation",
+      "level": 3,
+      "anchor": "Twelve questions to ask"
+    },
+    {
+      "title": "Conclusion",
+      "level": 3,
+      "anchor": "Conclusion"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Papers that go beyond numbers (qualitative research)",
+      "level": 2,
+      "anchor": "Papers that go beyond"
+    },
+    {
+      "title": "What is qualitative research?",
+      "level": 3,
+      "anchor": "What is qualitative research?"
+    },
+    {
+      "title": "Summarising and synthesising qualitative research",
+      "level": 3,
+      "anchor": "Summarising and synthesising qualitative"
+    },
+    {
+      "title": "Nine questions to ask about a qualitative research paper",
+      "level": 3,
+      "anchor": "Nine questions to ask"
+    },
+    {
+      "title": "Conclusion",
+      "level": 3,
+      "anchor": "Conclusion"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Papers that report questionnaire research",
+      "level": 2,
+      "anchor": "Papers that report"
+    },
+    {
+      "title": "The rise and rise of questionnaire research",
+      "level": 3,
+      "anchor": "The rise and rise"
+    },
+    {
+      "title": "Ten questions to ask about a paper describing a questionnaire study",
+      "level": 3,
+      "anchor": "Ten questions to ask"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Papers that report quality improvement case studies",
+      "level": 2,
+      "anchor": "Papers that report quality"
+    },
+    {
+      "title": "What are quality improvement studies and how should we research them?",
+      "level": 3,
+      "anchor": "What are quality improvement"
+    },
+    {
+      "title": "Ten questions to ask about a paper describing a quality improvement initiative",
+      "level": 3,
+      "anchor": "Ten questions to ask"
+    },
+    {
+      "title": "Conclusion",
+      "level": 3,
+      "anchor": "Conclusion"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Papers that describe genetic association studies",
+      "level": 2,
+      "anchor": "Papers that describe genetic"
+    },
+    {
+      "title": "The three eras of human genetic studies (so far)",
+      "level": 3,
+      "anchor": "The three eras of"
+    },
+    {
+      "title": "What is a genome-wide association study?",
+      "level": 3,
+      "anchor": "What is a genome-­wide"
+    },
+    {
+      "title": "Clinical applications of genome-wide association studies",
+      "level": 3,
+      "anchor": "Clinical applications of genome-­wide"
+    },
+    {
+      "title": "Direct-to-consumer genetic testing",
+      "level": 3,
+      "anchor": "Direct-­to-­consumer genetic testing"
+    },
+    {
+      "title": "Mendelian randomisation studies",
+      "level": 3,
+      "anchor": "Mendelian randomisation studies"
+    },
+    {
+      "title": "Epigenetics: a space to watch",
+      "level": 3,
+      "anchor": "Epigenetics: a space to"
+    },
+    {
+      "title": "Ten questions to ask about a genetic association study",
+      "level": 3,
+      "anchor": "Ten questions to ask"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Applying evidence with patients",
+      "level": 2,
+      "anchor": "Applying evidence"
+    },
+    {
+      "title": "The patient perspective",
+      "level": 3,
+      "anchor": "The patient perspective"
+    },
+    {
+      "title": "Patient-reported outcome measures",
+      "level": 3,
+      "anchor": "Patient-­reported outcome measures"
+    },
+    {
+      "title": "Shared decision-making",
+      "level": 3,
+      "anchor": "Shared decision-­making"
+    },
+    {
+      "title": "Option grids",
+      "level": 3,
+      "anchor": "Option grids"
+    },
+    {
+      "title": "n-of-1 trials and other individualised approaches",
+      "level": 3,
+      "anchor": "n-­of-­1 trials and other"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Papers on artificial intelligence in healthcare",
+      "level": 2,
+      "anchor": "Papers on artificial"
+    },
+    {
+      "title": "Introduction",
+      "level": 3,
+      "anchor": "Introduction"
+    },
+    {
+      "title": "Artificial intelligence",
+      "level": 3,
+      "anchor": "Let’s start with a definition of AI"
+    },
+    {
+      "title": "Big data",
+      "level": 3,
+      "anchor": "‘Big data’ (see Table 17.1 for defintion) refers"
+    },
+    {
+      "title": "Machine learning",
+      "level": 3,
+      "anchor": "Machine learning"
+    },
+    {
+      "title": "Generative artificial intelligence: large language and multimodal models",
+      "level": 3,
+      "anchor": "Generative artificial intelligence: large"
+    },
+    {
+      "title": "Ethical principles for the use of artificial intelligence for health",
+      "level": 3,
+      "anchor": "Ethical principles for the"
+    },
+    {
+      "title": "Appraising artificial intelligence papers: a plethora of checklists",
+      "level": 3,
+      "anchor": "Appraising artificial intelligence papers:"
+    },
+    {
+      "title": "Ten questions to ask about a paper that reports AI studies in healthcare",
+      "level": 3,
+      "anchor": "Ten questions to ask"
+    },
+    {
+      "title": "Summary",
+      "level": 3,
+      "anchor": "Summary"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "EBM+: the importance of mechanistic evidence",
+      "level": 2,
+      "anchor": "EBM+: the importance"
+    },
+    {
+      "title": "What is mechanistic evidence? An example",
+      "level": 3,
+      "anchor": "What is mechanistic evidence?"
+    },
+    {
+      "title": "The many types of mechanistic evidence and a preliminary hierarchy",
+      "level": 3,
+      "anchor": "The many types of"
+    },
+    {
+      "title": "EBM+ means ‘both and’, not ‘either or’",
+      "level": 3,
+      "anchor": "EBM+ means ‘both and’,"
+    },
+    {
+      "title": "Mechanistic evidence in the COVID-19 pandemic",
+      "level": 3,
+      "anchor": "Mechanistic evidence in the"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Papers that report consensus exercises",
+      "level": 2,
+      "anchor": "Papers that report consensus"
+    },
+    {
+      "title": "Why are consensus method papers important?",
+      "level": 3,
+      "anchor": "Why are consensus method"
+    },
+    {
+      "title": "How do experts choose and reach consensus on a specific topic?",
+      "level": 3,
+      "anchor": "How do experts choose"
+    },
+    {
+      "title": "Consensus methods",
+      "level": 3,
+      "anchor": "Since the late 1940s, RAND Corporation"
+    },
+    {
+      "title": "Ten questions to ask about a paper that reports a consensus statement",
+      "level": 3,
+      "anchor": "Ten questions to ask"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Criticisms of evidence-based healthcare",
+      "level": 2,
+      "anchor": "Criticisms of evidence-­based"
+    },
+    {
+      "title": "What’s wrong with evidence-based healthcare when it’s done badly?",
+      "level": 3,
+      "anchor": "What’s wrong with evidence-­based"
+    },
+    {
+      "title": "What’s wrong with evidence-based healthcare when it’s done well?",
+      "level": 3,
+      "anchor": "What’s wrong with evidence-­based"
+    },
+    {
+      "title": "Why is ‘evidence-based policymaking’ so hard to achieve?",
+      "level": 3,
+      "anchor": "Why is ‘evidence-­based policymaking’"
+    },
+    {
+      "title": "Exercises based on this chapter",
+      "level": 3,
+      "anchor": "Exercises based on this"
+    },
+    {
+      "title": "References",
+      "level": 3,
+      "anchor": "References"
+    },
+    {
+      "title": "Appendix 1 Checklists for finding, appraising and implementing evidence",
+      "level": 2,
+      "anchor": "Appendix 1"
+    },
+    {
+      "title": "Appendix 2 Assessing the effects of an intervention",
+      "level": 2,
+      "anchor": "Appendix 2"
+    }
+  ]
+}

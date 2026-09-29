@@ -2066,6 +2066,20 @@
   ],
   "title": "HBR Guide to Better Business Writing (Bryan A. Garner)"
  },
+ "head-first-pmp": {
+  "domain": "management",
+  "summary": "Teaches PMP exam topics with visual, example-driven coverage of integration, scope, schedule, cost, quality, resource, communications, risk, and stakeholder management.",
+  "tags": [
+   "project-management",
+   "agile",
+   "leadership",
+   "team-organization",
+   "organization-design",
+   "communication",
+   "product-management"
+  ],
+  "title": "Head First PMP (Jennifer Greene, Andrew Stellman)"
+ },
  "head-first-statistics-analysis": {
   "domain": "data-science",
   "summary": "Teaches descriptive statistics and data analysis in Excel through frequency tables, distributions, charts, and inference.",
@@ -3170,6 +3184,20 @@
    "relational-design"
   ],
   "title": "Patterns of Enterprise Application Architecture (Fowler)"
+ },
+ "pmbok-guide-7e": {
+  "domain": "management",
+  "summary": "Defines the principles, value delivery system, eight project performance domains, tailoring guidance, and standard models, methods, and artifacts for project work.",
+  "tags": [
+   "project-management",
+   "agile",
+   "leadership",
+   "team-organization",
+   "organization-design",
+   "product-management",
+   "systems-thinking"
+  ],
+  "title": "A Guide to the Project Management Body of Knowledge (PMBOK® Guide), 7th Edition (PMI)"
  },
  "policy-as-code": {
   "domain": "security",
