@@ -1,3 +1,5 @@
+import pytest
+
 from knowledge_base import ingest
 from knowledge_base.headings import (
     NavigationEntry,
@@ -409,6 +411,75 @@ def test_ingest_epub_keeps_original_text_when_heading_recovery_raises(tmp_path, 
     assert result_path == output_path
     assert output_path.read_text(encoding="utf-8") == source_text
     assert "EPUB heading recovery unavailable (bad navigation): broken-navigation" in capsys.readouterr().out
+
+
+@pytest.mark.parametrize("kind", ["epub", "pdf"])
+@pytest.mark.parametrize("recovery_changes_text", [False, True])
+def test_heading_recovery_reapplies_matter_rules_only_when_text_changes(
+    kind, recovery_changes_text, tmp_path, monkeypatch
+):
+    body = "\n".join(f"Chapter body line {i}." for i in range(40))
+    source_text = f"# Book title\n\n# Chapter 1 Opening\n{body}\n"
+    recovered_text = (
+        f"# Book title\n\n## Copyright\nCopyright block.\n\n"
+        f"# Chapter 1 Opening\n{body}\n"
+    )
+    output_path = tmp_path / "book.md"
+    initial_clean = ingest.strip_front_back_matter(source_text)
+    recovery_result = recovered_text if recovery_changes_text else initial_clean
+    strip_calls = []
+    real_strip = ingest.strip_front_back_matter
+
+    def track_strip(text, **kwargs):
+        strip_calls.append(text)
+        return real_strip(text, **kwargs)
+
+    monkeypatch.setattr(ingest, "_load_output_heading_map", lambda _path: None)
+    monkeypatch.setattr(ingest, "_apply_output_heading_map", lambda text, *_args: text)
+    monkeypatch.setattr(ingest, "clean_markdown", lambda text, **_kwargs: text)
+    monkeypatch.setattr(ingest, "normalize_heading_levels", lambda text: text)
+    monkeypatch.setattr(ingest, "strip_front_back_matter", track_strip)
+    monkeypatch.setattr(ingest, "evaluate", lambda _text: {"flagged": True})
+
+    if kind == "epub":
+        monkeypatch.setattr(ingest, "convert_epub", lambda _path: source_text)
+        monkeypatch.setattr(
+            ingest, "reconstruct_epub_toc", lambda _path, text, allow_plain_labels=False: text
+        )
+        monkeypatch.setattr(ingest, "_epub_navigation_entries", lambda _path: [])
+        monkeypatch.setattr(ingest, "_epub_book_title", lambda _path: None)
+        monkeypatch.setattr(ingest, "recover_epub_headings", lambda *_args: recovery_result)
+        ingest.ingest_epub(tmp_path / "book.epub", output_path)
+    else:
+        monkeypatch.setattr(ingest, "convert_pdf_with_toc", lambda _path: source_text)
+        monkeypatch.setattr(ingest, "recover_pdf_headings", lambda *_args: recovery_result)
+        ingest.ingest_pdf(tmp_path / "book.pdf", output_path)
+
+    result = output_path.read_text(encoding="utf-8")
+    assert len(strip_calls) == (2 if recovery_changes_text else 1)
+    if recovery_changes_text:
+        assert "Copyright block" not in result
+        assert result.startswith("# Chapter 1 Opening")
+    else:
+        assert result == initial_clean
+
+
+def test_recovery_front_matter_cut_uses_first_heading_after_front_sequence():
+    recovered = (
+        "# MEDDICC\n\nCopyright © 2020 Publisher\n\n"
+        "## Acknowledgments\nThanks.\n\n"
+        "## Foreword\nForeword text.\n\n"
+        "## Preface\nPreface text.\n\n"
+        "## Introduction\nMain text starts here.\n"
+    )
+
+    original_behavior = ingest.strip_front_back_matter(recovered)
+    recovery_behavior = ingest.strip_front_back_matter(recovered, recovery_pass=True)
+
+    assert original_behavior.startswith("# MEDDICC")
+    assert recovery_behavior.startswith("# MEDDICC\n\n## Introduction")
+    assert "Main text starts here." in recovery_behavior
+    assert "Copyright © 2020 Publisher" not in recovery_behavior
 
 
 def test_replacement_heading_map_demotes_junk_and_keeps_book_title_and_fenced_code():

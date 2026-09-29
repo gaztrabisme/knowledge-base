@@ -14,6 +14,7 @@ the map authoritative over headings already present in the Markdown:
 ```json
 {
   "replace_existing": true,
+  "back_matter_anchor": "first words of the line where back matter begins",
   "entries": [
     {"title": "Section title", "level": 2, "anchor": "first words of the body line where the section starts"}
   ]
@@ -35,5 +36,16 @@ obvious contents rows followed by a printed page number are skipped so a title
 listed in the contents does not become the content start. The existing trailing
 index and back-matter cut still runs on the retained content. Books without a map
 and books using the list form keep the previous heading-based front-matter cut.
+
+Object-form maps may also set `back_matter_anchor` to the first words of the line
+where the back-of-book index begins, or where other back matter listed after the
+last chapter or appendix in the printed contents begins. After applying the map
+and trimming to its first heading, ingest searches after the map's last heading
+for a line beginning with that anchor (case-insensitive, with whitespace and
+punctuation normalized) and removes that line through the end of the file. This
+lets a map keep appendices while dropping only the subsequent index, notes, or
+bibliography. If the anchor is missing, ingest reports it and preserves the
+remaining text. Maps without this field keep their existing behavior; the field
+is not used with list-form maps.
 
 Each `anchor` is matched case-insensitively after normalizing whitespace and punctuation. The ingest step inserts the heading immediately before the first later non-heading body line whose normalized text starts with the anchor. Entries are applied in order. A title whose anchor is not found is reported as unmatched; the ingest step does not guess a location. Map application adds heading lines only and leaves the body lines unchanged.

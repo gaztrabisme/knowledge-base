@@ -71,7 +71,7 @@ def clean_markdown(text: str, repair_extraction_artifacts: bool = False, repair_
     return text.strip() + "\n"
 
 
-def strip_front_back_matter(text: str) -> str:
+def strip_front_back_matter(text: str, *, recovery_pass: bool = False) -> str:
     lines = text.split("\n")
 
     # A chapter/part opener marks the first real chapter — but only if it appears
@@ -115,6 +115,26 @@ def strip_front_back_matter(text: str) -> str:
                 lines[i] = "# " + candidate
                 break
 
+    recovery_title = None
+    if content_start is None:
+        if recovery_pass and front_positions:
+            # Recovery can restore a contents/foreword/preface sequence without
+            # restoring an explicit "Chapter 1" label. In that case the first
+            # non-front heading before the sequence is often just the book title.
+            first_front = min(front_positions)
+            title_before_front = next((
+                line for line in lines[:first_front]
+                if re.match(r"^#\s+", line) and not _is_front_matter_heading(line)
+            ), None)
+            last_front = max(front_positions)
+            for i in range(last_front + 1, len(lines)):
+                if (re.match(r"^#{1,3}\s+", lines[i])
+                        and not _is_front_matter_heading(lines[i])):
+                    content_start = i
+                    break
+            if content_start is not None:
+                recovery_title = title_before_front
+
     if content_start is None:
         for i, line in enumerate(lines):
             if not re.match(r"^#{1,3}\s+", line):
@@ -126,7 +146,10 @@ def strip_front_back_matter(text: str) -> str:
     if content_start is None:
         content_start = 0
 
-    return _strip_back_matter(lines, content_start)
+    content = _strip_back_matter(lines, content_start)
+    if recovery_title:
+        return recovery_title + "\n\n" + content.lstrip("\n")
+    return content
 
 
 def strip_back_matter(text: str) -> str:
@@ -200,7 +223,11 @@ def _is_front_matter_heading(line: str) -> bool:
         "using code examples", "about this book", "who should read this book",
         "why i wrote this book", "navigating the book", "staying up-to-date", "safari",
     )
-    exact = {"contents", "cover", "landmarks", "sections"}
+    exact = {
+        "contents", "cover", "landmarks", "sections", "notice", "title",
+        "list of figures", "list of tables", "list of illustrations",
+        "list of maps", "list of abbreviations", "list of acronyms",
+    }
     return heading in exact or heading.startswith(front_starts)
 
 
@@ -416,6 +443,61 @@ def _trim_to_first_map_heading(text: str, heading_map: dict, output_path: Path) 
     return content
 
 
+def _trim_to_back_matter_anchor(text: str, heading_map: dict, output_path: Path) -> str:
+    """Drop mapped books' trailing back matter from its explicit line anchor."""
+    if not _is_authoritative_heading_map(heading_map):
+        return text
+    if "back_matter_anchor" not in heading_map:
+        return text
+
+    anchor = heading_map.get("back_matter_anchor")
+    if not isinstance(anchor, str) or not anchor.strip():
+        print(f"  Invalid back_matter_anchor for {output_path.stem}; preserving extracted text")
+        return text
+    normalized_anchor = normalize_heading_text(anchor)
+    if not normalized_anchor:
+        print(f"  Invalid back_matter_anchor for {output_path.stem}; preserving extracted text")
+        return text
+
+    entries = heading_map.get("entries", [])
+    if entries:
+        last_entry = entries[-1]
+        title = str(last_entry.get("title", "")).strip()
+        try:
+            level = max(1, min(6, int(last_entry.get("level", 2))))
+        except (TypeError, ValueError):
+            level = 2
+        last_heading = "#" * level + " " + title
+        lines = text.splitlines(keepends=True)
+        last_heading_at = next(
+            (i for i in range(len(lines) - 1, -1, -1)
+             if lines[i].strip() == last_heading),
+            None,
+        )
+        if last_heading_at is None:
+            print(
+                f"  Back-matter anchor for {output_path.stem} not applied; "
+                f"last mapped heading was not placed: {title or '<untitled>'}"
+            )
+            return text
+        search_start = last_heading_at + 1
+    else:
+        print(f"  Back-matter anchor for {output_path.stem} not applied; heading map is empty")
+        return text
+
+    lines = text.splitlines(keepends=True)
+    for i in range(search_start, len(lines)):
+        line = lines[i].rstrip("\r\n")
+        if normalize_heading_text(line).startswith(normalized_anchor):
+            return "".join(lines[:i]).rstrip("\r\n") + "\n"
+
+    print(
+        f"  Back-matter anchor not found for {output_path.stem}: {anchor!r}; "
+        "preserving extracted text"
+    )
+    return text
+
+
 def ingest_epub(epub_path: Path, output_path: Path) -> Path:
     heading_map = _load_output_heading_map(output_path)
     authoritative_map = _is_authoritative_heading_map(heading_map)
@@ -434,14 +516,18 @@ def ingest_epub(epub_path: Path, output_path: Path) -> Path:
     text = normalize_heading_levels(text)
     if evaluate(text)["flagged"]:
         try:
-            text = recover_epub_headings(
+            recovered = recover_epub_headings(
                 text, _epub_navigation_entries(epub_path), _epub_book_title(epub_path)
             )
+            if recovered != text:
+                recovered = strip_front_back_matter(recovered, recovery_pass=True)
+            text = recovered
         except Exception as error:
             print(f"  EPUB heading recovery unavailable ({error}): {epub_path.stem}")
     text = _apply_output_heading_map(text, output_path, heading_map)
     if authoritative_map:
         text = _trim_to_first_map_heading(text, heading_map, output_path)
+        text = _trim_to_back_matter_anchor(text, heading_map, output_path)
     output_path.write_text(text, encoding="utf-8")
     return output_path
 
@@ -694,12 +780,16 @@ def ingest_pdf(pdf_path: Path, output_path: Path) -> Path:
         text = normalize_heading_levels(text)
     if evaluate(text)["flagged"]:
         try:
-            text = recover_pdf_headings(pdf_path, text)
+            recovered = recover_pdf_headings(pdf_path, text)
+            if recovered != text:
+                recovered = strip_front_back_matter(recovered, recovery_pass=True)
+            text = recovered
         except Exception as error:
             print(f"  PDF heading recovery unavailable ({error}): {pdf_path.stem}")
     text = _apply_output_heading_map(text, output_path, heading_map)
     if authoritative_map:
         text = _trim_to_first_map_heading(text, heading_map, output_path)
+        text = _trim_to_back_matter_anchor(text, heading_map, output_path)
     output_path.write_text(text, encoding="utf-8")
     return output_path
 

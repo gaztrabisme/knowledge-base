@@ -86,7 +86,7 @@ def audit_book(row: dict, page_floor: int | None) -> dict:
     h1 = [item for item in headings if item[1] == 1]
     chapter_headings = [
         item for item in headings
-        if re.match(r"^#{1,3}\s+(?:chapter|part)\b", item[2], re.IGNORECASE)
+        if ingest._is_chapter_heading(item[2])
     ]
     plain_chapters = [
         (line_no, 0, line.strip())

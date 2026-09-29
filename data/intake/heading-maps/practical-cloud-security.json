@@ -1,5 +1,6 @@
 {
  "replace_existing": true,
+ "back_matter_anchor": "Index",
  "entries": [
   {"title": "Principles and Concepts", "level": 2, "anchor": "Principles and Concepts"},
   {"title": "Least Privilege", "level": 3, "anchor": "Least Privilege"},

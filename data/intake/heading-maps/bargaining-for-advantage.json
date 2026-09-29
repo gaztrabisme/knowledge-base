@@ -1,5 +1,6 @@
 {
  "replace_existing": true,
+ "back_matter_anchor": "Notes",
  "entries": [
   {"title": "Introduction: It’s Your Move", "level": 2, "anchor": "Introduction"},
   {"title": "Look Inside Your Toolbox: It’s Your Move", "level": 3, "anchor": "Look Inside Your Toolbox"},

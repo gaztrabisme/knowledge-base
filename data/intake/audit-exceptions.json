@@ -13,5 +13,6 @@
   "refactoring-ui": "252-page highly visual text PDF: PyMuPDF extracts 102,025 characters (405/page); Markdown retains 100,975 (99.0%). Forty-six pages have under 100 extracted characters, so low density reflects the image-led layout rather than lost text.",
   "reinforcement-learning-finance": "386-page text PDF: PyMuPDF extracts 339,446 characters (879/page); Markdown retains 308,977 (91.0%). Five pages have under 100 extracted characters; source density is below the calibrated floor.",
   "llm-security-playbook": "380-page text PDF: PyMuPDF extracts 424,249 characters (1,116/page); Markdown retains 386,000 (91.0%). The 1,016-character Markdown density is slightly below the 1,093 p05 floor; two pages are sparse.",
-  "ui-design-principles": "323-page highly visual text PDF: PyMuPDF extracts 221,294 characters (685/page); Markdown retains 203,782 (92.1%). Five pages have under 100 extracted characters, consistent with the visual layout."
+  "ui-design-principles": "323-page highly visual text PDF: PyMuPDF extracts 221,294 characters (685/page); Markdown retains 203,782 (92.1%). Five pages have under 100 extracted characters, consistent with the visual layout.",
+  "getting-to-yes": "Intentional heading-count exception: 14 chapters and 3 part headings from the EPUB navigation are represented at H1 after EPUB normalization, leaving only 4 headings at level H2 or deeper. This matches the navigation hierarchy, so promoting the H1 entries would misstate the source structure."
 }

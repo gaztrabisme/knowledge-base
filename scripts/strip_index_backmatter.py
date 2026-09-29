@@ -1,19 +1,16 @@
-"""Strip book back-of-book INDEX pages that survived v6 front/back-matter stripping.
+"""Strip book back-of-book index pages that survived front/back-matter stripping.
 
-Signal: a child whose heading_path top segment is exactly `Index (part N)` is a back-of-book
-alphabetical index entry (validated across all 15 affected books — EPUB idIndexMarker links,
-`dx1-` anchors, and bare page-number formats all share this TOC-assigned heading). This is the
-reliable universal signal; it deliberately EXCLUDES real content that merely starts with "Index":
-  - `Index of Security Definitions (part N)` — joy-of-cryptography's curated definition reference
-  - bare `Index` — pandascookbook's section about the pandas Index object
-Both are kept.
+The child must have a top-level index heading such as `Index (part N)`, `Names Index`,
+`Subject Index`, `Author Index`, or `Index of ...`. The expanded named-heading cleanup is
+used for the v9 ingest set via `--slugs-from data/intake/v9-manifest.json`; that scope keeps
+unrelated books such as joy-of-cryptography's curated `Index of Security Definitions` intact.
 
 Removes flagged index children and any parent left with no surviving child (back-of-book index
 parents are dropped as orphans). Writes cleaned chunk files in place; back up with --backup.
 
 Usage:
-  python3 scripts/strip_index_backmatter.py --dry-run
-  python3 scripts/strip_index_backmatter.py --backup data/chunks.v66-pre-strip.bak
+  .venv/bin/python scripts/strip_index_backmatter.py --dry-run --slugs-from data/intake/v9-manifest.json
+  .venv/bin/python scripts/strip_index_backmatter.py --slugs-from data/intake/v9-manifest.json
 """
 
 import argparse
@@ -23,12 +20,17 @@ import shutil
 from pathlib import Path
 
 CHUNKS = Path("data/chunks")
-INDEX_HEADING = re.compile(r"^Index \(part \d+\)$")
+INDEX_PART_SUFFIX = re.compile(r"(?:\s+\(part\s+\d+\))+$", re.IGNORECASE)
 
 
 def is_index_child(ch: dict) -> bool:
     top = (ch.get("metadata", {}).get("heading_path", "") or "").split(">")[0].strip()
-    return bool(INDEX_HEADING.match(top))
+    top = INDEX_PART_SUFFIX.sub("", top).strip().casefold()
+    return (
+        top == "index"
+        or top in {"names index", "subject index", "author index"}
+        or top.startswith("index of ")
+    )
 
 
 def page_of(cid: str) -> int:
@@ -36,11 +38,22 @@ def page_of(cid: str) -> int:
     return int(m.group(1)) if m else -1
 
 
+def load_ingest_slugs(manifest_path: Path) -> set[str]:
+    data = json.loads(manifest_path.read_text(encoding="utf-8"))
+    rows = data if isinstance(data, list) else data.get("books", [])
+    return {row["slug"] for row in rows if row.get("action") == "ingest"}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--backup", default="")
+    ap.add_argument("--slugs-from", type=Path,
+                    help="manifest JSON; only its ingest rows are processed")
     args = ap.parse_args()
+    slugs = load_ingest_slugs(args.slugs_from) if args.slugs_from else None
+    if slugs is not None:
+        print(f"Scoped to {len(slugs)} ingest slugs from {args.slugs_from}\n")
 
     if args.backup and not args.dry_run:
         bdir = Path(args.backup)
@@ -52,6 +65,8 @@ def main():
 
     tot_c = tot_p = tot_books = 0
     for f in sorted(CHUNKS.glob("*.json")):
+        if slugs is not None and f.stem not in slugs:
+            continue
         data = json.loads(f.read_text())
         flagged = [c for c in data["children"] if is_index_child(c)]
         if not flagged:

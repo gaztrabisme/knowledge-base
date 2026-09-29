@@ -2,16 +2,6 @@
  "replace_existing": true,
  "entries": [
   {
-   "title": "Notice",
-   "level": 2,
-   "anchor": "## Notice"
-  },
-  {
-   "title": "Preface",
-   "level": 2,
-   "anchor": "## Preface"
-  },
-  {
    "title": "The Standard for Project Management",
    "level": 1,
    "anchor": "## Introduction"
