@@ -5,6 +5,14 @@ from pathlib import Path
 
 from markitdown import MarkItDown
 
+from .headings import (
+    apply_heading_map,
+    evaluate,
+    parse_epub_navigation_documents,
+    recover_epub_headings,
+    recover_pdf_headings,
+)
+
 from .config import MARKDOWN_DIR, SOURCE_DIRS, BOOKS
 
 _converter = MarkItDown()
@@ -256,6 +264,79 @@ def normalize_heading_levels(text: str) -> str:
     return "\n".join(result)
 
 
+def _epub_navigation_entries(epub_path: Path):
+    import zipfile
+
+    try:
+        with zipfile.ZipFile(epub_path) as archive:
+            names = archive.namelist()
+            nav_name = next((name for name in names if name.casefold().endswith("/nav.xhtml")), None)
+            if nav_name is None:
+                nav_name = next((name for name in names if name.casefold() == "nav.xhtml"), None)
+            ncx_name = next((name for name in names if name.casefold().endswith(".ncx")), None)
+            nav = archive.read(nav_name).decode("utf-8", errors="replace") if nav_name else None
+            ncx = archive.read(ncx_name).decode("utf-8", errors="replace") if ncx_name else None
+    except (OSError, zipfile.BadZipFile):
+        return []
+    return parse_epub_navigation_documents(
+        nav, ncx, nav_path=nav_name or "", ncx_path=ncx_name or ""
+    )
+
+
+def _epub_book_title(epub_path: Path) -> str | None:
+    import xml.etree.ElementTree as ET
+    import zipfile
+
+    try:
+        with zipfile.ZipFile(epub_path) as archive:
+            opf_name = next(
+                (name for name in archive.namelist() if name.casefold().endswith(".opf")),
+                None,
+            )
+            if opf_name is None:
+                return None
+            root = ET.fromstring(archive.read(opf_name))
+    except (OSError, zipfile.BadZipFile, ET.ParseError):
+        return None
+    for element in root.iter():
+        if element.tag.rsplit("}", 1)[-1].casefold() == "title":
+            title = " ".join("".join(element.itertext()).split())
+            if title:
+                return title
+    return None
+
+
+def _apply_output_heading_map(text: str, output_path: Path) -> str:
+    import json
+
+    map_path = Path(__file__).resolve().parents[1] / "data" / "intake" / "heading-maps" / f"{output_path.stem}.json"
+    if not map_path.is_file():
+        return text
+    try:
+        heading_map = json.loads(map_path.read_text(encoding="utf-8"))
+        if isinstance(heading_map, list):
+            entries = heading_map
+            apply_map = entries
+        elif (
+            isinstance(heading_map, dict)
+            and isinstance(heading_map.get("replace_existing"), bool)
+            and isinstance(heading_map.get("entries"), list)
+        ):
+            entries = heading_map["entries"]
+            apply_map = heading_map
+        else:
+            raise ValueError("map must be a JSON list or an object with replace_existing and entries")
+        if any(not isinstance(entry, dict) for entry in entries):
+            raise ValueError("map entries must be JSON objects")
+    except (OSError, ValueError, json.JSONDecodeError) as error:
+        print(f"  Invalid heading map {map_path}: {error}")
+        return text
+    text, unmatched = apply_heading_map(text, apply_map)
+    if unmatched:
+        print(f"  Unmatched heading-map titles for {output_path.stem}: {', '.join(unmatched)}")
+    return text
+
+
 def ingest_epub(epub_path: Path, output_path: Path) -> Path:
     text = convert_epub(epub_path)
     text = clean_markdown(
@@ -269,6 +350,14 @@ def ingest_epub(epub_path: Path, output_path: Path) -> Path:
     if sum(bool(re.match(r"^#{2,6}\s+", line)) for line in text.splitlines()) < 5:
         text = reconstruct_epub_toc(epub_path, text, allow_plain_labels=True)
     text = normalize_heading_levels(text)
+    if evaluate(text)["flagged"]:
+        try:
+            text = recover_epub_headings(
+                text, _epub_navigation_entries(epub_path), _epub_book_title(epub_path)
+            )
+        except Exception as error:
+            print(f"  EPUB heading recovery unavailable ({error}): {epub_path.stem}")
+    text = _apply_output_heading_map(text, output_path)
     output_path.write_text(text, encoding="utf-8")
     return output_path
 
@@ -515,6 +604,12 @@ def ingest_pdf(pdf_path: Path, output_path: Path) -> Path:
         )
         text = strip_front_back_matter(text)
         text = normalize_heading_levels(text)
+    if evaluate(text)["flagged"]:
+        try:
+            text = recover_pdf_headings(pdf_path, text)
+        except Exception as error:
+            print(f"  PDF heading recovery unavailable ({error}): {pdf_path.stem}")
+    text = _apply_output_heading_map(text, output_path)
     output_path.write_text(text, encoding="utf-8")
     return output_path
 
@@ -575,6 +670,7 @@ def ingest_all() -> list[Path]:
                 text = convert_epub(html_file)  # markitdown handles HTML too
                 text = clean_markdown(text)
                 text = normalize_heading_levels(text)
+                text = _apply_output_heading_map(text, output)
                 output.write_text(text, encoding="utf-8")
                 results.append(output)
             except Exception as e:
@@ -598,6 +694,7 @@ def ingest_all() -> list[Path]:
             print(f"  Copying markdown: {stem}")
             text = md_file.read_text(encoding="utf-8")
             text = normalize_heading_levels(text)
+            text = _apply_output_heading_map(text, output)
             output.write_text(text, encoding="utf-8")
             results.append(output)
 

@@ -1,0 +1,6 @@
+{
+  "ai-modern-approach": "live book with no headings; repair candidate (heading_count=0, body_chars=3311404, headings_per_100k_body_chars=0.00, largest_heading_free_span_chars=3311404, largest_heading_free_span_share=100.0%)",
+  "microservices-design-to-deploy": "live book with no headings; repair candidate (heading_count=0, body_chars=160379, headings_per_100k_body_chars=0.00, largest_heading_free_span_chars=160379, largest_heading_free_span_share=100.0%)",
+  "refactoring": "live book with no headings; repair candidate (heading_count=0, body_chars=655927, headings_per_100k_body_chars=0.00, largest_heading_free_span_chars=655927, largest_heading_free_span_share=100.0%)",
+  "tdd-by-example": "live book with no headings; repair candidate (heading_count=0, body_chars=230972, headings_per_100k_body_chars=0.00, largest_heading_free_span_chars=230972, largest_heading_free_span_share=100.0%)"
+}
