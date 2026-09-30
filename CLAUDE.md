@@ -84,7 +84,7 @@ Configured in `.mcp.json` (project) and `~/.claude.json` (global, via PYTHONPATH
 
 The private repo is `gaztrabisme/knowledge-base`. Other machines install it with `install.ps1` (Windows) or `install.sh` (macOS/Linux) and a fine-grained GitHub token that can only read this repo; `README.md` is the guide for that reader.
 
-- Data ships as GitHub Release `data-v9`: `kb-core.part00` (technical snapshot, markdown, chunks), `kb-philosophy.part00`, and `manifest.json` with point counts and sha256 per part.
+- Data ships as GitHub Release `data-v9`: `kb-core.part00` and `kb-core.part01` (technical snapshot, markdown, chunks), `kb-philosophy.part00`, and `manifest.json` with point counts and sha256 per part.
 - Rebuild the release after an index change: `uv run python scripts/package_release.py` (snapshots the live Qdrant, writes `dist/release/`), then upload under a new tag and bump the installer's `--release-tag` default.
 - `scripts/install.py --dir <dir> --edition core|full [--update] [--qdrant-port N]` downloads and verifies the parts, fetches the pinned Qdrant binary, restores the snapshots, and runs `claude mcp add`.
 

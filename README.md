@@ -5,7 +5,7 @@
 The Developer Knowledge Base is a local Model Context Protocol (MCP) server that provides semantic search over curated technical books to Claude Code during development sessions. It runs an embedded vector search engine (Qdrant) locally on your machine without relying on external cloud search services.
 
 There are two editions available:
-- **core**: The technical books collection covering 19 engineering domains across 320 indexed books. It provides 6 MCP tools (`search`, `search_book`, `read_chunk`, `get_chapter`, `list_books`, and `grep_books`). Installed disk size is approximately 3.8 GB.
+- **core**: The technical books collection covering 19 engineering domains across 320 indexed books. It provides 6 MCP tools (`search`, `search_book`, `read_chunk`, `get_chapter`, `list_books`, and `grep_books`). The release download is 1.99 GB and installed disk size is approximately 3.7 GB.
 - **full**: Includes everything in `core` plus the multilingual philosophy collection (the Original Library, Tao Te Ching translations, and Zhuan Falun in English, Vietnamese, and Chinese) with aligned cross-language passage search. It adds 2 MCP tools (`search_philosophy` and `list_philosophy`), giving 8 tools in total. The full edition adds approximately 0.2 GB to disk size.
 
 On a first-time installation, the installer also downloads approximately 2 GB of embedding and reranker model weights and PyTorch dependencies.
