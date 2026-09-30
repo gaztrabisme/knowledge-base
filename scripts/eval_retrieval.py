@@ -87,6 +87,7 @@ def main():
                                                     "scores (for paired significance testing) + the "
                                                     "retrieved top-k candidate texts (for label-quality "
                                                     "auditing). Path, e.g. data/golden/eval_runs/pq-<label>.jsonl")
+    ap.add_argument("--report-out", default="", help="write the summary JSON here instead of the default eval_runs path")
     args = ap.parse_args()
 
     rows = [json.loads(l) for l in open(args.golden)]
@@ -195,8 +196,12 @@ def main():
             for arch, d in sorted(per_archetype.items())
         }
 
-    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    out = RESULTS_DIR / f"{args.label}.json"
+    if args.report_out:
+        out = Path(args.report_out)
+    else:
+        RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+        out = RESULTS_DIR / f"{args.label}.json"
+    out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps({"report": report, "misses": misses}, indent=2))
 
     if args.per_query:
