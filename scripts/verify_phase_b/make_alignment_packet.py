@@ -15,7 +15,7 @@ PHASE_A = {"original-library", "tao-te-ching-jonathan-star", "tao-te-ching-steph
 
 def main(out_dir: str) -> None:
     out = Path(out_dir); out.mkdir(parents=True, exist_ok=True)
-    rng = random.Random(20261001)
+    rng = random.Random(int(sys.argv[2]) if len(sys.argv) > 2 else 20261001)
     registry = json.loads((ROOT / "data/philosophy/works.json").read_text(encoding="utf-8"))
     sections: dict[tuple[str, str], dict[str, dict]] = {}
     all_children = []
