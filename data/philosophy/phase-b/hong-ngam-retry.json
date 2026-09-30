@@ -1,0 +1,92 @@
+[
+  {
+    "source_item_id": "vi_book_0015_64434576b7",
+    "title": "Hồng Ngâm",
+    "source_url": "https://vi.falundafa.org/book/hongyin1-vn-2014-t1.pdf",
+    "status": "fetched",
+    "file": "hongyin1-vn-2014-t1.pdf",
+    "bytes": 6195644,
+    "sha256": "78572a5959771e51f373bac191bb30d5046f34d55b6f011037356ef260fc045a",
+    "pages": 150
+  },
+  {
+    "source_item_id": "vi_book_0015_64434576b7",
+    "title": "Hồng Ngâm",
+    "source_url": "https://vi.falundafa.org/book/hongyin_html/Hongngam_2026.pdf",
+    "status": "fetched",
+    "file": "Hongngam_2026.pdf",
+    "bytes": 3768179,
+    "sha256": "9b16b135c6c5b23459e9004235b9cab5085f89532971978b966e6172313e2669",
+    "pages": 160
+  },
+  {
+    "source_item_id": "vi_book_0026_51b30bf591",
+    "title": "Hồng Ngâm II",
+    "source_url": "https://vi.falundafa.org/book/hongyin2-t1.pdf",
+    "status": "fetched",
+    "file": "hongyin2-t1.pdf",
+    "bytes": 3006286,
+    "sha256": "83dc0b97deaae4e5aa1cd98313bb097edd8fda09d689a63ee63a0071fa4f128a",
+    "pages": 88
+  },
+  {
+    "source_item_id": "vi_book_0026_51b30bf591",
+    "title": "Hồng Ngâm II",
+    "source_url": "https://vi.falundafa.org/book/HongYinPdf/Hongngam2_2026.pdf",
+    "status": "fetched",
+    "file": "Hongngam2_2026.pdf",
+    "bytes": 1797900,
+    "sha256": "c144b0612749f1ae04482308404773ee8e432bc971f81180a206e8aa3e9e8d9d",
+    "pages": 192
+  },
+  {
+    "source_item_id": "vi_book_0039_4406eceb47",
+    "title": "Hồng Ngâm III",
+    "source_url": "https://vi.falundafa.org/book/hongyin3-vn-t1.pdf",
+    "status": "fetched",
+    "file": "hongyin3-vn-t1.pdf",
+    "bytes": 6887741,
+    "sha256": "8a74c087f3ee66ddade8d7907e2ce1a39a0aca56a3690837900afb3791629b03",
+    "pages": 302
+  },
+  {
+    "source_item_id": "vi_book_0039_4406eceb47",
+    "title": "Hồng Ngâm III",
+    "source_url": "https://vi.falundafa.org/book/HongYinPdf/Hongngam3_2026.pdf",
+    "status": "fetched",
+    "file": "Hongngam3_2026.pdf",
+    "bytes": 14290643,
+    "sha256": "6fb335995f92e8ac2e21eb3592333da1757f0454ad2b9d17ab00f41b2b2cd2ef",
+    "pages": 298
+  },
+  {
+    "source_item_id": "vi_book_0045_79fa5afef4",
+    "title": "Hồng Ngâm IV",
+    "source_url": "https://vi.falundafa.org/book/HongYinPdf/Hongngam4_2026.pdf",
+    "status": "fetched",
+    "file": "Hongngam4_2026.pdf",
+    "bytes": 10091301,
+    "sha256": "7354d286198f531663ae274e491b6df467df165b06b79ad9ef644e81fc035d3b",
+    "pages": 358
+  },
+  {
+    "source_item_id": "vi_book_0046_f69e269259",
+    "title": "Hồng Ngâm V",
+    "source_url": "https://vi.falundafa.org/book/HongYinPdf/Hongngam5_2026.pdf",
+    "status": "fetched",
+    "file": "Hongngam5_2026.pdf",
+    "bytes": 11720046,
+    "sha256": "9fb8986613c01c2ea466bed7962525c20a52abcab892470a4b67d6545edbdfcc",
+    "pages": 272
+  },
+  {
+    "source_item_id": "vi_book_0047_2ae4ad9e3c",
+    "title": "Hồng Ngâm VI",
+    "source_url": "https://vi.falundafa.org/book/HongYinPdf/Hongngam6_2026.pdf",
+    "status": "fetched",
+    "file": "Hongngam6_2026.pdf",
+    "bytes": 5225261,
+    "sha256": "6652521c876be89dafeb8285cca170f1353911f35722be0c8b8ab5136c80e7c7",
+    "pages": 166
+  }
+]

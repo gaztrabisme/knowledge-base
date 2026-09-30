@@ -1,0 +1,1927 @@
+{
+  "schema_version": 1,
+  "groups": [
+    {
+      "work_id": "zhuan-falun",
+      "kind": "book",
+      "titles": {
+        "en": "Zhuan Falun (The main text of Falun Dafa)",
+        "vi": "Chuyển Pháp Luân",
+        "zh-Hans": "转法轮",
+        "zh-Hant": "轉法輪"
+      },
+      "basis": "Official book-index position 0001 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/pdf/zfl_2018.pdf",
+        "vi": "https://media.falundafa.org/media1/media/dafa/vietnamese/CPL-210517-26Aug2024_ONLINE.pdf",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_zfl.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/zfl-pdf.zip"
+      },
+      "retry_hong_ngam_volume": null
+    },
+    {
+      "work_id": "falun-gong",
+      "kind": "book",
+      "titles": {
+        "en": "Falun Gong",
+        "vi": "Pháp Luân Công",
+        "zh-Hans": "法轮功",
+        "zh-Hant": "法輪功"
+      },
+      "basis": "Official book-index position 0002 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/html/flg2026/flg2026.html",
+        "vi": "https://vi.falundafa.org/book/flg_html/index.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_flg.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/flg-pdf.zip"
+      },
+      "retry_hong_ngam_volume": null,
+      "edition_choices": {
+        "en": {
+          "output_id": "en_book_0002_5c98c7d76f",
+          "reason": "Newest official English translation in the archive: the 2026 US Practitioners pre-publication edition, after the 2021 eighth edition and earlier translations."
+        }
+      }
+    },
+    {
+      "work_id": "further-discussions-on-falun-dafa",
+      "kind": "book",
+      "titles": {
+        "en": "Further Discussions on Falun Dafa",
+        "vi": "Pháp Luân Đại Pháp Nghĩa giải",
+        "zh-Hans": "法轮大法义解",
+        "zh-Hant": "法輪大法義解"
+      },
+      "basis": "Official book-index position 0003 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/pdf/Further Discussions on Falun Dafa.pdf",
+        "vi": "https://vi.falundafa.org/book/yj_html/index.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_yijie.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/yijie-pdf.zip"
+      },
+      "retry_hong_ngam_volume": null
+    },
+    {
+      "work_id": "explaining-the-teachings-of-zhuan-falun",
+      "kind": "book",
+      "titles": {
+        "en": "Explaining the Teachings of Zhuan Falun",
+        "vi": "Chuyển Pháp Luân Pháp giải",
+        "zh-Hans": "转法轮法解",
+        "zh-Hant": "轉法輪法解"
+      },
+      "basis": "Official book-index position 0004 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/zfl_fajie/zfl_fajie.htm",
+        "vi": "https://vi.falundafa.org/book/phap_giai_vn_2017.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_fajie.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/fajie-pdf.zip"
+      }
+    },
+    {
+      "work_id": "zhuan-falun-volume-ii",
+      "kind": "book",
+      "titles": {
+        "en": "Zhuan Falun Volume II",
+        "vi": "Chuyển Pháp Luân (Quyển II)",
+        "zh-Hans": "转法轮（卷二）",
+        "zh-Hant": "轉法輪（卷二）"
+      },
+      "basis": "Official book-index position 0005 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/html/zfl2/zfl2.htm",
+        "vi": "https://vi.falundafa.org/book/zfl2_html/index.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_zfl2.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/zfl2-pdf.zip"
+      }
+    },
+    {
+      "work_id": "lecture-given-at-the-conference-in-sydney",
+      "kind": "book",
+      "titles": {
+        "en": "Lecture Given at the Conference in Sydney",
+        "vi": "Giảng Pháp tại Pháp hội Sydney",
+        "zh-Hans": "法轮大法 悉尼法会讲法",
+        "zh-Hant": "法輪大法 悉尼法會講法"
+      },
+      "basis": "Official book-index position 0006 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/1996L_2018.html",
+        "vi": "https://vi.falundafa.org/lectures/19960000_sydney/19960000_sydney_vn_2017.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_xini.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/xini-pdf.zip"
+      },
+      "edition_choices": {
+        "en": {
+          "output_id": "en_book_0006_86d8351ed4",
+          "reason": "Newest official translation in the archive: the 2018 translation, over the 1999 translation."
+        }
+      }
+    },
+    {
+      "work_id": "the-great-way-of-spiritual-perfection",
+      "kind": "book",
+      "titles": {
+        "en": "The Great Way of Spiritual Perfection",
+        "vi": "Đại viên mãn Pháp",
+        "zh-Hans": "法轮大法 大圆满法",
+        "zh-Hant": "法輪大法 大圓滿法"
+      },
+      "basis": "Official book-index position 0007 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/pdf/dymf_2014.pdf",
+        "vi": "https://vi.falundafa.org/book/dymf_html/index.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_dymf.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/dymf-pdf.zip"
+      }
+    },
+    {
+      "work_id": "teachings-at-conferences-in-the-united-states",
+      "kind": "book",
+      "titles": {
+        "en": "Teachings at Conferences in the United States",
+        "vi": "Giảng Pháp tại Pháp hội Mỹ quốc",
+        "zh-Hans": "法轮大法 美国法会讲法",
+        "zh-Hant": "法輪大法 美國法會講法"
+      },
+      "basis": "Official book-index position 0008 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/1997L.html",
+        "vi": "https://vi.falundafa.org/lectures/19970000_myquoc/19970000_myquoc_vn_2017.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_mgjf.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/mgjf-pdf.zip"
+      }
+    },
+    {
+      "work_id": "essentials-for-further-advancement",
+      "kind": "book",
+      "titles": {
+        "en": "Essentials for Further Advancement",
+        "vi": "Tinh tấn yếu chỉ",
+        "zh-Hans": "法轮大法 精進要旨",
+        "zh-Hant": "法輪大法 精進要旨"
+      },
+      "basis": "Official book-index position 0009 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/jjyz.htm",
+        "vi": "https://vi.falundafa.org/book/jjyz_html/index.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_jjyz.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/jjyz-pdf.zip"
+      }
+    },
+    {
+      "work_id": "teachings-at-the-first-conference-in-north-america",
+      "kind": "book",
+      "titles": {
+        "en": "Teachings at the First Conference in North America",
+        "vi": "Giảng Pháp tại Pháp hội Bắc Mỹ lần đầu",
+        "zh-Hans": "法轮大法 北美首届法会讲法",
+        "zh-Hant": "法輪大法 北美首屆法會講法"
+      },
+      "basis": "Official book-index position 0010 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/19980329L.html",
+        "vi": "https://vi.falundafa.org/lectures/19980329L.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_bmjf.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/bmjf-pdf.zip"
+      }
+    },
+    {
+      "work_id": "teachings-at-the-conference-in-europe",
+      "kind": "book",
+      "titles": {
+        "en": "Teachings at the Conference in Europe",
+        "vi": "Giảng Pháp tại Pháp hội Châu Âu",
+        "zh-Hans": "法轮大法 欧洲法会讲法",
+        "zh-Hant": "法輪大法 歐洲法會講法"
+      },
+      "basis": "Official book-index position 0011 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/19980530L.html",
+        "vi": "https://vi.falundafa.org/lectures/19980530L.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_ozjf.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/ozjf-pdf.zip"
+      }
+    },
+    {
+      "work_id": "teachings-at-the-conference-of-changchun-assistants",
+      "kind": "book",
+      "titles": {
+        "en": "Teachings at the Conference of Changchun Assistants",
+        "vi": "Giảng Pháp tại Pháp hội các phụ đạo viên ở Trường Xuân",
+        "zh-Hans": "法轮大法 长春辅导员法会讲法",
+        "zh-Hant": "法輪大法 長春輔導員法會講法"
+      },
+      "basis": "Official book-index position 0012 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/19980726L.html",
+        "vi": "https://vi.falundafa.org/lectures/19980726L.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_changchun.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/changchun-pdf.zip"
+      }
+    },
+    {
+      "work_id": "teachings-at-the-conference-in-singapore",
+      "kind": "book",
+      "titles": {
+        "en": "Teachings at the Conference in Singapore",
+        "vi": "Giảng Pháp tại Pháp hội Singapore",
+        "zh-Hans": "法轮大法 新加坡法会讲法",
+        "zh-Hant": "法輪大法 新加坡法會講法"
+      },
+      "basis": "Official book-index position 0013 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/19980822L.html",
+        "vi": "https://vi.falundafa.org/lectures/19980822L.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_singapore.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/singapore-pdf.zip"
+      }
+    },
+    {
+      "work_id": "teachings-at-the-conference-in-switzerland",
+      "kind": "book",
+      "titles": {
+        "en": "Teachings at the Conference in Switzerland",
+        "vi": "Giảng Pháp tại Pháp hội Thụy Sỹ",
+        "zh-Hans": "法轮大法 瑞士法会讲法",
+        "zh-Hant": "法輪大法 瑞士法會講法"
+      },
+      "basis": "Official book-index position 0014 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/19980904L.html",
+        "vi": "https://vi.falundafa.org/lectures/19980904L.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_swiss.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/swiss-pdf.zip"
+      }
+    },
+    {
+      "work_id": "hong-yin",
+      "kind": "book",
+      "titles": {
+        "en": "Hong Yin",
+        "zh-Hans": "洪吟",
+        "zh-Hant": "洪吟"
+      },
+      "basis": "Official book-index position 0015 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/hongyin/v1/hy.htm",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_hongyin.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/hongyin-pdf.zip"
+      },
+      "edition_choices": {
+        "en": {
+          "output_id": "en_book_0015_dfd131e35f__g01",
+          "reason": "The alternate Version B PDF is the complete 41-page official translation; the primary candidate is a one-page Open Book Reader shell, not the poem text."
+        }
+      },
+      "retry_hong_ngam_volume": 1,
+      "optional_titles": {
+        "vi": "Hồng Ngâm I"
+      }
+    },
+    {
+      "work_id": "teachings-at-the-conference-in-the-western-u-s",
+      "kind": "book",
+      "titles": {
+        "en": "Teachings at the Conference in the Western U.S.",
+        "vi": "Giảng Pháp tại Pháp hội miền Tây Mỹ quốc",
+        "zh-Hans": "法轮大法 美国西部法会讲法",
+        "zh-Hant": "法輪大法 美國西部法會講法"
+      },
+      "basis": "Official book-index position 0016 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/19990221L.html",
+        "vi": "https://vi.falundafa.org/lectures/19990221L.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_uswest.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/uswest-pdf.zip"
+      }
+    },
+    {
+      "work_id": "teachings-at-the-conference-in-the-eastern-u-s",
+      "kind": "book",
+      "titles": {
+        "en": "Teachings at the Conference in the Eastern U.S.",
+        "vi": "Giảng Pháp tại Pháp hội miền Đông Mỹ quốc",
+        "zh-Hans": "法轮大法 美国东部法会讲法",
+        "zh-Hant": "法輪大法 美國東部法會講法"
+      },
+      "basis": "Official book-index position 0017 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/19990327L.html",
+        "vi": "https://vi.falundafa.org/lectures/19990327L.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_useast.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/useast-pdf.zip"
+      }
+    },
+    {
+      "work_id": "teachings-at-the-conference-in-australia",
+      "kind": "book",
+      "titles": {
+        "en": "Teachings at the Conference in Australia",
+        "vi": "Giảng Pháp tại Pháp hội Australia",
+        "zh-Hans": "法轮大法 澳大利亚法会讲法",
+        "zh-Hant": "法輪大法 澳大利亞法會講法"
+      },
+      "basis": "Official book-index position 0018 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/19990502L.html",
+        "vi": "https://vi.falundafa.org/lectures/19990502L.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_australia.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/australia-pdf.zip"
+      }
+    },
+    {
+      "work_id": "teachings-at-the-conference-in-new-zealand",
+      "kind": "book",
+      "titles": {
+        "en": "Teachings at the Conference in New Zealand",
+        "vi": "Giảng Pháp tại Pháp hội New Zealand",
+        "zh-Hans": "法轮大法 新西兰法会讲法",
+        "zh-Hant": "法輪大法 新西蘭法會講法"
+      },
+      "basis": "Official book-index position 0019 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/19990508L.html",
+        "vi": "https://vi.falundafa.org/lectures/19990508L.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_newzland.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/newzland-pdf.zip"
+      }
+    },
+    {
+      "work_id": "teachings-at-the-conference-in-canada",
+      "kind": "book",
+      "titles": {
+        "en": "Teachings at the Conference in Canada",
+        "vi": "Giảng Pháp tại Pháp hội Canada",
+        "zh-Hans": "法轮大法 加拿大法会讲法",
+        "zh-Hant": "法輪大法 加拿大法會講法"
+      },
+      "basis": "Official book-index position 0020 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/19990523L.html",
+        "vi": "https://vi.falundafa.org/lectures/19990523L.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_canada.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/canada-pdf.zip"
+      }
+    },
+    {
+      "work_id": "teachings-at-the-midwestern-u-s-conference",
+      "kind": "book",
+      "titles": {
+        "en": "Teachings at the Midwestern U.S. Conference",
+        "vi": "Giảng Pháp tại Pháp hội miền Trung Mỹ quốc",
+        "zh-Hans": "法轮大法 美国中部法会讲法",
+        "zh-Hant": "法輪大法 美國中部法會講法"
+      },
+      "basis": "Official book-index position 0021 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/19990626L.html",
+        "vi": "https://vi.falundafa.org/lectures/19990626L.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_chicago.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/chicago-pdf.zip"
+      }
+    },
+    {
+      "work_id": "guiding-the-voyage",
+      "kind": "book",
+      "titles": {
+        "en": "Guiding the Voyage",
+        "vi": "Đạo Hàng",
+        "zh-Hans": "法轮大法 导航",
+        "zh-Hant": "法輪大法 導航"
+      },
+      "basis": "Official book-index position 0022 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/daohang.htm",
+        "vi": "https://vi.falundafa.org/book/daohang_html/index.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_daohang.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/daohang-pdf.zip"
+      }
+    },
+    {
+      "work_id": "the-essentials-of-diligent-progress-ii",
+      "kind": "book",
+      "titles": {
+        "en": "The Essentials of Diligent Progress II",
+        "vi": "Tinh tấn yếu chỉ II",
+        "zh-Hans": "法轮大法 精進要旨二",
+        "zh-Hant": "法輪大法 精進要旨二"
+      },
+      "basis": "Official book-index position 0023 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/jjyz2.htm",
+        "vi": "https://vi.falundafa.org/book/jjyz2_html/index.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_jjyz2.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/jjyz2-pdf.zip"
+      }
+    },
+    {
+      "work_id": "teachings-from-a-tour-of-north-america",
+      "kind": "book",
+      "titles": {
+        "en": "Teachings From a Tour of North America",
+        "vi": "Giảng Pháp trong chuyến đi quanh Bắc Mỹ",
+        "zh-Hans": "法轮大法 北美巡回讲法",
+        "zh-Hant": "法輪大法 北美巡迴講法"
+      },
+      "basis": "Official book-index position 0024 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/200203L.html",
+        "vi": "https://vi.falundafa.org/lectures/200203L.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_na2002.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/na2002-pdf.zip"
+      }
+    },
+    {
+      "work_id": "teachings-given-on-lantern-festival-day-2003",
+      "kind": "book",
+      "titles": {
+        "en": "Teachings Given on Lantern Festival Day, 2003",
+        "vi": "Giảng Pháp vào Tết Nguyên Tiêu năm 2003",
+        "zh-Hans": "法轮大法 二零零三年元宵节讲法",
+        "zh-Hant": "法輪大法 二零零三年元宵節講法"
+      },
+      "basis": "Official book-index position 0025 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/20030215L-full.html",
+        "vi": "https://vi.falundafa.org/lectures/20030215L-full.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_la2003.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/la2003-pdf.zip"
+      }
+    },
+    {
+      "work_id": "hong-yin-ii",
+      "kind": "book",
+      "titles": {
+        "en": "Hong Yin II",
+        "zh-Hans": "洪吟 二",
+        "zh-Hant": "洪吟二"
+      },
+      "basis": "Official book-index position 0026 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/HongYinIIVA.htm",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_hongyin2.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/hongyin2-pdf.zip"
+      },
+      "edition_choices": {
+        "en": {
+          "output_id": "en_book_0026_259058f936__g01",
+          "reason": "The alternate Version B PDF is the complete 45-page official translation; the primary candidate is a one-page Open Book Reader shell, not the poem text."
+        }
+      },
+      "retry_hong_ngam_volume": 2,
+      "optional_titles": {
+        "vi": "Hồng Ngâm II"
+      }
+    },
+    {
+      "work_id": "teachings-at-the-conference-in-houston",
+      "kind": "book",
+      "titles": {
+        "en": "Teachings at the Conference in Houston",
+        "vi": "Giảng Pháp tại Pháp hội Houston",
+        "zh-Hans": "法轮大法 休斯顿法会讲法",
+        "zh-Hant": "法輪大法 休斯頓法會講法"
+      },
+      "basis": "Official book-index position 0027 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/19961012L.html",
+        "vi": "https://vi.falundafa.org/lectures/19961012L.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_houston.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/houston-pdf.zip"
+      }
+    },
+    {
+      "work_id": "collected-teachings-given-around-the-world-volume-i",
+      "kind": "book",
+      "titles": {
+        "en": "Collected Teachings Given Around the World, Volume I",
+        "vi": "Giảng Pháp tại các nơi I",
+        "zh-Hans": "法轮大法 各地讲法一",
+        "zh-Hant": "法輪大法 各地講法一"
+      },
+      "basis": "Official book-index position 0028 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/conference1.htm",
+        "vi": "https://vi.falundafa.org/lectures/conference1.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_jiangfa1.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/jiangfa1-pdf.zip"
+      }
+    },
+    {
+      "work_id": "collected-teachings-given-around-the-world-volume-ii",
+      "kind": "book",
+      "titles": {
+        "en": "Collected Teachings Given Around the World, Volume II",
+        "vi": "Giảng Pháp tại các nơi II",
+        "zh-Hans": "法轮大法 各地讲法二",
+        "zh-Hant": "法輪大法 各地講法二"
+      },
+      "basis": "Official book-index position 0029 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/conference2.htm",
+        "vi": "https://vi.falundafa.org/lectures/conference2.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_jiangfa2.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/jiangfa2-pdf.zip"
+      }
+    },
+    {
+      "work_id": "collected-teachings-given-around-the-world-volume-iii",
+      "kind": "book",
+      "titles": {
+        "en": "Collected Teachings Given Around the World, Volume III",
+        "vi": "Giảng Pháp tại các nơi III",
+        "zh-Hans": "法轮大法 各地讲法三",
+        "zh-Hant": "法輪大法 各地講法三"
+      },
+      "basis": "Official book-index position 0030 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/conference3.htm",
+        "vi": "https://vi.falundafa.org/lectures/conference3.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_jiangfa3.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/jiangfa3-pdf.zip"
+      }
+    },
+    {
+      "work_id": "teaching-the-fa-at-the-discussion-on-writing-music-and-creating-fine-art",
+      "kind": "book",
+      "titles": {
+        "en": "Teaching the Fa at the Discussion on Writing Music and Creating Fine Art",
+        "vi": "Giảng Pháp tại Buổi họp Sáng tác Âm nhạc và Mỹ thuật",
+        "zh-Hans": "法轮大法 音乐与美术创作会讲法",
+        "zh-Hant": "法輪大法 音樂與美術創作會講法"
+      },
+      "basis": "Official book-index position 0031 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/music_fine_art.htm",
+        "vi": "https://vi.falundafa.org/lectures/music_fine_art.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_yyms.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/yyms-pdf.zip"
+      }
+    },
+    {
+      "work_id": "collected-teachings-given-around-the-world-volume-iv",
+      "kind": "book",
+      "titles": {
+        "en": "Collected Teachings Given Around the World, Volume IV",
+        "vi": "Giảng Pháp tại các nơi IV",
+        "zh-Hans": "法轮大法 各地讲法四",
+        "zh-Hant": "法輪大法 各地講法四"
+      },
+      "basis": "Official book-index position 0032 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/conference4.htm",
+        "vi": "https://vi.falundafa.org/lectures/conference4.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_jiangfa4.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/jiangfa4-pdf.zip"
+      }
+    },
+    {
+      "work_id": "collected-teachings-given-around-the-world-volume-v",
+      "kind": "book",
+      "titles": {
+        "en": "Collected Teachings Given Around the World, Volume V",
+        "vi": "Giảng Pháp tại các nơi V",
+        "zh-Hans": "法轮大法 各地讲法五",
+        "zh-Hant": "法輪大法 各地講法五"
+      },
+      "basis": "Official book-index position 0033 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/conference5.htm",
+        "vi": "https://vi.falundafa.org/lectures/conference5.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_jiangfa5.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/jiangfa5-pdf.zip"
+      }
+    },
+    {
+      "work_id": "collected-teachings-given-around-the-world-volume-vi",
+      "kind": "book",
+      "titles": {
+        "en": "Collected Teachings Given Around the World, Volume VI",
+        "vi": "Giảng Pháp tại các nơi VI",
+        "zh-Hans": "法轮大法 各地讲法六",
+        "zh-Hant": "法輪大法 各地講法六"
+      },
+      "basis": "Official book-index position 0034 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/conference6.htm",
+        "vi": "https://vi.falundafa.org/lectures/conference6.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_jiangfa6.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/jiangfa6-pdf.zip"
+      }
+    },
+    {
+      "work_id": "teachings-at-the-2004-international-conference-in-new-york",
+      "kind": "book",
+      "titles": {
+        "en": "Teachings at the 2004 International Conference in New York",
+        "vi": "Giảng Pháp tại Pháp hội quốc tế New York 2004",
+        "zh-Hans": "法轮大法 二零零四年纽约国际法会讲法",
+        "zh-Hant": "法輪大法 二零零四年紐約國際法會講法"
+      },
+      "basis": "Official book-index position 0035 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/20041121L.html",
+        "vi": "https://vi.falundafa.org/lectures/20041121L.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_ny2004.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/ny2004-pdf.zip"
+      }
+    },
+    {
+      "work_id": "collected-teachings-given-around-the-world-volume-vii",
+      "kind": "book",
+      "titles": {
+        "en": "Collected Teachings Given Around the World, Volume VII",
+        "vi": "Giảng Pháp tại các nơi VII",
+        "zh-Hans": "法轮大法 各地讲法七",
+        "zh-Hant": "法輪大法 各地講法七"
+      },
+      "basis": "Official book-index position 0036 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/conference7.htm",
+        "vi": "https://vi.falundafa.org/lectures/conference7.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_jiangfa7.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/jiangfa7-pdf.zip"
+      }
+    },
+    {
+      "work_id": "teachings-at-the-2005-conference-in-san-francisco",
+      "kind": "book",
+      "titles": {
+        "en": "Teachings at the 2005 Conference in San Francisco",
+        "vi": "Giảng Pháp tại Pháp hội San-Francisco năm 2005",
+        "zh-Hans": "法轮大法 二零零五年旧金山法会讲法",
+        "zh-Hant": "法輪大法 二零零五年舊金山法會講法"
+      },
+      "basis": "Official book-index position 0037 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/20051105L.html",
+        "vi": "https://vi.falundafa.org/lectures/20051105L.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_san2005.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/san2005-pdf.zip"
+      }
+    },
+    {
+      "work_id": "teachings-at-the-conference-in-los-angeles",
+      "kind": "book",
+      "titles": {
+        "en": "Teachings at the Conference in Los Angeles",
+        "vi": "Giảng Pháp tại Pháp hội thành phố Los Angeles",
+        "zh-Hans": "法轮大法 洛杉矶市法会讲法",
+        "zh-Hant": "法輪大法 洛杉磯市法會講法"
+      },
+      "basis": "Official book-index position 0038 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/lectures/20060225L.html",
+        "vi": "https://vi.falundafa.org/lectures/20060225L.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_la2006.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/la2006-pdf.zip"
+      }
+    },
+    {
+      "work_id": "hong-yin-iii",
+      "kind": "book",
+      "titles": {
+        "en": "Hong Yin III",
+        "zh-Hans": "洪吟 三",
+        "zh-Hant": "洪吟三"
+      },
+      "basis": "Official book-index position 0039 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/hy3_001.htm",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_hongyin3.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/hongyin3-zhengti.zip"
+      },
+      "retry_hong_ngam_volume": 3,
+      "optional_titles": {
+        "vi": "Hồng Ngâm III"
+      }
+    },
+    {
+      "work_id": "the-essentials-of-diligent-progress-iii",
+      "kind": "book",
+      "titles": {
+        "en": "The Essentials of Diligent Progress III",
+        "vi": "Tinh tấn yếu chỉ III",
+        "zh-Hans": "法轮大法 精進要旨三",
+        "zh-Hant": "精進要旨三"
+      },
+      "basis": "Official book-index position 0040 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/jjyz3.htm",
+        "vi": "https://vi.falundafa.org/book/jjyz3_html/index.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_jjyz3.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/jjyz3-pdf.zip"
+      }
+    },
+    {
+      "work_id": "collected-teachings-given-around-the-world-volume-viii",
+      "kind": "book",
+      "titles": {
+        "en": "Collected Teachings Given Around the World, Volume VIII",
+        "vi": "Giảng Pháp tại các nơi VIII",
+        "zh-Hans": "法轮大法 各地讲法八",
+        "zh-Hant": "法輪大法 各地講法八"
+      },
+      "basis": "Official book-index position 0041 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/conference8.htm",
+        "vi": "https://vi.falundafa.org/lectures/conference8.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_jiangfa8.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/jiangfa8-pdf.zip"
+      }
+    },
+    {
+      "work_id": "collected-teachings-given-around-the-world-volume-ix",
+      "kind": "book",
+      "titles": {
+        "en": "Collected Teachings Given Around the World, Volume IX",
+        "vi": "Giảng Pháp tại các nơi IX",
+        "zh-Hans": "法轮大法 各地讲法九",
+        "zh-Hant": "法輪大法 各地講法九"
+      },
+      "basis": "Official book-index position 0042 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/conference9.htm",
+        "vi": "https://vi.falundafa.org/lectures/conference9.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_jiangfa9.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/jiangfa9-pdf.zip"
+      }
+    },
+    {
+      "work_id": "collected-teachings-given-around-the-world-volume-x",
+      "kind": "book",
+      "titles": {
+        "en": "Collected Teachings Given Around the World, Volume X",
+        "vi": "Giảng Pháp tại các nơi X",
+        "zh-Hans": "法轮大法 各地讲法十",
+        "zh-Hant": "法輪大法 各地講法十"
+      },
+      "basis": "Official book-index position 0043 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/conference10.htm",
+        "vi": "https://vi.falundafa.org/lectures/conference10.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_jiangfa10.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/jiangfa10-pdf.zip"
+      }
+    },
+    {
+      "work_id": "collected-teachings-given-around-the-world-volume-xi",
+      "kind": "book",
+      "titles": {
+        "en": "Collected Teachings Given Around the World, Volume XI",
+        "vi": "Giảng Pháp tại các nơi XI",
+        "zh-Hans": "法轮大法 各地讲法十一",
+        "zh-Hant": "法輪大法 各地講法十一"
+      },
+      "basis": "Official book-index position 0044 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/conference11.htm",
+        "vi": "https://vi.falundafa.org/lectures/conference11.html",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_jiangfa11.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/jiangfa11-pdf.zip"
+      }
+    },
+    {
+      "work_id": "hong-yin-iv",
+      "kind": "book",
+      "titles": {
+        "en": "Hong Yin IV",
+        "vi": "Hồng Ngâm IV",
+        "zh-Hans": "洪吟 四",
+        "zh-Hant": "洪吟四"
+      },
+      "basis": "Official book-index position 0045 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/pdf/HongYinIV.pdf",
+        "vi": "https://vn.minghui.org/jw/hy4.pdf",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_HongYin4.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/hongyin4-pdf.zip"
+      },
+      "retry_hong_ngam_volume": 4
+    },
+    {
+      "work_id": "hong-yin-v",
+      "kind": "book",
+      "titles": {
+        "en": "Hong Yin V",
+        "vi": "Hồng Ngâm V",
+        "zh-Hans": "洪吟 五",
+        "zh-Hant": "洪吟五"
+      },
+      "basis": "Official book-index position 0046 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/pdf/HongYin5.pdf",
+        "vi": "https://vn.minghui.org/jw/hy5.pdf",
+        "zh-Hans": "https://gb.falundafa.org/chigb/hy5/gb/2in1_A4_hongyin5_gb.20190701.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/hongyin5-pdf.zip?v=1"
+      },
+      "retry_hong_ngam_volume": 5
+    },
+    {
+      "work_id": "collected-fa-teachings-vol-xii",
+      "kind": "book",
+      "titles": {
+        "en": "Collected Fa Teachings, Vol. XII",
+        "zh-Hans": "法轮大法 各地讲法十二",
+        "zh-Hant": "法輪大法 各地講法十二"
+      },
+      "basis": "Official book-index position 0047 aligns the English and Chinese catalogues; their translated titles and source item IDs identify this same book. The Vietnamese catalogue omits this collected-teachings volume.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/conference12.htm",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_jiangfa12.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/jiangfa12-pdf.zip"
+      },
+      "retry_hong_ngam_volume": null
+    },
+    {
+      "work_id": "collected-fa-teachings-vol-xiii",
+      "kind": "book",
+      "titles": {
+        "en": "Collected Fa Teachings, Vol. XIII",
+        "zh-Hans": "法轮大法 各地讲法十三",
+        "zh-Hant": "法輪大法 各地講法十三"
+      },
+      "basis": "Official book-index position 0048 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/conference13.htm",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_jiangfa13.zip?v=1",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/jiangfa13-pdf.zip"
+      },
+      "retry_hong_ngam_volume": null
+    },
+    {
+      "work_id": "collected-fa-teachings-vol-xiv",
+      "kind": "book",
+      "titles": {
+        "en": "Collected Fa Teachings, Vol. XIV",
+        "zh-Hans": "法轮大法 各地讲法十四",
+        "zh-Hant": "法輪大法 各地講法十四"
+      },
+      "basis": "Official book-index position 0049 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/conference14.htm",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_jiangfa14.zip?v=1",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/jiangfa14-pdf.zip"
+      },
+      "retry_hong_ngam_volume": null
+    },
+    {
+      "work_id": "collected-fa-teachings-vol-xv",
+      "kind": "book",
+      "titles": {
+        "en": "Collected Fa Teachings, Vol. XV",
+        "zh-Hans": "法轮大法 各地讲法十五",
+        "zh-Hant": "法輪大法 各地講法十五"
+      },
+      "basis": "Official book-index position 0050 aligns the available language catalogues; the translated titles and source item IDs at that position identify this same book. This uses book-index order only, not writing order.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/conference15.htm",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_jiangfa15.zip",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/jiangfa15-pdf.zip"
+      },
+      "retry_hong_ngam_volume": null
+    },
+    {
+      "work_id": "hong-yin-vi",
+      "kind": "book",
+      "titles": {
+        "en": "Hong Yin VI",
+        "vi": "Hồng Ngâm VI",
+        "zh-Hans": "洪吟 六",
+        "zh-Hant": "洪吟 六"
+      },
+      "basis": "The English title Hong Yin VI, Vietnamese Hồng Ngâm VI, and Chinese 洪吟六 identify the same numbered volume. The Vietnamese index places it at local position 0047 while the English/Chinese indexes place it at 0051 because Vietnamese omits collected-teachings volumes XII–XV.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/pdf/HongYin6.pdf",
+        "vi": "https://vn.minghui.org/jw/HongYin6_vn_2024_Oct27.pdf",
+        "zh-Hans": "https://gb.falundafa.org/chigb/2in1_A4/2in1_A4_hongyin6.zip?v=1",
+        "zh-Hant": "https://big5.falundafa.org/chibig5/pdf/hongyin6-pdf.zip?v=1"
+      },
+      "retry_hong_ngam_volume": 6
+    },
+    {
+      "work_id": "why-shen-yun-can-save-lives",
+      "kind": "writing",
+      "titles": {
+        "en": "Why Shen Yun Can Save Lives",
+        "vi": "Thần Vận vì sao có thể cứu người",
+        "zh-Hans": "神韵为什么能救人",
+        "zh-Hant": "神韻為甚麼能救人"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20251006A.html; vi 292654-than-van-vi-sao-co-the-cuu-nguoi.html; zh-Hans 神韵为什么能救人-501412.html; zh-Hant 神韻為甚麼能救人-501412.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20251006A.html",
+        "vi": "https://vn.minghui.org/news/292654-than-van-vi-sao-co-the-cuu-nguoi.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2025/10/11/神韵为什么能救人-501412.html",
+        "zh-Hant": "http://big5.minghui.org/mh/articles/2025/10/11/神韻為甚麼能救人-501412.html"
+      }
+    },
+    {
+      "work_id": "critical-times-reveal-ones-spiritual-state",
+      "kind": "writing",
+      "titles": {
+        "en": "Critical Times Reveal One’s Spiritual State",
+        "vi": "Thời khắc then chốt xem nhân tâm",
+        "zh-Hans": "关键时刻看人心",
+        "zh-Hant": "關鍵時刻看人心"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20250202A.html; vi 279580-thoi-khac-then-chot-xem-nhan-tam.html; zh-Hans 关键时刻看人心-490321.html; zh-Hant 關鍵時刻看人心-490321.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20250202A.html",
+        "vi": "https://vn.minghui.org/news/279580-thoi-khac-then-chot-xem-nhan-tam.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2025/2/2/关键时刻看人心-490321.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2025/2/2/關鍵時刻看人心-490321.html"
+      }
+    },
+    {
+      "work_id": "our-practice-and-the-term-religion",
+      "kind": "writing",
+      "titles": {
+        "en": "Our Practice and the Term “Religion”",
+        "vi": "Tu luyện và tôn giáo",
+        "zh-Hans": "修炼与宗教",
+        "zh-Hant": "修煉與宗教"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20241201A.html; vi 273547-tu-luyen-va-ton-giao.html; zh-Hans 修炼与宗教-485656.html; zh-Hant 修煉與宗教-485656.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20241201A.html",
+        "vi": "https://vn.minghui.org/news/273547-tu-luyen-va-ton-giao.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2024/12/1/修炼与宗教-485656.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2024/12/1/修煉與宗教-485656.html"
+      }
+    },
+    {
+      "work_id": "why-this-world-is-a-realm-of-unknowing",
+      "kind": "writing",
+      "titles": {
+        "en": "Why This World Is a Realm of Unknowing",
+        "vi": "Vì sao xã hội nhân loại là mê?",
+        "zh-Hans": "为什么人类是迷的社会",
+        "zh-Hant": "為甚麼人類是迷的社會"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20240930A.html; vi 271809-vi-sao-xa-hoi-nhan-loai-la-me.html; zh-Hans 为什么人类是迷的社会-483472.html; zh-Hant 為甚麼人類是迷的社會-483472.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20240930A.html",
+        "vi": "https://vn.minghui.org/news/271809-vi-sao-xa-hoi-nhan-loai-la-me.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2024/9/30/为什么人类是迷的社会-483472.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2024/9/30/為甚麼人類是迷的社會-483472.html"
+      }
+    },
+    {
+      "work_id": "a-wake-up-call",
+      "kind": "writing",
+      "titles": {
+        "en": "A Wake-Up Call",
+        "vi": "Kinh Tỉnh",
+        "zh-Hans": "惊醒",
+        "zh-Hant": "驚醒"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20240606A.html; vi 266671-kinh-tinh.html; zh-Hans 惊醒-478484.html; zh-Hant 驚醒-478484.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20240606A.html?v=4",
+        "vi": "https://vn.minghui.org/news/266671-kinh-tinh.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2024/6/6/惊醒-478484.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2024/6/6/驚醒-478484.html"
+      }
+    },
+    {
+      "work_id": "the-ordeals-our-spiritual-discipline-faces",
+      "kind": "writing",
+      "titles": {
+        "en": "The Ordeals Our Spiritual Discipline Faces",
+        "vi": "Pháp nạn",
+        "zh-Hans": "法难",
+        "zh-Hant": "法難"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20240605A.html; vi 266649-phap-nan.html; zh-Hans 法难-478449.html; zh-Hant 法難-478449.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20240605A.html",
+        "vi": "https://vn.minghui.org/news/266649-phap-nan.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2024/6/5/法难-478449.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2024/6/5/法難-478449.html"
+      }
+    },
+    {
+      "work_id": "to-the-dafa-disciples-attending-the-conference-in-taiwan",
+      "kind": "writing",
+      "titles": {
+        "en": "To the Dafa Disciples Attending the Conference in Taiwan",
+        "vi": "Gửi các đệ tử Đại Pháp tham gia Pháp hội Đài Loan",
+        "zh-Hans": "致参加台湾法会的大法弟子",
+        "zh-Hant": "致參加台灣法會的大法弟子"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20231209A.html; vi 256700-gui-cac-de-tu-dai-phap-tham-gia-phap-hoi-dai-loan-2023.html; zh-Hans 致参加台湾法会的大法弟子-469121.html; zh-Hant 致參加台灣法會的大法弟子-469121.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20231209A.html",
+        "vi": "https://vn.minghui.org/news/256700-gui-cac-de-tu-dai-phap-tham-gia-phap-hoi-dai-loan-2023.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2023/12/9/致参加台湾法会的大法弟子-469121.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2023/12/9/致參加台灣法會的大法弟子-469121.html"
+      }
+    },
+    {
+      "work_id": "how-you-should-regard-and-act-toward-masters-family-members",
+      "kind": "writing",
+      "titles": {
+        "en": "How You Should Regard and Act Toward Master’s Family Members",
+        "vi": "Đối đãi chính xác với người nhà Sư phụ",
+        "zh-Hans": "正确对待师父家人",
+        "zh-Hant": "正確對待師父家人"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20230913A.html; vi 252140-doi-dai-dung-dan-voi-nguoi-nha-su-phu.html; zh-Hans 正确对待师父家人-465358.html; zh-Hant 正確對待師父家人-465358.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20230913A.html",
+        "vi": "https://vn.minghui.org/news/252140-doi-dai-dung-dan-voi-nguoi-nha-su-phu.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2023/9/15/正确对待师父家人-465358.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2023/9/15/正確對待師父家人-465358.html"
+      }
+    },
+    {
+      "work_id": "dafa-spiritual-practice-is-serious",
+      "kind": "writing",
+      "titles": {
+        "en": "Dafa Spiritual Practice Is Serious",
+        "vi": "Tu luyện Đại Pháp là nghiêm túc",
+        "zh-Hans": "大法修炼是严肃的",
+        "zh-Hant": "大法修煉是嚴肅的"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20230901A.html; vi 251699-tu-luyen-dai-phap-la-nghiem-tuc.html; zh-Hans 大法修炼是严肃的-464832.html; zh-Hant 大法修煉是嚴肅的-464832.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20230901A.html",
+        "vi": "https://vn.minghui.org/news/251699-tu-luyen-dai-phap-la-nghiem-tuc.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2023/9/1/大法修炼是严肃的-464832.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2023/9/1/大法修煉是嚴肅的-464832.html"
+      }
+    },
+    {
+      "work_id": "stay-out-of-danger",
+      "kind": "writing",
+      "titles": {
+        "en": "Stay Out of Danger",
+        "vi": "Viễn ly hiểm ác",
+        "zh-Hans": "远离险恶",
+        "zh-Hant": "遠離險惡"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20230831A.html; vi 251662-tranh-xa-nguy-hiem.html; zh-Hans 远离险恶-464790.html; zh-Hant 遠離險惡-464790.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20230831A.html",
+        "vi": "https://vn.minghui.org/news/251662-tranh-xa-nguy-hiem.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2023/8/31/远离险恶-464790.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2023/8/31/遠離險惡-464790.html"
+      }
+    },
+    {
+      "work_id": "to-the-european-fa-conference",
+      "kind": "writing",
+      "titles": {
+        "en": "To the European Fa Conference",
+        "vi": "Pháp hội Châu Âu",
+        "zh-Hans": "欧洲法会",
+        "zh-Hant": "歐洲法會"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20230827A.html; vi 251606-phap-hoi-chau-au-2023.html; zh-Hans 欧洲法会-464648.html; zh-Hant 歐洲法會-464648.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20230827A.html",
+        "vi": "https://vn.minghui.org/news/251606-phap-hoi-chau-au-2023.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2023/8/27/欧洲法会-464648.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2023/8/27/歐洲法會-464648.html"
+      }
+    },
+    {
+      "work_id": "to-the-italy-fa-conference",
+      "kind": "writing",
+      "titles": {
+        "en": "To the Italy Fa Conference",
+        "vi": "Gửi Pháp hội Italy",
+        "zh-Hans": "意大利法会",
+        "zh-Hant": "意大利法會"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20230723A.html; vi 250498-gui-phap-hoi-italy-2023.html; zh-Hans 意大利法会-463378.html; zh-Hant 意大利法會-463378.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20230723A.html",
+        "vi": "https://vn.minghui.org/news/250498-gui-phap-hoi-italy-2023.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2023/7/24/意大利法会-463378.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2023/7/24/意大利法會-463378.html"
+      }
+    },
+    {
+      "work_id": "to-the-india-fa-conference",
+      "kind": "writing",
+      "titles": {
+        "en": "To the India Fa Conference",
+        "vi": "Gửi Pháp hội Ấn Độ",
+        "zh-Hans": "致印度法会",
+        "zh-Hant": "致印度法會"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20230513A.html; vi 247467-gui-phap-hoi-an-do-2023.html; zh-Hans 致印度法会-460504.html; zh-Hant 致印度法會-460504.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20230513A.html",
+        "vi": "https://vn.minghui.org/news/247467-gui-phap-hoi-an-do-2023.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2023/5/12/致印度法会-460504.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2023/5/12/致印度法會-460504.html"
+      }
+    },
+    {
+      "work_id": "why-the-creator-seeks-to-save-all-life",
+      "kind": "writing",
+      "titles": {
+        "en": "Why the Creator Seeks to Save All Life",
+        "vi": "Tại sao muốn cứu độ chúng sinh",
+        "zh-Hans": "为什么要救度众生",
+        "zh-Hant": "為甚麼要救度眾生"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20230417A.html; vi 245004-tai-sao-can-phai-cuu-do-chung-sinh.html; zh-Hans 为什么要救度众生-458929.html; zh-Hant 為甚麼要救度眾生-458929.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20230417A.html",
+        "vi": "https://vn.minghui.org/news/245004-tai-sao-can-phai-cuu-do-chung-sinh.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2023/4/17/为什么要救度众生-458929.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2023/4/17/為甚麼要救度眾生-458929.html"
+      }
+    },
+    {
+      "work_id": "how-humankind-came-to-be",
+      "kind": "writing",
+      "titles": {
+        "en": "How Humankind Came To Be",
+        "vi": "Vì sao có nhân loại",
+        "zh-Hans": "为什么会有人类",
+        "zh-Hant": "為甚麼會有人類"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20230120A.html; vi 241240-vi-sao-co-nhan-loai.html; zh-Hans 为什么会有人类-455562.html; zh-Hant 為甚麼會有人類-455562.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20230120A.html",
+        "vi": "https://vn.minghui.org/news/241240-vi-sao-co-nhan-loai.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2023/1/20/为什么会有人类-455562.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2023/1/20/為甚麼會有人類-455562.html"
+      }
+    },
+    {
+      "work_id": "greetings-to-the-european-fa-conference",
+      "kind": "writing",
+      "titles": {
+        "en": "Greetings to the European Fa Conference",
+        "vi": "Lời chúc gửi Pháp hội Châu Âu",
+        "zh-Hans": "致欧洲法会贺词",
+        "zh-Hant": "致歐洲法會賀詞"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 203837.html; vi 236339-loi-chuc-gui-phap-hoi-chau-au.html; zh-Hans 致欧洲法会贺词-449511.html; zh-Hant 致歐洲法會賀詞-449511.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2022/9/12/203837.html",
+        "vi": "https://vn.minghui.org/news/236339-loi-chuc-gui-phap-hoi-chau-au.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2022/9/12/致欧洲法会贺词-449511.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2022/9/12/致歐洲法會賀詞-449511.html"
+      }
+    },
+    {
+      "work_id": "to-the-czecho-slovak-fa-conference",
+      "kind": "writing",
+      "titles": {
+        "en": "To the Czecho-Slovak Fa Conference",
+        "vi": "Gửi Pháp hội Cộng hòa Czech và Slovakia",
+        "zh-Hans": "致捷克斯洛伐克法会",
+        "zh-Hant": "致捷克斯洛伐克法會"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20220306A.html; vi 227811-gui-phap-hoi-cong-hoa-czech-va-slovakia-2022.html; zh-Hans 致捷克斯洛伐克法会-439753.html; zh-Hant 致捷克斯洛伐克法會-439753.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20220306A.html",
+        "vi": "https://vn.minghui.org/news/227811-gui-phap-hoi-cong-hoa-czech-va-slovakia-2022.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2022/3/6/致捷克斯洛伐克法会-439753.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2022/3/6/致捷克斯洛伐克法會-439753.html"
+      }
+    },
+    {
+      "work_id": "to-the-2021-dafa-conference-in-taiwan",
+      "kind": "writing",
+      "titles": {
+        "en": "To the 2021 Dafa Conference in Taiwan",
+        "vi": "Gửi Pháp hội Đài Loan 2021",
+        "zh-Hans": "致二零二一年台湾法会",
+        "zh-Hant": "致二零二一年台灣法會"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20211218A.html; vi 222715-gui-phap-hoi-dai-loan-2021.html; zh-Hans 致二零二一年台湾法会-435044.html; zh-Hant 致二零二一年台灣法會-435044.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20211218A.html",
+        "vi": "https://vn.minghui.org/news/222715-gui-phap-hoi-dai-loan-2021.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2021/12/18/致二零二一年台湾法会-435044.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2021/12/18/致二零二一年台灣法會-435044.html"
+      }
+    },
+    {
+      "work_id": "wake-up",
+      "kind": "writing",
+      "titles": {
+        "en": "Wake Up",
+        "vi": "Hãy tỉnh",
+        "zh-Hans": "醒醒",
+        "zh-Hant": "醒醒"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20211118A.html; vi 221796-hay-tinh.html; zh-Hans 醒醒-433764.html; zh-Hant 醒醒-433764.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20211118A.html",
+        "vi": "https://vn.minghui.org/news/221796-hay-tinh.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2021/11/18/醒醒-433764.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2021/11/18/醒醒-433764.html"
+      }
+    },
+    {
+      "work_id": "a-strong-and-urgent-warning",
+      "kind": "writing",
+      "titles": {
+        "en": "A Strong and Urgent Warning",
+        "vi": "Gậy cảnh tỉnh mạnh mẽ",
+        "zh-Hans": "猛喝",
+        "zh-Hant": "猛喝"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20210831A.html; vi 218225-gay-canh-tinh-manh-me.html; zh-Hans 猛喝-430283.html; zh-Hant 猛喝-430283.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20210831A.html",
+        "vi": "https://vn.minghui.org/news/218225-gay-canh-tinh-manh-me.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2021/8/31/猛喝-430283.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2021/8/31/猛喝-430283.html"
+      }
+    },
+    {
+      "work_id": "to-the-fa-conference-in-germany",
+      "kind": "writing",
+      "titles": {
+        "en": "To the Fa Conference in Germany",
+        "vi": "Gửi Pháp hội tại Đức",
+        "zh-Hans": "致德国法会",
+        "zh-Hant": "致德國法會"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20210718A.html; vi 216816-gui-phap-hoi-tai-duc-2021.html; zh-Hans 致德国法会-428355.html; zh-Hant 致德國法會-428355.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20210718A.html",
+        "vi": "https://vn.minghui.org/news/216816-gui-phap-hoi-tai-duc-2021.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2021/7/18/致德国法会-428355.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2021/7/18/致德國法會-428355.html"
+      }
+    },
+    {
+      "work_id": "greetings-to-the-taiwan-fa-conference",
+      "kind": "writing",
+      "titles": {
+        "en": "Greetings to the Taiwan Fa Conference",
+        "vi": "Gửi Pháp hội Đài Loan",
+        "zh-Hans": "致台湾法会",
+        "zh-Hant": "致台灣法會"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20201206A.html; vi 200727-gui-phap-hoi-dai-loan-2020.html; zh-Hans 致台湾法会-415553.html; zh-Hant 致台灣法會-415553.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20201206A.html",
+        "vi": "https://vn.minghui.org/news/200727-gui-phap-hoi-dai-loan-2020.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2020/12/5/致台湾法会-415553.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2020/12/5/致台灣法會-415553.html"
+      }
+    },
+    {
+      "work_id": "on-the-general-election",
+      "kind": "writing",
+      "titles": {
+        "en": "On the General Election",
+        "vi": "Tổng tuyển cử"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20201108A.html; vi 198807-tong-tuyen-cu.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20201108A.html",
+        "vi": "https://vn.minghui.org/news/198807-tong-tuyen-cu.html"
+      }
+    },
+    {
+      "work_id": "another-stern-warning",
+      "kind": "writing",
+      "titles": {
+        "en": "Another Stern Warning",
+        "vi": "Lại một gậy cảnh tỉnh",
+        "zh-Hans": "再棒喝",
+        "zh-Hant": "再棒喝"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 20200704A.html; vi 183340-lai-mot-gay-canh-tinh.html; zh-Hans 再棒喝-408623.html; zh-Hant 再棒喝-408623.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.falundafa.org/eng/articles/20200704A.html",
+        "vi": "https://vn.minghui.org/news/183340-lai-mot-gay-canh-tinh.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2020/7/5/再棒喝-408623.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2020/7/5/再棒喝-408623.html"
+      }
+    },
+    {
+      "work_id": "stay-rational",
+      "kind": "writing",
+      "titles": {
+        "en": "Stay Rational",
+        "vi": "Lý Tính",
+        "zh-Hans": "理性",
+        "zh-Hant": "理性"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 183715.html; vi 167026-ly-tinh.html; zh-Hans 理性-402694.html; zh-Hant 理性-402694.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2020/3/20/183715.html",
+        "vi": "https://vn.minghui.org/news/167026-ly-tinh.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2020/3/19/理性-402694.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2020/3/19/理性-402694.html"
+      }
+    },
+    {
+      "work_id": "congratulatory-letter",
+      "kind": "writing",
+      "titles": {
+        "en": "Congratulatory Letter",
+        "vi": "Thư chúc mừng",
+        "zh-Hans": "贺词",
+        "zh-Hant": "賀詞"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 180840.html; vi 148570-thu-chuc-mung.html; zh-Hans 贺词-396208.html; zh-Hant 賀詞-396208.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2019/11/25/180840.html",
+        "vi": "https://vn.minghui.org/news/148570-thu-chuc-mung.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2019/11/24/贺词-396208.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2019/11/24/賀詞-396208.html"
+      }
+    },
+    {
+      "work_id": "dafa-disciples-are-fulfilling-their-missions",
+      "kind": "writing",
+      "titles": {
+        "en": "Dafa Disciples Are Fulfilling Their Missions",
+        "vi": "Đệ tử Đại Pháp đang hoàn thành sứ mệnh",
+        "zh-Hans": "大法弟子在兑现使命",
+        "zh-Hant": "大法弟子在兌現使命"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 180311.html; vi 145294-de-tu-dai-phap-dang-hoan-thanh-su-menh.html; zh-Hans 大法弟子在兑现使命-394506.html; zh-Hant 大法弟子在兌現使命-394506.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2019/10/14/180311.html",
+        "vi": "https://vn.minghui.org/news/145294-de-tu-dai-phap-dang-hoan-thanh-su-menh.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2019/10/12/大法弟子在兑现使命-394506.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2019/10/12/大法弟子在兌現使命-394506.html"
+      }
+    },
+    {
+      "work_id": "greetings-to-the-south-america-fa-conference",
+      "kind": "writing",
+      "titles": {
+        "en": "Greetings to the South America Fa Conference",
+        "vi": "Gửi Pháp hội Nam Mỹ",
+        "zh-Hans": "致南美洲法会",
+        "zh-Hant": "致南美洲法會"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 179914.html; vi 142900-gui-phap-hoi-nam-my-2019.html; zh-Hans 致南美洲法会-393348.html; zh-Hant 致南美洲法會-393348.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2019/9/16/179914.html",
+        "vi": "https://vn.minghui.org/news/142900-gui-phap-hoi-nam-my-2019.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2019/9/15/致南美洲法会-393348.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2019/9/15/致南美洲法會-393348.html"
+      }
+    },
+    {
+      "work_id": "greetings-to-the-dafa-disciples-attending-the-fa-conference-of-europe",
+      "kind": "writing",
+      "titles": {
+        "en": "Greetings to the Dafa Disciples Attending the Fa Conference of Europe",
+        "vi": "Gửi các đệ tử Đại Pháp tham gia Pháp hội Châu Âu, Chào tất cả!",
+        "zh-Hans": "参加欧洲法会的大法弟子大家好！",
+        "zh-Hant": "參加歐洲法會的大法弟子大家好！"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 179142.html; vi 138295-gui-cac-de-tu-dai-phap-tham-gia-phap-hoi-chau-au-chao-tat-ca-2019.html; zh-Hans 参加欧洲法会的大法弟子大家好--392093.html; zh-Hant 參加歐洲法會的大法弟子大家好--392093.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2019/9/2/179142.html",
+        "vi": "https://vn.minghui.org/news/138295-gui-cac-de-tu-dai-phap-tham-gia-phap-hoi-chau-au-chao-tat-ca-2019.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2019/8/31/参加欧洲法会的大法弟子大家好--392093.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2019/8/31/參加歐洲法會的大法弟子大家好--392093.html"
+      }
+    },
+    {
+      "work_id": "to-the-fa-conference-in-france",
+      "kind": "writing",
+      "titles": {
+        "en": "To the Fa Conference in France",
+        "vi": "Gửi Pháp hội tại Pháp",
+        "zh-Hans": "致法国法会",
+        "zh-Hant": "致法國法會"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 178765.html; vi 136090-gui-phap-hoi-tai-phap-2019.html; zh-Hans 致法国法会-391043.html; zh-Hant 致法國法會-391043.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2019/8/6/178765.html",
+        "vi": "https://vn.minghui.org/news/136090-gui-phap-hoi-tai-phap-2019.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2019/8/4/致法国法会-391043.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2019/8/4/致法國法會-391043.html"
+      }
+    },
+    {
+      "work_id": "to-the-canada-fa-conference",
+      "kind": "writing",
+      "titles": {
+        "en": "To the Canada Fa Conference",
+        "vi": "Gửi Pháp hội Canada",
+        "zh-Hans": "致加拿大法会",
+        "zh-Hant": "致加拿大法會"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 178537.html; vi 134707-gui-phap-hoi-canada-2019.html; zh-Hans 390268.html; zh-Hant 390268.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2019/7/22/178537.html",
+        "vi": "https://vn.minghui.org/news/134707-gui-phap-hoi-canada-2019.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2019/7/21/390268.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2019/7/21/390268.html"
+      }
+    },
+    {
+      "work_id": "to-the-practitioners-of-vietnam",
+      "kind": "writing",
+      "titles": {
+        "en": "To the Practitioners of Vietnam",
+        "vi": "Gửi các học viên Việt Nam",
+        "zh-Hans": "致越南学员",
+        "zh-Hant": "致越南學員"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 173428.html; vi 116290-gui-cac-hoc-vien-viet-nam-2018.html; zh-Hans 致越南学员-377761.html; zh-Hant 致越南學員-377761.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2018/11/30/173428.html",
+        "vi": "https://vn.minghui.org/news/116290-gui-cac-hoc-vien-viet-nam-2018.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2018/11/27/致越南学员-377761.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2018/11/27/致越南學員-377761.html"
+      }
+    },
+    {
+      "work_id": "to-the-experience-sharing-conference-in-taiwan",
+      "kind": "writing",
+      "titles": {
+        "en": "To the Experience-Sharing Conference in Taiwan",
+        "vi": "Gửi Hội giao lưu Đài Loan",
+        "zh-Hans": "致台湾交流会",
+        "zh-Hant": "致台灣交流會"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 173394.html; vi 116218-gui-hoi-giao-luu-dai-loan-2018.html; zh-Hans 致台湾交流会-377639.html; zh-Hant 致台灣交流會-377639.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2018/11/26/173394.html",
+        "vi": "https://vn.minghui.org/news/116218-gui-hoi-giao-luu-dai-loan-2018.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2018/11/24/致台湾交流会-377639.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2018/11/24/致台灣交流會-377639.html"
+      }
+    },
+    {
+      "work_id": "to-the-2018-asia-fa-conference",
+      "kind": "writing",
+      "titles": {
+        "en": "To the 2018 Asia Fa Conference",
+        "vi": "Gửi Pháp hội Châu Á năm 2018",
+        "zh-Hans": "致二零一八年亚洲法会",
+        "zh-Hant": "致二零一八年亞洲法會"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 172852.html; vi 113989-gui-phap-hoi-chau-a-nam-2018.html; zh-Hans 致二零一八年亚洲法会-375618.html; zh-Hant 致二零一八年亞洲法會-375618.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2018/10/15/172852.html",
+        "vi": "https://vn.minghui.org/news/113989-gui-phap-hoi-chau-a-nam-2018.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2018/10/14/致二零一八年亚洲法会-375618.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2018/10/14/致二零一八年亞洲法會-375618.html"
+      }
+    },
+    {
+      "work_id": "to-the-fa-conference-of-europe",
+      "kind": "writing",
+      "titles": {
+        "en": "To the Fa Conference of Europe",
+        "vi": "Gửi Pháp hội Châu Âu",
+        "zh-Hans": "致欧洲法会",
+        "zh-Hant": "致歐洲法會"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 172655.html; vi 112465-gui-phap-hoi-chau-au-2018.html; zh-Hans 致欧洲法会-375135.html; zh-Hant 致歐洲法會-375135.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2018/9/30/172655.html",
+        "vi": "https://vn.minghui.org/news/112465-gui-phap-hoi-chau-au-2018.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2018/9/29/致欧洲法会-375135.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2018/9/29/致歐洲法會-375135.html"
+      }
+    },
+    {
+      "work_id": "on-falun-dafas-classification-in-the-ordinary-world",
+      "kind": "writing",
+      "titles": {
+        "en": "On Falun Dafa’s Classification in the Ordinary World",
+        "vi": "Về vấn đề định nghĩa Pháp Luân Đại Pháp ở xã hội người thường",
+        "zh-Hans": "关于法轮大法在常人社会中定义问题",
+        "zh-Hant": "關於法輪大法在常人社會中定義問題"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 169483.html; vi 95071-ve-van-de-dinh-nghia-phap-luan-dai-phap-o-xa-hoi-nguoi-thuong.html; zh-Hans 关于法轮大法在常人社会中定义问题-364525.html; zh-Hant 關於法輪大法在常人社會中定義問題-364525.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2018/4/24/169483.html",
+        "vi": "https://vn.minghui.org/news/95071-ve-van-de-dinh-nghia-phap-luan-dai-phap-o-xa-hoi-nguoi-thuong.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2018/4/24/关于法轮大法在常人社会中定义问题-364525.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2018/4/24/關於法輪大法在常人社會中定義問題-364525.html"
+      }
+    },
+    {
+      "work_id": "a-congratulatory-letter-to-the-european-fa-conference-in-paris",
+      "kind": "writing",
+      "titles": {
+        "en": "A Congratulatory Letter to the European Fa Conference in Paris",
+        "vi": "Lời chúc gửi Pháp hội Châu Âu tại Paris",
+        "zh-Hans": "致巴黎欧洲法会的贺词",
+        "zh-Hant": "致巴黎歐洲法會的賀詞"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 165617.html; vi 83358-loi-chuc-gui-phap-hoi-chau-au-tai-paris-2017.html; zh-Hans 致巴黎欧洲法会的贺词-354343.html; zh-Hant 致巴黎歐洲法會的賀詞-354343.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2017/10/1/165617.html",
+        "vi": "https://vn.minghui.org/news/83358-loi-chuc-gui-phap-hoi-chau-au-tai-paris-2017.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2017/10/1/致巴黎欧洲法会的贺词-354343.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2017/10/1/致巴黎歐洲法會的賀詞-354343.html"
+      }
+    },
+    {
+      "work_id": "to-the-fa-conference-in-japan",
+      "kind": "writing",
+      "titles": {
+        "en": "To the Fa Conference in Japan",
+        "vi": "Gửi Pháp hội tại Nhật Bản",
+        "zh-Hans": "致日本法会",
+        "zh-Hant": "致日本法會"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 165282.html; vi 82062-gui-phap-hoi-tai-nhat-ban-2017.html; zh-Hans 致日本法会-353208.html; zh-Hant 致日本法會-353208.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2017/9/3/165282.html",
+        "vi": "https://vn.minghui.org/news/82062-gui-phap-hoi-tai-nhat-ban-2017.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2017/9/2/致日本法会-353208.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2017/9/2/致日本法會-353208.html"
+      }
+    },
+    {
+      "work_id": "creating-anew",
+      "kind": "writing",
+      "titles": {
+        "en": "Creating Anew",
+        "vi": "Tái tạo"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 162995.html; vi 78615-tai-tao.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2017/4/27/162995.html",
+        "vi": "https://vn.minghui.org/news/78615-tai-tao.html"
+      }
+    },
+    {
+      "work_id": "a-congratulatory-letter-to-the-fa-conference-of-argentina",
+      "kind": "writing",
+      "titles": {
+        "en": "A Congratulatory Letter to the Fa Conference of Argentina",
+        "vi": "Lời chúc gửi Pháp hội Argentina",
+        "zh-Hans": "致阿根廷法会的贺词",
+        "zh-Hant": "致阿根廷法會的賀詞"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 160163.html; vi 74456-loi-chuc-gui-phap-hoi-argentina-2016.html; zh-Hans 致阿根廷法会的贺词-338336.html; zh-Hant 致阿根廷法會的賀詞-338336.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2016/11/30/160163.html",
+        "vi": "https://vn.minghui.org/news/74456-loi-chuc-gui-phap-hoi-argentina-2016.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2016/11/29/致阿根廷法会的贺词-338336.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2016/11/29/致阿根廷法會的賀詞-338336.html"
+      }
+    },
+    {
+      "work_id": "a-congratulatory-letter-to-the-fa-conference-of-taiwan",
+      "kind": "writing",
+      "titles": {
+        "en": "A Congratulatory Letter to the Fa Conference of Taiwan",
+        "vi": "Lời chúc gửi Pháp hội Đài Loan",
+        "zh-Hans": "致台湾法会的贺词",
+        "zh-Hant": "致台灣法會的賀詞"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 160129.html; vi 74452-loi-chuc-gui-phap-hoi-dai-loan-2016.html; zh-Hans 致台湾法会的贺词-338246.html; zh-Hant 致台灣法會的賀詞-338246.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2016/11/28/160129.html",
+        "vi": "https://vn.minghui.org/news/74452-loi-chuc-gui-phap-hoi-dai-loan-2016.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2016/11/27/致台湾法会的贺词-338246.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2016/11/27/致台灣法會的賀詞-338246.html"
+      }
+    },
+    {
+      "work_id": "a-congratulatory-letter-to-the-fa-conference-of-europe",
+      "kind": "writing",
+      "titles": {
+        "en": "A Congratulatory Letter to the Fa Conference of Europe",
+        "zh-Hans": "致欧洲法会的贺词",
+        "zh-Hant": "致歐洲法會的賀詞"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 159856.html; zh-Hans 致欧洲法会的贺词-337295.html; zh-Hant 致歐洲法會的賀詞-337295.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2016/11/6/159856.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2016/11/6/致欧洲法会的贺词-337295.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2016/11/6/致歐洲法會的賀詞-337295.html"
+      }
+    },
+    {
+      "work_id": "a-greeting-to-the-south-america-fa-conference",
+      "kind": "writing",
+      "titles": {
+        "en": "A Greeting to the South America Fa Conference",
+        "vi": "Lời chúc gửi Pháp hội Nam Mỹ",
+        "zh-Hans": "致南美法会的贺词",
+        "zh-Hant": "致南美法會的賀詞"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 159517.html; vi 73535-loi-chuc-gui-phap-hoi-nam-my-2016.html; zh-Hans 致南美法会的贺词-336193.html; zh-Hant 致南美法會的賀詞-336193.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2016/10/12/159517.html",
+        "vi": "https://vn.minghui.org/news/73535-loi-chuc-gui-phap-hoi-nam-my-2016.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2016/10/11/致南美法会的贺词-336193.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2016/10/11/致南美法會的賀詞-336193.html"
+      }
+    },
+    {
+      "work_id": "on-the-responses-to-the-piece-about-assistant-souls",
+      "kind": "writing",
+      "titles": {
+        "en": "On the Responses to the Piece About Assistant Souls",
+        "vi": "Về xáo động từ một bài viết về phó nguyên thần",
+        "zh-Hans": "关于副元神一文引起的波动",
+        "zh-Hant": "關於副元神一文引起的波動"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 158356.html; vi 71534-ve-xao-dong-tu-mot-bai-viet-ve-pho-nguyen-than.html; zh-Hans 关于副元神一文引起的波动-333227.html; zh-Hant 關於副元神一文引起的波動-333227.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2016/8/20/158356.html",
+        "vi": "https://vn.minghui.org/news/71534-ve-xao-dong-tu-mot-bai-viet-ve-pho-nguyen-than.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2016/8/19/关于副元神一文引起的波动-333227.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2016/8/19/關於副元神一文引起的波動-333227.html"
+      }
+    },
+    {
+      "work_id": "a-reminder",
+      "kind": "writing",
+      "titles": {
+        "en": "A Reminder",
+        "vi": "Lời nhắc nhở",
+        "zh-Hans": "提醒",
+        "zh-Hant": "提醒"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 158059.html; vi 71018-loi-nhac-nho.html; zh-Hans 提醒-332461.html; zh-Hant 提醒-332461.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2016/7/31/158059.html",
+        "vi": "https://vn.minghui.org/news/71018-loi-nhac-nho.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2016/7/31/提醒-332461.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2016/7/31/提醒-332461.html"
+      }
+    },
+    {
+      "work_id": "tian-guo-marching-band",
+      "kind": "writing",
+      "titles": {
+        "en": "Tian Guo Marching Band",
+        "vi": "Thiên Quốc Nhạc đoàn"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 151950.html; vi 61896-thien-quoc-nhac-doan.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2015/8/7/151950.html",
+        "vi": "https://vn.minghui.org/news/61896-thien-quoc-nhac-doan.html"
+      }
+    },
+    {
+      "work_id": "on-dafa",
+      "kind": "writing",
+      "titles": {
+        "en": "On Dafa",
+        "vi": "Luận Ngữ"
+      },
+      "basis": "Matched by first-page title evidence: the English PDF identifies this text as ‘On Dafa (Lunyu)’ and the Vietnamese PDF titles it ‘Luận Ngữ’; both are the same introductory essay. Their source pages are https://en.minghui.org/html/articles/2015/5/25/150752.html and the Vietnamese Luận Ngữ entry.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2015/5/25/150752.html",
+        "vi": "https://vn.minghui.org/news/60483-luan-ngu.html"
+      }
+    },
+    {
+      "work_id": "still-so-arrogant-and-reckless",
+      "kind": "writing",
+      "titles": {
+        "en": "Still So Arrogant and Reckless?",
+        "vi": "Nhĩ tái cuồng"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 2084.html; vi 52140-nhi-tai-cuong.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2014/7/17/2084.html",
+        "vi": "https://vn.minghui.org/news/52140-nhi-tai-cuong.html"
+      }
+    },
+    {
+      "work_id": "the-red-demon-is-incinerated-while-adamantine-ones-are-tempered",
+      "kind": "writing",
+      "titles": {
+        "en": "The Red Demon is Incinerated While Adamantine Ones are Tempered",
+        "vi": "Thiêu hồng ma • Luyện kim cương"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 145471.html; vi 47578-thieu-hong-ma-luyen-kim-cuong.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2014/2/18/145471.html",
+        "vi": "https://vn.minghui.org/news/47578-thieu-hong-ma-luyen-kim-cuong.html"
+      }
+    },
+    {
+      "work_id": "righteous-thoughts",
+      "kind": "writing",
+      "titles": {
+        "en": "Righteous Thoughts",
+        "vi": "Chính Niệm"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 145412.html; vi 47499-chinh-niem-2014.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2014/2/18/145412.html",
+        "vi": "https://vn.minghui.org/news/47499-chinh-niem-2014.html"
+      }
+    },
+    {
+      "work_id": "congratulations-to-the-taiwan-fa-conference",
+      "kind": "writing",
+      "titles": {
+        "en": "Congratulations to the Taiwan Fa Conference",
+        "vi": "Chúc Pháp hội Đài Loan",
+        "zh-Hans": "祝贺台湾法会",
+        "zh-Hant": "祝賀台灣法會"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 136365.html; vi 29764-chuc-phap-hoi-dai-loan-2012.html; zh-Hans 祝贺台湾法会-265399.html; zh-Hant 祝賀台灣法會-265399.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2012/11/19/136365.html",
+        "vi": "https://vn.minghui.org/news/29764-chuc-phap-hoi-dai-loan-2012.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2012/11/18/祝贺台湾法会-265399.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2012/11/18/祝賀台灣法會-265399.html"
+      }
+    },
+    {
+      "work_id": "stay-clearheaded",
+      "kind": "writing",
+      "titles": {
+        "en": "Stay Clearheaded",
+        "vi": "Bảo trì thanh tỉnh",
+        "zh-Hans": "保持清醒",
+        "zh-Hant": "保持清醒"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 136197.html; vi 29648-bao-tri-thanh-tinh.html; zh-Hans 保持清醒-265159.html; zh-Hant 保持清醒-265159.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2012/11/10/136197.html",
+        "vi": "https://vn.minghui.org/news/29648-bao-tri-thanh-tinh.html",
+        "zh-Hans": "https://www.minghui.org/mh/articles/2012/11/6/保持清醒-265159.html",
+        "zh-Hant": "https://big5.minghui.org/mh/articles/2012/11/6/保持清醒-265159.html"
+      }
+    },
+    {
+      "work_id": "to-choose",
+      "kind": "writing",
+      "titles": {
+        "en": "To Choose",
+        "vi": "Tuyển trạch"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 133063.html; vi 26422-tuyen-trach.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2012/5/5/133063.html",
+        "vi": "https://vn.minghui.org/news/26422-tuyen-trach.html"
+      }
+    },
+    {
+      "work_id": "stirred-by-reflection",
+      "kind": "writing",
+      "titles": {
+        "en": "Stirred by Reflection",
+        "vi": "Cảm khái"
+      },
+      "basis": "Translated writing titles and source metadata identify the same article; archived source URL records: en 118265.html; vi 17978-cam-khai.html. Writings were matched on title and article metadata, not local writing-index numbers.",
+      "evidence": {
+        "en": "https://en.minghui.org/html/articles/2010/6/30/118265.html",
+        "vi": "https://vn.minghui.org/news/17978-cam-khai.html"
+      }
+    },
+    {
+      "work_id": "giang-phap-ve-day-hoc-mua-co-dien-trung-quoc-o-dai-hoc-phi-thien",
+      "kind": "writing",
+      "titles": {
+        "vi": "Giảng Pháp về dạy học múa cổ điển Trung Quốc ở Đại học Phi Thiên"
+      },
+      "basis": "Vietnamese title and source record kinh_van_20190727.html have no confident same-work counterpart in the other language manifests; kept as a Vietnamese singleton.",
+      "evidence": {
+        "vi": "https://vn.minghui.org/jw/kinh_van_20190727.html"
+      }
+    },
+    {
+      "work_id": "giang-phap-tai-phap-hoi-new-york-2019",
+      "kind": "writing",
+      "titles": {
+        "vi": "Giảng Pháp tại Pháp hội New York 2019"
+      },
+      "basis": "Vietnamese title and source record 130606-giang-phap-tai-phap-hoi-new-york-2019.html have no confident same-work counterpart in the other language manifests; kept as a Vietnamese singleton.",
+      "evidence": {
+        "vi": "https://vn.minghui.org/news/130606-giang-phap-tai-phap-hoi-new-york-2019.html"
+      }
+    },
+    {
+      "work_id": "phap-hoi-tan-duong-nhan-va-dai-ky-nguyen-nam-2018",
+      "kind": "writing",
+      "titles": {
+        "vi": "Pháp hội Tân Đường Nhân và Đại Kỷ Nguyên năm 2018"
+      },
+      "basis": "Vietnamese title and source record 115072-phap-hoi-tan-duong-nhan-va-dai-ky-nguyen-nam-2018.html have no confident same-work counterpart in the other language manifests; kept as a Vietnamese singleton.",
+      "evidence": {
+        "vi": "https://vn.minghui.org/news/115072-phap-hoi-tan-duong-nhan-va-dai-ky-nguyen-nam-2018.html"
+      }
+    },
+    {
+      "work_id": "giang-phap-tai-washington-dc-nam-2018",
+      "kind": "writing",
+      "titles": {
+        "vi": "Giảng Pháp tại Washington DC năm 2018"
+      },
+      "basis": "Vietnamese title and source record 101968-giang-phap-tai-washington-dc-nam-2018.html have no confident same-work counterpart in the other language manifests; kept as a Vietnamese singleton.",
+      "evidence": {
+        "vi": "https://vn.minghui.org/news/101968-giang-phap-tai-washington-dc-nam-2018.html"
+      }
+    },
+    {
+      "work_id": "giang-phap-tai-phap-hoi-new-york-ky-niem-25-nam-dai-phap-hong-truyen",
+      "kind": "writing",
+      "titles": {
+        "vi": "Giảng Pháp tại Pháp hội New York kỷ niệm 25 năm Đại Pháp hồng truyền"
+      },
+      "basis": "Vietnamese title and source record 79948-giang-phap-tai-phap-hoi-new-york-ky-niem-25-nam-dai-phap-hong-truyen-2017.html have no confident same-work counterpart in the other language manifests; kept as a Vietnamese singleton.",
+      "evidence": {
+        "vi": "https://vn.minghui.org/news/79948-giang-phap-tai-phap-hoi-new-york-ky-niem-25-nam-dai-phap-hong-truyen-2017.html"
+      }
+    },
+    {
+      "work_id": "giang-phap-tai-phap-hoi-new-york-2016",
+      "kind": "writing",
+      "titles": {
+        "vi": "Giảng Pháp tại Pháp hội New York 2016"
+      },
+      "basis": "Vietnamese title and source record 69553-giang-phap-tai-phap-hoi-new-york-2016.html have no confident same-work counterpart in the other language manifests; kept as a Vietnamese singleton.",
+      "evidence": {
+        "vi": "https://vn.minghui.org/news/69553-giang-phap-tai-phap-hoi-new-york-2016.html"
+      }
+    },
+    {
+      "work_id": "giang-phap-tai-phap-hoi-mien-tay-my-quoc-2015",
+      "kind": "writing",
+      "titles": {
+        "vi": "Giảng Pháp tại Pháp hội Miền Tây Mỹ quốc 2015"
+      },
+      "basis": "Vietnamese title and source record 63142-giang-phap-tai-phap-hoi-mien-tay-my-quoc-2015.html have no confident same-work counterpart in the other language manifests; kept as a Vietnamese singleton.",
+      "evidence": {
+        "vi": "https://vn.minghui.org/news/63142-giang-phap-tai-phap-hoi-mien-tay-my-quoc-2015.html"
+      }
+    },
+    {
+      "work_id": "giang-phap-tai-phap-hoi-new-york-2015",
+      "kind": "writing",
+      "titles": {
+        "vi": "Giảng Pháp tại Pháp hội New York 2015"
+      },
+      "basis": "Vietnamese title and source record 60612-giang-phap-tai-phap-hoi-new-york-2015.html have no confident same-work counterpart in the other language manifests; kept as a Vietnamese singleton.",
+      "evidence": {
+        "vi": "https://vn.minghui.org/news/60612-giang-phap-tai-phap-hoi-new-york-2015.html"
+      }
+    },
+    {
+      "work_id": "giang-phap-tai-phap-hoi-san-francisco-2014",
+      "kind": "writing",
+      "titles": {
+        "vi": "Giảng Pháp tại Pháp hội San Francisco 2014"
+      },
+      "basis": "Vietnamese title and source record 54382-giang-phap-tai-phap-hoi-san-francisco-2014.html have no confident same-work counterpart in the other language manifests; kept as a Vietnamese singleton.",
+      "evidence": {
+        "vi": "https://vn.minghui.org/news/54382-giang-phap-tai-phap-hoi-san-francisco-2014.html"
+      }
+    },
+    {
+      "work_id": "giang-phap-ngay-phap-luan-dai-phap-the-gioi",
+      "kind": "writing",
+      "titles": {
+        "vi": "Giảng Pháp ngày Pháp Luân Đại Pháp Thế giới"
+      },
+      "basis": "Vietnamese title and source record 51355-giang-phap-ngay-phap-luan-dai-phap-the-gioi-2014.html have no confident same-work counterpart in the other language manifests; kept as a Vietnamese singleton.",
+      "evidence": {
+        "vi": "https://vn.minghui.org/news/51355-giang-phap-ngay-phap-luan-dai-phap-the-gioi-2014.html"
+      }
+    },
+    {
+      "work_id": "giang-phap-o-phap-hoi-quoc-te-mien-tay-my-quoc-nam-2013",
+      "kind": "writing",
+      "titles": {
+        "vi": "Giảng Pháp ở Pháp hội quốc tế Miền Tây Mỹ quốc năm 2013"
+      },
+      "basis": "Vietnamese title and source record 43655-giang-phap-o-phap-hoi-quoc-te-mien-tay-my-quoc-nam-2013.html have no confident same-work counterpart in the other language manifests; kept as a Vietnamese singleton.",
+      "evidence": {
+        "vi": "https://vn.minghui.org/news/43655-giang-phap-o-phap-hoi-quoc-te-mien-tay-my-quoc-nam-2013.html"
+      }
+    },
+    {
+      "work_id": "giang-phap-o-phap-hoi-tai-vung-do-thi-new-york-nam-2013",
+      "kind": "writing",
+      "titles": {
+        "vi": "Giảng Pháp ở Pháp hội tại Vùng đô thị New York năm 2013"
+      },
+      "basis": "Vietnamese title and source record 39540-giang-phap-o-phap-hoi-tai-vung-do-thi-new-york-nam-2013.html have no confident same-work counterpart in the other language manifests; kept as a Vietnamese singleton.",
+      "evidence": {
+        "vi": "https://vn.minghui.org/news/39540-giang-phap-o-phap-hoi-tai-vung-do-thi-new-york-nam-2013.html"
+      }
+    },
+    {
+      "work_id": "giang-phap-tai-phap-hoi-quoc-te-o-thu-do-my-quoc-2012",
+      "kind": "writing",
+      "titles": {
+        "vi": "Giảng Pháp tại Pháp hội Quốc tế ở Thủ đô Mỹ quốc 2012"
+      },
+      "basis": "Vietnamese title and source record 28110-giang-phap-tai-phap-hoi-quoc-te-o-thu-do-my-quoc-2012.html have no confident same-work counterpart in the other language manifests; kept as a Vietnamese singleton.",
+      "evidence": {
+        "vi": "https://vn.minghui.org/news/28110-giang-phap-tai-phap-hoi-quoc-te-o-thu-do-my-quoc-2012.html"
+      }
+    }
+  ]
+}
