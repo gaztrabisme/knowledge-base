@@ -1,7 +1,7 @@
 # Active Work
 
 ## v9 review fixes
-**Status:** In progress 2026-09-30. Two rows are paused: another session's GPU training on this Mac asked for no GPU work for about 4 hours. Goal file: [2026-09-30-v9-review-fixes](goals/2026-09-30-v9-review-fixes.md).
+**Status:** Done 2026-09-30. All 15 goal rows pass. The promotion call remains Gary's. Goal file: [2026-09-30-v9-review-fixes](goals/2026-09-30-v9-review-fixes.md).
 
 **Rows:**
 - Done:
@@ -14,11 +14,15 @@
   - C4: skill ledger (`3e2d6db`, `635a4c7`);
   - D1: the Character line.
 - A6 promotion: no call yet, and the alias stays on v8 (see [decisions](decisions.md)).
-- Paused:
-  - A3: the regression check;
-  - A5: the `u6c.sh` flake hunt, 5 of 10 runs done, all exit 0.
+- A3: regression 15/15 byte-identical.
+- A5: the `u6c.sh` failure was not reproduced in 13 runs (10 sequential, 3 concurrent), all exit 0 ([report](../data/intake/v9-u6c-flake.md)). Two possible causes remain:
+  - the script's first Python block can exit 1 after printing only counts;
+  - concurrent runs overwrite each other's shared `/tmp` diagnostic files.
 
-  Both resume when the other session reports its training has ended.
+  Neither script is fixed.
+- Open, not in this goal:
+  - the chunk heading paths repeat `(part 1) (part 1)`, from `knowledge_base/chunk.py`;
+  - the four live books with no headings.
 
 **Next step (Gary):** promote v9 or keep v8. The pre-set gate failed at 0.793 (23/29). The blind-reviewed set scores 0.821 (23/28). Five fair queries still miss.
 

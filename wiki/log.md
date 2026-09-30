@@ -138,7 +138,13 @@ Goal file: [goals/2026-09-30-v9-review-fixes.md](goals/2026-09-30-v9-review-fixe
 - C4 (coordinator) — Evolution 4 marked KEEP after two runs, and Evolution 5 added.
 - D1 (coordinator) — Character line installed.
 - A7 (coordinator) — the destructive-command hook blocked a recursive delete, so `data/qdrant-v9-add` went to the Trash.
-- A5, GLM — paused at 5/10 runs, all exit 0. Another session's 27B training on the Mac GPU had died twice at 09:12 and 09:58, when A2's and A4's evals loaded models on MPS. It asked for no GPU work, so the unit was cancelled and A3 held.
+- A5 `u6c.sh` flake hunt — PASS, not reproduced (13 runs, all exit 0).
+  - Paused at 5/10 runs: another session's 27B training on the Mac GPU had died twice, at 09:12 and 09:58, when A2's and A4's evals loaded models on MPS. That session asked for no GPU work.
+  - The ingest checks load no torch, and magika pins `onnxruntime` to the CPU, so they resumed CPU-only and the other session was told.
+  - The resumed GLM run showed no transcript activity for 33 minutes and was cancelled. Its cancel result then reported 50 steps, so the empty transcript was misleading.
+  - The unit was rerouted to direct Codex. Codex left a `.scratch-u6c/` folder in the repo against its brief; it went to the Trash.
+  - `r_a5.sh`'s wiki check failed on the coordinator's own baseline, taken before the coordinator committed the goal file. The wiki was unchanged since `c07d734`, so the check was re-baselined.
+- A3 regression (coordinator, CPU-only) — PASS, 15/15 byte-identical.
 
 **Decided forward:**
 - The reviewer's lane name was added to gate-v9.md by the coordinator.
