@@ -197,6 +197,48 @@ def test_sparse_stage_caches_production_vectors_and_resumes(tmp_path: Path) -> N
         _assert_sparse_equal(after[child_id]["bm25"], before[child_id]["bm25"])
 
 
+def test_dense_stage_accepts_cuda_and_cli_forwards_cache(tmp_path: Path, monkeypatch) -> None:
+    builder = _builder()
+    works_json, chunks_dir = _fixture(tmp_path)
+    records = list(builder.iter_phase_b_chunks(works_json=works_json, chunks_dir=chunks_dir))
+
+    import knowledge_base.embedder as embedder
+
+    class FakeModel:
+        device = None
+
+        def to(self, device: str) -> None:
+            self.device = device
+
+    model = FakeModel()
+    monkeypatch.setattr(embedder, "load_model", lambda _name: model)
+    monkeypatch.setattr(
+        embedder,
+        "encode_texts",
+        lambda *_args, **_kwargs: [[1.0] + [0.0] * 1023 for _ in records],
+    )
+    cache_path = tmp_path / "cuda-cache.sqlite3"
+    builder.dense_stage(records, cache_path, device="cuda", batch_size=2)
+    assert model.device == "cuda"
+    cache = builder.VectorCache(cache_path)
+    assert all("dense" in cache.get_vectors(record) for record in records)
+
+    forwarded: dict[str, Any] = {}
+    monkeypatch.setattr(builder, "iter_phase_b_chunks", lambda: iter(()))
+    monkeypatch.setattr(
+        builder,
+        "dense_stage",
+        lambda _chunks, path, **kwargs: forwarded.update(path=path, **kwargs),
+    )
+    monkeypatch.setattr(
+        "sys.argv",
+        ["build_philosophy_candidate.py", "--stage", "dense", "--device", "cuda", "--cache", str(cache_path)],
+    )
+    assert builder.main() == 0
+    assert forwarded["path"] == cache_path
+    assert forwarded["device"] == "cuda"
+
+
 def _create_phase_a_source(client: QdrantClient) -> dict[str, Any]:
     dense = [1.0] + [0.0] * 1023
     sparse = models.SparseVector(indices=[2, 19], values=[0.5, 1.25])

@@ -200,8 +200,8 @@ def dense_stage(
     limit: int | None = None, batch_size: int = 32,
 ) -> None:
     """Embed uncached passage texts with the shared Jina v5 encoder and persist batches."""
-    if device not in {"mps", "cpu"}:
-        raise ValueError("device must be mps or cpu")
+    if device not in {"mps", "cpu", "cuda"}:
+        raise ValueError("device must be mps, cpu, or cuda")
     if batch_size < 1:
         raise ValueError("batch_size must be positive")
     records = list(chunks)
@@ -361,14 +361,18 @@ def _client() -> QdrantClient:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--stage", choices=("sparse", "dense", "load"))
-    parser.add_argument("--device", choices=("mps", "cpu"), default="mps")
+    parser.add_argument("--device", choices=("mps", "cpu", "cuda"), default="mps")
+    parser.add_argument(
+        "--cache", type=Path, default=CACHE_PATH,
+        help="vector cache directory or SQLite file",
+    )
     parser.add_argument("--limit", type=int)
     parser.add_argument("--collection", default="philosophy_b")
     parser.add_argument("--check", action="store_true", help="print cached vector counts by language")
     parser.add_argument("--batch-size", type=int, default=32)
     args = parser.parse_args()
     if args.check and args.stage is None:
-        cache = VectorCache(CACHE_PATH)
+        cache = VectorCache(args.cache)
         counts = cache.counts(iter_phase_b_chunks())
         for lang, values in sorted(counts.items()):
             print(
@@ -380,13 +384,13 @@ def main() -> int:
         parser.error("choose --stage or use --check")
     chunks = list(iter_phase_b_chunks())
     if args.stage == "sparse":
-        sparse_stage(chunks, CACHE_PATH, batch_size=args.batch_size)
+        sparse_stage(chunks, args.cache, batch_size=args.batch_size)
     elif args.stage == "dense":
-        dense_stage(chunks, CACHE_PATH, device=args.device, limit=args.limit, batch_size=args.batch_size)
+        dense_stage(chunks, args.cache, device=args.device, limit=args.limit, batch_size=args.batch_size)
     else:
         client = _client()
         try:
-            load_candidate(chunks, CACHE_PATH, client, client, args.collection)
+            load_candidate(chunks, args.cache, client, client, args.collection)
         finally:
             client.close()
     return 0
