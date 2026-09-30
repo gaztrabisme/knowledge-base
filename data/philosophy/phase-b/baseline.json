@@ -1,0 +1,18 @@
+{
+ "date": "2026-09-30",
+ "philosophy_points": 8432,
+ "developer_knowledge_v9_points": 286723,
+ "aliases": [
+  {
+   "alias_name": "developer_knowledge",
+   "collection_name": "developer_knowledge_v9"
+  }
+ ],
+ "phase_a_work_ids": [
+  "original-library",
+  "tao-te-ching-jonathan-star",
+  "tao-te-ching-stephen-mitchell",
+  "tao-te-ching-tse-lao",
+  "zhuan-falun"
+ ]
+}
