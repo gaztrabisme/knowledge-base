@@ -97,6 +97,10 @@ def test_core_restore_ignores_unselected_philosophy_bundle(tmp_path, monkeypatch
     )
     monkeypatch.setattr(installer, "_aliases", lambda _url: {})
     monkeypatch.setattr(installer, "_change_alias", lambda *_args: None)
+    requests = []
+    monkeypatch.setattr(
+        installer, "_qdrant_request", lambda url, method="GET", data=None: requests.append((method, url)),
+    )
     manifest = {
         "collections": {
             "developer_knowledge_v9": {"bundle": "kb-core", "points": 10},
@@ -109,6 +113,10 @@ def test_core_restore_ignores_unselected_philosophy_bundle(tmp_path, monkeypatch
     )
 
     assert restored == ["developer_knowledge_v9"]
+    # Qdrant's kept copy of the uploaded snapshot is deleted after the point count checks out.
+    assert ("DELETE", "http://127.0.0.1:6363/collections/developer_knowledge_v9"
+            "/snapshots/developer_knowledge_v9.snapshot?wait=true") in requests
+    assert not (tmp_path / "snapshots" / "developer_knowledge_v9.snapshot").exists()
 
 
 def test_bundle_extract_skips_symlinked_markdown_and_chunks(tmp_path):

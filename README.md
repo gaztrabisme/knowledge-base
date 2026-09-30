@@ -5,8 +5,10 @@
 The Developer Knowledge Base is a local Model Context Protocol (MCP) server that provides semantic search over curated technical books to Claude Code during development sessions. It runs an embedded vector search engine (Qdrant) locally on your machine without relying on external cloud search services.
 
 There are two editions available:
-- **core**: The technical books collection covering 19 engineering domains across 320 indexed books. It provides 6 MCP tools (`search`, `search_book`, `read_chunk`, `get_chapter`, `list_books`, and `grep_books`). The release download is 1.99 GB and the installed folder takes 7.0 GB.
-- **full**: Includes everything in `core` plus the multilingual philosophy collection (the Original Library, Tao Te Ching translations, and Zhuan Falun in English, Vietnamese, and Chinese) with aligned cross-language passage search. It adds 2 MCP tools (`search_philosophy` and `list_philosophy`), giving 8 tools in total. The release download is 1.99 GB plus 81 MB for the philosophy collection, and the installed folder takes 9.0 GB.
+- **core**: The technical books collection covering 19 engineering domains across 320 indexed books. It provides 6 MCP tools (`search`, `search_book`, `read_chunk`, `get_chapter`, `list_books`, and `grep_books`). The release download is 1.99 GB and the installed folder takes 4.0 GB.
+- **full**: Includes everything in `core` plus the multilingual philosophy collection (the Original Library, Tao Te Ching translations, and Zhuan Falun in English, Vietnamese, and Chinese) with aligned cross-language passage search. It adds 2 MCP tools (`search_philosophy` and `list_philosophy`), giving 8 tools in total. The release download is 1.99 GB plus 81 MB for the philosophy collection, and the installed folder takes 5.0 GB.
+
+While it runs, the installer needs at least 7.0 GB free for `core` and 9.0 GB for `full`, because the database snapshot exists in two copies until it is loaded; both copies are deleted afterwards.
 
 The embedding and reranker model weights go to the Hugging Face cache outside the install folder: about 1.7 GB for `core` (the Jina embedder at 1.1 GB and the Ettin reranker at 0.57 GB). The full edition also downloads the BGE philosophy reranker. The installer installs PyTorch and the other Python dependencies separately.
 

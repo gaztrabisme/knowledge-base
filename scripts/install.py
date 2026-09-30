@@ -727,6 +727,13 @@ def _restore_collections(
             raise RuntimeError(
                 f"Restored {collection} with {actual} points; expected {expected}"
             )
+        # Qdrant keeps its own copy of an uploaded snapshot under the uploaded
+        # filename; the restored collection does not need it.
+        _qdrant_request(
+            f"{base_url}/collections/{quote(collection, safe='')}"
+            f"/snapshots/{quote(snapshot.name, safe='')}?wait=true",
+            method="DELETE",
+        )
         snapshot.unlink()
 
     if "developer_knowledge_v9" in target_names:
