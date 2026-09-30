@@ -1,5 +1,16 @@
 # Technical Decisions
 
+## v9 review fixes: rescoring rule and promotion call (2026-09-30)
+**Context:** The v9 gate failed sanity recall@10 at 0.793103 (23/29; 24 hits required). The run review asked whether the test queries or retrieval caused the misses.
+**Decision:** The 29 sanity queries were reviewed against four written rules (on-topic, self-contained, label answers, label complete) by the Gemini lane. It was blind to the results, and its workspace held only the queries and the books' chunks. The reviewed score is reported beside the pre-set result in `data/bench/gate-v9.md` and never replaces it: v9 stays FAILED under the conditions set before the run.
+**Result:** The review changed 4 rows (PMBOK query rewritten, 2 labels fixed, 1 fragment dropped). The reviewed set scores 0.821 (23/28) on the Mac, and the original set reproduces 23/29 there. Of the six original misses, only PMBOK was a bad query; the other five (Agentic Mesh, Head First PMP, Python for DevOps, Selling to Big Companies, Fieldbook Companion) are fair queries that v9 misses.
+**Promotion call:** none made yet. The alias stays on `developer_knowledge_v8` until Gary decides with both numbers in hand. `data/intake/v9-promotion-brief.md` is ready if he promotes.
+**Rejected:**
+- Replacing the gate result with the reviewed score. The review came after the result was known, so it would move the goalposts.
+- Telling the reviewer which queries missed.
+- The coordinator's own post-result reading ("4 of 6 misses are label problems"). The blind review contradicted it.
+**Evidence:** `data/bench/gate-v9/sanity-v9-reviewed.jsonl`, `sanity-review-report.md`, `pmbok-diagnosis.md`; goal file [2026-09-30-v9-review-fixes](goals/2026-09-30-v9-review-fixes.md).
+
 ## v9: gate verdict, not promoted (2026-09-30)
 **Context:** The promotion conditions were fixed before the run:
 - hard NDCG@10 drop ≤ 0.010;

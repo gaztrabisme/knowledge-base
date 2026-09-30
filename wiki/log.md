@@ -116,3 +116,33 @@ Plan: `~/.claude/plans/1-their-own-domain-elegant-patterson.md`. Goal file: [goa
 - the subagent-mcp Codex adapter reports every edit to one file with the same signature, so the loop detector kills multi-edit work (`src/subagent/providers/codex.py` `_tool_use`). This one is not fixed.
 
 **Unexplained:** one `u6c.sh` run exited 1 with no FAIL line; three reruns exited 0.
+
+## [2026-09-30] conductor run | v9 review fixes
+Goal file: [goals/2026-09-30-v9-review-fixes.md](goals/2026-09-30-v9-review-fixes.md). The run fixes what the v9 run review found, in three repos.
+
+**Lane check** (2026-09-30, key file loaded): codex, glm and gemini were open. Three were closed:
+- deepseek: 402, out of balance;
+- bppc: health check failed;
+- omlx: `copilot_model_unavailable`.
+
+**Units, lane, verdict** (each verdict is the coordinator's own run of the row's UAT):
+- A1 sanity review, Gemini — PASS: 25 keep, 1 fix-query (PMBOK), 2 fix-label, 1 drop. The reviewer was blind to results.
+- A2 PMBOK diagnosis, direct Codex — PASS, branch query-or-label:
+  - 523/523 PMBOK points match their chunks;
+  - the labelled chunk ranks 2,387 on dense search and 1,204 on BM25 for the original query, and rank 1 for a query that uses the passage's own terms.
+  - Found in passing: heading paths repeat `(part 1) (part 1)` (`knowledge_base/chunk.py`). Not fixed.
+- A4 rescore, direct Codex — PASS. The Mac reproduces 23/29, and the reviewed set scores 0.821 (23/28). The coordinator filled in the reviewer's lane name, which the unit had written as unknown.
+- B1 loop fix, direct Codex — the code passed. The Codex sandbox blocked socket tests and `.git` writes. The coordinator ran the suite outside the sandbox (868 passed). The commit went to a Claude Agent (`6ae599a`), because the `subagent` server refuses its own repo as a workspace.
+- C1 and C2, GLM — PASS on the coordinator's runs. C1's verify script sat outside the workspace and was blocked, so it was moved inside for C2.
+- C3, direct Codex — PASS on the coordinator's run. The sandbox could not see the scratchpad script.
+- C4 (coordinator) — Evolution 4 marked KEEP after two runs, and Evolution 5 added.
+- D1 (coordinator) — Character line installed.
+- A7 (coordinator) — the destructive-command hook blocked a recursive delete, so `data/qdrant-v9-add` went to the Trash.
+- A5, GLM — paused at 5/10 runs, all exit 0. Another session's 27B training on the Mac GPU had died twice at 09:12 and 09:58, when A2's and A4's evals loaded models on MPS. It asked for no GPU work, so the unit was cancelled and A3 held.
+
+**Decided forward:**
+- The reviewer's lane name was added to gate-v9.md by the coordinator.
+- The remaining store was trashed rather than deleted.
+- GPU work was paused for the other session.
+
+**Found in this run:** the C4 goal row's UAT (`grep -A12`) prints too few lines to reach the Evolution 4 verdict. The criterion was checked with the full section.

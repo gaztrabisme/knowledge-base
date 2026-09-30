@@ -1,0 +1,128 @@
+{
+  "report": {
+    "label": "gate-v9-v9-sanity-mac",
+    "n_queries": 29,
+    "aggregate": {
+      "ndcg": 0.6045,
+      "recall10": 0.7931,
+      "mrr": 0.5417,
+      "recall_ceiling": 0.8276
+    },
+    "per_domain": {
+      "ai-engineering": {
+        "n": 1,
+        "ndcg": 0.0,
+        "recall10": 0.0,
+        "mrr": 0.0,
+        "recall_ceiling": 0.0
+      },
+      "cpp": {
+        "n": 1,
+        "ndcg": 1.0,
+        "recall10": 1.0,
+        "mrr": 1.0,
+        "recall_ceiling": 1.0
+      },
+      "design": {
+        "n": 1,
+        "ndcg": 0.5,
+        "recall10": 1.0,
+        "mrr": 0.3333,
+        "recall_ceiling": 1.0
+      },
+      "frontend": {
+        "n": 1,
+        "ndcg": 0.5,
+        "recall10": 1.0,
+        "mrr": 0.3333,
+        "recall_ceiling": 1.0
+      },
+      "management": {
+        "n": 3,
+        "ndcg": 0.1667,
+        "recall10": 0.3333,
+        "mrr": 0.1111,
+        "recall_ceiling": 0.3333
+      },
+      "research-methods": {
+        "n": 6,
+        "ndcg": 0.9051,
+        "recall10": 1.0,
+        "mrr": 0.875,
+        "recall_ceiling": 1.0
+      },
+      "sales": {
+        "n": 10,
+        "ndcg": 0.5708,
+        "recall10": 0.8,
+        "mrr": 0.4958,
+        "recall_ceiling": 0.9
+      },
+      "security": {
+        "n": 2,
+        "ndcg": 0.6309,
+        "recall10": 1.0,
+        "mrr": 0.5,
+        "recall_ceiling": 1.0
+      },
+      "software-engineering": {
+        "n": 2,
+        "ndcg": 0.8155,
+        "recall10": 1.0,
+        "mrr": 0.75,
+        "recall_ceiling": 1.0
+      },
+      "systems-ops": {
+        "n": 2,
+        "ndcg": 0.5,
+        "recall10": 0.5,
+        "mrr": 0.5,
+        "recall_ceiling": 0.5
+      }
+    }
+  },
+  "misses": [
+    {
+      "query": "For a planned airport with uncertain retail demand, how could the team estimate likely customer behavior before those facilities exist?",
+      "book": "pmbok-guide-7e",
+      "domain": "management",
+      "in_ceiling": false,
+      "heading_path": "A Guide to the Project Management Body of Knowledge (PMBOK\u00ae Guide) > 2. Project Performance Domains > 2.8. Uncertainty Performance Domain (part 1) (part 1)"
+    },
+    {
+      "query": "Which administration surfaces should let people inspect an agent\u2019s governance evidence and give operators oversight and recovery controls across a large deployment?",
+      "book": "agentic-mesh",
+      "domain": "ai-engineering",
+      "in_ceiling": false,
+      "heading_path": "Part II. Defining the Agent Ecosystem: Agentic Mesh > Chapter 8. Agentic Mesh User Experience (UX) > Login"
+    },
+    {
+      "query": "Why should a project set quality expectations and review specifications early instead of relying on final testing to discover mistakes?",
+      "book": "head-first-pmp",
+      "domain": "management",
+      "in_ceiling": false,
+      "heading_path": "there are no Dumb Questions"
+    },
+    {
+      "query": "How can a machine isolate multiple application environments without giving each one a separate operating-system kernel?",
+      "book": "python-for-devops",
+      "domain": "systems-ops",
+      "in_ceiling": false,
+      "heading_path": "Virtualization and Containers > Containers"
+    },
+    {
+      "query": "How can a vendor make an initial conversation useful to corporate decision makers who care about their business results rather than the vendor\u2019s offering?",
+      "book": "selling-to-big-companies",
+      "domain": "sales",
+      "in_ceiling": true,
+      "heading_path": "12. CREATE ENTICING VOICE MAIL MESSAGES > WHAT\u2019S ENTICING TO CORPORATE DECISION MAKERS?"
+    },
+    {
+      "query": "When an organization is moving through a difficult change, whose effort should an outside advisor avoid taking over, and what stance should they keep?",
+      "book": "flawless-consulting-fieldbook-companion-2e",
+      "domain": "sales",
+      "in_ceiling": false,
+      "heading_path": "Chapter 15 One Woman\u2019s Wisdom: *Balancing Competence with Consciousness* > THE LABOR IS THE CLIENT\u2019S"
+    }
+  ]
+}

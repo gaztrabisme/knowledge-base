@@ -1,5 +1,27 @@
 # Active Work
 
+## v9 review fixes
+**Status:** In progress 2026-09-30. Two rows are paused: another session's GPU training on this Mac asked for no GPU work for about 4 hours. Goal file: [2026-09-30-v9-review-fixes](goals/2026-09-30-v9-review-fixes.md).
+
+**Rows:**
+- Done:
+  - A1: blind review of the sanity queries;
+  - A2: PMBOK diagnosis (the query's wording, not indexing);
+  - A4: the rescore, 0.821 (23/28) beside the pre-set 0.793;
+  - A7: the u5 worktree, its stash and `data/qdrant-v9-add` removed (the store is in the Trash);
+  - B1: subagent-mcp loop fix `6ae599a`;
+  - C1–C3: skill rules;
+  - C4: skill ledger (`3e2d6db`, `635a4c7`);
+  - D1: the Character line.
+- A6 promotion: no call yet, and the alias stays on v8 (see [decisions](decisions.md)).
+- Paused:
+  - A3: the regression check;
+  - A5: the `u6c.sh` flake hunt, 5 of 10 runs done, all exit 0.
+
+  Both resume when the other session reports its training has ended.
+
+**Next step (Gary):** promote v9 or keep v8. The pre-set gate failed at 0.793 (23/29). The blind-reviewed set scores 0.821 (23/28). Five fair queries still miss.
+
 ## KB v9: 29 new books with heading repair
 **Status:** Built and gated 2026-09-30. **Not promoted:** the gate failed one of its three pre-set conditions, so Gary decides next.
 
