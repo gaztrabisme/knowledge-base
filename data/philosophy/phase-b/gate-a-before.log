@@ -1,0 +1,19 @@
+Primary: BGE reranker + custom multilingual sparse tokenizer
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 13396.88it/s]
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]Loading weights: 100%|██████████| 134/134 [00:00<00:00, 4939.38it/s]
+  01/60 en: hit
+  02/60 en: hit
+  03/60 en: hit
+  04/60 en: hit
+  05/60 en: miss
+  06/60 en: hit
+  07/60 en: hit
+  08/60 en: hit
+  09/60 en: hit
+  10/60 en: hit
+  11/60 en: hit
+  12/60 en: hit
+  13/60 en: hit
+  14/60 en: hit
+  15/60 en: miss
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights: 100%|██████████| 393/393 [00:00<00:00, 4910.47it/s]

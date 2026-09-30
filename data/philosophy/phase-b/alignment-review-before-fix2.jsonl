@@ -1,0 +1,40 @@
+{"pair": 1, "verdict": "partial", "reason": "Left closing line ends without punctuation at '保持其特点和纯洁', omitting the date (December 25, 1998) and author signature present in Right."}
+{"pair": 2, "verdict": "match", "reason": "Both sides represent the same section with matching title meaning, opening text, and closing lines."}
+{"pair": 3, "verdict": "partial", "reason": "Right closing lines contain an additional concluding paragraph ('我也不想多講了...') that is absent from Left."}
+{"pair": 4, "verdict": "partial", "reason": "Left closing line cuts off mid-sentence at '改变人的身体状' whereas Right completes the concluding sentence."}
+{"pair": 5, "verdict": "match", "reason": "Both sides represent the same May 19, 2013 Greater New York Fa Conference lecture with matching opening lines, closing remarks, and dates."}
+{"pair": 6, "verdict": "match", "reason": "Both sides represent the exact same section with matching title, opening, closing text, and date (September 15, 2019)."}
+{"pair": 7, "verdict": "partial", "reason": "Right closing line ends without punctuation at '同樣有法的威力', omitting the date (June 26, 1996) and author signature present in Left."}
+{"pair": 8, "verdict": "partial", "reason": "Right closing line is truncated mid-date at '李洪志二零二一年', missing the month and day (November 18) present in Left."}
+{"pair": 9, "verdict": "partial", "reason": "Right closing line cuts off mid-sentence at '正念' while Left continues to the complete end of the lecture and applause."}
+{"pair": 10, "verdict": "match", "reason": "Both sides represent the complete identical text with matching title, content, and date (February 15, 2004)."}
+{"pair": 11, "verdict": "partial", "reason": "Right closing line cuts off mid-sentence at '但是這宇宙的眾生已經' whereas Left includes the complete final sentence and applause."}
+{"pair": 12, "verdict": "partial", "reason": "Right closing line cuts off at '臺灣大法弟子文章', omitting the article title and closing phrase of the commentary present in Left."}
+{"pair": 13, "verdict": "match", "reason": "Both sides contain the complete identical poem with matching title, content, and date (February 26, 2018)."}
+{"pair": 14, "verdict": "match", "reason": "Both sides contain the complete identical short rule text and title."}
+{"pair": 15, "verdict": "match", "reason": "Both sides cover the complete 1997 San Francisco Fa conference lecture with matching title, date (April 6, 1997), opening, and closing lines."}
+{"pair": 16, "verdict": "match", "reason": "Both sides contain the complete identical announcement text with matching title and date (July 31, 2016)."}
+{"pair": 17, "verdict": "match", "reason": "Both sides cover the same 2009 Washington D.C. International Fa Conference lecture with matching title and date (July 18, 2009)."}
+{"pair": 18, "verdict": "partial", "reason": "Left closing line cuts off mid-sentence at '叫作“' whereas Right continues with the definition of Buddha."}
+{"pair": 19, "verdict": "match", "reason": "Both sides cover the complete Beijing meeting advice with matching title, date (December 17, 1994), opening, and closing lines."}
+{"pair": 20, "verdict": "match", "reason": "Both sides contain the identical heading and date text (March 27-28, 1999)."}
+{"pair": 21, "verdict": "partial", "reason": "Left closing line cuts off mid-sentence at '的生命，也' whereas Right continues to the final sentence and date (June 5, 2024)."}
+{"pair": 22, "verdict": "match", "reason": "Both sides represent the complete letter to the Czecho-Slovak Fa Conference with matching title and date (March 5, 2022)."}
+{"pair": 23, "verdict": "partial", "reason": "Left closing line cuts off mid-sentence at '可是，人们都把它' whereas Right contains the full concluding sentences."}
+{"pair": 24, "verdict": "match", "reason": "Both sides contain the identical title and date text (March 2002)."}
+{"pair": 25, "verdict": "partial", "reason": "Right closing line cuts off mid-word at '圓' whereas Left includes the complete ending and translators' footnotes."}
+{"pair": 26, "verdict": "match", "reason": "Both sides cover the complete 2003 Washington D.C. Fa Conference lecture with matching opening lines, closing remarks, and dates."}
+{"pair": 27, "verdict": "match", "reason": "Both sides cover the complete lecture 'Dafa Disciples Must Study the Fa' with matching opening and closing lines."}
+{"pair": 28, "verdict": "match", "reason": "Both sides contain the complete identical short rule text and title."}
+{"pair": 29, "verdict": "match", "reason": "Both sides contain the complete identical poem with matching title, content, and date (August 24, 2019)."}
+{"pair": 30, "verdict": "match", "reason": "Both sides cover the complete message to the European Fa Conference with matching title, content, and date (August 31, 2019)."}
+{"pair": 31, "verdict": "partial", "reason": "Left closing line appends the title and date (May 17, 2019) of a subsequent lecture to the end of the section."}
+{"pair": 32, "verdict": "match", "reason": "Both sides cover the complete Zhengzhou Q&A lecture with matching opening lines and closing remarks."}
+{"pair": 33, "verdict": "match", "reason": "Both sides cover the complete 2001 Canada Fa Conference lecture with matching opening text and date (May 19, 2001)."}
+{"pair": 34, "verdict": "match", "reason": "Both sides represent the same article with matching title, opening lines, closing lines, and date (August 19, 2016)."}
+{"pair": 35, "verdict": "match", "reason": "Both sides cover the complete Australia Fa Conference lecture with matching opening text and closing applause."}
+{"pair": 36, "verdict": "match", "reason": "Both sides cover the complete lecture 'Dafa Disciples Must Study the Fa' with matching opening lines, closing remarks, and date (July 16, 2011)."}
+{"pair": 37, "verdict": "match", "reason": "Both sides cover the complete message to the Taiwan Fa Conference with matching title, content, and date (December 9, 2023)."}
+{"pair": 38, "verdict": "match", "reason": "Both sides cover the complete Great Lakes Fa Conference lecture with matching opening and closing lines."}
+{"pair": 39, "verdict": "partial", "reason": "Right opening starts late at '再苦哪' and Right closing line cuts off mid-sentence at '不辜負「大法', differing in both boundaries from Left."}
+{"pair": 40, "verdict": "match", "reason": "Both sides contain the complete identical text with matching title, opening lines, and closing lines."}

@@ -1,0 +1,20 @@
+{"item": 1, "verdict": "ok", "reason": "Reads as continuous body text consisting of a conference lecture followed by a disciple question."}
+{"item": 2, "verdict": "ok", "reason": "Reads as a continuous, coherent passage of exercise instructions in proper sequence."}
+{"item": 3, "verdict": "ok", "reason": "Reads as continuous lecture body text explaining principles of illness and cultivation."}
+{"item": 4, "verdict": "ok", "reason": "Reads as continuous speech concluding an answer and greeting disciples from Shandong."}
+{"item": 5, "verdict": "ok", "reason": "Reads as a continuous, coherent paragraph of Chinese lecture body text."}
+{"item": 6, "verdict": "ok", "reason": "Reads as continuous Vietnamese translation of lecture body text in proper sentence order."}
+{"item": 7, "verdict": "ok", "reason": "Reads as continuous lecture text with normal Q&A dialogue sequence."}
+{"item": 8, "verdict": "scrambled", "reason": "Combines lines from two different places, merging the conclusion of a Beijing 1994 meeting with the title and opening of a December 1994 Guangzhou talk."}
+{"item": 9, "verdict": "ok", "reason": "Reads as continuous, coherent Vietnamese body text discussing Chinese politics and Falun Gong."}
+{"item": 10, "verdict": "ok", "reason": "Reads as continuous English Q&A transcript with teacher and student dialogue."}
+{"item": 11, "verdict": "ok", "reason": "Reads as continuous Chinese lecture body text in proper order."}
+{"item": 12, "verdict": "ok", "reason": "Reads as continuous Chinese lecture body text preceded by its section title header."}
+{"item": 13, "verdict": "ok", "reason": "Reads as continuous Chinese Q&A dialogue discussing Buddhist principles."}
+{"item": 14, "verdict": "ok", "reason": "Reads as continuous English lecture body text preceded by its conference header."}
+{"item": 15, "verdict": "ok", "reason": "Reads as continuous Vietnamese lecture translation preceded by its conference title."}
+{"item": 16, "verdict": "ok", "reason": "Reads as continuous Chinese lecture text in proper sequence preceded by its title header."}
+{"item": 17, "verdict": "junk", "reason": "Not continuous body text, containing only a title header, Sino-Vietnamese title transcription, and an untranslated Chinese pinyin pronunciation fragment."}
+{"item": 18, "verdict": "junk", "reason": "Not body text, consisting entirely of metadata including the title header, Sino-Vietnamese title transcription, and a date in pinyin with the poem body omitted."}
+{"item": 19, "verdict": "ok", "reason": "Reads as continuous, coherent English article body text in proper order."}
+{"item": 20, "verdict": "ok", "reason": "Reads as continuous Vietnamese article body text preceded by its section title."}

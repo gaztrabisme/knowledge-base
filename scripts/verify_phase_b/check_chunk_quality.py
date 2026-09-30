@@ -18,6 +18,18 @@ PHASE_A = {line.split()[1].split("/")[-1]
            for line in (ROOT / "data/philosophy/phase-b/phase-a-baseline.sha256").read_text().splitlines()}
 CJK = re.compile(r"[㐀-鿿]")
 SPACED = re.compile(r"[㐀-鿿] (?=[㐀-鿿])")
+
+
+def LATIN_OK(ch: str) -> bool:
+    return ord(ch) < 0x0250 or 0x1E00 <= ord(ch) <= 0x1EFF or bool(CJK.match(ch))
+
+
+def CJK_OK(ch: str) -> bool:
+    code = ord(ch)
+    return (code < 0x0250 or bool(CJK.match(ch)) or 0x3000 <= code <= 0x30FF
+            or 0xF900 <= code <= 0xFAFF or 0xFF00 <= code <= 0xFFEF or 0x20000 <= code <= 0x2FA1F)
+
+
 BAD_TITLES = {"contents", "table of contents", "mục lục", "目录", "目錄", "目 录", "目 錄"}
 
 
@@ -57,6 +69,14 @@ def main() -> int:
                 per_lang[lang]["short"] += 1
             if clean.casefold() in BAD_TITLES or clean.startswith(("▪", "•", "●")):
                 bad.append(f"{path.name}: section {key} has a contents or list line as its title: {clean!r}")
+        # Garbled extraction: letters from scripts that do not belong to the language
+        # (the Chinese text check counts only CJK characters, so it misses this).
+        allowed = LATIN_OK if lang in {"en", "vi"} else CJK_OK
+        for child in children:
+            letters = [ch for ch in child["text"] if ch.isalpha()]
+            foreign = [ch for ch in letters if not allowed(ch)]
+            if len(letters) >= 20 and len(foreign) / len(letters) > 0.20:
+                bad.append(f"{child['child_id']}: {len(foreign) / len(letters):.0%} of letters are from a foreign script")
         if lang.startswith("zh"):
             text = "".join(child["text"] for child in children)
             count = len(CJK.findall(text))

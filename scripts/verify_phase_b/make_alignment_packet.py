@@ -30,7 +30,11 @@ def main(out_dir: str) -> None:
             for child in data["children"]:
                 key = child["metadata"]["section_key"]
                 by_key[key]["title"] = child["metadata"].get("section_title", "")
-                by_key[key]["text"] += child["text"].split("\n\n", 1)[-1] + "\n"
+                text = child["text"]
+                # Only a leading "# key — title" line is a heading; everything else is body.
+                if text.startswith("# ") and "\n\n" in text:
+                    text = text.split("\n\n", 1)[1]
+                by_key[key]["text"] += text + "\n"
                 all_children.append((work["work_id"], lang, child["child_id"], child["text"]))
             if rec.get("aligned"):
                 sections[(work["work_id"], lang)] = by_key
