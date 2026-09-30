@@ -31,7 +31,7 @@ GITHUB_API = "https://api.github.com/repos/gaztrabisme/knowledge-base"
 GITHUB_HEADERS = {"X-GitHub-Api-Version": "2022-11-28"}
 STREAM_SIZE = 8 * 1024 * 1024
 COLLECTION_NAMES = {
-    "kb-core": "developer_knowledge_v8",
+    "kb-core": "developer_knowledge_v9",
     "kb-philosophy": "philosophy",
 }
 
@@ -709,7 +709,7 @@ def _restore_collections(
         if name in matching:
             continue
         if name in existing:
-            if name == "developer_knowledge_v8":
+            if name == "developer_knowledge_v9":
                 _remove_alias_for(base_url, name)
             _qdrant_request(
                 f"{base_url}/collections/{quote(name, safe='')}", method="DELETE",
@@ -729,13 +729,13 @@ def _restore_collections(
             )
         snapshot.unlink()
 
-    if "developer_knowledge_v8" in target_names:
+    if "developer_knowledge_v9" in target_names:
         aliases = _aliases(base_url)
         actions = []
         if "developer_knowledge" in aliases:
             actions.append({"delete_alias": {"alias_name": "developer_knowledge"}})
         actions.append({"create_alias": {
-            "collection_name": "developer_knowledge_v8",
+            "collection_name": "developer_knowledge_v9",
             "alias_name": "developer_knowledge",
         }})
         _change_alias(base_url, actions)
@@ -965,7 +965,7 @@ def main() -> int:
     parser.add_argument("--qdrant-port", type=int, default=6333)
     parser.add_argument("--skip-models", action="store_true")
     parser.add_argument("--skip-register", action="store_true")
-    parser.add_argument("--release-tag", default="data-v8")
+    parser.add_argument("--release-tag", default="data-v9")
     parser.add_argument("--local-release", type=Path)
     args = parser.parse_args()
 

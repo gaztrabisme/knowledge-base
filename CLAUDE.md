@@ -1,23 +1,23 @@
 # Developer Knowledge Base — MCP Server
 
-A local MCP server that serves semantic search over technical books to Claude Code during development sessions. 291 technical sources are indexed across 17 domains. A separate philosophy collection holds the Original Library, three Tao Te Ching translations and Zhuan Falun, searchable in English, Vietnamese and Chinese.
+A local MCP server that serves semantic search over technical books to Claude Code during development sessions. 320 technical sources are indexed across 19 domains. A separate philosophy collection holds the Original Library, three Tao Te Ching translations and Zhuan Falun, searchable in English, Vietnamese and Chinese.
 
-## Status: v8 — technical shelf and philosophy collection
+## Status: v9 — sales and research-methods shelves
 
-**Technical collection.** 291 books are indexed (266,647 vectors). v8 adds 165 books (134,024 vectors) in seven new domains: frontend, design, data engineering, data science, C++, reverse engineering and management. Some also land in the existing domains.
+**Technical collection.** 320 books are indexed (286,723 vectors). v9 adds 29 books (20,076 vectors): two new domains, sales (10 books) and research methods (6 books), plus 13 books across the existing domains (management, security, systems/ops, software engineering, AI engineering, design, frontend, C++).
 
-The v8 gate compares the candidate with v7.1 on the same GPU:
+The v9 gate compares the candidate with v8 on the same GPU:
 
-| Set | Metric | v7.1 | v8 |
+| Set | Metric | v8 | v9 |
 |---|---|---|---|
-| Hard (438 queries) | NDCG@10 | 0.7703 | 0.7429 |
-| | Recall@10 | 0.9680 | 0.9521 |
-| Easy (199 queries) | NDCG@10 | 0.9108 | 0.9042 |
-| Sanity (60 queries written from the new books) | Recall@10 | — | 0.867 |
+| Hard (438 queries) | NDCG@10 | 0.7429 | 0.7409 |
+| | Recall@10 | 0.9521 | 0.9521 |
+| Easy (199 queries) | NDCG@10 | 0.9043 | 0.9044 |
+| Sanity (29 queries written from the new books) | Recall@10 | — | 0.793 |
 
-The candidate failed one of three promotion conditions set in advance. In a blind sample of 40 regressed queries, the passage that pushed the labelled answer down was a worse answer in 22; the limit was 20. It was promoted on Gary's decision. See `data/bench/gate-v8.md` and Known Limitations.
+The candidate failed one of three promotion conditions set in advance: sanity recall@10 was 0.793 (23/29) against a threshold of 0.80, while both hard-set conditions passed. A blind review of the sanity queries afterwards scored 0.821 (23/28). Gary promoted the candidate on 2026-09-30 despite the failed condition, as happened for v8. See `data/bench/gate-v9.md` and Known Limitations.
 
-The live name `developer_knowledge` is a Qdrant alias for the collection `developer_knowledge_v8`. The v7.1 collection is kept as a snapshot at `data/snapshots/developer_knowledge-v71.snapshot` for rollback.
+The live name `developer_knowledge` is a Qdrant alias for the collection `developer_knowledge_v9`. The v8 collection stays on the server for rollback.
 
 **Philosophy collection.** `philosophy` holds 8,432 vectors, kept apart from technical search so it cannot dilute it. It covers:
 - the Original Library in Vietnamese (the source), English and Traditional Chinese, 38 sections each;
@@ -84,7 +84,7 @@ Configured in `.mcp.json` (project) and `~/.claude.json` (global, via PYTHONPATH
 
 The private repo is `gaztrabisme/knowledge-base`. Other machines install it with `install.ps1` (Windows) or `install.sh` (macOS/Linux) and a fine-grained GitHub token that can only read this repo; `README.md` is the guide for that reader.
 
-- Data ships as GitHub Release `data-v8`: `kb-core.part00` (technical snapshot, markdown, chunks), `kb-philosophy.part00`, and `manifest.json` with point counts and sha256 per part.
+- Data ships as GitHub Release `data-v9`: `kb-core.part00` (technical snapshot, markdown, chunks), `kb-philosophy.part00`, and `manifest.json` with point counts and sha256 per part.
 - Rebuild the release after an index change: `uv run python scripts/package_release.py` (snapshots the live Qdrant, writes `dist/release/`), then upload under a new tag and bump the installer's `--release-tag` default.
 - `scripts/install.py --dir <dir> --edition core|full [--update] [--qdrant-port N]` downloads and verifies the parts, fetches the pinned Qdrant binary, restores the snapshots, and runs `claude mcp add`.
 
@@ -356,9 +356,23 @@ assembly (Irvine), and Fundamentals of Computer Graphics.
 Practical Reverse Engineering, Reverse Engineering for Beginners, The Ghidra Book, Arm assembly internals (Blue
 Fox), x86 cracking and countermeasures, Apple debugging, and reverse engineering for cybersecurity.
 
-### Management (5 sources) — `knowledge-base/management/`
+### Management (8 sources) — `knowledge-base/management/`
 
-Learning Agile, The Scrum Master's Path, User Story Mapping, Holacracy, and Project Management with AI.
+Learning Agile, The Scrum Master's Path, User Story Mapping, Holacracy, Project Management with AI, the
+PMBOK Guide 7th Edition, Head First PMP, and Project Planning, Scheduling, and Control (Lewis).
+
+### Sales (10 sources) — `knowledge-base/sales/`
+
+MEDDICC (Whyte), The Challenger Sale (Dixon & Adamson), Getting to Yes (Fisher, Ury & Patton), Bargaining for
+Advantage (Shell), Selling to Big Companies (Konrath), Key Account Management 2nd Edition (McDonald & Woodburn),
+Value-Based Fees (Weiss), Flawless Consulting 3rd Edition and its Fieldbook Companion 2nd Edition (both Peter
+Block), and the HBR Guide to Better Business Writing (Garner).
+
+### Research Methods (6 sources) — `knowledge-base/research-methods/`
+
+Research Methods in Psychology (Morling), Critical Thinking About Research (Meltzoff & Cooper), How to Read a
+Paper (Greenhalgh & Dijkstra), Research Ethics and Integrity for Social Scientists 2nd Edition (Israel), Privacy
+in Context (Nissenbaum), and The New Ethics of Journalism (McBride & Rosenstiel).
 
 ### v8 additions to existing domains
 
@@ -367,6 +381,16 @@ architecture +6 (API strategy and design), data-intensive and scalable systems +
 databases +5 (Database Internals, CockroachDB, graph data, vector databases, SQL Server tuning), security +10
 (zero trust, supply chain, cloud native, incident response, LLM security), systems/ops +7, software
 engineering +5. Per-book rows are in `data/intake/v8-manifest.json`.
+
+### v9 additions to existing domains
+
+Management +3 (PMBOK Guide 7th Edition, Head First PMP, Project Planning Scheduling and Control), security +2
+(Container Security, Practical Cloud Security), systems/ops +2 (Hands-On Site Reliability Engineering, Python
+for DevOps), software engineering +2 (Software Engineering at Google, Real-World Software Development), and one
+each in AI engineering (Agentic Mesh), design (Designing AI Interfaces), frontend (High Performance Browser
+Networking) and C++ (The Art of Assembly Language). Per-book rows are in `data/intake/v9-manifest.json`.
+Seven further files were skipped at intake: six are scanned or image-only with no usable text layer, and one is
+a byte-identical duplicate.
 
 ## Philosophy Collection — `data/philosophy/works.json`
 
@@ -378,8 +402,8 @@ engineering +5. Per-book rows are in `data/intake/v8-manifest.json`.
 
 ## Corpus Stats
 
-- 291 technical sources indexed live; 266,647 child chunks (vectors) in `developer_knowledge_v8`
-  (132,623 carried over from v7.1 + 134,024 new)
+- 320 technical sources indexed live; 286,723 child chunks (vectors) in `developer_knowledge_v9`
+  (266,647 carried over from v8 + 20,076 new)
 - The 55 on-disk postgresql-14-internals chunks remain unindexed (corrupt re-chunk; see Known Limitations)
 - Philosophy: 8,432 vectors in the `philosophy` collection (10 language files across 5 work records)
 - **Not yet enriched** — index-now-enrich-later: embedded with heading_path + child_text only; contextual enrichment is a deferred background pass
@@ -390,7 +414,7 @@ engineering +5. Per-book rows are in `data/intake/v8-manifest.json`.
 - Fusion: Qdrant DBSF (Distribution-Based Score Fusion) via prefetch API
 - Adaptive cutoff: score floor 4.0, min results 3
 - Vector store: Qdrant server at `127.0.0.1:6333` (KB_QDRANT_URL). `developer_knowledge` is an alias for
-  `developer_knowledge_v8`; `philosophy` is its own collection. If the server is down, search falls back to
+  `developer_knowledge_v9`; `philosophy` is its own collection. If the server is down, search falls back to
   the embedded store at `data/qdrant`, which still holds v7.1 (126 books) and no philosophy collection
 
 ## Version History
@@ -430,9 +454,17 @@ engineering +5. Per-book rows are in `data/intake/v8-manifest.json`.
   Hard gate NDCG 0.7703 → 0.7429, recall@10 0.9680 → 0.9521; failed the pre-set dilution rule
   (22/40 > 20/40) and was promoted on Gary's decision. Promotion is a Qdrant alias switch.
   Separate multilingual `philosophy` collection with aligned translations and two new MCP tools.
+- **v9 (sales + research methods):** 29 books registered by manifest (`data/intake/v9-manifest.json`), 2 new
+  domains (sales, research-methods), embedded on the RTX 5080 → 320 books / 286,723 vectors. Hard gate
+  NDCG 0.7429 → 0.7409 and recall unchanged (both pass); sanity recall@10 0.793 against a 0.80 threshold
+  (fail). A blind review of the sanity queries scored 0.821 (23/28). Promoted on Gary's decision, as for v8.
+  Promotion is a Qdrant alias switch; the release is `data-v9`.
 
 ## Known Limitations
 
+- **v9 failed the sanity gate condition and was promoted anyway.** Sanity recall@10 on the 29 new books was 0.793 (23/29) against a 0.80 threshold; both hard-set conditions passed, and a blind review of the sanity queries scored 0.821 (23/28). Gary promoted v9 on 2026-09-30, as with v8.
+- **Five v9 sanity queries still miss.** `agentic-mesh`, `head-first-pmp`, `python-for-devops`, `selling-to-big-companies` and `flawless-consulting-fieldbook-companion-2e` return no labelled passage in the top 10, in the original and the blind-reviewed set alike. Each is a retrieval miss. Details: `data/bench/gate-v9.md`.
+- **Chunk heading paths repeat "(part 1) (part 1)".** The chunker in `knowledge_base/chunk.py` appends the ` (part N)` suffix in two passes, so oversized sections can carry it twice; 120 chunk files are affected, and heading_path is prepended to the embedding. Not fixed in v9.
 - **v8 reranker dilution.** On the hard set, 88 queries got worse and 16 better. The labelled answer mostly stays in the top 10 but ranks lower. In a blind sample of 40 of those 88 queries, 17 had a complete answer pushed below a partial one. The pushing passage came from a new book in 22 of the 40, and from an old book in 18: 134,000 new candidates change which 50 passages reach the reranker. Broad new books displace most often (Designing Data-Intensive Applications, Essential Math for AI, Foundations of Scalable Systems). Rollback is to restore `data/snapshots/developer_knowledge-v71.snapshot` and point the alias at it. Details: `data/bench/gate-v8.md`.
 - **Tukey's *Exploratory Data Analysis* is not indexed.** It is a scanned PDF with no text layer and needs OCR first.
 - **15 v8 books are below the text-density floor.** They are image-heavy or sparse-layout PDFs, and each keeps 81–99% of its extractable text (`data/intake/audit-exceptions.json`).

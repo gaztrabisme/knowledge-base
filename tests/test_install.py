@@ -43,10 +43,10 @@ class Response:
 
 
 def _make_core_bundle(path: Path, snapshot=b"snapshot", include_data=False):
-    source = path.parent / "developer_knowledge_v8.snapshot"
+    source = path.parent / "developer_knowledge_v9.snapshot"
     source.write_bytes(snapshot)
     with tarfile.open(path, "w:gz") as archive:
-        archive.add(source, arcname="snapshots/developer_knowledge_v8.snapshot")
+        archive.add(source, arcname="snapshots/developer_knowledge_v9.snapshot")
         if include_data:
             archive.addfile(
                 tarfile.TarInfo("data/markdown/keep.md"),
@@ -93,13 +93,13 @@ def test_core_restore_ignores_unselected_philosophy_bundle(tmp_path, monkeypatch
     monkeypatch.setattr(
         installer,
         "_collection_info",
-        lambda _url, name: {"points_count": 10} if name == "developer_knowledge_v8" else None,
+        lambda _url, name: {"points_count": 10} if name == "developer_knowledge_v9" else None,
     )
     monkeypatch.setattr(installer, "_aliases", lambda _url: {})
     monkeypatch.setattr(installer, "_change_alias", lambda *_args: None)
     manifest = {
         "collections": {
-            "developer_knowledge_v8": {"bundle": "kb-core", "points": 10},
+            "developer_knowledge_v9": {"bundle": "kb-core", "points": 10},
             "philosophy": {"bundle": "kb-philosophy", "points": 3},
         }
     }
@@ -108,7 +108,7 @@ def test_core_restore_ignores_unselected_philosophy_bundle(tmp_path, monkeypatch
         manifest, {"kb-core": bundle}, "http://127.0.0.1:6363", set(), tmp_path,
     )
 
-    assert restored == ["developer_knowledge_v8"]
+    assert restored == ["developer_knowledge_v9"]
 
 
 def test_bundle_extract_skips_symlinked_markdown_and_chunks(tmp_path):
@@ -130,20 +130,20 @@ def test_bundle_extract_skips_symlinked_markdown_and_chunks(tmp_path):
 
     assert (markdown / "keep.md").read_text(encoding="utf-8") == "source markdown"
     assert (chunks / "keep.json").read_text(encoding="utf-8") == "source chunks"
-    assert (tmp_path / "snapshots" / "developer_knowledge_v8.snapshot").read_bytes() == b"snapshot"
+    assert (tmp_path / "snapshots" / "developer_knowledge_v9.snapshot").read_bytes() == b"snapshot"
 
 
 def _write_local_manifest(path: Path):
     path.mkdir(parents=True, exist_ok=True)
     (path / "manifest.json").write_text(json.dumps({
-        "tag": "data-v8",
+        "tag": "data-v9",
         "qdrant_version": "1.18.2",
         "bundles": {
             "kb-core": {"size": 1, "parts": []},
             "kb-philosophy": {"size": 1, "parts": []},
         },
         "collections": {
-            "developer_knowledge_v8": {"bundle": "kb-core", "points": 10},
+            "developer_knowledge_v9": {"bundle": "kb-core", "points": 10},
             "philosophy": {"bundle": "kb-philosophy", "points": 3},
         },
     }), encoding="utf-8")
@@ -157,7 +157,7 @@ def _install_args(tmp_path, local_release, edition="core"):
         qdrant_port=6363,
         skip_models=True,
         skip_register=True,
-        release_tag="data-v8",
+        release_tag="data-v9",
         local_release=local_release,
     )
 
@@ -168,7 +168,7 @@ def test_update_fast_path_requires_same_edition_and_matching_collections(
     release = tmp_path / "release"
     _write_local_manifest(release)
     (tmp_path / ".kb-install.json").write_text(json.dumps({
-        "tag": "data-v8", "edition": "full",
+        "tag": "data-v9", "edition": "full",
     }), encoding="utf-8")
     binary = tmp_path / "bin" / "qdrant"
     binary.parent.mkdir()
@@ -186,7 +186,7 @@ def test_update_fast_path_requires_same_edition_and_matching_collections(
 
 @pytest.mark.parametrize(
     ("state_tag", "state_edition"),
-    [("older-tag", "core"), ("data-v8", "full")],
+    [("older-tag", "core"), ("data-v9", "full")],
 )
 def test_update_fast_path_rejects_tag_or_edition_mismatch(
     tmp_path, monkeypatch, state_tag, state_edition,
@@ -211,16 +211,16 @@ def test_update_fast_path_rejects_tag_or_edition_mismatch(
 
 
 def test_update_fast_path_rejects_missing_or_wrong_collection_counts(monkeypatch):
-    collections = {"developer_knowledge_v8": {"points": 10}}
+    collections = {"developer_knowledge_v9": {"points": 10}}
     monkeypatch.setattr(installer, "_qdrant_ready", lambda _url: True)
-    counts = {"developer_knowledge_v8": 10}
+    counts = {"developer_knowledge_v9": 10}
     monkeypatch.setattr(
         installer,
         "_collection_info",
         lambda _url, name: {"points_count": counts[name]} if name in counts else None,
     )
     assert installer._collections_match("http://127.0.0.1:6363", collections)
-    counts["developer_knowledge_v8"] = 9
+    counts["developer_knowledge_v9"] = 9
     assert not installer._collections_match("http://127.0.0.1:6363", collections)
     counts.clear()
     assert not installer._collections_match("http://127.0.0.1:6363", collections)
@@ -232,7 +232,7 @@ def test_update_fast_path_requires_qdrant_binary_even_with_version_marker(
     release = tmp_path / "release"
     _write_local_manifest(release)
     (tmp_path / ".kb-install.json").write_text(json.dumps({
-        "tag": "data-v8", "edition": "core",
+        "tag": "data-v9", "edition": "core",
     }), encoding="utf-8")
     version_file = tmp_path / "bin" / "qdrant.version"
     version_file.parent.mkdir()
@@ -251,7 +251,7 @@ def test_update_fast_path_registers_requested_core_edition(tmp_path, monkeypatch
     release = tmp_path / "release"
     _write_local_manifest(release)
     (tmp_path / ".kb-install.json").write_text(json.dumps({
-        "tag": "data-v8", "edition": "core",
+        "tag": "data-v9", "edition": "core",
     }), encoding="utf-8")
     binary = tmp_path / "bin" / "qdrant"
     binary.parent.mkdir()
@@ -259,7 +259,7 @@ def test_update_fast_path_registers_requested_core_edition(tmp_path, monkeypatch
     (binary.parent / "qdrant.version").write_text("1.18.2", encoding="utf-8")
     registered = []
     def collections_match(_url, collections):
-        assert set(collections) == {"developer_knowledge_v8"}
+        assert set(collections) == {"developer_knowledge_v9"}
         return True
 
     monkeypatch.setattr(installer, "_collections_match", collections_match)
@@ -430,14 +430,14 @@ def test_stop_qdrant_only_when_pid_record_matches_its_storage(tmp_path, monkeypa
 def test_disk_checks_fail_before_replacing_existing_collection(tmp_path, monkeypatch):
     bundle = tmp_path / "core.tar.gz"
     _make_core_bundle(bundle, b"snapshot-payload")
-    monkeypatch.setattr(installer, "_collection_names", lambda _url: {"developer_knowledge_v8"})
+    monkeypatch.setattr(installer, "_collection_names", lambda _url: {"developer_knowledge_v9"})
     monkeypatch.setattr(installer.shutil, "disk_usage", lambda _path: installer.shutil._ntuple_diskusage(100, 90, 10))
     deletes = []
     monkeypatch.setattr(installer, "_qdrant_request", lambda *args, **_kwargs: deletes.append(args))
 
     with pytest.raises(RuntimeError, match="existing collections were left intact"):
         installer._restore_collections(
-            {"collections": {"developer_knowledge_v8": {"bundle": "kb-core", "points": 10}}},
+            {"collections": {"developer_knowledge_v9": {"bundle": "kb-core", "points": 10}}},
             {"kb-core": bundle}, "http://127.0.0.1:6363", set(), tmp_path,
         )
 
@@ -471,7 +471,7 @@ def test_snapshot_upload_ignores_proxy_environment(tmp_path, monkeypatch):
             return SimpleNamespace(raise_for_status=lambda: None)
 
     monkeypatch.setattr(httpx, "Client", Client)
-    installer._restore_snapshot("http://127.0.0.1:6363", "developer_knowledge_v8", snapshot)
+    installer._restore_snapshot("http://127.0.0.1:6363", "developer_knowledge_v9", snapshot)
     assert options["trust_env"] is False
 
 
@@ -497,10 +497,10 @@ def test_install_clears_tokens_after_selected_release_parts_download(tmp_path, m
     for name in ("KB_GH_TOKEN", "GH_TOKEN", "GITHUB_TOKEN"):
         monkeypatch.setenv(name, "test-secret")
     manifest = {
-        "tag": "data-v8",
+        "tag": "data-v9",
         "qdrant_version": "1.18.2",
         "bundles": {"kb-core": {"size": 1, "parts": [{"name": "core.part00"}]}},
-        "collections": {"developer_knowledge_v8": {"bundle": "kb-core", "points": 10}},
+        "collections": {"developer_knowledge_v9": {"bundle": "kb-core", "points": 10}},
     }
     seen_tokens = []
     monkeypatch.setattr(installer, "_release_files", lambda *_: (manifest, {}))
@@ -521,7 +521,7 @@ def test_install_clears_tokens_after_selected_release_parts_download(tmp_path, m
     monkeypatch.setattr(installer, "assemble_bundle", assemble)
     monkeypatch.setattr(installer, "_check_download_space", lambda *_: None)
     monkeypatch.setattr(installer, "_download_qdrant", download_qdrant)
-    monkeypatch.setattr(installer, "_prepare_qdrant", lambda *_: ("http://127.0.0.1:6363", {"developer_knowledge_v8"}))
+    monkeypatch.setattr(installer, "_prepare_qdrant", lambda *_: ("http://127.0.0.1:6363", {"developer_knowledge_v9"}))
     monkeypatch.setattr(installer, "_restore_collections", lambda *_: None)
     monkeypatch.setattr(installer, "_smoke_query", lambda *_: None)
     monkeypatch.setattr(installer, "_write_install_state", lambda *_: None)

@@ -20,7 +20,7 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parent.parent
 QDRANT_VERSION = "1.18.2"
 COLLECTIONS = {
-    "developer_knowledge_v8": {"alias": "developer_knowledge", "bundle": "kb-core"},
+    "developer_knowledge_v9": {"alias": "developer_knowledge", "bundle": "kb-core"},
     "philosophy": {"bundle": "kb-philosophy"},
 }
 CHUNK_SIZE = 8 * 1024 * 1024
@@ -165,7 +165,7 @@ def _dry_run(source_root: Path, base_url: str, part_size: int) -> None:
         raise ValueError("--part-size must be positive")
     counts = {name: point_count(base_url, name) for name in COLLECTIONS}
     for bundle_name, collection in (
-        ("kb-core", "developer_knowledge_v8"),
+        ("kb-core", "developer_knowledge_v9"),
         ("kb-philosophy", "philosophy"),
     ):
         files = _source_files(source_root, bundle_name)
@@ -202,7 +202,7 @@ def package_release(
     with tempfile.TemporaryDirectory(prefix=".package-", dir=output_dir) as temporary:
         work_dir = Path(temporary)
         for collection, bundle_name, snapshot_filename in (
-            ("developer_knowledge_v8", "kb-core", "developer_knowledge_v8.snapshot"),
+            ("developer_knowledge_v9", "kb-core", "developer_knowledge_v9.snapshot"),
             ("philosophy", "kb-philosophy", "philosophy.snapshot"),
         ):
             snapshot_name = _create_snapshot(base_url, collection)
@@ -238,7 +238,7 @@ def main() -> int:
     parser.add_argument("--qdrant-url", default="http://127.0.0.1:6333")
     parser.add_argument("--part-size", type=int, default=1_900_000_000)
     parser.add_argument("--dry-run", action="store_true")
-    parser.add_argument("--tag", default="data-v8")
+    parser.add_argument("--tag", default="data-v9")
     args = parser.parse_args()
 
     try:

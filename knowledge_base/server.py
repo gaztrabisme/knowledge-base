@@ -14,9 +14,10 @@ from .search import get_client, hybrid_search
 _CHUNK_ID_RE = re.compile(r"^(.+)-p(\d+)-c(\d+)$")
 
 _instructions = (
-    "Hybrid semantic and keyword search over 126 technical books: ML and deep learning, "
+    f"Hybrid semantic and keyword search over {len(BOOKS)} technical books: ML and deep learning, "
     "AI engineering, databases, security, software architecture and engineering, "
-    "distributed systems, Rust, and systems/ops."
+    "distributed systems, Rust, systems/ops, frontend, design, data engineering, data science, "
+    "C++, reverse engineering, management, sales, and research methods."
 )
 if EDITION == "full":
     _instructions += (
