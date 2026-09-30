@@ -282,7 +282,17 @@ def _contents_pages(pages: list[list[_Line]], source_page_count: int) -> list[bo
             if len(lines) < 8:
                 sentence_ends = sum(bool(re.search(r"[!?。！？]$", line)) for line in lines)
                 long_lines = sum(len(line) > 110 for line in lines)
-                if sentence_ends > 1 or long_lines > 1:
+                date_or_author = any(re.search(
+                    r"(?i)(?:[〇零一二三四五六七八九十\d]{2,4}年|"
+                    r"(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}|"
+                    r"李洪志|li\s+hongzhi|hongzhi\s+li|lý\s+hồng\s+chí)", line,
+                ) for line in lines)
+                meaningful = any(
+                    not _PAGE_NO.fullmatch(line) and not _TOC_LINE.search(line)
+                    and not re.fullmatch(r"[.·…\s]{3,}", line)
+                    for line in lines
+                )
+                if sentence_ends > 1 or long_lines > 1 or (meaningful and date_or_author):
                     break
                 continue
             refs = sum(len(_TOC_LINE.findall(line)) + bool(re.search(r"\s\d{1,4}\s*$", line))
@@ -353,6 +363,16 @@ def _front_pages(pages: list[list[_Line]], flags: list[bool], source_page_count:
         if flags[index]:
             continue
         text = _text(lines)
+        # A short, dated page inside the opening run is often the title/date
+        # page for the first lecture, especially after a contents section.
+        # Treating every short page as a book cover loses that lecture's start.
+        has_date = bool(re.search(
+            r"(?i)(?:[〇零一二三四五六七八九十\d]{2,4}年|"
+            r"(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2})",
+            text,
+        ))
+        if has_date:
+            continue
         if len(_norm(text)) < 180 and len(lines) <= 6:
             front[index] = True
     return front
@@ -405,6 +425,17 @@ def _trim_trailing_glossary(pages: list[list[_Line]]) -> tuple[list[list[_Line]]
 
 def _text(lines: list[_Line]) -> str:
     return "\n".join(line.text for line in lines if line.text).strip()
+
+
+def _joined_page_offsets(page_texts: list[str]) -> list[int]:
+    """Return offsets matching the nonempty-page join used for section text."""
+    offsets = []
+    total = 0
+    for text in page_texts:
+        offsets.append(total)
+        if text:
+            total += len(text) + 2
+    return offsets
 
 
 def _is_vietnamese_interlinear_page(lines: list[_Line], language: str) -> bool:
@@ -880,9 +911,10 @@ def _section_text(text: str, title: str) -> str:
         if not normalized_title.startswith(candidate):
             break
     # Some reviewed scan layers place an undotted contents list directly
-    # before the first article paragraph. Remove that leading list when it has
-    # repeated dates/bylines and several short title lines; keep the article's
-    # own single date and author line.
+    # before the first article paragraph. Only remove it when it has multiple
+    # date/byline pairs. Wrapped opening paragraphs can look like short title
+    # lines when a PDF text layer breaks every sentence across physical lines;
+    # a count of short lines alone is not evidence of a contents list.
     cjk_date = re.compile(r"[〇零一二三四五六七八九十\d]{2,4}年.{0,12}[〇零一二三四五六七八九十\d]{1,3}月")
     latin_date = re.compile(
         r"(?i)(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}"
@@ -897,7 +929,7 @@ def _section_text(text: str, title: str) -> str:
         headings = sum(1 for line in prefix if 5 <= len(_norm(line)) <= 90
                        and not cjk_date.search(line) and not latin_date.search(line)
                        and not author.search(line) and not re.search(r"[.!?。！？]$", line))
-        if (dates >= 2 and authors >= 2 and headings >= 2) or (dates >= 1 and headings >= 8):
+        if dates >= 2 and authors >= 2 and headings >= 2:
             del lines[:body_index]
     body = _normalize_chinese_spacing("\n".join(lines).strip())
     body = _DOWNLOAD_LINK.sub("", body)
@@ -1036,10 +1068,7 @@ def split_sections(
             if offset is not None:
                 anchors.append((page_index, offset, title))
         if len(anchors) >= 2 and len(anchors) / max(1, len(usable)) >= 0.5:
-            page_offsets, total = [], 0
-            for text in page_texts:
-                page_offsets.append(total)
-                total += len(text) + 2
+            page_offsets = _joined_page_offsets(page_texts)
             starts = [(page_offsets[p] + off, title) for p, off, title in anchors]
             info.outline_used = True
 
@@ -1050,10 +1079,7 @@ def split_sections(
 
     heading_rows = _headings(kept_pages, document_title, language)
     if heading_rows:
-        page_offsets, total = [], 0
-        for text in page_texts:
-            page_offsets.append(total)
-            total += len(text) + 2
+        page_offsets = _joined_page_offsets(page_texts)
         line_offsets = []
         for lines, page_offset in zip(kept_pages, page_offsets):
             offset = page_offset

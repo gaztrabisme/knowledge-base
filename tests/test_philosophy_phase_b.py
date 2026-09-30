@@ -8,12 +8,12 @@ import pymupdf
 from knowledge_base.philosophy import chunking
 from knowledge_base.philosophy.alignment import Section, aligned_language_set
 from knowledge_base.philosophy.sectioning import (
-    _Line, _cells, _contents_pages, _is_vietnamese_interlinear_page,
+    _Line, _cells, _contents_pages, _front_pages, _is_vietnamese_interlinear_page,
     _merge_lines, _normalize_chinese_spacing, _toc_anchors,
     _vietnamese_interlinear_flags, repair_chinese_full_stop_positions,
     split_sections, web_shell_reason,
 )
-from scripts.ingest_philosophy_b import compose_registry
+from scripts.ingest_philosophy_b import _foreign_script_summary, compose_registry
 
 
 def _save_pdf(path, pages: list[list[tuple[str, str, float, float, float]]], toc=None) -> None:
@@ -59,6 +59,21 @@ def test_splitter_finds_document_headings_without_outline(tmp_path) -> None:
     assert [section.section_title for section in sections] == ["Chapter 1", "Chapter 2"]
     assert "First chapter text" in sections[0].text
     assert "Second chapter text" in sections[1].text
+
+
+def test_empty_page_does_not_shift_later_section_heading_offsets(tmp_path) -> None:
+    path = tmp_path / "empty-page-offset.pdf"
+    _save_pdf(path, [
+        [],
+        [("Chapter 1", "hebo", 18, 50, 70), ("First section starts here.", "helv", 10, 50, 110)],
+        [("Chapter 2", "hebo", 18, 50, 70), ("Second section starts here.", "helv", 10, 50, 110)],
+    ])
+
+    sections, _ = split_sections(path, "en", document_title="Offset Fixture")
+
+    assert [section.section_title for section in sections] == ["Chapter 1", "Chapter 2"]
+    assert sections[0].text.startswith("First section starts here")
+    assert sections[1].text.startswith("Second section starts here")
 
 
 def test_splitter_removes_a_single_line_contents_list(tmp_path) -> None:
@@ -130,6 +145,62 @@ def test_contents_continuation_accepts_unnumbered_title_list_only() -> None:
     ])
 
     assert _contents_pages([first, continuation, article], 70) == [True, True, False]
+
+
+def test_contents_marker_does_not_eat_the_first_lecture_after_sparse_title_page(tmp_path) -> None:
+    path = tmp_path / "contents-before-lecture.pdf"
+    opening_lines = [
+        "We met again today and I want to continue our discussion from last time",
+        "because the things we discussed were at a high level and need careful study",
+        "I will explain the matter clearly so everyone can understand its importance",
+        "the practice requires us to improve ourselves in every situation we encounter",
+        "and to maintain our character while interacting with people in daily life",
+        "we should look inward whenever conflicts or difficulties arise in our work",
+        "this is how we can cultivate together and fulfill our responsibilities",
+        "the opening talk continues with practical examples from ordinary life",
+        "each example shows how to apply the principles in real circumstances",
+        "students should share their experiences and learn from one another",
+        "the main point is to keep improving and stay diligent on the path",
+        "that is what I wanted to explain to everyone today.",
+    ]
+    _save_pdf(path, [
+        [("CONTENTS", "hebo", 16, 50, 70), ("Lecture One ........ 2", "helv", 10, 50, 110)],
+        [("Lecture One", "hebo", 16, 50, 70), ("April 6, 1997", "helv", 10, 50, 110),
+         ("Hongzhi Li", "helv", 10, 50, 140)],
+        [(line, "helv", 10, 50, 70 + index * 24) for index, line in enumerate(opening_lines)],
+    ])
+
+    sections, info = split_sections(path, "en", document_title="Test Volume")
+
+    assert info.contents_pages_removed == 1
+    assert len(sections) == 1
+    assert "We met again today" in sections[0].text
+    assert "the main point" in sections[0].text
+
+
+def test_short_dated_lecture_page_is_not_treated_as_a_cover() -> None:
+    blank = [[] for _ in range(3)]
+    dated_title = [
+        _Line("Lecture One", 10, 0, 20, 100, 12, True),
+        _Line("April 6, 1997", 30, 0, 40, 100, 10, False),
+    ]
+    pages = blank + [dated_title] + [[] for _ in range(16)]
+
+    front = _front_pages(pages, [False] * len(pages), 20)
+
+    assert front[0] is True
+    assert front[3] is False
+
+
+def test_foreign_script_screen_flags_garbled_chinese_sections() -> None:
+    clean = Section("", "clean", "修炼者应当保持善良与正念。" * 4)
+    garbled = Section("", "garbled", "தமிழ்" * 12 + "ጚᤂᗀ᠌" * 5)
+
+    flagged, total_letters, foreign_share = _foreign_script_summary([clean, garbled], "zh-Hans")
+
+    assert flagged == 1
+    assert total_letters >= 20
+    assert foreign_share > 0.20
 
 
 def test_toc_anchor_matches_accented_heading_and_rejects_prefix_word() -> None:

@@ -1,0 +1,69 @@
+Primary: BGE reranker + custom multilingual sparse tokenizer
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 12893.52it/s]
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]Loading weights: 100%|██████████| 134/134 [00:00<00:00, 39022.20it/s]
+  01/60 en: miss
+  02/60 en: hit
+  03/60 en: hit
+  04/60 en: hit
+  05/60 en: miss
+  06/60 en: hit
+  07/60 en: miss
+  08/60 en: hit
+  09/60 en: hit
+  10/60 en: hit
+  11/60 en: hit
+  12/60 en: hit
+  13/60 en: miss
+  14/60 en: hit
+  15/60 en: miss
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights: 100%|██████████| 393/393 [00:00<00:00, 5641.04it/s]
+  16/60 vi: hit
+  17/60 vi: hit
+  18/60 vi: hit
+  19/60 vi: hit
+  20/60 vi: miss
+  21/60 vi: miss
+  22/60 vi: miss
+  23/60 vi: miss
+  24/60 vi: hit
+  25/60 vi: hit
+  26/60 vi: miss
+  27/60 vi: hit
+  28/60 vi: hit
+  29/60 vi: hit
+  30/60 vi: hit
+  31/60 zh: hit
+  32/60 zh: miss
+  33/60 zh: hit
+  34/60 zh: hit
+  35/60 zh: miss
+  36/60 zh: hit
+  37/60 zh: hit
+  38/60 zh: hit
+  39/60 zh: miss
+  40/60 zh: miss
+  41/60 zh: hit
+  42/60 zh: hit
+  43/60 zh: hit
+  44/60 zh: hit
+  45/60 zh: hit
+  46/60 cross: hit
+  47/60 cross: hit
+  48/60 cross: hit
+  49/60 cross: hit
+  50/60 cross: miss
+  51/60 cross: hit
+  52/60 cross: hit
+  53/60 cross: miss
+  54/60 cross: hit
+  55/60 cross: hit
+  56/60 cross: hit
+  57/60 cross: hit
+  58/60 cross: hit
+  59/60 cross: miss
+  60/60 cross: hit
+Primary recall@10:
+  cross: 0.800 (80%) — threshold 0.80
+  en: 0.667 (67%) — threshold 0.85
+  vi: 0.667 (67%) — threshold 0.75
+  zh: 0.733 (73%) — threshold 0.75

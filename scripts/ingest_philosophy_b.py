@@ -82,6 +82,30 @@ def _quality(text: str, lang: str, selected_check: dict | None = None) -> dict:
     return value
 
 
+def _foreign_script_summary(sections: list[Section], lang: str) -> tuple[int, int, float]:
+    """Count sections with substantial letters from scripts outside the language."""
+    cjk_language = lang.startswith("zh")
+
+    def allowed(char: str) -> bool:
+        code = ord(char)
+        if cjk_language:
+            return (code < 0x0250 or "\u3400" <= char <= "\u9fff"
+                    or 0x3000 <= code <= 0x30FF or 0xF900 <= code <= 0xFAFF
+                    or 0xFF00 <= code <= 0xFFEF or 0x20000 <= code <= 0x2FA1F)
+        return (code < 0x0250 or 0x1E00 <= code <= 0x1EFF
+                or "\u3400" <= char <= "\u9fff")
+
+    flagged = total_letters = total_foreign = 0
+    for section in sections:
+        letters = [char for char in section.text if char.isalpha()]
+        foreign = sum(not allowed(char) for char in letters)
+        total_letters += len(letters)
+        total_foreign += foreign
+        if len(letters) >= 20 and foreign / len(letters) > 0.20:
+            flagged += 1
+    return flagged, total_letters, total_foreign / max(1, total_letters)
+
+
 def _skip_record(
     *, lang: str, chosen: dict, reason: str, source: Path | None = None,
     text_check: dict | None = None, extraction: dict | None = None,
@@ -135,6 +159,13 @@ def _load_included(
         return None, _skip_record(lang=lang, chosen=chosen, source=source,
                                   reason="no extractable article or book text", text_check=quality,
                                   extraction=info_dict), source, None
+    foreign_sections, total_letters, foreign_share = _foreign_script_summary(sections, lang)
+    if foreign_sections:
+        reason = (f"extracted text is garbled: {foreign_sections} section(s) have more than 20% of "
+                  f"their letters from scripts outside {lang}; {foreign_share:.0%} of all extracted "
+                  f"letters are foreign-script characters")
+        return None, _skip_record(lang=lang, chosen=chosen, source=source, reason=reason,
+                                  text_check=quality, extraction=info_dict), source, None
     if lang.startswith("zh") and not quality.get("passed"):
         return None, _skip_record(lang=lang, chosen=chosen, source=source,
                                   reason=f"extracted text failed Chinese text check: {quality.get('reason')}",
@@ -669,6 +700,18 @@ def build() -> dict:
             if work["work_id"] in phase_a_ids:
                 continue
             phase_b.append(_process_group(work, manifest, temp_root, owned_paths))
+    active_paths = {
+        str(record[field]) for work in phase_b for record in work.get("languages", {}).values()
+        for field in ("markdown_file", "chunks_file") if record.get(field)
+    }
+    output_dirs = {
+        (ROOT / "data" / "markdown" / "philosophy").resolve(),
+        (ROOT / "data" / "chunks" / "philosophy").resolve(),
+    }
+    for relative in owned_paths - active_paths:
+        obsolete = (ROOT / relative).resolve()
+        if obsolete.parent in output_dirs and obsolete.is_file():
+            obsolete.unlink()
     registry = compose_registry(current, baseline, phase_b)
     rendered = json.dumps(registry, ensure_ascii=False, indent=2) + "\n"
     if not REGISTRY_PATH.exists() or REGISTRY_PATH.read_text(encoding="utf-8") != rendered:
