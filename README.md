@@ -5,10 +5,10 @@
 The Developer Knowledge Base is a local Model Context Protocol (MCP) server that provides semantic search over curated technical books to Claude Code during development sessions. It runs an embedded vector search engine (Qdrant) locally on your machine without relying on external cloud search services.
 
 There are two editions available:
-- **core**: The technical books collection covering 19 engineering domains across 320 indexed books. It provides 6 MCP tools (`search`, `search_book`, `read_chunk`, `get_chapter`, `list_books`, and `grep_books`). The release download is 1.99 GB and installed disk size is approximately 3.7 GB.
-- **full**: Includes everything in `core` plus the multilingual philosophy collection (the Original Library, Tao Te Ching translations, and Zhuan Falun in English, Vietnamese, and Chinese) with aligned cross-language passage search. It adds 2 MCP tools (`search_philosophy` and `list_philosophy`), giving 8 tools in total. The full edition adds approximately 0.2 GB to disk size.
+- **core**: The technical books collection covering 19 engineering domains across 320 indexed books. It provides 6 MCP tools (`search`, `search_book`, `read_chunk`, `get_chapter`, `list_books`, and `grep_books`). The release download is 1.99 GB and the installed folder takes 7.0 GB.
+- **full**: Includes everything in `core` plus the multilingual philosophy collection (the Original Library, Tao Te Ching translations, and Zhuan Falun in English, Vietnamese, and Chinese) with aligned cross-language passage search. It adds 2 MCP tools (`search_philosophy` and `list_philosophy`), giving 8 tools in total. The release download is 1.99 GB plus 81 MB for the philosophy collection, and the installed folder takes 9.0 GB.
 
-On a first-time installation, the installer also downloads approximately 2 GB of embedding and reranker model weights and PyTorch dependencies.
+The embedding and reranker model weights go to the Hugging Face cache outside the install folder: about 1.7 GB for `core` (the Jina embedder at 1.1 GB and the Ettin reranker at 0.57 GB). The full edition also downloads the BGE philosophy reranker. The installer installs PyTorch and the other Python dependencies separately.
 
 ## Create the GitHub Access Token Once
 
@@ -25,6 +25,40 @@ The source repository and release data assets are private. You must create a fin
    - Leave all other permissions unset (None).
 3. Click **Generate token** at the bottom of the page and copy the generated token string.
 4. Save the token securely. When a machine is retired, return to that GitHub settings page and revoke the token.
+
+## Installing from an AI agent
+
+An AI coding agent on this machine can run the whole installation without answering any prompt. A person creates the token as described in the section above and gives it to you. You never create a token, print it, or write it to a file. You put it in the environment as `KB_GH_TOKEN`, and both installers skip the token prompt when that variable is set.
+
+On macOS and Linux, run:
+
+```bash
+export KB_GH_TOKEN="<the token the person gave you>"
+curl -sSL -H "Authorization: Bearer $KB_GH_TOKEN" -H "Accept: application/vnd.github.raw" "https://api.github.com/repos/gaztrabisme/knowledge-base/contents/install.sh" -o install.sh && chmod +x install.sh
+./install.sh                   # core edition
+# or
+./install.sh --edition full    # full edition
+```
+
+On Windows, open PowerShell and run:
+
+```powershell
+$env:KB_GH_TOKEN = "<the token the person gave you>"
+$headers = @{ "Authorization" = "Bearer $env:KB_GH_TOKEN"; "Accept" = "application/vnd.github.raw" }
+Invoke-WebRequest "https://api.github.com/repos/gaztrabisme/knowledge-base/contents/install.ps1" -Headers $headers -OutFile install.ps1 -UseBasicParsing
+powershell -ExecutionPolicy Bypass -File .\install.ps1               # core edition
+# or
+powershell -ExecutionPolicy Bypass -File .\install.ps1 -Edition full # full edition
+```
+
+The installation is successful when the installer's last line reads `Installed <edition> edition, release data-v9, in <dir>` and `claude mcp list` shows `knowledge-base`.
+
+Stop and report back to the person in these cases:
+- The download fails with HTTP 401 or 404. The token is missing, expired, or lacks access; the person must fix the token.
+- The installer reports that port 6333 is in use. Rerun it with `--qdrant-port` on macOS/Linux or `-QdrantPort` on Windows to pick another port.
+- A download times out behind a proxy. The person must configure the proxy before you rerun the installation.
+
+The Troubleshooting section at the end of this file covers each of these in detail.
 
 ## Install on Windows
 
