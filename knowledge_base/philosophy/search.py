@@ -13,7 +13,7 @@ from ..config import ROOT
 from ..index import text_to_sparse_vector as bm25_text_to_sparse_vector
 from .sparse import text_to_sparse_vector
 
-COLLECTION = "philosophy"
+COLLECTION = os.environ.get("KB_PHILOSOPHY_COLLECTION", "philosophy")
 EMBEDDING_MODEL = "jinaai/jina-embeddings-v5-text-small-retrieval"
 RERANKER_MODEL = "BAAI/bge-reranker-v2-m3"
 _ranker = None
