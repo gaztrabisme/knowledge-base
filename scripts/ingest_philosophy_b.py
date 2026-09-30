@@ -18,7 +18,9 @@ sys.path.insert(0, str(ROOT))
 
 from knowledge_base.philosophy import chunking
 from knowledge_base.philosophy.alignment import Section, aligned_language_set
-from knowledge_base.philosophy.sectioning import split_sections, web_shell_reason
+from knowledge_base.philosophy.sectioning import (
+    repair_chinese_full_stop_positions, split_sections, web_shell_reason,
+)
 from knowledge_base.philosophy.textcheck import check_text
 
 PHASE_B = ROOT / "data" / "philosophy" / "phase-b"
@@ -121,6 +123,8 @@ def _load_included(
     text = "\n\n".join(section.text for section in sections)
     info_dict = {"missing_pages": info.missing_pages, "contents_pages_removed": info.contents_pages_removed,
                  "front_pages_removed": info.front_pages_removed,
+                 "interlinear_pages_removed": info.interlinear_pages_removed,
+                 "glossary_pages_removed": info.glossary_pages_removed,
                  "outline_used": info.outline_used, "warnings": info.warnings}
     shell = web_shell_reason(text, [title, (item or {}).get("title", "")])
     quality = _quality(text, lang, chosen.get("text_check"))
@@ -261,6 +265,21 @@ def _process_group(work: dict, manifest: dict[str, dict], temp_root: Path, owned
         output["languages"][lang] = record
         if sections is not None:
             sections_by_lang[lang] = sections
+
+    # A few Simplified writing PDFs have full stops positioned by their
+    # invisible text layer at the wrong reading offsets. When a real
+    # Traditional edition has identical lexical text, use its punctuation as
+    # a reference before alignment and chunking.
+    hans_sections = sections_by_lang.get("zh-Hans")
+    hant_sections = sections_by_lang.get("zh-Hant")
+    hant_record = output["languages"].get("zh-Hant", {})
+    if (hans_sections and hant_sections and not hant_record.get("derived")
+            and len(hans_sections) == len(hant_sections)):
+        to_simplified = OpenCC("t2s")
+        for hans_section, hant_section in zip(hans_sections, hant_sections):
+            hans_section.text = repair_chinese_full_stop_positions(
+                hans_section.text, to_simplified.convert(hant_section.text),
+            )
 
     aligned = aligned_language_set(sections_by_lang)
     for lang, sections in sections_by_lang.items():
@@ -600,6 +619,10 @@ def _write_report(registry: dict, selection: dict) -> None:
                 notes.append(f"- `{work['work_id']}/{lang}` — removed {info['contents_pages_removed']} detected contents page(s).")
             if info.get("front_pages_removed"):
                 notes.append(f"- `{work['work_id']}/{lang}` — removed {info['front_pages_removed']} short title/cover page(s) before body text.")
+            if info.get("interlinear_pages_removed"):
+                notes.append(f"- `{work['work_id']}/{lang}` — removed {info['interlinear_pages_removed']} Chinese/pinyin interlinear page(s); the Vietnamese poem translations are on paired pages.")
+            if info.get("glossary_pages_removed"):
+                notes.append(f"- `{work['work_id']}/{lang}` — removed {info['glossary_pages_removed']} trailing glossary/footnote page(s) after the work text.")
             if info.get("warnings"):
                 notes.append(f"- `{work['work_id']}/{lang}` — extraction warning: " + "; ".join(info["warnings"]))
             if rec.get("status") == "included":

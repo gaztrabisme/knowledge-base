@@ -65,6 +65,28 @@ def main() -> int:
                            f"({len(SPACED.findall(text)) / count:.0%})")
         sections_by_work[work_id][lang] = dict(lengths)
 
+    # Coverage: the end of every section's body in the markdown must appear in its chunks
+    # (the shared chunker drops a final paragraph group under its minimum size).
+    lost = 0
+    for work in registry["works"]:
+        for lang, record in work.get("languages", {}).items():
+            if record.get("status") != "included" or Path(record.get("chunks_file", "")).name in PHASE_A:
+                continue
+            markdown = (ROOT / record["markdown_file"]).read_text(encoding="utf-8")
+            parts = re.split(r"(?m)^# (\S+) — .*$", markdown)
+            data = json.loads((ROOT / record["chunks_file"]).read_text(encoding="utf-8"))
+            covered: dict[str, str] = defaultdict(str)
+            for child in data["children"]:
+                covered[child["metadata"]["section_key"]] += re.sub(r"\s+", "", child["text"])
+            for i in range(1, len(parts) - 1, 2):
+                body = re.sub(r"\s+", "", parts[i + 1])
+                if body and body[-30:] not in covered.get(parts[i], ""):
+                    lost += 1
+                    if lost <= 20:
+                        bad.append(f"{record['chunks_file']}: end of section {parts[i]} is not in any chunk")
+    if lost > 20:
+        bad.append(f"... {lost} sections in all lose their ending")
+
     for lang, numbers in sorted(per_lang.items()):
         share = numbers["short"] / max(1, numbers["sections"])
         print(f"{lang}: {numbers['chunks']} chunks, {numbers['sections']} sections, "

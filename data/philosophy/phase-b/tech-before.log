@@ -1,0 +1,16 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 11495.51it/s]
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]Loading weights: 100%|██████████| 134/134 [00:00<00:00, 10145.43it/s]
+  25/50...
+  50/50...
+  per-query dump (50 rows) -> data/philosophy/phase-b/tech-before.jsonl
+
+===== phaseb-tech-before  (n=50) =====
+  NDCG@10=0.7386  Recall@10=0.9400  MRR=0.8229  Recall@50(ceiling)=0.9400
+  per-domain:
+    distributed  n=  2  NDCG@10=1.000  R@10=1.000  MRR=1.000  R@50=1.000
+    ml           n= 24  NDCG@10=0.675  R@10=0.958  MRR=0.763  R@50=0.958
+    rust         n= 14  NDCG@10=0.789  R@10=0.929  MRR=0.845  R@50=0.929
+    security     n= 10  NDCG@10=0.768  R@10=0.900  MRR=0.900  R@50=0.900
+
+  retrieval ceiling - delivered recall = 0.0000 (reranker keeping retrieved hits)
+  full report + 3 misses -> /Users/GaryT/Documents/Work/tools/knowledge-base/data/golden/eval_runs/phaseb-tech-before.json

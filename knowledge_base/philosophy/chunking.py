@@ -11,6 +11,60 @@ from ..config import CHUNKS_DIR, MARKDOWN_DIR
 from .alignment import Section
 
 
+def _create_children_without_loss(text: str, parent_id: str) -> list[dict]:
+    """Call the shared chunker and restore any paragraph groups it filtered."""
+    children = create_children(text, parent_id)
+    compact_source = re.sub(r"\s+", "", text)
+    offsets = [index for index, char in enumerate(text) if not char.isspace()]
+    cursor = 0
+    spans: list[tuple[int, int]] = []
+    for child in children:
+        compact_child = re.sub(r"\s+", "", child.get("text", ""))
+        if not compact_child:
+            spans.append((cursor, cursor))
+            continue
+        start = compact_source.find(compact_child, cursor)
+        if start < 0:
+            # The shared helper's normal prose path is an exact compact-text
+            # match. If an exotic code block is transformed, retain the full
+            # original parent so it remains searchable rather than dropping it.
+            if children:
+                children[-1]["text"] = f"{children[-1]['text']}\n\n{text.strip()}"
+                return children
+            start = cursor
+        end = start + len(compact_child)
+        spans.append((start, end))
+        cursor = end
+
+    def source_slice(start: int, end: int) -> str:
+        if end <= start or not offsets:
+            return ""
+        first = offsets[min(start, len(offsets) - 1)]
+        last = offsets[min(end - 1, len(offsets) - 1)] + 1
+        return text[first:last].strip()
+
+    if not children and compact_source:
+        children.append({
+            "child_id": f"{parent_id}-c0", "parent_id": parent_id,
+            "text": text.strip(), "context_text": "", "chunk_type": "prose",
+        })
+        return children
+
+    for index, (start, end) in enumerate(spans):
+        gap_start = 0 if index == 0 else spans[index - 1][1]
+        gap = source_slice(gap_start, start)
+        if gap:
+            if index == 0:
+                children[index]["text"] = f"{gap}\n\n{children[index]['text']}"
+            else:
+                children[index - 1]["text"] = f"{children[index - 1]['text']}\n\n{gap}"
+    if spans and spans[-1][1] < len(compact_source):
+        tail = source_slice(spans[-1][1], len(compact_source))
+        if tail:
+            children[-1]["text"] = f"{children[-1]['text']}\n\n{tail}"
+    return children
+
+
 def write_work_chunks(
     *, work_id: str, lang: str, work_group: str, title: str,
     sections: list[Section], edition: str, translator: str = "", derived: bool = False,
@@ -44,6 +98,7 @@ def write_work_chunks(
             "heading_path": section.section_title,
         }
         parts = split_large_section(split_input)
+        heading_attached = False
         # Keep alignment sections isolated. The shared overlap helper is English
         # punctuation based; on Chinese text it can treat an entire preceding
         # part as one sentence, causing repeated text to grow exponentially.
@@ -70,13 +125,14 @@ def write_work_chunks(
                 "heading_path": section.section_title,
             }
             parents.append({"parent_id": parent_id, "text": part["text"], "metadata": meta.copy()})
-            children_for_part = create_children(part_body, parent_id)
+            children_for_part = _create_children_without_loss(part_body, parent_id)
             for child_index, child in enumerate(children_for_part):
                 # Keep the section heading with its first body child. Feeding
                 # the parent heading into the paragraph splitter can produce
                 # a child containing only the heading when the title is long.
-                if child_index == 0:
+                if child_index == 0 and not heading_attached:
                     child["text"] = f"{heading}\n\n{child['text']}"
+                    heading_attached = True
                 child_meta = meta.copy()
                 child_meta["chunk_type"] = child.pop("chunk_type")
                 child["metadata"] = child_meta

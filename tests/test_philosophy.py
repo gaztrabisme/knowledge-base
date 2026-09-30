@@ -428,6 +428,10 @@ def test_reranker_receives_at_most_40_title_and_child_documents(monkeypatch) -> 
         philosophy_search, "text_to_sparse_vector",
         lambda text: models.SparseVector(indices=[17], values=[1.0]),
     )
+    monkeypatch.setattr(
+        philosophy_search, "bm25_text_to_sparse_vector",
+        lambda text: models.SparseVector(indices=[17], values=[1.0]),
+    )
     monkeypatch.setattr(philosophy_search, "_ranker_for", lambda query: CapturingRanker())
 
     hits = philosophy_search.hybrid_search(
@@ -528,6 +532,10 @@ def test_hybrid_search_in_memory_qdrant_attaches_parallel_passages(monkeypatch) 
     )
     monkeypatch.setattr(
         philosophy_search, "text_to_sparse_vector",
+        lambda text: models.SparseVector(indices=[17], values=[1.0]),
+    )
+    monkeypatch.setattr(
+        philosophy_search, "bm25_text_to_sparse_vector",
         lambda text: models.SparseVector(indices=[17], values=[1.0]),
     )
     monkeypatch.setattr(philosophy_search, "get_ranker", lambda: _StubRanker())

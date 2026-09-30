@@ -430,7 +430,7 @@
           "markdown_file": "data/markdown/philosophy/falun-gong.en.md",
           "chunks_file": "data/chunks/philosophy/falun-gong.en.json",
           "chunk_count": 268,
-          "section_count": 31,
+          "section_count": 33,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "en_book_0002_5c98c7d76f",
@@ -438,6 +438,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -455,8 +457,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/falun-gong.vi.md",
           "chunks_file": "data/chunks/philosophy/falun-gong.vi.json",
-          "chunk_count": 548,
-          "section_count": 3,
+          "chunk_count": 565,
+          "section_count": 83,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "vi_book_0002_86f47f8742",
@@ -464,6 +466,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 1,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -474,9 +478,9 @@
           "page_count": 174,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 51926,
-            "outside_count": 150,
-            "outside_share": 0.002888726264299195,
+            "cjk_count": 51547,
+            "outside_count": 149,
+            "outside_share": 0.0028905658913224823,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -486,8 +490,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/falun-gong.zh-Hans.md",
           "chunks_file": "data/chunks/philosophy/falun-gong.zh-Hans.json",
-          "chunk_count": 310,
-          "section_count": 14,
+          "chunk_count": 317,
+          "section_count": 58,
           "translator": "",
           "aligned": true,
           "manifest_output_id": "gb_book_0002_3b5efc6b19__g01",
@@ -495,6 +499,8 @@
             "missing_pages": [],
             "contents_pages_removed": 3,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -505,9 +511,9 @@
           "page_count": null,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 51926,
-            "outside_count": 100,
-            "outside_share": 0.0019258175095327966,
+            "cjk_count": 51547,
+            "outside_count": 99,
+            "outside_share": 0.0019205773371874211,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -517,8 +523,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/falun-gong.zh-Hant.md",
           "chunks_file": "data/chunks/philosophy/falun-gong.zh-Hant.json",
-          "chunk_count": 357,
-          "section_count": 14,
+          "chunk_count": 374,
+          "section_count": 58,
           "translator": "OpenCC s2t (derived from zh-Hans)",
           "derived": true,
           "aligned": true,
@@ -568,7 +574,7 @@
           "markdown_file": "data/markdown/philosophy/further-discussions-on-falun-dafa.en.md",
           "chunks_file": "data/chunks/philosophy/further-discussions-on-falun-dafa.en.json",
           "chunk_count": 246,
-          "section_count": 2,
+          "section_count": 3,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "en_book_0003_eaa1f79ef9__g01",
@@ -576,6 +582,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 4,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -594,7 +602,7 @@
           "markdown_file": "data/markdown/philosophy/further-discussions-on-falun-dafa.vi.md",
           "chunks_file": "data/chunks/philosophy/further-discussions-on-falun-dafa.vi.json",
           "chunk_count": 529,
-          "section_count": 5,
+          "section_count": 6,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "vi_book_0003_8739922e43",
@@ -602,6 +610,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -633,6 +643,8 @@
             "missing_pages": [],
             "contents_pages_removed": 3,
             "front_pages_removed": 3,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -714,6 +726,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 1,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -731,8 +745,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/explaining-the-teachings-of-zhuan-falun.vi.md",
           "chunks_file": "data/chunks/philosophy/explaining-the-teachings-of-zhuan-falun.vi.json",
-          "chunk_count": 600,
-          "section_count": 5,
+          "chunk_count": 613,
+          "section_count": 45,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "vi_book_0004_f95be74564",
@@ -740,6 +754,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -750,9 +766,9 @@
           "page_count": 272,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 83654,
+            "cjk_count": 83635,
             "outside_count": 271,
-            "outside_share": 0.003239534272120879,
+            "outside_share": 0.0032402702217970945,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -762,15 +778,17 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/explaining-the-teachings-of-zhuan-falun.zh-Hans.md",
           "chunks_file": "data/chunks/philosophy/explaining-the-teachings-of-zhuan-falun.zh-Hans.json",
-          "chunk_count": 480,
-          "section_count": 6,
+          "chunk_count": 479,
+          "section_count": 7,
           "translator": "",
-          "aligned": true,
+          "aligned": false,
           "manifest_output_id": "gb_book_0004_f452cb4e1f__g01",
           "extraction": {
             "missing_pages": [],
             "contents_pages_removed": 3,
             "front_pages_removed": 4,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -802,6 +820,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 3,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -841,6 +861,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -858,8 +880,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/zhuan-falun-volume-ii.vi.md",
           "chunks_file": "data/chunks/philosophy/zhuan-falun-volume-ii.vi.json",
-          "chunk_count": 249,
-          "section_count": 25,
+          "chunk_count": 248,
+          "section_count": 27,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "vi_book_0005_8c810c0ec2",
@@ -867,6 +889,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 1,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -898,6 +922,8 @@
             "missing_pages": [],
             "contents_pages_removed": 3,
             "front_pages_removed": 3,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -979,6 +1005,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -996,8 +1024,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/lecture-given-at-the-conference-in-sydney.vi.md",
           "chunks_file": "data/chunks/philosophy/lecture-given-at-the-conference-in-sydney.vi.json",
-          "chunk_count": 5,
-          "section_count": 3,
+          "chunk_count": 6,
+          "section_count": 4,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "vi_book_0006_737a46d132",
@@ -1005,6 +1033,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1036,6 +1066,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1067,6 +1099,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1097,8 +1131,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/the-great-way-of-spiritual-perfection.en.md",
           "chunks_file": "data/chunks/philosophy/the-great-way-of-spiritual-perfection.en.json",
-          "chunk_count": 71,
-          "section_count": 2,
+          "chunk_count": 86,
+          "section_count": 19,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "en_book_0007_b3fe2945ff__g01",
@@ -1106,6 +1140,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 3,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1123,8 +1159,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/the-great-way-of-spiritual-perfection.vi.md",
           "chunks_file": "data/chunks/philosophy/the-great-way-of-spiritual-perfection.vi.json",
-          "chunk_count": 169,
-          "section_count": 7,
+          "chunk_count": 174,
+          "section_count": 41,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "vi_book_0007_244b1e24be",
@@ -1132,6 +1168,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1163,6 +1201,8 @@
             "missing_pages": [],
             "contents_pages_removed": 3,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1244,6 +1284,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1261,8 +1303,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/teachings-at-conferences-in-the-united-states.vi.md",
           "chunks_file": "data/chunks/philosophy/teachings-at-conferences-in-the-united-states.vi.json",
-          "chunk_count": 259,
-          "section_count": 2,
+          "chunk_count": 272,
+          "section_count": 39,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "vi_book_0008_a950306345",
@@ -1270,6 +1312,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1301,6 +1345,8 @@
             "missing_pages": [],
             "contents_pages_removed": 3,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1382,6 +1428,8 @@
             "missing_pages": [],
             "contents_pages_removed": 3,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1400,7 +1448,7 @@
           "markdown_file": "data/markdown/philosophy/essentials-for-further-advancement.vi.md",
           "chunks_file": "data/chunks/philosophy/essentials-for-further-advancement.vi.json",
           "chunk_count": 341,
-          "section_count": 79,
+          "section_count": 89,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "vi_book_0009_7d38403365",
@@ -1408,6 +1456,8 @@
             "missing_pages": [],
             "contents_pages_removed": 3,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1418,9 +1468,9 @@
           "page_count": 138,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 34169,
+            "cjk_count": 34119,
             "outside_count": 129,
-            "outside_share": 0.0037753519271854605,
+            "outside_share": 0.003780884551129869,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -1430,8 +1480,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/essentials-for-further-advancement.zh-Hans.md",
           "chunks_file": "data/chunks/philosophy/essentials-for-further-advancement.zh-Hans.json",
-          "chunk_count": 204,
-          "section_count": 80,
+          "chunk_count": 206,
+          "section_count": 83,
           "translator": "",
           "aligned": true,
           "manifest_output_id": "gb_book_0009_6c5c790957__g01",
@@ -1439,6 +1489,8 @@
             "missing_pages": [],
             "contents_pages_removed": 6,
             "front_pages_removed": 1,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1449,9 +1501,9 @@
           "page_count": null,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 34169,
+            "cjk_count": 34119,
             "outside_count": 86,
-            "outside_share": 0.002516901284790307,
+            "outside_share": 0.002520589700753246,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -1461,8 +1513,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/essentials-for-further-advancement.zh-Hant.md",
           "chunks_file": "data/chunks/philosophy/essentials-for-further-advancement.zh-Hant.json",
-          "chunk_count": 233,
-          "section_count": 80,
+          "chunk_count": 235,
+          "section_count": 83,
           "translator": "OpenCC s2t (derived from zh-Hans)",
           "derived": true,
           "aligned": true,
@@ -1520,6 +1572,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1546,6 +1600,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1577,6 +1633,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1658,6 +1716,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1684,6 +1744,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1715,6 +1777,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1746,6 +1810,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1785,6 +1851,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1811,6 +1879,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1842,6 +1912,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1923,6 +1995,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1949,6 +2023,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -1980,6 +2056,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2061,6 +2139,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2087,6 +2167,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2118,6 +2200,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2190,8 +2274,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/hong-yin.en.md",
           "chunks_file": "data/chunks/philosophy/hong-yin.en.json",
-          "chunk_count": 22,
-          "section_count": 12,
+          "chunk_count": 20,
+          "section_count": 14,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "en_book_0015_dfd131e35f__g01",
@@ -2238,6 +2322,8 @@
             ],
             "contents_pages_removed": 2,
             "front_pages_removed": 1,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 3,
             "outline_used": false,
             "warnings": []
           }
@@ -2303,15 +2389,17 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/hong-yin.vi.md",
           "chunks_file": "data/chunks/philosophy/hong-yin.vi.json",
-          "chunk_count": 448,
-          "section_count": 447,
+          "chunk_count": 71,
+          "section_count": 71,
           "translator": "",
           "aligned": false,
           "manifest_output_id": null,
           "extraction": {
             "missing_pages": [],
             "contents_pages_removed": 1,
-            "front_pages_removed": 2,
+            "front_pages_removed": 3,
+            "interlinear_pages_removed": 75,
+            "glossary_pages_removed": 1,
             "outline_used": false,
             "warnings": []
           }
@@ -2351,6 +2439,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2377,6 +2467,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2408,6 +2500,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2489,6 +2583,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2515,6 +2611,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2546,6 +2644,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2627,6 +2727,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2653,6 +2755,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2684,6 +2788,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2765,6 +2871,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2791,6 +2899,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2822,6 +2932,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2853,6 +2965,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2892,6 +3006,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2918,6 +3034,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2928,9 +3046,9 @@
           "page_count": 96,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 25720,
-            "outside_count": 55,
-            "outside_share": 0.0021384136858475893,
+            "cjk_count": 25678,
+            "outside_count": 54,
+            "outside_share": 0.002102967520834956,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -2947,8 +3065,10 @@
           "manifest_output_id": "gb_book_0020_9940d8101b__g01",
           "extraction": {
             "missing_pages": [],
-            "contents_pages_removed": 1,
+            "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -2959,9 +3079,9 @@
           "page_count": null,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 25720,
+            "cjk_count": 25678,
             "outside_count": 24,
-            "outside_share": 0.0009331259720062209,
+            "outside_share": 0.0009346522314822027,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -2971,7 +3091,7 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/teachings-at-the-conference-in-canada.zh-Hant.md",
           "chunks_file": "data/chunks/philosophy/teachings-at-the-conference-in-canada.zh-Hant.json",
-          "chunk_count": 171,
+          "chunk_count": 170,
           "section_count": 2,
           "translator": "OpenCC s2t (derived from zh-Hans)",
           "derived": true,
@@ -3030,6 +3150,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3056,6 +3178,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3087,6 +3211,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3168,6 +3294,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3185,15 +3313,17 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/guiding-the-voyage.vi.md",
           "chunks_file": "data/chunks/philosophy/guiding-the-voyage.vi.json",
-          "chunk_count": 201,
-          "section_count": 2,
+          "chunk_count": 199,
+          "section_count": 4,
           "translator": "",
-          "aligned": true,
+          "aligned": false,
           "manifest_output_id": "vi_book_0022_ee1d39ec67",
           "extraction": {
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 1,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3225,6 +3355,8 @@
             "missing_pages": [],
             "contents_pages_removed": 8,
             "front_pages_removed": 3,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3306,6 +3438,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3323,8 +3457,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/the-essentials-of-diligent-progress-ii.vi.md",
           "chunks_file": "data/chunks/philosophy/the-essentials-of-diligent-progress-ii.vi.json",
-          "chunk_count": 251,
-          "section_count": 45,
+          "chunk_count": 244,
+          "section_count": 52,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "vi_book_0023_92ed75ee04",
@@ -3332,6 +3466,8 @@
             "missing_pages": [],
             "contents_pages_removed": 3,
             "front_pages_removed": 1,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 3,
             "outline_used": false,
             "warnings": []
           }
@@ -3363,6 +3499,8 @@
             "missing_pages": [],
             "contents_pages_removed": 3,
             "front_pages_removed": 3,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3444,6 +3582,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3461,8 +3601,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/teachings-from-a-tour-of-north-america.vi.md",
           "chunks_file": "data/chunks/philosophy/teachings-from-a-tour-of-north-america.vi.json",
-          "chunk_count": 246,
-          "section_count": 1,
+          "chunk_count": 7,
+          "section_count": 4,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "vi_book_0024_3b22ef49ce",
@@ -3470,6 +3610,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3501,6 +3643,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3582,6 +3726,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3608,6 +3754,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3639,6 +3787,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3711,8 +3861,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/hong-yin-ii.en.md",
           "chunks_file": "data/chunks/philosophy/hong-yin-ii.en.json",
-          "chunk_count": 16,
-          "section_count": 9,
+          "chunk_count": 33,
+          "section_count": 24,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "en_book_0026_259058f936__g01",
@@ -3765,6 +3915,8 @@
             ],
             "contents_pages_removed": 3,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3799,9 +3951,9 @@
           "page_count": 53,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 3405,
-            "outside_count": 80,
-            "outside_share": 0.023494860499265784,
+            "cjk_count": 2963,
+            "outside_count": 74,
+            "outside_share": 0.024974687816402295,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -3811,15 +3963,17 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/hong-yin-ii.zh-Hant.md",
           "chunks_file": "data/chunks/philosophy/hong-yin-ii.zh-Hant.json",
-          "chunk_count": 84,
-          "section_count": 84,
+          "chunk_count": 75,
+          "section_count": 75,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "big5_book_0026_362064540a__g01",
           "extraction": {
             "missing_pages": [],
-            "contents_pages_removed": 4,
+            "contents_pages_removed": 9,
             "front_pages_removed": 1,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3837,8 +3991,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/hong-yin-ii.vi.md",
           "chunks_file": "data/chunks/philosophy/hong-yin-ii.vi.json",
-          "chunk_count": 549,
-          "section_count": 547,
+          "chunk_count": 84,
+          "section_count": 84,
           "translator": "",
           "aligned": false,
           "manifest_output_id": null,
@@ -3846,6 +4000,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 93,
+            "glossary_pages_removed": 3,
             "outline_used": false,
             "warnings": []
           }
@@ -3885,6 +4041,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3911,6 +4069,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3942,6 +4102,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -3973,6 +4135,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4012,6 +4176,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4038,6 +4204,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4069,6 +4237,8 @@
             "missing_pages": [],
             "contents_pages_removed": 3,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4100,6 +4270,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4139,6 +4311,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4165,6 +4339,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4196,6 +4372,8 @@
             "missing_pages": [],
             "contents_pages_removed": 4,
             "front_pages_removed": 3,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4277,6 +4455,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4303,6 +4483,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4334,6 +4516,8 @@
             "missing_pages": [],
             "contents_pages_removed": 3,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4415,6 +4599,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4441,6 +4627,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4472,6 +4660,8 @@
             "missing_pages": [],
             "contents_pages_removed": 3,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4544,8 +4734,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/collected-teachings-given-around-the-world-volume-iv.en.md",
           "chunks_file": "data/chunks/philosophy/collected-teachings-given-around-the-world-volume-iv.en.json",
-          "chunk_count": 165,
-          "section_count": 4,
+          "chunk_count": 164,
+          "section_count": 3,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "en_book_0032_1302124fab",
@@ -4553,6 +4743,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4570,15 +4762,17 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/collected-teachings-given-around-the-world-volume-iv.vi.md",
           "chunks_file": "data/chunks/philosophy/collected-teachings-given-around-the-world-volume-iv.vi.json",
-          "chunk_count": 339,
-          "section_count": 2,
+          "chunk_count": 392,
+          "section_count": 5,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "vi_book_0032_3daec36fca",
           "extraction": {
             "missing_pages": [],
-            "contents_pages_removed": 2,
+            "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4589,9 +4783,9 @@
           "page_count": 118,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 39977,
-            "outside_count": 88,
-            "outside_share": 0.0022012657277934813,
+            "cjk_count": 34194,
+            "outside_count": 74,
+            "outside_share": 0.002164122360648067,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -4601,15 +4795,17 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/collected-teachings-given-around-the-world-volume-iv.zh-Hans.md",
           "chunks_file": "data/chunks/philosophy/collected-teachings-given-around-the-world-volume-iv.zh-Hans.json",
-          "chunk_count": 228,
-          "section_count": 3,
+          "chunk_count": 191,
+          "section_count": 2,
           "translator": "",
           "aligned": true,
           "manifest_output_id": "gb_book_0032_772b48a8ab__g01",
           "extraction": {
             "missing_pages": [],
-            "contents_pages_removed": 1,
+            "contents_pages_removed": 3,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4620,9 +4816,9 @@
           "page_count": null,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 39977,
-            "outside_count": 30,
-            "outside_share": 0.0007504314981114141,
+            "cjk_count": 34194,
+            "outside_count": 27,
+            "outside_share": 0.0007896122126688893,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -4632,8 +4828,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/collected-teachings-given-around-the-world-volume-iv.zh-Hant.md",
           "chunks_file": "data/chunks/philosophy/collected-teachings-given-around-the-world-volume-iv.zh-Hant.json",
-          "chunk_count": 265,
-          "section_count": 3,
+          "chunk_count": 224,
+          "section_count": 2,
           "translator": "OpenCC s2t (derived from zh-Hans)",
           "derived": true,
           "aligned": true,
@@ -4691,6 +4887,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4717,6 +4915,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4748,6 +4948,8 @@
             "missing_pages": [],
             "contents_pages_removed": 3,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4829,6 +5031,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4855,6 +5059,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4886,6 +5092,8 @@
             "missing_pages": [],
             "contents_pages_removed": 3,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4967,6 +5175,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -4993,6 +5203,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5024,6 +5236,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5105,6 +5319,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5122,15 +5338,17 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/collected-teachings-given-around-the-world-volume-vii.vi.md",
           "chunks_file": "data/chunks/philosophy/collected-teachings-given-around-the-world-volume-vii.vi.json",
-          "chunk_count": 173,
-          "section_count": 3,
+          "chunk_count": 420,
+          "section_count": 4,
           "translator": "",
-          "aligned": false,
+          "aligned": true,
           "manifest_output_id": "vi_book_0036_5cfa8aa39b",
           "extraction": {
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5162,6 +5380,8 @@
             "missing_pages": [],
             "contents_pages_removed": 3,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5243,6 +5463,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5269,6 +5491,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5300,6 +5524,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5381,6 +5607,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5407,6 +5635,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5438,6 +5668,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5469,6 +5701,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5509,6 +5743,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5540,6 +5776,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 5,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5565,12 +5803,14 @@
           "chunk_count": 124,
           "section_count": 124,
           "translator": "",
-          "aligned": false,
+          "aligned": true,
           "manifest_output_id": "big5_book_0039_6b6f2e395d__g01",
           "extraction": {
             "missing_pages": [],
             "contents_pages_removed": 10,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5588,16 +5828,18 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/hong-yin-iii.vi.md",
           "chunks_file": "data/chunks/philosophy/hong-yin-iii.vi.json",
-          "chunk_count": 288,
-          "section_count": 100,
+          "chunk_count": 126,
+          "section_count": 124,
           "translator": "",
-          "aligned": false,
+          "aligned": true,
           "manifest_output_id": null,
           "extraction": {
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 3,
-            "outline_used": true,
+            "interlinear_pages_removed": 162,
+            "glossary_pages_removed": 2,
+            "outline_used": false,
             "warnings": []
           }
         }
@@ -5636,6 +5878,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5653,8 +5897,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/the-essentials-of-diligent-progress-iii.vi.md",
           "chunks_file": "data/chunks/philosophy/the-essentials-of-diligent-progress-iii.vi.json",
-          "chunk_count": 305,
-          "section_count": 59,
+          "chunk_count": 309,
+          "section_count": 73,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "vi_book_0040_fc6811f202",
@@ -5662,6 +5906,8 @@
             "missing_pages": [],
             "contents_pages_removed": 3,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5672,9 +5918,9 @@
           "page_count": 126,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 26521,
+            "cjk_count": 26430,
             "outside_count": 48,
-            "outside_share": 0.001809886505033747,
+            "outside_share": 0.0018161180476730988,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -5684,8 +5930,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/the-essentials-of-diligent-progress-iii.zh-Hans.md",
           "chunks_file": "data/chunks/philosophy/the-essentials-of-diligent-progress-iii.zh-Hans.json",
-          "chunk_count": 160,
-          "section_count": 60,
+          "chunk_count": 163,
+          "section_count": 64,
           "translator": "",
           "aligned": true,
           "manifest_output_id": "gb_book_0040_6c257f04e9__g01",
@@ -5693,6 +5939,8 @@
             "missing_pages": [],
             "contents_pages_removed": 7,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5703,9 +5951,9 @@
           "page_count": null,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 26521,
+            "cjk_count": 26430,
             "outside_count": 14,
-            "outside_share": 0.0005278835639681761,
+            "outside_share": 0.0005297010972379871,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -5715,8 +5963,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/the-essentials-of-diligent-progress-iii.zh-Hant.md",
           "chunks_file": "data/chunks/philosophy/the-essentials-of-diligent-progress-iii.zh-Hant.json",
-          "chunk_count": 181,
-          "section_count": 60,
+          "chunk_count": 184,
+          "section_count": 64,
           "translator": "OpenCC s2t (derived from zh-Hans)",
           "derived": true,
           "aligned": true,
@@ -5765,8 +6013,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/collected-teachings-given-around-the-world-volume-viii.en.md",
           "chunks_file": "data/chunks/philosophy/collected-teachings-given-around-the-world-volume-viii.en.json",
-          "chunk_count": 158,
-          "section_count": 4,
+          "chunk_count": 45,
+          "section_count": 2,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "en_book_0041_87734ed58b",
@@ -5774,6 +6022,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5800,6 +6050,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5810,9 +6062,9 @@
           "page_count": 110,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 35465,
-            "outside_count": 81,
-            "outside_share": 0.0022839419145636542,
+            "cjk_count": 31058,
+            "outside_count": 67,
+            "outside_share": 0.0021572541696181337,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -5822,15 +6074,17 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/collected-teachings-given-around-the-world-volume-viii.zh-Hans.md",
           "chunks_file": "data/chunks/philosophy/collected-teachings-given-around-the-world-volume-viii.zh-Hans.json",
-          "chunk_count": 203,
+          "chunk_count": 180,
           "section_count": 3,
           "translator": "",
-          "aligned": false,
+          "aligned": true,
           "manifest_output_id": "gb_book_0041_dec9a17363__g01",
           "extraction": {
             "missing_pages": [],
-            "contents_pages_removed": 3,
+            "contents_pages_removed": 5,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5853,15 +6107,17 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/collected-teachings-given-around-the-world-volume-viii.zh-Hant.md",
           "chunks_file": "data/chunks/philosophy/collected-teachings-given-around-the-world-volume-viii.zh-Hant.json",
-          "chunk_count": 243,
+          "chunk_count": 241,
           "section_count": 3,
           "translator": "",
-          "aligned": false,
+          "aligned": true,
           "manifest_output_id": "big5_book_0041_0d90cf0c4b__g01",
           "extraction": {
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5901,6 +6157,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5927,6 +6185,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5958,6 +6218,8 @@
             "missing_pages": [],
             "contents_pages_removed": 5,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -5989,6 +6251,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6028,6 +6292,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6045,15 +6311,17 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/collected-teachings-given-around-the-world-volume-x.vi.md",
           "chunks_file": "data/chunks/philosophy/collected-teachings-given-around-the-world-volume-x.vi.json",
-          "chunk_count": 212,
-          "section_count": 3,
+          "chunk_count": 352,
+          "section_count": 4,
           "translator": "",
-          "aligned": false,
+          "aligned": true,
           "manifest_output_id": "vi_book_0043_952c8ad638",
           "extraction": {
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6085,6 +6353,8 @@
             "missing_pages": [],
             "contents_pages_removed": 5,
             "front_pages_removed": 3,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6116,6 +6386,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6155,6 +6427,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6172,15 +6446,17 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/collected-teachings-given-around-the-world-volume-xi.vi.md",
           "chunks_file": "data/chunks/philosophy/collected-teachings-given-around-the-world-volume-xi.vi.json",
-          "chunk_count": 323,
-          "section_count": 2,
+          "chunk_count": 543,
+          "section_count": 4,
           "translator": "",
-          "aligned": false,
+          "aligned": true,
           "manifest_output_id": "vi_book_0044_e8128d33bc",
           "extraction": {
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6212,6 +6488,8 @@
             "missing_pages": [],
             "contents_pages_removed": 6,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6293,6 +6571,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 1,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6310,8 +6590,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/hong-yin-iv.vi.md",
           "chunks_file": "data/chunks/philosophy/hong-yin-iv.vi.json",
-          "chunk_count": 1489,
-          "section_count": 1473,
+          "chunk_count": 138,
+          "section_count": 135,
           "translator": "",
           "aligned": false,
           "manifest_output_id": null,
@@ -6319,6 +6599,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 207,
+            "glossary_pages_removed": 2,
             "outline_used": false,
             "warnings": []
           }
@@ -6353,9 +6635,9 @@
           "page_count": 153,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 11670,
+            "cjk_count": 11666,
             "outside_count": 237,
-            "outside_share": 0.02030848329048843,
+            "outside_share": 0.020315446596948398,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -6365,8 +6647,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/hong-yin-iv.zh-Hant.md",
           "chunks_file": "data/chunks/philosophy/hong-yin-iv.zh-Hant.json",
-          "chunk_count": 120,
-          "section_count": 99,
+          "chunk_count": 122,
+          "section_count": 101,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "big5_book_0045_1e13a76e0f__g01",
@@ -6374,6 +6656,8 @@
             "missing_pages": [],
             "contents_pages_removed": 6,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6413,6 +6697,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 1,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6430,8 +6716,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/hong-yin-v.vi.md",
           "chunks_file": "data/chunks/philosophy/hong-yin-v.vi.json",
-          "chunk_count": 1161,
-          "section_count": 1135,
+          "chunk_count": 109,
+          "section_count": 105,
           "translator": "",
           "aligned": false,
           "manifest_output_id": null,
@@ -6439,6 +6725,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 1,
+            "interlinear_pages_removed": 157,
+            "glossary_pages_removed": 3,
             "outline_used": false,
             "warnings": []
           }
@@ -6473,9 +6761,9 @@
           "page_count": 125,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 9044,
+            "cjk_count": 8990,
             "outside_count": 214,
-            "outside_share": 0.023662096417514374,
+            "outside_share": 0.023804226918798667,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -6485,15 +6773,17 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/hong-yin-v.zh-Hant.md",
           "chunks_file": "data/chunks/philosophy/hong-yin-v.zh-Hant.json",
-          "chunk_count": 101,
-          "section_count": 98,
+          "chunk_count": 100,
+          "section_count": 97,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "big5_book_0046_02440f30d4__g01",
           "extraction": {
             "missing_pages": [],
-            "contents_pages_removed": 6,
+            "contents_pages_removed": 7,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6532,6 +6822,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6563,6 +6855,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 3,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6594,6 +6888,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6632,6 +6928,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6663,6 +6961,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 4,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6694,6 +6994,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6732,6 +7034,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6763,6 +7067,8 @@
             "missing_pages": [],
             "contents_pages_removed": 2,
             "front_pages_removed": 4,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6794,6 +7100,8 @@
             "missing_pages": [],
             "contents_pages_removed": 3,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6824,7 +7132,7 @@
           "markdown_file": "data/markdown/philosophy/collected-fa-teachings-vol-xv.en.md",
           "chunks_file": "data/chunks/philosophy/collected-fa-teachings-vol-xv.en.json",
           "chunk_count": 187,
-          "section_count": 7,
+          "section_count": 3,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "en_book_0050_12b74ab107",
@@ -6832,6 +7140,8 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6842,9 +7152,9 @@
           "page_count": 144,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 45871,
+            "cjk_count": 45790,
             "outside_count": 103,
-            "outside_share": 0.0022454273942142094,
+            "outside_share": 0.0022493994321904345,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -6854,15 +7164,17 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/collected-fa-teachings-vol-xv.zh-Hans.md",
           "chunks_file": "data/chunks/philosophy/collected-fa-teachings-vol-xv.zh-Hans.json",
-          "chunk_count": 273,
-          "section_count": 5,
+          "chunk_count": 270,
+          "section_count": 6,
           "translator": "",
-          "aligned": true,
+          "aligned": false,
           "manifest_output_id": "gb_book_0050_641570b3e9__g01",
           "extraction": {
             "missing_pages": [],
-            "contents_pages_removed": 3,
+            "contents_pages_removed": 4,
             "front_pages_removed": 3,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6873,9 +7185,9 @@
           "page_count": 78,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 45090,
-            "outside_count": 426,
-            "outside_share": 0.00944777112441783,
+            "cjk_count": 28270,
+            "outside_count": 297,
+            "outside_share": 0.010505836575875487,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -6885,15 +7197,17 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/collected-fa-teachings-vol-xv.zh-Hant.md",
           "chunks_file": "data/chunks/philosophy/collected-fa-teachings-vol-xv.zh-Hant.json",
-          "chunk_count": 319,
-          "section_count": 5,
+          "chunk_count": 199,
+          "section_count": 4,
           "translator": "",
-          "aligned": true,
+          "aligned": false,
           "manifest_output_id": "big5_book_0050_3cb5630006__g01",
           "extraction": {
             "missing_pages": [],
-            "contents_pages_removed": 2,
+            "contents_pages_removed": 3,
             "front_pages_removed": 2,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6933,6 +7247,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 1,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -6950,7 +7266,7 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/hong-yin-vi.vi.md",
           "chunks_file": "data/chunks/philosophy/hong-yin-vi.vi.json",
-          "chunk_count": 210,
+          "chunk_count": 62,
           "section_count": 61,
           "translator": "",
           "aligned": false,
@@ -6959,7 +7275,9 @@
             "missing_pages": [],
             "contents_pages_removed": 1,
             "front_pages_removed": 1,
-            "outline_used": true,
+            "interlinear_pages_removed": 100,
+            "glossary_pages_removed": 1,
+            "outline_used": false,
             "warnings": []
           }
         },
@@ -6990,6 +7308,8 @@
             "missing_pages": [],
             "contents_pages_removed": 5,
             "front_pages_removed": 3,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7021,6 +7341,8 @@
             "missing_pages": [],
             "contents_pages_removed": 4,
             "front_pages_removed": 4,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7060,6 +7382,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7086,6 +7410,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7096,7 +7422,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 576,
+            "cjk_count": 558,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -7117,6 +7443,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7127,9 +7455,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 576,
+            "cjk_count": 558,
             "outside_count": 12,
-            "outside_share": 0.020833333333333332,
+            "outside_share": 0.021505376344086023,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -7148,6 +7476,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7187,6 +7517,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7213,6 +7545,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7223,9 +7557,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 421,
+            "cjk_count": 403,
             "outside_count": 1,
-            "outside_share": 0.0023752969121140144,
+            "outside_share": 0.0024813895781637717,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -7244,6 +7578,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7254,9 +7590,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 421,
+            "cjk_count": 403,
             "outside_count": 9,
-            "outside_share": 0.021377672209026127,
+            "outside_share": 0.022332506203473945,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -7275,6 +7611,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7314,6 +7652,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7340,6 +7680,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7350,9 +7692,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 358,
+            "cjk_count": 340,
             "outside_count": 4,
-            "outside_share": 0.0111731843575419,
+            "outside_share": 0.011764705882352941,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -7371,6 +7713,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7381,9 +7725,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 358,
+            "cjk_count": 340,
             "outside_count": 13,
-            "outside_share": 0.036312849162011177,
+            "outside_share": 0.03823529411764706,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -7402,6 +7746,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7441,6 +7787,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7467,6 +7815,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7477,9 +7827,9 @@
           "page_count": 5,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 1420,
+            "cjk_count": 1402,
             "outside_count": 2,
-            "outside_share": 0.0014084507042253522,
+            "outside_share": 0.0014265335235378032,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -7498,6 +7848,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7508,9 +7860,9 @@
           "page_count": 5,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 1420,
+            "cjk_count": 1402,
             "outside_count": 40,
-            "outside_share": 0.028169014084507043,
+            "outside_share": 0.028530670470756064,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -7529,6 +7881,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7568,6 +7922,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7594,6 +7950,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7604,9 +7962,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 1066,
+            "cjk_count": 1048,
             "outside_count": 1,
-            "outside_share": 0.0009380863039399625,
+            "outside_share": 0.0009541984732824427,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -7625,6 +7983,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7635,9 +7995,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 1063,
+            "cjk_count": 1045,
             "outside_count": 15,
-            "outside_share": 0.014111006585136407,
+            "outside_share": 0.014354066985645933,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -7656,6 +8016,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7695,6 +8057,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7721,6 +8085,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7731,9 +8097,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 1141,
+            "cjk_count": 1123,
             "outside_count": 1,
-            "outside_share": 0.0008764241893076249,
+            "outside_share": 0.0008904719501335708,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -7752,6 +8118,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7762,9 +8130,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 1138,
+            "cjk_count": 1120,
             "outside_count": 8,
-            "outside_share": 0.007029876977152899,
+            "outside_share": 0.007142857142857143,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -7783,6 +8151,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7822,6 +8192,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7849,6 +8221,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7859,7 +8233,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 167,
+            "cjk_count": 149,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -7880,6 +8254,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7890,9 +8266,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 167,
+            "cjk_count": 149,
             "outside_count": 2,
-            "outside_share": 0.011976047904191617,
+            "outside_share": 0.013422818791946308,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -7911,6 +8287,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7950,6 +8328,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7976,6 +8356,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -7986,9 +8368,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 1134,
+            "cjk_count": 1116,
             "outside_count": 2,
-            "outside_share": 0.001763668430335097,
+            "outside_share": 0.0017921146953405018,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -7998,7 +8380,7 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/how-you-should-regard-and-act-toward-masters-family-members.zh-Hans.md",
           "chunks_file": "data/chunks/philosophy/how-you-should-regard-and-act-toward-masters-family-members.zh-Hans.json",
-          "chunk_count": 8,
+          "chunk_count": 7,
           "section_count": 1,
           "translator": "",
           "aligned": false,
@@ -8007,6 +8389,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8017,9 +8401,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 1134,
+            "cjk_count": 1116,
             "outside_count": 24,
-            "outside_share": 0.021164021164021163,
+            "outside_share": 0.021505376344086023,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -8029,7 +8413,7 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/how-you-should-regard-and-act-toward-masters-family-members.zh-Hant.md",
           "chunks_file": "data/chunks/philosophy/how-you-should-regard-and-act-toward-masters-family-members.zh-Hant.json",
-          "chunk_count": 8,
+          "chunk_count": 7,
           "section_count": 1,
           "translator": "",
           "aligned": false,
@@ -8038,6 +8422,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8077,6 +8463,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8103,6 +8491,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8113,9 +8503,9 @@
           "page_count": 5,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 1375,
+            "cjk_count": 1357,
             "outside_count": 4,
-            "outside_share": 0.002909090909090909,
+            "outside_share": 0.0029476787030213707,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -8134,6 +8524,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8144,9 +8536,9 @@
           "page_count": 5,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 1375,
+            "cjk_count": 1357,
             "outside_count": 11,
-            "outside_share": 0.008,
+            "outside_share": 0.008106116433308769,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -8165,6 +8557,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8204,6 +8598,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8230,6 +8626,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8240,9 +8638,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 1069,
+            "cjk_count": 1051,
             "outside_count": 2,
-            "outside_share": 0.0018709073900841909,
+            "outside_share": 0.0019029495718363464,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -8261,6 +8659,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8271,9 +8671,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 1069,
+            "cjk_count": 1051,
             "outside_count": 32,
-            "outside_share": 0.029934518241347054,
+            "outside_share": 0.030447193149381543,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -8292,6 +8692,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8331,6 +8733,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8357,6 +8761,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8367,7 +8773,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 172,
+            "cjk_count": 154,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -8388,6 +8794,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8398,9 +8806,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 172,
+            "cjk_count": 154,
             "outside_count": 5,
-            "outside_share": 0.029069767441860465,
+            "outside_share": 0.032467532467532464,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -8419,6 +8827,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8458,6 +8868,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8484,6 +8896,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8494,7 +8908,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 138,
+            "cjk_count": 120,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -8515,6 +8929,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8525,9 +8941,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 138,
+            "cjk_count": 120,
             "outside_count": 3,
-            "outside_share": 0.021739130434782608,
+            "outside_share": 0.025,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -8546,6 +8962,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8585,6 +9003,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8611,6 +9031,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8621,9 +9043,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 144,
+            "cjk_count": 126,
             "outside_count": 2,
-            "outside_share": 0.013888888888888888,
+            "outside_share": 0.015873015873015872,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -8642,6 +9064,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8652,9 +9076,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 144,
+            "cjk_count": 126,
             "outside_count": 5,
-            "outside_share": 0.034722222222222224,
+            "outside_share": 0.03968253968253968,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -8673,6 +9097,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8712,6 +9138,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8738,6 +9166,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8748,7 +9178,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 510,
+            "cjk_count": 492,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -8769,6 +9199,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8779,9 +9211,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 510,
+            "cjk_count": 492,
             "outside_count": 21,
-            "outside_share": 0.041176470588235294,
+            "outside_share": 0.042682926829268296,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -8800,6 +9232,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8839,6 +9273,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8865,6 +9301,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8875,9 +9313,9 @@
           "page_count": 5,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 2414,
+            "cjk_count": 2396,
             "outside_count": 2,
-            "outside_share": 0.0008285004142502071,
+            "outside_share": 0.0008347245409015025,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -8896,6 +9334,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8906,9 +9346,9 @@
           "page_count": 5,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 2414,
+            "cjk_count": 2396,
             "outside_count": 48,
-            "outside_share": 0.01988400994200497,
+            "outside_share": 0.02003338898163606,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -8918,7 +9358,7 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/how-humankind-came-to-be.zh-Hant.md",
           "chunks_file": "data/chunks/philosophy/how-humankind-came-to-be.zh-Hant.json",
-          "chunk_count": 16,
+          "chunk_count": 15,
           "section_count": 1,
           "translator": "",
           "aligned": false,
@@ -8927,6 +9367,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8966,6 +9408,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -8993,6 +9437,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9003,7 +9449,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 124,
+            "cjk_count": 106,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -9024,6 +9470,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9034,9 +9482,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 123,
+            "cjk_count": 105,
             "outside_count": 2,
-            "outside_share": 0.016260162601626018,
+            "outside_share": 0.01904761904761905,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -9055,6 +9503,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9088,12 +9538,14 @@
           "chunk_count": 1,
           "section_count": 1,
           "translator": "",
-          "aligned": true,
+          "aligned": false,
           "manifest_output_id": "en_writing_0017_fe95f684c2",
           "extraction": {
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9121,6 +9573,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9131,7 +9585,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 130,
+            "cjk_count": 112,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -9152,6 +9606,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9162,9 +9618,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 130,
+            "cjk_count": 112,
             "outside_count": 2,
-            "outside_share": 0.015384615384615385,
+            "outside_share": 0.017857142857142856,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -9183,6 +9639,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9222,6 +9680,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9249,6 +9709,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9259,7 +9721,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 110,
+            "cjk_count": 92,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -9280,6 +9742,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9290,7 +9754,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 110,
+            "cjk_count": 92,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -9311,6 +9775,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9350,6 +9816,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9377,6 +9845,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9387,9 +9857,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 827,
+            "cjk_count": 809,
             "outside_count": 2,
-            "outside_share": 0.0024183796856106408,
+            "outside_share": 0.002472187886279357,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -9408,6 +9878,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9418,9 +9890,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 827,
+            "cjk_count": 809,
             "outside_count": 5,
-            "outside_share": 0.006045949214026602,
+            "outside_share": 0.006180469715698393,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -9439,6 +9911,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9478,6 +9952,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9505,6 +9981,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9515,9 +9993,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 449,
+            "cjk_count": 431,
             "outside_count": 4,
-            "outside_share": 0.008908685968819599,
+            "outside_share": 0.009280742459396751,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -9536,6 +10014,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9546,9 +10026,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 446,
+            "cjk_count": 428,
             "outside_count": 9,
-            "outside_share": 0.020179372197309416,
+            "outside_share": 0.02102803738317757,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -9567,6 +10047,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9606,6 +10088,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9633,6 +10117,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9643,9 +10129,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 146,
+            "cjk_count": 128,
             "outside_count": 1,
-            "outside_share": 0.00684931506849315,
+            "outside_share": 0.0078125,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -9664,6 +10150,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9674,9 +10162,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 145,
+            "cjk_count": 127,
             "outside_count": 2,
-            "outside_share": 0.013793103448275862,
+            "outside_share": 0.015748031496062992,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -9695,6 +10183,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9734,6 +10224,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9761,6 +10253,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9771,7 +10265,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 162,
+            "cjk_count": 144,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -9792,6 +10286,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9802,9 +10298,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 162,
+            "cjk_count": 144,
             "outside_count": 1,
-            "outside_share": 0.006172839506172839,
+            "outside_share": 0.006944444444444444,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -9823,6 +10319,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9860,6 +10358,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9887,6 +10387,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9926,6 +10428,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9953,6 +10457,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9963,9 +10469,9 @@
           "page_count": 5,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 1436,
+            "cjk_count": 1418,
             "outside_count": 3,
-            "outside_share": 0.0020891364902506965,
+            "outside_share": 0.0021156558533145277,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -9975,7 +10481,7 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/another-stern-warning.zh-Hans.md",
           "chunks_file": "data/chunks/philosophy/another-stern-warning.zh-Hans.json",
-          "chunk_count": 9,
+          "chunk_count": 8,
           "section_count": 1,
           "translator": "",
           "aligned": false,
@@ -9984,6 +10490,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -9994,9 +10502,9 @@
           "page_count": 5,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 1436,
+            "cjk_count": 1418,
             "outside_count": 19,
-            "outside_share": 0.013231197771587743,
+            "outside_share": 0.013399153737658674,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -10015,6 +10523,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10054,6 +10564,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10081,6 +10593,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10091,9 +10605,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 647,
+            "cjk_count": 629,
             "outside_count": 2,
-            "outside_share": 0.0030911901081916537,
+            "outside_share": 0.003179650238473768,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -10112,6 +10626,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10122,9 +10638,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 644,
+            "cjk_count": 626,
             "outside_count": 14,
-            "outside_share": 0.021739130434782608,
+            "outside_share": 0.022364217252396165,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -10143,6 +10659,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10182,6 +10700,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10209,6 +10729,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10219,7 +10741,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 180,
+            "cjk_count": 162,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -10240,6 +10762,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10250,7 +10774,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 183,
+            "cjk_count": 165,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -10271,6 +10795,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10310,6 +10836,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10337,6 +10865,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10347,7 +10877,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 294,
+            "cjk_count": 276,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -10368,6 +10898,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10378,9 +10910,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 294,
+            "cjk_count": 276,
             "outside_count": 3,
-            "outside_share": 0.01020408163265306,
+            "outside_share": 0.010869565217391304,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -10399,6 +10931,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10438,6 +10972,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10465,6 +11001,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10475,7 +11013,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 163,
+            "cjk_count": 145,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -10496,6 +11034,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10506,9 +11046,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 163,
+            "cjk_count": 145,
             "outside_count": 5,
-            "outside_share": 0.03067484662576687,
+            "outside_share": 0.034482758620689655,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -10527,6 +11067,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10566,6 +11108,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10593,6 +11137,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10603,7 +11149,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 292,
+            "cjk_count": 274,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -10624,6 +11170,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10634,9 +11182,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 292,
+            "cjk_count": 274,
             "outside_count": 5,
-            "outside_share": 0.017123287671232876,
+            "outside_share": 0.01824817518248175,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -10655,6 +11203,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10694,6 +11244,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10721,6 +11273,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10731,9 +11285,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 145,
+            "cjk_count": 127,
             "outside_count": 1,
-            "outside_share": 0.006896551724137931,
+            "outside_share": 0.007874015748031496,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -10752,6 +11306,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10762,9 +11318,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 145,
+            "cjk_count": 127,
             "outside_count": 3,
-            "outside_share": 0.020689655172413793,
+            "outside_share": 0.023622047244094488,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -10783,6 +11339,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10822,6 +11380,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10849,6 +11409,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10859,7 +11421,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 163,
+            "cjk_count": 145,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -10880,6 +11442,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10890,7 +11454,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 163,
+            "cjk_count": 145,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -10911,6 +11475,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10950,6 +11516,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10977,6 +11545,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -10987,7 +11557,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 670,
+            "cjk_count": 652,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -11008,6 +11578,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11018,9 +11590,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 670,
+            "cjk_count": 652,
             "outside_count": 7,
-            "outside_share": 0.010447761194029851,
+            "outside_share": 0.010736196319018405,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -11039,6 +11611,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11078,6 +11652,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11105,6 +11681,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11115,9 +11693,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 218,
+            "cjk_count": 200,
             "outside_count": 1,
-            "outside_share": 0.0045871559633027525,
+            "outside_share": 0.005,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -11136,6 +11714,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11146,7 +11726,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 218,
+            "cjk_count": 200,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -11158,7 +11738,7 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/to-the-experience-sharing-conference-in-taiwan.zh-Hant.md",
           "chunks_file": "data/chunks/philosophy/to-the-experience-sharing-conference-in-taiwan.zh-Hant.json",
-          "chunk_count": 2,
+          "chunk_count": 1,
           "section_count": 1,
           "translator": "",
           "aligned": true,
@@ -11167,6 +11747,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11206,6 +11788,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11233,6 +11817,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11243,7 +11829,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 161,
+            "cjk_count": 143,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -11264,6 +11850,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11274,9 +11862,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 159,
+            "cjk_count": 141,
             "outside_count": 3,
-            "outside_share": 0.018867924528301886,
+            "outside_share": 0.02127659574468085,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -11295,6 +11883,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11334,6 +11924,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11361,6 +11953,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11371,7 +11965,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 85,
+            "cjk_count": 67,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -11392,6 +11986,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11402,7 +11998,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 83,
+            "cjk_count": 65,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -11423,6 +12019,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11462,6 +12060,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11489,6 +12089,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11499,7 +12101,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 112,
+            "cjk_count": 94,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -11520,6 +12122,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11530,9 +12134,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 112,
+            "cjk_count": 94,
             "outside_count": 3,
-            "outside_share": 0.026785714285714284,
+            "outside_share": 0.031914893617021274,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -11551,6 +12155,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11590,6 +12196,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11617,6 +12225,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11627,9 +12237,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 137,
+            "cjk_count": 119,
             "outside_count": 1,
-            "outside_share": 0.0072992700729927005,
+            "outside_share": 0.008403361344537815,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -11648,6 +12258,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11658,9 +12270,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 137,
+            "cjk_count": 119,
             "outside_count": 1,
-            "outside_share": 0.0072992700729927005,
+            "outside_share": 0.008403361344537815,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -11679,6 +12291,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11718,6 +12332,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11745,6 +12361,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11755,7 +12373,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 154,
+            "cjk_count": 136,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -11776,6 +12394,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11786,9 +12406,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 151,
+            "cjk_count": 133,
             "outside_count": 3,
-            "outside_share": 0.019867549668874173,
+            "outside_share": 0.022556390977443608,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -11807,6 +12427,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11844,6 +12466,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11871,6 +12495,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11910,6 +12536,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11937,6 +12565,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11947,7 +12577,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 216,
+            "cjk_count": 198,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -11968,6 +12598,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -11978,9 +12610,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 216,
+            "cjk_count": 198,
             "outside_count": 4,
-            "outside_share": 0.018518518518518517,
+            "outside_share": 0.020202020202020204,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -11990,7 +12622,7 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/a-congratulatory-letter-to-the-fa-conference-of-argentina.zh-Hant.md",
           "chunks_file": "data/chunks/philosophy/a-congratulatory-letter-to-the-fa-conference-of-argentina.zh-Hant.json",
-          "chunk_count": 2,
+          "chunk_count": 1,
           "section_count": 1,
           "translator": "",
           "aligned": true,
@@ -11999,6 +12631,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12038,6 +12672,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12065,6 +12701,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12075,7 +12713,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 275,
+            "cjk_count": 257,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -12096,6 +12734,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12106,7 +12746,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 275,
+            "cjk_count": 257,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -12127,6 +12767,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12165,6 +12807,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12175,9 +12819,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 293,
+            "cjk_count": 275,
             "outside_count": 2,
-            "outside_share": 0.006825938566552901,
+            "outside_share": 0.007272727272727273,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -12196,6 +12840,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12206,9 +12852,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 293,
+            "cjk_count": 275,
             "outside_count": 3,
-            "outside_share": 0.010238907849829351,
+            "outside_share": 0.01090909090909091,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -12227,6 +12873,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12266,6 +12914,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12293,6 +12943,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12303,7 +12955,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 132,
+            "cjk_count": 114,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -12324,6 +12976,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12334,9 +12988,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 130,
+            "cjk_count": 112,
             "outside_count": 1,
-            "outside_share": 0.007692307692307693,
+            "outside_share": 0.008928571428571428,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -12355,6 +13009,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12394,6 +13050,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12421,6 +13079,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12431,7 +13091,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 577,
+            "cjk_count": 559,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -12452,6 +13112,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12462,9 +13124,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 577,
+            "cjk_count": 559,
             "outside_count": 12,
-            "outside_share": 0.02079722703639515,
+            "outside_share": 0.02146690518783542,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -12483,6 +13145,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12522,6 +13186,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12549,6 +13215,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12559,9 +13227,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 146,
+            "cjk_count": 128,
             "outside_count": 1,
-            "outside_share": 0.00684931506849315,
+            "outside_share": 0.0078125,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -12580,6 +13248,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12590,9 +13260,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 143,
+            "cjk_count": 125,
             "outside_count": 1,
-            "outside_share": 0.006993006993006993,
+            "outside_share": 0.008,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -12611,6 +13281,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12648,6 +13320,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12675,6 +13349,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12712,6 +13388,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12739,6 +13417,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12776,6 +13456,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12803,6 +13485,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12840,6 +13524,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12867,6 +13553,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12904,6 +13592,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12931,6 +13621,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12970,6 +13662,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -12997,6 +13691,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13007,9 +13703,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 186,
+            "cjk_count": 168,
             "outside_count": 2,
-            "outside_share": 0.010752688172043012,
+            "outside_share": 0.011904761904761904,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -13028,6 +13724,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13038,9 +13736,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 186,
+            "cjk_count": 168,
             "outside_count": 4,
-            "outside_share": 0.021505376344086023,
+            "outside_share": 0.023809523809523808,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -13059,6 +13757,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13098,6 +13798,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13125,6 +13827,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13135,7 +13839,7 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hans",
-            "cjk_count": 327,
+            "cjk_count": 309,
             "outside_count": 0,
             "outside_share": 0.0,
             "passed": true,
@@ -13156,6 +13860,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13166,9 +13872,9 @@
           "page_count": 4,
           "text_check": {
             "lang": "zh-Hant",
-            "cjk_count": 327,
+            "cjk_count": 309,
             "outside_count": 4,
-            "outside_share": 0.012232415902140673,
+            "outside_share": 0.012944983818770227,
             "passed": true,
             "threshold": 0.1,
             "comparison": null,
@@ -13187,6 +13893,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13224,6 +13932,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13251,6 +13961,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13288,6 +14000,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13314,6 +14028,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13341,8 +14057,8 @@
           "status": "included",
           "markdown_file": "data/markdown/philosophy/giang-phap-ve-day-hoc-mua-co-dien-trung-quoc-o-dai-hoc-phi-thien.vi.md",
           "chunks_file": "data/chunks/philosophy/giang-phap-ve-day-hoc-mua-co-dien-trung-quoc-o-dai-hoc-phi-thien.vi.json",
-          "chunk_count": 8,
-          "section_count": 7,
+          "chunk_count": 13,
+          "section_count": 10,
           "translator": "",
           "aligned": false,
           "manifest_output_id": "vi_writing_0031_15791187ea",
@@ -13350,6 +14066,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13387,6 +14105,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13424,6 +14144,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13461,6 +14183,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13498,6 +14222,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13535,6 +14261,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13572,6 +14300,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13609,6 +14339,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13646,6 +14378,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13683,6 +14417,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13720,6 +14456,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13757,6 +14495,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }
@@ -13794,6 +14534,8 @@
             "missing_pages": [],
             "contents_pages_removed": 0,
             "front_pages_removed": 0,
+            "interlinear_pages_removed": 0,
+            "glossary_pages_removed": 0,
             "outline_used": false,
             "warnings": []
           }

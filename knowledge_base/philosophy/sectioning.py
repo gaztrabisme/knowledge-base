@@ -8,6 +8,7 @@ import unicodedata
 from bisect import bisect_left
 from collections import Counter
 from dataclasses import dataclass, field
+from difflib import SequenceMatcher
 from pathlib import Path
 
 import pymupdf
@@ -22,6 +23,8 @@ class ExtractionInfo:
     warnings: list[str] = field(default_factory=list)
     contents_pages_removed: int = 0
     front_pages_removed: int = 0
+    interlinear_pages_removed: int = 0
+    glossary_pages_removed: int = 0
     outline_used: bool = False
 
 
@@ -46,11 +49,15 @@ _HEADING = re.compile(
     r"^第[〇零一二三四五六七八九十百\d]+[章节讲篇卷]|^(?:序|前言|引言|序言|后记|後記|结语|結語)$"
 )
 _NUMBERED_HEADING = re.compile(r"^(?:\d{1,3}|[ivxlcdm]{1,8}|[一二三四五六七八九十百]+)[、.)．:]\s*\S", re.I)
+_TALK_TITLE = re.compile(r"(?i)^(?:talk\s+(?:in|at|on)|lecture\s+(?:in|at))\s+\S")
 _SHELL_META = re.compile(
     r"(?i)(bài viết của sư phụ|master.?s recent articles|open book reader|back to top|"
     r"falundafa\.org\s*>\s*books|pháp luân đại pháp\s*-\s*minghui\.org|"
     r"bản dịch(?: có thể được hiệu chỉnh[^.]*)?|bản song ngữ|bilingual|translation last updated|this translation last updated|"
     r"lưu ý:|đăng ngày|updated\s+\d|posted\s+\d|liên kết|links?)"
+)
+_DOWNLOAD_LINK = re.compile(
+    r"(?i)(?:简体字|繁体字|正体字|簡體字|繁體字|正體字)\s*(?:A4|Letter)?\s*版\s*[:：]?\s*PDF文件?"
 )
 _MARGIN = re.compile(r"(?i)(back\s+to\s+top|minghui\.org|falundafa\.org|page\s+\d+)")
 _UPDATE_NOTES = re.compile(
@@ -58,6 +65,11 @@ _UPDATE_NOTES = re.compile(
     r"格式說明.{0,12}(?:頁數|页数).{0,12}(?:行數|行数)|"
     r"(?:网络版|網絡版).{0,12}更新(?:备注|備注|注記)|web\s+edition.{0,12}(?:revision|update)\s+notes)"
 )
+_GLOSSARY_START = re.compile(
+    r"(?i)^(?:chú thích(?: của người dịch)?|chú giải|giải nghĩa|bảng thuật ngữ|glossary|"
+    r"footnotes?|translation notes|notes on the translation|注释|註釋|词语解释|詞語解釋)$"
+)
+_NON_SECTION_LABEL = re.compile(r"(?i)^(?:lyrics?|ca\s*từ|歌詞|歌词)$")
 
 
 def _clean(value: str) -> str:
@@ -376,8 +388,152 @@ def _strip_repeated_margins(pages: list[list[_Line]]) -> list[list[_Line]]:
     return result
 
 
+def _trim_trailing_glossary(pages: list[list[_Line]]) -> tuple[list[list[_Line]], int]:
+    """Drop a back matter glossary/footnote section after the work's body."""
+    if len(pages) < 2:
+        return pages, 0
+    threshold = int(len(pages) * 0.65)
+    for page_index in range(threshold, len(pages)):
+        for line_index, line in enumerate(pages[page_index]):
+            if _GLOSSARY_START.fullmatch(_clean(line.text).strip(" :：.-—–")):
+                kept = pages[:page_index]
+                if line_index:
+                    kept.append(pages[page_index][:line_index])
+                return kept, len(pages) - len(kept)
+    return pages, 0
+
+
 def _text(lines: list[_Line]) -> str:
     return "\n".join(line.text for line in lines if line.text).strip()
+
+
+def _is_vietnamese_interlinear_page(lines: list[_Line], language: str) -> bool:
+    """Identify paired Chinese/pinyin sheets in Vietnamese poem editions."""
+    if language != "vi":
+        return False
+    han_lines = [sum("\u3400" <= char <= "\u9fff" for char in line.text) for line in lines]
+    latin_lines = [sum(char.isalpha() and not "\u3400" <= char <= "\u9fff" for char in line.text)
+                   for line in lines]
+    han_total, latin_total = sum(han_lines), sum(latin_lines)
+    han_rows = sum(count >= 2 for count in han_lines)
+    latin_rows = sum(count >= 8 for count in latin_lines)
+    if han_total < 12 or latin_total < 80 or han_rows < 4 or latin_rows < 4:
+        return False
+    # Interlinear sheets alternate short pinyin/Han/Vietnamese rows. A page of
+    # prose with an occasional Chinese quotation does not have this pattern.
+    row_categories = [
+        "han" if han and not latin else "latin" if latin and not han else "mixed"
+        for han, latin in zip(han_lines, latin_lines) if han or latin
+    ]
+    switches = sum(a != b for a, b in zip(row_categories, row_categories[1:]))
+    return switches >= 3
+
+
+def _printed_page_number(lines: list[_Line]) -> int | None:
+    labels = [int(match.group(1)) for line in lines
+              if (match := re.fullmatch(r"\s*(\d{1,4})\s*", line.text))]
+    return labels[-1] if labels else None
+
+
+def _vietnamese_interlinear_flags(pages: list[list[_Line]], language: str) -> list[bool]:
+    flags = [_is_vietnamese_interlinear_page(page, language) for page in pages]
+    if language != "vi":
+        return flags
+    labels = [_printed_page_number(page) for page in pages]
+    for index, (page, following) in enumerate(zip(pages, pages[1:])):
+        current_number, next_number = labels[index], labels[index + 1]
+        if current_number is None or next_number != current_number + 1:
+            continue
+        han_current = sum("\u3400" <= char <= "\u9fff" for line in page for char in line.text)
+        latin_current = sum(char.isalpha() and not "\u3400" <= char <= "\u9fff"
+                            for line in page for char in line.text)
+        han_rows = sum(sum("\u3400" <= char <= "\u9fff" for char in line.text) >= 2 for line in page)
+        latin_rows = sum(sum(char.isalpha() and not "\u3400" <= char <= "\u9fff"
+                             for char in line.text) >= 3 for line in page)
+        han_next = sum("\u3400" <= char <= "\u9fff" for line in following for char in line.text)
+        latin_next = sum(char.isalpha() and not "\u3400" <= char <= "\u9fff"
+                         for line in following for char in line.text)
+        if (han_current >= 2 and latin_current >= 8 and han_rows >= 2 and latin_rows >= 3
+                and han_next < 4 and latin_next >= 20):
+            flags[index] = True
+    return flags
+
+
+def repair_chinese_full_stop_positions(text: str, reference: str) -> str:
+    """Move misplaced Chinese full stops using a matching edition as evidence.
+
+    A few Simplified PDFs have invisible text-layer full stops with incorrect
+    coordinates. When the Traditional counterpart has the same lexical text
+    and the same number of full stops, its punctuation positions provide a
+    safe alignment anchor while all Simplified characters and line breaks stay
+    intact.
+    """
+    def lexical(value: str) -> tuple[str, list[int]]:
+        chars, offsets = [], []
+        for offset, char in enumerate(value):
+            if char.isalnum() or "\u3400" <= char <= "\u9fff":
+                chars.append(char)
+                offsets.append(offset)
+        return "".join(chars), offsets
+
+    source_lexical, _ = lexical(text)
+    reference_lexical, _ = lexical(reference)
+    matcher = SequenceMatcher(None, source_lexical, reference_lexical, autojunk=False)
+    if matcher.ratio() < 0.98 or abs(len(source_lexical) - len(reference_lexical)) > 24:
+        return text
+
+    def positions(value: str) -> list[int]:
+        index = 0
+        found = []
+        for char in value:
+            if char == "。":
+                found.append(index)
+            elif char.isalnum() or "\u3400" <= char <= "\u9fff":
+                index += 1
+        return found
+
+    reference_positions = positions(reference)
+    if len(reference_positions) != text.count("。"):
+        return text
+    blocks = matcher.get_matching_blocks()
+
+    def map_boundary(reference_offset: int) -> int:
+        previous = following = None
+        for source_start, reference_start, length in blocks:
+            if reference_start <= reference_offset <= reference_start + length:
+                return source_start + min(reference_offset - reference_start, length)
+            if reference_start + length < reference_offset:
+                previous = (source_start + length, reference_start + length)
+            elif reference_start > reference_offset:
+                following = (source_start, reference_start)
+                break
+        if previous is None:
+            return following[0] if following else 0
+        if following is None:
+            return previous[0]
+        source_gap = following[0] - previous[0]
+        reference_gap = following[1] - previous[1]
+        if reference_gap <= 0:
+            return previous[0]
+        fraction = (reference_offset - previous[1]) / reference_gap
+        return max(previous[0], min(following[0], round(previous[0] + fraction * source_gap)))
+
+    target_counts = Counter(map_boundary(offset) for offset in reference_positions)
+    if positions(text) == sorted(target_counts.elements()):
+        return text
+    output = []
+    lexical_index = 0
+    if target_counts.get(0):
+        output.extend("。" * target_counts.pop(0))
+    for char in text:
+        if char == "。":
+            continue
+        output.append(char)
+        if char.isalnum() or "\u3400" <= char <= "\u9fff":
+            lexical_index += 1
+            if target_counts.get(lexical_index):
+                output.extend("。" * target_counts.pop(lexical_index))
+    return "".join(output)
 
 
 def _norm(text: str) -> str:
@@ -480,6 +636,7 @@ def _toc_titles(pages: list[list[_Line]], flags: list[bool], document_title: str
             if _norm(document_title) in compact or len(part.split()) > 14 or re.search(r"[.!?。！？]$", part):
                 continue
             if (_SHELL_META.search(part) or _MARGIN.search(part) or _PAGE_NO.fullmatch(part)
+                    or _NON_SECTION_LABEL.fullmatch(part)
                     or compact in {"hongzhili", "lihongzhi", "lyhongchi"}
                     or re.search(r"(?i)(translated|translation|copyright|pre-publication|edition|updated|revision)", part)):
                 continue
@@ -551,16 +708,23 @@ def _toc_anchors(text: str, titles: list[str]) -> list[tuple[int, str]]:
     return ordered
 
 
-def _headings(pages: list[list[_Line]], document_title: str = "") -> list[tuple[int, int, str]]:
+def _headings(
+    pages: list[list[_Line]], document_title: str = "", language: str = "",
+) -> list[tuple[int, int, str]]:
     sizes = [line.size for page in pages for line in page if line.size > 0]
     typical = statistics.median(sizes) if sizes else 0
     found = []
     for page_index, lines in enumerate(pages):
         page_sizes = [line.size for line in lines if line.size > 0]
         body_size = statistics.median(page_sizes) if page_sizes else typical
+        consumed: set[int] = set()
         for line_index, line in enumerate(lines):
+            if line_index in consumed:
+                continue
             value = _normalize_chinese_spacing(line.text.strip())
             if not value or len(value) > 110 or len(value.split()) > 15 or _norm(value) == _norm(document_title):
+                continue
+            if _NON_SECTION_LABEL.fullmatch(value):
                 continue
             if _PAGE_NO.fullmatch(value) or _TOC_LINE.search(value):
                 continue
@@ -581,13 +745,38 @@ def _headings(pages: list[list[_Line]], document_title: str = "") -> list[tuple[
                 continue
             if re.fullmatch(r"(?i)(?:january|february|march|april|may|june|july|august|september|october|november|december)\s+\d{1,2},?", value):
                 continue
+            if re.match(r"(?i)^ngày\s+\d{1,2}\s+tháng\s+\d{1,2}\s+năm\s+\d{4}", value):
+                continue
             numbered = bool(_NUMBERED_HEADING.search(value)) and len(value) <= 65 and len(value.split()) <= 10
             if (numbered and re.search(r"[\u3400-\u9fff]", value)
                     and len(_norm(value)) > 20 and not _HEADING.search(value)):
                 numbered = False
-            explicit = bool(_HEADING.search(value) or numbered)
+            talk_title = bool(_TALK_TITLE.search(value))
+            explicit = bool(_HEADING.search(value) or numbered or talk_title)
             style_heading = line.size >= max(body_size * 1.30, typical * 1.30)
-            if explicit or style_heading:
+            bold_vietnamese_title = (
+                language == "vi" and line.bold and len(normalized_value) <= 90
+                and not re.search(r"[.!?。！？]$", value)
+            )
+            if explicit or style_heading or bold_vietnamese_title:
+                if talk_title:
+                    # Talk titles often wrap one phrase over several large
+                    # lines. Keep the title together and start the section at
+                    # its first line; date/byline rows remain body metadata.
+                    pieces = [value]
+                    previous = line
+                    for following_index in range(line_index + 1, min(len(lines), line_index + 5)):
+                        following = lines[following_index]
+                        next_value = _normalize_chinese_spacing(following.text.strip())
+                        if (not next_value or abs(following.size - line.size) > max(1.0, line.size * 0.08)
+                                or following.y - previous.bottom > max(14, line.size * 1.1)
+                                or _PAGE_NO.fullmatch(next_value)
+                                or re.search(r"(?i)(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}", next_value)):
+                            break
+                        pieces.append(next_value)
+                        consumed.add(following_index)
+                        previous = following
+                    value = " ".join(pieces)
                 found.append((page_index, line_index, value))
     # Repeated styled headers are not section boundaries.
     counts = Counter(title.casefold() for _, _, title in found)
@@ -677,6 +866,8 @@ def _section_text(text: str, title: str) -> str:
         value = _normalize_chinese_spacing(_clean(line))
         if not value or _PAGE_NO.fullmatch(value) or _TOC_LINE.search(value):
             continue
+        if _NON_SECTION_LABEL.fullmatch(value):
+            continue
         if _MARGIN.search(value):
             continue
         lines.append(value)
@@ -709,6 +900,8 @@ def _section_text(text: str, title: str) -> str:
         if (dates >= 2 and authors >= 2 and headings >= 2) or (dates >= 1 and headings >= 8):
             del lines[:body_index]
     body = _normalize_chinese_spacing("\n".join(lines).strip())
+    body = _DOWNLOAD_LINK.sub("", body)
+    body = re.sub(r"(?i)PDF文件?", "", body)
     if not _shell_body(body, [title]):
         return ""
     return body
@@ -728,7 +921,7 @@ def web_shell_reason(text: str, titles: list[str]) -> str | None:
     has_shell_metadata = has_navigation or has_translation_notice or has_link_notice or bool(
         re.search(r"(?i)(master.?s recent articles|bài viết của sư phụ)", text)
     )
-    if has_shell_metadata and body_letters < 20:
+    if body_letters < 20 and (has_shell_metadata or not residual):
         return "one-page web shell contains title, translation/link notices, and navigation but no article body"
     return None
 
@@ -803,7 +996,12 @@ def split_sections(
     else:
         pages = [sheet[0] if sheet else [] for sheet in physical]
 
+    interlinear_flags = _vietnamese_interlinear_flags(pages, language)
+    info.interlinear_pages_removed = sum(interlinear_flags)
+    if info.interlinear_pages_removed:
+        pages = [page for page, interlinear in zip(pages, interlinear_flags) if not interlinear]
     pages = _strip_repeated_margins(pages)
+    pages, info.glossary_pages_removed = _trim_trailing_glossary(pages)
     layout_match = re.search(r"([24])\s*合\s*1", layout)
     logical_page_count = info.page_count * (int(layout_match.group(1)) if layout_match else 1)
     contents = _contents_pages(pages, logical_page_count)
@@ -850,23 +1048,29 @@ def split_sections(
         if len(toc_starts) >= 2:
             starts = toc_starts
 
-    if not starts:
-        heading_rows = _headings(kept_pages, document_title)
-        if len(heading_rows) >= 2:
-            page_offsets, total = [], 0
-            for text in page_texts:
-                page_offsets.append(total)
-                total += len(text) + 2
-            starts = []
-            line_offsets = []
-            for lines, page_offset in zip(kept_pages, page_offsets):
-                offset = page_offset
-                page_line_offsets = []
-                for line in lines:
-                    page_line_offsets.append(offset)
-                    offset += len(line.text) + 1
-                line_offsets.append(page_line_offsets)
-            starts = [(line_offsets[p][i], title) for p, i, title in heading_rows]
+    heading_rows = _headings(kept_pages, document_title, language)
+    if heading_rows:
+        page_offsets, total = [], 0
+        for text in page_texts:
+            page_offsets.append(total)
+            total += len(text) + 2
+        line_offsets = []
+        for lines, page_offset in zip(kept_pages, page_offsets):
+            offset = page_offset
+            page_line_offsets = []
+            for line in lines:
+                page_line_offsets.append(offset)
+                offset += len(line.text) + 1
+            line_offsets.append(page_line_offsets)
+        heading_starts = []
+        for page_index, line_index, title in heading_rows:
+            # Explicit talk/chapter headings supplement sparse TOC anchors;
+            # style-only lines remain a fallback when no usable anchors exist.
+            explicit = bool(_TALK_TITLE.search(title) or _HEADING.search(title)
+                            or _NUMBERED_HEADING.search(title))
+            if explicit or language == "vi" or not starts:
+                heading_starts.append((line_offsets[page_index][line_index], title))
+        starts.extend(heading_starts)
 
     starts.sort(key=lambda row: row[0])
     deduped = []
