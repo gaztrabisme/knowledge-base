@@ -219,7 +219,9 @@ def test_chunk_files_have_complete_alignment_keys_and_registry_links() -> None:
             if lang != "en" and _is_included(record):
                 _assert_section_keys(work_id, lang, ttc_expected, allow_ttc_notes=True)
 
-    zfl_works = [work for work in works if "zhuan falun" in _title_blob(work)]
+    # Phase B adds separately indexed translations of Zhuan Falun, including
+    # Volume II. This contract is specifically for the Phase A work record.
+    zfl_works = [work for work in works if str(work.get("work_id")) == "zhuan-falun"]
     assert len(zfl_works) == 1
     zfl_work = zfl_works[0]
     zfl_id = str(zfl_work["work_id"])

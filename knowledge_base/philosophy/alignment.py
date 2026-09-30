@@ -6,6 +6,8 @@ import re
 from bisect import bisect_left
 from collections import defaultdict
 from dataclasses import dataclass
+from itertools import combinations
+from math import sqrt
 from pathlib import Path
 
 import pymupdf
@@ -16,6 +18,108 @@ class Section:
     section_key: str
     section_title: str
     text: str
+
+
+_HAN_DIGITS = dict(zip("〇零一二三四五六七八九", "00123456789"))
+_HAN_SMALL = {"十": 10, "百": 100}
+
+
+def _chinese_number(value: str) -> str:
+    if value and all(char in _HAN_DIGITS for char in value):
+        return "".join(_HAN_DIGITS[char] for char in value).lstrip("0") or "0"
+    total, current = 0, 0
+    for char in value:
+        if char in _HAN_DIGITS:
+            current = int(_HAN_DIGITS[char])
+        elif char in _HAN_SMALL:
+            total += (current or 1) * _HAN_SMALL[char]
+            current = 0
+        else:
+            return ""
+    return str(total + current) if total + current else ""
+
+
+def _section_numbers(section: Section) -> set[str]:
+    source = f"{section.section_title} {section.text[:900]}"
+    found = set(re.findall(r"(?<!\d)(?:19|20)\d{2}(?!\d)", source))
+    found.update(re.findall(r"(?<!\d)\d{1,3}(?!\d)", section.section_title))
+    for value in re.findall(r"(?i)\b(?:chapter|lecture|poem|verse|part|section)\s+(\d+)\b",
+                            section.section_title):
+        found.add(f"n:{int(value)}")
+    for value in re.findall(r"第([〇零一二三四五六七八九十百\d]+)[章节讲篇卷]", section.section_title):
+        normalized = _chinese_number(value) if not value.isdigit() else value
+        if normalized:
+            found.add(f"n:{normalized}")
+    for value in re.findall(r"([〇零一二三四五六七八九\d]{4})年", source):
+        normalized = "".join(_HAN_DIGITS.get(char, char) for char in value)
+        if normalized.isdigit():
+            found.add(normalized)
+    return found
+
+
+def _alignment_evidence(left: list[Section], right: list[Section]) -> float | None:
+    """Return a pair score only when equal counts have corroborating text evidence."""
+    if not left or len(left) != len(right):
+        return None
+    conflicts = 0
+    shared = 0
+    for a, b in zip(left, right):
+        marks_a, marks_b = _section_numbers(a), _section_numbers(b)
+        if marks_a and marks_b:
+            if marks_a & marks_b:
+                shared += 1
+            else:
+                conflicts += 1
+    if conflicts > max(0, len(left) // 5):
+        return None
+
+    lengths_a = [max(1, len(section.text.strip())) for section in left]
+    lengths_b = [max(1, len(section.text.strip())) for section in right]
+    if len(left) == 1:
+        ratio = lengths_a[0] / lengths_b[0]
+        # A single section has a trivial length profile. Require an independent
+        # shared date/number as well, so equal counts alone cannot align whole
+        # articles with unrelated section boundaries.
+        if not 0.3 <= ratio <= 3.0 or not shared or conflicts:
+            return None
+        return 0.8 + min(shared, 1) * 0.15
+
+    total_a, total_b = sum(lengths_a), sum(lengths_b)
+    total_ratio = total_b / max(1, total_a)
+    profile_outliers = sum(
+        not (total_ratio / 3 <= size_b / max(1, size_a) <= total_ratio * 3)
+        for size_a, size_b in zip(lengths_a, lengths_b)
+    )
+    if profile_outliers / len(left) > 0.10:
+        return None
+    profile_a = [value / total_a for value in lengths_a]
+    profile_b = [value / total_b for value in lengths_b]
+    cosine = sum(a * b for a, b in zip(profile_a, profile_b)) / (
+        sqrt(sum(a * a for a in profile_a)) * sqrt(sum(b * b for b in profile_b))
+    )
+    threshold = 0.78 if len(left) == 2 else 0.86
+    if cosine < threshold and shared < max(2, len(left) // 2):
+        return None
+    return cosine + min(shared / max(1, len(left)), 1.0) * 0.15 - conflicts * 0.1
+
+
+def aligned_language_set(sections_by_language: dict[str, list[Section]]) -> set[str]:
+    """Choose the largest mutually supported language set; singletons stay unaligned."""
+    languages = sorted(lang for lang, sections in sections_by_language.items() if sections)
+    best: tuple[float, tuple[str, ...]] = (-1.0, ())
+    for size in range(len(languages), 1, -1):
+        candidates = []
+        for subset in combinations(languages, size):
+            scores = [
+                _alignment_evidence(sections_by_language[a], sections_by_language[b])
+                for a, b in combinations(subset, 2)
+            ]
+            if all(score is not None for score in scores):
+                candidates.append((sum(float(score) for score in scores), subset))
+        if candidates:
+            best = max(candidates, key=lambda item: (item[0], item[1]))
+            break
+    return set(best[1])
 
 
 def _clean_title(value: str) -> str:

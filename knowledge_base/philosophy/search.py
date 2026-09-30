@@ -282,12 +282,17 @@ def list_philosophy(work: str | None = None) -> dict:
             if work.casefold() not in {str(title).casefold() for title in titles.values()}:
                 continue
         selected.append(item)
-    if work and len(selected) == 1:
-        item = selected[0]
-        aligned = {}
+    if not work:
+        return {"works": [{"work_id": item["work_id"], "titles": item.get("titles", {}),
+                           "languages": sorted(item.get("languages", {}))}
+                          for item in selected]}
+
+    detailed = []
+    for item in selected:
+        languages = {}
         for lang, record in item.get("languages", {}).items():
             if record.get("status") != "included":
-                aligned[lang] = {"status": record.get("status"), "section_count": 0, "sections": []}
+                languages[lang] = {"status": record.get("status"), "section_count": 0, "sections": []}
                 continue
             chunk_path = Path(record.get("chunks_file") or "")
             if not chunk_path.is_absolute():
@@ -297,12 +302,11 @@ def list_philosophy(work: str | None = None) -> dict:
             for child in chunks.get("children", []):
                 meta = {**child.get("metadata", {}), **child}
                 sections.setdefault(meta.get("section_key"), meta.get("section_title", ""))
-            aligned[lang] = {"status": "included", "section_count": len(sections),
-                             "sections": [{"section_key": k, "section_title": v} for k, v in sections.items()]}
-        return {"work_id": item["work_id"], "titles": item.get("titles", {}), "languages": aligned}
-    return {"works": [{"work_id": item["work_id"], "work_group": item.get("work_group"),
-                       "titles": item.get("titles", {}),
-                       "languages": {lang: {"status": rec.get("status"),
-                                            "section_count": rec.get("section_count", 0)}
-                                     for lang, rec in item.get("languages", {}).items()}}
-                      for item in selected]}
+            languages[lang] = {"status": "included", "section_count": len(sections),
+                               "sections": [{"section_key": key, "section_title": title}
+                                            for key, title in sections.items()]}
+        detailed.append({"work_id": item["work_id"], "titles": item.get("titles", {}),
+                         "languages": languages})
+    if len(detailed) == 1:
+        return detailed[0]
+    return {"works": detailed}

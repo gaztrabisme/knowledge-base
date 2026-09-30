@@ -26,10 +26,19 @@ def write_work_chunks(
     parents, children = [], []
 
     for section_index, section in enumerate(sections, start=1):
-        section_text = f"# {section.section_key} — {section.section_title}\n\n{section.text.strip()}".strip()
+        heading = f"# {section.section_key} — {section.section_title}"
+        body = section.text.strip()
+        compact_body = re.sub(r"\s+", "", body)
+        compact_title = re.sub(r"\s+", "", section.section_title)
+        if not compact_body or compact_body == compact_title:
+            continue
+        section_text = f"{heading}\n\n{body}".strip()
         md_sections.append(section_text)
         split_input = {
-            "text": section_text,
+            # Keep the heading in markdown and chunk metadata, but split only
+            # the body. Otherwise a large section with ### headings can emit a
+            # heading-only parent before its first subsection.
+            "text": body,
             "chapter": section.section_title,
             "section": "",
             "heading_path": section.section_title,
@@ -39,6 +48,10 @@ def write_work_chunks(
         # punctuation based; on Chinese text it can treat an entire preceding
         # part as one sentence, causing repeated text to grow exponentially.
         for part in parts:
+            part_body = part["text"].strip()
+            if not part_body:
+                continue
+            part["text"] = f"{heading}\n\n{part_body}"
             parent_id = f"{work_id}.{lang}-p{len(parents)}"
             meta = {
                 "book": work_id,
@@ -57,7 +70,13 @@ def write_work_chunks(
                 "heading_path": section.section_title,
             }
             parents.append({"parent_id": parent_id, "text": part["text"], "metadata": meta.copy()})
-            for child in create_children(part["text"], parent_id):
+            children_for_part = create_children(part_body, parent_id)
+            for child_index, child in enumerate(children_for_part):
+                # Keep the section heading with its first body child. Feeding
+                # the parent heading into the paragraph splitter can produce
+                # a child containing only the heading when the title is long.
+                if child_index == 0:
+                    child["text"] = f"{heading}\n\n{child['text']}"
                 child_meta = meta.copy()
                 child_meta["chunk_type"] = child.pop("chunk_type")
                 child["metadata"] = child_meta
