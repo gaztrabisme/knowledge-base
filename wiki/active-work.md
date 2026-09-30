@@ -24,7 +24,16 @@
   - the chunk heading paths repeat `(part 1) (part 1)`, from `knowledge_base/chunk.py`;
   - the four live books with no headings.
 
-**Next step (Gary):** promote v9 or keep v8. The pre-set gate failed at 0.793 (23/29). The blind-reviewed set scores 0.821 (23/28). Five fair queries still miss.
+**Promoted 2026-09-30 on Gary's call.**
+- `developer_knowledge` points to `developer_knowledge_v9`, and v8 is kept for rollback.
+- Release [data-v9](https://github.com/gaztrabisme/knowledge-base/releases/tag/data-v9) is published; its four parts match the manifest's SHA-256.
+- The installer defaults to data-v9, and main is pushed at `8f058d9`.
+
+**Open:**
+- The five sanity misses (Agentic Mesh, Head First PMP, Python for DevOps, Selling to Big Companies, Fieldbook Companion).
+- The `(part 1) (part 1)` heading-path defect in `knowledge_base/chunk.py`.
+- The four live books with no headings.
+- The v9 copy on bppc, which can now be deleted.
 
 ## KB v9: 29 new books with heading repair
 **Status:** Built and gated 2026-09-30. **Not promoted:** the gate failed one of its three pre-set conditions, so Gary decides next.

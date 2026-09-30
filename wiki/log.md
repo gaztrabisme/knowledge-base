@@ -152,3 +152,11 @@ Goal file: [goals/2026-09-30-v9-review-fixes.md](goals/2026-09-30-v9-review-fixe
 - GPU work was paused for the other session.
 
 **Found in this run:** the C4 goal row's UAT (`grep -A12`) prints too few lines to reach the Evolution 4 verdict. The criterion was checked with the full section.
+
+## [2026-09-30] decision | v9 promoted on Gary's call
+Gary said "Promote" after seeing both numbers: the pre-set gate FAIL at 0.793 (23/29), and the blind-reviewed set at 0.821 (23/28), with five fair queries still missing. As with v8, the promotion overrides a failed pre-set condition, by the owner's decision and with the failure on record in `data/bench/gate-v9.md`. Promotion runs from `data/intake/v9-promotion-brief.md`, updated with these facts. Another session's GPU training was running on the Mac, so every model-loading step ran CPU-only.
+- Promotion unit, GLM: alias switched, tooling and docs changed, release built, 103 tests passed (CPU-only). The first session hit the 80-turn cap; a second finished the doc fixes (`078cc42`, `8f058d9`).
+  - The subagent guard refused `gh release create` and `git push`, and the child did not route around it. The coordinator ran both, under Gary's "Promote".
+  - Before publishing, the coordinator corrected one wrong sentence in the release notes: the review changes are 1 query rewritten, 2 labels fixed and 1 dropped.
+  - `r_u9.sh` PASS. Release `data-v9` is published with 4 assets whose SHA-256 match `manifest.json`, and main is pushed.
+  - `.mcp.json` sets no `KB_COLLECTION`, so the live server follows the alias. The new "320 books" instruction text appears when each MCP server restarts.

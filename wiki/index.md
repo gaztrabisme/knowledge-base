@@ -1,6 +1,6 @@
 # Developer Knowledge Base — Project Wiki
 
-Last updated: 2026-09-30 (v9: 29 books built into `developer_knowledge_v9`, 286,723 points; not promoted, because sanity recall was 0.793 against 0.80).
+Last updated: 2026-09-30 (v9 live: 320 books, 286,723 points in `developer_knowledge_v9`. The pre-set sanity condition failed at 0.793 against 0.80, a blind-reviewed set scored 0.821, and Gary promoted it; release data-v9).
 Historical update (2026-05-31, v6.7.1 GATE-RESTORE): regenerated the 12 queries dropped by the v6.7 strip
 (2 keyword + 10 navigational, whose gold had been index pages) from the **clean** corpus — seeds now
 valid by construction; added a junk-nav phrasing reject (`index for…`/`Index (part N)`) so the
