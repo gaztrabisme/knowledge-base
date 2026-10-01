@@ -1,5 +1,19 @@
 # Technical Decisions
 
+## Philosophy phase B: gate failed, not promoted (2026-10-01)
+**Context:** Conditions set in the Plan Block of 2026-09-30, before any unit ran: (a) filtered 60-query eval, no group loses more than 1; (b) the same unfiltered, no group loses more than 2; (c) reviewed new-works test set ≥ 0.80 overall and ≥ 0.70 per language; (d) ≥ 36/40 aligned section pairs match in a blind review; (e) every included Chinese file passes the text check or is derived; (f) 50 technical queries give identical top-10 results.
+**Result:** (a) PASS (no losses; cross +1). (b) FAIL: en 10→7, vi 10→8, zh 11→8, cross 12→11 of 15. (c) FAIL: 52/79 = 0.658 (en 0.750, vi 0.700, zh-Hans 0.526, zh-Hant 0.650). (d) PASS 40/40 (review run 4; runs 1–3 recorded: 26, 33 on a defective packet, 35). (e) PASS 187/187. (f) FAIL 45/50.
+**Decision:** not promoted. `philosophy` stays at 8,432 points; the candidate `philosophy_b` (52,122) stays on the Qdrant server for Gary's call; no `data-v9.1` release; installer default unchanged.
+**Options for Gary (not decided):** promote anyway (as v8 and v9 were); keep phase B as a separate collection or behind a default filter so unfiltered searches still reach the Original Library first; improve retrieval on the new works before promoting (zh-Hans at 0.526 is the weakest).
+**Choices made in the run:**
+- One edition per work per language; newest official translation; single-page layout preferred over 2-up and 4-up.
+- Traditional Chinese that fails the text check is derived from Simplified with OpenCC and flagged.
+- Sections aligned across languages only on evidence; 38 works are unaligned.
+- Web-page shells (52 Vietnamese writings and one English) skipped with reasons, not indexed as titles.
+- Collection name kept as `philosophy` for any promotion, so the installer needs no change.
+**Rejected:** re-sampling the alignment review on the same pairs after a fix (run 4 used a new seed); counting run 2 (its packet was defective, recorded but not used); a fresh Codex session as the blind reviewer when Gemini hit its quota (waited instead); embedding 43k chunks on the Mac CPU beside another session's training (~16 h).
+**Evidence:** `data/bench/gate-philosophy-b.md`, `data/bench/gate-philosophy-b/run-20260930T235222Z/`, `data/philosophy/phase-b/`.
+
 ## v9 review fixes: rescoring rule and promotion call (2026-09-30)
 **Context:** The v9 gate failed sanity recall@10 at 0.793103 (23/29; 24 hits required). The run review asked whether the test queries or retrieval caused the misses.
 **Decision:** The 29 sanity queries were reviewed against four written rules (on-topic, self-contained, label answers, label complete) by the Gemini lane. It was blind to the results, and its workspace held only the queries and the books' chunks. The reviewed score is reported beside the pre-set result in `data/bench/gate-v9.md` and never replaces it: v9 stays FAILED under the conditions set before the run.

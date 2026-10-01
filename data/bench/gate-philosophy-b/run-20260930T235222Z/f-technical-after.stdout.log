@@ -1,0 +1,14 @@
+  25/50...
+  50/50...
+  per-query dump (50 rows) -> data/bench/gate-philosophy-b/run-20260930T235222Z/tech-after.jsonl
+
+===== phaseb-tech-after  (n=50) =====
+  NDCG@10=0.7389  Recall@10=0.9400  MRR=0.8329  Recall@50(ceiling)=0.9400
+  per-domain:
+    distributed  n=  2  NDCG@10=1.000  R@10=1.000  MRR=1.000  R@50=1.000
+    ml           n= 24  NDCG@10=0.676  R@10=0.958  MRR=0.784  R@50=0.958
+    rust         n= 14  NDCG@10=0.789  R@10=0.929  MRR=0.845  R@50=0.929
+    security     n= 10  NDCG@10=0.768  R@10=0.900  MRR=0.900  R@50=0.900
+
+  retrieval ceiling - delivered recall = 0.0000 (reranker keeping retrieved hits)
+  full report + 3 misses -> data/bench/gate-philosophy-b/run-20260930T235222Z/tech-after-summary.json

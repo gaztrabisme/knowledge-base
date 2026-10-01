@@ -1,0 +1,1311 @@
+[
+  {
+    "work_id": "original-library",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "zhuan-falun",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "zhuan-falun",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "falun-gong",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "falun-gong",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "further-discussions-on-falun-dafa",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "further-discussions-on-falun-dafa",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "explaining-the-teachings-of-zhuan-falun",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "explaining-the-teachings-of-zhuan-falun",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "zhuan-falun-volume-ii",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "zhuan-falun-volume-ii",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "lecture-given-at-the-conference-in-sydney",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "lecture-given-at-the-conference-in-sydney",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "the-great-way-of-spiritual-perfection",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "the-great-way-of-spiritual-perfection",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "teachings-at-conferences-in-the-united-states",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-conferences-in-the-united-states",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "essentials-for-further-advancement",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "essentials-for-further-advancement",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "teachings-at-the-first-conference-in-north-america",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-the-first-conference-in-north-america",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-europe",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-europe",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-the-conference-of-changchun-assistants",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-the-conference-of-changchun-assistants",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-singapore",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-singapore",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-switzerland",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-switzerland",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-the-western-u-s",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-the-western-u-s",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-the-eastern-u-s",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-the-eastern-u-s",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-australia",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-australia",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-new-zealand",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-new-zealand",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-canada",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-canada",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "teachings-at-the-midwestern-u-s-conference",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-the-midwestern-u-s-conference",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "guiding-the-voyage",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "guiding-the-voyage",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "the-essentials-of-diligent-progress-ii",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "the-essentials-of-diligent-progress-ii",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "teachings-from-a-tour-of-north-america",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-from-a-tour-of-north-america",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "teachings-given-on-lantern-festival-day-2003",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-given-on-lantern-festival-day-2003",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "hong-yin-ii",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-houston",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-houston",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-i",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-i",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-ii",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-ii",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-iii",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-iii",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "teaching-the-fa-at-the-discussion-on-writing-music-and-creating-fine-art",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teaching-the-fa-at-the-discussion-on-writing-music-and-creating-fine-art",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-iv",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-iv",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-v",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-v",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-vi",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-vi",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "teachings-at-the-2004-international-conference-in-new-york",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-the-2004-international-conference-in-new-york",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-vii",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-vii",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "teachings-at-the-2005-conference-in-san-francisco",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-the-2005-conference-in-san-francisco",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-los-angeles",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "teachings-at-the-conference-in-los-angeles",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "hong-yin-iii",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "the-essentials-of-diligent-progress-iii",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "the-essentials-of-diligent-progress-iii",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-viii",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-viii",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-ix",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-ix",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-x",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-x",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-xi",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-teachings-given-around-the-world-volume-xi",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": true
+  },
+  {
+    "work_id": "hong-yin-iv",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "hong-yin-v",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-fa-teachings-vol-xii",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-fa-teachings-vol-xii",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-fa-teachings-vol-xiii",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-fa-teachings-vol-xiii",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-fa-teachings-vol-xiv",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-fa-teachings-vol-xiv",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-fa-teachings-vol-xv",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "collected-fa-teachings-vol-xv",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "hong-yin-vi",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "hong-yin-vi",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "why-shen-yun-can-save-lives",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "why-shen-yun-can-save-lives",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "critical-times-reveal-ones-spiritual-state",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "critical-times-reveal-ones-spiritual-state",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "our-practice-and-the-term-religion",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "our-practice-and-the-term-religion",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "why-this-world-is-a-realm-of-unknowing",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "why-this-world-is-a-realm-of-unknowing",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "a-wake-up-call",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "a-wake-up-call",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "the-ordeals-our-spiritual-discipline-faces",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "the-ordeals-our-spiritual-discipline-faces",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-dafa-disciples-attending-the-conference-in-taiwan",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-dafa-disciples-attending-the-conference-in-taiwan",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "how-you-should-regard-and-act-toward-masters-family-members",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "how-you-should-regard-and-act-toward-masters-family-members",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "dafa-spiritual-practice-is-serious",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "dafa-spiritual-practice-is-serious",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "stay-out-of-danger",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "stay-out-of-danger",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-european-fa-conference",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-european-fa-conference",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-italy-fa-conference",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-italy-fa-conference",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-india-fa-conference",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-india-fa-conference",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "why-the-creator-seeks-to-save-all-life",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "why-the-creator-seeks-to-save-all-life",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "how-humankind-came-to-be",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "how-humankind-came-to-be",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "greetings-to-the-european-fa-conference",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "greetings-to-the-european-fa-conference",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-czecho-slovak-fa-conference",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-czecho-slovak-fa-conference",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-2021-dafa-conference-in-taiwan",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-2021-dafa-conference-in-taiwan",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "wake-up",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "wake-up",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "a-strong-and-urgent-warning",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "a-strong-and-urgent-warning",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-fa-conference-in-germany",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-fa-conference-in-germany",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "greetings-to-the-taiwan-fa-conference",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "greetings-to-the-taiwan-fa-conference",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "another-stern-warning",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "another-stern-warning",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "stay-rational",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "stay-rational",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "congratulatory-letter",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "congratulatory-letter",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "dafa-disciples-are-fulfilling-their-missions",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "dafa-disciples-are-fulfilling-their-missions",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "greetings-to-the-south-america-fa-conference",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "greetings-to-the-south-america-fa-conference",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "greetings-to-the-dafa-disciples-attending-the-fa-conference-of-europe",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "greetings-to-the-dafa-disciples-attending-the-fa-conference-of-europe",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-fa-conference-in-france",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-fa-conference-in-france",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-canada-fa-conference",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-canada-fa-conference",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-practitioners-of-vietnam",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-practitioners-of-vietnam",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-experience-sharing-conference-in-taiwan",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-experience-sharing-conference-in-taiwan",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-2018-asia-fa-conference",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-2018-asia-fa-conference",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-fa-conference-of-europe",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-fa-conference-of-europe",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "on-falun-dafas-classification-in-the-ordinary-world",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "on-falun-dafas-classification-in-the-ordinary-world",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "a-congratulatory-letter-to-the-european-fa-conference-in-paris",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "a-congratulatory-letter-to-the-european-fa-conference-in-paris",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-fa-conference-in-japan",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "to-the-fa-conference-in-japan",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "a-congratulatory-letter-to-the-fa-conference-of-argentina",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "a-congratulatory-letter-to-the-fa-conference-of-argentina",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "a-congratulatory-letter-to-the-fa-conference-of-taiwan",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "a-congratulatory-letter-to-the-fa-conference-of-taiwan",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "a-congratulatory-letter-to-the-fa-conference-of-europe",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "a-congratulatory-letter-to-the-fa-conference-of-europe",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "a-greeting-to-the-south-america-fa-conference",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "a-greeting-to-the-south-america-fa-conference",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "on-the-responses-to-the-piece-about-assistant-souls",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "on-the-responses-to-the-piece-about-assistant-souls",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "a-reminder",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "a-reminder",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "congratulations-to-the-taiwan-fa-conference",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "congratulations-to-the-taiwan-fa-conference",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "stay-clearheaded",
+    "language": "zh-Hans",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  },
+  {
+    "work_id": "stay-clearheaded",
+    "language": "zh-Hant",
+    "status": "included",
+    "text_check_passed": true,
+    "derived": false
+  }
+]

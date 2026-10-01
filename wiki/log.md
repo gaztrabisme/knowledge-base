@@ -1,5 +1,32 @@
 # Wiki Log
 
+## [2026-10-01] run | Philosophy phase B: rest of the Falun Dafa archive (gate failed, not promoted)
+Goal file: [2026-09-30-philosophy-phase-b](goals/2026-09-30-philosophy-phase-b.md). Gate: [gate-philosophy-b.md](../data/bench/gate-philosophy-b.md) — DO NOT PROMOTE (b, c, f fail).
+
+**Units, lanes, verdicts**
+- U1 Hồng Ngâm retry: GLM refused (Z.ai 1301 "unsafe or sensitive content") → Codex direct. 9/9 fetched (the original failures were a 1.5 s timeout). PASS.
+- U2 selection (Codex direct): 118 works, one edition per language, Chinese text check on every candidate. PASS (`check_selection.py`).
+- U3 blind match review (Gemini): first run killed by the loop detector (12 shell reads reported as identical calls) → rerun reading with the file viewer. 106/106 groups match (incl. the two phase A works). PASS.
+- U4 splitter/ingest (Codex direct, one session resumed 4 times): first output passed `check_registry.py` with scrambled 2-up Chinese, letter-spaced Traditional text, heading-only chunks and contents lines as sections. The coordinator added `check_chunk_quality.py` and sent a rework brief. The run was cut twice by the background-shell 2-hour limit. Fix 2 (after U5 run 1): lost section endings, poem pages, a merged boundary, download furniture. Fix 3 (after U5 run 3): late section starts (59 to 0), garbled `hong-yin-iii.zh-Hans` skipped. Final: 43,690 chunks. PASS.
+- U5 blind alignment review (Gemini): run 1 26/40 (real tail loss); run 2 33/40 on a defective packet (the coordinator's builder dropped each chunk's first paragraph); run 3 35/40 on the corrected packet (5 real late starts); run 4, new seed after fix 3, 40/40. One Gemini quota refusal (reset in 46 min) waited out rather than falling back to Codex, to keep a different model family as reviewer.
+- U6 test set: fresh Codex wrote 80 rows from written rules; stopped once because fix 2 was about to re-chunk; rerun; targets re-pointed by text after fix 3; Gemini review: 64 keep, 14 fix label, 1 fix query, 1 drop → 79 rows.
+- U7 candidate builder (Codex direct): sparse/BM25 on CPU; dense stage tested on CPU (cosine 1.000000 vs the production path); U7b added `cuda`. Dense pass on bppc's RTX 5080 (~3 min) after bppc came back at 06:33; GPU vs CPU vectors cosine ≥ 0.9999. `philosophy_b` = 52,122 points. PASS.
+- U8 gate script (Codex direct). The first gate run was cut by the 2-hour limit during step 5; steps 5–6 finished through the script's own runner (`.claude/plan-goal/verify/gate_resume.py`).
+- U9 promotion/release: not run (fail branch).
+
+**Forks decided forward**
+- GLM closed for this corpus (content filter); its units went to Codex.
+- bppc was off the network 21:45–06:33; a Mac GPU window was arranged with the gsq session for 14:00, then released when bppc returned.
+- U3 and U4 ran in parallel; U6 was stopped and rerun when fix 2 had to re-chunk under it (the coordinator had started fix 2 while U6 shared the workspace).
+- Gate condition (b) "no filters" was read as dropping both the work and the language filter.
+- Test-set queries use a language filter and no work filter.
+- Remaining text defects accepted and documented (contents lines in the opening of Falun Gong, one interleaved question in collected-fa-teachings-vol-xv.zh-Hans).
+
+**Findings outside the run**
+- `knowledge_base/chunk.py` `create_children` drops a section's final paragraph group under 75 tokens (technical and phase A chunks affected).
+- Live philosophy cross-language eval reads 0.800 today on CPU (phase A recorded 1.000 on GPU); the pre-run code gives the same per-query result.
+- (f) technical differences: 5/50 queries changed top-10 membership slightly with the technical collection unchanged; likely CPU reranker nondeterminism between runs (6 vs 8 threads), not confirmed.
+
 ## [2026-09-28] session | Portable installer hardening, lane A round 2
 - Fixed the install blockers and hardened update, download, proxy, process, and disk-space handling; regression coverage is in `tests/test_install.py`.
 - Full test suite: 58 passed. Local release core install completed and `/collections/developer_knowledge` reported 266,647 points.

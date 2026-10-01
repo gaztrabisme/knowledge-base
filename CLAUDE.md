@@ -472,6 +472,8 @@ a byte-identical duplicate.
   - Zhuan Falun zh-Hant is converted from zh-Hans with OpenCC and flagged `derived`, because the only Traditional PDF extracts as garbled characters.
   - The "Tse Lao" Tao Te Ching is a Spanish translation.
   - The philosophy eval has 15 queries per language group, and the reranker routing was chosen on that same set.
+- **The shared chunker drops a section's short final paragraph group.** `create_children` in `knowledge_base/chunk.py` discards a last group under 75 tokens; the text stays in the markdown and parent chunk but no child chunk holds it, so search cannot find it. Phase B philosophy chunking works around it; the technical collection and phase A philosophy chunks still have it. Fixing it in `chunk.py` changes technical chunk ids on the next rebuild.
+- **The philosophy cross-language eval reads 0.800, not 1.000.** Measured 2026-10-01 on the Mac CPU with the code as it stood before phase B (identical per query to the current code); the 1.000 above was measured in phase A on bppc's GPU.
 - **The embedded fallback store is stale.** `data/qdrant` holds v7.1 without philosophy. Run the Qdrant server; the fallback is for emergencies only.
 
 - **Two markitdown versions are in use.** The 17 v7.1 books were converted with markitdown
@@ -507,7 +509,7 @@ a byte-identical duplicate.
 
 ## Downloaded — Awaiting Ingestion
 
-- **Falun Dafa archive, phase B.** `~/Documents/books/falun-dafa-pdf-archive/` holds 616 PDFs in EN/VI/ZH-Hans/ZH-Hant (`manifest.json` lists every item). Phase A ingested Zhuan Falun only. The remaining lectures and writings go into the `philosophy` collection with one edition per work and language, through `scripts/ingest_philosophy.py` and the same Chinese text check.
+- **Falun Dafa archive, phase B: built, gated, not promoted (2026-10-01).** The rest of `~/Documents/books/falun-dafa-pdf-archive/` (117 works, books and writings, in en, vi, zh-Hans and zh-Hant) is ingested, chunked (43,690 chunks) and embedded into a candidate collection `philosophy_b` (52,122 points, phase A included) on the Qdrant server. The live `philosophy` collection is unchanged. The gate failed three of six pre-set conditions: unfiltered `search_philosophy` lost up to 3 of 15 queries per language group (the new works crowd out the Original Library and Zhuan Falun), the new-works test set scored 0.658 against 0.80, and 5 of 50 technical queries changed order (the technical collection itself was not touched). Promotion is Gary's call. Report: `data/bench/gate-philosophy-b.md`; registry and run evidence: `data/philosophy/phase-b/`; build: `scripts/ingest_philosophy_b.py`, `scripts/build_philosophy_candidate.py`.
 
 Everything below was ingested by v7.0. Historical listing:
 

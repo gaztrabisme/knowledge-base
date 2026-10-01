@@ -1,0 +1,1202 @@
+[
+  {
+    "row": 1,
+    "group": "en",
+    "query": "What remains unchanged in human life even after feats like space travel and genetic engineering?",
+    "target_chunk_id": "original-library.en-p2-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p43-c7",
+      "zhuan-falun.zh-Hans-p44-c0",
+      "zhuan-falun.zh-Hans-p40-c0",
+      "zhuan-falun.zh-Hans-p40-c3",
+      "zhuan-falun.zh-Hant-p48-c3",
+      "zhuan-falun.en-p19-c5",
+      "zhuan-falun.en-p23-c4",
+      "original-library.en-p29-c1",
+      "zhuan-falun.en-p1-c6",
+      "original-library.en-p23-c4"
+    ]
+  },
+  {
+    "row": 2,
+    "group": "en",
+    "query": "Which repeating stages does this account apply to cells, people, and the universe?",
+    "target_chunk_id": "original-library.en-p4-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p4-c0",
+      "zhuan-falun.en-p19-c4",
+      "original-library.en-p31-c1",
+      "zhuan-falun.en-p4-c0",
+      "original-library.en-p31-c2",
+      "original-library.en-p18-c1",
+      "zhuan-falun.en-p13-c2",
+      "zhuan-falun.en-p31-c6",
+      "original-library.en-p31-c0",
+      "original-library.en-p27-c3"
+    ]
+  },
+  {
+    "row": 3,
+    "group": "en",
+    "query": "How does this account explain Earth's origin in terms of material left by an earlier cosmic cycle?",
+    "target_chunk_id": "original-library.en-p5-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p5-c0",
+      "original-library.en-p31-c2",
+      "zhuan-falun.en-p8-c1",
+      "zhuan-falun.zh-Hans-p119-c6",
+      "zhuan-falun.zh-Hans-p120-c0",
+      "zhuan-falun.zh-Hant-p16-c4",
+      "zhuan-falun.zh-Hant-p17-c0",
+      "original-library.zh-Hant-p4-c2",
+      "zhuan-falun.en-p8-c2",
+      "tao-te-ching-stephen-mitchell.en-p24-c0"
+    ]
+  },
+  {
+    "row": 4,
+    "group": "en",
+    "query": "What role does the universal teaching play in helping beings identify their source and transform themselves?",
+    "target_chunk_id": "original-library.en-p6-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p6-c0",
+      "tao-te-ching-stephen-mitchell.en-p15-c0",
+      "original-library.en-p7-c0",
+      "original-library.en-p5-c3",
+      "original-library.en-p14-c6",
+      "zhuan-falun.en-p101-c6",
+      "zhuan-falun.en-p32-c2",
+      "original-library.en-p41-c0",
+      "original-library.en-p42-c3",
+      "original-library.en-p40-c6"
+    ]
+  },
+  {
+    "row": 5,
+    "group": "en",
+    "query": "Why would a constructive impulse be paired with an opposing force in this model?",
+    "target_chunk_id": "original-library.en-p8-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "original-library.en-p8-c2",
+      "original-library.en-p10-c1",
+      "original-library.en-p9-c0",
+      "original-library.en-p9-c4",
+      "original-library.en-p28-c0",
+      "original-library.en-p28-c1",
+      "tao-te-ching-jonathan-star.en-p27-c0",
+      "zhuan-falun.en-p103-c6",
+      "zhuan-falun.en-p38-c7",
+      "tao-te-ching-stephen-mitchell.en-p68-c0"
+    ]
+  },
+  {
+    "row": 6,
+    "group": "en",
+    "query": "How might a harmful strategy gain access by presenting itself as helpful?",
+    "target_chunk_id": "original-library.en-p9-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.zh-Hant-p13-c0",
+      "original-library.zh-Hant-p12-c5",
+      "original-library.en-p9-c2",
+      "original-library.zh-Hant-p12-c3",
+      "original-library.en-p9-c1",
+      "original-library.en-p9-c0",
+      "original-library.en-p9-c3",
+      "original-library.en-p9-c7",
+      "zhuan-falun.en-p56-c7",
+      "original-library.en-p9-c5"
+    ]
+  },
+  {
+    "row": 7,
+    "group": "en",
+    "query": "What method is proposed for finding unnoticed faults in oneself through events from the past?",
+    "target_chunk_id": "original-library.en-p10-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "original-library.en-p10-c6",
+      "original-library.en-p10-c2",
+      "original-library.zh-Hant-p16-c3",
+      "original-library.zh-Hant-p67-c1",
+      "original-library.zh-Hant-p66-c6",
+      "original-library.en-p34-c1",
+      "original-library.en-p19-c5",
+      "original-library.en-p21-c6",
+      "original-library.en-p29-c4",
+      "original-library.en-p9-c5"
+    ]
+  },
+  {
+    "row": 8,
+    "group": "en",
+    "query": "Why does the text use water as an example of a good way to live?",
+    "target_chunk_id": "tao-te-ching-jonathan-star.en-p7-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "tao-te-ching-jonathan-star.en-p7-c0",
+      "tao-te-ching-stephen-mitchell.en-p7-c0",
+      "tao-te-ching-stephen-mitchell.en-p81-c7",
+      "tao-te-ching-stephen-mitchell.en-p83-c9",
+      "tao-te-ching-jonathan-star.en-p31-c0",
+      "zhuan-falun.en-p6-c6",
+      "zhuan-falun.en-p74-c0",
+      "tao-te-ching-tse-lao.es-p7-c0",
+      "tao-te-ching-stephen-mitchell.en-p77-c0",
+      "tao-te-ching-stephen-mitchell.en-p83-c6"
+    ]
+  },
+  {
+    "row": 9,
+    "group": "en",
+    "query": "What becomes visible after the mind is quieted, and what happens when the process completes?",
+    "target_chunk_id": "tao-te-ching-jonathan-star.en-p15-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "tao-te-ching-jonathan-star.en-p15-c0",
+      "zhuan-falun.en-p97-c5",
+      "zhuan-falun.en-p17-c3",
+      "original-library.en-p19-c4",
+      "zhuan-falun.en-p19-c0",
+      "tao-te-ching-stephen-mitchell.en-p83-c0",
+      "original-library.en-p9-c2",
+      "zhuan-falun.en-p19-c1",
+      "zhuan-falun.en-p10-c2",
+      "zhuan-falun.en-p49-c3"
+    ]
+  },
+  {
+    "row": 10,
+    "group": "en",
+    "query": "How does self-mastery differ from overcoming other people in the account of real strength?",
+    "target_chunk_id": "tao-te-ching-jonathan-star.en-p32-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "tao-te-ching-stephen-mitchell.en-p32-c0",
+      "tao-te-ching-stephen-mitchell.en-p84-c0",
+      "zhuan-falun.zh-Hans-p238-c3",
+      "tao-te-ching-stephen-mitchell.en-p83-c5",
+      "tao-te-ching-jonathan-star.en-p32-c0",
+      "zhuan-falun.en-p42-c6",
+      "zhuan-falun.zh-Hant-p175-c4",
+      "zhuan-falun.zh-Hant-p175-c1",
+      "original-library.zh-Hant-p80-c0",
+      "tao-te-ching-stephen-mitchell.en-p29-c0"
+    ]
+  },
+  {
+    "row": 11,
+    "group": "en",
+    "query": "How does progress on the Tao path differ from adding more conventional knowledge?",
+    "target_chunk_id": "tao-te-ching-stephen-mitchell.en-p47-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "tao-te-ching-stephen-mitchell.en-p47-c0",
+      "tao-te-ching-tse-lao.es-p47-c0",
+      "zhuan-falun.en-p57-c5",
+      "tao-te-ching-tse-lao.es-p40-c0",
+      "tao-te-ching-jonathan-star.en-p52-c0",
+      "zhuan-falun.en-p5-c7",
+      "zhuan-falun.en-p66-c2",
+      "tao-te-ching-jonathan-star.en-p61-c0",
+      "tao-te-ching-jonathan-star.en-p23-c0",
+      "zhuan-falun.en-p40-c3"
+    ]
+  },
+  {
+    "row": 12,
+    "group": "en",
+    "query": "Why is it easier to correct a difficulty while it is still small or has not appeared?",
+    "target_chunk_id": "tao-te-ching-stephen-mitchell.en-p63-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "tao-te-ching-stephen-mitchell.en-p62-c0",
+      "tao-te-ching-jonathan-star.en-p62-c0",
+      "zhuan-falun.zh-Hans-p153-c3",
+      "zhuan-falun.zh-Hant-p182-c1",
+      "zhuan-falun.zh-Hant-p181-c5",
+      "tao-te-ching-stephen-mitchell.en-p63-c0",
+      "zhuan-falun.zh-Hant-p114-c0",
+      "zhuan-falun.zh-Hant-p114-c3",
+      "zhuan-falun.zh-Hant-p182-c0",
+      "tao-te-ching-jonathan-star.en-p63-c0"
+    ]
+  },
+  {
+    "row": 13,
+    "group": "en",
+    "query": "How does this chapter distinguish honest speech from language that merely sounds persuasive?",
+    "target_chunk_id": "tao-te-ching-stephen-mitchell.en-p80-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "original-library.en-p34-c3",
+      "tao-te-ching-stephen-mitchell.en-p57-c0",
+      "zhuan-falun.en-p93-c2",
+      "zhuan-falun.en-p36-c7",
+      "tao-te-ching-stephen-mitchell.en-p56-c0",
+      "zhuan-falun.en-p36-c5",
+      "zhuan-falun.en-p40-c0",
+      "zhuan-falun.en-p92-c6",
+      "original-library.en-p14-c6",
+      "tao-te-ching-stephen-mitchell.en-p82-c5"
+    ]
+  },
+  {
+    "row": 14,
+    "group": "en",
+    "query": "What responsibility does the teacher claim toward both learners and the surrounding society?",
+    "target_chunk_id": "zhuan-falun.en-p3-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.en-p3-c0",
+      "zhuan-falun.zh-Hant-p286-c1",
+      "original-library.en-p40-c6",
+      "zhuan-falun.en-p73-c4",
+      "zhuan-falun.zh-Hant-p105-c3",
+      "zhuan-falun.zh-Hant-p104-c9",
+      "zhuan-falun.zh-Hans-p87-c6",
+      "zhuan-falun.en-p37-c1",
+      "zhuan-falun.en-p90-c2",
+      "zhuan-falun.en-p57-c3"
+    ]
+  },
+  {
+    "row": 15,
+    "group": "en",
+    "query": "Why can spiritual perception differ from one practitioner to another?",
+    "target_chunk_id": "zhuan-falun.en-p16-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "zhuan-falun.en-p72-c3",
+      "zhuan-falun.en-p89-c6",
+      "zhuan-falun.en-p45-c0",
+      "zhuan-falun.en-p18-c0",
+      "zhuan-falun.en-p12-c2",
+      "zhuan-falun.en-p31-c0",
+      "zhuan-falun.en-p6-c3",
+      "zhuan-falun.en-p34-c4",
+      "zhuan-falun.en-p18-c6",
+      "zhuan-falun.en-p36-c2"
+    ]
+  },
+  {
+    "row": 16,
+    "group": "vi",
+    "query": "Dù công nghệ đưa con người tiến xa đến đâu, điều gì vẫn không đổi trong vòng đời của họ?",
+    "target_chunk_id": "original-library.vi-p2-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.vi-p2-c0",
+      "zhuan-falun.en-p1-c6",
+      "zhuan-falun.vi-p0-c3",
+      "original-library.vi-p83-c2",
+      "original-library.vi-p75-c3",
+      "original-library.vi-p70-c0",
+      "zhuan-falun.vi-p39-c1",
+      "zhuan-falun.vi-p201-c6",
+      "original-library.vi-p78-c2",
+      "zhuan-falun.vi-p37-c7"
+    ]
+  },
+  {
+    "row": 17,
+    "group": "vi",
+    "query": "Văn bản mô tả chu kỳ nào lặp lại ở tế bào, con người và cả vũ trụ?",
+    "target_chunk_id": "original-library.vi-p4-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.vi-p4-c0",
+      "original-library.vi-p76-c3",
+      "original-library.vi-p2-c0",
+      "zhuan-falun.vi-p13-c0",
+      "original-library.vi-p4-c1",
+      "original-library.vi-p51-c4",
+      "original-library.en-p4-c0",
+      "original-library.vi-p5-c0",
+      "original-library.vi-p29-c3",
+      "original-library.vi-p82-c4"
+    ]
+  },
+  {
+    "row": 18,
+    "group": "vi",
+    "query": "Vật chất nào được cho là đã góp phần hình thành Trái Đất trong chu kỳ hiện tại?",
+    "target_chunk_id": "original-library.vi-p5-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.vi-p5-c0",
+      "original-library.vi-p4-c1",
+      "zhuan-falun.vi-p11-c2",
+      "original-library.en-p5-c0",
+      "original-library.vi-p26-c1",
+      "original-library.vi-p5-c1",
+      "original-library.zh-Hant-p5-c0",
+      "zhuan-falun.vi-p9-c2",
+      "zhuan-falun.zh-Hant-p14-c3",
+      "zhuan-falun.zh-Hant-p15-c0"
+    ]
+  },
+  {
+    "row": 19,
+    "group": "vi",
+    "query": "Bộ Pháp được ví như mã nguồn giúp sinh mệnh nhận ra cội nguồn và làm được điều gì?",
+    "target_chunk_id": "original-library.vi-p8-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.vi-p82-c4",
+      "original-library.vi-p8-c0",
+      "original-library.vi-p67-c1",
+      "original-library.vi-p7-c4",
+      "original-library.vi-p63-c5",
+      "original-library.vi-p52-c2",
+      "original-library.vi-p9-c0",
+      "original-library.vi-p83-c7",
+      "original-library.zh-Hant-p96-c2",
+      "original-library.vi-p68-c3"
+    ]
+  },
+  {
+    "row": 20,
+    "group": "vi",
+    "query": "Vì sao một ý niệm chính lại có thể làm xuất hiện lực đối nghịch để khảo nghiệm người tu?",
+    "target_chunk_id": "original-library.vi-p10-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "original-library.vi-p11-c1",
+      "zhuan-falun.vi-p3-c6",
+      "zhuan-falun.vi-p132-c4",
+      "original-library.zh-Hant-p11-c1",
+      "zhuan-falun.vi-p47-c0",
+      "zhuan-falun.vi-p142-c7",
+      "original-library.vi-p10-c2",
+      "zhuan-falun.vi-p3-c5",
+      "zhuan-falun.vi-p196-c6",
+      "zhuan-falun.vi-p59-c0"
+    ]
+  },
+  {
+    "row": 21,
+    "group": "vi",
+    "query": "Một ảnh hưởng có hại có thể che giấu ý đồ của mình dưới lớp vỏ nào?",
+    "target_chunk_id": "original-library.vi-p12-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "original-library.zh-Hant-p67-c2",
+      "original-library.vi-p59-c5",
+      "original-library.vi-p12-c4",
+      "original-library.vi-p29-c1",
+      "original-library.zh-Hant-p67-c3",
+      "zhuan-falun.en-p53-c4",
+      "zhuan-falun.vi-p174-c0",
+      "zhuan-falun.vi-p46-c5",
+      "original-library.zh-Hant-p55-c6",
+      "original-library.zh-Hant-p82-c5"
+    ]
+  },
+  {
+    "row": 22,
+    "group": "vi",
+    "query": "Cách nào giúp một người nhận ra những suy nghĩ sai mà chính họ chưa thấy?",
+    "target_chunk_id": "original-library.vi-p15-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "zhuan-falun.en-p67-c1",
+      "zhuan-falun.vi-p66-c1",
+      "original-library.vi-p16-c0",
+      "original-library.vi-p23-c1",
+      "original-library.vi-p37-c2",
+      "zhuan-falun.vi-p155-c2",
+      "zhuan-falun.en-p96-c6",
+      "zhuan-falun.vi-p203-c3",
+      "original-library.vi-p15-c6",
+      "zhuan-falun.en-p65-c0"
+    ]
+  },
+  {
+    "row": 23,
+    "group": "vi",
+    "query": "Vì sao người tu được khuyên giữ phương pháp chuyên nhất thay vì pha trộn nhiều pháp môn?",
+    "target_chunk_id": "original-library.vi-p18-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "original-library.vi-p18-c4",
+      "zhuan-falun.vi-p56-c3",
+      "zhuan-falun.vi-p26-c2",
+      "zhuan-falun.vi-p57-c5",
+      "zhuan-falun.en-p30-c1",
+      "zhuan-falun.vi-p68-c5",
+      "zhuan-falun.vi-p26-c5",
+      "zhuan-falun.zh-Hant-p76-c6",
+      "zhuan-falun.zh-Hant-p77-c2",
+      "zhuan-falun.en-p30-c2"
+    ]
+  },
+  {
+    "row": 24,
+    "group": "vi",
+    "query": "Đại Pháp được mô tả là nền tảng tạo nên những yếu tố nào của vũ trụ?",
+    "target_chunk_id": "zhuan-falun.vi-p0-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.vi-p0-c0",
+      "zhuan-falun.vi-p0-c2",
+      "zhuan-falun.zh-Hant-p0-c4",
+      "zhuan-falun.zh-Hant-p0-c1",
+      "zhuan-falun.zh-Hans-p0-c1",
+      "zhuan-falun.zh-Hans-p0-c3",
+      "zhuan-falun.zh-Hant-p0-c2",
+      "zhuan-falun.zh-Hant-p0-c5",
+      "zhuan-falun.vi-p0-c9",
+      "original-library.vi-p65-c1"
+    ]
+  },
+  {
+    "row": 25,
+    "group": "vi",
+    "query": "Người giảng nói cần chịu trách nhiệm với ai khi truyền dạy?",
+    "target_chunk_id": "zhuan-falun.vi-p2-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.vi-p208-c1",
+      "zhuan-falun.vi-p171-c1",
+      "zhuan-falun.vi-p14-c4",
+      "zhuan-falun.vi-p2-c0",
+      "zhuan-falun.vi-p46-c0",
+      "zhuan-falun.vi-p77-c2",
+      "zhuan-falun.zh-Hant-p104-c9",
+      "zhuan-falun.zh-Hant-p105-c3",
+      "zhuan-falun.zh-Hant-p286-c1",
+      "zhuan-falun.vi-p134-c5"
+    ]
+  },
+  {
+    "row": 26,
+    "group": "vi",
+    "query": "Vì sao người ở các tầng khác nhau không cùng nhìn thấy một phạm vi sự việc?",
+    "target_chunk_id": "zhuan-falun.vi-p27-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p37-c4",
+      "zhuan-falun.vi-p206-c6",
+      "zhuan-falun.vi-p202-c6",
+      "zhuan-falun.zh-Hans-p37-c8",
+      "zhuan-falun.vi-p33-c0",
+      "zhuan-falun.vi-p143-c4",
+      "zhuan-falun.zh-Hant-p37-c0",
+      "zhuan-falun.zh-Hant-p37-c3",
+      "zhuan-falun.vi-p35-c2",
+      "zhuan-falun.zh-Hans-p36-c6"
+    ]
+  },
+  {
+    "row": 27,
+    "group": "vi",
+    "query": "Người hướng dẫn nói gì về cách ông đối xử với những người học có lòng tu luyện?",
+    "target_chunk_id": "zhuan-falun.vi-p52-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.vi-p52-c4",
+      "zhuan-falun.vi-p52-c7",
+      "zhuan-falun.vi-p52-c0",
+      "zhuan-falun.vi-p125-c3",
+      "zhuan-falun.vi-p60-c6",
+      "zhuan-falun.vi-p106-c7",
+      "zhuan-falun.en-p47-c6",
+      "zhuan-falun.vi-p23-c3",
+      "zhuan-falun.vi-p94-c0",
+      "zhuan-falun.vi-p150-c4"
+    ]
+  },
+  {
+    "row": 28,
+    "group": "vi",
+    "query": "Ngoài tiền bạc, người tu còn cần từ bỏ kiểu chấp trước nào để hiểu quan hệ mất và được?",
+    "target_chunk_id": "zhuan-falun.vi-p79-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.vi-p79-c3",
+      "zhuan-falun.vi-p206-c2",
+      "zhuan-falun.vi-p88-c4",
+      "zhuan-falun.vi-p152-c4",
+      "zhuan-falun.vi-p79-c0",
+      "zhuan-falun.vi-p125-c3",
+      "zhuan-falun.vi-p153-c1",
+      "zhuan-falun.vi-p149-c5",
+      "zhuan-falun.vi-p129-c6",
+      "zhuan-falun.vi-p151-c6"
+    ]
+  },
+  {
+    "row": 29,
+    "group": "vi",
+    "query": "Văn bản kể rằng có người vẫn sống ra sao dù thời gian dài không ăn uống?",
+    "target_chunk_id": "zhuan-falun.vi-p165-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p191-c3",
+      "zhuan-falun.en-p105-c7",
+      "zhuan-falun.vi-p165-c0",
+      "zhuan-falun.vi-p145-c7",
+      "zhuan-falun.zh-Hans-p168-c1",
+      "zhuan-falun.zh-Hans-p167-c6",
+      "zhuan-falun.vi-p166-c5",
+      "zhuan-falun.en-p83-c6",
+      "zhuan-falun.vi-p187-c5",
+      "zhuan-falun.vi-p150-c1"
+    ]
+  },
+  {
+    "row": 30,
+    "group": "vi",
+    "query": "Điểm khác biệt chính giữa rèn luyện thể thao và con đường khí công được mô tả là gì?",
+    "target_chunk_id": "zhuan-falun.vi-p186-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.vi-p186-c1",
+      "zhuan-falun.zh-Hant-p256-c0",
+      "zhuan-falun.zh-Hant-p256-c3",
+      "zhuan-falun.zh-Hant-p258-c4",
+      "zhuan-falun.zh-Hant-p259-c0",
+      "zhuan-falun.vi-p188-c0",
+      "zhuan-falun.vi-p186-c0",
+      "zhuan-falun.zh-Hant-p256-c2",
+      "zhuan-falun.zh-Hans-p217-c3",
+      "zhuan-falun.zh-Hans-p217-c6"
+    ]
+  },
+  {
+    "row": 31,
+    "group": "zh",
+    "query": "即使文明已经发展到能登月和破解基因，人仍无法摆脱什么循环？",
+    "target_chunk_id": "original-library.zh-Hant-p2-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.zh-Hant-p2-c0",
+      "original-library.vi-p2-c0",
+      "zhuan-falun.zh-Hans-p13-c3",
+      "zhuan-falun.zh-Hans-p13-c6",
+      "zhuan-falun.zh-Hans-p13-c2",
+      "zhuan-falun.zh-Hans-p13-c5",
+      "original-library.en-p35-c0",
+      "original-library.zh-Hant-p90-c0",
+      "zhuan-falun.zh-Hant-p16-c4",
+      "zhuan-falun.zh-Hant-p17-c0"
+    ]
+  },
+  {
+    "row": 32,
+    "group": "zh",
+    "query": "文本把宇宙的演变和细胞、人类的生命过程都归纳成怎样的周期？",
+    "target_chunk_id": "original-library.zh-Hant-p4-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "original-library.en-p4-c0",
+      "zhuan-falun.zh-Hans-p13-c3",
+      "zhuan-falun.zh-Hans-p13-c6",
+      "zhuan-falun.zh-Hans-p13-c5",
+      "zhuan-falun.zh-Hans-p13-c2",
+      "original-library.vi-p4-c0",
+      "zhuan-falun.zh-Hans-p215-c6",
+      "zhuan-falun.zh-Hans-p216-c2",
+      "zhuan-falun.zh-Hant-p257-c4",
+      "zhuan-falun.zh-Hant-p257-c0"
+    ]
+  },
+  {
+    "row": 33,
+    "group": "zh",
+    "query": "按照这一叙述，地球由上一轮宇宙留下的什么重新组合而成？",
+    "target_chunk_id": "original-library.zh-Hant-p5-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p5-c0",
+      "original-library.zh-Hant-p5-c0",
+      "original-library.vi-p5-c0",
+      "zhuan-falun.zh-Hans-p13-c3",
+      "zhuan-falun.zh-Hans-p13-c6",
+      "zhuan-falun.zh-Hant-p17-c0",
+      "zhuan-falun.zh-Hant-p16-c4",
+      "original-library.vi-p5-c1",
+      "original-library.zh-Hant-p5-c1",
+      "zhuan-falun.zh-Hant-p142-c8"
+    ]
+  },
+  {
+    "row": 34,
+    "group": "zh",
+    "query": "宇宙大法被比作一种源代码，它让生命能够识别什么并进行怎样的改变？",
+    "target_chunk_id": "original-library.zh-Hant-p8-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.zh-Hant-p8-c0",
+      "original-library.zh-Hant-p77-c0",
+      "original-library.zh-Hant-p17-c1",
+      "zhuan-falun.zh-Hans-p0-c3",
+      "zhuan-falun.zh-Hans-p0-c1",
+      "original-library.en-p33-c3",
+      "zhuan-falun.zh-Hans-p0-c6",
+      "zhuan-falun.zh-Hans-p1-c0",
+      "original-library.vi-p82-c4",
+      "zhuan-falun.zh-Hant-p0-c1"
+    ]
+  },
+  {
+    "row": 35,
+    "group": "zh",
+    "query": "为什么一个正向念头也会伴随相反力量，成为修炼中的考验？",
+    "target_chunk_id": "original-library.zh-Hant-p10-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p95-c2",
+      "zhuan-falun.zh-Hans-p95-c5",
+      "zhuan-falun.zh-Hant-p114-c3",
+      "zhuan-falun.zh-Hant-p114-c0",
+      "original-library.zh-Hant-p15-c2",
+      "zhuan-falun.en-p67-c3",
+      "zhuan-falun.zh-Hant-p180-c5",
+      "zhuan-falun.zh-Hant-p180-c2",
+      "zhuan-falun.zh-Hans-p152-c2",
+      "zhuan-falun.zh-Hans-p152-c4"
+    ]
+  },
+  {
+    "row": 36,
+    "group": "zh",
+    "query": "破坏性的影响怎样借助看似善意的外表寻找人的弱点？",
+    "target_chunk_id": "original-library.zh-Hant-p12-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.zh-Hant-p12-c3",
+      "original-library.zh-Hant-p12-c0",
+      "zhuan-falun.zh-Hant-p56-c5",
+      "zhuan-falun.zh-Hant-p56-c2",
+      "zhuan-falun.zh-Hans-p55-c7",
+      "zhuan-falun.zh-Hans-p55-c4",
+      "zhuan-falun.zh-Hans-p3-c1",
+      "zhuan-falun.zh-Hans-p2-c6",
+      "zhuan-falun.zh-Hans-p46-c4",
+      "zhuan-falun.zh-Hans-p46-c7"
+    ]
+  },
+  {
+    "row": 37,
+    "group": "zh",
+    "query": "如何通过历史的例子回头检查自己没有察觉的错误？",
+    "target_chunk_id": "original-library.zh-Hant-p15-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.zh-Hant-p15-c0",
+      "original-library.vi-p15-c6",
+      "original-library.vi-p16-c0",
+      "original-library.vi-p15-c0",
+      "original-library.en-p10-c0",
+      "original-library.en-p10-c3",
+      "original-library.en-p10-c2",
+      "original-library.zh-Hant-p14-c2",
+      "original-library.zh-Hant-p16-c5",
+      "original-library.zh-Hant-p16-c3"
+    ]
+  },
+  {
+    "row": 38,
+    "group": "zh",
+    "query": "为什么修炼者被建议保持方法专一，避免不同系统互相冲突？",
+    "target_chunk_id": "original-library.zh-Hant-p19-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p12-c2",
+      "original-library.zh-Hant-p19-c4",
+      "zhuan-falun.zh-Hans-p180-c7",
+      "zhuan-falun.zh-Hans-p180-c4",
+      "zhuan-falun.zh-Hans-p64-c3",
+      "zhuan-falun.zh-Hans-p64-c6",
+      "original-library.zh-Hant-p19-c5",
+      "original-library.zh-Hant-p19-c0",
+      "zhuan-falun.en-p30-c1",
+      "zhuan-falun.zh-Hans-p29-c2"
+    ]
+  },
+  {
+    "row": 39,
+    "group": "zh",
+    "query": "文中把大法说成创造宇宙诸多层次与万事万物的根本，它还体现于哪些特性？",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p0-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hant-p0-c2",
+      "zhuan-falun.zh-Hant-p0-c5",
+      "zhuan-falun.zh-Hans-p0-c4",
+      "zhuan-falun.zh-Hans-p0-c2",
+      "zhuan-falun.zh-Hant-p0-c1",
+      "zhuan-falun.zh-Hant-p0-c4",
+      "zhuan-falun.zh-Hans-p9-c3",
+      "zhuan-falun.zh-Hans-p9-c0",
+      "zhuan-falun.zh-Hans-p0-c1",
+      "zhuan-falun.zh-Hans-p0-c3"
+    ]
+  },
+  {
+    "row": 40,
+    "group": "zh",
+    "query": "依照这段讲述，生命最初从哪里产生，后来又怎样逐层来到人类层次？",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p2-c7",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p3-c1",
+      "zhuan-falun.zh-Hans-p2-c6",
+      "zhuan-falun.zh-Hant-p54-c3",
+      "zhuan-falun.zh-Hant-p54-c6",
+      "zhuan-falun.zh-Hant-p81-c4",
+      "zhuan-falun.zh-Hant-p81-c8",
+      "zhuan-falun.zh-Hans-p68-c2",
+      "zhuan-falun.zh-Hans-p68-c5",
+      "zhuan-falun.zh-Hans-p45-c2",
+      "zhuan-falun.zh-Hans-p44-c8"
+    ]
+  },
+  {
+    "row": 41,
+    "group": "zh",
+    "query": "修炼者为何只能看到与自身修炼层次相应的景象？",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p31-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p31-c0",
+      "zhuan-falun.zh-Hans-p31-c2",
+      "zhuan-falun.zh-Hant-p37-c0",
+      "zhuan-falun.zh-Hant-p37-c3",
+      "zhuan-falun.zh-Hant-p196-c0",
+      "zhuan-falun.zh-Hant-p196-c3",
+      "zhuan-falun.zh-Hans-p165-c4",
+      "zhuan-falun.zh-Hans-p165-c7",
+      "zhuan-falun.zh-Hans-p8-c5",
+      "zhuan-falun.zh-Hans-p8-c2"
+    ]
+  },
+  {
+    "row": 42,
+    "group": "zh",
+    "query": "传授高层次内容时，为什么作者说必须把学员当作弟子负责到底？",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p59-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p59-c2",
+      "zhuan-falun.zh-Hans-p59-c0",
+      "zhuan-falun.zh-Hant-p71-c3",
+      "zhuan-falun.zh-Hant-p71-c0",
+      "zhuan-falun.zh-Hant-p98-c2",
+      "zhuan-falun.zh-Hant-p98-c5",
+      "zhuan-falun.zh-Hans-p82-c4",
+      "zhuan-falun.zh-Hans-p82-c7",
+      "zhuan-falun.zh-Hant-p71-c2",
+      "zhuan-falun.zh-Hans-p2-c0"
+    ]
+  },
+  {
+    "row": 43,
+    "group": "zh",
+    "query": "修炼者对待得失与普通人追逐利益的方式有何不同？",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p90-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hant-p108-c3",
+      "zhuan-falun.zh-Hant-p108-c0",
+      "zhuan-falun.zh-Hans-p90-c0",
+      "zhuan-falun.zh-Hans-p90-c2",
+      "zhuan-falun.zh-Hans-p90-c5",
+      "zhuan-falun.zh-Hans-p91-c0",
+      "zhuan-falun.zh-Hant-p109-c2",
+      "zhuan-falun.zh-Hant-p108-c7",
+      "zhuan-falun.zh-Hans-p144-c1",
+      "zhuan-falun.zh-Hans-p144-c4"
+    ]
+  },
+  {
+    "row": 44,
+    "group": "zh",
+    "query": "旋转的法轮图形如何被用来代表宇宙的结构？",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p115-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p115-c2",
+      "zhuan-falun.zh-Hans-p115-c0",
+      "zhuan-falun.zh-Hans-p115-c3",
+      "zhuan-falun.en-p51-c1",
+      "zhuan-falun.zh-Hans-p115-c1",
+      "zhuan-falun.zh-Hant-p137-c1",
+      "zhuan-falun.zh-Hant-p137-c3",
+      "zhuan-falun.zh-Hant-p137-c0",
+      "zhuan-falun.zh-Hant-p137-c2",
+      "zhuan-falun.zh-Hans-p116-c0"
+    ]
+  },
+  {
+    "row": 45,
+    "group": "zh",
+    "query": "文中认为修炼者为什么必须严肃对待不杀生？",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p167-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p167-c2",
+      "zhuan-falun.zh-Hans-p167-c0",
+      "zhuan-falun.zh-Hant-p198-c3",
+      "zhuan-falun.zh-Hant-p198-c0",
+      "zhuan-falun.zh-Hans-p169-c3",
+      "zhuan-falun.zh-Hans-p169-c0",
+      "zhuan-falun.zh-Hant-p198-c4",
+      "zhuan-falun.zh-Hant-p198-c1",
+      "zhuan-falun.zh-Hant-p200-c6",
+      "zhuan-falun.zh-Hant-p200-c3"
+    ]
+  },
+  {
+    "row": 46,
+    "group": "cross",
+    "query": "Does the text say spiritual practice forbids medical care, and what boundary does it draw?",
+    "target_chunk_id": "original-library.vi-p19-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p13-c0",
+      "zhuan-falun.en-p69-c4",
+      "zhuan-falun.en-p26-c4",
+      "zhuan-falun.en-p3-c3",
+      "zhuan-falun.en-p22-c2",
+      "zhuan-falun.en-p24-c0",
+      "zhuan-falun.en-p38-c5",
+      "zhuan-falun.en-p67-c4",
+      "zhuan-falun.en-p30-c2",
+      "zhuan-falun.en-p60-c5"
+    ]
+  },
+  {
+    "row": 47,
+    "group": "cross",
+    "query": "Why is relying exclusively on what modern science has demonstrated treated as a limited way to judge reality?",
+    "target_chunk_id": "original-library.vi-p21-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.zh-Hant-p23-c2",
+      "original-library.zh-Hant-p55-c3",
+      "zhuan-falun.en-p9-c1",
+      "zhuan-falun.zh-Hant-p164-c4",
+      "zhuan-falun.zh-Hant-p164-c1",
+      "original-library.en-p14-c0",
+      "original-library.en-p14-c2",
+      "zhuan-falun.en-p82-c2",
+      "original-library.en-p31-c1",
+      "zhuan-falun.en-p1-c7"
+    ]
+  },
+  {
+    "row": 48,
+    "group": "cross",
+    "query": "Why might a healthy diet and regular exercise still fail to explain every health problem?",
+    "target_chunk_id": "original-library.vi-p29-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p18-c0",
+      "original-library.zh-Hant-p32-c0",
+      "original-library.zh-Hant-p52-c2",
+      "original-library.zh-Hant-p51-c3",
+      "original-library.zh-Hant-p51-c0",
+      "zhuan-falun.en-p12-c0",
+      "zhuan-falun.en-p60-c0",
+      "zhuan-falun.en-p94-c0",
+      "zhuan-falun.zh-Hans-p189-c1",
+      "zhuan-falun.en-p94-c7"
+    ]
+  },
+  {
+    "row": 49,
+    "group": "cross",
+    "query": "What analogy does the chapter use for a person who feels mentally drained despite resting?",
+    "target_chunk_id": "original-library.vi-p35-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p20-c0",
+      "original-library.en-p20-c2",
+      "zhuan-falun.en-p60-c1",
+      "zhuan-falun.zh-Hant-p264-c8",
+      "zhuan-falun.zh-Hant-p264-c4",
+      "zhuan-falun.zh-Hant-p281-c4",
+      "zhuan-falun.zh-Hant-p282-c0",
+      "zhuan-falun.en-p60-c4",
+      "zhuan-falun.en-p96-c2",
+      "tao-te-ching-stephen-mitchell.en-p11-c0"
+    ]
+  },
+  {
+    "row": 50,
+    "group": "cross",
+    "query": "What role might everyday emotions play in refining a person’s character?",
+    "target_chunk_id": "original-library.vi-p38-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "original-library.en-p22-c2",
+      "original-library.en-p21-c6",
+      "zhuan-falun.en-p10-c3",
+      "original-library.en-p21-c2",
+      "original-library.en-p21-c3",
+      "zhuan-falun.en-p45-c2",
+      "zhuan-falun.en-p43-c1",
+      "original-library.en-p28-c1",
+      "zhuan-falun.en-p78-c1",
+      "original-library.en-p22-c0"
+    ]
+  },
+  {
+    "row": 51,
+    "group": "cross",
+    "query": "How does the chapter frame daily preoccupation with food and its effects on mind and body?",
+    "target_chunk_id": "original-library.vi-p46-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.zh-Hant-p51-c0",
+      "original-library.en-p24-c0",
+      "original-library.zh-Hant-p52-c5",
+      "original-library.zh-Hant-p52-c6",
+      "original-library.zh-Hant-p52-c2",
+      "zhuan-falun.zh-Hans-p173-c0",
+      "zhuan-falun.zh-Hans-p172-c5",
+      "zhuan-falun.zh-Hans-p175-c1",
+      "zhuan-falun.zh-Hans-p175-c4",
+      "zhuan-falun.zh-Hant-p207-c5"
+    ]
+  },
+  {
+    "row": 52,
+    "group": "cross",
+    "query": "What do different reactions to the same event suggest about the source of perception?",
+    "target_chunk_id": "original-library.vi-p53-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p29-c4",
+      "original-library.en-p13-c1",
+      "original-library.en-p27-c2",
+      "original-library.en-p27-c0",
+      "original-library.en-p27-c1",
+      "original-library.en-p21-c5",
+      "original-library.zh-Hant-p60-c1",
+      "original-library.en-p21-c4",
+      "original-library.en-p29-c1",
+      "original-library.en-p21-c2"
+    ]
+  },
+  {
+    "row": 53,
+    "group": "cross",
+    "query": "When treated unfairly, what longer-term spiritual accounting may change how someone interprets a loss?",
+    "target_chunk_id": "original-library.vi-p55-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "original-library.en-p28-c0",
+      "zhuan-falun.en-p43-c2",
+      "original-library.en-p28-c1",
+      "zhuan-falun.en-p78-c0",
+      "original-library.en-p28-c4",
+      "zhuan-falun.en-p38-c5",
+      "zhuan-falun.en-p73-c4",
+      "zhuan-falun.en-p5-c5",
+      "zhuan-falun.en-p73-c5",
+      "zhuan-falun.en-p42-c3"
+    ]
+  },
+  {
+    "row": 54,
+    "group": "cross",
+    "query": "Why does the chapter say modern advances can coexist with confusion and exhaustion?",
+    "target_chunk_id": "original-library.vi-p70-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p35-c0",
+      "tao-te-ching-stephen-mitchell.en-p28-c0",
+      "tao-te-ching-stephen-mitchell.en-p15-c0",
+      "tao-te-ching-stephen-mitchell.en-p2-c0",
+      "zhuan-falun.zh-Hant-p164-c4",
+      "tao-te-ching-stephen-mitchell.en-p84-c6",
+      "zhuan-falun.en-p97-c0",
+      "original-library.en-p35-c3",
+      "zhuan-falun.zh-Hans-p15-c6",
+      "zhuan-falun.zh-Hans-p15-c3"
+    ]
+  },
+  {
+    "row": 55,
+    "group": "cross",
+    "query": "How does the account describe people who remain well despite going without food for years?",
+    "target_chunk_id": "zhuan-falun.vi-p165-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p191-c3",
+      "zhuan-falun.zh-Hant-p227-c3",
+      "zhuan-falun.en-p83-c0",
+      "zhuan-falun.en-p105-c7",
+      "zhuan-falun.zh-Hant-p228-c7",
+      "zhuan-falun.en-p83-c6",
+      "tao-te-ching-jonathan-star.en-p41-c0",
+      "zhuan-falun.en-p83-c1",
+      "tao-te-ching-jonathan-star.en-p79-c0",
+      "zhuan-falun.en-p75-c0"
+    ]
+  },
+  {
+    "row": 56,
+    "group": "cross",
+    "query": "How does qigong differ from exercise built around increasing physical activity?",
+    "target_chunk_id": "zhuan-falun.vi-p186-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hant-p192-c3",
+      "zhuan-falun.zh-Hant-p191-c9",
+      "zhuan-falun.zh-Hans-p162-c0",
+      "zhuan-falun.en-p94-c0",
+      "zhuan-falun.zh-Hans-p162-c3",
+      "zhuan-falun.zh-Hans-p217-c3",
+      "zhuan-falun.zh-Hans-p217-c6",
+      "zhuan-falun.en-p94-c7",
+      "zhuan-falun.zh-Hant-p256-c2",
+      "zhuan-falun.zh-Hans-p215-c2"
+    ]
+  },
+  {
+    "row": 57,
+    "group": "cross",
+    "query": "Why might a person reject observations that exceed their own level of spiritual perception?",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p31-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p165-c7",
+      "zhuan-falun.zh-Hans-p165-c4",
+      "zhuan-falun.zh-Hant-p196-c0",
+      "zhuan-falun.zh-Hant-p196-c3",
+      "zhuan-falun.en-p16-c0",
+      "zhuan-falun.en-p89-c2",
+      "zhuan-falun.en-p78-c2",
+      "zhuan-falun.en-p72-c3",
+      "zhuan-falun.en-p19-c1",
+      "zhuan-falun.en-p9-c0"
+    ]
+  },
+  {
+    "row": 58,
+    "group": "cross",
+    "query": "Beyond identifying a practice, what larger structure is the rotating wheel emblem said to represent?",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p115-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.en-p51-c1",
+      "zhuan-falun.zh-Hans-p115-c0",
+      "zhuan-falun.zh-Hans-p115-c2",
+      "zhuan-falun.en-p51-c2",
+      "zhuan-falun.en-p62-c5",
+      "zhuan-falun.en-p51-c5",
+      "zhuan-falun.en-p51-c0",
+      "original-library.en-p32-c1",
+      "zhuan-falun.zh-Hans-p115-c3",
+      "zhuan-falun.zh-Hans-p26-c5"
+    ]
+  },
+  {
+    "row": 59,
+    "group": "cross",
+    "query": "Why are the consequences of taking a life presented as extending beyond the immediate victim?",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p167-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "zhuan-falun.en-p73-c0",
+      "zhuan-falun.en-p73-c1",
+      "zhuan-falun.zh-Hant-p198-c5",
+      "zhuan-falun.en-p73-c5",
+      "zhuan-falun.zh-Hant-p198-c2",
+      "zhuan-falun.zh-Hans-p167-c1",
+      "zhuan-falun.zh-Hans-p167-c3",
+      "zhuan-falun.en-p73-c3",
+      "original-library.en-p31-c5",
+      "zhuan-falun.en-p21-c4"
+    ]
+  },
+  {
+    "row": 60,
+    "group": "cross",
+    "query": "According to the text, where did living beings originate before eventually entering the human world?",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p2-c7",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.en-p21-c6",
+      "original-library.en-p5-c0",
+      "original-library.en-p2-c1",
+      "zhuan-falun.en-p4-c0",
+      "original-library.en-p40-c4",
+      "zhuan-falun.en-p31-c6",
+      "zhuan-falun.en-p21-c5",
+      "original-library.en-p6-c0",
+      "original-library.en-p26-c1",
+      "zhuan-falun.en-p95-c0"
+    ]
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "report": {
+    "label": "phaseb-tech-after",
+    "n_queries": 50,
+    "aggregate": {
+      "ndcg": 0.7389,
+      "recall10": 0.94,
+      "mrr": 0.8329,
+      "recall_ceiling": 0.94
+    },
+    "per_domain": {
+      "distributed": {
+        "n": 2,
+        "ndcg": 1.0,
+        "recall10": 1.0,
+        "mrr": 1.0,
+        "recall_ceiling": 1.0
+      },
+      "ml": {
+        "n": 24,
+        "ndcg": 0.6761,
+        "recall10": 0.9583,
+        "mrr": 0.7837,
+        "recall_ceiling": 0.9583
+      },
+      "rust": {
+        "n": 14,
+        "ndcg": 0.7889,
+        "recall10": 0.9286,
+        "mrr": 0.8452,
+        "recall_ceiling": 0.9286
+      },
+      "security": {
+        "n": 10,
+        "ndcg": 0.7677,
+        "recall10": 0.9,
+        "mrr": 0.9,
+        "recall_ceiling": 0.9
+      }
+    }
+  },
+  "misses": [
+    {
+      "query": "Why does my secure messaging handshake fail after I decrypt the first message, even though the certificate chain looks okay?",
+      "book": "boneh-shoup-applied-cryptography",
+      "domain": "security",
+      "in_ceiling": false,
+      "heading_path": "III Protocols > 21 Authenticated Key Exchange > 21.6 One-sided authenticated key exchange"
+    },
+    {
+      "query": "How many parameters does the latest GPT model have, based on what was rumored when it first came out?",
+      "book": "machinelearningengineeringwithpython_secondedition",
+      "domain": "ml",
+      "in_ceiling": false,
+      "heading_path": "Living it large with LLMs > Understanding LLMs"
+    },
+    {
+      "query": "Why does my form field lose the user's typed input when the page refreshes, and how do I keep it?",
+      "book": "creativeprojectsforrustprogrammers",
+      "domain": "rust",
+      "in_ceiling": false,
+      "heading_path": "A simple list of persons > The other Rust handlers"
+    }
+  ]
+}

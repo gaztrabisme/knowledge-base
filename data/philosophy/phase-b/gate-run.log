@@ -1,0 +1,5 @@
+[1/6] a-live: .venv/bin/python .claude/plan-goal/verify/cpu.py scripts/eval_philosophy.py --eval-file data/philosophy/eval.jsonl --json-out data/bench/gate-philosophy-b/run-20260930T235222Z/a-live.json
+[2/6] a-candidate: .venv/bin/python .claude/plan-goal/verify/cpu.py scripts/eval_philosophy.py --eval-file data/philosophy/eval.jsonl --json-out data/bench/gate-philosophy-b/run-20260930T235222Z/a-candidate.json
+[3/6] b-live: .venv/bin/python .claude/plan-goal/verify/cpu.py scripts/eval_philosophy.py --eval-file data/philosophy/eval.jsonl --json-out data/bench/gate-philosophy-b/run-20260930T235222Z/b-live.json --no-filters
+[4/6] b-candidate: .venv/bin/python .claude/plan-goal/verify/cpu.py scripts/eval_philosophy.py --eval-file data/philosophy/eval.jsonl --json-out data/bench/gate-philosophy-b/run-20260930T235222Z/b-candidate.json --no-filters
+[5/6] c-candidate: .venv/bin/python .claude/plan-goal/verify/cpu.py scripts/eval_philosophy.py --eval-file data/bench/gate-philosophy-b/run-20260930T235222Z/sanity-b-filtered.jsonl --json-out data/bench/gate-philosophy-b/run-20260930T235222Z/sanity-candidate.json

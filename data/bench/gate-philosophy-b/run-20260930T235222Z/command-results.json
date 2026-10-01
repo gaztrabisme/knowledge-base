@@ -1,0 +1,11 @@
+{
+  "outcomes": {
+    "c-candidate": {
+      "returncode": 0
+    },
+    "f-technical-after": {
+      "returncode": 0
+    }
+  },
+  "note": "steps 1-4 ran in the first invocation, which was stopped by an external 2-hour limit during step 5; steps 5-6 ran via gate_resume.py"
+}

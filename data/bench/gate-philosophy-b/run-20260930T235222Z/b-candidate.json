@@ -1,0 +1,1202 @@
+[
+  {
+    "row": 1,
+    "group": "en",
+    "query": "What remains unchanged in human life even after feats like space travel and genetic engineering?",
+    "target_chunk_id": "original-library.en-p2-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "zhuan-falun.en-p19-c5",
+      "teachings-at-the-conference-in-new-zealand.en-p7-c3",
+      "teachings-at-the-first-conference-in-north-america.en-p15-c3",
+      "zhuan-falun.en-p1-c6",
+      "teachings-at-the-conference-in-los-angeles.en-p2-c3",
+      "original-library.en-p23-c2",
+      "original-library.en-p18-c2",
+      "teachings-at-the-conference-in-the-eastern-u-s.en-p15-c5",
+      "zhuan-falun.zh-Hant-p26-c5",
+      "teachings-at-the-conference-in-the-western-u-s.zh-Hans-p16-c6"
+    ]
+  },
+  {
+    "row": 2,
+    "group": "en",
+    "query": "Which repeating stages does this account apply to cells, people, and the universe?",
+    "target_chunk_id": "original-library.en-p4-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p4-c0",
+      "how-humankind-came-to-be.en-p0-c0",
+      "original-library.en-p31-c1",
+      "original-library.en-p18-c1",
+      "original-library.en-p27-c3",
+      "collected-teachings-given-around-the-world-volume-iii.en-p12-c2",
+      "teachings-at-the-first-conference-in-north-america.en-p6-c5",
+      "teachings-at-the-conference-in-houston.en-p4-c0",
+      "essentials-for-further-advancement.en-p40-c3",
+      "falun-gong.en-p50-c1"
+    ]
+  },
+  {
+    "row": 3,
+    "group": "en",
+    "query": "How does this account explain Earth's origin in terms of material left by an earlier cosmic cycle?",
+    "target_chunk_id": "original-library.en-p5-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p5-c0",
+      "teachings-from-a-tour-of-north-america.zh-Hant-p14-c1",
+      "teachings-from-a-tour-of-north-america.en-p6-c5",
+      "teachings-at-the-conference-in-the-western-u-s.en-p5-c5",
+      "original-library.en-p31-c2",
+      "teachings-at-the-conference-in-the-western-u-s.en-p5-c6",
+      "teachings-at-the-conference-in-the-western-u-s.en-p6-c2",
+      "teachings-at-the-conference-in-switzerland.en-p1-c1",
+      "lecture-given-at-the-conference-in-sydney.en-p3-c4",
+      "teachings-at-conferences-in-the-united-states.en-p12-c5"
+    ]
+  },
+  {
+    "row": 4,
+    "group": "en",
+    "query": "What role does the universal teaching play in helping beings identify their source and transform themselves?",
+    "target_chunk_id": "original-library.en-p6-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p6-c0",
+      "teachings-at-the-conference-in-the-western-u-s.en-p14-c4",
+      "collected-teachings-given-around-the-world-volume-iv.en-p17-c0",
+      "teachings-given-on-lantern-festival-day-2003.en-p10-c1",
+      "teachings-at-the-first-conference-in-north-america.en-p15-c3",
+      "teachings-at-the-2004-international-conference-in-new-york.en-p10-c6",
+      "collected-teachings-given-around-the-world-volume-ii.en-p6-c1",
+      "original-library.en-p5-c3",
+      "teachings-given-on-lantern-festival-day-2003.en-p19-c5",
+      "guiding-the-voyage.en-p2-c2"
+    ]
+  },
+  {
+    "row": 5,
+    "group": "en",
+    "query": "Why would a constructive impulse be paired with an opposing force in this model?",
+    "target_chunk_id": "original-library.en-p8-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "original-library.en-p8-c2",
+      "original-library.en-p10-c1",
+      "teachings-at-the-conference-in-houston.en-p6-c1",
+      "original-library.en-p28-c0",
+      "original-library.en-p28-c1",
+      "zhuan-falun.en-p103-c6",
+      "teachings-from-a-tour-of-north-america.en-p3-c4",
+      "original-library.zh-Hant-p62-c2",
+      "teachings-given-on-lantern-festival-day-2003.en-p1-c2",
+      "collected-teachings-given-around-the-world-volume-i.en-p1-c3"
+    ]
+  },
+  {
+    "row": 6,
+    "group": "en",
+    "query": "How might a harmful strategy gain access by presenting itself as helpful?",
+    "target_chunk_id": "original-library.en-p9-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "original-library.zh-Hant-p13-c0",
+      "original-library.zh-Hant-p12-c5",
+      "original-library.en-p9-c2",
+      "original-library.zh-Hant-p12-c3",
+      "original-library.en-p9-c1",
+      "the-essentials-of-diligent-progress-ii.en-p1-c2",
+      "falun-gong.en-p8-c5",
+      "original-library.en-p9-c3",
+      "original-library.en-p9-c7",
+      "original-library.en-p9-c5"
+    ]
+  },
+  {
+    "row": 7,
+    "group": "en",
+    "query": "What method is proposed for finding unnoticed faults in oneself through events from the past?",
+    "target_chunk_id": "original-library.en-p10-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "original-library.en-p10-c2",
+      "teachings-at-the-first-conference-in-north-america.en-p4-c7",
+      "teachings-at-the-conference-in-singapore.en-p1-c3",
+      "original-library.zh-Hant-p16-c3",
+      "original-library.zh-Hant-p67-c1",
+      "original-library.zh-Hant-p66-c6",
+      "teachings-at-the-conference-in-europe.en-p13-c2",
+      "original-library.en-p19-c5",
+      "teachings-at-the-conference-in-europe.en-p11-c0",
+      "original-library.en-p21-c6"
+    ]
+  },
+  {
+    "row": 8,
+    "group": "en",
+    "query": "Why does the text use water as an example of a good way to live?",
+    "target_chunk_id": "tao-te-ching-jonathan-star.en-p7-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "tao-te-ching-jonathan-star.en-p7-c0",
+      "tao-te-ching-stephen-mitchell.en-p7-c0",
+      "tao-te-ching-stephen-mitchell.en-p83-c9",
+      "zhuan-falun.en-p6-c6",
+      "teachings-at-conferences-in-the-united-states.zh-Hant-p24-c4",
+      "tao-te-ching-tse-lao.es-p7-c0",
+      "teachings-at-the-conference-in-the-western-u-s.en-p5-c6",
+      "teachings-at-conferences-in-the-united-states.zh-Hant-p24-c1",
+      "zhuan-falun.zh-Hant-p202-c6",
+      "zhuan-falun.zh-Hant-p202-c2"
+    ]
+  },
+  {
+    "row": 9,
+    "group": "en",
+    "query": "What becomes visible after the mind is quieted, and what happens when the process completes?",
+    "target_chunk_id": "tao-te-ching-jonathan-star.en-p15-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "tao-te-ching-jonathan-star.en-p15-c0",
+      "original-library.en-p19-c4",
+      "zhuan-falun.en-p19-c0",
+      "explaining-the-teachings-of-zhuan-falun.en-p37-c0",
+      "tao-te-ching-stephen-mitchell.en-p83-c0",
+      "original-library.en-p9-c2",
+      "zhuan-falun.en-p19-c1",
+      "teachings-at-the-conference-in-europe.en-p7-c0",
+      "falun-gong.en-p16-c1",
+      "zhuan-falun.en-p60-c5"
+    ]
+  },
+  {
+    "row": 10,
+    "group": "en",
+    "query": "How does self-mastery differ from overcoming other people in the account of real strength?",
+    "target_chunk_id": "tao-te-ching-jonathan-star.en-p32-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "tao-te-ching-stephen-mitchell.en-p32-c0",
+      "tao-te-ching-stephen-mitchell.en-p84-c0",
+      "falun-gong.en-p45-c1",
+      "zhuan-falun.zh-Hans-p238-c3",
+      "tao-te-ching-stephen-mitchell.en-p83-c5",
+      "tao-te-ching-jonathan-star.en-p32-c0",
+      "collected-teachings-given-around-the-world-volume-vi.zh-Hant-p6-c4",
+      "falun-gong.en-p21-c2",
+      "zhuan-falun.en-p42-c6",
+      "teachings-at-the-conference-in-europe.en-p14-c3"
+    ]
+  },
+  {
+    "row": 11,
+    "group": "en",
+    "query": "How does progress on the Tao path differ from adding more conventional knowledge?",
+    "target_chunk_id": "tao-te-ching-stephen-mitchell.en-p47-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "tao-te-ching-stephen-mitchell.en-p47-c0",
+      "tao-te-ching-tse-lao.es-p47-c0",
+      "zhuan-falun.en-p57-c5",
+      "tao-te-ching-tse-lao.es-p40-c0",
+      "zhuan-falun-volume-ii.en-p3-c1",
+      "tao-te-ching-jonathan-star.en-p52-c0",
+      "lecture-given-at-the-conference-in-sydney.en-p1-c2",
+      "tao-te-ching-stephen-mitchell.en-p40-c0",
+      "tao-te-ching-jonathan-star.en-p14-c0",
+      "tao-te-ching-jonathan-star.en-p0-c0"
+    ]
+  },
+  {
+    "row": 12,
+    "group": "en",
+    "query": "Why is it easier to correct a difficulty while it is still small or has not appeared?",
+    "target_chunk_id": "tao-te-ching-stephen-mitchell.en-p63-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "tao-te-ching-stephen-mitchell.en-p62-c0",
+      "tao-te-ching-jonathan-star.en-p62-c0",
+      "zhuan-falun.zh-Hant-p181-c5",
+      "zhuan-falun.zh-Hant-p182-c1",
+      "tao-te-ching-jonathan-star.en-p63-c0",
+      "zhuan-falun.zh-Hans-p157-c3",
+      "zhuan-falun.zh-Hans-p152-c3",
+      "zhuan-falun.zh-Hans-p152-c1",
+      "collected-teachings-given-around-the-world-volume-vii.en-p5-c1",
+      "zhuan-falun.zh-Hant-p180-c3"
+    ]
+  },
+  {
+    "row": 13,
+    "group": "en",
+    "query": "How does this chapter distinguish honest speech from language that merely sounds persuasive?",
+    "target_chunk_id": "tao-te-ching-stephen-mitchell.en-p80-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "tao-te-ching-stephen-mitchell.en-p57-c0",
+      "zhuan-falun.en-p93-c2",
+      "teachings-at-the-conference-in-switzerland.en-p2-c7",
+      "zhuan-falun.en-p36-c7",
+      "tao-te-ching-stephen-mitchell.en-p56-c0",
+      "zhuan-falun.en-p36-c5",
+      "further-discussions-on-falun-dafa.en-p13-c6",
+      "collected-teachings-given-around-the-world-volume-ix.en-p2-c3",
+      "tao-te-ching-stephen-mitchell.en-p85-c2",
+      "teachings-at-the-conference-in-singapore.en-p13-c3"
+    ]
+  },
+  {
+    "row": 14,
+    "group": "en",
+    "query": "What responsibility does the teacher claim toward both learners and the surrounding society?",
+    "target_chunk_id": "zhuan-falun.en-p3-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "collected-teachings-given-around-the-world-volume-iv.en-p2-c0",
+      "teachings-at-the-conference-in-australia.en-p20-c7",
+      "teachings-at-the-conference-in-australia.en-p4-c2",
+      "teachings-at-the-conference-of-changchun-assistants.en-p12-c0",
+      "teachings-at-the-conference-of-changchun-assistants.en-p1-c2",
+      "teachings-at-the-conference-in-canada.en-p16-c4",
+      "further-discussions-on-falun-dafa.en-p28-c5",
+      "collected-teachings-given-around-the-world-volume-xi.en-p7-c1",
+      "further-discussions-on-falun-dafa.en-p1-c4",
+      "teachings-at-the-conference-in-the-eastern-u-s.en-p7-c6"
+    ]
+  },
+  {
+    "row": 15,
+    "group": "en",
+    "query": "Why can spiritual perception differ from one practitioner to another?",
+    "target_chunk_id": "zhuan-falun.en-p16-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "lecture-given-at-the-conference-in-sydney.en-p7-c1",
+      "zhuan-falun.en-p45-c0",
+      "zhuan-falun.en-p18-c0",
+      "collected-fa-teachings-vol-xv.en-p17-c6",
+      "zhuan-falun.en-p12-c2",
+      "zhuan-falun.en-p31-c0",
+      "lecture-given-at-the-conference-in-sydney.en-p13-c6",
+      "falun-gong.en-p4-c1",
+      "zhuan-falun.en-p3-c1",
+      "falun-gong.en-p27-c3"
+    ]
+  },
+  {
+    "row": 16,
+    "group": "vi",
+    "query": "Dù công nghệ đưa con người tiến xa đến đâu, điều gì vẫn không đổi trong vòng đời của họ?",
+    "target_chunk_id": "original-library.vi-p2-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.vi-p2-c0",
+      "collected-teachings-given-around-the-world-volume-i.en-p0-c5",
+      "original-library.vi-p83-c2",
+      "original-library.vi-p75-c3",
+      "original-library.vi-p70-c0",
+      "zhuan-falun.vi-p39-c1",
+      "teachings-at-the-conference-in-houston.vi-p12-c1",
+      "how-humankind-came-to-be.vi-p0-c2",
+      "collected-teachings-given-around-the-world-volume-vi.vi-p4-c3",
+      "zhuan-falun.vi-p37-c7"
+    ]
+  },
+  {
+    "row": 17,
+    "group": "vi",
+    "query": "Văn bản mô tả chu kỳ nào lặp lại ở tế bào, con người và cả vũ trụ?",
+    "target_chunk_id": "original-library.vi-p4-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.vi-p4-c0",
+      "collected-teachings-given-around-the-world-volume-viii.vi-p0-c7",
+      "original-library.vi-p76-c3",
+      "original-library.vi-p2-c0",
+      "original-library.vi-p4-c1",
+      "original-library.vi-p51-c4",
+      "teachings-at-the-2004-international-conference-in-new-york.vi-p26-c5",
+      "original-library.vi-p29-c3",
+      "original-library.vi-p61-c3",
+      "zhuan-falun.zh-Hans-p13-c3"
+    ]
+  },
+  {
+    "row": 18,
+    "group": "vi",
+    "query": "Vật chất nào được cho là đã góp phần hình thành Trái Đất trong chu kỳ hiện tại?",
+    "target_chunk_id": "original-library.vi-p5-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "teachings-at-the-first-conference-in-north-america.vi-p16-c4",
+      "teachings-at-the-conference-in-the-western-u-s.vi-p13-c1",
+      "falun-gong.vi-p48-c4",
+      "original-library.vi-p5-c0",
+      "teachings-at-the-conference-in-the-western-u-s.vi-p13-c2",
+      "teachings-at-the-conference-in-the-western-u-s.vi-p8-c1",
+      "teachings-at-the-conference-in-the-western-u-s.vi-p12-c3",
+      "teachings-at-the-conference-in-canada.vi-p35-c5",
+      "zhuan-falun-volume-ii.vi-p3-c3",
+      "original-library.vi-p4-c1"
+    ]
+  },
+  {
+    "row": 19,
+    "group": "vi",
+    "query": "Bộ Pháp được ví như mã nguồn giúp sinh mệnh nhận ra cội nguồn và làm được điều gì?",
+    "target_chunk_id": "original-library.vi-p8-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.vi-p82-c4",
+      "original-library.vi-p8-c0",
+      "original-library.vi-p67-c1",
+      "original-library.vi-p7-c4",
+      "collected-teachings-given-around-the-world-volume-viii.vi-p3-c6",
+      "collected-teachings-given-around-the-world-volume-vi.vi-p31-c2",
+      "collected-teachings-given-around-the-world-volume-ii.vi-p36-c2",
+      "original-library.vi-p52-c2",
+      "collected-teachings-given-around-the-world-volume-iv.vi-p13-c1",
+      "original-library.vi-p9-c0"
+    ]
+  },
+  {
+    "row": 20,
+    "group": "vi",
+    "query": "Vì sao một ý niệm chính lại có thể làm xuất hiện lực đối nghịch để khảo nghiệm người tu?",
+    "target_chunk_id": "original-library.vi-p10-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "teachings-at-the-conference-in-singapore.vi-p14-c3",
+      "collected-teachings-given-around-the-world-volume-xi.vi-p10-c3",
+      "collected-teachings-given-around-the-world-volume-iv.vi-p21-c5",
+      "collected-teachings-given-around-the-world-volume-vii.vi-p42-c2",
+      "the-essentials-of-diligent-progress-ii.vi-p41-c6",
+      "how-humankind-came-to-be.vi-p1-c6",
+      "explaining-the-teachings-of-zhuan-falun.vi-p40-c3",
+      "teachings-at-the-2005-conference-in-san-francisco.vi-p8-c5",
+      "guiding-the-voyage.vi-p15-c5",
+      "essentials-for-further-advancement.vi-p50-c1"
+    ]
+  },
+  {
+    "row": 21,
+    "group": "vi",
+    "query": "Một ảnh hưởng có hại có thể che giấu ý đồ của mình dưới lớp vỏ nào?",
+    "target_chunk_id": "original-library.vi-p12-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "teaching-the-fa-at-the-discussion-on-writing-music-and-creating-fine-art.vi-p16-c4",
+      "original-library.zh-Hant-p67-c2",
+      "teachings-at-the-2005-conference-in-san-francisco.vi-p36-c2",
+      "original-library.vi-p12-c4",
+      "original-library.vi-p29-c1",
+      "original-library.zh-Hant-p67-c3",
+      "further-discussions-on-falun-dafa.vi-p62-c6",
+      "zhuan-falun.vi-p46-c5",
+      "teachings-at-the-conference-in-canada.vi-p3-c0",
+      "collected-teachings-given-around-the-world-volume-v.vi-p9-c6"
+    ]
+  },
+  {
+    "row": 22,
+    "group": "vi",
+    "query": "Cách nào giúp một người nhận ra những suy nghĩ sai mà chính họ chưa thấy?",
+    "target_chunk_id": "original-library.vi-p15-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "the-essentials-of-diligent-progress-ii.vi-p47-c1",
+      "zhuan-falun.en-p67-c1",
+      "teachings-at-the-2004-international-conference-in-new-york.vi-p14-c1",
+      "teachings-at-the-conference-in-the-western-u-s.vi-p47-c1",
+      "zhuan-falun.vi-p66-c1",
+      "teachings-at-conferences-in-the-united-states.zh-Hans-p24-c2",
+      "collected-teachings-given-around-the-world-volume-vi.vi-p32-c4",
+      "teachings-at-the-2005-conference-in-san-francisco.vi-p1-c2",
+      "the-essentials-of-diligent-progress-ii.vi-p9-c4",
+      "teachings-at-the-conference-in-the-western-u-s.vi-p41-c1"
+    ]
+  },
+  {
+    "row": 23,
+    "group": "vi",
+    "query": "Vì sao người tu được khuyên giữ phương pháp chuyên nhất thay vì pha trộn nhiều pháp môn?",
+    "target_chunk_id": "original-library.vi-p18-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "falun-gong.vi-p84-c1",
+      "original-library.vi-p18-c4",
+      "teachings-at-the-conference-in-canada.vi-p5-c3",
+      "teachings-at-the-conference-in-europe.vi-p23-c5",
+      "falun-gong.vi-p84-c2",
+      "collected-teachings-given-around-the-world-volume-i.vi-p25-c3",
+      "zhuan-falun.vi-p26-c2",
+      "explaining-the-teachings-of-zhuan-falun.vi-p45-c3",
+      "zhuan-falun-volume-ii.zh-Hans-p9-c4",
+      "teachings-at-the-conference-in-canada.vi-p4-c3"
+    ]
+  },
+  {
+    "row": 24,
+    "group": "vi",
+    "query": "Đại Pháp được mô tả là nền tảng tạo nên những yếu tố nào của vũ trụ?",
+    "target_chunk_id": "zhuan-falun.vi-p0-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "the-essentials-of-diligent-progress-ii.vi-p13-c5",
+      "teachings-at-the-conference-in-australia.vi-p37-c4",
+      "essentials-for-further-advancement.vi-p96-c0",
+      "zhuan-falun.vi-p0-c2",
+      "zhuan-falun-volume-ii.vi-p3-c3",
+      "the-essentials-of-diligent-progress-ii.vi-p55-c0",
+      "essentials-for-further-advancement.vi-p96-c1",
+      "teachings-at-the-conference-in-houston.vi-p39-c5",
+      "collected-teachings-given-around-the-world-volume-viii.vi-p36-c2",
+      "essentials-for-further-advancement.vi-p24-c0"
+    ]
+  },
+  {
+    "row": 25,
+    "group": "vi",
+    "query": "Người giảng nói cần chịu trách nhiệm với ai khi truyền dạy?",
+    "target_chunk_id": "zhuan-falun.vi-p2-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "teachings-at-the-conference-in-houston.vi-p8-c6",
+      "zhuan-falun.vi-p208-c1",
+      "collected-teachings-given-around-the-world-volume-i.vi-p11-c7",
+      "teachings-at-the-conference-of-changchun-assistants.vi-p27-c0",
+      "collected-teachings-given-around-the-world-volume-x.vi-p24-c5",
+      "zhuan-falun.vi-p171-c1",
+      "collected-teachings-given-around-the-world-volume-x.vi-p41-c4",
+      "zhuan-falun.vi-p2-c0",
+      "collected-teachings-given-around-the-world-volume-i.vi-p10-c7",
+      "explaining-the-teachings-of-zhuan-falun.vi-p43-c3"
+    ]
+  },
+  {
+    "row": 26,
+    "group": "vi",
+    "query": "Vì sao người ở các tầng khác nhau không cùng nhìn thấy một phạm vi sự việc?",
+    "target_chunk_id": "zhuan-falun.vi-p27-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "teachings-given-on-lantern-festival-day-2003.vi-p38-c6",
+      "teachings-at-the-conference-in-houston.vi-p22-c3",
+      "teachings-at-the-conference-in-canada.vi-p2-c0",
+      "zhuan-falun.zh-Hans-p37-c4",
+      "teachings-at-the-conference-in-europe.vi-p11-c6",
+      "teachings-at-the-conference-in-switzerland.vi-p9-c3",
+      "teachings-at-the-conference-in-the-western-u-s.vi-p19-c0",
+      "zhuan-falun.zh-Hans-p37-c8",
+      "collected-teachings-given-around-the-world-volume-ii.vi-p35-c6",
+      "collected-teachings-given-around-the-world-volume-vi.vi-p6-c0"
+    ]
+  },
+  {
+    "row": 27,
+    "group": "vi",
+    "query": "Người hướng dẫn nói gì về cách ông đối xử với những người học có lòng tu luyện?",
+    "target_chunk_id": "zhuan-falun.vi-p52-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.vi-p52-c4",
+      "teachings-at-the-conference-in-new-zealand.vi-p30-c1",
+      "zhuan-falun.vi-p52-c7",
+      "zhuan-falun.vi-p52-c0",
+      "the-essentials-of-diligent-progress-ii.vi-p51-c5",
+      "essentials-for-further-advancement.vi-p7-c2",
+      "further-discussions-on-falun-dafa.vi-p60-c6",
+      "further-discussions-on-falun-dafa.vi-p48-c6",
+      "teachings-at-the-conference-in-new-zealand.vi-p13-c5",
+      "teachings-at-the-conference-in-new-zealand.vi-p15-c2"
+    ]
+  },
+  {
+    "row": 28,
+    "group": "vi",
+    "query": "Ngoài tiền bạc, người tu còn cần từ bỏ kiểu chấp trước nào để hiểu quan hệ mất và được?",
+    "target_chunk_id": "zhuan-falun.vi-p79-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "falun-gong.vi-p41-c1",
+      "essentials-for-further-advancement.vi-p30-c0",
+      "falun-gong.vi-p41-c0",
+      "teachings-at-the-conference-in-the-eastern-u-s.vi-p22-c1",
+      "the-essentials-of-diligent-progress-ii.vi-p18-c1",
+      "zhuan-falun-volume-ii.vi-p34-c1",
+      "essentials-for-further-advancement.vi-p2-c1",
+      "the-essentials-of-diligent-progress-iii.vi-p54-c2",
+      "teachings-at-the-2005-conference-in-san-francisco.vi-p31-c4",
+      "collected-teachings-given-around-the-world-volume-ii.vi-p9-c3"
+    ]
+  },
+  {
+    "row": 29,
+    "group": "vi",
+    "query": "Văn bản kể rằng có người vẫn sống ra sao dù thời gian dài không ăn uống?",
+    "target_chunk_id": "zhuan-falun.vi-p165-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p191-c3",
+      "zhuan-falun.en-p105-c7",
+      "zhuan-falun.vi-p165-c0",
+      "zhuan-falun.zh-Hans-p167-c6",
+      "zhuan-falun.zh-Hans-p168-c1",
+      "teachings-at-the-conference-in-houston.zh-Hans-p15-c0",
+      "zhuan-falun.vi-p166-c5",
+      "falun-gong.vi-p31-c3",
+      "zhuan-falun.en-p83-c6",
+      "zhuan-falun.vi-p150-c1"
+    ]
+  },
+  {
+    "row": 30,
+    "group": "vi",
+    "query": "Điểm khác biệt chính giữa rèn luyện thể thao và con đường khí công được mô tả là gì?",
+    "target_chunk_id": "zhuan-falun.vi-p186-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hant-p256-c1",
+      "teachings-at-the-conference-in-new-zealand.vi-p2-c7",
+      "zhuan-falun.vi-p186-c1",
+      "zhuan-falun.zh-Hant-p256-c3",
+      "zhuan-falun.zh-Hant-p256-c0",
+      "zhuan-falun.zh-Hant-p258-c4",
+      "zhuan-falun.zh-Hant-p259-c0",
+      "zhuan-falun.vi-p186-c0",
+      "zhuan-falun.zh-Hant-p256-c2",
+      "zhuan-falun.zh-Hans-p217-c3"
+    ]
+  },
+  {
+    "row": 31,
+    "group": "zh",
+    "query": "即使文明已经发展到能登月和破解基因，人仍无法摆脱什么循环？",
+    "target_chunk_id": "original-library.zh-Hant-p2-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.zh-Hant-p2-c0",
+      "original-library.vi-p2-c0",
+      "teachings-at-the-conference-in-switzerland.zh-Hans-p16-c3",
+      "teachings-at-the-conference-in-switzerland.zh-Hans-p16-c2",
+      "teachings-at-the-conference-in-canada.zh-Hans-p20-c0",
+      "zhuan-falun.zh-Hans-p13-c3",
+      "zhuan-falun.zh-Hans-p13-c6",
+      "zhuan-falun.zh-Hans-p13-c2",
+      "zhuan-falun.zh-Hans-p13-c5",
+      "teachings-at-the-conference-in-switzerland.zh-Hant-p16-c7"
+    ]
+  },
+  {
+    "row": 32,
+    "group": "zh",
+    "query": "文本把宇宙的演变和细胞、人类的生命过程都归纳成怎样的周期？",
+    "target_chunk_id": "original-library.zh-Hant-p4-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "original-library.en-p4-c0",
+      "zhuan-falun.zh-Hans-p13-c6",
+      "zhuan-falun.zh-Hans-p13-c3",
+      "collected-fa-teachings-vol-xv.zh-Hant-p27-c3",
+      "how-humankind-came-to-be.zh-Hans-p0-c1",
+      "zhuan-falun.zh-Hans-p13-c2",
+      "zhuan-falun.zh-Hans-p13-c5",
+      "collected-teachings-given-around-the-world-volume-xi.zh-Hans-p35-c5",
+      "collected-fa-teachings-vol-xv.zh-Hans-p23-c5",
+      "collected-fa-teachings-vol-xv.zh-Hans-p23-c6"
+    ]
+  },
+  {
+    "row": 33,
+    "group": "zh",
+    "query": "按照这一叙述，地球由上一轮宇宙留下的什么重新组合而成？",
+    "target_chunk_id": "original-library.zh-Hant-p5-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p5-c0",
+      "teachings-from-a-tour-of-north-america.zh-Hant-p14-c1",
+      "original-library.zh-Hant-p5-c0",
+      "teachings-from-a-tour-of-north-america.en-p6-c5",
+      "teachings-from-a-tour-of-north-america.zh-Hans-p11-c0",
+      "teachings-from-a-tour-of-north-america.zh-Hans-p11-c1",
+      "teachings-at-the-conference-in-the-western-u-s.en-p5-c5",
+      "teachings-at-the-first-conference-in-north-america.en-p6-c5",
+      "teachings-at-the-conference-in-the-western-u-s.zh-Hant-p3-c6",
+      "teachings-at-the-conference-in-the-western-u-s.zh-Hans-p2-c5"
+    ]
+  },
+  {
+    "row": 34,
+    "group": "zh",
+    "query": "宇宙大法被比作一种源代码，它让生命能够识别什么并进行怎样的改变？",
+    "target_chunk_id": "original-library.zh-Hant-p8-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "guiding-the-voyage.zh-Hans-p6-c2",
+      "guiding-the-voyage.zh-Hant-p6-c2",
+      "collected-teachings-given-around-the-world-volume-v.zh-Hans-p5-c3",
+      "guiding-the-voyage.zh-Hans-p6-c1",
+      "collected-teachings-given-around-the-world-volume-xi.zh-Hans-p16-c1",
+      "teachings-at-the-conference-in-europe.zh-Hans-p14-c2",
+      "essentials-for-further-advancement.zh-Hant-p0-c0",
+      "guiding-the-voyage.zh-Hans-p7-c1",
+      "collected-teachings-given-around-the-world-volume-xi.zh-Hans-p36-c0",
+      "collected-fa-teachings-vol-xiv.zh-Hans-p27-c5"
+    ]
+  },
+  {
+    "row": 35,
+    "group": "zh",
+    "query": "为什么一个正向念头也会伴随相反力量，成为修炼中的考验？",
+    "target_chunk_id": "original-library.zh-Hant-p10-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "collected-fa-teachings-vol-xiii.zh-Hant-p2-c7",
+      "collected-fa-teachings-vol-xiii.zh-Hans-p37-c4",
+      "guiding-the-voyage.zh-Hans-p0-c0",
+      "teachings-at-the-conference-in-new-zealand.zh-Hans-p4-c2",
+      "collected-fa-teachings-vol-xii.zh-Hans-p12-c1",
+      "collected-teachings-given-around-the-world-volume-v.zh-Hant-p32-c5",
+      "collected-teachings-given-around-the-world-volume-v.zh-Hans-p30-c3",
+      "collected-teachings-given-around-the-world-volume-vi.zh-Hans-p12-c5",
+      "collected-teachings-given-around-the-world-volume-vii.zh-Hans-p33-c4",
+      "collected-teachings-given-around-the-world-volume-vii.zh-Hant-p26-c1"
+    ]
+  },
+  {
+    "row": 36,
+    "group": "zh",
+    "query": "破坏性的影响怎样借助看似善意的外表寻找人的弱点？",
+    "target_chunk_id": "original-library.zh-Hant-p12-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "original-library.zh-Hant-p12-c3",
+      "collected-teachings-given-around-the-world-volume-vi.zh-Hans-p11-c6",
+      "teachings-at-the-conference-in-europe.zh-Hans-p24-c2",
+      "collected-teachings-given-around-the-world-volume-i.zh-Hans-p7-c0",
+      "collected-fa-teachings-vol-xiii.zh-Hant-p18-c0",
+      "collected-teachings-given-around-the-world-volume-vi.zh-Hant-p13-c2",
+      "teachings-at-the-midwestern-u-s-conference.zh-Hans-p14-c0",
+      "teachings-at-the-conference-in-europe.zh-Hans-p8-c5",
+      "collected-fa-teachings-vol-xiii.zh-Hans-p14-c0",
+      "teachings-at-the-2004-international-conference-in-new-york.zh-Hans-p24-c0"
+    ]
+  },
+  {
+    "row": 37,
+    "group": "zh",
+    "query": "如何通过历史的例子回头检查自己没有察觉的错误？",
+    "target_chunk_id": "original-library.zh-Hant-p15-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.zh-Hant-p15-c0",
+      "original-library.vi-p15-c6",
+      "original-library.vi-p16-c0",
+      "original-library.vi-p15-c0",
+      "collected-teachings-given-around-the-world-volume-iv.zh-Hans-p14-c3",
+      "original-library.en-p10-c0",
+      "original-library.en-p10-c3",
+      "original-library.en-p10-c2",
+      "teachings-at-the-first-conference-in-north-america.zh-Hant-p18-c1",
+      "original-library.vi-p16-c1"
+    ]
+  },
+  {
+    "row": 38,
+    "group": "zh",
+    "query": "为什么修炼者被建议保持方法专一，避免不同系统互相冲突？",
+    "target_chunk_id": "original-library.zh-Hant-p19-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "original-library.en-p12-c2",
+      "original-library.zh-Hant-p19-c4",
+      "zhuan-falun.zh-Hans-p180-c7",
+      "zhuan-falun.zh-Hans-p180-c4",
+      "zhuan-falun.zh-Hans-p64-c6",
+      "zhuan-falun.zh-Hans-p64-c3",
+      "original-library.zh-Hant-p19-c5",
+      "falun-gong.zh-Hans-p70-c0",
+      "zhuan-falun.en-p30-c1",
+      "collected-fa-teachings-vol-xiii.zh-Hans-p15-c2"
+    ]
+  },
+  {
+    "row": 39,
+    "group": "zh",
+    "query": "文中把大法说成创造宇宙诸多层次与万事万物的根本，它还体现于哪些特性？",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p0-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hant-p0-c2",
+      "zhuan-falun.zh-Hant-p0-c5",
+      "essentials-for-further-advancement.zh-Hant-p0-c1",
+      "essentials-for-further-advancement.zh-Hans-p0-c0",
+      "teachings-at-the-conference-in-australia.zh-Hant-p32-c3",
+      "zhuan-falun.zh-Hant-p0-c4",
+      "zhuan-falun.zh-Hant-p0-c1",
+      "zhuan-falun.zh-Hans-p9-c3",
+      "zhuan-falun.zh-Hans-p9-c0",
+      "zhuan-falun.zh-Hans-p0-c3"
+    ]
+  },
+  {
+    "row": 40,
+    "group": "zh",
+    "query": "依照这段讲述，生命最初从哪里产生，后来又怎样逐层来到人类层次？",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p2-c7",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p3-c1",
+      "zhuan-falun.zh-Hans-p2-c6",
+      "falun-gong.zh-Hans-p78-c1",
+      "zhuan-falun.zh-Hant-p81-c4",
+      "zhuan-falun.zh-Hant-p81-c8",
+      "zhuan-falun.zh-Hans-p68-c5",
+      "zhuan-falun.zh-Hans-p68-c2",
+      "zhuan-falun.zh-Hans-p44-c8",
+      "zhuan-falun.zh-Hans-p45-c2",
+      "falun-gong.zh-Hant-p85-c1"
+    ]
+  },
+  {
+    "row": 41,
+    "group": "zh",
+    "query": "修炼者为何只能看到与自身修炼层次相应的景象？",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p31-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p31-c2",
+      "zhuan-falun.zh-Hans-p31-c0",
+      "zhuan-falun.zh-Hant-p37-c0",
+      "zhuan-falun.zh-Hant-p37-c3",
+      "teachings-at-the-conference-in-canada.zh-Hans-p15-c2",
+      "zhuan-falun.zh-Hant-p196-c0",
+      "zhuan-falun.zh-Hant-p196-c3",
+      "falun-gong.zh-Hans-p12-c3",
+      "zhuan-falun.zh-Hans-p165-c4",
+      "zhuan-falun.zh-Hans-p165-c7"
+    ]
+  },
+  {
+    "row": 42,
+    "group": "zh",
+    "query": "传授高层次内容时，为什么作者说必须把学员当作弟子负责到底？",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p59-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p59-c2",
+      "zhuan-falun.zh-Hans-p59-c0",
+      "zhuan-falun.zh-Hant-p71-c3",
+      "zhuan-falun.zh-Hant-p71-c0",
+      "zhuan-falun.zh-Hant-p71-c2",
+      "essentials-for-further-advancement.zh-Hans-p39-c1",
+      "zhuan-falun.zh-Hans-p107-c4",
+      "zhuan-falun.zh-Hans-p107-c0",
+      "collected-fa-teachings-vol-xiii.zh-Hans-p8-c4",
+      "zhuan-falun.zh-Hant-p128-c4"
+    ]
+  },
+  {
+    "row": 43,
+    "group": "zh",
+    "query": "修炼者对待得失与普通人追逐利益的方式有何不同？",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p90-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hant-p108-c3",
+      "zhuan-falun.zh-Hant-p108-c0",
+      "zhuan-falun.zh-Hans-p90-c0",
+      "zhuan-falun.zh-Hans-p90-c2",
+      "falun-gong.zh-Hans-p31-c1",
+      "falun-gong.zh-Hant-p33-c1",
+      "zhuan-falun.zh-Hans-p91-c0",
+      "zhuan-falun.zh-Hans-p90-c5",
+      "collected-teachings-given-around-the-world-volume-vii.zh-Hans-p0-c1",
+      "essentials-for-further-advancement.zh-Hant-p3-c0"
+    ]
+  },
+  {
+    "row": 44,
+    "group": "zh",
+    "query": "旋转的法轮图形如何被用来代表宇宙的结构？",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p115-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p115-c0",
+      "zhuan-falun.zh-Hans-p115-c2",
+      "zhuan-falun.zh-Hans-p115-c3",
+      "falun-gong.zh-Hant-p24-c2",
+      "zhuan-falun.zh-Hans-p115-c1",
+      "zhuan-falun.zh-Hant-p137-c1",
+      "zhuan-falun.zh-Hant-p137-c3",
+      "falun-gong.zh-Hans-p23-c1",
+      "falun-gong.zh-Hans-p23-c0",
+      "zhuan-falun.zh-Hant-p137-c2"
+    ]
+  },
+  {
+    "row": 45,
+    "group": "zh",
+    "query": "文中认为修炼者为什么必须严肃对待不杀生？",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p167-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p167-c2",
+      "zhuan-falun.zh-Hans-p167-c0",
+      "zhuan-falun.zh-Hant-p198-c0",
+      "zhuan-falun.zh-Hant-p198-c3",
+      "teachings-at-the-conference-in-europe.zh-Hans-p26-c3",
+      "teachings-at-the-conference-in-switzerland.zh-Hans-p28-c2",
+      "dafa-spiritual-practice-is-serious.zh-Hans-p0-c6",
+      "zhuan-falun.zh-Hans-p169-c3",
+      "zhuan-falun.zh-Hans-p169-c0",
+      "zhuan-falun.zh-Hant-p198-c4"
+    ]
+  },
+  {
+    "row": 46,
+    "group": "cross",
+    "query": "Does the text say spiritual practice forbids medical care, and what boundary does it draw?",
+    "target_chunk_id": "original-library.vi-p19-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p13-c0",
+      "zhuan-falun.en-p69-c4",
+      "zhuan-falun.en-p3-c3",
+      "zhuan-falun.en-p24-c0",
+      "zhuan-falun.en-p67-c4",
+      "lecture-given-at-the-conference-in-sydney.en-p0-c6",
+      "zhuan-falun.en-p47-c7",
+      "falun-gong.en-p47-c4",
+      "falun-gong.en-p9-c2",
+      "falun-gong.en-p39-c3"
+    ]
+  },
+  {
+    "row": 47,
+    "group": "cross",
+    "query": "Why is relying exclusively on what modern science has demonstrated treated as a limited way to judge reality?",
+    "target_chunk_id": "original-library.vi-p21-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun-volume-ii.zh-Hant-p14-c5",
+      "original-library.zh-Hant-p23-c2",
+      "lecture-given-at-the-conference-in-sydney.en-p7-c3",
+      "zhuan-falun.en-p9-c1",
+      "zhuan-falun.zh-Hant-p164-c1",
+      "collected-teachings-given-around-the-world-volume-i.zh-Hant-p3-c7",
+      "original-library.en-p14-c2",
+      "zhuan-falun-volume-ii.en-p7-c3",
+      "zhuan-falun-volume-ii.en-p7-c6",
+      "collected-teachings-given-around-the-world-volume-i.en-p8-c6"
+    ]
+  },
+  {
+    "row": 48,
+    "group": "cross",
+    "query": "Why might a healthy diet and regular exercise still fail to explain every health problem?",
+    "target_chunk_id": "original-library.vi-p29-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p18-c0",
+      "original-library.zh-Hant-p32-c0",
+      "original-library.zh-Hant-p52-c2",
+      "falun-gong.en-p39-c5",
+      "teachings-at-the-conference-in-houston.en-p7-c1",
+      "teachings-at-the-conference-in-houston.en-p7-c0",
+      "teachings-at-conferences-in-the-united-states.zh-Hant-p4-c2",
+      "original-library.zh-Hant-p51-c3",
+      "original-library.zh-Hant-p51-c0",
+      "teachings-at-the-conference-in-new-zealand.en-p7-c4"
+    ]
+  },
+  {
+    "row": 49,
+    "group": "cross",
+    "query": "What analogy does the chapter use for a person who feels mentally drained despite resting?",
+    "target_chunk_id": "original-library.vi-p35-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p20-c0",
+      "original-library.en-p20-c2",
+      "zhuan-falun.en-p60-c1",
+      "zhuan-falun.zh-Hant-p264-c8",
+      "zhuan-falun.zh-Hant-p264-c4",
+      "zhuan-falun.zh-Hant-p282-c0",
+      "zhuan-falun.zh-Hant-p281-c4",
+      "teachings-at-the-first-conference-in-north-america.en-p15-c0",
+      "tao-te-ching-stephen-mitchell.en-p11-c0",
+      "original-library.en-p36-c0"
+    ]
+  },
+  {
+    "row": 50,
+    "group": "cross",
+    "query": "What role might everyday emotions play in refining a person’s character?",
+    "target_chunk_id": "original-library.vi-p38-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "teachings-at-the-conference-in-australia.en-p7-c4",
+      "original-library.en-p22-c2",
+      "teachings-at-the-conference-in-australia.en-p13-c5",
+      "essentials-for-further-advancement.en-p63-c4",
+      "teachings-at-conferences-in-the-united-states.en-p0-c4",
+      "the-great-way-of-spiritual-perfection.en-p2-c0",
+      "falun-gong.en-p18-c0",
+      "falun-gong.en-p2-c1",
+      "falun-gong.en-p46-c1",
+      "falun-gong.en-p19-c1"
+    ]
+  },
+  {
+    "row": 51,
+    "group": "cross",
+    "query": "How does the chapter frame daily preoccupation with food and its effects on mind and body?",
+    "target_chunk_id": "original-library.vi-p46-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.zh-Hant-p51-c0",
+      "original-library.zh-Hant-p52-c5",
+      "original-library.zh-Hant-p52-c6",
+      "original-library.zh-Hant-p52-c2",
+      "zhuan-falun.zh-Hans-p173-c0",
+      "zhuan-falun.zh-Hans-p172-c5",
+      "zhuan-falun.zh-Hans-p175-c4",
+      "zhuan-falun.zh-Hans-p175-c1",
+      "zhuan-falun.zh-Hant-p207-c5",
+      "zhuan-falun.zh-Hant-p208-c1"
+    ]
+  },
+  {
+    "row": 52,
+    "group": "cross",
+    "query": "What do different reactions to the same event suggest about the source of perception?",
+    "target_chunk_id": "original-library.vi-p53-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p29-c4",
+      "original-library.en-p13-c1",
+      "original-library.en-p27-c2",
+      "original-library.en-p27-c0",
+      "original-library.en-p27-c1",
+      "original-library.en-p21-c5",
+      "original-library.zh-Hant-p60-c1",
+      "collected-teachings-given-around-the-world-volume-ii.en-p7-c2",
+      "original-library.en-p21-c4",
+      "original-library.en-p29-c1"
+    ]
+  },
+  {
+    "row": 53,
+    "group": "cross",
+    "query": "When treated unfairly, what longer-term spiritual accounting may change how someone interprets a loss?",
+    "target_chunk_id": "original-library.vi-p55-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "original-library.en-p28-c0",
+      "zhuan-falun.en-p43-c2",
+      "original-library.en-p28-c4",
+      "zhuan-falun.en-p38-c5",
+      "zhuan-falun.en-p73-c4",
+      "zhuan-falun.en-p5-c5",
+      "zhuan-falun.en-p73-c5",
+      "collected-teachings-given-around-the-world-volume-vii.en-p5-c0",
+      "lecture-given-at-the-conference-in-sydney.en-p20-c7",
+      "falun-gong.en-p27-c3"
+    ]
+  },
+  {
+    "row": 54,
+    "group": "cross",
+    "query": "Why does the chapter say modern advances can coexist with confusion and exhaustion?",
+    "target_chunk_id": "original-library.vi-p70-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "original-library.en-p35-c0",
+      "tao-te-ching-stephen-mitchell.en-p28-c0",
+      "tao-te-ching-stephen-mitchell.en-p15-c0",
+      "tao-te-ching-stephen-mitchell.en-p2-c0",
+      "tao-te-ching-stephen-mitchell.en-p84-c6",
+      "original-library.en-p35-c3",
+      "collected-teachings-given-around-the-world-volume-x.en-p13-c1",
+      "zhuan-falun.zh-Hans-p15-c3",
+      "zhuan-falun.zh-Hans-p15-c6",
+      "essentials-for-further-advancement.zh-Hans-p28-c0"
+    ]
+  },
+  {
+    "row": 55,
+    "group": "cross",
+    "query": "How does the account describe people who remain well despite going without food for years?",
+    "target_chunk_id": "zhuan-falun.vi-p165-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p191-c3",
+      "zhuan-falun.zh-Hant-p227-c3",
+      "zhuan-falun.en-p83-c0",
+      "zhuan-falun.en-p105-c7",
+      "zhuan-falun.zh-Hant-p228-c7",
+      "zhuan-falun.en-p83-c6",
+      "zhuan-falun.en-p83-c1",
+      "tao-te-ching-jonathan-star.en-p79-c0",
+      "original-library.en-p24-c4",
+      "zhuan-falun.en-p83-c4"
+    ]
+  },
+  {
+    "row": 56,
+    "group": "cross",
+    "query": "How does qigong differ from exercise built around increasing physical activity?",
+    "target_chunk_id": "zhuan-falun.vi-p186-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "teachings-at-the-conference-in-new-zealand.en-p1-c1",
+      "zhuan-falun.zh-Hant-p191-c9",
+      "zhuan-falun.zh-Hans-p162-c0",
+      "explaining-the-teachings-of-zhuan-falun.en-p4-c7",
+      "zhuan-falun.en-p94-c0",
+      "further-discussions-on-falun-dafa.en-p25-c1",
+      "falun-gong.en-p29-c0",
+      "teachings-at-the-conference-in-europe.en-p0-c1",
+      "teachings-at-the-conference-in-houston.en-p3-c0",
+      "teachings-at-the-conference-in-europe.en-p2-c1"
+    ]
+  },
+  {
+    "row": 57,
+    "group": "cross",
+    "query": "Why might a person reject observations that exceed their own level of spiritual perception?",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p31-c0",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "zhuan-falun.zh-Hans-p165-c4",
+      "zhuan-falun.zh-Hans-p165-c7",
+      "zhuan-falun.zh-Hant-p196-c0",
+      "zhuan-falun.zh-Hant-p196-c3",
+      "zhuan-falun.en-p89-c2",
+      "teachings-at-the-conference-in-canada.en-p0-c6",
+      "zhuan-falun.en-p72-c3",
+      "zhuan-falun.en-p9-c0",
+      "zhuan-falun.en-p17-c1",
+      "zhuan-falun.zh-Hant-p37-c6"
+    ]
+  },
+  {
+    "row": 58,
+    "group": "cross",
+    "query": "Beyond identifying a practice, what larger structure is the rotating wheel emblem said to represent?",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p115-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "falun-gong.en-p12-c1",
+      "the-great-way-of-spiritual-perfection.en-p17-c1",
+      "the-great-way-of-spiritual-perfection.en-p0-c3",
+      "the-great-way-of-spiritual-perfection.en-p5-c0",
+      "zhuan-falun.zh-Hans-p115-c0",
+      "zhuan-falun.zh-Hans-p115-c2",
+      "zhuan-falun.en-p51-c2",
+      "the-great-way-of-spiritual-perfection.en-p0-c2",
+      "teachings-at-the-conference-in-houston.en-p17-c5",
+      "the-great-way-of-spiritual-perfection.en-p1-c0"
+    ]
+  },
+  {
+    "row": 59,
+    "group": "cross",
+    "query": "Why are the consequences of taking a life presented as extending beyond the immediate victim?",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p167-c0",
+    "result": "hit",
+    "hit": true,
+    "top10_chunk_ids": [
+      "zhuan-falun.en-p73-c0",
+      "zhuan-falun.en-p73-c1",
+      "zhuan-falun.zh-Hant-p198-c5",
+      "zhuan-falun.en-p73-c5",
+      "zhuan-falun.zh-Hant-p198-c2",
+      "zhuan-falun.zh-Hans-p167-c1",
+      "zhuan-falun.zh-Hans-p167-c3",
+      "collected-teachings-given-around-the-world-volume-iv.zh-Hant-p29-c0",
+      "teachings-at-the-conference-in-houston.en-p9-c3",
+      "zhuan-falun.en-p73-c3"
+    ]
+  },
+  {
+    "row": 60,
+    "group": "cross",
+    "query": "According to the text, where did living beings originate before eventually entering the human world?",
+    "target_chunk_id": "zhuan-falun.zh-Hans-p2-c7",
+    "result": "miss",
+    "hit": false,
+    "top10_chunk_ids": [
+      "teachings-at-the-conference-in-europe.en-p11-c6",
+      "how-humankind-came-to-be.en-p0-c4",
+      "teachings-at-conferences-in-the-united-states.en-p12-c4",
+      "original-library.en-p5-c0",
+      "teachings-at-the-conference-in-europe.en-p4-c0",
+      "collected-teachings-given-around-the-world-volume-vii.en-p2-c2",
+      "teachings-at-the-2004-international-conference-in-new-york.en-p0-c2",
+      "hong-yin-ii.en-p7-c3",
+      "collected-teachings-given-around-the-world-volume-ii.en-p18-c0",
+      "zhuan-falun-volume-ii.en-p15-c6"
+    ]
+  }
+]

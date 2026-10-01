@@ -1,0 +1,51 @@
+running ['c-candidate', 'f-technical-after']
+[1/2] c-candidate: .venv/bin/python .claude/plan-goal/verify/cpu.py scripts/eval_philosophy.py --eval-file data/bench/gate-philosophy-b/run-20260930T235222Z/sanity-b-filtered.jsonl --json-out data/bench/gate-philosophy-b/run-20260930T235222Z/sanity-candidate.json
+[2/2] f-technical-after: .venv/bin/python .claude/plan-goal/verify/cpu.py scripts/eval_retrieval.py --label phaseb-tech-after --golden data/golden/golden_queries_hard.jsonl --limit 50 --per-query data/bench/gate-philosophy-b/run-20260930T235222Z/tech-after.jsonl --report-out data/bench/gate-philosophy-b/run-20260930T235222Z/tech-after-summary.json
+# Philosophy B promotion gate
+
+Reader: Gary.
+
+(a) The filtered 60-query eval may lose at most one live hit per group; en: live 13/15, candidate 13/15, lost 0; vi: live 13/15, candidate 13/15, lost 0; zh: live 12/15, candidate 12/15, lost 0; cross: live 12/15, candidate 13/15, lost 0. PASS.
+(b) The same 60 queries without filters may lose at most two live hits per group; en: live 10/15, candidate 7/15, lost 3; vi: live 10/15, candidate 8/15, lost 2; zh: live 11/15, candidate 8/15, lost 3; cross: live 12/15, candidate 11/15, lost 1. FAIL.
+(c) The reviewed sanity set must reach 0.80 overall and 0.70 in each language; overall 52/79 (0.658), en 15/20 (0.750); vi 14/20 (0.700); zh-Hans 10/19 (0.526); zh-Hant 13/20 (0.650). FAIL.
+
+Missed sanity queries (language and target):
+- en: Why might some listeners sense only one rotating wheel when others report having many? — target `explaining-the-teachings-of-zhuan-falun.en-p16-c4`
+- en: In the poem's image of a fire, what is being hardened, and toward what larger purpose? — target `to-choose.en-p0-c0`
+- en: What lets the craft described here vanish and cover immense distances so quickly? — target `lecture-given-at-the-conference-in-sydney.en-p7-c3`
+- en: What does the train-and-track image show about adding another cultivation method to an established course? — target `teachings-at-the-conference-in-europe.en-p10-c0`
+- en: If something is meant to reach the teacher, what handling rule does the speaker give those who work on his behalf? — target `teachings-at-the-conference-in-the-eastern-u-s.en-p12-c1`
+- vi: Vì sao nghe thêm phần giảng giải không thể thay thế chính niệm khi người tu đang vượt quan nghiệp bệnh? — target `teachings-at-the-conference-in-los-angeles.vi-p36-c3`
+- vi: Vì sao học viên không nên bắt chước cách làm của đồng tu, và cần dựa trên chuẩn mực nào? — target `teachings-at-the-2004-international-conference-in-new-york.vi-p15-c7`
+- vi: Đoạn này khuyên đối đãi với đồng tu từ Trung Quốc thế nào khi họ mang thói quen tư duy hình thành trong môi trường riêng? — target `collected-teachings-given-around-the-world-volume-ix.vi-p14-c2`
+- vi: Vì sao người tu luyện nghe bài giảng rồi lại quên đi phần họ vừa hiểu được? — target `teachings-at-the-conference-in-new-zealand.vi-p20-c2`
+- vi: Theo đoạn này, vì sao những gán ghép từ các kiếp trước không thể được giải quyết đơn giản ngay lúc chúng xảy ra? — target `collected-teachings-given-around-the-world-volume-iv.vi-p25-c0`
+- vi: Bài viết giải thích vì sao lời tuyên bố ngừng tu không xóa bỏ lời thề đã lập bằng sinh mệnh như thế nào? — target `dafa-spiritual-practice-is-serious.vi-p1-c2`
+- zh-Hans: 这篇短文把日常修炼和面向社会做的哪项责任并列为缺一不可？ — target `a-reminder.zh-Hans-p0-c0`
+- zh-Hans: 这段话如何区分协助社会揭露恶行与惩处被宣传蒙蔽的人？ — target `collected-teachings-given-around-the-world-volume-vii.zh-Hans-p22-c5`
+- zh-Hans: 文章把海外公众得知真相、当地民众获救的成果归功于什么力量？ — target `dafa-disciples-are-fulfilling-their-missions.zh-Hans-p0-c1`
+- zh-Hans: 若修炼者把腾空当成目标，文中说结果会怎样，理由是什么？ — target `lecture-given-at-the-conference-in-sydney.zh-Hans-p12-c7`
+- zh-Hans: 这段讲述中，高层神把人类比作什么，又明确排除了哪一种解释？ — target `teachings-at-the-conference-in-the-eastern-u-s.zh-Hans-p28-c1`
+- zh-Hans: 即使世俗政治团体对修炼者友善，为什么文章仍要求他们把修炼责任与那些事务分开？ — target `collected-teachings-given-around-the-world-volume-x.zh-Hans-p10-c2`
+- zh-Hans: 为什么劝人时不能因自己觉得好，就非要对方马上接受？ — target `teachings-at-the-first-conference-in-north-america.zh-Hans-p25-c6`
+- zh-Hans: 文章认为广告还需要持续改进，主要想解决演出推广中的什么难题？ — target `collected-teachings-given-around-the-world-volume-ix.zh-Hans-p38-c1`
+- zh-Hans: 为完成救度使命，这段致意要求修炼者内心具备什么基础？ — target `to-the-fa-conference-in-germany.zh-Hans-p0-c0`
+- zh-Hant: 這段話把修煉者能承擔常人做不到之事，連到他們必須珍視甚麼？ — target `collected-fa-teachings-vol-xiii.zh-Hant-p29-c1`
+- zh-Hant: 這段如何描述反覆持名後達到的心境，以及為何不把它當成簡便方法？ — target `falun-gong.zh-Hant-p43-c1`
+- zh-Hant: 講者如何解釋剛相識的修煉者彼此似乎熟悉的感覺？ — target `teachings-at-the-conference-in-australia.zh-Hant-p39-c4`
+- zh-Hant: 為何只刊載迫害報導可能達不到最好的救人效果，媒體內容應如何調整？ — target `teachings-from-a-tour-of-north-america.zh-Hant-p24-c5`
+- zh-Hant: 社會動盪和個人身分都無法改變修煉者的甚麼？ — target `to-the-2021-dafa-conference-in-taiwan.zh-Hant-p0-c0`
+- zh-Hant: 為甚麼講者反對在學員中散播對別人病業或執著的臆測？ — target `another-stern-warning.zh-Hant-p1-c2`
+- zh-Hant: 短文列出哪兩條行為界線，並說它們決定甚麼？ — target `how-you-should-regard-and-act-toward-masters-family-members.zh-Hant-p0-c6`
+(d) At least 36 of the 40 reviewed aligned section pairs must match; 40/40 match. PASS.
+
+Alignment review history (match counts):
+- alignment-review-before-fix2.jsonl: 26/40 match
+- alignment-review-run2-defective-packet.jsonl: 33/40 match
+- alignment-review-run3.jsonl: 35/40 match
+- alignment-review-run4.jsonl: 40/40 match
+(e) Every included Chinese work needs a passed text check or a derived flag; 187/187 meet that rule. PASS.
+(f) The first 50 technical queries must keep identical ordered top-10 results; 45/50 queries match. FAIL.
+
+Verdict: DO NOT PROMOTE — failing letters: b, c, f
+

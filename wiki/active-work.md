@@ -1,5 +1,21 @@
 # Active Work
 
+## Philosophy phase B: rest of the Falun Dafa archive
+**Status:** Built and gated 2026-10-01. **Not promoted:** the gate failed conditions (b), (c) and (f) ([gate report](../data/bench/gate-philosophy-b.md)). The decision is Gary's. Goal file: [2026-09-30-philosophy-phase-b](goals/2026-09-30-philosophy-phase-b.md).
+
+**State:**
+- Live `philosophy`: unchanged, 8,432 points. Candidate `philosophy_b`: 52,122 points on the Mac's Qdrant (phase A + 43,690 phase B chunks from 117 works).
+- Registry `data/philosophy/works.json` lists the phase B works (319 included, 30 derived, 57 skipped language records); chunks and markdown under `data/{chunks,markdown}/philosophy/`; vector cache `data/philosophy-vectors/` (not tracked).
+- No `data-v9.1` release; the installer still defaults to `data-v9`.
+
+**Rows:** done: 1 (Hồng Ngâm), 2 (registry), 3 (match review), 4 (phase A untouched), 5 (ingest), 6 (alignment sample), 7 (reviewed test set), 8 (candidate), 9 (gate report), 10 (fail branch: live unchanged, failure reported), 11 (fail branch: no release), 12 (technical untouched), 13 (tests), 14 (docs, wiki, push).
+
+**Open:**
+- Gary's call on `philosophy_b`: promote anyway, keep separate or behind a default filter, or improve retrieval first.
+- Missing editions: Hồng Ngâm (Hong Yin) I, II, IV, V in Simplified Chinese and I in Traditional (failed the text check); `hong-yin-iii.zh-Hans` garbled; 52 Vietnamese writings are web shells in the archive; 13 Vietnamese lectures are chapters of collected volumes and are not aligned to them.
+- `knowledge_base/chunk.py` drops a section's short final paragraph group (technical and phase A).
+- bppc's `~/kb-work/phase-b/` can be deleted once the candidate is decided.
+
 ## v9 review fixes
 **Status:** Done 2026-09-30. All 15 goal rows pass; Gary then promoted v9 (below). Goal file: [2026-09-30-v9-review-fixes](goals/2026-09-30-v9-review-fixes.md).
 
