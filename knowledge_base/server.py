@@ -18,12 +18,21 @@ _instructions = (
     "AI engineering, databases, security, software architecture and engineering, "
     "distributed systems, Rust, systems/ops, frontend, design, data engineering, data science, "
     "C++, reverse engineering, management, sales, and research methods."
+    "\n\nOne search answers one fact. For a question that needs understanding (why, how "
+    "things relate, what the sources say), read in steps: search the whole library, read "
+    "the strongest hits in context with read_chunk (get_chapter when a section matters), "
+    "then search again with the terms and names those passages use. Look for a second "
+    "book that confirms, qualifies or contradicts the first, and say where they differ. "
+    "Stop when new searches return passages you have already read. Name the book and "
+    "chapter behind each claim."
 )
 if EDITION == "full":
     _instructions += (
-        " Separate philosophy tools search and list the multilingual philosophy corpus; "
+        "\n\nSeparate philosophy tools search and list the multilingual philosophy corpus; "
         "the Original Library is its entry point, and aligned parallel passages are "
-        "returned so nuance across translations is not lost."
+        "returned so nuance across translations is not lost. Read it the same way: "
+        "follow a theme across works and translations instead of stopping at the "
+        "first passage."
     )
 
 mcp = FastMCP("Developer Knowledge Base", instructions=_instructions)
