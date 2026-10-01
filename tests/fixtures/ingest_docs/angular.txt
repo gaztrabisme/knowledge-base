@@ -1,0 +1,14 @@
+<docs-nav-card title="Navigation">
+<docs-nav-link>Navigation boilerplate</docs-nav-link>
+</docs-nav-card>
+<nav>Navigation boilerplate</nav>
+<style>.navigation { display: none; }</style>
+# Angular coding style guide
+## Components
+Prefer focused components.
+An Angular template may interpolate `{{value}}`.
+
+```tsx
+import LiteYouTube from './LiteYouTube';
+<nav aria-label="example">Example markup stays.</nav>
+```
