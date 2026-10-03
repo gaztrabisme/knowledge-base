@@ -1,0 +1,17 @@
+
+=== paired significance: B - A ===
+  A = data/bench/gate-v10/per-query/v9-hard.jsonl
+  B = data/bench/gate-v10/per-query/v10-hard.jsonl
+  paired on 438 queries
+
+  metric        mean_A   mean_B    delta    95% CI delta          sign(+/-)  sign_p   wilcox_p  verdict
+  ndcg          0.7409   0.7393  -0.0017  [-0.0035,-0.0002]    9/11     0.8238   0.1044   noise (n.s.)
+  recall10      0.9521   0.9521  +0.0000  [+0.0000,+0.0000]    0/0      1.0000   1.0000   noise (n.s.)
+  mrr           0.8307   0.8302  -0.0005  [-0.0011,-0.0001]    0/4      0.1250   0.1003   noise (n.s.)
+  ceiling_hit   0.9749   0.9749  +0.0000  [+0.0000,+0.0000]    0/0      1.0000   1.0000   noise (n.s.)
+
+  power (ndcg): rho(A,B)=+0.998  sigma_delta=0.0182  n=438  MDE@80%=0.0024
+
+  SIGNIFICANT = paired bootstrap CI excludes 0 AND min(sign,wilcoxon) p < 0.05.
+  Otherwise the two systems are statistically indistinguishable on this gate.
+  If |delta| < MDE@80%, an n.s. verdict is 'underpowered', not 'no effect'.

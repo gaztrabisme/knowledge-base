@@ -1,0 +1,22 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 27295.20it/s]
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]Loading weights: 100%|██████████| 134/134 [00:00<00:00, 29245.33it/s]
+  25/199...
+  50/199...
+  75/199...
+  100/199...
+  125/199...
+  150/199...
+  175/199...
+  per-query dump (199 rows) -> data/bench/gate-v10/per-query/v10-easy.jsonl
+
+===== v10-gate-v10-easy  (n=199) =====
+  NDCG@10=0.9044  Recall@10=1.0000  MRR=0.9639  Recall@50(ceiling)=1.0000
+  per-domain:
+    databases    n= 13  NDCG@10=0.995  R@10=1.000  MRR=1.000  R@50=1.000
+    distributed  n=  6  NDCG@10=0.853  R@10=1.000  MRR=0.917  R@50=1.000
+    ml           n= 87  NDCG@10=0.885  R@10=1.000  MRR=0.952  R@50=1.000
+    rust         n= 57  NDCG@10=0.910  R@10=1.000  MRR=0.983  R@50=1.000
+    security     n= 36  NDCG@10=0.919  R@10=1.000  MRR=0.958  R@50=1.000
+
+  retrieval ceiling - delivered recall = 0.0000 (reranker keeping retrieved hits)
+  full report + 0 misses -> data/bench/gate-v10/aggregate/v10-easy.json

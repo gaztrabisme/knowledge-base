@@ -1,0 +1,11 @@
+{
+  "sets": {
+    "data/golden/golden_queries_hard.jsonl": 438,
+    "data/golden/golden_queries.jsonl": 199,
+    "data/bench/gate-v10/sanity.jsonl": 30
+  },
+  "mapped_child_ids": 1999,
+  "resolved_from_v9_qdrant": 4,
+  "missing": 0,
+  "file": "data/chunks/v10-gate-parent-map.json"
+}

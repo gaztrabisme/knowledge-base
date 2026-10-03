@@ -1,0 +1,54 @@
+{
+  "books": [
+    {
+      "slug": "mdn-web-docs",
+      "parents": 7835,
+      "children": 27255,
+      "path": "/Users/GaryT/Documents/Work/tools/knowledge-base/data/chunks/mdn-web-docs.json"
+    },
+    {
+      "slug": "web-dev-baseline",
+      "parents": 456,
+      "children": 2795,
+      "path": "/Users/GaryT/Documents/Work/tools/knowledge-base/data/chunks/web-dev-baseline.json"
+    },
+    {
+      "slug": "whatwg-html",
+      "parents": 674,
+      "children": 3240,
+      "path": "/Users/GaryT/Documents/Work/tools/knowledge-base/data/chunks/whatwg-html.json"
+    },
+    {
+      "slug": "wai-aria-apg",
+      "parents": 104,
+      "children": 358,
+      "path": "/Users/GaryT/Documents/Work/tools/knowledge-base/data/chunks/wai-aria-apg.json"
+    },
+    {
+      "slug": "wcag-22",
+      "parents": 85,
+      "children": 305,
+      "path": "/Users/GaryT/Documents/Work/tools/knowledge-base/data/chunks/wcag-22.json"
+    },
+    {
+      "slug": "react-dev",
+      "parents": 1111,
+      "children": 4912,
+      "path": "/Users/GaryT/Documents/Work/tools/knowledge-base/data/chunks/react-dev.json"
+    },
+    {
+      "slug": "angular-dev",
+      "parents": 351,
+      "children": 1004,
+      "path": "/Users/GaryT/Documents/Work/tools/knowledge-base/data/chunks/angular-dev.json"
+    },
+    {
+      "slug": "playwright-docs",
+      "parents": 1828,
+      "children": 4186,
+      "path": "/Users/GaryT/Documents/Work/tools/knowledge-base/data/chunks/playwright-docs.json"
+    }
+  ],
+  "total_children": 44055,
+  "cap": 60000
+}

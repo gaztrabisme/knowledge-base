@@ -1,0 +1,51 @@
+{
+  "report": {
+    "label": "v10-gate-v10-sanity",
+    "n_queries": 30,
+    "aggregate": {
+      "ndcg": 0.6463,
+      "recall10": 0.9333,
+      "mrr": 0.7261,
+      "recall_ceiling": 1.0
+    },
+    "per_domain": {
+      "accessibility": {
+        "n": 8,
+        "ndcg": 0.6497,
+        "recall10": 1.0,
+        "mrr": 0.7083,
+        "recall_ceiling": 1.0
+      },
+      "frontend": {
+        "n": 18,
+        "ndcg": 0.6453,
+        "recall10": 0.8889,
+        "mrr": 0.7426,
+        "recall_ceiling": 1.0
+      },
+      "testing": {
+        "n": 4,
+        "ndcg": 0.644,
+        "recall10": 1.0,
+        "mrr": 0.6875,
+        "recall_ceiling": 1.0
+      }
+    }
+  },
+  "misses": [
+    {
+      "query": "When optimizing INP, how can developers reduce the delay before an event handler begins running?",
+      "book": "web-dev-baseline",
+      "domain": "frontend",
+      "in_ceiling": true,
+      "heading_path": "web.dev Baseline and Web Performance Articles > Optimize Interaction to Next Paint (part 1); web.dev Baseline and Web Performance Articles > Optimize Interaction to Next Paint > Figure out what's causing poor INP; web.dev Baseline and Web Performance Articles > Optimize Interaction to Next Paint > Optimize interactions (part 1) (part 1); web.dev Baseline and Web Performance Articles > Optimize Interaction to Next Paint > Optimize interactions (part 1) (part 2); web.dev Baseline and Web Performance Articles > Optimize Interaction to Next Paint > Optimize interactions (part 2); web.dev Baseline and Web Performance Articles > Optimize Interaction to Next Paint > Conclusion"
+    },
+    {
+      "query": "How can a button declare which popover it controls in HTML, including the relationship used to invoke it?",
+      "book": "whatwg-html",
+      "domain": "frontend",
+      "in_ceiling": true,
+      "heading_path": "WHATWG HTML Standard > User interaction > The `popover` attribute (part 3) (part 1)"
+    }
+  ]
+}

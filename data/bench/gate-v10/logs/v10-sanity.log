@@ -1,0 +1,14 @@
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 25308.20it/s]
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]Loading weights: 100%|██████████| 134/134 [00:00<00:00, 15173.78it/s]
+  25/30...
+  per-query dump (30 rows) -> data/bench/gate-v10/per-query/v10-sanity.jsonl
+
+===== v10-gate-v10-sanity  (n=30) =====
+  NDCG@10=0.6463  Recall@10=0.9333  MRR=0.7261  Recall@50(ceiling)=1.0000
+  per-domain:
+    accessibility n=  8  NDCG@10=0.650  R@10=1.000  MRR=0.708  R@50=1.000
+    frontend     n= 18  NDCG@10=0.645  R@10=0.889  MRR=0.743  R@50=1.000
+    testing      n=  4  NDCG@10=0.644  R@10=1.000  MRR=0.688  R@50=1.000
+
+  retrieval ceiling - delivered recall = 0.0667 (reranker/cutoff dropping hits)
+  full report + 2 misses -> data/bench/gate-v10/aggregate/v10-sanity.json
