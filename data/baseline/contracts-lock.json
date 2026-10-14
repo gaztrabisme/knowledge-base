@@ -6,8 +6,8 @@
         "backend": "repo",
         "path": ".gitignore"
       },
-      "sha256": "5bfe0368011b3b07e5f9082e6dbe831c0d29843330820ead2c00cf26db5498a1",
-      "bytes": 2037
+      "sha256": "5c9a03431526a74d314131f4553d2da5a808496d128ebe864cc11859575fae43",
+      "bytes": 2055
     },
     {
       "location": {
@@ -1532,6 +1532,14 @@
     {
       "location": {
         "backend": "repo",
+        "path": "scripts/fp/build_catalog_fp.py"
+      },
+      "sha256": "da1de8a04e18a0a1a6373625461862ec05f405a8f670eebbea1558e6782aac95",
+      "bytes": 18468
+    },
+    {
+      "location": {
+        "backend": "repo",
         "path": "scripts/fp/build_contracts.py"
       },
       "sha256": "6ffe559705a0c3fd846f5c9c210924cfdb554ef75bf186ea85d9446bf35b1cc5",
@@ -1548,6 +1556,22 @@
     {
       "location": {
         "backend": "repo",
+        "path": "scripts/fp/capture_catalog.py"
+      },
+      "sha256": "0f055a0f7deb2474791f1f74089b7c44ab11bfa0a4a7a00191e6f74b00e8a87a",
+      "bytes": 3129
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "scripts/fp/catalog_io.py"
+      },
+      "sha256": "f7de6c68880e612980382e0a9217157bdbd87f06e6fc6fccbdbb727690251b3d",
+      "bytes": 3990
+    },
+    {
+      "location": {
+        "backend": "repo",
         "path": "scripts/fp/check-baseline.sh"
       },
       "sha256": "7612cd1f42256cde89db3c57123f85c41df5abd63fd5b55bbb6d3350981be2e5",
@@ -1560,6 +1584,22 @@
       },
       "sha256": "649aaa2f7c22b20439a073dd7f9a2dbcfae3a7aab295e30fcf531f1c5baf6f52",
       "bytes": 8033
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "scripts/fp/check_catalog_fp.py"
+      },
+      "sha256": "dafe9ea5bd8f952c175eac6947bd4e83a1a6437dd47acfb99f2a4a3e1d9d2559",
+      "bytes": 15838
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "scripts/fp/frozen_control_evidence.py"
+      },
+      "sha256": "08b21c7f60db9fc6e51a2cdf8e3e0b7f0e820a833c52ac5bb032601484efa883",
+      "bytes": 3023
     },
     {
       "location": {

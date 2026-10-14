@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:frozen-source-manifest:1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "mind/frozen-source-manifest@1"
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "collection": {
+      "enum": [
+        "developer_knowledge_v10",
+        "philosophy"
+      ]
+    },
+    "source_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "frozen_payload_inventory_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "child_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "parent_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "backend": {
+            "const": "main-checkout"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "backend",
+          "path",
+          "sha256",
+          "bytes"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "authority": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reasons": {
+      "type": "object",
+      "properties": {
+        "edition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dates": {
+          "type": "string",
+          "minLength": 1
+        },
+        "original_asset": {
+          "type": "string",
+          "minLength": 1
+        },
+        "page_mapping": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "edition",
+        "dates",
+        "original_asset",
+        "page_mapping"
+      ],
+      "additionalProperties": false
+    },
+    "edition": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "const": null
+        },
+        "reason": {
+          "const": "not found"
+        }
+      },
+      "required": [
+        "value",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "publication_date": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "const": null
+        },
+        "reason": {
+          "const": "not found"
+        }
+      },
+      "required": [
+        "value",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "revision_date": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "const": null
+        },
+        "reason": {
+          "const": "not found"
+        }
+      },
+      "required": [
+        "value",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "original_acquired_at": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "const": null
+        },
+        "reason": {
+          "const": "not found"
+        }
+      },
+      "required": [
+        "value",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "original_asset": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "const": null
+        },
+        "reason": {
+          "const": "not found"
+        }
+      },
+      "required": [
+        "value",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "page_mapping": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "const": null
+        },
+        "reason": {
+          "const": "not found"
+        }
+      },
+      "required": [
+        "value",
+        "reason"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "source_id",
+    "collection",
+    "source_key",
+    "frozen_payload_inventory_sha256",
+    "child_count",
+    "parent_count",
+    "files",
+    "authority",
+    "reasons",
+    "edition",
+    "publication_date",
+    "revision_date",
+    "original_acquired_at",
+    "original_asset",
+    "page_mapping"
+  ],
+  "additionalProperties": false
+}

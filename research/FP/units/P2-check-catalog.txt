@@ -1,0 +1,26 @@
+FP catalog data: /Users/GaryT/Documents/Work/tools/knowledge-base-wt/P2/data/fp
+FP source witnesses: /Users/GaryT/Documents/Work/tools/knowledge-base
+PASS: large map SHA-256 and byte count
+PASS: 338 v1 sources/catalog entries, revision manifests and source-file hashes
+PASS: all 425307 child/parent locators and evidence hashes
+verified developer_knowledge_v10: 50000/330778
+verified developer_knowledge_v10: 100000/330778
+verified developer_knowledge_v10: 150000/330778
+verified developer_knowledge_v10: 200000/330778
+verified developer_knowledge_v10: 250000/330778
+verified developer_knowledge_v10: 300000/330778
+PASS: developer_knowledge_v10, 330778 live point IDs exactly once with identical payloads
+PASS: philosophy, 8432 live point IDs exactly once with identical payloads
+PASS: ledger counts reconcile
+PASS: every hard control hit opens identical frozen v10 evidence (438 queries)
+PASS: every easy control hit opens identical frozen v10 evidence (199 queries)
+PASS: every sanity control hit opens identical frozen v10 evidence (30 queries)
+..built 1 sources; /var/folders/yy/s3_y_d5x2_34qb0k9f6qvjqr0000gn/T/tmpwuaxpbfy/.catalog-build-l67w1o_i/catalog.sqlite
+built 1 sources; /var/folders/yy/s3_y_d5x2_34qb0k9f6qvjqr0000gn/T/tmpwuaxpbfy/.catalog-build-ej99gjxf/catalog.sqlite
+built 1 sources; /var/folders/yy/s3_y_d5x2_34qb0k9f6qvjqr0000gn/T/tmpwuaxpbfy/.catalog-build-5rz89toe/catalog.sqlite
+.........
+----------------------------------------------------------------------
+Ran 11 tests in 1.437s
+
+OK
+PASS: catalog acceptance; 4756 frozen control hits

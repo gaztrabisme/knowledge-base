@@ -27,6 +27,7 @@ data/*
 !data/bench/
 # FP records and schemas are small; bulk evidence stays external and is hashed.
 !data/baseline/
+!data/catalog-fp/
 # The book catalog is reviewed by hand and read at runtime, so it is versioned.
 !data/catalog.json
 !data/intake/

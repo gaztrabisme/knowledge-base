@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:catalog-redirects:1",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "from_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "to_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "reason": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "from_id",
+      "to_id",
+      "reason"
+    ],
+    "additionalProperties": false
+  }
+}

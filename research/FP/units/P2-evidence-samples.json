@@ -1,0 +1,335 @@
+[
+  {
+    "schema_version": "mind/evidence-read@1",
+    "evidence_id": "clean-code-p0-c0",
+    "source_id": "book:clean-code",
+    "source_revision": "sha256:cb176c3ff77b3927a446e011d1b0edd98fedf6ae0c647b03ae4e5901e726326f",
+    "source_hash": "cb176c3ff77b3927a446e011d1b0edd98fedf6ae0c647b03ae4e5901e726326f",
+    "privacy_scope": "owner-private",
+    "selected_snapshot": "fp-P2:developer_knowledge_v10",
+    "producing_revision": "frozen-text-sha256:f6db4572829754ec211cd76e0607ff245caf3b1eb3b210727147204d2ef25511",
+    "locator": {
+      "end_line": 29,
+      "kind": "markdown-lines",
+      "path": "data/markdown/clean-code.md",
+      "start_line": 7
+    },
+    "content": "Robert C. Martin Series\nThe mission of this series is to improve the state of the art of software craftsmanship. The books in this series are technical, pragmatic, and substantial. The authors are \nhighly experienced craftsmen and professionals dedicated to writing about what \nactually works in practice, as opposed to what might work in theory. You will read \nabout what the author has done, not what he thinks you should do. If the book is \nabout programming, there will be lots of code. If the book is about managing, there \nwill be lots of case studies from real projects. These are the books that all serious practitioners will have on their bookshelves. These are the books that will be remembered for making a difference and for guiding \nprofessionals to become true craftsman. Managing Agile Projects\nSanjiv Augustine\nAgile Estimating and Planning\nMike Cohn\nWorking Effectively with Legacy Code\nMichael C. Feathers\nAgile Java™: Crafting Code with Test-Driven Development\nJeff Langr\nAgile Principles, Patterns, and Practices in C#\nRobert C. Martin and Micah Martin\nAgile Software Development: Principles, Patterns, and Practices\nRobert C.",
+    "content_sha256": "f6db4572829754ec211cd76e0607ff245caf3b1eb3b210727147204d2ef25511",
+    "derivation": "derived",
+    "verification": "exact",
+    "annotations": [],
+    "metadata": {
+      "schema_version": "mind-read/v1",
+      "read_id": "e5a82da6-729e-4e48-accf-cef34cba287f",
+      "backend_availability": "ready",
+      "source_snapshot": "fp-P2:developer_knowledge_v10",
+      "index_snapshot": "developer_knowledge_v10",
+      "graph_snapshot": null,
+      "privacy_scope": "owner-private",
+      "sources": [
+        {
+          "source_id": "book:clean-code",
+          "source_revision": "sha256:cb176c3ff77b3927a446e011d1b0edd98fedf6ae0c647b03ae4e5901e726326f",
+          "source_hash": "cb176c3ff77b3927a446e011d1b0edd98fedf6ae0c647b03ae4e5901e726326f",
+          "privacy_scope": "owner-private",
+          "producing_revision": "frozen-text-sha256:f6db4572829754ec211cd76e0607ff245caf3b1eb3b210727147204d2ef25511",
+          "returned_text_hash": "f6db4572829754ec211cd76e0607ff245caf3b1eb3b210727147204d2ef25511",
+          "locator": {
+            "end_line": 29,
+            "kind": "markdown-lines",
+            "path": "data/markdown/clean-code.md",
+            "start_line": 7
+          }
+        }
+      ],
+      "legacy_character_truncation": false,
+      "budget_truncation": false,
+      "omitted_count": 0,
+      "cursor": null,
+      "errors": [],
+      "budget": null
+    }
+  },
+  {
+    "schema_version": "mind/evidence-read@1",
+    "evidence_id": "postgresql-14-internals-p6-c4",
+    "source_id": "book:postgresql-14-internals",
+    "source_revision": "sha256:24a45a72b70e50d39d6489efd6c2582806a5cb22a2fa15bfd8bb7f696c59c59b",
+    "source_hash": "24a45a72b70e50d39d6489efd6c2582806a5cb22a2fa15bfd8bb7f696c59c59b",
+    "privacy_scope": "owner-private",
+    "selected_snapshot": "fp-P2:developer_knowledge_v10",
+    "producing_revision": "frozen-text-sha256:bc1989e37312da0da78bca209369c93314de8be1bb57502b03d112a1756ff3db",
+    "locator": {
+      "chunk_id": "postgresql-14-internals-p6-c4",
+      "kind": "legacy-chunk",
+      "page_mapping": "not found",
+      "parent_id": "postgresql-14-internals-p6"
+    },
+    "content": "To sum it up, a transaction is a set of operations that takes the database from one correct\nstate to another correct state (consistency), provided that it is executed in full (atomicity)\nand without being affected by other transactions (isolation). This definition combines the\nrequirements implied by the first three letters of the ���� acronym. They are so inter-\ntwined that it makes sense to discuss them together. In fact, the durability\nrequirement is\nhardly possible to split off either: after a crash, the system may still contain some changes\nmade by uncommitted transactions, and you have to do something about it to restore data\nconsistency.\n\np. ���\n\n40\n\n\f2.2 Isolation Levels and Anomalies in SQL Standard\n\nThus, the database system helps the application maintain data consistency by taking\ntransaction boundaries into account, even though it has no idea about the implied con-\nsistency rules.",
+    "content_sha256": "bc1989e37312da0da78bca209369c93314de8be1bb57502b03d112a1756ff3db",
+    "derivation": "derived",
+    "verification": "exact",
+    "annotations": [],
+    "metadata": {
+      "schema_version": "mind-read/v1",
+      "read_id": "b857dd42-7a4a-4aa0-a6a4-5df7faa6d3ee",
+      "backend_availability": "partial",
+      "source_snapshot": "fp-P2:developer_knowledge_v10",
+      "index_snapshot": "developer_knowledge_v10",
+      "graph_snapshot": null,
+      "privacy_scope": "owner-private",
+      "sources": [
+        {
+          "source_id": "book:postgresql-14-internals",
+          "source_revision": "sha256:24a45a72b70e50d39d6489efd6c2582806a5cb22a2fa15bfd8bb7f696c59c59b",
+          "source_hash": "24a45a72b70e50d39d6489efd6c2582806a5cb22a2fa15bfd8bb7f696c59c59b",
+          "privacy_scope": "owner-private",
+          "producing_revision": "frozen-text-sha256:bc1989e37312da0da78bca209369c93314de8be1bb57502b03d112a1756ff3db",
+          "returned_text_hash": "bc1989e37312da0da78bca209369c93314de8be1bb57502b03d112a1756ff3db",
+          "locator": {
+            "chunk_id": "postgresql-14-internals-p6-c4",
+            "kind": "legacy-chunk",
+            "page_mapping": "not found",
+            "parent_id": "postgresql-14-internals-p6"
+          }
+        }
+      ],
+      "legacy_character_truncation": false,
+      "budget_truncation": false,
+      "omitted_count": 0,
+      "cursor": null,
+      "errors": [
+        {
+          "code": "not_found",
+          "message": "not found: locator not found: chunk ID is missing from current source chunks",
+          "retryable": false,
+          "retry_after_ms": null
+        }
+      ],
+      "budget": null
+    }
+  },
+  {
+    "schema_version": "mind/evidence-read@1",
+    "evidence_id": "postgresql-14-internals-p110-c2",
+    "source_id": "book:postgresql-14-internals",
+    "source_revision": "sha256:24a45a72b70e50d39d6489efd6c2582806a5cb22a2fa15bfd8bb7f696c59c59b",
+    "source_hash": "24a45a72b70e50d39d6489efd6c2582806a5cb22a2fa15bfd8bb7f696c59c59b",
+    "privacy_scope": "owner-private",
+    "selected_snapshot": "fp-P2:developer_knowledge_v10",
+    "producing_revision": "frozen-text-sha256:4ca709612d5651efba9cc7c2d4e16c6d6b087cee419f275da143c2f2c2c190fe",
+    "locator": {
+      "chunk_id": "postgresql-14-internals-p110-c2",
+      "kind": "legacy-chunk",
+      "page_mapping": "not found",
+      "parent_id": "postgresql-14-internals-p110"
+    },
+    "content": "AER OVB\nAER OVB\n\nSVO\nSVO\n\nAER DME\nAER DME\n\nKZN OVB\nKZN OVB\n\nOVB\nOVB\n\nROV\nROV\n\nSVO\nSVO\n\nSVO TJM\nSVO TJM\n\n2\n\n1\n\nAER\nAER\n\n0\n\nBZK\nBZK\n\nDME\nDME\n\nDME\nDME\n\nHMA\nHMA\n\nKJA\nKJA\n\nKZN\nKZN\n\nKZN\nKZN\n\nLED\nLED\n\nNUX\nNUX\n\nOVB\nOVB\n\nOVB\nOVB\n\nOVS\nOVS\n\nPEE\nPEE\n\nROV\nROV\n\nROV\nROV\n\nRTW\nRTW\n\nSGC\nSGC\n\nSVO\nSVO\n\nTJM\nTJM\n\nVKO\nVKO\n\nSVO\nSVO\n\nSVX\nSVX\n\nTJM\nTJM\n\nData layout in index pages is a bit different from what we have seen so far. All the pages,\nexcept the rightmost ones at each level, contain an additional “high key,” which is guar-\nanteed to be not smaller than any key in this page. In the above diagram high keys are\nhighlighted.",
+    "content_sha256": "4ca709612d5651efba9cc7c2d4e16c6d6b087cee419f275da143c2f2c2c190fe",
+    "derivation": "derived",
+    "verification": "exact",
+    "annotations": [],
+    "metadata": {
+      "schema_version": "mind-read/v1",
+      "read_id": "4933d473-c05c-4a3c-91a6-913698d0d012",
+      "backend_availability": "partial",
+      "source_snapshot": "fp-P2:developer_knowledge_v10",
+      "index_snapshot": "developer_knowledge_v10",
+      "graph_snapshot": null,
+      "privacy_scope": "owner-private",
+      "sources": [
+        {
+          "source_id": "book:postgresql-14-internals",
+          "source_revision": "sha256:24a45a72b70e50d39d6489efd6c2582806a5cb22a2fa15bfd8bb7f696c59c59b",
+          "source_hash": "24a45a72b70e50d39d6489efd6c2582806a5cb22a2fa15bfd8bb7f696c59c59b",
+          "privacy_scope": "owner-private",
+          "producing_revision": "frozen-text-sha256:4ca709612d5651efba9cc7c2d4e16c6d6b087cee419f275da143c2f2c2c190fe",
+          "returned_text_hash": "4ca709612d5651efba9cc7c2d4e16c6d6b087cee419f275da143c2f2c2c190fe",
+          "locator": {
+            "chunk_id": "postgresql-14-internals-p110-c2",
+            "kind": "legacy-chunk",
+            "page_mapping": "not found",
+            "parent_id": "postgresql-14-internals-p110"
+          }
+        }
+      ],
+      "legacy_character_truncation": false,
+      "budget_truncation": false,
+      "omitted_count": 0,
+      "cursor": null,
+      "errors": [
+        {
+          "code": "not_found",
+          "message": "drifted: source drifted: current chunk text differs from frozen Qdrant payload",
+          "retryable": false,
+          "retry_after_ms": null
+        }
+      ],
+      "budget": null
+    }
+  },
+  {
+    "schema_version": "mind/evidence-read@1",
+    "evidence_id": "postgresql-14-internals-p140",
+    "source_id": "book:postgresql-14-internals",
+    "source_revision": "sha256:24a45a72b70e50d39d6489efd6c2582806a5cb22a2fa15bfd8bb7f696c59c59b",
+    "source_hash": "24a45a72b70e50d39d6489efd6c2582806a5cb22a2fa15bfd8bb7f696c59c59b",
+    "privacy_scope": "owner-private",
+    "selected_snapshot": "fp-P2:developer_knowledge_v10",
+    "producing_revision": "frozen-text-sha256:efcdd71578abce3016be4b1153fdf66a9c3dac4a6568f58b34c7e6fdc4af6723",
+    "locator": {
+      "chunk_id": "postgresql-14-internals-p140",
+      "kind": "legacy-chunk",
+      "page_mapping": "not found",
+      "parent_id": "postgresql-14-internals-p140"
+    },
+    "content": "Do not get intimi- dated by its complexity: simply try it out. Open source is a great advantage, so take this opportunity.\n\nI will be happy to get your feedback; you can send your comments and suggestions to\nedu@postgrespro.ru. I am going to update the book regularly, so it can really help me\nimprove its future editions. The latest online version of the book is available for free at\npostgrespro.com/community/books/internals.\n\nGood luck!\n\n540\n\n\fIndex\n\nA\nAborting transactions 72, 76, 78, 219,\n\nautovacuum_freeze_max_age 127,\n\n131–132\n\n236\n\nAccess method\n\nindex 313, 365\nproperties 322\ntable 294\nAggregate 298–299\nAggregation 298, 303\nhashing 384, 402\nsorting 402\n\nAlignment 65\nAnalysis 109, 271, 341, 412\nAnomaly\n\ndirty read 40, 42, 45\nlost update 41, 50–51\nnon-repeatable read 42, 46, 52\nphantom read 42, 52, 235\nread skew 48, 50, 53\nread-only transaction 56, 59, 235\nwrite skew 55, 58, 235\n\nAppend 385\nArray 471, 508, 516\n“Asterisk,” the reasons not to use it 32,\n\n369, 399\nAtomicity 40, 78\nautoprewarm leader 161–163\nautoprewarm worker 163\nautosummarize 523\nautovacuum 110\nautovacuum launcher 110–111\nautovacuum worker 110\nautovacuum_analyze_scale_factor 113\nautovacuum_analyze_threshold 113\nautovacuum_enabled 103, 111\n\nautovacuum_freeze_min_age 132\nautovacuum_freeze_table_age 132\nautovacuum_max_workers 110, 118, 122\nautovacuum_multixact_freeze_max_age\n\n215\n\nautovacuum_naptime 110–111\nautovacuum_vacuum_cost_delay 118,\n\n122, 132\n\nautovacuum_vacuum_cost_limit 118, 122\nautovacuum_vacuum_insert_scale_factor\n\n112\n\nautovacuum_vacuum_insert_threshold\n\n112\n\nautovacuum_vacuum_scale_factor\n\n111–112\n\nautovacuum_vacuum_threshold 111–112\nautovacuum_work_mem 111\nautovacuum_freeze_max_age 131\n\nB\nBackend 34\nBackground worker 108, 110, 305\nBackground writing 176\n\nsetup 179\n\nBatch processing 142, 224\nbgwriter 176, 179–181, 194\nbgwriter_delay 179\nbgwriter_lru_maxpages 179, 181\nbgwriter_lru_multiplier 179\nBinding 267\nBison 254\nBitmap 341\n\nNULL values 64\n\nBitmap Heap Scan 289, 341, 344, 346\n\n541\n\n\fIndex\n\nBitmap Index Scan 289, 341, 344, 346,\n\n348\n\nBitmapAnd 343\nBloating 89, 101, 141, 297, 417, 425,\n\n430, 445\n\nBlock see page\nbloom 537\nBloom filter 466, 536\nBox plot 527\nBRIN 517\n\nefficiency factor 527\noperator class 521, 523, 532,\n\n534–535, 537\n\npages 519\nproperties 528\n\nB-tree 421, 459, 492, 494, 511\n\noperator class 432, 496, 524\npages 426\nproperties 441\n\nbtree_gin 511\nbtree_gist 459, 471\nBuffer cache 34, 147, 165, 170, 241, 296,\n\n314, 335\nconfiguration 158\neviction 154\nlocal 163, 311\nBuffer pin 148, 151, 242\nBuffer ring 156, 296\n\nC\nCardinality 262, 271, 335\n\njoin 356\n\nCartesian product 350, 352\nCheckpoint 170, 186\nmonitoring 179\nsetup 177\n\ncheckpoint_completion_target 177–178\ncheckpointer 170–171, 176, 178–181,\n\n186\n\ncheckpoint_timeout 177–178, 180\ncheckpoint_warning 179\n\n542\n\nclient_encoding 507\nCLOG 70, 132, 165, 167, 170\nCluster 20\nCmin and cmax 86\nCollation 317, 433, 487\nCombo-identifier 86\nCommit 70, 167, 219\n\nasynchronous 183\nsynchronous 182\n\ncommit_delay 183\ncommit_siblings 183\nConsistency 39–40\nCorrelated predicates 263, 289\nCorrelation 284, 331, 340, 517, 525, 534\nCost 258, 262, 264\ncpu_index_tuple_cost 333\ncpu_operator_cost 299, 333, 370, 389,\n\n394, 402\n\ncpu_tuple_cost 298–299, 333, 360,\n\n370–371, 389, 394\n\nCTE Scan 309–310\nCTID 64, 96\ncube 470\nCursor 86, 151, 262, 270, 308\ncursor_tuple_fraction 262, 270\n\nD\nDatabase 20\ndata_checksums 188\nDeadlocks 202, 225, 233\ndeadlock_timeout 226, 233, 243\ndebug_print_parse 255\ndebug_print_plan 257\ndebug_print_rewritten 256\ndeduplicate_items 430\nDeduplication 429, 492\ndefault_statistics_target 272, 279, 283,\n\n292\n\ndefault_table_access_method 294\ndefault_text_search_config 464\ndefault_transaction_isolation 60\n\n\fDemo database 251, 446, 518\nDirty read 42, 45\nDurability 40\n\nE\neffective_cache_size 335–336\neffective_io_concurrency 341\nenable_bitmapscan 334\nenable_hashjoin 390–391\nenable_memoize 361\nenable_mergejoin 362\nenable_parallel_hash 378, 380\nenable_seqscan 229, 334, 509, 535\nEqui-join 350, 382, 388, 411\nEviction 154, 167, 176\nExecution 264, 267\n\nF\nfalse_positive_rate 537\nfastupdate 233, 503\nfdatasync 186\nfillfactor 92–93, 98–99, 125, 127, 135,\n\n236, 413, 446, 474, 531\n\nFinalize Aggregate 304\nFinalize GroupAggregate 404\nFlex 254\nforce_parallel_mode 309\nForeign keys 211, 213, 356\nFork 24\n\nfree space map 26, 92, 102\ninitialization 26\nmain 25, 64, 525\nvisibility map 27, 92, 126, 128, 139,\n\n337\n\nFreezing 124, 139, 152, 215\n\nmanual 132\n\nfrom_collapse_limit 259–260\nfsync 186–187\nFull page image 174\nfull_page_writes 189, 191\nFull-text search 462\n\nIndex\n\nindexing 463, 493\npartial 498\nphrase 506\nranking 506\n\nfuzzystrmatch 490\n\nG\nGather 300–304, 309, 401\nGather Merge 401–402\ngeqo 261\ngeqo_threshold 261\nGetting the result 270\ngevel 448, 478\nGIN 492\n\ndeferred update 233\nfast update 503\noperator class 493, 496, 508, 511\npages 494\nproperties 505\ngin_fuzzy_search_limit 504\ngin_pending_list_limit 503\nGiST 444, 533\n\noperator class 445, 448, 535\npages 447\nproperties 459, 469\n\nGroupAggregate 403\nGrouping 384, 403\n\nH\nHash 367, 370, 374, 411\noperator class 417\npage 412\nproperties 418\n\nHash Join 367, 369–370, 374\nHash table 149, 241–242, 360, 367, 411\nHashAggregate 384–385\nhash_mem_multiplier 360, 368, 379, 385\nHeader\n\npage 62, 104\nrow version 64\ntuple 210\n\n543\n\n\fIndex\n\nHigh key 426, 428, 494\nHint bits see information bits\nHistogram 279\nHorizon 87–88, 92, 104, 141, 338\nHOT updates 96, 430\nhstore 471, 516",
+    "content_sha256": "efcdd71578abce3016be4b1153fdf66a9c3dac4a6568f58b34c7e6fdc4af6723",
+    "derivation": "derived",
+    "verification": "exact",
+    "annotations": [],
+    "metadata": {
+      "schema_version": "mind-read/v1",
+      "read_id": "1e7efec7-a69c-42ef-87d5-28c004c8bc0e",
+      "backend_availability": "partial",
+      "source_snapshot": "fp-P2:developer_knowledge_v10",
+      "index_snapshot": "developer_knowledge_v10",
+      "graph_snapshot": null,
+      "privacy_scope": "owner-private",
+      "sources": [
+        {
+          "source_id": "book:postgresql-14-internals",
+          "source_revision": "sha256:24a45a72b70e50d39d6489efd6c2582806a5cb22a2fa15bfd8bb7f696c59c59b",
+          "source_hash": "24a45a72b70e50d39d6489efd6c2582806a5cb22a2fa15bfd8bb7f696c59c59b",
+          "privacy_scope": "owner-private",
+          "producing_revision": "frozen-text-sha256:efcdd71578abce3016be4b1153fdf66a9c3dac4a6568f58b34c7e6fdc4af6723",
+          "returned_text_hash": "efcdd71578abce3016be4b1153fdf66a9c3dac4a6568f58b34c7e6fdc4af6723",
+          "locator": {
+            "chunk_id": "postgresql-14-internals-p140",
+            "kind": "legacy-chunk",
+            "page_mapping": "not found",
+            "parent_id": "postgresql-14-internals-p140"
+          }
+        }
+      ],
+      "legacy_character_truncation": false,
+      "budget_truncation": false,
+      "omitted_count": 0,
+      "cursor": null,
+      "errors": [
+        {
+          "code": "not_found",
+          "message": "drifted: source drifted: current chunk text differs from frozen Qdrant payload",
+          "retryable": false,
+          "retry_after_ms": null
+        }
+      ],
+      "budget": null
+    }
+  },
+  {
+    "schema_version": "mind/evidence-read@1",
+    "evidence_id": "original-library.vi-p0-c0",
+    "source_id": "philosophy:original-library.vi",
+    "source_revision": "sha256:aa44cc3767d37c1c6a4fe6db553da80847461ba3f1a25839e360e18cee5ee724",
+    "source_hash": "aa44cc3767d37c1c6a4fe6db553da80847461ba3f1a25839e360e18cee5ee724",
+    "privacy_scope": "owner-private",
+    "selected_snapshot": "fp-P2:philosophy",
+    "producing_revision": "frozen-text-sha256:302f28a26542157a3ab822ab321d8af9bbddd629f9779e6958b0319b585a8ab2",
+    "locator": {
+      "end_line": 17,
+      "kind": "markdown-lines",
+      "path": "data/markdown/philosophy/original-library.vi.md",
+      "start_line": 3
+    },
+    "content": "System directory THƯ VIỆN BẢN NGUYÊN LỜI MỞ ĐẦU Phần 1: Nguồn gốc và Sự kiến tạo Tam giới Tập 1: Bí mật từ thiên cổ Tập 2: Sự thật về nhân loại Tập 3: Vạch trần ma trận Tập 4: Thời khắc hạ màn Tập 5: Thuật toán nền tảng Tập 6: Năm thuật toán \"dùi vào sơ hở\" Tập 7: Lịch sử thực chứng và hướng nội Phần 2: Giải mã nhận thức và các thuật toán niềm tin Tập 1: Tu luyện không phải là Tôn giáo Tập 2: Uống thuốc hay không – Ranh giới nhận thức Tập 3: \"Tôi thấy tận mắt thì tôi mới",
+    "content_sha256": "302f28a26542157a3ab822ab321d8af9bbddd629f9779e6958b0319b585a8ab2",
+    "derivation": "derived",
+    "verification": "exact",
+    "annotations": [],
+    "metadata": {
+      "schema_version": "mind-read/v1",
+      "read_id": "7868c6bc-a619-4f26-9477-5424b5c8e941",
+      "backend_availability": "ready",
+      "source_snapshot": "fp-P2:philosophy",
+      "index_snapshot": "philosophy",
+      "graph_snapshot": null,
+      "privacy_scope": "owner-private",
+      "sources": [
+        {
+          "source_id": "philosophy:original-library.vi",
+          "source_revision": "sha256:aa44cc3767d37c1c6a4fe6db553da80847461ba3f1a25839e360e18cee5ee724",
+          "source_hash": "aa44cc3767d37c1c6a4fe6db553da80847461ba3f1a25839e360e18cee5ee724",
+          "privacy_scope": "owner-private",
+          "producing_revision": "frozen-text-sha256:302f28a26542157a3ab822ab321d8af9bbddd629f9779e6958b0319b585a8ab2",
+          "returned_text_hash": "302f28a26542157a3ab822ab321d8af9bbddd629f9779e6958b0319b585a8ab2",
+          "locator": {
+            "end_line": 17,
+            "kind": "markdown-lines",
+            "path": "data/markdown/philosophy/original-library.vi.md",
+            "start_line": 3
+          }
+        }
+      ],
+      "legacy_character_truncation": false,
+      "budget_truncation": false,
+      "omitted_count": 0,
+      "cursor": null,
+      "errors": [],
+      "budget": null
+    }
+  },
+  {
+    "schema_version": "mind/evidence-read@1",
+    "evidence_id": "3d-data-science-python-p167-c0",
+    "source_id": "book:3d-data-science-python",
+    "source_revision": "sha256:db1210d033e68d6737961c418b604b852dcb930d1e6b414556fb4c881bc37c42",
+    "source_hash": "db1210d033e68d6737961c418b604b852dcb930d1e6b414556fb4c881bc37c42",
+    "privacy_scope": "owner-private",
+    "selected_snapshot": "fp-P2:developer_knowledge_v10",
+    "producing_revision": "frozen-text-sha256:d66e715382a5df0204de4ed9cca2ec57846bbe8f4e851a13254e59b33072e3e8",
+    "locator": {
+      "kind": "legacy-chunk",
+      "chunk_id": "3d-data-science-python-p167-c0",
+      "parent_id": "3d-data-science-python-p167",
+      "page_mapping": "not found"
+    },
+    "content": "This process is bene‐ ficial for creating complex and detailed models that are difficult to model manually, such as natural landscapes, clouds, or fluids: from procedural import mountain_terrain, generate_forest  # Define parameters for a mountainous terrain mountain_params = {\"peak_height\": 2.0, \"valley_depth\": 1.0, \"size\": (20.0, 20.0)}  # Generate a mountain terrain mesh mountain_mesh = mountain_terrain.generate(mountain_params)  # Define parameters for a forest forest_params = {\"tree_type\": \"pine\", \"density\": 50, \"area\": mountain_mesh.bbox}  # Generate a forest on the mountain terrain forest_mesh = generate_forest.generate(forest_params, base_mesh=mountain_mesh)  # Combine and visualize the generated meshes (visualization libraries needed) combined_mesh = mountain_mesh + forest_mesh combined_mesh.visualize() Now that you have a better view of what mesh is, let’s leverage Python to define a high-fidelity meshing workflow. High-Fidelity Meshing  |  319\n\n### The Mission",
+    "content_sha256": "d66e715382a5df0204de4ed9cca2ec57846bbe8f4e851a13254e59b33072e3e8",
+    "derivation": "derived",
+    "verification": "exact",
+    "annotations": [],
+    "metadata": {
+      "schema_version": "mind-read/v1",
+      "read_id": "53b36fae-26b6-4177-a3ac-8881f52d9fcc",
+      "backend_availability": "ready",
+      "source_snapshot": "fp-P2:developer_knowledge_v10",
+      "index_snapshot": "developer_knowledge_v10",
+      "graph_snapshot": null,
+      "privacy_scope": "owner-private",
+      "sources": [
+        {
+          "source_id": "book:3d-data-science-python",
+          "source_revision": "sha256:db1210d033e68d6737961c418b604b852dcb930d1e6b414556fb4c881bc37c42",
+          "source_hash": "db1210d033e68d6737961c418b604b852dcb930d1e6b414556fb4c881bc37c42",
+          "privacy_scope": "owner-private",
+          "producing_revision": "frozen-text-sha256:d66e715382a5df0204de4ed9cca2ec57846bbe8f4e851a13254e59b33072e3e8",
+          "returned_text_hash": "d66e715382a5df0204de4ed9cca2ec57846bbe8f4e851a13254e59b33072e3e8",
+          "locator": {
+            "kind": "legacy-chunk",
+            "chunk_id": "3d-data-science-python-p167-c0",
+            "parent_id": "3d-data-science-python-p167",
+            "page_mapping": "not found"
+          }
+        }
+      ],
+      "legacy_character_truncation": false,
+      "budget_truncation": false,
+      "omitted_count": 0,
+      "cursor": null,
+      "errors": [],
+      "budget": null
+    }
+  }
+]
