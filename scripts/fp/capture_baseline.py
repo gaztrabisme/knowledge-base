@@ -9,7 +9,7 @@ import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 
-from baseline_io import BASE, ROOT, dump, fingerprint, load, local_target, roots, release_models
+from baseline_io import BASE, ROOT, dump, fingerprint, git_fingerprint, load, local_target, roots, release_models
 from validate_contracts import Contracts
 
 
@@ -18,31 +18,49 @@ def artifact(backend, path, location_roots):
     return {'location': {'backend': backend, 'path': path}, **fingerprint(Path(location_roots[backend]) / path)}
 
 
+def capture_source(backend, path, locations, revisions):
+    location_roots = roots(locations)
+    location = {'backend': backend, 'path': path}
+    # Tree membership does not depend on the blob being present. A missing blob is an error.
+    result = subprocess.run(['git', '--literal-pathspecs', 'ls-tree', '-z', revisions[backend], '--', path],
+                            cwd=location_roots[backend], capture_output=True)
+    if result.returncode:
+        raise ValueError(f'missing Git source tree: {backend}:{revisions[backend]}')
+    if result.stdout:
+        return {'location': location, **git_fingerprint(location, locations, revisions[backend]),
+                'verification': 'git'}
+    return {**artifact(backend, path, location_roots), 'verification': 'observation'}
+
+
 def capture(remote_path):
     if (BASE / 'baseline.json').exists():
         raise ValueError('baseline already exists; do not overwrite a frozen record')
     locations = load(BASE / 'locations.json')
     location_roots = roots(locations)
+    revisions = {backend: subprocess.check_output(['git', 'rev-parse', 'HEAD'],
+                 cwd=location_roots[backend], text=True).strip() for backend in ['repo', 'pi-mind']}
+
     remote = load(remote_path)
     local = local_target(locations)
     assert {'alias_name': 'developer_knowledge', 'collection_name': 'developer_knowledge_v10'} in local['aliases']
     now = datetime.now(timezone.utc).isoformat()
     refs = []
     for name in ['design-spec.md', 'product-brief.md']:
-        refs.append(artifact('main-checkout', 'data/intake/kbu-2026-10-07/' + name, location_roots))
+        refs.append({**artifact('main-checkout', 'data/intake/kbu-2026-10-07/' + name, location_roots),
+                     'verification': 'observation'})
     for name in ['CLAUDE.md', 'pyproject.toml', 'knowledge_base/server.py', 'knowledge_base/config.py',
                  'knowledge_base/embedder.py', 'knowledge_base/search.py', 'knowledge_base/index.py',
                  'knowledge_base/chunk.py', 'scripts/eval_retrieval.py', 'scripts/significance.py',
                  'scripts/bench_latency.py', 'scripts/check_catalog.py', 'data/bench/gate-v10.md']:
-        refs.append(artifact('repo', name, location_roots))
+        refs.append(capture_source('repo', name, locations, revisions))
     for name in ['packages/mind-mcp/src/inputs.ts', 'packages/mind-mcp/src/service.ts',
                  'packages/mind-mcp/src/server.ts', 'packages/contracts/src/common.ts',
                  'packages/contracts/src/memory.ts', 'packages/contracts/package.json']:
-        refs.append(artifact('pi-mind', name, location_roots))
+        refs.append(capture_source('pi-mind', name, locations, revisions))
     imports = [p for p in (BASE / 'contracts/v1').glob('*.json') if load(p)['$id'].startswith('urn:pi-mind:')]
     for path in imports:
         for prefix in ['packages/contracts/schemas', 'packages/contracts/test/fixtures']:
-            refs.append(artifact('pi-mind', f'{prefix}/{path.name}', location_roots))
+            refs.append(capture_source('pi-mind', f'{prefix}/{path.name}', locations, revisions))
     decisions = (Path(location_roots['main-checkout']) / 'wiki/decisions.md').read_text()
     block = decisions.split('## Organized mind: product brief and design approved (2026-10-14)', 1)[1].split('\n## ', 1)[0]
     log = (Path(location_roots['main-checkout']) / 'wiki/log.md').read_text().splitlines()
@@ -69,9 +87,10 @@ def capture(remote_path):
         'interpretation': 'Label correspondence by literal token overlap; not a semantic relevance review or a source/locator replacement. Original labels and control stay unchanged. Unmapped parents remain explicit.',
         **remote['redirect']})
     baseline = {'schema_version': 'mind/baseline@1', 'release_id': 'v10-fp-p1', 'captured_at': now,
+                'source_revisions': revisions,
                 'approval_state': 'contracts-pending-review', 'remote': remote, 'mac': local,
                 'local_sources': refs, 'server': {'version': '0.1.0',
-                    'revision': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
+                    'revision': revisions['repo'],
                     'file': next(x for x in refs if x['location']['path'] == 'knowledge_base/server.py')},
                 'runtime_profile': {'dense_model': 'jinaai/jina-embeddings-v5-text-small-retrieval', 'dimension': 1024,
                     'query_role': 'retrieval.query', 'document_role': 'retrieval.passage', 'normalization': 'L2',
@@ -83,17 +102,19 @@ def capture(remote_path):
                     'historical_index_checkpoint_proof': 'not found; single offline M1 cache pins current control models, while data-v10 part hashes preserve the original index bytes'},
                 'validator': {'jsonschema': importlib.metadata.version('jsonschema')},
                 'boundaries': ['bppc has no alias: it is the control mirror, not the approved future infrastructure host',
-                    'mac alias is required to remain developer_knowledge_v10 for this baseline gate',
+                    'physical Mac developer_knowledge_v10 remains strict; the current developer_knowledge alias target is informational',
                     'source file hashes in frozen manifest predate the M1 PostgreSQL restoration; frozen payload/sparse JSONL is the v10 membership authority',
                     'no new benchmark, model loads, GPU usage or promotion by P1']}
     pi_root = Path(location_roots['pi-mind'])
-    pi_revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=pi_root, text=True).strip()
+    pi_revision = revisions['pi-mind']
+    # Release contract file pins retain their SHA-256/size shape; baseline local_sources owns Git policy.
+    file_pin = lambda item: {key: item[key] for key in ['location', 'sha256', 'bytes']}
     baseline['component_pins'] = [
         {'role': 'knowledge-base', 'repository': 'gaztrabisme/knowledge-base', 'revision': baseline['server']['revision'],
-         'dirty': True, 'status': 'included', 'file_pins': [x for x in refs if x['location']['backend'] == 'repo']},
+         'dirty': True, 'status': 'included', 'file_pins': [file_pin(x) for x in refs if x['location']['backend'] == 'repo']},
         {'role': 'harness', 'repository': 'pi-mind', 'revision': pi_revision,
          'dirty': bool(subprocess.check_output(['git', 'status', '--porcelain'], cwd=pi_root, text=True)),
-         'status': 'reference-only', 'file_pins': [x for x in refs if x['location']['backend'] == 'pi-mind']},
+         'status': 'reference-only', 'file_pins': [file_pin(x) for x in refs if x['location']['backend'] == 'pi-mind']},
     ]
     dump(BASE / 'baseline.json', baseline)
     # Lock every schema and fixture, plus registries/provenance and the checking instruments.
@@ -103,9 +124,6 @@ def capture(remote_path):
         ROOT / 'tests/test_fp_baseline.py', ROOT / '.gitignore'])
     dump(BASE / 'contracts-lock.json', {'schema_version': 'mind/contracts-lock@1',
          'artifacts': [artifact('repo', p.relative_to(ROOT), location_roots) for p in locked_paths]})
-    kb_revision = baseline['server']['revision']
-    pi_root = Path(location_roots['pi-mind'])
-    pi_revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=pi_root, text=True).strip()
     release = {'schema_version': 'mind/tested-release@1', 'release_id': 'data-v10-fp-baseline', 'created_at': now,
         'deployment_state': 'baseline-only', 'privacy_scope': 'owner-private',
         'baseline': artifact('repo', 'data/baseline/baseline.json', location_roots),

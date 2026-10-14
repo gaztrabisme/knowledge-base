@@ -14,8 +14,8 @@
         "backend": "repo",
         "path": "data/baseline/CONTRACTS.md"
       },
-      "sha256": "0acb110f38d0d77ae8854dd61d10d13b06da7af1dca7edfe42c3f294d6f2ed29",
-      "bytes": 4748
+      "sha256": "c5f5b10a9d85032612ef0a0f4320faf8f4ac0d7f682c15fc81e8302e4c88bf91",
+      "bytes": 5233
     },
     {
       "location": {
@@ -1526,8 +1526,8 @@
         "backend": "repo",
         "path": "scripts/fp/baseline_io.py"
       },
-      "sha256": "8fa65c4aa9f9574bfcd4d9f8444b734e8b2c327835153751585f916d1929d7ee",
-      "bytes": 5815
+      "sha256": "11b499562a96235de11561a3eb0f44d305ee01c8faa54b29fa9e3e12b2995307",
+      "bytes": 8350
     },
     {
       "location": {
@@ -1542,8 +1542,8 @@
         "backend": "repo",
         "path": "scripts/fp/capture_baseline.py"
       },
-      "sha256": "32d153b6e09fdcade4b307d55d77af48b2447ab5e8ae6e7bfad8568e4f0c27da",
-      "bytes": 12007
+      "sha256": "0d2c82381d08da2acac3ae374c53cbf29aab84523f8429f7ea055e7bfb39b914",
+      "bytes": 13049
     },
     {
       "location": {
@@ -1558,16 +1558,16 @@
         "backend": "repo",
         "path": "scripts/fp/check_baseline.py"
       },
-      "sha256": "5c96c664fd09c42ee1b6724db4e51130b082a0411b4f963c33e93acc8980e01e",
-      "bytes": 6396
+      "sha256": "649aaa2f7c22b20439a073dd7f9a2dbcfae3a7aab295e30fcf531f1c5baf6f52",
+      "bytes": 8033
     },
     {
       "location": {
         "backend": "repo",
         "path": "scripts/fp/refresh_contract_lock.py"
       },
-      "sha256": "56c9ce7f48ba4563af58646b5e845eae8c2fd5e137aa27b4257380a60c22ee08",
-      "bytes": 2116
+      "sha256": "bbe7e445e96f933bca3e50222ebc2e89f6ddd1e0c50a17272741750084057067",
+      "bytes": 2201
     },
     {
       "location": {
@@ -1598,8 +1598,8 @@
         "backend": "repo",
         "path": "tests/test_fp_baseline.py"
       },
-      "sha256": "e14328cca035401d55abeade49a3530ad7c035a7ac4ab240df037371f02adc1c",
-      "bytes": 9347
+      "sha256": "1ea9ccf02a6f89869b894dd71315901dc6ec96bcf47786fccdd665276ffac3fb",
+      "bytes": 22144
     }
   ]
 }

@@ -4,7 +4,8 @@ import os
 import sys
 from pathlib import Path
 
-from baseline_io import BASE, ROOT, compare, fingerprint, load, local_target, remote_target, resolve, roots, release_models
+from baseline_io import (BASE, ROOT, compare, fingerprint, git_fingerprint, load, local_target,
+                         remote_target, roots, release_models, verify_artifact, verify_source)
 from validate_contracts import Contracts
 
 
@@ -45,6 +46,29 @@ def verify_approval(locations):
         raise ValueError('referenced log lines 241-242 are missing/changed')
 
 
+def verify_pi_copies(schemas, baseline, locations):
+    sources = {(item['location']['backend'], item['location']['path']): item
+               for item in baseline['local_sources']}
+    for name, schema in schemas.items():
+        if schema['$id'].startswith('urn:pi-mind:'):
+            for source, local in [('schemas', 'contracts/v1'), ('test/fixtures', 'fixtures/v1')]:
+                path = f'packages/contracts/{source}/{name}.json'
+                record = sources[('pi-mind', path)]
+                compare(f'pi-mind imported source policy: {path}', 'git', record['verification'])
+                frozen = git_fingerprint(record['location'], locations, baseline['source_revisions']['pi-mind'])
+                compare(f'pi-mind copy equality: {name}/{source}',
+                        {key: frozen[key] for key in ['sha256', 'bytes']},
+                        fingerprint(BASE / local / f'{name}.json'))
+
+
+def verify_mac_target(expected, observed):
+    compare('Mac physical collection', expected['collection'], observed.get('collection'))
+    compare('Mac versions', expected['machine'], observed['machine'])
+    targets = [item['collection_name'] for item in observed['aliases']
+               if item['alias_name'] == 'developer_knowledge']
+    print(f'INFO: alias now -> {", ".join(targets) if targets else "(absent)"}', flush=True)
+
+
 def check():
     locations = load(BASE / 'locations.json')
     baseline = load(BASE / 'baseline.json')
@@ -53,6 +77,11 @@ def check():
     endpoint = os.environ.get('FP_QDRANT_URL', locations['mac_qdrant_url'])
     hosts = [os.environ['FP_BPPC_HOST']] if os.environ.get('FP_BPPC_HOST') else locations['bppc_hosts']
     print(f'Inputs: {BASE}; roots={roots(locations)}; Mac Qdrant {endpoint}; bppc hosts={hosts}', flush=True)
+    revisions = baseline['source_revisions']
+    compare('baseline repo commit', baseline['server']['revision'], revisions['repo'])
+    harness = next(item for item in baseline['component_pins'] if item['role'] == 'harness')
+    compare('baseline pi-mind commit', harness['revision'], revisions['pi-mind'])
+    print(f'Frozen source commits: repo={revisions["repo"]}; pi-mind={revisions["pi-mind"]}', flush=True)
     compare('validator.jsonschema', baseline['validator']['jsonschema'], importlib.metadata.version('jsonschema'))
     pack = Contracts()
     cases = pack.fixtures()
@@ -66,26 +95,27 @@ def check():
                             if entry['location']['path'].startswith('data/baseline/fixtures/v1/')}
     actual_fixture_paths = {str(path.relative_to(ROOT)) for path in (BASE / 'fixtures/v1').glob('*.json')}
     compare('fixture inventory', sorted(locked_fixture_paths), sorted(actual_fixture_paths))
+    sources = {(item['location']['backend'], item['location']['path']): item
+               for item in baseline['local_sources']}
     seen = {}
     def verify(artifact, remote=None):
         location = artifact['location']
         key = (location['backend'], location['path'])
-        if key not in seen:
-            if key[0] == 'bppc':
-                if remote is None:
-                    raise ValueError('remote evidence required')
-                actual = remote['files'].get(key[1])
-            else:
-                actual = fingerprint(resolve(location, locations))
-            seen[key] = actual
-        compare(f'artifact {key[0]}:{key[1]}', {k: artifact[k] for k in ['sha256', 'bytes']}, seen[key])
+        expected = {k: artifact[k] for k in ['sha256', 'bytes']}
+        if key in seen:
+            compare(f'artifact {key[0]}:{key[1]}', expected, seen[key])
+            return
+        if key in sources:
+            source = sources[key]
+            compare(f'source reference {key[0]}:{key[1]}',
+                    {k: source[k] for k in ['sha256', 'bytes']}, expected)
+            verify_source(source, locations, revisions)
+        else:
+            verify_artifact(artifact, locations, remote)
+        seen[key] = expected
     for item in lock['artifacts']:
         verify(item)
-    for name, schema in pack.schemas.items():
-        if schema['$id'].startswith('urn:pi-mind:'):
-            for source, local in [('schemas', 'contracts/v1'), ('test/fixtures', 'fixtures/v1')]:
-                upstream = {'backend': 'pi-mind', 'path': f'packages/contracts/{source}/{name}.json'}
-                compare(f'pi-mind copy equality: {name}/{source}', fingerprint(resolve(upstream, locations)), fingerprint(BASE / local / f'{name}.json'))
+    verify_pi_copies(pack.schemas, baseline, locations)
     verify(release['baseline'])
     verify(release['contract_inventory'])
     for item in baseline['local_sources']:
@@ -93,8 +123,8 @@ def check():
     verify_approval(locations)
     print(f'PASS: {len(pack.schemas)} schemas, 32 tool pairs, {cases} fixtures; local source/release hashes', flush=True)
     observed_mac = local_target(locations)
-    compare('Mac live alias/collection/versions', baseline['mac'], observed_mac)
-    print('PASS: Mac developer_knowledge -> developer_knowledge_v10 (330778 points, 1024 dimensions)', flush=True)
+    verify_mac_target(baseline['mac'], observed_mac)
+    print('PASS: Mac physical developer_knowledge_v10 (330778 points, 1024 dimensions, BM25 idf); versions', flush=True)
     print('Reading bppc frozen payloads, sparse fingerprints, models and 438/199/30 controls (no model execution)...', flush=True)
     observed_remote = remote_target(locations)
     compare('bppc frozen evidence/collection/versions', baseline['remote'], observed_remote)

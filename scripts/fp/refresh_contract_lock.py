@@ -1,7 +1,8 @@
 """Refresh only the reviewed draft contract/instrument lock; never recapture sources.
 
 Use after editing the P1 draft. check-baseline.sh never calls this builder. Any
-source drift still fails against the unchanged frozen baseline observations.
+frozen Git sources and immutable artifacts still fail on hash mismatches; mutable
+source drift is informational. Frozen source observations are never recaptured.
 """
 from baseline_io import BASE, ROOT, dump, fingerprint, load
 

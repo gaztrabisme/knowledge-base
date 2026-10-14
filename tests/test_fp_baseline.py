@@ -1,15 +1,20 @@
 """Failure discrimination for the P1 gate; no SSH, Qdrant or model calls."""
 import json
 import copy
+import contextlib
+import io
+import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts/fp'))
-from baseline_io import BASE, compare, fingerprint, resolve, verify_artifact
+from baseline_io import BASE, compare, dump, fingerprint, load, resolve, verify_artifact, verify_source
 from validate_contracts import Contracts
-from check_baseline import validate_release_pins
+from check_baseline import check, validate_release_pins, verify_mac_target, verify_pi_copies
+from capture_baseline import capture_source
 
 
 class BaselineFailureTests(unittest.TestCase):
@@ -45,11 +50,7 @@ class BaselineFailureTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'missing/changed'):
             verify_artifact(record, {}, remote)
 
-    def test_alias_retarget_and_point_membership_drift_fail(self):
-        expected = {'alias_name': 'developer_knowledge', 'collection_name': 'developer_knowledge_v10'}
-        changed = {**expected, 'collection_name': 'gemma-candidate'}
-        with self.assertRaisesRegex(ValueError, 'collection_name'):
-            compare('live alias', expected, changed)
+    def test_point_membership_drift_fails(self):
         with self.assertRaisesRegex(ValueError, 'membership'):
             compare('membership', 330778, 330777)
 
@@ -163,6 +164,228 @@ class BaselineFailureTests(unittest.TestCase):
         request['schema_version'] = 'mind-tool-request/v99'
         with self.assertRaises(ValueError):
             self.contracts.validate('request.source_read', request)
+
+
+class FrozenSourceTests(unittest.TestCase):
+    def setUp(self):
+        self.folder = tempfile.TemporaryDirectory()
+        self.addCleanup(self.folder.cleanup)
+        self.root = Path(self.folder.name)
+        self.locations = {'roots': {'repo': str(self.root), 'main-checkout': str(self.root),
+                                    'pi-mind': str(self.root)}}
+        self.git('init', '-q')
+        self.git('config', 'user.name', 'Baseline test')
+        self.git('config', 'user.email', 'baseline@example.invalid')
+        self.git('config', 'commit.gpgsign', 'false')
+        self.path = self.root / 'knowledge_base/config.py'
+        self.path.parent.mkdir()
+        self.path.write_text('DIMENSION = 1024\n')
+        self.git('add', 'knowledge_base/config.py')
+        self.git('-c', 'core.hooksPath=/dev/null', 'commit', '-qm', 'Frozen baseline')
+        self.commit = self.git('rev-parse', 'HEAD')
+        self.revisions = {'repo': self.commit, 'pi-mind': self.commit}
+        self.record = {'location': {'backend': 'repo', 'path': 'knowledge_base/config.py'},
+                       **fingerprint(self.path), 'verification': 'git',
+                       'git_blob': self.git('rev-parse', 'HEAD:knowledge_base/config.py')}
+
+    def git(self, *args):
+        return subprocess.check_output(['git', *args], cwd=self.root, stderr=subprocess.PIPE,
+                                       text=True).strip()
+
+    def verify(self, record=None):
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output):
+            verify_source(record or self.record, self.locations, self.revisions)
+        return output.getvalue()
+
+    def test_modified_working_tree_config_passes_with_information(self):
+        self.path.write_text('DIMENSION = 768\n')
+        self.assertIn('INFO: repo:knowledge_base/config.py: changed since baseline', self.verify())
+
+    def test_later_commit_and_missing_working_tree_source_do_not_change_pin(self):
+        self.path.write_text('DIMENSION = 768\n')
+        self.git('add', 'knowledge_base/config.py')
+        self.git('-c', 'core.hooksPath=/dev/null', 'commit', '-qm', 'Future change')
+        self.assertIn('changed since baseline', self.verify())
+        self.path.unlink()
+        self.assertIn('changed since baseline', self.verify())
+
+    def test_changed_blob_id_sha256_or_byte_count_in_record_fails(self):
+        for field, value in [('git_blob', 'f' * 40), ('sha256', 'f' * 64), ('bytes', 1)]:
+            with self.subTest(field=field):
+                changed = {**self.record, field: value}
+                with self.assertRaisesRegex(ValueError, 'changed baseline'):
+                    self.verify(changed)
+
+    def test_missing_baseline_commit_fails(self):
+        self.revisions['repo'] = 'f' * 40
+        with self.assertRaisesRegex(ValueError, 'missing Git'):
+            self.verify()
+
+    def test_capture_missing_git_blob_or_commit_cannot_become_observation(self):
+        self.assertEqual(capture_source('repo', 'knowledge_base/config.py', self.locations, self.revisions),
+                         self.record)
+        blob = self.record['git_blob']
+        (self.root / '.git/objects' / blob[:2] / blob[2:]).unlink()
+        with self.assertRaisesRegex(ValueError, 'missing Git'):
+            capture_source('repo', 'knowledge_base/config.py', self.locations, self.revisions)
+        self.revisions['repo'] = 'f' * 40
+        with self.assertRaisesRegex(ValueError, 'missing Git'):
+            capture_source('repo', 'knowledge_base/config.py', self.locations, self.revisions)
+
+    def test_capture_observation_requires_path_absent_from_git_tree(self):
+        path = self.root / 'draft.md'
+        path.write_text('What P1 read\n')
+        record = capture_source('repo', path.name, self.locations, self.revisions)
+        self.assertEqual(record['verification'], 'observation')
+        self.assertEqual({k: record[k] for k in ['sha256', 'bytes']}, fingerprint(path))
+        path.write_text('Future draft\n')
+        self.assertIn('changed since baseline', self.verify(record))
+
+    def test_edited_uncommitted_document_is_informational_and_keeps_observation(self):
+        path = self.root / 'design-spec.md'
+        path.write_text('What P1 read\n')
+        record = {'location': {'backend': 'main-checkout', 'path': path.name},
+                  **fingerprint(path), 'verification': 'observation'}
+        frozen = copy.deepcopy(record)
+        self.assertIn('unchanged', self.verify(record))
+        path.write_text('Next design revision\n')
+        self.assertIn('INFO: main-checkout:design-spec.md: changed since baseline', self.verify(record))
+        path.unlink()
+        self.assertIn('changed since baseline', self.verify(record))
+        self.assertEqual(record, frozen)
+
+    def test_uncommitted_repo_document_is_also_informational(self):
+        path = self.root / 'draft.md'
+        path.write_text('What P1 read\n')
+        record = {'location': {'backend': 'repo', 'path': path.name},
+                  **fingerprint(path), 'verification': 'observation'}
+        path.write_text('Next draft\n')
+        self.assertIn('changed since baseline', self.verify(record))
+
+    def test_changed_release_manifest_or_part_fails(self):
+        for name in ['dist/release/manifest.json', 'dist/release/kb-core.part00']:
+            with self.subTest(path=name):
+                path = self.root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(b'frozen release bytes')
+                record = {'location': {'backend': 'main-checkout', 'path': name},
+                          **fingerprint(path), 'verification': 'strict'}
+                self.verify(record)
+                path.write_bytes(b'changed release bytes')
+                with self.assertRaisesRegex(ValueError, 'missing/changed'):
+                    self.verify(record)
+
+    def test_pi_mind_drift_passes_but_copies_must_match_pinned_commit(self):
+        base = self.root / 'baseline'
+        records = []
+        for upstream, local in [('schemas', 'contracts/v1'), ('test/fixtures', 'fixtures/v1')]:
+            name = f'packages/contracts/{upstream}/memory-record.json'
+            path = self.root / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text('{"frozen":true}\n')
+            target = base / local / path.name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(path.read_bytes())
+            records.append({'location': {'backend': 'pi-mind', 'path': name},
+                            **fingerprint(path), 'verification': 'git'})
+            self.git('add', name)
+        self.git('-c', 'core.hooksPath=/dev/null', 'commit', '-qm', 'W1 contracts')
+        self.revisions['pi-mind'] = self.git('rev-parse', 'HEAD')
+        for record in records:
+            name = record['location']['path']
+            record['git_blob'] = self.git('rev-parse', f'HEAD:{name}')
+            (self.root / name).write_text('{"future":true}\n')
+            self.assertIn('INFO: pi-mind:', self.verify(record))
+        schemas = {'memory-record': {'$id': 'urn:pi-mind:memory-record@1'}}
+        baseline = {'local_sources': records, 'source_revisions': self.revisions}
+        with patch('check_baseline.BASE', base):
+            verify_pi_copies(schemas, baseline, self.locations)
+            (base / 'contracts/v1/memory-record.json').write_text('{"future":true}\n')
+            with self.assertRaisesRegex(ValueError, 'pi-mind copy equality'):
+                verify_pi_copies(schemas, baseline, self.locations)
+
+    def test_full_checker_uses_source_policies_for_release_references_too(self):
+        base = self.root / 'data/baseline'
+        baseline = load(BASE / 'baseline.json')
+        release = load(BASE / 'tested-release-v10.json')
+        path = self.root / 'design-spec.md'
+        path.write_text('What P1 read\n')
+        document = {'location': {'backend': 'main-checkout', 'path': path.name},
+                    **fingerprint(path), 'verification': 'observation'}
+        part_path = self.root / 'dist/release/kb-core.part00'
+        part_path.parent.mkdir(parents=True)
+        part_path.write_bytes(b'frozen release')
+        part = {'location': {'backend': 'main-checkout', 'path': 'dist/release/kb-core.part00'},
+                **fingerprint(part_path)}
+        baseline['source_revisions'] = self.revisions
+        baseline['server']['revision'] = self.commit
+        baseline['local_sources'] = [self.record, document, part]
+        baseline['component_pins'] = [{'role': 'knowledge-base', 'revision': self.commit,
+                                      'file_pins': [{k: self.record[k] for k in ['location', 'sha256', 'bytes']}]},
+                                     {'role': 'harness', 'revision': self.commit, 'file_pins': []}]
+        release = {k: release[k] for k in ['routing', 'models', 'deployment_state']}
+        release.update(components=baseline['component_pins'], data_parts=[part])
+        dump(base / 'baseline.json', baseline)
+        dump(base / 'contracts-lock.json', {'artifacts': []})
+        for field, name in [('baseline', 'baseline.json'), ('contract_inventory', 'contracts-lock.json')]:
+            release[field] = {'location': {'backend': 'repo', 'path': 'data/baseline/' + name},
+                              **fingerprint(base / name)}
+        dump(base / 'tested-release-v10.json', release)
+        dump(base / 'locations.json', {**self.locations, 'mac_qdrant_url': 'http://test.invalid',
+                                       'bppc_hosts': ['test.invalid']})
+        dump(base / 'redirects-m1c.json', {})
+        observed_mac = copy.deepcopy(baseline['mac'])
+        observed_mac['aliases'][0]['collection_name'] = 'developer_knowledge_v11'
+        self.path.write_text('DIMENSION = 768\n')
+        path.write_text('Future design\n')
+        output = io.StringIO()
+        with patch('check_baseline.BASE', base), patch('check_baseline.ROOT', self.root), \
+             patch('check_baseline.Contracts') as contracts, patch('check_baseline.verify_approval'), \
+             patch('check_baseline.local_target', return_value=observed_mac), \
+             patch('check_baseline.remote_target', return_value=baseline['remote']), \
+             contextlib.redirect_stdout(output):
+            contracts.return_value.schemas = {}
+            contracts.return_value.fixtures.return_value = 0
+            check()
+            part_path.write_bytes(b'changed release')
+            with self.assertRaisesRegex(ValueError, 'missing/changed artifact'):
+                check()
+        for line in ['repo:knowledge_base/config.py: changed since baseline',
+                     'main-checkout:design-spec.md: changed since baseline',
+                     'alias now -> developer_knowledge_v11', 'PASS: FP P1 mechanical baseline gate']:
+            self.assertIn(line, output.getvalue())
+
+
+class PhysicalCollectionTests(unittest.TestCase):
+    def setUp(self):
+        self.expected = {'aliases': [{'alias_name': 'developer_knowledge',
+                                     'collection_name': 'developer_knowledge_v10'}],
+                         'collection': {'name': 'developer_knowledge_v10', 'points_count': 330778,
+                                        'config': {'params': {'vectors': {'size': 1024, 'distance': 'Cosine'},
+                                                              'sparse_vectors': {'bm25': {'modifier': 'idf'}}}}},
+                         'machine': {'qdrant': {'version': '1.18.2'}}}
+
+    def test_alias_moves_or_disappears_without_failing_physical_collection_gate(self):
+        for aliases, target in [([{'alias_name': 'developer_knowledge',
+                                  'collection_name': 'developer_knowledge_v11'}], 'developer_knowledge_v11'),
+                                ([], '(absent)')]:
+            observed = {**self.expected, 'aliases': aliases}
+            output = io.StringIO()
+            with contextlib.redirect_stdout(output):
+                verify_mac_target(self.expected, observed)
+            self.assertIn(f'INFO: alias now -> {target}', output.getvalue())
+
+    def test_missing_or_changed_v10_fails(self):
+        for mutation in [lambda value: value.pop('collection'),
+                         lambda value: value['collection'].update(points_count=330777),
+                         lambda value: value['collection']['config']['params']['vectors'].update(size=768),
+                         lambda value: value['collection']['config']['params']['vectors'].update(distance='Dot'),
+                         lambda value: value['collection']['config']['params']['sparse_vectors']['bm25'].update(modifier=None)]:
+            observed = copy.deepcopy(self.expected)
+            mutation(observed)
+            with self.assertRaisesRegex(ValueError, 'physical collection'):
+                verify_mac_target(self.expected, observed)
 
 
 if __name__ == '__main__':

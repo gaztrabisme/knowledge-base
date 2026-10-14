@@ -2427,7 +2427,8 @@
         "path": "data/intake/kbu-2026-10-07/design-spec.md"
       },
       "sha256": "3eb020c6106e8d534a3320f914c02a08b3f84701ef84813d7ba73129a2cd39b8",
-      "bytes": 123995
+      "bytes": 123995,
+      "verification": "observation"
     },
     {
       "location": {
@@ -2435,7 +2436,8 @@
         "path": "data/intake/kbu-2026-10-07/product-brief.md"
       },
       "sha256": "7b5f19ef63f96b14580b90aa9a75a25a108277cd479719fe9d1875572b5e318c",
-      "bytes": 56243
+      "bytes": 56243,
+      "verification": "observation"
     },
     {
       "location": {
@@ -2443,7 +2445,9 @@
         "path": "CLAUDE.md"
       },
       "sha256": "98c770c6e795cf3424f0c02a1c2e1166cb3237269a71234d044dd1d3f1ae99c6",
-      "bytes": 40673
+      "bytes": 40673,
+      "verification": "git",
+      "git_blob": "47f6273e29506d47557238cc98cb9de06deff2c5"
     },
     {
       "location": {
@@ -2451,7 +2455,9 @@
         "path": "pyproject.toml"
       },
       "sha256": "6ea9328b3f7e17bd38b4fda4bd343aff26a281531e1e2d23b34245abf2665ff8",
-      "bytes": 556
+      "bytes": 556,
+      "verification": "git",
+      "git_blob": "5b63167fd4691cfadebbfc80daf9cf0ebe2208d8"
     },
     {
       "location": {
@@ -2459,7 +2465,9 @@
         "path": "knowledge_base/server.py"
       },
       "sha256": "ecd67af5120b669fc2fc8db9e6b0ab8a09583a51bf83f10f78f5d220a44d6272",
-      "bytes": 21538
+      "bytes": 21538,
+      "verification": "git",
+      "git_blob": "cb1e81c0506cb17bdb76230e08bedae719f78544"
     },
     {
       "location": {
@@ -2467,7 +2475,9 @@
         "path": "knowledge_base/config.py"
       },
       "sha256": "637ca9b67f87fd161d99fffcd72926ff9fede2e5b9cd09edb4a2bce534618dce",
-      "bytes": 32357
+      "bytes": 32357,
+      "verification": "git",
+      "git_blob": "4b2d4298bf7d44129754752ce705fbe9fecd0d92"
     },
     {
       "location": {
@@ -2475,7 +2485,9 @@
         "path": "knowledge_base/embedder.py"
       },
       "sha256": "119c486faf2d322d6e1015e1258a2d533635f75b0d6b581dec3f815a6d581965",
-      "bytes": 4793
+      "bytes": 4793,
+      "verification": "git",
+      "git_blob": "1b71bc7b889e33a89e69cd13ebd83efcdfda72e3"
     },
     {
       "location": {
@@ -2483,7 +2495,9 @@
         "path": "knowledge_base/search.py"
       },
       "sha256": "7d56f976efe8fb5d4b5ddd3a11ad4f3bb39aa36b502298e1075b14cdb9b2b628",
-      "bytes": 9981
+      "bytes": 9981,
+      "verification": "git",
+      "git_blob": "a6991f5be03dc74eadfae88fea9969f4e96d38cb"
     },
     {
       "location": {
@@ -2491,7 +2505,9 @@
         "path": "knowledge_base/index.py"
       },
       "sha256": "b9016f98f49708ddaf67adab4319b086dfe3e93f8f54a037dbbfa837de139099",
-      "bytes": 6499
+      "bytes": 6499,
+      "verification": "git",
+      "git_blob": "89011efdf2dfd9d83d13146a70e45c1461a502bc"
     },
     {
       "location": {
@@ -2499,7 +2515,9 @@
         "path": "knowledge_base/chunk.py"
       },
       "sha256": "b7072ca19635f78478b0cd8b5684cc4fbc38b17dd9572cb230f1906b95144ca7",
-      "bytes": 15041
+      "bytes": 15041,
+      "verification": "git",
+      "git_blob": "68da4fe27f71acf54f83729a184a7a011bb4e791"
     },
     {
       "location": {
@@ -2507,7 +2525,9 @@
         "path": "scripts/eval_retrieval.py"
       },
       "sha256": "a71604974d5cbdd7281591193b3639fe2fdbcfb066c7009d04a9afec218a23be",
-      "bytes": 11268
+      "bytes": 11268,
+      "verification": "git",
+      "git_blob": "163d06343df3a4170572a07bb0a23443648ebc8e"
     },
     {
       "location": {
@@ -2515,7 +2535,9 @@
         "path": "scripts/significance.py"
       },
       "sha256": "a92668c9c2d97a8dcd9e9ea82e6d5e3b9c7233ed0c395eddca99e3dcd766d968",
-      "bytes": 7296
+      "bytes": 7296,
+      "verification": "git",
+      "git_blob": "b74175604658a892e44d1ec9f784f549ebd8adbd"
     },
     {
       "location": {
@@ -2523,7 +2545,9 @@
         "path": "scripts/bench_latency.py"
       },
       "sha256": "030cd8cbb7ac3095a3e8baec6325d3ccbb52a2d4c51b9ee57efc69568fb41261",
-      "bytes": 2320
+      "bytes": 2320,
+      "verification": "git",
+      "git_blob": "de8d5b54b5ad73636e1e0194a97e7db35bf37444"
     },
     {
       "location": {
@@ -2531,7 +2555,9 @@
         "path": "scripts/check_catalog.py"
       },
       "sha256": "467376145e7c08b8abe2d1cb0d5534f8c1244b33fb5cde51494b3f1ad2cda38e",
-      "bytes": 2515
+      "bytes": 2515,
+      "verification": "git",
+      "git_blob": "65a4a662a366ba375976129fbb77a69aee9b5f59"
     },
     {
       "location": {
@@ -2539,7 +2565,9 @@
         "path": "data/bench/gate-v10.md"
       },
       "sha256": "2dbd55dcb834863473abf1fb6f07632c77c35f7386b440fa4f20ebe053e5bb70",
-      "bytes": 2194
+      "bytes": 2194,
+      "verification": "git",
+      "git_blob": "8790924b19b78354642d11027a5c33a991b7bb76"
     },
     {
       "location": {
@@ -2547,7 +2575,9 @@
         "path": "packages/mind-mcp/src/inputs.ts"
       },
       "sha256": "55331ae6a67d9a92e143982eb19920d6e8193be02e8a4db86e59749db18b0993",
-      "bytes": 4160
+      "bytes": 4160,
+      "verification": "git",
+      "git_blob": "61dae965086765c8927df416c0a5423e4495e518"
     },
     {
       "location": {
@@ -2555,7 +2585,9 @@
         "path": "packages/mind-mcp/src/service.ts"
       },
       "sha256": "ebe461c7c8fe4cb3d79365dd8b0e6728c1d0be47a934a1a712c3589dd31f4630",
-      "bytes": 19260
+      "bytes": 19260,
+      "verification": "git",
+      "git_blob": "86c4225b92ebe786eeb6bef8749589dcf1ceda5d"
     },
     {
       "location": {
@@ -2563,7 +2595,9 @@
         "path": "packages/mind-mcp/src/server.ts"
       },
       "sha256": "2b9cab3c28bd1f0cd2472385c6be8ec96604ef4f7045e7e06b141735bd4b06cb",
-      "bytes": 3999
+      "bytes": 3999,
+      "verification": "git",
+      "git_blob": "5e79662ee3946ee685a67b374adee4e4b0acf4f0"
     },
     {
       "location": {
@@ -2571,7 +2605,9 @@
         "path": "packages/contracts/src/common.ts"
       },
       "sha256": "692a06cb91eea261b5ab9bc3780421327e2e71fcbf420e8dcd49c808c0fb8d69",
-      "bytes": 1757
+      "bytes": 1757,
+      "verification": "git",
+      "git_blob": "50aedbb492346ed706f83bd8766964dd1351f6b1"
     },
     {
       "location": {
@@ -2579,7 +2615,9 @@
         "path": "packages/contracts/src/memory.ts"
       },
       "sha256": "c88794df6d8034ae71c0d138e8b5b6c62dd6d6b7458e4119235e0f11903072a5",
-      "bytes": 12212
+      "bytes": 12212,
+      "verification": "git",
+      "git_blob": "3f0162c4da8b3837397fb75d8c83ecfb57f0209c"
     },
     {
       "location": {
@@ -2587,7 +2625,9 @@
         "path": "packages/contracts/package.json"
       },
       "sha256": "5f645c52ff606ccec0130a54e7e5e65215e85c696819c8084bc270d3c1e225ec",
-      "bytes": 278
+      "bytes": 278,
+      "verification": "git",
+      "git_blob": "92f2ea068fa0bffd21c74e90557bea28437356b0"
     },
     {
       "location": {
@@ -2595,7 +2635,9 @@
         "path": "packages/contracts/schemas/memory-audit-event.json"
       },
       "sha256": "2e61eecb1901ccf74af7bc742380c9c0ad987f34b6561bda5bc679c8ed918fc4",
-      "bytes": 1213
+      "bytes": 1213,
+      "verification": "git",
+      "git_blob": "3889986688c2da9712a3e5df317d80195519ebfe"
     },
     {
       "location": {
@@ -2603,7 +2645,9 @@
         "path": "packages/contracts/test/fixtures/memory-audit-event.json"
       },
       "sha256": "48d84f96122233744764cb09a0bb962027eb365e5c8f88528da74c634c9ceca2",
-      "bytes": 1964
+      "bytes": 1964,
+      "verification": "git",
+      "git_blob": "434cd253e4664914ac251cc7f74189f7fc4f4a4d"
     },
     {
       "location": {
@@ -2611,7 +2655,9 @@
         "path": "packages/contracts/schemas/memory-record.json"
       },
       "sha256": "493a180c7c1079c21d88a302abf19869b0d66cf055b704b23bf1911372f6a619",
-      "bytes": 39442
+      "bytes": 39442,
+      "verification": "git",
+      "git_blob": "94b6ca7ab2f9faa175b26c8d2875099938c0ce16"
     },
     {
       "location": {
@@ -2619,7 +2665,9 @@
         "path": "packages/contracts/test/fixtures/memory-record.json"
       },
       "sha256": "846283ef3e0c9ece396eaebe974fbc6dbf0564ed0900655aafd2ce3ae06543fe",
-      "bytes": 8157
+      "bytes": 8157,
+      "verification": "git",
+      "git_blob": "851c2e23edc7cd04c3e658c5eb8fe0499aca2e6e"
     },
     {
       "location": {
@@ -2627,7 +2675,9 @@
         "path": "packages/contracts/schemas/lesson-payload.json"
       },
       "sha256": "c3499ed2cf4d61b6af2ab46878210c5befefbadb775e04e19fc0e50bbcda16d7",
-      "bytes": 1192
+      "bytes": 1192,
+      "verification": "git",
+      "git_blob": "a3dff1911b50340e643002e11af87480a8bc8d1f"
     },
     {
       "location": {
@@ -2635,7 +2685,9 @@
         "path": "packages/contracts/test/fixtures/lesson-payload.json"
       },
       "sha256": "2d53e62f60f593845085a92ad767e3a6096201d88fa47d2806edf66791316340",
-      "bytes": 2108
+      "bytes": 2108,
+      "verification": "git",
+      "git_blob": "3c064ed1cd27f9a524870d8011c536b582094783"
     },
     {
       "location": {
@@ -2643,7 +2695,9 @@
         "path": "packages/contracts/schemas/memory-write-receipt.json"
       },
       "sha256": "1b2b49469e79559bf4355d9f9809396d72cc759ee336e4a472254642bd74fa6f",
-      "bytes": 6556
+      "bytes": 6556,
+      "verification": "git",
+      "git_blob": "6f50ed56d4a04ae52dc273aa542692b1e5453c1e"
     },
     {
       "location": {
@@ -2651,7 +2705,9 @@
         "path": "packages/contracts/test/fixtures/memory-write-receipt.json"
       },
       "sha256": "ea29d870562cc2fdad7175663c0768ae8435cd457aa09eea8fe6ed3922d101ae",
-      "bytes": 9535
+      "bytes": 9535,
+      "verification": "git",
+      "git_blob": "cea4704ca184e43505a45d2affb13c0ca9bb1334"
     },
     {
       "location": {
@@ -2659,7 +2715,9 @@
         "path": "packages/contracts/schemas/memory-write-error.json"
       },
       "sha256": "87339c9bf05e59e7e172e337dcb114925727c6e5a26ba4b89e6f7ab1885b3eb2",
-      "bytes": 1194
+      "bytes": 1194,
+      "verification": "git",
+      "git_blob": "144fd2e7545c28ebe358b7e6a115a5ba1b50d86d"
     },
     {
       "location": {
@@ -2667,7 +2725,9 @@
         "path": "packages/contracts/test/fixtures/memory-write-error.json"
       },
       "sha256": "fb112f0409004d436ed49e3ead46b6ab6704a095344d6f7b4bfca10940b50419",
-      "bytes": 940
+      "bytes": 940,
+      "verification": "git",
+      "git_blob": "d8465566c177be820b55e6b8b783a2ea1996f923"
     },
     {
       "location": {
@@ -2675,7 +2735,9 @@
         "path": "packages/contracts/schemas/stale-flag-record.json"
       },
       "sha256": "7a3184b9efa34b1c1153549d50bc160eaf92cc25dd3ed24442fbb313967130f7",
-      "bytes": 10047
+      "bytes": 10047,
+      "verification": "git",
+      "git_blob": "1c6e58250d0054ac3929bb9bedd56b6ce060b070"
     },
     {
       "location": {
@@ -2683,7 +2745,9 @@
         "path": "packages/contracts/test/fixtures/stale-flag-record.json"
       },
       "sha256": "611cdc2c1205cb1ef7ac4e7962c2f297beda55287a82b29791a3d85fafe4d3c1",
-      "bytes": 3881
+      "bytes": 3881,
+      "verification": "git",
+      "git_blob": "09894ddad183e0cf762938ceac075143793395fc"
     },
     {
       "location": {
@@ -2691,7 +2755,9 @@
         "path": "packages/contracts/schemas/memory-provenance.json"
       },
       "sha256": "0890951b3062b3df28aced2acb99a2bab044ade2bc024ffe0bd21cac8a364157",
-      "bytes": 1634
+      "bytes": 1634,
+      "verification": "git",
+      "git_blob": "98a800aa50e1a4a698c6e235a7e66c5097b5ce9f"
     },
     {
       "location": {
@@ -2699,7 +2765,9 @@
         "path": "packages/contracts/test/fixtures/memory-provenance.json"
       },
       "sha256": "abb0e087a1ffc9ea223614a34d931f5cfc1fffc2e8544eba51be5e817bb24ebf",
-      "bytes": 1060
+      "bytes": 1060,
+      "verification": "git",
+      "git_blob": "015b1109eb88c28d9a3a8a11fa6c2a0d3192478c"
     },
     {
       "location": {
@@ -2707,7 +2775,9 @@
         "path": "packages/contracts/schemas/evidence-reference.json"
       },
       "sha256": "7df116b6967077e39c146c1bc3db08093fd451cbf81b1240caacf6b0ef584bb4",
-      "bytes": 2736
+      "bytes": 2736,
+      "verification": "git",
+      "git_blob": "abbad5b17d632831591f2059a6afef66e4156e30"
     },
     {
       "location": {
@@ -2715,7 +2785,9 @@
         "path": "packages/contracts/test/fixtures/evidence-reference.json"
       },
       "sha256": "bb610a3ce07c0ec4fdb7f77b63db6b22e76f156c34ff696f3480aa7aa9b3d42a",
-      "bytes": 1962
+      "bytes": 1962,
+      "verification": "git",
+      "git_blob": "d51e58c2fb93a5009069072c4675d6157bfb4a32"
     },
     {
       "location": {
@@ -2723,7 +2795,9 @@
         "path": "packages/contracts/schemas/stale-flag-payload.json"
       },
       "sha256": "2f407b344decf28be8628eb920253e9e897b1423f17424a6eabacb331edf0666",
-      "bytes": 1965
+      "bytes": 1965,
+      "verification": "git",
+      "git_blob": "9f8eb3a7ace4f246119d1b9f9c26b24b85b3d0ab"
     },
     {
       "location": {
@@ -2731,7 +2805,9 @@
         "path": "packages/contracts/test/fixtures/stale-flag-payload.json"
       },
       "sha256": "028053f78ab3a99fe98cf5d62d8bfebfa1c88f6700a691379c38d2f0d0a640a4",
-      "bytes": 1631
+      "bytes": 1631,
+      "verification": "git",
+      "git_blob": "9258b82101b395e821b46bedd303c865278755c6"
     },
     {
       "location": {
@@ -2739,7 +2815,9 @@
         "path": "packages/contracts/schemas/comment-selector.json"
       },
       "sha256": "8bedcdabd1ed1ce89519ee698c47e439bbe32c40492a386fd24424496629ebda",
-      "bytes": 808
+      "bytes": 808,
+      "verification": "git",
+      "git_blob": "d62d3010e89092943913f60465cab40a3d82f523"
     },
     {
       "location": {
@@ -2747,7 +2825,9 @@
         "path": "packages/contracts/test/fixtures/comment-selector.json"
       },
       "sha256": "30dbb517a4622bdaa878526870199b7b38298f9969d092e4795903930d749068",
-      "bytes": 1199
+      "bytes": 1199,
+      "verification": "git",
+      "git_blob": "f2e0ab2d6b9e8850d2ccfd941615236dfac90e93"
     },
     {
       "location": {
@@ -2755,7 +2835,9 @@
         "path": "packages/contracts/schemas/reviewer-or-check.json"
       },
       "sha256": "78c276c480092dafdc41dfd5e8c1fa071d4c7e3cf62064df3d87dfa061301b6f",
-      "bytes": 640
+      "bytes": 640,
+      "verification": "git",
+      "git_blob": "4538410002d670fdbe472455ef83d22ffce611ac"
     },
     {
       "location": {
@@ -2763,7 +2845,9 @@
         "path": "packages/contracts/test/fixtures/reviewer-or-check.json"
       },
       "sha256": "157d776fcb61203931ec092ab93dcd625e64222ce4b164268bb08aca7c2f64bc",
-      "bytes": 813
+      "bytes": 813,
+      "verification": "git",
+      "git_blob": "f2ea76f8a1c95add9fd574c9ce91dde892d4d2c9"
     },
     {
       "location": {
@@ -2771,7 +2855,9 @@
         "path": "packages/contracts/schemas/lesson-revision-request.json"
       },
       "sha256": "c89a919320f43a126bdc593d5bfe86a95176d3b5b71c659d6aadc0f5b2058804",
-      "bytes": 5941
+      "bytes": 5941,
+      "verification": "git",
+      "git_blob": "edfd2fe27026cbcdb378da7814c027c4dc9657d4"
     },
     {
       "location": {
@@ -2779,7 +2865,9 @@
         "path": "packages/contracts/test/fixtures/lesson-revision-request.json"
       },
       "sha256": "c0decf641ad2bebe83ad745112c419eb0ee164e464373c1e10ce54302e114053",
-      "bytes": 2325
+      "bytes": 2325,
+      "verification": "git",
+      "git_blob": "9cc2d4de407850bf895c0de63a8499b901493a7d"
     },
     {
       "location": {
@@ -2787,7 +2875,9 @@
         "path": "packages/contracts/schemas/memory-receipt-lookup.json"
       },
       "sha256": "fa61304bb3f310852b7383cfb277c8e3ba51a0ffca138786e1ac4e4c433386dc",
-      "bytes": 654
+      "bytes": 654,
+      "verification": "git",
+      "git_blob": "2e5c6309872fd8d26e3aad67745bd5edd03620e4"
     },
     {
       "location": {
@@ -2795,7 +2885,9 @@
         "path": "packages/contracts/test/fixtures/memory-receipt-lookup.json"
       },
       "sha256": "d2b21df7ece386cd25759ae643c4775f6e98f3e9928caebbe783e5141de5fbf4",
-      "bytes": 707
+      "bytes": 707,
+      "verification": "git",
+      "git_blob": "cf0c154a134f458364265894f83222c58ead49f6"
     },
     {
       "location": {
@@ -2803,7 +2895,9 @@
         "path": "packages/contracts/schemas/feedback-payload.json"
       },
       "sha256": "3560e90925b83c04b02d1a7d8334a450f51d86467f94a7cbcdc29f0546952dd1",
-      "bytes": 5960
+      "bytes": 5960,
+      "verification": "git",
+      "git_blob": "eb03f55870a975a674ed836fd27c786bc6ac2492"
     },
     {
       "location": {
@@ -2811,7 +2905,9 @@
         "path": "packages/contracts/test/fixtures/feedback-payload.json"
       },
       "sha256": "0fe1873b76d4cbb21127ccbd6be0f2091bbc5904df7010febe08e6d7fd9c23ec",
-      "bytes": 3969
+      "bytes": 3969,
+      "verification": "git",
+      "git_blob": "a01917a9fb2e4e5f88c508617aba6a71e6ed2d17"
     },
     {
       "location": {
@@ -2819,7 +2915,9 @@
         "path": "packages/contracts/schemas/target-reference.json"
       },
       "sha256": "c5391d0fb050c52ff8e8b1a0dfca0c1977e7990eea691ca42c3c1a8b5b4d9bdd",
-      "bytes": 1114
+      "bytes": 1114,
+      "verification": "git",
+      "git_blob": "7ee47c2ce2590501f55e9560f296e6068f34d4a0"
     },
     {
       "location": {
@@ -2827,7 +2925,9 @@
         "path": "packages/contracts/test/fixtures/target-reference.json"
       },
       "sha256": "6f8837c575d94e687366382354839f3c71773b70203147df7756bc0adc391090",
-      "bytes": 908
+      "bytes": 908,
+      "verification": "git",
+      "git_blob": "49ecbe936c1dc2b52491d8e623cd55198cd9b7e2"
     },
     {
       "location": {
@@ -2835,7 +2935,9 @@
         "path": "packages/contracts/schemas/feedback-record.json"
       },
       "sha256": "481f6e247874ef7e05a00d927ff966badc5faa8ac6c7820ebcb49ed6ec6207b4",
-      "bytes": 14706
+      "bytes": 14706,
+      "verification": "git",
+      "git_blob": "6b7d9fd7113054c6f921cc2b318058ac73cda272"
     },
     {
       "location": {
@@ -2843,7 +2945,9 @@
         "path": "packages/contracts/test/fixtures/feedback-record.json"
       },
       "sha256": "b7598186a49ac3e3129d5ce6c48759fd2593c3d8c8123608f7013e5d1ad96cdc",
-      "bytes": 7235
+      "bytes": 7235,
+      "verification": "git",
+      "git_blob": "e3fb1f73459c06a120e2d3d486f374cea993b328"
     },
     {
       "location": {
@@ -2851,7 +2955,9 @@
         "path": "packages/contracts/schemas/lesson-record.json"
       },
       "sha256": "c25cdb8134f3723959ee0d52f69242df391f30fba75f0ba6e3a9d76989da1d76",
-      "bytes": 9162
+      "bytes": 9162,
+      "verification": "git",
+      "git_blob": "cd1fb16ca561d37a613e702596061737f1c297cf"
     },
     {
       "location": {
@@ -2859,7 +2965,9 @@
         "path": "packages/contracts/test/fixtures/lesson-record.json"
       },
       "sha256": "7f269b9a4c9792c5ff1c1d876f71c75a196c721deae7eb96f61d3aa82d91d50e",
-      "bytes": 17575
+      "bytes": 17575,
+      "verification": "git",
+      "git_blob": "21feb1784d0d15e483d4407d4c9806cd70281b9c"
     },
     {
       "location": {
@@ -2934,7 +3042,7 @@
   },
   "boundaries": [
     "bppc has no alias: it is the control mirror, not the approved future infrastructure host",
-    "mac alias is required to remain developer_knowledge_v10 for this baseline gate",
+    "physical Mac developer_knowledge_v10 remains strict; the current developer_knowledge alias target is informational",
     "source file hashes in frozen manifest predate the M1 PostgreSQL restoration; frozen payload/sparse JSONL is the v10 membership authority",
     "no new benchmark, model loads, GPU usage or promotion by P1"
   ],
@@ -3382,5 +3490,9 @@
       ]
     }
   ],
-  "record_amendment": "Independent review added component pin reconciliation. Frozen remote files, aliases, model checkpoints, controls, labels and machine observations are unchanged."
+  "record_amendment": "Independent review added component pin reconciliation. Frozen remote files, aliases, model checkpoints, controls, labels and machine observations are unchanged. P1f pins local repository/pi-mind sources to their recorded commits and blob IDs; uncommitted intake documents remain P1-read observations and live alias drift is informational. Original SHA-256 values, byte counts and captured remote/Mac observations are unchanged.",
+  "source_revisions": {
+    "repo": "a7d5a90bd3ba1d7578d8e1ccb44d43844b839742",
+    "pi-mind": "9911905ced69d4a3d5fee2ca8ed5b7344f2b7f34"
+  }
 }

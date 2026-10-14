@@ -3,6 +3,7 @@ import hashlib
 import json
 import os
 import platform
+import re
 import shlex
 import subprocess
 import sys
@@ -38,11 +39,16 @@ def roots(locations):
     return values
 
 
+def relative_path(location):
+    child = Path(location['path'])
+    if child.is_absolute() or '..' in child.parts or not child.parts:
+        raise ValueError('artifact path must stay relative to its configured root')
+    return child
+
+
 def resolve(location, locations):
     base = Path(roots(locations)[location['backend']]).expanduser().resolve()
-    child = Path(location['path'])
-    if child.is_absolute() or '..' in child.parts:
-        raise ValueError('artifact path must stay relative to its configured root')
+    child = relative_path(location)
     result = (base / child).resolve()
     if not result.is_relative_to(base):
         raise ValueError('artifact symlink escapes configured root')
@@ -60,6 +66,57 @@ def verify_artifact(artifact, locations, remote=None):
     expected = {key: artifact[key] for key in ['sha256', 'bytes']}
     if actual != expected:
         raise ValueError(f'missing/changed artifact: {location["backend"]}:{location["path"]}')
+
+
+def git_fingerprint(location, locations, commit):
+    """Read a committed blob, independently of HEAD, index and working-tree files."""
+    path = relative_path(location).as_posix()
+    if not re.fullmatch(r'[0-9a-f]{40}|[0-9a-f]{64}', commit):
+        raise ValueError('Git source revision must be a full commit ID')
+    root = Path(roots(locations)[location['backend']]).expanduser()
+    label = f'{location["backend"]}:{path}'
+
+    def git(*args):
+        result = subprocess.run(['git', *args], cwd=root, capture_output=True)
+        if result.returncode:
+            raise ValueError(f'missing Git commit/blob: {commit}:{label}')
+        return result.stdout
+
+    if git('cat-file', '-t', commit).strip() != b'commit':
+        raise ValueError(f'missing Git commit: {commit}')
+    blob = git('rev-parse', '--verify', f'{commit}:{path}').decode().strip()
+    content = git('cat-file', 'blob', blob)
+    return {'git_blob': blob, 'sha256': hashlib.sha256(content).hexdigest(), 'bytes': len(content)}
+
+
+def report_source_drift(artifact, locations, always=False):
+    """Mutable source availability/content is diagnostic, never baseline evidence."""
+    expected = {key: artifact[key] for key in ['sha256', 'bytes']}
+    try:
+        unchanged = fingerprint(resolve(artifact['location'], locations)) == expected
+    except (OSError, ValueError):
+        unchanged = False
+    if always or not unchanged:
+        location = artifact['location']
+        state = 'unchanged' if unchanged else 'changed since baseline'
+        print(f'INFO: {location["backend"]}:{location["path"]}: {state}', flush=True)
+
+
+def verify_source(artifact, locations, revisions):
+    """Apply the recorded source policy; instruments and release bytes stay strict."""
+    policy = artifact.get('verification', 'strict')
+    if policy == 'git':
+        location = artifact['location']
+        expected = {key: artifact[key] for key in ['git_blob', 'sha256', 'bytes']}
+        actual = git_fingerprint(location, locations, revisions[location['backend']])
+        compare(f'Git source {location["backend"]}:{location["path"]}', expected, actual)
+        report_source_drift(artifact, locations)
+    elif policy == 'observation':
+        report_source_drift(artifact, locations, always=True)
+    elif policy == 'strict':
+        verify_artifact(artifact, locations)
+    else:
+        raise ValueError(f'unknown source verification policy: {policy}')
 
 
 def api(url, path):

@@ -9,16 +9,16 @@
       "backend": "repo",
       "path": "data/baseline/baseline.json"
     },
-    "sha256": "d92a3b07eb634916e03273de6caac6b8398571ae8f1a755bf25a4a40fd17d04f",
-    "bytes": 135980
+    "sha256": "6074b5d0cb8a85fc57191aab83eacb12eeebce407ba205f6d8fcb0e9232ea879",
+    "bytes": 141323
   },
   "contract_inventory": {
     "location": {
       "backend": "repo",
       "path": "data/baseline/contracts-lock.json"
     },
-    "sha256": "8e8d15e6b9746b7157b5263845dc1d36839f26f51c592f9e2c4b61ff50c0ac62",
-    "bytes": 48400
+    "sha256": "892d3c660f45855cedcd9ad87ea385ed0afdc6049dc22203e9635b10e0391ecf",
+    "bytes": 48401
   },
   "components": [
     {
@@ -681,8 +681,8 @@
           "backend": "repo",
           "path": "data/baseline/baseline.json"
         },
-        "sha256": "d92a3b07eb634916e03273de6caac6b8398571ae8f1a755bf25a4a40fd17d04f",
-        "bytes": 135980
+        "sha256": "6074b5d0cb8a85fc57191aab83eacb12eeebce407ba205f6d8fcb0e9232ea879",
+        "bytes": 141323
       }
     },
     {
