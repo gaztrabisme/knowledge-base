@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:request.figure_search:1",
+  "title": "request.figure_search",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "mind-tool-request/v1"
+    },
+    "operation": {
+      "const": "figure_search"
+    },
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "embedding_space": {
+          "type": "string",
+          "minLength": 1
+        },
+        "top_k": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "query",
+        "scope",
+        "embedding_space",
+        "top_k"
+      ],
+      "additionalProperties": false
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "owner_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "privacy_scope": {
+          "enum": [
+            "owner-private",
+            "project-private"
+          ]
+        },
+        "question_budget_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "owner_scope",
+        "project_scope",
+        "privacy_scope"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "operation",
+    "arguments",
+    "context"
+  ],
+  "additionalProperties": false
+}

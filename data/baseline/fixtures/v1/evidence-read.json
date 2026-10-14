@@ -1,0 +1,172 @@
+{
+  "valid": [
+    {
+      "name": "synthetic valid shape",
+      "value": {
+        "schema_version": "mind/evidence-read@1",
+        "evidence_id": "synthetic-span",
+        "source_id": "synthetic-book",
+        "source_revision": "edition-1",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "privacy_scope": "owner-private",
+        "selected_snapshot": "v10",
+        "producing_revision": "edition-1",
+        "locator": {
+          "kind": "markdown-lines",
+          "path": "synthetic.md",
+          "start_line": 1,
+          "end_line": 3
+        },
+        "content": "synthetic fixture",
+        "content_sha256": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+        "derivation": "original",
+        "verification": "unchecked",
+        "annotations": [],
+        "metadata": {
+          "schema_version": "mind-read/v1",
+          "read_id": "synthetic-read",
+          "backend_availability": "ready",
+          "source_snapshot": "v10",
+          "index_snapshot": "developer_knowledge_v10",
+          "graph_snapshot": null,
+          "privacy_scope": "owner-private",
+          "sources": [
+            {
+              "source_id": "synthetic-book",
+              "source_revision": "edition-1",
+              "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "privacy_scope": "owner-private",
+              "producing_revision": "edition-1",
+              "returned_text_hash": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+              "locator": {
+                "kind": "markdown-lines",
+                "path": "synthetic.md",
+                "start_line": 1,
+                "end_line": 3
+              }
+            }
+          ],
+          "legacy_character_truncation": false,
+          "budget_truncation": false,
+          "omitted_count": 0,
+          "cursor": null,
+          "errors": [],
+          "budget": null
+        }
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "reject invalid shape",
+      "value": {
+        "schema_version": "mind/evidence-read@1",
+        "evidence_id": "synthetic-span",
+        "source_id": "synthetic-book",
+        "source_revision": "edition-1",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "privacy_scope": "owner-private",
+        "selected_snapshot": "v10",
+        "producing_revision": "edition-1",
+        "locator": {
+          "kind": "markdown-lines",
+          "path": "synthetic.md",
+          "start_line": 1,
+          "end_line": 3
+        },
+        "content": "synthetic fixture",
+        "content_sha256": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+        "derivation": "original",
+        "verification": "unchecked",
+        "annotations": [],
+        "metadata": {
+          "schema_version": "mind-read/v1",
+          "read_id": "synthetic-read",
+          "backend_availability": "ready",
+          "source_snapshot": "v10",
+          "index_snapshot": "developer_knowledge_v10",
+          "graph_snapshot": null,
+          "privacy_scope": "owner-private",
+          "sources": [
+            {
+              "source_id": "synthetic-book",
+              "source_revision": "edition-1",
+              "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "privacy_scope": "owner-private",
+              "producing_revision": "edition-1",
+              "returned_text_hash": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+              "locator": {
+                "kind": "markdown-lines",
+                "path": "synthetic.md",
+                "start_line": 1,
+                "end_line": 3
+              }
+            }
+          ],
+          "legacy_character_truncation": false,
+          "budget_truncation": false,
+          "omitted_count": 0,
+          "cursor": null,
+          "errors": [],
+          "budget": null
+        },
+        "undeclared_field": "reject unknown fields"
+      }
+    },
+    {
+      "name": "changed returned evidence bytes",
+      "value": {
+        "schema_version": "mind/evidence-read@1",
+        "evidence_id": "synthetic-span",
+        "source_id": "synthetic-book",
+        "source_revision": "edition-1",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "privacy_scope": "owner-private",
+        "selected_snapshot": "v10",
+        "producing_revision": "edition-1",
+        "locator": {
+          "kind": "markdown-lines",
+          "path": "synthetic.md",
+          "start_line": 1,
+          "end_line": 3
+        },
+        "content": "changed",
+        "content_sha256": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+        "derivation": "original",
+        "verification": "unchecked",
+        "annotations": [],
+        "metadata": {
+          "schema_version": "mind-read/v1",
+          "read_id": "synthetic-read",
+          "backend_availability": "ready",
+          "source_snapshot": "v10",
+          "index_snapshot": "developer_knowledge_v10",
+          "graph_snapshot": null,
+          "privacy_scope": "owner-private",
+          "sources": [
+            {
+              "source_id": "synthetic-book",
+              "source_revision": "edition-1",
+              "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "privacy_scope": "owner-private",
+              "producing_revision": "edition-1",
+              "returned_text_hash": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+              "locator": {
+                "kind": "markdown-lines",
+                "path": "synthetic.md",
+                "start_line": 1,
+                "end_line": 3
+              }
+            }
+          ],
+          "legacy_character_truncation": false,
+          "budget_truncation": false,
+          "omitted_count": 0,
+          "cursor": null,
+          "errors": [],
+          "budget": null
+        }
+      }
+    }
+  ]
+}

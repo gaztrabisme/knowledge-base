@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:pi-mind:contracts:memory-write-error:1",
+  "title": "memory-write-error",
+  "type": "object",
+  "required": [
+    "code",
+    "message",
+    "retryable"
+  ],
+  "properties": {
+    "code": {
+      "anyOf": [
+        {
+          "type": "string",
+          "const": "validation"
+        },
+        {
+          "type": "string",
+          "const": "permission"
+        },
+        {
+          "type": "string",
+          "const": "revision_conflict"
+        },
+        {
+          "type": "string",
+          "const": "request_key_conflict"
+        },
+        {
+          "type": "string",
+          "const": "backend_unavailable"
+        },
+        {
+          "type": "string",
+          "const": "not_found"
+        },
+        {
+          "type": "string",
+          "const": "internal"
+        }
+      ]
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1
+    },
+    "retryable": {
+      "type": "boolean"
+    },
+    "expected_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "actual_revision": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "additionalProperties": false
+}

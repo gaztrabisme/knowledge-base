@@ -1,0 +1,1605 @@
+{
+  "schema_version": "mind/contracts-lock@1",
+  "artifacts": [
+    {
+      "location": {
+        "backend": "repo",
+        "path": ".gitignore"
+      },
+      "sha256": "5bfe0368011b3b07e5f9082e6dbe831c0d29843330820ead2c00cf26db5498a1",
+      "bytes": 2037
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/CONTRACTS.md"
+      },
+      "sha256": "0acb110f38d0d77ae8854dd61d10d13b06da7af1dca7edfe42c3f294d6f2ed29",
+      "bytes": 4748
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/approval-source.json"
+      },
+      "sha256": "ff93d7a1866915ad77961da5e24a63e7a25f4b504e93c3584f66d943530cfcc1",
+      "bytes": 2751
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/annotation-record.json"
+      },
+      "sha256": "1340553505759e3bdafcf746ac5b377a1d80fb9f3f5a10b4fdbe1db7de7103c6",
+      "bytes": 37895
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/catalog-entry.json"
+      },
+      "sha256": "1ce7de7a0daf381d601214c7608292ccedc5b79622c358eee092290519232c37",
+      "bytes": 15884
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/comment-selector.json"
+      },
+      "sha256": "8bedcdabd1ed1ce89519ee698c47e439bbe32c40492a386fd24424496629ebda",
+      "bytes": 808
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/contribution-evidence-reference.json"
+      },
+      "sha256": "fe0dd39051e21ca54e77f7d8fd40db569146e79ff7ba3de339dbd0627981d608",
+      "bytes": 340
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/evidence-read.json"
+      },
+      "sha256": "30a203ef29765627846afd475a4ccb005099dc41bc399dc9bebe133ae580396c",
+      "bytes": 1824
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/evidence-reference.json"
+      },
+      "sha256": "7df116b6967077e39c146c1bc3db08093fd451cbf81b1240caacf6b0ef584bb4",
+      "bytes": 2736
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/feedback-payload.json"
+      },
+      "sha256": "3560e90925b83c04b02d1a7d8334a450f51d86467f94a7cbcdc29f0546952dd1",
+      "bytes": 5960
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/feedback-record.json"
+      },
+      "sha256": "481f6e247874ef7e05a00d927ff966badc5faa8ac6c7820ebcb49ed6ec6207b4",
+      "bytes": 14706
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/lesson-payload.json"
+      },
+      "sha256": "c3499ed2cf4d61b6af2ab46878210c5befefbadb775e04e19fc0e50bbcda16d7",
+      "bytes": 1192
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/lesson-record.json"
+      },
+      "sha256": "c25cdb8134f3723959ee0d52f69242df391f30fba75f0ba6e3a9d76989da1d76",
+      "bytes": 9162
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/lesson-revision-request.json"
+      },
+      "sha256": "c89a919320f43a126bdc593d5bfe86a95176d3b5b71c659d6aadc0f5b2058804",
+      "bytes": 5941
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/locator.json"
+      },
+      "sha256": "21c526ef87e6bf87bf051e3376f65b2d070e792e18a2fa7ba1e1616da801416a",
+      "bytes": 4483
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/memory-audit-event.json"
+      },
+      "sha256": "2e61eecb1901ccf74af7bc742380c9c0ad987f34b6561bda5bc679c8ed918fc4",
+      "bytes": 1213
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/memory-provenance.json"
+      },
+      "sha256": "0890951b3062b3df28aced2acb99a2bab044ade2bc024ffe0bd21cac8a364157",
+      "bytes": 1634
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/memory-receipt-lookup.json"
+      },
+      "sha256": "fa61304bb3f310852b7383cfb277c8e3ba51a0ffca138786e1ac4e4c433386dc",
+      "bytes": 654
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/memory-record.json"
+      },
+      "sha256": "493a180c7c1079c21d88a302abf19869b0d66cf055b704b23bf1911372f6a619",
+      "bytes": 39442
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/memory-write-error.json"
+      },
+      "sha256": "87339c9bf05e59e7e172e337dcb114925727c6e5a26ba4b89e6f7ab1885b3eb2",
+      "bytes": 1194
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/memory-write-receipt.json"
+      },
+      "sha256": "1b2b49469e79559bf4355d9f9809396d72cc759ee336e4a472254642bd74fa6f",
+      "bytes": 6556
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/read-metadata.json"
+      },
+      "sha256": "5cda583e219df2063e988566650c6d229140fc245a3b924ceda7ff15631382f0",
+      "bytes": 4858
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.archive_job_status.json"
+      },
+      "sha256": "2008ef3c74dee305ea83e019937d335f607afe828dd6afd34c6c6f51f7ee3e8c",
+      "bytes": 1328
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.archive_prepare.json"
+      },
+      "sha256": "e8ebee13450dc4ac202308ac2b63da3639e19622c7f289df9c55a0ffed8d1a77",
+      "bytes": 1946
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.coverage.json"
+      },
+      "sha256": "37304242451f2c2493bd6879763192c26a9756bd2e1a3948de48b385f47095ac",
+      "bytes": 1791
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.coverage_gaps.json"
+      },
+      "sha256": "ab6995e638a524d5625c8c42053e5ba607aaf39ea79a39f8883c3b9e0c12d61c",
+      "bytes": 1543
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.figure_read.json"
+      },
+      "sha256": "5ee3d4192143b5085dd86cda78bd6ba63bbf31fb8da5fabd28276a3f09299268",
+      "bytes": 1455
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.figure_search.json"
+      },
+      "sha256": "a500d694d2caa0d924abb4987c916a0b4cb0159ee421766127a313ffa4240ab8",
+      "bytes": 1630
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.get_chapter.json"
+      },
+      "sha256": "79d9337814e437b1c0d94ff3f962072e1f79b2568e70053b42f6cd6b31523dfa",
+      "bytes": 1481
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.graph_evidence.json"
+      },
+      "sha256": "74b592b6d8912db61740720ff3f9696ac50bfaf9c12eceb8d7b6af8c12065ff7",
+      "bytes": 1898
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.graph_subgraph.json"
+      },
+      "sha256": "7205d7497ee363563fdbdd28bc78940bf1ad86c65f26d9fc5270ec791c67d56d",
+      "bytes": 2187
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.graph_who_tried.json"
+      },
+      "sha256": "a33a3aa04b4a82e2dd07e5435b6983f52c173580ff0591eaa6a5c2e20034ce80",
+      "bytes": 2256
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.grep_books.json"
+      },
+      "sha256": "3d91b0a353d9e599ee933b894cd1ebc8c741207eaccdfe474397bf43dae87834",
+      "bytes": 1575
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.legacy_read.json"
+      },
+      "sha256": "f70a39fcf2250f80d0b6bf4ed47976a9b45c2f826483ce073b74d174899bd4ad",
+      "bytes": 10926
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.list_books.json"
+      },
+      "sha256": "c64f8219da161b7d2c2b8d4fec4131a3981a4c9015ceb079e0722aad6ce5bf41",
+      "bytes": 1402
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.list_philosophy.json"
+      },
+      "sha256": "c2feaf16f04ea8f11215bd71e8dff62b260829b1457027f96589ac94f3085567",
+      "bytes": 1417
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.memory_comment.json"
+      },
+      "sha256": "ef7aedbc706fe4812c810408fdac951d04e7c15779139af4bdb878138b769a2c",
+      "bytes": 4268
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.memory_create_lesson.json"
+      },
+      "sha256": "8cbe5795f158bea5dcc67021f5dff7e242fc461b13e9e4db87f5a3479913f3b5",
+      "bytes": 8998
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.memory_feedback.json"
+      },
+      "sha256": "bf34330c0832291ab817d282a4669606e2628288869f24f3678bd49bd7ee9c1b",
+      "bytes": 9344
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.memory_flag_stale.json"
+      },
+      "sha256": "50e32aa78f59c135cab357c9e350a97e2ddb6bebc649801d348442fb643462cd",
+      "bytes": 9077
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.memory_propose_source_change.json"
+      },
+      "sha256": "5ff944d9b87becbb38c3e4eb9525b3a52cfe6880f7341ead865ce3240409ad40",
+      "bytes": 4302
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.memory_read.json"
+      },
+      "sha256": "454de81820eff7e7685632fdaf88862666fb7f2a169f878b2e3a24406dc4d5ae",
+      "bytes": 1853
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.memory_search.json"
+      },
+      "sha256": "9eeb9e89d0ed54b35de8f24defded31d71085f21f1757946be80ed4a104a9f0f",
+      "bytes": 2751
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.memory_tag_link.json"
+      },
+      "sha256": "d336b09fd63a6a14fd8135a103740dd658fcb9e4b6acc1fc8c5cceb5e48aace3",
+      "bytes": 4725
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.mind_status.json"
+      },
+      "sha256": "8f3f76991e4c7aa85c46c947880fe05b266f9003c9e82139357c316faf1ad6ca",
+      "bytes": 1367
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.read_chunk.json"
+      },
+      "sha256": "010ec093334a5400a968ec6159d707627427ef5766daed97d1fcd0a5f8624dbd",
+      "bytes": 1365
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.read_metadata.json"
+      },
+      "sha256": "36790c1d6c0a69aa81ad9906f117e10b86bdafaa091286f0edfe718493a76531",
+      "bytes": 1315
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.review_decide.json"
+      },
+      "sha256": "5eb9a547af6b83fecb5ba1092f0356654d9ebcd98a3347a1c7ce7ae37bd96a74",
+      "bytes": 4114
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.review_queue.json"
+      },
+      "sha256": "f7d2a41b7e47ed190bb82f26b93098eb86b86c31e3083229c1693e5b12a826f7",
+      "bytes": 1711
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.search.json"
+      },
+      "sha256": "c15cb209201ef1225c3470c16b9055fc2cedf404cf312f7b1b14ce6552df1a01",
+      "bytes": 2433
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.search_book.json"
+      },
+      "sha256": "0a2c22077651a4bb59d8531b5f7a2bfc942e96c551c17514fab5f39ad349ec1c",
+      "bytes": 1521
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.search_philosophy.json"
+      },
+      "sha256": "64fd61870f58e16764a1afc4f84f1cd315e958a232b9e59626aa3d87dae73df1",
+      "bytes": 1883
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.source_list.json"
+      },
+      "sha256": "3969cb2476b3162025748b206541fa0f84e9307f7be30cd957e8560fd6476e90",
+      "bytes": 2286
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/request.source_read.json"
+      },
+      "sha256": "f4ee2e646d59bfc416d2d80359d4dcdb8b8aeac22d22e5da1aecbfb3586ac023",
+      "bytes": 2244
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.archive_job_status.json"
+      },
+      "sha256": "b3c5e45517cd02b1dfd20954526b882cd44e3f672b102b0cea74421f7d2265c4",
+      "bytes": 10784
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.archive_prepare.json"
+      },
+      "sha256": "255e17a65b6f477cbaa3100845eb0b58e177f88d2ee5842df27eb2052e2af538",
+      "bytes": 10778
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.coverage.json"
+      },
+      "sha256": "a0ac5a712939deb6b538e51e10df0a210dbc32651948eb6ef7e9952f34c0e0a4",
+      "bytes": 8420
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.coverage_gaps.json"
+      },
+      "sha256": "acfcd5c92b602dacefd9871c2f226379bb43ed8f159f6ff2c44e81c106ae9791",
+      "bytes": 10946
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.figure_read.json"
+      },
+      "sha256": "5f9da1241125dfb72ab0b245ec5cfec3eb069dcaa2629f16fe52a4a3d769df50",
+      "bytes": 3438
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.figure_search.json"
+      },
+      "sha256": "aa52fea28d1f1cf7427effedffac228a52a5cf33a27870bfce0e45c4825337e0",
+      "bytes": 3712
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.get_chapter.json"
+      },
+      "sha256": "7236c16788992816c317c6fc56bee518c3eb7e59c9d06ab023dc128d2b6137d0",
+      "bytes": 575
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.graph_evidence.json"
+      },
+      "sha256": "c380ade0b202d33ea8dd670200e958a6d89ae3c4992af89bcd292fce5492616b",
+      "bytes": 679
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.graph_subgraph.json"
+      },
+      "sha256": "f069232086944d57ef70aee36d320265a64d961f35036511c9c8fee050b0fca3",
+      "bytes": 2769
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.graph_who_tried.json"
+      },
+      "sha256": "e33ef5197e5eb354575c030e2a76f92ae8eeedd380f5651643fa8017faceb932",
+      "bytes": 10599
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.grep_books.json"
+      },
+      "sha256": "212af2171438a656ad07691d3a27775d991573369680eb69043fecc0898c0213",
+      "bytes": 623
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.legacy_read.json"
+      },
+      "sha256": "37a04d1b9d5eca88b83ae18fd310fd77920504c89001b79b4189f2fd4a932a43",
+      "bytes": 6251
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.list_books.json"
+      },
+      "sha256": "40522c88b756c878f4e8fd63fef90c7abde61e4cc33efa4f210a9737e552d610",
+      "bytes": 732
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.list_philosophy.json"
+      },
+      "sha256": "27d60c765332ef3e15525fdf601d39cc23b0b05c7514332893a70892b54445ce",
+      "bytes": 583
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.memory_comment.json"
+      },
+      "sha256": "744e3ddd7f564a99c2c2203c2756890e49a27eb3a67436a8cec17c14be1d3eef",
+      "bytes": 446
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.memory_create_lesson.json"
+      },
+      "sha256": "6e6048c8bf092520c5be2bf2a66700be340e131e6166bef4a4d29820d4e45058",
+      "bytes": 458
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.memory_feedback.json"
+      },
+      "sha256": "f66cb3326c0cf05474092c687236cedad7f10749af370a92b3451fdb7e9a949c",
+      "bytes": 448
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.memory_flag_stale.json"
+      },
+      "sha256": "8945fc00a3c9cceece898ddb3e32c16a457627f2a0cd82f0f956228ef1083178",
+      "bytes": 452
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.memory_propose_source_change.json"
+      },
+      "sha256": "5c7c1f5790df72abbefce5d2acb4f2d30bb0e53580dea99d3bbd6ec385ade6b6",
+      "bytes": 474
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.memory_read.json"
+      },
+      "sha256": "759915cbe994a02b22ee7a4357dfb74d6467bf92de29b7462045d21ac129bbe9",
+      "bytes": 1184
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.memory_search.json"
+      },
+      "sha256": "6d5633bf761eb86bd80503965da05b7e3f234cd80bf7c828ea655437ab2cf42d",
+      "bytes": 684
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.memory_tag_link.json"
+      },
+      "sha256": "b272f4546153209625a0fc8397cfbf54df723142a43d2f431adec2633e59da78",
+      "bytes": 448
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.mind_status.json"
+      },
+      "sha256": "099ab7d64d54879123cdc71db9cca731ac8c611a13a4865f8d817da6433968a3",
+      "bytes": 2007
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.read_chunk.json"
+      },
+      "sha256": "b5e33cf8da09dadf3d90e7a17e4b7307374a6070a9490b011d3ee8a250da8d19",
+      "bytes": 573
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.read_metadata.json"
+      },
+      "sha256": "6d8ce767e520238506fd0ca47d1f5f008605c7a84ea3ccd811eb00880dfd3640",
+      "bytes": 615
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.review_decide.json"
+      },
+      "sha256": "c273b520ef30f992e018eb92666dfe6e91be4b76f667a75101a136b3e851c83f",
+      "bytes": 444
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.review_queue.json"
+      },
+      "sha256": "16231215e15b4cc69f883f6a394ca784c28eab827a406294a61ed4127404f0cb",
+      "bytes": 682
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.search.json"
+      },
+      "sha256": "258e9162deade7dccdf9b2dfd3410366e82f32d1b5914b6f9460eeb1fe1b4994",
+      "bytes": 615
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.search_book.json"
+      },
+      "sha256": "c971df15713551ab68ff0c66b7b2003d14a3b88fd27a75af1824e6e6215387b6",
+      "bytes": 625
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.search_philosophy.json"
+      },
+      "sha256": "cd7e3a117883bbbc73816f36dbda1237502fca9effbc35a2428f79588a0b6d6d",
+      "bytes": 637
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.source_list.json"
+      },
+      "sha256": "0f467470560fa7f8d7023cbb572a01c9c2fca28e8302ba20562d9f4c7cf7c8a3",
+      "bytes": 673
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/response.source_read.json"
+      },
+      "sha256": "95a988e662f8d3b3e9deabe19832e7b810b125d70c0a1d918772dfd62377b75c",
+      "bytes": 673
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/reviewer-or-check.json"
+      },
+      "sha256": "78c276c480092dafdc41dfd5e8c1fa071d4c7e3cf62064df3d87dfa061301b6f",
+      "bytes": 640
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/shared-memory-record.json"
+      },
+      "sha256": "214cf84f8615c3aba5d2ec87559a2dfff501c5524a0733f4eb088ee527d2a710",
+      "bytes": 305
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/source-evidence-reference.json"
+      },
+      "sha256": "7c3dd17e4a3a1e9efc3c0d4f5752f5403ef8ea24d5919d6bb5faf807d93f4e65",
+      "bytes": 1042
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/source-identity.json"
+      },
+      "sha256": "c28e9fc667254b142f25968aa696b474eb412415d8f4872954e479036c3cd87b",
+      "bytes": 4403
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/stale-flag-payload.json"
+      },
+      "sha256": "2f407b344decf28be8628eb920253e9e897b1423f17424a6eabacb331edf0666",
+      "bytes": 1965
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/stale-flag-record.json"
+      },
+      "sha256": "7a3184b9efa34b1c1153549d50bc160eaf92cc25dd3ed24442fbb313967130f7",
+      "bytes": 10047
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/target-reference.json"
+      },
+      "sha256": "c5391d0fb050c52ff8e8b1a0dfca0c1977e7990eea691ca42c3c1a8b5b4d9bdd",
+      "bytes": 1114
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/contracts/v1/tested-release.json"
+      },
+      "sha256": "59bb59a66eb0dba6e9ca357f34ef50b344a687fdd13273e35ae5602468a437e6",
+      "bytes": 16100
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/disagreements.json"
+      },
+      "sha256": "d91f94fc38b0cd9e99dacf2b73683ff04dc1eb6eed2cfac08b49b2f5ab228b07",
+      "bytes": 6727
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/annotation-record.json"
+      },
+      "sha256": "a221dd6d2e082a6aee0487f313e8326fb31e5fbdf4d40fe8f071219859214e65",
+      "bytes": 15447
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/catalog-entry.json"
+      },
+      "sha256": "1152ce15897f2fe410339fa2307f9feb4bad4140dafed07b68c8c509ddd5f546",
+      "bytes": 5567
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/comment-selector.json"
+      },
+      "sha256": "30dbb517a4622bdaa878526870199b7b38298f9969d092e4795903930d749068",
+      "bytes": 1199
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/contribution-evidence-reference.json"
+      },
+      "sha256": "4a90534135cad58a582d2190fdbfb59783473229e05da8a22435b56a6826d15d",
+      "bytes": 1173
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/evidence-read.json"
+      },
+      "sha256": "90a83cbcd67dafd0ba07cb4514ed25c14ba143ab71edf7569f1493eab036534e",
+      "bytes": 6100
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/evidence-reference.json"
+      },
+      "sha256": "bb610a3ce07c0ec4fdb7f77b63db6b22e76f156c34ff696f3480aa7aa9b3d42a",
+      "bytes": 1962
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/feedback-payload.json"
+      },
+      "sha256": "0fe1873b76d4cbb21127ccbd6be0f2091bbc5904df7010febe08e6d7fd9c23ec",
+      "bytes": 3969
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/feedback-record.json"
+      },
+      "sha256": "b7598186a49ac3e3129d5ce6c48759fd2593c3d8c8123608f7013e5d1ad96cdc",
+      "bytes": 7235
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/lesson-payload.json"
+      },
+      "sha256": "2d53e62f60f593845085a92ad767e3a6096201d88fa47d2806edf66791316340",
+      "bytes": 2108
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/lesson-record.json"
+      },
+      "sha256": "7f269b9a4c9792c5ff1c1d876f71c75a196c721deae7eb96f61d3aa82d91d50e",
+      "bytes": 17575
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/lesson-revision-request.json"
+      },
+      "sha256": "c0decf641ad2bebe83ad745112c419eb0ee164e464373c1e10ce54302e114053",
+      "bytes": 2325
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/locator.json"
+      },
+      "sha256": "87514239dbe8bdd59a26a4eb882e4d4aefd8acc29edeebf49e47531a83921ea6",
+      "bytes": 2896
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/memory-audit-event.json"
+      },
+      "sha256": "48d84f96122233744764cb09a0bb962027eb365e5c8f88528da74c634c9ceca2",
+      "bytes": 1964
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/memory-provenance.json"
+      },
+      "sha256": "abb0e087a1ffc9ea223614a34d931f5cfc1fffc2e8544eba51be5e817bb24ebf",
+      "bytes": 1060
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/memory-receipt-lookup.json"
+      },
+      "sha256": "d2b21df7ece386cd25759ae643c4775f6e98f3e9928caebbe783e5141de5fbf4",
+      "bytes": 707
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/memory-record.json"
+      },
+      "sha256": "846283ef3e0c9ece396eaebe974fbc6dbf0564ed0900655aafd2ce3ae06543fe",
+      "bytes": 8157
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/memory-write-error.json"
+      },
+      "sha256": "fb112f0409004d436ed49e3ead46b6ab6704a095344d6f7b4bfca10940b50419",
+      "bytes": 940
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/memory-write-receipt.json"
+      },
+      "sha256": "ea29d870562cc2fdad7175663c0768ae8435cd457aa09eea8fe6ed3922d101ae",
+      "bytes": 9535
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/read-metadata.json"
+      },
+      "sha256": "5083098afc3c40c374bc26a688d8f92b86da5472d4c8b387ed38d5b38c937eb6",
+      "bytes": 2383
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.archive_job_status.json"
+      },
+      "sha256": "181dfb5374546a47751682d0c42caf1c1bfbbe033b573dbfc61057a6c9318e68",
+      "bytes": 1665
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.archive_prepare.json"
+      },
+      "sha256": "6ee400a8dff46780d996722eaba7f92e785890036d74d6ae9620b38a38613c87",
+      "bytes": 2356
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.coverage.json"
+      },
+      "sha256": "23a0bd4e78d77d5b2cf46bb8b36f38b03d0df860fc7eb11749789f0c690f6eda",
+      "bytes": 2031
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.coverage_gaps.json"
+      },
+      "sha256": "5f3c9e4fbba84d31d9a58e05f1c588e4ae758d2a4ef9a148d9829d62d0704fbb",
+      "bytes": 1986
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.figure_read.json"
+      },
+      "sha256": "fcf41feee4d16f4ac764871b337ced2152ac5bb25432f5406898ccd04fb0e0b0",
+      "bytes": 1880
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.figure_search.json"
+      },
+      "sha256": "16d1ea6d545f4cb60827d80842bcb188bc0775d57f3c41dd3d98438b3c1460ae",
+      "bytes": 2058
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.get_chapter.json"
+      },
+      "sha256": "97ee21d9eae97ef5c1077bd64b40f70d712902efc99f6fc6be3b9ce8c45135a5",
+      "bytes": 1776
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.graph_evidence.json"
+      },
+      "sha256": "b631228ccb2fa2bba83552ac0a3b0f6af6447452c40dc44a79d5facccdff30a9",
+      "bytes": 1789
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.graph_subgraph.json"
+      },
+      "sha256": "69382b8722a6931a35c51b15270db89fb5675dde352970b1815c17325e9866ed",
+      "bytes": 2005
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.graph_who_tried.json"
+      },
+      "sha256": "3c7cdabb46488b068070df3d674f32e090da8e1db6c4ee173d1028b733960a1d",
+      "bytes": 2400
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.grep_books.json"
+      },
+      "sha256": "ad76b4b8932727bbd4fb851f2e4546306faf0bd108fd8ce5bcb11520ccb41659",
+      "bytes": 1629
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.legacy_read.json"
+      },
+      "sha256": "7fd3a6e7d46dafde38e4eb69d5f5468a3f9451fcf7830f8768fcb9d2eaa79fbe",
+      "bytes": 2300
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.list_books.json"
+      },
+      "sha256": "0060cb5dc0fafa1b4440b7050143c6744291c4425321b68287711f756fc87c2a",
+      "bytes": 1469
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.list_philosophy.json"
+      },
+      "sha256": "98fb9b5a1e77f2456e4d25b4c2c15d471ec1c5dc0058a0fc324fc6946333b516",
+      "bytes": 1484
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.memory_comment.json"
+      },
+      "sha256": "d05d280f4a47c77e313cd45b618c2ada1587144bd67222c4a9d5c16cd853871d",
+      "bytes": 4313
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.memory_create_lesson.json"
+      },
+      "sha256": "ab110dca777dea11babb2a27fb283425284b3cbff9f6e4a182ab311047eecfef",
+      "bytes": 3851
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.memory_feedback.json"
+      },
+      "sha256": "1802bb7502ef21eadacdd21b8d4e1749e050239d99b756b7e9918365d7a669dd",
+      "bytes": 3116
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.memory_flag_stale.json"
+      },
+      "sha256": "e199d179604bb7c89d9d1b3e9073f76c7a53e869121ee913c6f0a647feb5de74",
+      "bytes": 2970
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.memory_propose_source_change.json"
+      },
+      "sha256": "1476d4613dd89d2943137e0cb9ebb3b39636c7ad7ca14e3e8b9ea83cf6455037",
+      "bytes": 3627
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.memory_read.json"
+      },
+      "sha256": "512ca4f6e9b8e8932a93e2d3017b7bf71119b2b5584911cfc8c9604158b809be",
+      "bytes": 1640
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.memory_search.json"
+      },
+      "sha256": "b9969bc74f68c4c4f510c3af48267b17b615df979b0a22b9acb75458c76555c9",
+      "bytes": 1630
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.memory_tag_link.json"
+      },
+      "sha256": "159246ea673f3c1dd5301ca04bc1401532b37a040cb1e073afc66581bae53f62",
+      "bytes": 3124
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.mind_status.json"
+      },
+      "sha256": "8b80de7e60c774cad1c7211bece9a9e9bc55beab2792399b86c390e5c9b54263",
+      "bytes": 1472
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.read_chunk.json"
+      },
+      "sha256": "d504f82ff1ba5609722d6b4d110c26eb80cb3fa1695f186c96c59aaa9fe239f0",
+      "bytes": 1633
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.read_metadata.json"
+      },
+      "sha256": "353e8a57a28f8d2cccce386bd4479af097c45ca1526711810b01fdf40ba20e32",
+      "bytes": 1658
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.review_decide.json"
+      },
+      "sha256": "d109a403b0637f576da9748756d6c8f01e666dd77708d0d767345b9f50a2fc6a",
+      "bytes": 3518
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.review_queue.json"
+      },
+      "sha256": "ea878b8654f9183194d3d5d8184cd51a0359a1dc9a12271b0fbd606353d3933f",
+      "bytes": 1635
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.search.json"
+      },
+      "sha256": "c579990096cfb4535785b649e072aec72b05c2a0e46cf074d9dddfab820a27cb",
+      "bytes": 1609
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.search_book.json"
+      },
+      "sha256": "a8e1152ad7a29851227d943974861f86d2139b58123308764bd6cab50e9f6072",
+      "bytes": 1768
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.search_philosophy.json"
+      },
+      "sha256": "f50699c6cdab54291e8e6386b66688e2da72ee30cd24ff06452b2c946618d19c",
+      "bytes": 1642
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.source_list.json"
+      },
+      "sha256": "1e31e17f6a1d2454115974a16446b27ad4fda67a3fb98311ac538c3daadd2964",
+      "bytes": 1748
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/request.source_read.json"
+      },
+      "sha256": "ff15747778efa277914bcad5e5423298423d54962e85e57b5bfedd26c808af98",
+      "bytes": 1800
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.archive_job_status.json"
+      },
+      "sha256": "c66c6f275066e2eebe897003315d316b8d31a3e8808147d4a1df6f868222778b",
+      "bytes": 5480
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.archive_prepare.json"
+      },
+      "sha256": "c66c6f275066e2eebe897003315d316b8d31a3e8808147d4a1df6f868222778b",
+      "bytes": 5480
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.coverage.json"
+      },
+      "sha256": "0da9e451c27e05ba14f2412392fa31a62e23430272930ffbbbfc5e20164804f4",
+      "bytes": 14451
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.coverage_gaps.json"
+      },
+      "sha256": "27037b1bf148f46097ef4bc82cab421b57211eeb23a124efde7e0b21c1af3c93",
+      "bytes": 6134
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.figure_read.json"
+      },
+      "sha256": "7dc796d01fc686ae669a02c80d7234f580ce12dea1aa332d48e3cb2d23571d68",
+      "bytes": 5276
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.figure_search.json"
+      },
+      "sha256": "fc275a085d7828698e4a4b70826c6a8eb973ba1538021a207bff9e6bf7d0f43c",
+      "bytes": 5404
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.get_chapter.json"
+      },
+      "sha256": "685b740abeb4b88c940683b0af0807bc1323d47027e03f2d65a0a021f767d2cd",
+      "bytes": 2837
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.graph_evidence.json"
+      },
+      "sha256": "183c55bbc9f6c1c5081659b25c4c59ba9f392616d4b29b9db5dcf0b5e7ccf1f9",
+      "bytes": 7944
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.graph_subgraph.json"
+      },
+      "sha256": "529d0d883b144197e0552f265fd6133368d083188d5ef994e63929d4019c59a8",
+      "bytes": 9232
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.graph_who_tried.json"
+      },
+      "sha256": "c1ca23bc3b48cda9fb42b7562a5990579b4e26a86e9c256bbd9bafa0ecd64102",
+      "bytes": 11256
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.grep_books.json"
+      },
+      "sha256": "8342b8f9e697dc2c35263674a674e939dd6174a8a2a1ea37e3a257a63d5b7f2c",
+      "bytes": 3083
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.legacy_read.json"
+      },
+      "sha256": "c141c4d9dc05eabc3f22b2a0a16a4b5dbde89de259390be86c3a6c06ce9970e3",
+      "bytes": 2863
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.list_books.json"
+      },
+      "sha256": "5b135c7309b2ff96750ebf433d76fe2a13f37168f90518faf84659ab4a33eec6",
+      "bytes": 3175
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.list_philosophy.json"
+      },
+      "sha256": "26a553ed9544ef0132aa1417c6419f943deb9cc91910c4d712a67be8dce01038",
+      "bytes": 3147
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.memory_comment.json"
+      },
+      "sha256": "7f705c4a2a8ceef68be3793ae1f94153c371be0cb0baf6e101bcea6d62811063",
+      "bytes": 4149
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.memory_create_lesson.json"
+      },
+      "sha256": "7f705c4a2a8ceef68be3793ae1f94153c371be0cb0baf6e101bcea6d62811063",
+      "bytes": 4149
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.memory_feedback.json"
+      },
+      "sha256": "7f705c4a2a8ceef68be3793ae1f94153c371be0cb0baf6e101bcea6d62811063",
+      "bytes": 4149
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.memory_flag_stale.json"
+      },
+      "sha256": "7f705c4a2a8ceef68be3793ae1f94153c371be0cb0baf6e101bcea6d62811063",
+      "bytes": 4149
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.memory_propose_source_change.json"
+      },
+      "sha256": "7f705c4a2a8ceef68be3793ae1f94153c371be0cb0baf6e101bcea6d62811063",
+      "bytes": 4149
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.memory_read.json"
+      },
+      "sha256": "e0037236faec1973c9c279db28d8042977ae3734a49fafbdc34927e7bd18a179",
+      "bytes": 6666
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.memory_search.json"
+      },
+      "sha256": "67d44166cb6a3244b7d283ea2b118a1844e679dc5364f4eca08f29d5f561c3cb",
+      "bytes": 6394
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.memory_tag_link.json"
+      },
+      "sha256": "7f705c4a2a8ceef68be3793ae1f94153c371be0cb0baf6e101bcea6d62811063",
+      "bytes": 4149
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.mind_status.json"
+      },
+      "sha256": "b1dbace1ddaa8294517664ae0e38b485287314f35e16296e448f53affebbd2a2",
+      "bytes": 4124
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.read_chunk.json"
+      },
+      "sha256": "be26e98747f3aae3f9de5f2ed4281086451c4e673c855db6da98619a7b69ad32",
+      "bytes": 3081
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.read_metadata.json"
+      },
+      "sha256": "f21c3f4ec954406d0654d7407bb4511b2ea97646dcee66065742bb524b5e3acc",
+      "bytes": 5898
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.review_decide.json"
+      },
+      "sha256": "7f705c4a2a8ceef68be3793ae1f94153c371be0cb0baf6e101bcea6d62811063",
+      "bytes": 4149
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.review_queue.json"
+      },
+      "sha256": "69d66a1f37ee05b1b28d8997b51104737d9e0107fef639c725ffdbd6d1e65735",
+      "bytes": 8202
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.search.json"
+      },
+      "sha256": "45b013d9808e7f57cdf19c5c7e0e87c363df4c5ea933e7d438e1bafda418e472",
+      "bytes": 3331
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.search_book.json"
+      },
+      "sha256": "45b013d9808e7f57cdf19c5c7e0e87c363df4c5ea933e7d438e1bafda418e472",
+      "bytes": 3331
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.search_philosophy.json"
+      },
+      "sha256": "29dcb8ae86328579ae1e9ad2b0c554f44df8c84a6eaa5078945754160a1b9506",
+      "bytes": 3131
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.source_list.json"
+      },
+      "sha256": "93a53e994be1a496d790e9f622359bbbe7d6ee657daebe43e3e4b3f7a633d30f",
+      "bytes": 9822
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/response.source_read.json"
+      },
+      "sha256": "183c55bbc9f6c1c5081659b25c4c59ba9f392616d4b29b9db5dcf0b5e7ccf1f9",
+      "bytes": 7944
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/reviewer-or-check.json"
+      },
+      "sha256": "157d776fcb61203931ec092ab93dcd625e64222ce4b164268bb08aca7c2f64bc",
+      "bytes": 813
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/shared-memory-record.json"
+      },
+      "sha256": "0272348298e7bb30b1125e1ef46cf1ae13b3629bd21f3ddeb2ec4c42a48aa1bb",
+      "bytes": 4267
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/source-evidence-reference.json"
+      },
+      "sha256": "4a90534135cad58a582d2190fdbfb59783473229e05da8a22435b56a6826d15d",
+      "bytes": 1173
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/source-identity.json"
+      },
+      "sha256": "5573b834f942fb769e35274ae631f547b72ba0f0dd1892250ddc78f5704e49dc",
+      "bytes": 1663
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/stale-flag-payload.json"
+      },
+      "sha256": "028053f78ab3a99fe98cf5d62d8bfebfa1c88f6700a691379c38d2f0d0a640a4",
+      "bytes": 1631
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/stale-flag-record.json"
+      },
+      "sha256": "611cdc2c1205cb1ef7ac4e7962c2f297beda55287a82b29791a3d85fafe4d3c1",
+      "bytes": 3881
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/target-reference.json"
+      },
+      "sha256": "6f8837c575d94e687366382354839f3c71773b70203147df7756bc0adc391090",
+      "bytes": 908
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/fixtures/v1/tested-release.json"
+      },
+      "sha256": "c1300c2e0c881e33f3cbbc5ba95d558083c15ab08760f29c3c43399cb72b0a98",
+      "bytes": 6815
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/locations.json"
+      },
+      "sha256": "76b3926ae7a6959aef32474ddbe79a66dd8333c6c457bae1e559a27b35ffd06e",
+      "bytes": 351
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/pi-inputs-v1.json"
+      },
+      "sha256": "2b9f98ff34fb4a15dea07b55e94fe0b445975a7aba15e5ef320e1155906eb254",
+      "bytes": 24714
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/redirects-m1c.json"
+      },
+      "sha256": "a46830e39bb44568435e169e3c61de66291127c2f5c6e6b724f623d14de7fa22",
+      "bytes": 4768
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/baseline/tools-v1.json"
+      },
+      "sha256": "4258b47c8cf745074312fafa6aabca56da6540e333f90abbefd9786ae1245403",
+      "bytes": 6472
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "scripts/fp/baseline_io.py"
+      },
+      "sha256": "8fa65c4aa9f9574bfcd4d9f8444b734e8b2c327835153751585f916d1929d7ee",
+      "bytes": 5815
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "scripts/fp/build_contracts.py"
+      },
+      "sha256": "6ffe559705a0c3fd846f5c9c210924cfdb554ef75bf186ea85d9446bf35b1cc5",
+      "bytes": 41159
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "scripts/fp/capture_baseline.py"
+      },
+      "sha256": "32d153b6e09fdcade4b307d55d77af48b2447ab5e8ae6e7bfad8568e4f0c27da",
+      "bytes": 12007
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "scripts/fp/check-baseline.sh"
+      },
+      "sha256": "7612cd1f42256cde89db3c57123f85c41df5abd63fd5b55bbb6d3350981be2e5",
+      "bytes": 212
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "scripts/fp/check_baseline.py"
+      },
+      "sha256": "5c96c664fd09c42ee1b6724db4e51130b082a0411b4f963c33e93acc8980e01e",
+      "bytes": 6396
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "scripts/fp/refresh_contract_lock.py"
+      },
+      "sha256": "56c9ce7f48ba4563af58646b5e845eae8c2fd5e137aa27b4257380a60c22ee08",
+      "bytes": 2116
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "scripts/fp/remote_probe.py"
+      },
+      "sha256": "b78d5ce91fad40ab269ab8529b772e261224679fb7316eb01124926042000e06",
+      "bytes": 7757
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "scripts/fp/requirements.txt"
+      },
+      "sha256": "97dd202e5c66c3946be50c2514b1390e655c09c5a9b1fedac55b506c65f15977",
+      "bytes": 71
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "scripts/fp/validate_contracts.py"
+      },
+      "sha256": "c7bc0b5a400d1761fe633488a02cf845d3a4763ce66b8f3cbd4ed361c96a2caa",
+      "bytes": 11162
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "tests/test_fp_baseline.py"
+      },
+      "sha256": "e14328cca035401d55abeade49a3530ad7c035a7ac4ab240df037371f02adc1c",
+      "bytes": 9347
+    }
+  ]
+}

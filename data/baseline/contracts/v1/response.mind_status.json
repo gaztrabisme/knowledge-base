@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:response.mind_status:1",
+  "title": "response.mind_status",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "mind-tool-response/v1"
+    },
+    "data": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "release_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "components": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "component": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "state": {
+                    "enum": [
+                      "ready",
+                      "unavailable",
+                      "pending",
+                      "disabled"
+                    ]
+                  }
+                },
+                "required": [
+                  "component",
+                  "state"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "pending_jobs": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "synchronized_revision": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "release_id",
+            "components",
+            "pending_jobs",
+            "synchronized_revision"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "metadata": {
+      "$ref": "urn:organized-mind:read-metadata:1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "data",
+    "metadata"
+  ],
+  "additionalProperties": false
+}

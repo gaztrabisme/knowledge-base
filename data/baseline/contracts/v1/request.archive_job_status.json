@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:request.archive_job_status:1",
+  "title": "request.archive_job_status",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "mind-tool-request/v1"
+    },
+    "operation": {
+      "const": "archive_job_status"
+    },
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "job_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "job_id"
+      ],
+      "additionalProperties": false
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "owner_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "privacy_scope": {
+          "enum": [
+            "owner-private",
+            "project-private"
+          ]
+        },
+        "question_budget_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "owner_scope",
+        "project_scope",
+        "privacy_scope"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "operation",
+    "arguments",
+    "context"
+  ],
+  "additionalProperties": false
+}

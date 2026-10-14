@@ -1,0 +1,43 @@
+{
+  "valid": [
+    {
+      "name": "revision conflict",
+      "value": {
+        "code": "revision_conflict",
+        "message": "Expected revision 1, found 2",
+        "retryable": false,
+        "expected_revision": 1,
+        "actual_revision": 2
+      }
+    },
+    {
+      "name": "backend unavailable",
+      "value": {
+        "code": "backend_unavailable",
+        "message": "Writer unavailable",
+        "retryable": true
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "unstructured code",
+      "value": {
+        "code": "oops",
+        "message": "Expected revision 1, found 2",
+        "retryable": false,
+        "expected_revision": 1,
+        "actual_revision": 2
+      }
+    },
+    {
+      "name": "missing retry classification",
+      "value": {
+        "code": "revision_conflict",
+        "message": "Expected revision 1, found 2",
+        "expected_revision": 1,
+        "actual_revision": 2
+      }
+    }
+  ]
+}

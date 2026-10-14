@@ -1,0 +1,32 @@
+{
+  "valid": [
+    {
+      "name": "original-key lookup",
+      "value": {
+        "schema_version": "pi-mind/memory-receipt-lookup@1",
+        "request_key": "request-1",
+        "owner_scope": "owner",
+        "project_scope": "pi-mind"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "missing scope",
+      "value": {
+        "schema_version": "pi-mind/memory-receipt-lookup@1",
+        "request_key": "request-1",
+        "project_scope": "pi-mind"
+      }
+    },
+    {
+      "name": "empty request key",
+      "value": {
+        "schema_version": "pi-mind/memory-receipt-lookup@1",
+        "request_key": "",
+        "owner_scope": "owner",
+        "project_scope": "pi-mind"
+      }
+    }
+  ]
+}

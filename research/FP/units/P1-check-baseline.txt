@@ -1,0 +1,6 @@
+Inputs: /Users/GaryT/Documents/Work/tools/knowledge-base-wt/P1/data/baseline; roots={'repo': '/Users/GaryT/Documents/Work/tools/knowledge-base-wt/P1', 'main-checkout': '/Users/GaryT/Documents/Work/tools/knowledge-base', 'pi-mind': '/Users/GaryT/Documents/Work/tools/pi-mind', 'bppc': '/home/bppc/kb-work/kbu-2026-10-07/M1'}; Mac Qdrant http://127.0.0.1:6333; bppc hosts=['192.168.1.17', '100.106.185.34']
+PASS: 91 schemas, 32 tool pairs, 341 fixtures; local source/release hashes
+PASS: Mac developer_knowledge -> developer_knowledge_v10 (330778 points, 1024 dimensions)
+Reading bppc frozen payloads, sparse fingerprints, models and 438/199/30 controls (no model execution)...
+PASS: 420 bppc file hashes; 330778 IDs/payloads/BM25, 328 sources; original labels and M1c redirect
+PASS: FP P1 mechanical baseline gate. Gary contract approval and P7 installation gates remain pending.

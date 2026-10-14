@@ -1,0 +1,3386 @@
+{
+  "schema_version": "mind/baseline@1",
+  "release_id": "v10-fp-p1",
+  "captured_at": "2026-10-14T15:40:15.138521+00:00",
+  "approval_state": "contracts-pending-review",
+  "remote": {
+    "aliases": [],
+    "collection": {
+      "config": {
+        "hnsw_config": {
+          "ef_construct": 100,
+          "full_scan_threshold": 10000,
+          "m": 16,
+          "max_indexing_threads": 0,
+          "on_disk": false
+        },
+        "optimizer_config": {
+          "default_segment_number": 0,
+          "deleted_threshold": 0.2,
+          "flush_interval_sec": 5,
+          "indexing_threshold": 10000,
+          "max_optimization_threads": null,
+          "max_segment_size": null,
+          "memmap_threshold": null,
+          "prevent_unoptimized": null,
+          "vacuum_min_vector_number": 1000
+        },
+        "params": {
+          "on_disk_payload": true,
+          "replication_factor": 1,
+          "shard_number": 1,
+          "sparse_vectors": {
+            "bm25": {
+              "modifier": "idf"
+            }
+          },
+          "vectors": {
+            "distance": "Cosine",
+            "size": 1024
+          },
+          "write_consistency_factor": 1
+        },
+        "quantization_config": null,
+        "wal_config": {
+          "wal_capacity_mb": 32,
+          "wal_retain_closed": 1,
+          "wal_segments_ahead": 0
+        }
+      },
+      "name": "developer_knowledge_v10",
+      "points_count": 330778
+    },
+    "controls": {
+      "easy": {
+        "aggregate": {
+          "mrr": 0.9639,
+          "ndcg": 0.9044,
+          "recall10": 1.0,
+          "recall_ceiling": 1.0
+        },
+        "count": 199,
+        "identity": {
+          "audit_sha256": null,
+          "candidates": 50,
+          "code_sha256": {
+            "kb/knowledge_base/config.py": "637ca9b67f87fd161d99fffcd72926ff9fede2e5b9cd09edb4a2bce534618dce",
+            "kb/knowledge_base/embedder.py": "d642c22c00b8ef4bbf5fc2c49b4c601f4a7f5a244104b69dea2dd9b8bfddbf6a",
+            "kb/knowledge_base/index.py": "7ece6781e5b0e180fd66adf4bb130b60eb52246cfafa59579587f542673ba8ab",
+            "kb/knowledge_base/search.py": "a30854a24268ce535423784f79a277c96055bc43208ad3e80c223ecb0709cdb0",
+            "kb/scripts/eval_retrieval.py": "a71604974d5cbdd7281591193b3639fe2fdbcfb066c7009d04a9afec218a23be"
+          },
+          "collection": "developer_knowledge_v10",
+          "embedding_model": "jinaai/jina-embeddings-v5-text-small-retrieval",
+          "frozen_manifest_sha256": "690d5cc3285ac1bd9e861b3ff3810bb7159c6828d944a8eb12e044be45c793ce",
+          "hyde": false,
+          "packages": {
+            "fastembed": "0.8.0",
+            "qdrant-client": "1.19.1",
+            "sentence-transformers": "6.1.0",
+            "torch": "2.14.1+cu130",
+            "transformers": "5.19.0"
+          },
+          "positive_maps_sha256": "a3ca04e25fee59f511acefd7ce820c28e344cf6abbc749734918dee46bab9331",
+          "query_info": {
+            "count": 199,
+            "path": "kb/data/golden/golden_queries.jsonl",
+            "sha256": "e8890320ea6969568da4b10bfbafa6dd60ef8a0dd1a6e397f844eb75f61b7830"
+          },
+          "rerank": true,
+          "rerank_input": "descriptive-heading",
+          "top_k": 10
+        },
+        "output_sha256": "fe9f577e0ebb17b4f517dc4af6044c67e2101ed98b03868d3a48eed920eb0379",
+        "per_query_sha256": "433e85000a70b701cd527dfbac6396ff9708615d27553ecf5f03e50e5e2631cf"
+      },
+      "hard": {
+        "aggregate": {
+          "mrr": 0.8302,
+          "ndcg": 0.7393,
+          "recall10": 0.9521,
+          "recall_ceiling": 0.9749
+        },
+        "count": 438,
+        "identity": {
+          "audit_sha256": null,
+          "candidates": 50,
+          "code_sha256": {
+            "kb/knowledge_base/config.py": "637ca9b67f87fd161d99fffcd72926ff9fede2e5b9cd09edb4a2bce534618dce",
+            "kb/knowledge_base/embedder.py": "d642c22c00b8ef4bbf5fc2c49b4c601f4a7f5a244104b69dea2dd9b8bfddbf6a",
+            "kb/knowledge_base/index.py": "7ece6781e5b0e180fd66adf4bb130b60eb52246cfafa59579587f542673ba8ab",
+            "kb/knowledge_base/search.py": "a30854a24268ce535423784f79a277c96055bc43208ad3e80c223ecb0709cdb0",
+            "kb/scripts/eval_retrieval.py": "a71604974d5cbdd7281591193b3639fe2fdbcfb066c7009d04a9afec218a23be"
+          },
+          "collection": "developer_knowledge_v10",
+          "embedding_model": "jinaai/jina-embeddings-v5-text-small-retrieval",
+          "frozen_manifest_sha256": "690d5cc3285ac1bd9e861b3ff3810bb7159c6828d944a8eb12e044be45c793ce",
+          "hyde": false,
+          "packages": {
+            "fastembed": "0.8.0",
+            "qdrant-client": "1.19.1",
+            "sentence-transformers": "6.1.0",
+            "torch": "2.14.1+cu130",
+            "transformers": "5.19.0"
+          },
+          "positive_maps_sha256": "66cf4bb833395bb60a5c293fd52f8326a8bd1a3e34223d4ecd3a25ac286f9e92",
+          "query_info": {
+            "count": 438,
+            "path": "kb/data/golden/golden_queries_hard.jsonl",
+            "sha256": "16641565b1f299716f2a4605bc273fe09b07c591f8dd3d0c66ee6e6897cb6cb1"
+          },
+          "rerank": true,
+          "rerank_input": "descriptive-heading",
+          "top_k": 10
+        },
+        "output_sha256": "f73ce0cdd9d8eb620f9fd47ad96889a30815fa03f57cb9c364bbeb684e89684d",
+        "per_query_sha256": "d869df89836b79144f66fcfad585072613c9fb0768c7a56e8a864d6180f08106"
+      },
+      "sanity": {
+        "aggregate": {
+          "mrr": 0.7261,
+          "ndcg": 0.6463,
+          "recall10": 0.9333,
+          "recall_ceiling": 1.0
+        },
+        "count": 30,
+        "identity": {
+          "audit_sha256": null,
+          "candidates": 50,
+          "code_sha256": {
+            "kb/knowledge_base/config.py": "637ca9b67f87fd161d99fffcd72926ff9fede2e5b9cd09edb4a2bce534618dce",
+            "kb/knowledge_base/embedder.py": "d642c22c00b8ef4bbf5fc2c49b4c601f4a7f5a244104b69dea2dd9b8bfddbf6a",
+            "kb/knowledge_base/index.py": "7ece6781e5b0e180fd66adf4bb130b60eb52246cfafa59579587f542673ba8ab",
+            "kb/knowledge_base/search.py": "a30854a24268ce535423784f79a277c96055bc43208ad3e80c223ecb0709cdb0",
+            "kb/scripts/eval_retrieval.py": "a71604974d5cbdd7281591193b3639fe2fdbcfb066c7009d04a9afec218a23be"
+          },
+          "collection": "developer_knowledge_v10",
+          "embedding_model": "jinaai/jina-embeddings-v5-text-small-retrieval",
+          "frozen_manifest_sha256": "690d5cc3285ac1bd9e861b3ff3810bb7159c6828d944a8eb12e044be45c793ce",
+          "hyde": false,
+          "packages": {
+            "fastembed": "0.8.0",
+            "qdrant-client": "1.19.1",
+            "sentence-transformers": "6.1.0",
+            "torch": "2.14.1+cu130",
+            "transformers": "5.19.0"
+          },
+          "positive_maps_sha256": "e664de2e6853b4ed3185885482d2feb6ef1e1275eababd0a4976cd3177b424d4",
+          "query_info": {
+            "count": 30,
+            "path": "kb/data/gate-v10/sanity.jsonl",
+            "sha256": "0e12e0c8e3d53567d772d3b1990a9239316a1a8c339c37b793af5d34013470bf"
+          },
+          "rerank": true,
+          "rerank_input": "descriptive-heading",
+          "top_k": 10
+        },
+        "output_sha256": "f7722a37e4b0d7ff1e145bfd401261d8033fdf565fb7e43deb89a0b481e779ad",
+        "per_query_sha256": "4bea77364fb8e30385c28c06321f0bda90e723676e1ee2632435e6bee8301599"
+      }
+    },
+    "files": {
+      "cache/fastembed/models--Qdrant--bm25/refs/main": {
+        "bytes": 40,
+        "sha256": "2c7abc4aab2af8a57d18868f76bdf4d27cabff8945d059535fa29d5673da1749"
+      },
+      "cache/fastembed/models--Qdrant--bm25/snapshots/22b8d2af71a76161e18dd432d2cee0eefa66e412/arabic.txt": {
+        "bytes": 6348,
+        "sha256": "0df01c0a184d8c15077c6f0ee70e25e0c0308d827b92b14a19f5f819a0c465d0"
+      },
+      "cache/fastembed/models--Qdrant--bm25/snapshots/22b8d2af71a76161e18dd432d2cee0eefa66e412/config.json": {
+        "bytes": 2,
+        "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "cache/fastembed/models--Qdrant--bm25/snapshots/22b8d2af71a76161e18dd432d2cee0eefa66e412/danish.txt": {
+        "bytes": 424,
+        "sha256": "1bedc9cf5a8830dacf8c4ee0d8b301f0801861756ad0d504431d01047f961b0c"
+      },
+      "cache/fastembed/models--Qdrant--bm25/snapshots/22b8d2af71a76161e18dd432d2cee0eefa66e412/dutch.txt": {
+        "bytes": 453,
+        "sha256": "e5a2a7c390fe3ad0c0a132586ed11492b635d66a1f426cd89677f80b07bc76a6"
+      },
+      "cache/fastembed/models--Qdrant--bm25/snapshots/22b8d2af71a76161e18dd432d2cee0eefa66e412/english.txt": {
+        "bytes": 936,
+        "sha256": "019f104ba2ed07436d05f9cdd3383034ad66014edc27fc651f837e1a038b6451"
+      },
+      "cache/fastembed/models--Qdrant--bm25/snapshots/22b8d2af71a76161e18dd432d2cee0eefa66e412/finnish.txt": {
+        "bytes": 1579,
+        "sha256": "952af766edc9b8e7ddc877fc464cbd94b91754b5621fdfdd7020568fd4813fcd"
+      },
+      "cache/fastembed/models--Qdrant--bm25/snapshots/22b8d2af71a76161e18dd432d2cee0eefa66e412/french.txt": {
+        "bytes": 813,
+        "sha256": "58ac7f7c074b70dc0fc86f6fcf40b2c227e9f95627e90e57971d5cce1e30e2e9"
+      },
+      "cache/fastembed/models--Qdrant--bm25/snapshots/22b8d2af71a76161e18dd432d2cee0eefa66e412/german.txt": {
+        "bytes": 1362,
+        "sha256": "f0c25acd7ec02a31f6679d9664ec5222ca846fdbc58db96160f4e7c0ddb0f7ea"
+      },
+      "cache/fastembed/models--Qdrant--bm25/snapshots/22b8d2af71a76161e18dd432d2cee0eefa66e412/greek.txt": {
+        "bytes": 2167,
+        "sha256": "7a97c6dc81144f7e8fcfe976025954ca3731f78a75d1fd86aa87f261fd195dae"
+      },
+      "cache/fastembed/models--Qdrant--bm25/snapshots/22b8d2af71a76161e18dd432d2cee0eefa66e412/hungarian.txt": {
+        "bytes": 1227,
+        "sha256": "64a68b5ebaa616b25bd976ac915c326f2ea8cce8b59a0ac8c5728b980ae4fb0c"
+      },
+      "cache/fastembed/models--Qdrant--bm25/snapshots/22b8d2af71a76161e18dd432d2cee0eefa66e412/italian.txt": {
+        "bytes": 1654,
+        "sha256": "293d7841f198e4012f49e8e5653c3bfd073a58cea1259fa2c0fcec894167b628"
+      },
+      "cache/fastembed/models--Qdrant--bm25/snapshots/22b8d2af71a76161e18dd432d2cee0eefa66e412/norwegian.txt": {
+        "bytes": 851,
+        "sha256": "f7e5b42208ccf1b1f282f9e0f8570e464272762bda5718b6b26750f510a688dc"
+      },
+      "cache/fastembed/models--Qdrant--bm25/snapshots/22b8d2af71a76161e18dd432d2cee0eefa66e412/portuguese.txt": {
+        "bytes": 1286,
+        "sha256": "6e7b98378c6b728266a83ebf035d927abf16b9e0d815d6204d81d90d896bcc9b"
+      },
+      "cache/fastembed/models--Qdrant--bm25/snapshots/22b8d2af71a76161e18dd432d2cee0eefa66e412/romanian.txt": {
+        "bytes": 1910,
+        "sha256": "0ab53d21cbde00c6bf367706a0243c646140ba564cce7e83ac33d80f8923e957"
+      },
+      "cache/fastembed/models--Qdrant--bm25/snapshots/22b8d2af71a76161e18dd432d2cee0eefa66e412/russian.txt": {
+        "bytes": 1235,
+        "sha256": "1743191192b4a4f77fcc216499455dc00c1b8626fdd407076a8deefff80e3d59"
+      },
+      "cache/fastembed/models--Qdrant--bm25/snapshots/22b8d2af71a76161e18dd432d2cee0eefa66e412/spanish.txt": {
+        "bytes": 2176,
+        "sha256": "6125eadf28ba664a60bf4296147bcbd40b80be93670056fdb229960ac15e2310"
+      },
+      "cache/fastembed/models--Qdrant--bm25/snapshots/22b8d2af71a76161e18dd432d2cee0eefa66e412/swedish.txt": {
+        "bytes": 559,
+        "sha256": "2a9d9d756bc4257d49329994f805c712cd5ab6746162e2082752238766c1c0c8"
+      },
+      "cache/fastembed/models--Qdrant--bm25/snapshots/22b8d2af71a76161e18dd432d2cee0eefa66e412/turkish.txt": {
+        "bytes": 260,
+        "sha256": "f2c7f0c2bd3dba42da700776266831853a3b5f1207fada5c15207334109abb57"
+      },
+      "frozen/3d-data-science-python.jsonl": {
+        "bytes": 9583478,
+        "sha256": "2133b460042e22767449b46ca2c1324b9b58b13c983eb4a54ccf9b971b2bfced"
+      },
+      "frozen/advanced-analytics-pyspark.jsonl": {
+        "bytes": 3777481,
+        "sha256": "41b8c4b06209bbc0113c6e7c959d1cd5fcb6d404aa3121adaad9ed14bfc5fa76"
+      },
+      "frozen/advanced-apple-debugging.jsonl": {
+        "bytes": 6552438,
+        "sha256": "78fc6bf418deebeb7847ad6fc2850de19420d1d681da4a8add12f50298f0cf6f"
+      },
+      "frozen/agentic-design-patterns.jsonl": {
+        "bytes": 14755911,
+        "sha256": "f4d8b76913a3e2f593ab9cc117d5bd93419913ef947914ebe70b7621655b556f"
+      },
+      "frozen/agentic-mesh.jsonl": {
+        "bytes": 5747034,
+        "sha256": "e01e8cc1db15a3fdf01031b8c19584aeb79383a91f16eeb1aefa8cbc6d2cd413"
+      },
+      "frozen/ai-engineering-huyen.jsonl": {
+        "bytes": 11106994,
+        "sha256": "f8615f7a409dab96ce2384367478a535a0ff22895ee99119b0bc8db0c0977552"
+      },
+      "frozen/ai-modern-approach.jsonl": {
+        "bytes": 42711823,
+        "sha256": "22efdfd9d0899af5b58a4cbb8b6d5917e1e11f364c29d0d1d93140f48dcfb75f"
+      },
+      "frozen/ai-powered-search.jsonl": {
+        "bytes": 11587305,
+        "sha256": "eea8706364c05eb0a7869c560dc10b74bd061987016681f6c236a3d8d0acf885"
+      },
+      "frozen/analytics-tools-optimizing-ux.jsonl": {
+        "bytes": 919499,
+        "sha256": "e5fdc889e4057437cb138cfc66ebbf39b4c202a18d481c9e3ad7f851fd744688"
+      },
+      "frozen/angular-dev.jsonl": {
+        "bytes": 7365195,
+        "sha256": "2d20f26c5cddfa76786ada37f88e631b0cdeed4c4ba2c31558f3bff8fd06f0c8"
+      },
+      "frozen/angular-up-and-running.jsonl": {
+        "bytes": 3308002,
+        "sha256": "90bd0af9a4eb8561e6e425aa3ebec2b92ddfeedb90e12cd0cf60bbc6897c60af"
+      },
+      "frozen/apis-a-strategy-guide.jsonl": {
+        "bytes": 2300478,
+        "sha256": "8a7f841a6fbecbea44b7597ef24761eab1b46f4d7e0b64cc2362f4230c77787c"
+      },
+      "frozen/architecting-data-ml-platforms.jsonl": {
+        "bytes": 10045966,
+        "sha256": "37ae71352a717ce3016aed78da0d730f363941681523596a9fb5d9d0755db7d5"
+      },
+      "frozen/architecture-patterns-with-python.jsonl": {
+        "bytes": 3601227,
+        "sha256": "a8958acbd6e8ec13ec4b2be29eac1839fe296e1be21b52d0de474379683ef348"
+      },
+      "frozen/arm-assembly-internals.jsonl": {
+        "bytes": 7465610,
+        "sha256": "2c3c538f51507c0bfdf38ea6e2fefbff63f18d6f5ab7cfabadfb879a094441a1"
+      },
+      "frozen/art-of-ai-product-development.jsonl": {
+        "bytes": 7691903,
+        "sha256": "0a757db3c8b02d345e8105321cc29a4687202b9050a49563d3cedfa1f406cb05"
+      },
+      "frozen/art-of-assembly-language.jsonl": {
+        "bytes": 13611460,
+        "sha256": "8b72931724b2b0edc96dbee9550e76461dee5ac3623333c49c3740fff9178f07"
+      },
+      "frozen/articulating-design-decisions.jsonl": {
+        "bytes": 3881539,
+        "sha256": "dec4c57d0d0d28fb475be4f1734ae5544894179bf9fb0aa1b2c28e6fa3c78075"
+      },
+      "frozen/artificialintelligenceforcybersecurity.jsonl": {
+        "bytes": 6061390,
+        "sha256": "ab4c7b7266507907483d5760ba9e527b9c596464bfb0ac71cbeaf0ef497568f7"
+      },
+      "frozen/assembly-language-x86-processors.jsonl": {
+        "bytes": 14946492,
+        "sha256": "f32834b378319cf2f3d2cde7b2c91b1d0e530ffa1e6661ad68f37b3374289633"
+      },
+      "frozen/asynchronousprogramminginrust.jsonl": {
+        "bytes": 4872936,
+        "sha256": "643865328e561e6a1df0ad82691ce9972b96b8e557f5e967727f6f403d010c96"
+      },
+      "frozen/asynchronousprogrammingwithcplusplus.jsonl": {
+        "bytes": 6705960,
+        "sha256": "55d9142c6506f55cd49c7e4e50321cde033a94a41e275f446b396ac1090a6c04"
+      },
+      "frozen/automating-data-quality-monitoring.jsonl": {
+        "bytes": 12251372,
+        "sha256": "4abc31cca83ba3cae8e50afef5a4b143e84b4771815fd1ffe0b1e2d425dc080d"
+      },
+      "frozen/azureai-102certificationessentials.jsonl": {
+        "bytes": 5991049,
+        "sha256": "d412dafe0d7edef93a974586f60b9d9d0752bfa740ec6435a8be1581d2ad7942"
+      },
+      "frozen/bare-metalembeddedcprogramming.jsonl": {
+        "bytes": 5919593,
+        "sha256": "e8442393d7a4634959382cd814bbd2a1cb2d9f75acc695208fbddd9212b28c90"
+      },
+      "frozen/bargaining-for-advantage.jsonl": {
+        "bytes": 5272756,
+        "sha256": "895d4f11c08710779c25a1c65f409e9adc36c30c0cfad422604635bcfb52c859"
+      },
+      "frozen/bayesiananalysiswithpython_thirdedition.jsonl": {
+        "bytes": 5359288,
+        "sha256": "ef6509a5ce9416d9c8c2e703515c56cbe6ecb02e6f7acf547286eab891e9c666"
+      },
+      "frozen/bishop-prml.jsonl": {
+        "bytes": 19391186,
+        "sha256": "50be8581b94c8f60a8de20aa618818d018ae81612ede042695329503fffa4eab"
+      },
+      "frozen/boneh-shoup-applied-cryptography.jsonl": {
+        "bytes": 34891723,
+        "sha256": "669503a7d379627023cd4ca5efea0bad4abe6e952f31eb93f206f8ec46e6d0cb"
+      },
+      "frozen/build-reasoning-model.jsonl": {
+        "bytes": 7699338,
+        "sha256": "7a5c1394e2ec595ff466abeeadea5658002565555f4427784924795881244348"
+      },
+      "frozen/build-text-to-image-generator.jsonl": {
+        "bytes": 6959281,
+        "sha256": "58fac3d0da60ab725a05da64159ec081e39d79894388d4e993e4882b3a08aeb1"
+      },
+      "frozen/building-applications-ai-agents.jsonl": {
+        "bytes": 6681286,
+        "sha256": "47122e19289f709ac1dacd5dc3321748073c2a85d2e1ccdb5ead542e6ecec220"
+      },
+      "frozen/building-design-systems.jsonl": {
+        "bytes": 3403462,
+        "sha256": "47bba43baa480d3fe9c8797f2ad779dbf684d639bd37308836e6c39168a124ed"
+      },
+      "frozen/building-event-driven-data-mesh.jsonl": {
+        "bytes": 4084938,
+        "sha256": "b70d0f277bfba739cc5024bbdff31de84fbd3bdd181e8f299da51425ba119e6f"
+      },
+      "frozen/building-event-driven-microservices.jsonl": {
+        "bytes": 6856838,
+        "sha256": "077c81e57982c32969f78b0a0f7bf35ffb1106afc18598fb4eadd66cf25b19c9"
+      },
+      "frozen/building-evolutionary-architectures.jsonl": {
+        "bytes": 4317503,
+        "sha256": "65a46c04377e96a474ac7cf5babbf28279ab45c1aa072c2cce311e1bdc521c5c"
+      },
+      "frozen/building-genai-services-fastapi.jsonl": {
+        "bytes": 7742389,
+        "sha256": "00f17feae989cb133302a53aa65507a48a5f9d3787e1798fc10440470df81e88"
+      },
+      "frozen/building-green-software.jsonl": {
+        "bytes": 3852723,
+        "sha256": "231b06ad137722d95c1aea25e63c514f1f9c7634af65cb3b6d1a2303289da2b0"
+      },
+      "frozen/building-knowledge-graphs.jsonl": {
+        "bytes": 12717859,
+        "sha256": "e83af0893b5048c3a233c2ddeeb683afbee1de3f464e32ca8941b701a3748319"
+      },
+      "frozen/building-machine-learning-pipelines.jsonl": {
+        "bytes": 19303608,
+        "sha256": "c437889e1bf58a0760f71eb37fa14b69083e5fee94fa5f6879108ddba3652d1b"
+      },
+      "frozen/building-medallion-architectures.jsonl": {
+        "bytes": 7274685,
+        "sha256": "b09486da3da2d3c9d2495a4629f089caf43c187510319593ed78f3ef6a7550e0"
+      },
+      "frozen/building-micro-frontends.jsonl": {
+        "bytes": 5712926,
+        "sha256": "99aa635decc54e309dccf190fc0539a8d1229fc40ee13537bce374e416787902"
+      },
+      "frozen/building-microservices-2e.jsonl": {
+        "bytes": 11565628,
+        "sha256": "8f5aa0657bffbd7d642363462da6b59b249312b45211af18172eb2b7514d617a"
+      },
+      "frozen/building-multi-tenant-saas.jsonl": {
+        "bytes": 9066566,
+        "sha256": "7f843dee0ab06f21f898ae9067225687888b86232438204897acb61bae9bc728"
+      },
+      "frozen/building-reliable-ai-systems.jsonl": {
+        "bytes": 7258487,
+        "sha256": "0b27aa14c461a8270edda9dba27a593010cc57e6c9be5768e66c8d8351967f54"
+      },
+      "frozen/building-secure-reliable-systems.jsonl": {
+        "bytes": 9002125,
+        "sha256": "3b4fc21be194807330a50dd3aad5d12b2865130b1a6ecf9cd4af5a338829474d"
+      },
+      "frozen/buildinglowlatencyapplicationswithc.jsonl": {
+        "bytes": 10124413,
+        "sha256": "55662580d8b3d7ba08a042162b799fda9415426cb21c69a5ea342904cd69730e"
+      },
+      "frozen/candalgorithmicthinkingforthecompletebeginner.jsonl": {
+        "bytes": 11212114,
+        "sha256": "79c80146f517203650598a956d8d6a17a37640b30cd68c26276b99489e0e5d5c"
+      },
+      "frozen/causalinferenceanddiscoveryinpython.jsonl": {
+        "bytes": 7582023,
+        "sha256": "debd67d07fdb37fdcf55c341a15bf1d1213228ee8ea871034ecc4628c8774bf9"
+      },
+      "frozen/certified-ethical-hacker.jsonl": {
+        "bytes": 9552647,
+        "sha256": "8a2a688fa1441286dea808741f33a06f29268c8b4c34db67d148a56d456433e0"
+      },
+      "frozen/challenger-sale.jsonl": {
+        "bytes": 3704932,
+        "sha256": "8ec75feeb3159d6b401c18d3712cb57da57a091313f149123cf82bb38ce422d0"
+      },
+      "frozen/chaos-engineering.jsonl": {
+        "bytes": 18068602,
+        "sha256": "1e51c6042fd621c16948de74b071134981970b66f5aed0bd889c473451e19785"
+      },
+      "frozen/clean-architecture.jsonl": {
+        "bytes": 4605407,
+        "sha256": "c9059e3898a6ed3cd1e0158b286061148a411ee3d70dc780f643d54e1b67a5e2"
+      },
+      "frozen/clean-code.jsonl": {
+        "bytes": 12509835,
+        "sha256": "3447a7b5f00e277490f529d8794363c088f05b3cfb1dcda0141eda1da2b3503e"
+      },
+      "frozen/cloud-native-devops-kubernetes.jsonl": {
+        "bytes": 4816275,
+        "sha256": "7c829d1c38d5e3aa788c0279f9eb8275b7ef45659a4fbc0589cd1249b88e5a67"
+      },
+      "frozen/cloud-native-security-cookbook.jsonl": {
+        "bytes": 8295239,
+        "sha256": "a06d993baea0e84a12f027801ab5aa66183c45140044bd2ec60e1a54869963b0"
+      },
+      "frozen/cmakebestpractices.jsonl": {
+        "bytes": 5573578,
+        "sha256": "20380f2bfa8187ca2ae4d64efed92b2c634a578f7a4f30d48719e7e7be8b44d0"
+      },
+      "frozen/cockroachdb-definitive-guide.jsonl": {
+        "bytes": 6096538,
+        "sha256": "63d29c6199371bffd58c24039c71b6598033ddc4f51ea4505bcc50b2553f1109"
+      },
+      "frozen/coding-with-ai.jsonl": {
+        "bytes": 5347827,
+        "sha256": "967c49f904bebf8938b55b873ca01750834185a64da85151229190d0596819d3"
+      },
+      "frozen/container-security.jsonl": {
+        "bytes": 2761663,
+        "sha256": "67da4caf6300812558712cf40e6b4e62895ddff3f0395eb3dfb81fb3b22727e5"
+      },
+      "frozen/continuous-api-management.jsonl": {
+        "bytes": 6311890,
+        "sha256": "97b8e58d0dc21fdb0f246185e3c128c0953c5cbc2e072ff6e9b42c1a6a2ab8c3"
+      },
+      "frozen/continuous-delivery.jsonl": {
+        "bytes": 12527944,
+        "sha256": "cdd9d2d29223d62ca67e9af757f9d8ae8311a7118cd5c1179232f8ffc698edc8"
+      },
+      "frozen/cplusplus20stlcookbook2e.jsonl": {
+        "bytes": 3295187,
+        "sha256": "f4079215cb4c85ea5de2c570f4517c7c5477f842c50342193f3141a4a36a3c3c"
+      },
+      "frozen/cplusplusmemorymanagement.jsonl": {
+        "bytes": 8172243,
+        "sha256": "5d30f4c5e44e5eafbb8a24dfd64be342e2fc88abc5eafe004398bb924cbf6a04"
+      },
+      "frozen/cplusplusprogrammersmindset.jsonl": {
+        "bytes": 6386494,
+        "sha256": "c86cff05f45c86b7cb6f5a30e8829e6937f4b01fff425a8474827dffb309fe85"
+      },
+      "frozen/creating-web-animations.jsonl": {
+        "bytes": 1845575,
+        "sha256": "dd22cd454212c917b1399c1cf9e69a410a58dd10f25d92359be8095f6b84c945"
+      },
+      "frozen/creativeprojectsforrustprogrammers.jsonl": {
+        "bytes": 8915758,
+        "sha256": "3ba46cbef6da903b78f8fab3b5b959afb0a00214826bb44ed3408d949fab88ef"
+      },
+      "frozen/critical-thinking-about-research.jsonl": {
+        "bytes": 8537772,
+        "sha256": "4a83fe4a0b4af59ea26db05b10b958254959381f0aaee429e38ab5f9cf7627bb"
+      },
+      "frozen/crypto-101.jsonl": {
+        "bytes": 2577658,
+        "sha256": "5669b09e454ac43267b6f1b12cd935f64c8135b6e55427877d6b5e1f5f367313"
+      },
+      "frozen/css-definitive-guide.jsonl": {
+        "bytes": 16196032,
+        "sha256": "bfa3aee7265a254b6b0f3cb0fbe2ea37181ddec76219cd78047a9bc9ef3f0886"
+      },
+      "frozen/css-in-depth-2e.jsonl": {
+        "bytes": 8900675,
+        "sha256": "633ba64319e20ce05d2d0113e7e532b7fa4f712cff46cdf18d3f18681d18f43f"
+      },
+      "frozen/cuda-programming-guide.jsonl": {
+        "bytes": 12103734,
+        "sha256": "10afec6664abd5eae8aa8214db7ec45bce4f3a6ab292cba4b76541bb78c85f34"
+      },
+      "frozen/d2l-en.jsonl": {
+        "bytes": 23169480,
+        "sha256": "adde81b0ca22169863f1a69c91e8dcdddb24d6e0920586310738f8d5268a1d63"
+      },
+      "frozen/d3js-in-action.jsonl": {
+        "bytes": 6532797,
+        "sha256": "f109564af338db1cf395e48a778e77ddba857b79cf6e4c52c2e5929be554192e"
+      },
+      "frozen/data-governance-definitive-guide.jsonl": {
+        "bytes": 3967938,
+        "sha256": "e3fa78d65dfa69f13329e3dd6a400fabf5854ba20a7d2b96cebd45b9201bb241"
+      },
+      "frozen/data-governance-unity-catalog.jsonl": {
+        "bytes": 5134331,
+        "sha256": "1d837e34d0f9f6616b12f4a49d7e768c81d70ec63010040686a67bb031caa661"
+      },
+      "frozen/data-management-at-scale.jsonl": {
+        "bytes": 6686041,
+        "sha256": "fcfae0b14e23a096aafd45059ff47fdfd130a6fac4e1666ac6104adf734e74f9"
+      },
+      "frozen/data-quality-fundamentals.jsonl": {
+        "bytes": 4829158,
+        "sha256": "c5a36b55bc3ebc9fe855fe09b08ab9ead2ddcf5f926b1e491e0f00d00e3f05e2"
+      },
+      "frozen/data-science-for-business.jsonl": {
+        "bytes": 7131478,
+        "sha256": "bb3f373fb277f33562c3aad0a776c7651eb3ffeffcb399a3826c2e631942937b"
+      },
+      "frozen/data-science-from-scratch.jsonl": {
+        "bytes": 5920491,
+        "sha256": "374bc125534787c751e998dd277d1d8564dce00d16e72fb8908b9739e851e847"
+      },
+      "frozen/data-science-hard-parts.jsonl": {
+        "bytes": 3377296,
+        "sha256": "dc6a0b3332529ae141117a22458b01b1123a94717daa4a66f2e1ead39d7c1f3b"
+      },
+      "frozen/data-visualization-storytelling.jsonl": {
+        "bytes": 1091935,
+        "sha256": "9b134c5df7b1112716c8b3d63097f4da76c97a02fa6ab2b8f35424cfc475fb3b"
+      },
+      "frozen/database-design-2nd-ed.jsonl": {
+        "bytes": 2219036,
+        "sha256": "3f7d09612de268430e6aeba6d2b9498cc051f120f7a4d1babfa46bf6af32fb72"
+      },
+      "frozen/database-internals.jsonl": {
+        "bytes": 5044492,
+        "sha256": "3bb42860d40d4242999e8e47abd6e2ca6d935020da4977d180f8f844bd210595"
+      },
+      "frozen/datastructuresandalgorithmswiththecplusplusstl.jsonl": {
+        "bytes": 6698844,
+        "sha256": "f86a8aca9d0e94859a054abd475ac971c38b1731e8f04b569bd9bd71ef6019f3"
+      },
+      "frozen/debunkingcplusplusmyths.jsonl": {
+        "bytes": 4178148,
+        "sha256": "0ae7f152aa77319e2dd077340287b10e83c96628c7f1843a34df44edff516b89"
+      },
+      "frozen/deciphering-data-architectures.jsonl": {
+        "bytes": 14227053,
+        "sha256": "dcd1c151f252002c89f436f8827067068a6e46b6088907a8e2e39af473eab134"
+      },
+      "frozen/deepreinforcementlearninghands-on_thirdedition.jsonl": {
+        "bytes": 11989242,
+        "sha256": "c045cb5783c95789fed957c653b46575c70ea5ba5b0cb06ba78c2dce4744a9e5"
+      },
+      "frozen/delta-lake-definitive-guide.jsonl": {
+        "bytes": 6106077,
+        "sha256": "efbab95d3b2be0dd37f1982bded53fb20154d76e230a9c84c5f0e21d5e5acdb4"
+      },
+      "frozen/design-for-how-people-think.jsonl": {
+        "bytes": 2165150,
+        "sha256": "a8199bd3dcf2dc75f563370c1e712983ea805e616b95b8b5c63026c3ba3bb1a7"
+      },
+      "frozen/design-patterns-gof.jsonl": {
+        "bytes": 7093538,
+        "sha256": "bc8781dc6d8ba8aafa7b492a3a6c544dc6ae2ccabeaf4d3e96f01d10e81683f4"
+      },
+      "frozen/designing-ai-interfaces.jsonl": {
+        "bytes": 3474488,
+        "sha256": "0f3893a18571767dc9c8a89bc2e80e1679ad7276a723e696563d36a27ac9d720"
+      },
+      "frozen/designing-autonomous-ai.jsonl": {
+        "bytes": 2918660,
+        "sha256": "c03e69b184b9693940faa2bcfd5e25c540688e3a3555358d9adda1d4d773a783"
+      },
+      "frozen/designing-data-intensive-applications.jsonl": {
+        "bytes": 12095098,
+        "sha256": "2ecc3114ce8d6062789a1f2923d63721e7f231b8ccf416b2fb4e94198821f884"
+      },
+      "frozen/designing-distributed-systems-2e.jsonl": {
+        "bytes": 3008012,
+        "sha256": "daa4158370f81ca5640ed1be3e0488f7c324430ea46b52d654c05e0423d89d45"
+      },
+      "frozen/designing-distributed-systems.jsonl": {
+        "bytes": 2056121,
+        "sha256": "cfd87402b2f29167b76b147ef0211090db399124ae2772fbb39b4cceb58f2837"
+      },
+      "frozen/designing-great-web-apis.jsonl": {
+        "bytes": 646812,
+        "sha256": "4c42b769ad74f842e088c546bfb518f6565daa7a3fbbaaf190d07f79e036ce9b"
+      },
+      "frozen/designing-interfaces.jsonl": {
+        "bytes": 5774144,
+        "sha256": "9ea4ce94d219fa3147203cab3362ebb2cad16faf08efb0640d5f2f27515baeb6"
+      },
+      "frozen/designing-llm-applications.jsonl": {
+        "bytes": 4926565,
+        "sha256": "101686acc22900b2a9caf91721fc38744cea437f13215498134ca180b5319300"
+      },
+      "frozen/designing-ml-systems-huyen.jsonl": {
+        "bytes": 8439948,
+        "sha256": "25b6e6ebf8340a95341a16dec544e79d290d126c8f38af8d984b0e3087e50849"
+      },
+      "frozen/designpatternsandbestpracticesinrust.jsonl": {
+        "bytes": 6373417,
+        "sha256": "161f11eebdab41f611e366f3db10c1434065c8585b29fff1db1fbae04734f198"
+      },
+      "frozen/digitalocean-redis.jsonl": {
+        "bytes": 823140,
+        "sha256": "c94a2f35278adf2e344c7067bd5dce1798640cf615fea02787fbe04bc03a01e3"
+      },
+      "frozen/distributed-systems-fun-profit.jsonl": {
+        "bytes": 1489065,
+        "sha256": "0ab7dca798ee7fd256dcebe75761622c667717bbbd699792889b47c467345286"
+      },
+      "frozen/domain-driven-design-evans.jsonl": {
+        "bytes": 8785036,
+        "sha256": "6ab51b13b356cfde03bc552fbb36e70bca12a8b03fd1b293bb9c7c71556ee867"
+      },
+      "frozen/domain-specific-small-language-models.jsonl": {
+        "bytes": 6838900,
+        "sha256": "168e1b21d344d7d665b9e3beeeddf3eb76a7f0c8e553a889b7368065df94aa66"
+      },
+      "frozen/effective-conversational-ai.jsonl": {
+        "bytes": 6275035,
+        "sha256": "11bccba10ac52744274cc5ccabd3f5b7a3b6f86e85e2c256412c0bff5260aed2"
+      },
+      "frozen/effective-platform-engineering.jsonl": {
+        "bytes": 8498704,
+        "sha256": "61e0eb424b69b6a465d9771f1616d6e2d3b45ca1a9107268e392b4d1f93f61e9"
+      },
+      "frozen/effective-typescript.jsonl": {
+        "bytes": 6241918,
+        "sha256": "a7381d06c9814840e9518cbc5044fa93e38e679a3cbf14f12c36722e354d72f0"
+      },
+      "frozen/effective-ui.jsonl": {
+        "bytes": 4890346,
+        "sha256": "bf7ccd038469a8c55fb783265c297d8a2ad7df3c2fec8f84f28118b777ba99c5"
+      },
+      "frozen/efficient-linux-command-line.jsonl": {
+        "bytes": 3071093,
+        "sha256": "a8b280b95b886567aa2e9001c39dbfa280bf222e46dfa488c7adacd931532cea"
+      },
+      "frozen/efficient-nodejs.jsonl": {
+        "bytes": 11109995,
+        "sha256": "d04522fa26c0d6e1c4f95e1fe20eb995917efc25f1b6710ef79991a255edeb31"
+      },
+      "frozen/enterprise-big-data-lake.jsonl": {
+        "bytes": 12598476,
+        "sha256": "d42f799b92c11c325d077f6d627b2e15463657fa864b10ea5f5fca7111f383c0"
+      },
+      "frozen/enterprise-integration-patterns.jsonl": {
+        "bytes": 14011492,
+        "sha256": "a983cf2c72f58715fb822ac11d48aea25d12c088a255012c74e4e4a427d2a75a"
+      },
+      "frozen/essential-graphrag.jsonl": {
+        "bytes": 3137279,
+        "sha256": "c0ac0e438d401faebf1f8202e5af3a0e0b295bb364f2f51cb0631a6c606e8763"
+      },
+      "frozen/essential-math-ai.jsonl": {
+        "bytes": 9866912,
+        "sha256": "b5b81feaad7619829b3c38debb3664fb2e3ed2a75daa231423c020dcac4c2eed"
+      },
+      "frozen/excel-for-accountants.jsonl": {
+        "bytes": 3532675,
+        "sha256": "b2a1921c54d5d462c411673e641829aee9e12b34e2d3298a1780a9fae7274874"
+      },
+      "frozen/exploratory-data-analysis-visualization.jsonl": {
+        "bytes": 6817998,
+        "sha256": "de7f776b4eddada57e767a7437d7b81cb511892244887f7c7858c8ec8f90880c"
+      },
+      "frozen/facilitating-software-architecture.jsonl": {
+        "bytes": 10867292,
+        "sha256": "c41c3f615166fcad56754847277b3992c18b7dd833d63576cdcc34867aaf4194"
+      },
+      "frozen/financial-ai-in-practice.jsonl": {
+        "bytes": 9115740,
+        "sha256": "f44b5035e3e5d32b7626bd3c6f4ae905b0d0e2c68a716c6ece05f2746ffb87f6"
+      },
+      "frozen/financial-data-engineering.jsonl": {
+        "bytes": 8871506,
+        "sha256": "7e4dae4387ccc1e449bb687f68492657614c09cb51b35f229d45d6cf6cfaf8f2"
+      },
+      "frozen/flawless-consulting-fieldbook-companion-2e.jsonl": {
+        "bytes": 4400372,
+        "sha256": "54bd575a8a3e16384e0cfa7557aed8d195b6aa8b1633e1c69c6757fd60eeef33"
+      },
+      "frozen/flawless-consulting.jsonl": {
+        "bytes": 4812088,
+        "sha256": "6b29098819be1a2158c3675fed1387d238021349f4761a057cfa38191c4f5231"
+      },
+      "frozen/flow-architectures.jsonl": {
+        "bytes": 5011507,
+        "sha256": "e1d7825e1c82a41eaf44a2d8752499dbcdb7b8dddea2f3b9a82c3a2e4a5703b9"
+      },
+      "frozen/fluent-react.jsonl": {
+        "bytes": 16479738,
+        "sha256": "2c5e0f6217691000faf6cabf0f386e39ec1eb005ee49acea013da62d5b617b67"
+      },
+      "frozen/foundations-scalable-systems.jsonl": {
+        "bytes": 4741332,
+        "sha256": "0cdf614314e4746260bfbc9010f19ee2d0fb4e137d20650224420d8d1fef4f75"
+      },
+      "frozen/fundamentals-computer-graphics.jsonl": {
+        "bytes": 14083028,
+        "sha256": "d89c3433d9497d4314fbc57d706295426bc9ef559f84ed0ce5c0b5d899adb266"
+      },
+      "frozen/fundamentals-data-engineering.jsonl": {
+        "bytes": 7555328,
+        "sha256": "126ace996064e9170c3bbb26a4cb6ce94f94e24127c32dbcb89787b9ccb8c8c4"
+      },
+      "frozen/fundamentals-enterprise-architecture.jsonl": {
+        "bytes": 3974997,
+        "sha256": "ebb52ea84a9b49e621e7dc5c44052db7464c3e0fe078f06cd7026b5dc06b911e"
+      },
+      "frozen/fundamentals-metadata-management.jsonl": {
+        "bytes": 2562462,
+        "sha256": "debc625d8a4cb1ede38f231f7fc63f8ea2532ba985d90516a2b429656d145fe0"
+      },
+      "frozen/fundamentals-microsoft-fabric.jsonl": {
+        "bytes": 4245104,
+        "sha256": "711860263141348fc121975b7ee6cbe8da68a8df2740531292bf98f249df3b05"
+      },
+      "frozen/gamedevelopmentwithrustandwebassembly.jsonl": {
+        "bytes": 8120034,
+        "sha256": "fe0f03c2a4aa7605ffda145622d94a394ea1a5f9b35e4f2b7b2e36b0c827b0ed"
+      },
+      "frozen/generative-ai-in-action.jsonl": {
+        "bytes": 8871830,
+        "sha256": "36931cf0d1b475a25593c0cdbb2c31ac5bdf3642d858965ec72a32ebfcd25395"
+      },
+      "frozen/generative-deep-learning.jsonl": {
+        "bytes": 3588656,
+        "sha256": "83a6d4195e95759ae9dd77fe92288265a834552e5502a2e6c9d24c66c4a6d116"
+      },
+      "frozen/getting-to-yes.jsonl": {
+        "bytes": 4429000,
+        "sha256": "b1bac1a07b90532471b6f0d5d4e895e200f3c7074f944adb7afd3204c82187f8"
+      },
+      "frozen/ghidra-book.jsonl": {
+        "bytes": 8955368,
+        "sha256": "b5691017b7a8bfaac501d62005d46cdbbda5d3dc221bedc9fe5c719c0a04bf54"
+      },
+      "frozen/gpuprogrammingwithcplusplusandcuda.jsonl": {
+        "bytes": 3066776,
+        "sha256": "7c7f70d5805e9692003d236855105cd5d8ec82f23938af713d5f8aca65b06ba2"
+      },
+      "frozen/graphmachinelearning_secondedition.jsonl": {
+        "bytes": 6792506,
+        "sha256": "801b7c57f758db9ccf2da244fc2c98a930b50bf39573957242b9481dc335f837"
+      },
+      "frozen/growing-oo-software-by-tests.jsonl": {
+        "bytes": 6347946,
+        "sha256": "644821b036b4e5701a99297864c3db2b0d1b4a9ca320c34be48e4ac981a4c703"
+      },
+      "frozen/hands-on-large-language-models.jsonl": {
+        "bytes": 18623739,
+        "sha256": "9065594b929a1ef7d4b1c06e615517dd2a79a6ded0305843d831383437d7f6bc"
+      },
+      "frozen/hands-on-rag-production.jsonl": {
+        "bytes": 7770936,
+        "sha256": "cc7ba6115abdebdd03d119da4c3d7d7b145c04e2618e14565c1e5017be5a7878"
+      },
+      "frozen/hands-on-selenium-webdriver.jsonl": {
+        "bytes": 4870505,
+        "sha256": "b62bae7868f8a6d75bae8946051a84f04bb9ff2ba79d32eb769a379a8b93c5a0"
+      },
+      "frozen/hands-on-site-reliability-engineering.jsonl": {
+        "bytes": 3209958,
+        "sha256": "40943148861f1b1bf5914affd562bff69a574e000082cf6f6e567ccc0938b1c4"
+      },
+      "frozen/hands-on-unsupervised-learning.jsonl": {
+        "bytes": 7695235,
+        "sha256": "d3a6a5c708e377de8101539ee02f415558cbc64b8d16a84dc6278af37031363b"
+      },
+      "frozen/hands-onartificialintelligenceforiot_secondedition.jsonl": {
+        "bytes": 8199667,
+        "sha256": "e18096327093c77a3f1f8aeffc508ec81f5e4b91f3d06e3d00089b218a3abdec"
+      },
+      "frozen/hands-onconcurrencywithrust.jsonl": {
+        "bytes": 8732228,
+        "sha256": "e3c49f30914c907a7c06e947e265bc23622c67a0286f88fb38770ef2a4a53ff9"
+      },
+      "frozen/hands-ondesignpatternswithcplusplus2e.jsonl": {
+        "bytes": 13280382,
+        "sha256": "15bf6caa6300b5e23c389ac02c047a13bc17a803e2a54966251c35cbe125f08f"
+      },
+      "frozen/hands-onmachinelearningwithcplusplus_secondedition.jsonl": {
+        "bytes": 8432346,
+        "sha256": "4ea2392503d144ca59e7158fad7465c8a0bee2b74f3e13fc634bc2b59315ea8a"
+      },
+      "frozen/hbr-guide-business-writing.jsonl": {
+        "bytes": 2742786,
+        "sha256": "1071fa0458afb8f7a1fa060976259ec7f33551c52a66a0e34ac0c605f2fb3260"
+      },
+      "frozen/head-first-pmp.jsonl": {
+        "bytes": 8528368,
+        "sha256": "c90410a8803fe40cce4bb7bb8ea11d8706d294c6523cae22a4928e607ccdea51"
+      },
+      "frozen/head-first-statistics-analysis.jsonl": {
+        "bytes": 367198,
+        "sha256": "743775fac4f4c01ad052f17f2c4472b79d0631f24eeae3fa91f73f64b9d38ce7"
+      },
+      "frozen/high-performance-browser-networking.jsonl": {
+        "bytes": 5364839,
+        "sha256": "eaa9a414a1055d3e1d73b5e8a18243f4d82fcbdab1d1a356b22ab196bff9172c"
+      },
+      "frozen/holacracy.jsonl": {
+        "bytes": 4788032,
+        "sha256": "82585b9d89705a5b883423314e8358da5ea90fac96f24eb243fbc1bc933b2fb8"
+      },
+      "frozen/how-to-read-a-paper.jsonl": {
+        "bytes": 7846153,
+        "sha256": "f1bc72e48653462e3432ab049ce312f1febded80ed318126a437baf43778a402"
+      },
+      "frozen/http-definitive-guide.jsonl": {
+        "bytes": 10722368,
+        "sha256": "39d6fa6beb5966e43bff0a5277ce7b353e5aadae1d226109e6bebfd5141a14c0"
+      },
+      "frozen/human-in-the-loop-ml.jsonl": {
+        "bytes": 8168069,
+        "sha256": "dbe63bb2eb07f8f56531549ce5bb615a9e10485a3de1c50cb6d439cddb051b56"
+      },
+      "frozen/illustrated-guide-ai-agents.jsonl": {
+        "bytes": 6050449,
+        "sha256": "9cd4b59454047e9c2debebd46497b9f0c4552ad0e286aeb2426423d69b545096"
+      },
+      "frozen/implementing-data-mesh.jsonl": {
+        "bytes": 3552451,
+        "sha256": "4e4aa102504b97ecbf44a9140ec8bbc6e5f2b7582c6b99ad3ca2025a6427071b"
+      },
+      "frozen/infrastructure-as-code.jsonl": {
+        "bytes": 4724368,
+        "sha256": "b686e4d11f23f97c390b1108a962cf08a5780f0323b60258a6aa6e2b5808eab0"
+      },
+      "frozen/inside-cyber-warfare.jsonl": {
+        "bytes": 2275128,
+        "sha256": "58f40023c39da4749bc8affa8e360655ff1edd1fafa012b033c37e6bc098c9c0"
+      },
+      "frozen/intelligence-driven-incident-response.jsonl": {
+        "bytes": 5378481,
+        "sha256": "29c00d5459035511ed7bb0f03d8a135795bce84c0b324021b14f8a62f91fabb2"
+      },
+      "frozen/interpretable-ai.jsonl": {
+        "bytes": 6404304,
+        "sha256": "c51dfe25b7c1fae463424d604af8f89b9a9d0100670f0ab6b67dfb29b3778df6"
+      },
+      "frozen/intro-to-algorithms-clrs.jsonl": {
+        "bytes": 30639295,
+        "sha256": "9f548ed227983da8bd080d3958fb29ca4f34b30222a131cf9ff2a4fb1bc7eadc"
+      },
+      "frozen/joy-of-cryptography.jsonl": {
+        "bytes": 6940443,
+        "sha256": "7e87c1738506accedb1e2bb7b7d9d4e52d4913d48eaf592d6f811ff30f3fde14"
+      },
+      "frozen/kafka-definitive-guide.jsonl": {
+        "bytes": 4922275,
+        "sha256": "926b0c457b2a0eb021c70dacbf5a8066c385f3a4f8debe299f54e18a62db6b5c"
+      },
+      "frozen/kagglebook_secondedition.jsonl": {
+        "bytes": 13526632,
+        "sha256": "5dd66fe93004e202212318170aabc0cba4276f7c9d7104fba5b0ffcf8b3dfcc0"
+      },
+      "frozen/key-account-management.jsonl": {
+        "bytes": 7935869,
+        "sha256": "555740e72dd9f13ab027cf01634b11040b1988ebfa26ca6c5d154d0e8a350c3f"
+      },
+      "frozen/kubernetes-security-observability.jsonl": {
+        "bytes": 2559478,
+        "sha256": "a4971e3317bc38454600a9c4c2bf2363a76e560465c14189748318a3414b91c6"
+      },
+      "frozen/langchain-life-sciences-healthcare.jsonl": {
+        "bytes": 8839885,
+        "sha256": "b97f55bab7b60c5f9934f50870fdf3011eb9bf4ca208d04d07b0e2f41993fc64"
+      },
+      "frozen/laws-of-ux.jsonl": {
+        "bytes": 1553714,
+        "sha256": "3836c3972e647115cbd912acd645795b1d2849fae658f4e941cedde460e07968"
+      },
+      "frozen/lbdl.jsonl": {
+        "bytes": 2401080,
+        "sha256": "d79aa466d353765d58aef3cbaf573d00c2a20313884627bfb104be6da19ce981"
+      },
+      "frozen/lean-ux.jsonl": {
+        "bytes": 2420237,
+        "sha256": "d29223938aa6023719af3ae136c7330644196ac8fad8db5d30f0e0aec7b1c9be"
+      },
+      "frozen/learning-agile.jsonl": {
+        "bytes": 8118119,
+        "sha256": "753e1f1d888dccc594c340282509554e51c1440058249073051199767b363b8c"
+      },
+      "frozen/learning-api-styles.jsonl": {
+        "bytes": 7226123,
+        "sha256": "bde0e2f439b867bb10e10d3b83a80a4641e99fea1e4a8c00b38ee832350cfe3e"
+      },
+      "frozen/learning-domain-driven-design.jsonl": {
+        "bytes": 4232688,
+        "sha256": "7e10d3c715af8575d2619a77fab2d2c9ee1db80cf018762b70319ac5efd0a6dc"
+      },
+      "frozen/learning-git.jsonl": {
+        "bytes": 3701210,
+        "sha256": "f63d2c3db927028857a5507e953cba9fe09762f2cd2b49ee8f3793e7dae7f53d"
+      },
+      "frozen/learning-github-actions.jsonl": {
+        "bytes": 4174173,
+        "sha256": "bb27b71b60ab5c38575618b12bd92abf711f6cd45187ac675f74c66219660a76"
+      },
+      "frozen/learning-javascript-design-patterns.jsonl": {
+        "bytes": 3046204,
+        "sha256": "9a5301ecd007f60b9437bfbefa725fbd97ca22bdb929309151265bfbb7acdcbe"
+      },
+      "frozen/learning-modern-linux.jsonl": {
+        "bytes": 3593784,
+        "sha256": "e0a84d64960a68412da2722c2d61d6d82007feaa28ab1d745253c89fa804f6fe"
+      },
+      "frozen/learning-opentelemetry.jsonl": {
+        "bytes": 1977470,
+        "sha256": "5b0f11d8b7d63deebc15249f4234ba1aca0e4ba1763afe5a75c9deb09b021207"
+      },
+      "frozen/learning-spark.jsonl": {
+        "bytes": 4008348,
+        "sha256": "7453ba5f5c131c8c28e5e4584da70c2d370838256b01f02aab6617efe645efe2"
+      },
+      "frozen/learning-systems-thinking.jsonl": {
+        "bytes": 4203279,
+        "sha256": "4b71ebec0155882c14699f3d829aa5f80c067a14bb840d6512dc4d61e6fa3b53"
+      },
+      "frozen/learning-test-driven-development.jsonl": {
+        "bytes": 2753302,
+        "sha256": "a26b8832e3b59c64a07f7c531c89671300b14a8f83f60e5a58beb73f25219849"
+      },
+      "frozen/learning-threejs.jsonl": {
+        "bytes": 5227736,
+        "sha256": "a6b0315d5840ccd9bf7cdcd771cdffc91141ac03560e535959b0d2b4703aeb36"
+      },
+      "frozen/learning-vue.jsonl": {
+        "bytes": 3864610,
+        "sha256": "4ec17c2983dd59041320cd2d2668c26cf2f4727a1fca88c5fcd815f997c096f1"
+      },
+      "frozen/learnllvm17secondedition.jsonl": {
+        "bytes": 7595572,
+        "sha256": "582bbd3160483378cd28bbe98c480fc06bbe04c9da993753278e25097abc6de7"
+      },
+      "frozen/linuxkernelprogramming.jsonl": {
+        "bytes": 18167926,
+        "sha256": "b362cf8353eebb1932d24a64b289efd55b53165d4196abdb7a1a56862b419ca8"
+      },
+      "frozen/linuxservicemanagement-systemd.jsonl": {
+        "bytes": 7940331,
+        "sha256": "67293d20304a740a26455f360f9045a8f71aa0b9598a9ecd381b7032da133a54"
+      },
+      "frozen/little-redis-book.jsonl": {
+        "bytes": 575485,
+        "sha256": "ac6fb43ea72648e299395602283b8e82f5563e4af77090fa5e5203a347634710"
+      },
+      "frozen/llm-security-playbook.jsonl": {
+        "bytes": 2983426,
+        "sha256": "b21dd45844493bf48d703494e3aa42276b1536e9fea15f22d8dd6d14d788db0a"
+      },
+      "frozen/llmops.jsonl": {
+        "bytes": 4833130,
+        "sha256": "99aebb4f5c54084e9c9ec9571435bd69002282c7a77fe849161e6b37c5629a0e"
+      },
+      "frozen/llms-in-production.jsonl": {
+        "bytes": 11115946,
+        "sha256": "0347430355c9c964439a11e7831effd0f302ec5286391d9c35aa6e7f7558df84"
+      },
+      "frozen/llvmcodegeneration.jsonl": {
+        "bytes": 12337922,
+        "sha256": "823eb575ba0d4007eef9a61590e101211cd8057f6ee38a2221c01584c9db1b45"
+      },
+      "frozen/looks-good-to-me.jsonl": {
+        "bytes": 11417403,
+        "sha256": "151157164c1889542a8c8853a9398b0973b2b656b7acb65229307df2250fc6d8"
+      },
+      "frozen/machine-learning-econometrics.jsonl": {
+        "bytes": 6439999,
+        "sha256": "cceca74dbb476545fe743b7e09f404f669c965b7ea7ba2655cb4c962cce1ce0a"
+      },
+      "frozen/machine-learning-production-systems.jsonl": {
+        "bytes": 7317262,
+        "sha256": "26c14ba142857fc04e946a6977f35704da26497c5fefbd767b67f026ea9e009f"
+      },
+      "frozen/machinelearningengineeringwithpython_secondedition.jsonl": {
+        "bytes": 7260520,
+        "sha256": "4eba50d85fc467897207aeb4a3b9e6974d8f21a9ed31a00c5698b7df18b115d5"
+      },
+      "frozen/machinelearningforalgorithmictradingsecondedition.jsonl": {
+        "bytes": 15062425,
+        "sha256": "ef6c6f9ee116435d3f7c84e754159a6a77d35c9af016cb8b63f70f135ed11ad5"
+      },
+      "frozen/machinelearningwithpytorchandscikit-learn.jsonl": {
+        "bytes": 14064967,
+        "sha256": "d3dd9b488107eda33f0276080e74b88462c9cae59fd3bdf9f235751de3e18b5c"
+      },
+      "frozen/making-sense-of-data.jsonl": {
+        "bytes": 5221871,
+        "sha256": "28a53f1667276edd3282c947acd9862ddd1e552d50bc23cde9e9aeca9b1afdc5"
+      },
+      "frozen/manifest.json": {
+        "bytes": 237107,
+        "sha256": "690d5cc3285ac1bd9e861b3ff3810bb7159c6828d944a8eb12e044be45c793ce"
+      },
+      "frozen/mastering-api-architecture.jsonl": {
+        "bytes": 3993402,
+        "sha256": "5cf1cf1a16f04ba3dfcc57e432af03939c1e764156e1fa1f2d7b40fffc8fe785"
+      },
+      "frozen/masteringlinuxadministration.jsonl": {
+        "bytes": 182070029,
+        "sha256": "474e0b01302fc6b2112790f1c9cb88d2d71a8f9e358af526916c070c87abb092"
+      },
+      "frozen/masteringlinuxsecurityandhardening.jsonl": {
+        "bytes": 10366791,
+        "sha256": "a8728e69480b909e82ec0f1d7c519dade4159dac8deb015095a487d2e38bc8bf"
+      },
+      "frozen/masteringpythonnetworking.jsonl": {
+        "bytes": 18030165,
+        "sha256": "0ce79e195a867645bacb68c5aa68d2c8fb94c7f60c65a418d6df691055b70d09"
+      },
+      "frozen/masteringpytorch_secondedition.jsonl": {
+        "bytes": 8460943,
+        "sha256": "20f27e511d3d32db9bcdb6bfe03fe096ce7d2d7ab9ea87c991335543b85ea8dd"
+      },
+      "frozen/mathematicsofmachinelearning.jsonl": {
+        "bytes": 7507078,
+        "sha256": "6ccfb92b2cf3f82cd1ebc11b07d9952127ac50ccabd5ef408bd9cfa1477ef228"
+      },
+      "frozen/mdn-web-docs.jsonl": {
+        "bytes": 188772323,
+        "sha256": "09f97c3b87843c2a0c291c2953c8a060c11a1efb44f1b97a4ff09e92b2ec9e4e"
+      },
+      "frozen/meddicc.jsonl": {
+        "bytes": 3899847,
+        "sha256": "2a01f8e23e019b7041be53b73da6fc934b2e6f7f66ccadfaf76c57b3e56f359f"
+      },
+      "frozen/microservice-architecture.jsonl": {
+        "bytes": 1954293,
+        "sha256": "85222913f767e43941ac0acba7bf7d63fefbc5a941d59ff691f7366db92b45ab"
+      },
+      "frozen/microservices-design-to-deploy.jsonl": {
+        "bytes": 1981704,
+        "sha256": "6bb85dde40383e20606500da63ce1fb1b55ca89704f714229399d32fab3d2303"
+      },
+      "frozen/ml-platform-engineering.jsonl": {
+        "bytes": 9257365,
+        "sha256": "21a3ccdbadcd05df4873b9bef6dcf985396f47626d6905825a503f459f7c7e94"
+      },
+      "frozen/modern-data-analytics-excel.jsonl": {
+        "bytes": 1648496,
+        "sha256": "f08b957aa0b27de66504c03cef92893452beb0524a4c1389a28eaa4e788b5a94"
+      },
+      "frozen/moderncmakeforcplusplus2e.jsonl": {
+        "bytes": 6887695,
+        "sha256": "133fea3e4e1c325d7d323407b8203ca4ce430c3e0aee0c99be0b4b12f3e2c084"
+      },
+      "frozen/moderncplusplusprogrammingcookbook3eepub.jsonl": {
+        "bytes": 30216443,
+        "sha256": "2027109b37b0b27405f2b5ce3af6d119d8672b6cfcae8cf952f54f061d4845c2"
+      },
+      "frozen/modernnetworkobservability.jsonl": {
+        "bytes": 39593343,
+        "sha256": "f81f9e6242465beabff352436a7e970a3de549e4b9bf114c46b9f85ae0fac1c9"
+      },
+      "frozen/moderntimeseriesforecastingwithpython_secondedition.jsonl": {
+        "bytes": 10983497,
+        "sha256": "008925a40831b7f34a67c6f7debbd47a924f44049d8ae1962a2c1107e4f1836a"
+      },
+      "frozen/monolith-to-microservices.jsonl": {
+        "bytes": 3872240,
+        "sha256": "9e58bc9593286ff4c81a650030a9ebd5a012a50a727674b991818ed9beea2fc3"
+      },
+      "frozen/natural-language-processing-transformers.jsonl": {
+        "bytes": 6466581,
+        "sha256": "ae275eee7752b0882790c65ea536ffe5c5679e2645221ebf29ee1fdd9f03f1a2"
+      },
+      "frozen/new-ethics-of-journalism.jsonl": {
+        "bytes": 5621446,
+        "sha256": "55fbf2a174adf471bb6eb29df5bd72a26f34693164b17db6d61d5d72e1e26eaa"
+      },
+      "frozen/nginx-cookbook.jsonl": {
+        "bytes": 13601536,
+        "sha256": "81f7a200e0c6a78d4bd92d91a09047753be54c857b3c3a2deddb61efd54c2408"
+      },
+      "frozen/nosql-distilled.jsonl": {
+        "bytes": 3271617,
+        "sha256": "12ffbb2e5754ed6db7b7f6bed4f325becd50748106b626073fc408044afbd7d7"
+      },
+      "frozen/oauth-rfcs-book.jsonl": {
+        "bytes": 8795493,
+        "sha256": "6c1e0240c040b3b261276b51e3fe72fb9a8f68b52b2666a5e9454b74193b58dd"
+      },
+      "frozen/optimization-algorithms.jsonl": {
+        "bytes": 13861407,
+        "sha256": "d41f8d02187236ca864c5765952e6fd7e65dfdf693d2ce4e2f451482a060ccb1"
+      },
+      "frozen/owasp-asvs-v5.jsonl": {
+        "bytes": 2382829,
+        "sha256": "807440a8930db03507495a2f3319dfd4a9905620ac164fc2e9fd16117718c614"
+      },
+      "frozen/owasp-cheat-sheets.jsonl": {
+        "bytes": 31402637,
+        "sha256": "32e97c77a67c57c22ad0fe26fc9e01136be08bc539a854f383f13c3c0b326e45"
+      },
+      "frozen/owasp-developer-guide.jsonl": {
+        "bytes": 3421268,
+        "sha256": "33e6812b98467be9b14c0e5d37ca75b9d053189fbc6ae0603da15957cf5dcb63"
+      },
+      "frozen/owasp-wstg-v4.2.jsonl": {
+        "bytes": 10711744,
+        "sha256": "f284cfcc53f3429c687f77677894638025bac9526571e0eaa13c4488628f429d"
+      },
+      "frozen/pandascookbook_thirdedition.jsonl": {
+        "bytes": 5588345,
+        "sha256": "266300c2128e1610e23eb6acc5b00283c4b1d727c657007015fce64fe06630ef"
+      },
+      "frozen/patterns-enterprise-application-architecture.jsonl": {
+        "bytes": 10237875,
+        "sha256": "918ca0e3b5cbb2e7fa1291a9bd9c7ab1f16cecc7b524d94d79231dc523dc94a7"
+      },
+      "frozen/playwright-docs.jsonl": {
+        "bytes": 24149861,
+        "sha256": "c4f21b244e1047f28a3688b50288ac49adf3a8e7487ebcb3e53c61ca5e441087"
+      },
+      "frozen/pmbok-guide-7e.jsonl": {
+        "bytes": 5415543,
+        "sha256": "541d9711d2f149d73619b32422a1c6e5f49eb5884d41860b35bf9f695b903bd1"
+      },
+      "frozen/policy-as-code.jsonl": {
+        "bytes": 8967971,
+        "sha256": "de3258ba891196366db811d74ae4cc8d306918ce6b25bbc0256135e605d5390b"
+      },
+      "frozen/postgresql-14-internals.jsonl": {
+        "bytes": 12709281,
+        "sha256": "465ee1010e58e100ac5dd82316b57c3147b2826d17546e2a4a31f5365c86ea7c"
+      },
+      "frozen/postgresql-internals-interdb.jsonl": {
+        "bytes": 293804,
+        "sha256": "6d4d543fa4d0d5b1c47cbde16fded66969bcf5706361f3f4ed4876a0f27882cb"
+      },
+      "frozen/practical-cloud-security.jsonl": {
+        "bytes": 3599123,
+        "sha256": "0ccf7a4bb9a570c93976d6e981315b6b46729832fe7e1efe5b7ae0c447da802d"
+      },
+      "frozen/practical-lakehouse-architecture.jsonl": {
+        "bytes": 3716272,
+        "sha256": "4b4df7bb9e0990953d08a5879fbee0a849e13798017af53693e16821a1a00b31"
+      },
+      "frozen/practical-linear-algebra-data-science.jsonl": {
+        "bytes": 4308325,
+        "sha256": "25f92f1415ceae6ae0229e92be67af02b12d7584cbe160fe65c18033a2917a3e"
+      },
+      "frozen/practical-reverse-engineering.jsonl": {
+        "bytes": 8072827,
+        "sha256": "030a04a229224fd2349e129eaa080f19ebd115146439f868db81e52a7da85b96"
+      },
+      "frozen/practical-web-accessibility.jsonl": {
+        "bytes": 9688668,
+        "sha256": "66e01a6cdae3263ecbc580498cbcf491638d533d5ee136d3d8b75c7d5801faff"
+      },
+      "frozen/practicalsystemprogrammingforrustdevelopers.jsonl": {
+        "bytes": 6361526,
+        "sha256": "871c7d479fd9ac40751ee66b32424d9b294b6a82107075c10627086c81085f84"
+      },
+      "frozen/practitioners-guide-graph-data.jsonl": {
+        "bytes": 5695021,
+        "sha256": "7d60d58491da79220ba4abd10212bc0812eefe3854ac696ccfd267b5e7adf8c0"
+      },
+      "frozen/predictive-analytics-modern-enterprise.jsonl": {
+        "bytes": 4889268,
+        "sha256": "a137bfb1c71bc1e4f700c540e09bfba734da3e818742490b0dd78412520dc17a"
+      },
+      "frozen/privacy-in-context.jsonl": {
+        "bytes": 9307062,
+        "sha256": "973cbbbcc187e18775561bb637efca29072e8d12c75bc0f35cd765caa41f1fcf"
+      },
+      "frozen/pro-git.jsonl": {
+        "bytes": 9136681,
+        "sha256": "2e6dc0737c4a91bd62df72e102993d52faf40d21e6ebbdf9f4f30c32ecf56594"
+      },
+      "frozen/probml-advanced.jsonl": {
+        "bytes": 32410187,
+        "sha256": "4a9fb232d67999077603fddcca9e4ad57af3d43c05d3059a7ef5b35af18ec929"
+      },
+      "frozen/probml-intro.jsonl": {
+        "bytes": 17747205,
+        "sha256": "83ff18b7bcd44bafac1e9698e514e2e0ad1a9e0312142b42a5ef49a852e3c4f5"
+      },
+      "frozen/production-ready-microservices.jsonl": {
+        "bytes": 1639530,
+        "sha256": "f026d486b0f6d898b62af52b2c463fbaa3e33512706dbf60a50863d02ce832a3"
+      },
+      "frozen/project-management-with-ai.jsonl": {
+        "bytes": 3946574,
+        "sha256": "2ded3b3819b78d45d0c6689812f8544c468a5289fe34d02b7210c6b8ccebba49"
+      },
+      "frozen/project-planning-scheduling-control.jsonl": {
+        "bytes": 6812230,
+        "sha256": "7eca6fc2c1f69f556895eb9043616cd588cc2007e49a521e4ff48c0d2924e5a8"
+      },
+      "frozen/python-for-devops.jsonl": {
+        "bytes": 8898245,
+        "sha256": "6a7c75a9c6a0d86011dfc3885666d6d24a23428ccbe3ce00c920251e5cc596e7"
+      },
+      "frozen/pythonmachinelearningbyexample_fourthedition.jsonl": {
+        "bytes": 8630722,
+        "sha256": "4c27d198e2df6a6a0a0be4d7f0ea03d7ad084ef2f6b11df05d721d785a54d3b1"
+      },
+      "frozen/qt6cplusplusguiprogrammingcookbook.jsonl": {
+        "bytes": 5400199,
+        "sha256": "9a840cf418daad9aa4452eef93fd5f3282ee4cb202299e3b4b9573281bc5dded"
+      },
+      "frozen/react-dev.jsonl": {
+        "bytes": 40028875,
+        "sha256": "7fb4f0391a6c5f316e9034bec4707c9f7274c3d61f15c7d841e6682029c1578e"
+      },
+      "frozen/real-world-software-development.jsonl": {
+        "bytes": 2964417,
+        "sha256": "2110c3552287d212a5dad77961c830ebc2f494a300ac7cab7b03791a03ce7d6d"
+      },
+      "frozen/real-world-svelte.jsonl": {
+        "bytes": 3842151,
+        "sha256": "b7c97417f1972bc60f03b38712570482202de672a5ef52823cf03b9bf8246470"
+      },
+      "frozen/redis-for-dummies.jsonl": {
+        "bytes": 1360983,
+        "sha256": "7384d9ad1d78d50af18f80335f8131924608ad5735c5820089a7a2076691afe8"
+      },
+      "frozen/refactoring-ui.jsonl": {
+        "bytes": 1041400,
+        "sha256": "e51a6b292d6987e29dfc0f8fd538ea824f879a9aa0a78c42927a69bb730dd684"
+      },
+      "frozen/refactoring.jsonl": {
+        "bytes": 7790331,
+        "sha256": "54ec4ab4a3d693e92dc53a75ba1da89c4ba7dd2d725433fc027a2b267b57d015"
+      },
+      "frozen/refactoringwithcplusplus.jsonl": {
+        "bytes": 5701628,
+        "sha256": "1d9dc56a5efaf0d4ef83196249c0099856066780074ae6174a0fd80c017be3eb"
+      },
+      "frozen/reinforcement-learning-finance.jsonl": {
+        "bytes": 3344288,
+        "sha256": "68203d2a591f8ce21fcb34ffa277afab7c2329987663d20946b279aa118cf735"
+      },
+      "frozen/release-it.jsonl": {
+        "bytes": 7406344,
+        "sha256": "d782b32328ebd3233b5b4c71b8ca8938ae2585fa040a9585d8e429fa68036b82"
+      },
+      "frozen/research-ethics-integrity-social-scientists.jsonl": {
+        "bytes": 8269613,
+        "sha256": "58c5abd851964db8d647510a802adcc44489dca3f17bedb06fea9a984e69abc2"
+      },
+      "frozen/research-methods-psychology.jsonl": {
+        "bytes": 15591339,
+        "sha256": "a780de92803d98e281e8857f285a9bbd73ca8951418962b6a4efb79706ad0078"
+      },
+      "frozen/rest-api-design-rulebook.jsonl": {
+        "bytes": 1518711,
+        "sha256": "2c0bc085c8d93f55c6843f73e9ca45b351eba4522557c4a38dbca4d22b1c6bf1"
+      },
+      "frozen/rest-in-practice.jsonl": {
+        "bytes": 9934577,
+        "sha256": "d4bcc9b37c07063b9665a20d32e348063bc5b6cb3d31883e1bc5ad95875b2eef"
+      },
+      "frozen/restful-web-apis.jsonl": {
+        "bytes": 5890053,
+        "sha256": "c3183a20d46b8f1e23e83ba3623a61f06cbdee460fd1faca10190636fbc56a0c"
+      },
+      "frozen/reverse-engineering-cybersecurity.jsonl": {
+        "bytes": 1765010,
+        "sha256": "e774b5a7da3adea6cefc7f2e744babef71137c51c7a236bfb41e068a95bd78f9"
+      },
+      "frozen/reverse-engineering-for-beginners.jsonl": {
+        "bytes": 14589577,
+        "sha256": "05d8609feb97c1c56f6a5e417bf0bc343de134f27cdd483240d24d4fb358febe"
+      },
+      "frozen/rust_ebook.jsonl": {
+        "bytes": 10986247,
+        "sha256": "7399d63fa3bb7a95c4ee90609c0b5f579501f4842a45cdb88d97288b2fd93eb3"
+      },
+      "frozen/rustforblockchainapplicationdevelopment.jsonl": {
+        "bytes": 6931813,
+        "sha256": "bd063bc8ecddc68b84a417757fea6ff0aa29801517918e032e25d7c4c41d05cd"
+      },
+      "frozen/rustforcplusplusdeveloper.jsonl": {
+        "bytes": 5141776,
+        "sha256": "2ccbebfd2b39bb01446312c96409e11c56c4217e7070b7ffa7245da46b11558c"
+      },
+      "frozen/rustprogramminghandbook.jsonl": {
+        "bytes": 10502386,
+        "sha256": "bb9fdaff6bbeeab62ddfe62443986a2c7919bb951d60f40ebb9fb0b9c35a07d8"
+      },
+      "frozen/rustwebdevelopmentwithrocket.jsonl": {
+        "bytes": 6154404,
+        "sha256": "38b460b182d1a27198d8d88f6f71422d4b7a88369c524e9a2bb22e78e8e2e013"
+      },
+      "frozen/rustwebprogramming.jsonl": {
+        "bytes": 10101673,
+        "sha256": "3663e76da12d47dcbd4d125b8ff196c4624966d22d2ba11d252efd49461bc33a"
+      },
+      "frozen/scaling-machine-learning-with-spark.jsonl": {
+        "bytes": 4680004,
+        "sha256": "9c88f534b6786733539073d58f5113e035708f037b74e89f7880f535b071eb46"
+      },
+      "frozen/scikit-learncookbook_thirdedition.jsonl": {
+        "bytes": 4722565,
+        "sha256": "70cf6f0190bc03c9859115c739469535d23c7e4aa43c0eb2cb52c5f07175be86"
+      },
+      "frozen/scrum-masters-path.jsonl": {
+        "bytes": 3124792,
+        "sha256": "db67f1765bba92152909b55cf6dcd866dc2873676bf94801e00ce15ae6371850"
+      },
+      "frozen/selling-to-big-companies.jsonl": {
+        "bytes": 3387296,
+        "sha256": "f5b69737a7e4d7c9b2f3eb928e3a065c92b57ce24cb2563046944414dd4b55ac"
+      },
+      "frozen/semantic-software-design.jsonl": {
+        "bytes": 5213113,
+        "sha256": "c93f2f45e03963096bb39c1379368fc5fb46b786418927ee116a54b69cb9d800"
+      },
+      "frozen/seriouspython.jsonl": {
+        "bytes": 9908355,
+        "sha256": "c9cc26c3aca97230df70edbd8af034f7f922a2ad5f630083c56a01b11bac61ea"
+      },
+      "frozen/site-reliability-engineering.jsonl": {
+        "bytes": 9879213,
+        "sha256": "54fe1ce9e3c15a33ccb060400db51b2e821c4b922314ec6282db4aef861b9921"
+      },
+      "frozen/software-architect-elevator.jsonl": {
+        "bytes": 3678591,
+        "sha256": "bc21bf6eaad363f2503ac53c7a52483f00ae1c8865fbf1fbffeeaacb08af91f7"
+      },
+      "frozen/software-architecture-hard-parts.jsonl": {
+        "bytes": 6986603,
+        "sha256": "557b34ae6fa34252c1375918fdae3d96e222b9e82ae76dab7707004adca2446a"
+      },
+      "frozen/software-architecture-metrics.jsonl": {
+        "bytes": 3204291,
+        "sha256": "e81efdff703e852b68271f977daacd76529235ad842e8d9989d67940ecd27651"
+      },
+      "frozen/software-architecture-patterns.jsonl": {
+        "bytes": 630271,
+        "sha256": "72387406ab46281269f62de88152cdb49ad2fcfad7d0d8b0ac63894ffe9933b5"
+      },
+      "frozen/software-engineering-at-google.jsonl": {
+        "bytes": 12037196,
+        "sha256": "9b21a001fbcbac51dbd96a1db6981cb22c0f1b19f7425f2c886f9c5da4621f06"
+      },
+      "frozen/software-supply-chain-security.jsonl": {
+        "bytes": 3219860,
+        "sha256": "448761479d35381d9886bac868de9668f61719e422fd62873df13aaf75c7623b"
+      },
+      "frozen/software-testing-with-genai.jsonl": {
+        "bytes": 5945467,
+        "sha256": "44caf7e71b2fc90e9cc778d33750d66f1eb06c6e47db813351cbcc0a6332aea7"
+      },
+      "frozen/softwarearchitecturewithcplusplussecondedition.jsonl": {
+        "bytes": 12756611,
+        "sha256": "884def848a43828c46ba93898bfd16dec91b2ad593146a3e0712a3f5aa43c52e"
+      },
+      "frozen/spark-definitive-guide.jsonl": {
+        "bytes": 8289917,
+        "sha256": "97ea3f164f33f7b2456c8ce96343e6930c573a3b558cb73a8afc1c5ad2a5f67c"
+      },
+      "frozen/speedupyourpythonwithrust.jsonl": {
+        "bytes": 6159619,
+        "sha256": "1ee80e0b32e4f0e434e59b51861f599891555b5a175ba86016e5cd68a71c8c7c"
+      },
+      "frozen/sql-relational-theory.jsonl": {
+        "bytes": 18824394,
+        "sha256": "0d9ad8ab4b3314e87f5a13446db40e786be7f226ae3a9b052cc7eb8dc05d3578"
+      },
+      "frozen/sql-server-advanced-troubleshooting.jsonl": {
+        "bytes": 7489931,
+        "sha256": "16d0de41c452a4209b9594442d412f8a81451eb84acb906a2f3265c7a1e85dc1"
+      },
+      "frozen/statistics-by-simulation.jsonl": {
+        "bytes": 13646007,
+        "sha256": "6823a76288d05ecd42d2a71d2d74ca894d3c036ef3737ff8fef643c034643a84"
+      },
+      "frozen/storytelling-in-design.jsonl": {
+        "bytes": 6171439,
+        "sha256": "75f781c58465741840003e25b0aeff181c5943da08e4ba274b9b22c7f0469013"
+      },
+      "frozen/storytelling-with-data.jsonl": {
+        "bytes": 3177971,
+        "sha256": "24b26ec17418405de25ccc4d779cf6dd9c71a0dfe45ddb01ec50bb27a6cc8937"
+      },
+      "frozen/strategic-writing-for-ux.jsonl": {
+        "bytes": 2523295,
+        "sha256": "e8f692a68651ef6804b74cd60559f1c69d7c0aee7b1924c0d63f3e2994736e26"
+      },
+      "frozen/strengthening-deep-neural-networks.jsonl": {
+        "bytes": 3374214,
+        "sha256": "1059f97887797ef22de7a5c31d25ab3bdb589f0b07d4653bbe10ac2618c97a1b"
+      },
+      "frozen/swebok.jsonl": {
+        "bytes": 9893737,
+        "sha256": "cc105b609475acf31935a53bf1545cde1bc8589b2557fc2137eb01dd168315c6"
+      },
+      "frozen/tdd-by-example.jsonl": {
+        "bytes": 2771709,
+        "sha256": "64950b7627e610a931c5022c41c11f4ab49783531fc27046b3d894a93b810d91"
+      },
+      "frozen/templatemetaprogrammingwithc.jsonl": {
+        "bytes": 6111633,
+        "sha256": "0a549656ddc7ab289e29df89d83f66270d21a12dd817328db7c84df2aee43885"
+      },
+      "frozen/testing-javascript-applications.jsonl": {
+        "bytes": 10391804,
+        "sha256": "f165038409716dc70481c3ebde725e8e05f127096cf88647adc423687a0f008f"
+      },
+      "frozen/think-like-ux-researcher.jsonl": {
+        "bytes": 5570379,
+        "sha256": "450e539396e9a084096af0218ee1c5502727c159d8c5f764d77b2871eaa28d75"
+      },
+      "frozen/think-stats-3e.jsonl": {
+        "bytes": 3623000,
+        "sha256": "83824cdb3ffdb9e3bc60d4be633a9c150d7062eae4aadfcff528e65305f6867b"
+      },
+      "frozen/training-data-for-machine-learning.jsonl": {
+        "bytes": 4798349,
+        "sha256": "b600d23b48d0efb50e91521eabe94df098dec54ff416f997b7d1fca92cf5b00e"
+      },
+      "frozen/transformers-in-action.jsonl": {
+        "bytes": 4832280,
+        "sha256": "b6c12d849e9de12ae945e788f669008eec7c2698580f4d829b9411e8d2c0014a"
+      },
+      "frozen/typescript-cookbook.jsonl": {
+        "bytes": 13152080,
+        "sha256": "0e3bbe5c04acb3f8346d4f2e8b2c7fe4f075b24736e6e29d8020d3d6c9965aca"
+      },
+      "frozen/ui-design-principles.jsonl": {
+        "bytes": 1901036,
+        "sha256": "c5c31b03e4f0661e078391d9adc2c512e8ba16d8f4347a50ab28ca09b015880f"
+      },
+      "frozen/ultimatelinuxshellscriptingguide.jsonl": {
+        "bytes": 11256425,
+        "sha256": "61895fa4bc8903855ac2d09e61a6179773e402fd374610ce5dfd47fc2ea70d45"
+      },
+      "frozen/ultimateubuntuhandbook.jsonl": {
+        "bytes": 10228137,
+        "sha256": "2a4633eecd1fd499c7c69447f14ba328d9f6dcdbcded95f77b5a19fbe203a7f5"
+      },
+      "frozen/understanding-deep-learning.jsonl": {
+        "bytes": 13690890,
+        "sha256": "8e6df5fd99e26ae675aeff598f1cd021e815f2547f3b41120f34a446f2663494"
+      },
+      "frozen/unifying-business-data-code.jsonl": {
+        "bytes": 6628496,
+        "sha256": "871978a01b80ce027e871312bd602686f98860c68c16bb242fab27c5a7f8b719"
+      },
+      "frozen/use-the-index-luke.jsonl": {
+        "bytes": 485900,
+        "sha256": "e20f6796786c9fb673ebe01bc8e245987ce24c9cba927c5b05edcb8723882aba"
+      },
+      "frozen/user-story-mapping.jsonl": {
+        "bytes": 3526126,
+        "sha256": "871ec245ec88886c827bfbfbcce14d537fd23c1b735a340ff58bee8fd1e475b7"
+      },
+      "frozen/ux-for-lean-startups.jsonl": {
+        "bytes": 3409828,
+        "sha256": "e2e333805baae03e17a265e32be4bae3e93fd4e64698232afc49c989461242a0"
+      },
+      "frozen/value-based-fees.jsonl": {
+        "bytes": 5950017,
+        "sha256": "e50858d0567d6d70260de32ba2ca5bfc05da6209d33e5049b81abce7f5f90909"
+      },
+      "frozen/vector-databases-introduction.jsonl": {
+        "bytes": 4519112,
+        "sha256": "1576fcd1d689fb898f50348fffc357b76cdef19249491fed86499e11db9bf81f"
+      },
+      "frozen/wai-aria-apg.jsonl": {
+        "bytes": 2862204,
+        "sha256": "a4581cb8ab3b9097335af7551bf126c873ac9c1bc15ad785b8b5991cd32c3c33"
+      },
+      "frozen/wcag-22.jsonl": {
+        "bytes": 2939179,
+        "sha256": "72bb53384e31de7afa9dcc25252380998d71e176232a19614322123e408c82d4"
+      },
+      "frozen/web-accessibility-cookbook.jsonl": {
+        "bytes": 4895657,
+        "sha256": "991fa1adb98bd88f700919a8a4033b4168557655e13f9027d76818d6f8824c4a"
+      },
+      "frozen/web-dev-baseline.jsonl": {
+        "bytes": 12027613,
+        "sha256": "7c9bd95191a47897d87e5cd4559a95d27ca55ee12b992099fc62307144106db2"
+      },
+      "frozen/web-performance-engineering.jsonl": {
+        "bytes": 3839590,
+        "sha256": "fe31766657590a58bc8794def7e35e0f027df1196141fcbe1dc178be012988d5"
+      },
+      "frozen/web-performance-in-action.jsonl": {
+        "bytes": 5432598,
+        "sha256": "84225917b6918f3af2bde645ecb8b8a6294237d9e46f4d8a1d7b915e8bed3624"
+      },
+      "frozen/web-scraping-with-python.jsonl": {
+        "bytes": 4864368,
+        "sha256": "04eedb802da0e05803911e0f1a42ed445db2dd713918d26f52039ac1b22f033c"
+      },
+      "frozen/webgpu-sourcebook.jsonl": {
+        "bytes": 7037877,
+        "sha256": "d909aa4c37f6b2b7f5c78d07e265f93eaafcc78b20e63922f1dc8bedee5620e7"
+      },
+      "frozen/whatwg-html.jsonl": {
+        "bytes": 33162587,
+        "sha256": "650fbc0bb92954bdb22e98b42b0e1c0276c1f1c9f4614416d63e365b7d090986"
+      },
+      "frozen/writing-excel-macros-vba.jsonl": {
+        "bytes": 8567986,
+        "sha256": "48b0500873b6d860f7518a9cc05396af5223d6db8c498296d98b5459583d877a"
+      },
+      "frozen/x86-software-reverse-engineering.jsonl": {
+        "bytes": 3377825,
+        "sha256": "04d0fd6749e9c5ad3f6bd9753f1f9eb43215e249949aacb98c78aabb4fcf6eaa"
+      },
+      "frozen/zero-trust-networks-2e.jsonl": {
+        "bytes": 5121352,
+        "sha256": "3ea011abb92619df784203585e870e078abdba8b12788960e3a34e8d2da8d62e"
+      },
+      "gate/reranker-model.json": {
+        "bytes": 320,
+        "sha256": "150c3efbeb2cb1c8cd89842ac0397cb3696e0a2dae1aa21dcff38c4ef3723e34"
+      },
+      "gate/v10-easy.json": {
+        "bytes": 962,
+        "sha256": "fe9f577e0ebb17b4f517dc4af6044c67e2101ed98b03868d3a48eed920eb0379"
+      },
+      "gate/v10-easy.jsonl": {
+        "bytes": 1263399,
+        "sha256": "433e85000a70b701cd527dfbac6396ff9708615d27553ecf5f03e50e5e2631cf"
+      },
+      "gate/v10-easy.meta.json": {
+        "bytes": 1583,
+        "sha256": "7e7db208ce00b0cd3825c86d1d292174d2d245fb96d24adf7c520684000574e3"
+      },
+      "gate/v10-hard.json": {
+        "bytes": 8823,
+        "sha256": "f73ce0cdd9d8eb620f9fd47ad96889a30815fa03f57cb9c364bbeb684e89684d"
+      },
+      "gate/v10-hard.jsonl": {
+        "bytes": 2890128,
+        "sha256": "d869df89836b79144f66fcfad585072613c9fb0768c7a56e8a864d6180f08106"
+      },
+      "gate/v10-hard.meta.json": {
+        "bytes": 1588,
+        "sha256": "c7252ad26f4a7831ca881e31550ecd1fc46a04e59c5b835576508afd64496095"
+      },
+      "gate/v10-sanity.json": {
+        "bytes": 1933,
+        "sha256": "f7722a37e4b0d7ff1e145bfd401261d8033fdf565fb7e43deb89a0b481e779ad"
+      },
+      "gate/v10-sanity.jsonl": {
+        "bytes": 199632,
+        "sha256": "4bea77364fb8e30385c28c06321f0bda90e723676e1ee2632435e6bee8301599"
+      },
+      "gate/v10-sanity.meta.json": {
+        "bytes": 1576,
+        "sha256": "14121a2208d26ae91d196cf0ebb73bb6251b4f9d9fd105570ad0f7a63d046412"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/.gitattributes": {
+        "bytes": 1519,
+        "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/1_Pooling/config.json": {
+        "bytes": 89,
+        "sha256": "b7703fedc62cbe2d1e4fd47338d5ba9ee5b2107d49fc42e85ae848484fdd08bc"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/2_Dense/config.json": {
+        "bytes": 228,
+        "sha256": "20e26ecba6c2f764ebdab2746b2a24ff10b0b796f67d9785775081e1bc418986"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/2_Dense/model.safetensors": {
+        "bytes": 2359384,
+        "sha256": "bc39a6bdfd371a47a08fbf84781bc7224b846ec0e15213b560d2abbbfb323b75"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/3_LayerNorm/config.json": {
+        "bytes": 24,
+        "sha256": "b6d7814b096e2c4d22d40b0e28a039411c77996af17897e2b4778dad36fc530c"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/3_LayerNorm/model.safetensors": {
+        "bytes": 6296,
+        "sha256": "a119c63bd3b89934c89f2394e2278014e663e01625dc322c603ddbf24b10325c"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/4_Dense/config.json": {
+        "bytes": 213,
+        "sha256": "31c0988ed5597ae65208c0783a84b944577bfaf597bd8f1ecc82945ea31e9d54"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/4_Dense/model.safetensors": {
+        "bytes": 3220,
+        "sha256": "cececab2925f12c9c7541d5d438202a6eec4b503658e0e64790f2d0414ede6a8"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/README.md": {
+        "bytes": 69952,
+        "sha256": "41c2b12ce3259391e2fa7bcbb96b00b5d7fd42c413b7e19ace7b4b5600961b13"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/config.json": {
+        "bytes": 2020,
+        "sha256": "7edec5dedd402976edd3b66abeb432377ecd04c27a5e974b2601160c3519c0f9"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/config_sentence_transformers.json": {
+        "bytes": 257,
+        "sha256": "58704a86e4fe20f511de172ce623498c68991abfa7b330740d642d8e049affb7"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/model.safetensors": {
+        "bytes": 596070136,
+        "sha256": "0dd04496917f100307bc37e0fc7acb8750bb8781badfdb21a368b0e965a0d981"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/modules.json": {
+        "bytes": 678,
+        "sha256": "d8394ab6c24cb0fb80229dafb886fac022ff489e757e3e6ed7d69603d5ae5942"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/onnx/model.onnx": {
+        "bytes": 596565114,
+        "sha256": "2c6968436957b7f295e1c60415fc955ba63cd142ba1b332c6cceb925fcb4cd4f"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/onnx/model_O1.onnx": {
+        "bytes": 596501359,
+        "sha256": "0cdb43481bb0027cdb75c1833ec4e64ca570410874c7f3281ab35b893766845c"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/onnx/model_O2.onnx": {
+        "bytes": 596482719,
+        "sha256": "3e2cc751e4cf0bad5bcd2d5fb2a17a6447f46af410dac18080691af5b4c990df"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/onnx/model_O3.onnx": {
+        "bytes": 596482455,
+        "sha256": "1b7dfdbaed7e4f526f55619ad65751464b20cede30c4cd1cb339faf289fe8e9d"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/onnx/model_O4.onnx": {
+        "bytes": 298456065,
+        "sha256": "d15f35396b9e33bdd560f71e7bf784fc79e7d1cc12f9f397d52e72c135272572"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/onnx/model_qint8_arm64.onnx": {
+        "bytes": 150628482,
+        "sha256": "27ac73363fd16d308fd7f91044df323f53af390ef775ac51e56e551c1adcee7d"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/onnx/model_qint8_avx512.onnx": {
+        "bytes": 150628482,
+        "sha256": "27ac73363fd16d308fd7f91044df323f53af390ef775ac51e56e551c1adcee7d"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/onnx/model_qint8_avx512_vnni.onnx": {
+        "bytes": 150628482,
+        "sha256": "27ac73363fd16d308fd7f91044df323f53af390ef775ac51e56e551c1adcee7d"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/onnx/model_quint8_avx2.onnx": {
+        "bytes": 150628481,
+        "sha256": "7ae500b430815623ae87f4c05ffe6fccaab88752963c6a1140cb4ef86f60da70"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/openvino/openvino_model.bin": {
+        "bytes": 596057444,
+        "sha256": "a55a30a8ed8d4db3c841e9f2da29d7d7d67088fc45ce15fbf9a6347c5a3af7cb"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/openvino/openvino_model.xml": {
+        "bytes": 787335,
+        "sha256": "4cb4c76176dbf98cc509504572f2f3ad0489522d14d0359c40d0969ff93bcf1f"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/openvino/openvino_model_qint8_quantized.bin": {
+        "bytes": 150165640,
+        "sha256": "71b6b9d3b3f03b881f2afe9a95344c615a39f2c6c6f95a2062af6538cfaee753"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/openvino/openvino_model_qint8_quantized.xml": {
+        "bytes": 1267590,
+        "sha256": "ae1efe2b4dcadda141a1a268b4daf1fea1a68f88ebab40bce0fb73c013a28012"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/sentence_bert_config.json": {
+        "bytes": 241,
+        "sha256": "3084164002c0bca01b0259c5327123803fce32e660a57feb93184ffead186fc8"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/tokenizer.json": {
+        "bytes": 3583327,
+        "sha256": "28c5e078e4c52aa37cf0e6de1a212878f3dbd58dd1c70466298efe0b6b86db35"
+      },
+      "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14/tokenizer_config.json": {
+        "bytes": 488,
+        "sha256": "2b85302525d8c528a9e1fbaea2733472bd00d4755eae881441c8c52b90e2d600"
+      },
+      "hf-cache/hub/models--jinaai--jina-embeddings-v5-text-small-retrieval/snapshots/6856e76bb72982e58de0620458a4e8b3614da340/1_Pooling/config.json": {
+        "bytes": 313,
+        "sha256": "37bf193fa101f19101bfad9c31d3eb0f786e247b7b1e5cb7f007d730eed1ddbd"
+      },
+      "hf-cache/hub/models--jinaai--jina-embeddings-v5-text-small-retrieval/snapshots/6856e76bb72982e58de0620458a4e8b3614da340/chat_template.jinja": {
+        "bytes": 4168,
+        "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+      },
+      "hf-cache/hub/models--jinaai--jina-embeddings-v5-text-small-retrieval/snapshots/6856e76bb72982e58de0620458a4e8b3614da340/config.json": {
+        "bytes": 1510,
+        "sha256": "d6cc749796016b49553e3892f27184bd1cfc440f1ad1a7252e22e72dbfb5be90"
+      },
+      "hf-cache/hub/models--jinaai--jina-embeddings-v5-text-small-retrieval/snapshots/6856e76bb72982e58de0620458a4e8b3614da340/config_sentence_transformers.json": {
+        "bytes": 274,
+        "sha256": "916dede36f621cdfecd30fde3d66923dc45336fe75e051b8839374800148b560"
+      },
+      "hf-cache/hub/models--jinaai--jina-embeddings-v5-text-small-retrieval/snapshots/6856e76bb72982e58de0620458a4e8b3614da340/merges.txt": {
+        "bytes": 1671853,
+        "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+      },
+      "hf-cache/hub/models--jinaai--jina-embeddings-v5-text-small-retrieval/snapshots/6856e76bb72982e58de0620458a4e8b3614da340/model.safetensors": {
+        "bytes": 1192133232,
+        "sha256": "0362107c2b13e18284c5152c4d4f667a4dec4665abdfe4f5e43a9bb799ba2276"
+      },
+      "hf-cache/hub/models--jinaai--jina-embeddings-v5-text-small-retrieval/snapshots/6856e76bb72982e58de0620458a4e8b3614da340/modules.json": {
+        "bytes": 349,
+        "sha256": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf"
+      },
+      "hf-cache/hub/models--jinaai--jina-embeddings-v5-text-small-retrieval/snapshots/6856e76bb72982e58de0620458a4e8b3614da340/tokenizer.json": {
+        "bytes": 11422654,
+        "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+      },
+      "hf-cache/hub/models--jinaai--jina-embeddings-v5-text-small-retrieval/snapshots/6856e76bb72982e58de0620458a4e8b3614da340/tokenizer_config.json": {
+        "bytes": 670,
+        "sha256": "9da9b391de9bb545e047bdfd5d9abefe32ee41937acf6c3b06aae33d85d0a4b4"
+      },
+      "hf-cache/hub/models--jinaai--jina-embeddings-v5-text-small-retrieval/snapshots/6856e76bb72982e58de0620458a4e8b3614da340/vocab.json": {
+        "bytes": 2776833,
+        "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+      },
+      "kb/data/gate-v10/sanity-plan.jsonl": {
+        "bytes": 6849,
+        "sha256": "2a7bf46d8cca17162687070e6eb770cd1ef9584fc0cac102e383a7c08f81b18e"
+      },
+      "kb/data/gate-v10/sanity.jsonl": {
+        "bytes": 31898,
+        "sha256": "0e12e0c8e3d53567d772d3b1990a9239316a1a8c339c37b793af5d34013470bf"
+      },
+      "kb/data/golden/golden_queries.jsonl": {
+        "bytes": 438643,
+        "sha256": "e8890320ea6969568da4b10bfbafa6dd60ef8a0dd1a6e397f844eb75f61b7830"
+      },
+      "kb/data/golden/golden_queries_hard.jsonl": {
+        "bytes": 1073840,
+        "sha256": "16641565b1f299716f2a4605bc273fe09b07c591f8dd3d0c66ee6e6897cb6cb1"
+      },
+      "kb/knowledge_base/config.py": {
+        "bytes": 32357,
+        "sha256": "637ca9b67f87fd161d99fffcd72926ff9fede2e5b9cd09edb4a2bce534618dce"
+      },
+      "kb/knowledge_base/embedder.py": {
+        "bytes": 8181,
+        "sha256": "d642c22c00b8ef4bbf5fc2c49b4c601f4a7f5a244104b69dea2dd9b8bfddbf6a"
+      },
+      "kb/knowledge_base/index.py": {
+        "bytes": 6545,
+        "sha256": "7ece6781e5b0e180fd66adf4bb130b60eb52246cfafa59579587f542673ba8ab"
+      },
+      "kb/knowledge_base/search.py": {
+        "bytes": 10057,
+        "sha256": "a30854a24268ce535423784f79a277c96055bc43208ad3e80c223ecb0709cdb0"
+      },
+      "kb/scripts/eval_retrieval.py": {
+        "bytes": 11268,
+        "sha256": "a71604974d5cbdd7281591193b3639fe2fdbcfb066c7009d04a9afec218a23be"
+      },
+      "m1b/gate/audit-current.json": {
+        "bytes": 2461,
+        "sha256": "bdf619aa8703726767cc7de1699bb02114273765bdb3f0c96835adb5a1d7c9ea"
+      },
+      "m1b/plan/manifest.json": {
+        "bytes": 109260,
+        "sha256": "ec9823a1cf538aa0225613d800420b36713b78b3710243f79b2af1833bcbc9f8"
+      },
+      "m1c/kb/data/chunks/postgresql-14-internals.json": {
+        "bytes": 3404975,
+        "sha256": "0131bd41f39e35bcf890fa01faa00b326cf373de055d5c78e4baac4d4134442c"
+      },
+      "m1c/labels/original-easy.jsonl": {
+        "bytes": 438643,
+        "sha256": "e8890320ea6969568da4b10bfbafa6dd60ef8a0dd1a6e397f844eb75f61b7830"
+      },
+      "m1c/labels/original-hard.jsonl": {
+        "bytes": 1073840,
+        "sha256": "16641565b1f299716f2a4605bc273fe09b07c591f8dd3d0c66ee6e6897cb6cb1"
+      },
+      "m1c/labels/original-sanity.jsonl": {
+        "bytes": 31898,
+        "sha256": "0e12e0c8e3d53567d772d3b1990a9239316a1a8c339c37b793af5d34013470bf"
+      },
+      "m1c/labels/remapped-easy.jsonl": {
+        "bytes": 433973,
+        "sha256": "05b5ea5d44440c54afb632c3268bb8e56d14dd46ed4030912e29c7c1a3249811"
+      },
+      "m1c/labels/remapped-hard.jsonl": {
+        "bytes": 1061059,
+        "sha256": "2109c3bdcb182390d9b0e9fa813ae89c6ea8108cff72abc99d1cc0c3bf794438"
+      },
+      "m1c/labels/remapped-sanity.jsonl": {
+        "bytes": 31898,
+        "sha256": "0e12e0c8e3d53567d772d3b1990a9239316a1a8c339c37b793af5d34013470bf"
+      },
+      "m1c/mapping.json": {
+        "bytes": 172863,
+        "sha256": "c57f73014056d00906bc31f935762ad073a15601f42000e89da05590c071b389"
+      },
+      "m1c/scripts/map_labels.py": {
+        "bytes": 6222,
+        "sha256": "e68e2d5e712bab55d209f9577b9c650b589d72bce273a4118f7e6d37ff89fdfd"
+      },
+      "scripts/freeze_v10.py": {
+        "bytes": 6953,
+        "sha256": "ac9559ee13bddac5a2a93b080626b3e285c9a6a1a49a4adee2d51a347002a353"
+      },
+      "scripts/run_gate.py": {
+        "bytes": 6393,
+        "sha256": "6b6849a487f1df26308603a62f67f8880c9951ea0edef6f7074c4678d7c5bba5"
+      },
+      "venv/lib/python3.12/site-packages/fastembed/sparse/bm25.py": {
+        "bytes": 12479,
+        "sha256": "85a91ac795aa335f29126db0a47db9ae15b1473b5f9baef755b664fa0aa1308b"
+      }
+    },
+    "machine": {
+      "architecture": "x86_64",
+      "container": "qdrant/qdrant:v1.18.2 sha256:75eab8c4ba42096724fdcfde8b4de0b5713d529dde32f285a1f86fdcb2c9e50c",
+      "kernel": "7.0.0-28-generic",
+      "os": "Ubuntu 24.04.4 LTS",
+      "python_gate": "Python 3.12.3",
+      "python_system": "3.12.3",
+      "qdrant": {
+        "commit": "44ad62f8cd69642be5afa6441612525e24a0d063",
+        "version": "1.18.2"
+      }
+    },
+    "membership": {
+      "payload_source_differences": {
+        "parent_text": 1160
+      },
+      "per_source_counts": {
+        "3d-data-science-python": 1200,
+        "advanced-analytics-pyspark": 439,
+        "advanced-apple-debugging": 788,
+        "agentic-design-patterns": 1121,
+        "agentic-mesh": 755,
+        "ai-engineering-huyen": 1310,
+        "ai-modern-approach": 4332,
+        "ai-powered-search": 1296,
+        "analytics-tools-optimizing-ux": 85,
+        "angular-dev": 1004,
+        "angular-up-and-running": 758,
+        "apis-a-strategy-guide": 301,
+        "architecting-data-ml-platforms": 1146,
+        "architecture-patterns-with-python": 541,
+        "arm-assembly-internals": 1103,
+        "art-of-ai-product-development": 816,
+        "art-of-assembly-language": 1538,
+        "articulating-design-decisions": 398,
+        "artificialintelligenceforcybersecurity": 721,
+        "assembly-language-x86-processors": 1852,
+        "asynchronousprogramminginrust": 595,
+        "asynchronousprogrammingwithcplusplus": 848,
+        "automating-data-quality-monitoring": 1369,
+        "azureai-102certificationessentials": 687,
+        "bare-metalembeddedcprogramming": 801,
+        "bargaining-for-advantage": 541,
+        "bayesiananalysiswithpython_thirdedition": 712,
+        "bishop-prml": 2442,
+        "boneh-shoup-applied-cryptography": 4614,
+        "build-reasoning-model": 844,
+        "build-text-to-image-generator": 865,
+        "building-applications-ai-agents": 722,
+        "building-design-systems": 652,
+        "building-event-driven-data-mesh": 468,
+        "building-event-driven-microservices": 894,
+        "building-evolutionary-architectures": 447,
+        "building-genai-services-fastapi": 853,
+        "building-green-software": 493,
+        "building-knowledge-graphs": 1510,
+        "building-machine-learning-pipelines": 1883,
+        "building-medallion-architectures": 793,
+        "building-micro-frontends": 684,
+        "building-microservices-2e": 1455,
+        "building-multi-tenant-saas": 1098,
+        "building-reliable-ai-systems": 802,
+        "building-secure-reliable-systems": 1104,
+        "buildinglowlatencyapplicationswithc": 1237,
+        "candalgorithmicthinkingforthecompletebeginner": 1456,
+        "causalinferenceanddiscoveryinpython": 927,
+        "certified-ethical-hacker": 1040,
+        "challenger-sale": 439,
+        "chaos-engineering": 2157,
+        "clean-architecture": 542,
+        "clean-code": 1181,
+        "cloud-native-devops-kubernetes": 686,
+        "cloud-native-security-cookbook": 935,
+        "cmakebestpractices": 773,
+        "cockroachdb-definitive-guide": 922,
+        "coding-with-ai": 584,
+        "container-security": 353,
+        "continuous-api-management": 698,
+        "continuous-delivery": 1187,
+        "cplusplus20stlcookbook2e": 475,
+        "cplusplusmemorymanagement": 1055,
+        "cplusplusprogrammersmindset": 875,
+        "creating-web-animations": 290,
+        "creativeprojectsforrustprogrammers": 873,
+        "critical-thinking-about-research": 824,
+        "crypto-101": 382,
+        "css-definitive-guide": 2159,
+        "css-in-depth-2e": 1184,
+        "cuda-programming-guide": 1888,
+        "d2l-en": 3802,
+        "d3js-in-action": 886,
+        "data-governance-definitive-guide": 468,
+        "data-governance-unity-catalog": 582,
+        "data-management-at-scale": 706,
+        "data-quality-fundamentals": 588,
+        "data-science-for-business": 802,
+        "data-science-from-scratch": 758,
+        "data-science-hard-parts": 402,
+        "data-visualization-storytelling": 133,
+        "database-design-2nd-ed": 227,
+        "database-internals": 709,
+        "datastructuresandalgorithmswiththecplusplusstl": 822,
+        "debunkingcplusplusmyths": 510,
+        "deciphering-data-architectures": 1655,
+        "deepreinforcementlearninghands-on_thirdedition": 1504,
+        "delta-lake-definitive-guide": 752,
+        "design-for-how-people-think": 324,
+        "design-patterns-gof": 685,
+        "designing-ai-interfaces": 358,
+        "designing-autonomous-ai": 384,
+        "designing-data-intensive-applications": 1283,
+        "designing-distributed-systems": 313,
+        "designing-distributed-systems-2e": 432,
+        "designing-great-web-apis": 72,
+        "designing-interfaces": 704,
+        "designing-llm-applications": 654,
+        "designing-ml-systems-huyen": 986,
+        "designpatternsandbestpracticesinrust": 738,
+        "digitalocean-redis": 98,
+        "distributed-systems-fun-profit": 193,
+        "domain-driven-design-evans": 878,
+        "domain-specific-small-language-models": 748,
+        "effective-conversational-ai": 721,
+        "effective-platform-engineering": 847,
+        "effective-typescript": 676,
+        "effective-ui": 540,
+        "efficient-linux-command-line": 464,
+        "efficient-nodejs": 1361,
+        "enterprise-big-data-lake": 1509,
+        "enterprise-integration-patterns": 1267,
+        "essential-graphrag": 403,
+        "essential-math-ai": 1222,
+        "excel-for-accountants": 713,
+        "exploratory-data-analysis-visualization": 839,
+        "facilitating-software-architecture": 1216,
+        "financial-ai-in-practice": 976,
+        "financial-data-engineering": 951,
+        "flawless-consulting": 557,
+        "flawless-consulting-fieldbook-companion-2e": 533,
+        "flow-architectures": 524,
+        "fluent-react": 2020,
+        "foundations-scalable-systems": 582,
+        "fundamentals-computer-graphics": 1506,
+        "fundamentals-data-engineering": 902,
+        "fundamentals-enterprise-architecture": 436,
+        "fundamentals-metadata-management": 353,
+        "fundamentals-microsoft-fabric": 537,
+        "gamedevelopmentwithrustandwebassembly": 927,
+        "generative-ai-in-action": 1036,
+        "generative-deep-learning": 523,
+        "getting-to-yes": 397,
+        "ghidra-book": 1148,
+        "gpuprogrammingwithcplusplusandcuda": 416,
+        "graphmachinelearning_secondedition": 829,
+        "growing-oo-software-by-tests": 780,
+        "hands-on-large-language-models": 2280,
+        "hands-on-rag-production": 797,
+        "hands-on-selenium-webdriver": 686,
+        "hands-on-site-reliability-engineering": 377,
+        "hands-on-unsupervised-learning": 1072,
+        "hands-onartificialintelligenceforiot_secondedition": 985,
+        "hands-onconcurrencywithrust": 1025,
+        "hands-ondesignpatternswithcplusplus2e": 1559,
+        "hands-onmachinelearningwithcplusplus_secondedition": 1044,
+        "hbr-guide-business-writing": 364,
+        "head-first-pmp": 1258,
+        "head-first-statistics-analysis": 112,
+        "high-performance-browser-networking": 696,
+        "holacracy": 416,
+        "how-to-read-a-paper": 897,
+        "http-definitive-guide": 1543,
+        "human-in-the-loop-ml": 1017,
+        "illustrated-guide-ai-agents": 736,
+        "implementing-data-mesh": 424,
+        "infrastructure-as-code": 746,
+        "inside-cyber-warfare": 273,
+        "intelligence-driven-incident-response": 672,
+        "interpretable-ai": 683,
+        "intro-to-algorithms-clrs": 3600,
+        "joy-of-cryptography": 904,
+        "kafka-definitive-guide": 610,
+        "kagglebook_secondedition": 1481,
+        "key-account-management": 772,
+        "kubernetes-security-observability": 316,
+        "langchain-life-sciences-healthcare": 854,
+        "laws-of-ux": 172,
+        "lbdl": 359,
+        "lean-ux": 285,
+        "learning-agile": 918,
+        "learning-api-styles": 891,
+        "learning-domain-driven-design": 528,
+        "learning-git": 463,
+        "learning-github-actions": 599,
+        "learning-javascript-design-patterns": 395,
+        "learning-modern-linux": 466,
+        "learning-opentelemetry": 252,
+        "learning-spark": 507,
+        "learning-systems-thinking": 508,
+        "learning-test-driven-development": 436,
+        "learning-threejs": 713,
+        "learning-vue": 505,
+        "learnllvm17secondedition": 934,
+        "linuxkernelprogramming": 2209,
+        "linuxservicemanagement-systemd": 898,
+        "little-redis-book": 68,
+        "llm-security-playbook": 342,
+        "llmops": 563,
+        "llms-in-production": 1214,
+        "llvmcodegeneration": 1562,
+        "looks-good-to-me": 859,
+        "machine-learning-econometrics": 974,
+        "machine-learning-production-systems": 905,
+        "machinelearningengineeringwithpython_secondedition": 811,
+        "machinelearningforalgorithmictradingsecondedition": 1793,
+        "machinelearningwithpytorchandscikit-learn": 1626,
+        "making-sense-of-data": 835,
+        "mastering-api-architecture": 522,
+        "masteringlinuxadministration": 3360,
+        "masteringlinuxsecurityandhardening": 1437,
+        "masteringpythonnetworking": 1299,
+        "masteringpytorch_secondedition": 1059,
+        "mathematicsofmachinelearning": 1125,
+        "mdn-web-docs": 27255,
+        "meddicc": 359,
+        "microservice-architecture": 265,
+        "microservices-design-to-deploy": 156,
+        "ml-platform-engineering": 982,
+        "modern-data-analytics-excel": 310,
+        "moderncmakeforcplusplus2e": 942,
+        "moderncplusplusprogrammingcookbook3eepub": 3596,
+        "modernnetworkobservability": 1628,
+        "moderntimeseriesforecastingwithpython_secondedition": 1383,
+        "monolith-to-microservices": 460,
+        "natural-language-processing-transformers": 775,
+        "new-ethics-of-journalism": 522,
+        "nginx-cookbook": 1761,
+        "nosql-distilled": 315,
+        "oauth-rfcs-book": 842,
+        "optimization-algorithms": 1496,
+        "owasp-asvs-v5": 265,
+        "owasp-cheat-sheets": 2588,
+        "owasp-developer-guide": 385,
+        "owasp-wstg-v4.2": 1113,
+        "pandascookbook_thirdedition": 771,
+        "patterns-enterprise-application-architecture": 996,
+        "playwright-docs": 4186,
+        "pmbok-guide-7e": 523,
+        "policy-as-code": 1095,
+        "postgresql-14-internals": 1160,
+        "postgresql-internals-interdb": 36,
+        "practical-cloud-security": 357,
+        "practical-lakehouse-architecture": 425,
+        "practical-linear-algebra-data-science": 544,
+        "practical-reverse-engineering": 945,
+        "practical-web-accessibility": 1289,
+        "practicalsystemprogrammingforrustdevelopers": 722,
+        "practitioners-guide-graph-data": 705,
+        "predictive-analytics-modern-enterprise": 569,
+        "privacy-in-context": 767,
+        "pro-git": 1165,
+        "probml-advanced": 4723,
+        "probml-intro": 2801,
+        "production-ready-microservices": 202,
+        "project-management-with-ai": 578,
+        "project-planning-scheduling-control": 649,
+        "python-for-devops": 1112,
+        "pythonmachinelearningbyexample_fourthedition": 1067,
+        "qt6cplusplusguiprogrammingcookbook": 661,
+        "react-dev": 4912,
+        "real-world-software-development": 410,
+        "real-world-svelte": 512,
+        "redis-for-dummies": 162,
+        "refactoring": 665,
+        "refactoring-ui": 123,
+        "refactoringwithcplusplus": 735,
+        "reinforcement-learning-finance": 390,
+        "release-it": 677,
+        "research-ethics-integrity-social-scientists": 718,
+        "research-methods-psychology": 1638,
+        "rest-api-design-rulebook": 230,
+        "rest-in-practice": 949,
+        "restful-web-apis": 841,
+        "reverse-engineering-cybersecurity": 145,
+        "reverse-engineering-for-beginners": 2640,
+        "rust_ebook": 1404,
+        "rustforblockchainapplicationdevelopment": 814,
+        "rustforcplusplusdeveloper": 609,
+        "rustprogramminghandbook": 1310,
+        "rustwebdevelopmentwithrocket": 722,
+        "rustwebprogramming": 1329,
+        "scaling-machine-learning-with-spark": 543,
+        "scikit-learncookbook_thirdedition": 578,
+        "scrum-masters-path": 361,
+        "selling-to-big-companies": 399,
+        "semantic-software-design": 696,
+        "seriouspython": 908,
+        "site-reliability-engineering": 1377,
+        "software-architect-elevator": 720,
+        "software-architecture-hard-parts": 733,
+        "software-architecture-metrics": 406,
+        "software-architecture-patterns": 74,
+        "software-engineering-at-google": 1255,
+        "software-supply-chain-security": 398,
+        "software-testing-with-genai": 646,
+        "softwarearchitecturewithcplusplussecondedition": 1598,
+        "spark-definitive-guide": 1409,
+        "speedupyourpythonwithrust": 720,
+        "sql-relational-theory": 2174,
+        "sql-server-advanced-troubleshooting": 895,
+        "statistics-by-simulation": 1638,
+        "storytelling-in-design": 876,
+        "storytelling-with-data": 417,
+        "strategic-writing-for-ux": 289,
+        "strengthening-deep-neural-networks": 404,
+        "swebok": 1189,
+        "tdd-by-example": 241,
+        "templatemetaprogrammingwithc": 745,
+        "testing-javascript-applications": 1145,
+        "think-like-ux-researcher": 545,
+        "think-stats-3e": 474,
+        "training-data-for-machine-learning": 598,
+        "transformers-in-action": 526,
+        "typescript-cookbook": 1648,
+        "ui-design-principles": 334,
+        "ultimatelinuxshellscriptingguide": 1603,
+        "ultimateubuntuhandbook": 683,
+        "understanding-deep-learning": 1585,
+        "unifying-business-data-code": 927,
+        "use-the-index-luke": 66,
+        "user-story-mapping": 416,
+        "ux-for-lean-startups": 326,
+        "value-based-fees": 708,
+        "vector-databases-introduction": 403,
+        "wai-aria-apg": 358,
+        "wcag-22": 305,
+        "web-accessibility-cookbook": 537,
+        "web-dev-baseline": 2795,
+        "web-performance-engineering": 522,
+        "web-performance-in-action": 1117,
+        "web-scraping-with-python": 603,
+        "webgpu-sourcebook": 800,
+        "whatwg-html": 3240,
+        "writing-excel-macros-vba": 1033,
+        "x86-software-reverse-engineering": 528,
+        "zero-trust-networks-2e": 623
+      },
+      "points": 330778,
+      "sha256": "ba08b7ee1686a263682632e6607c34b05e73a4c7a28a3e5c406e4e163bfc0c69",
+      "source_children_excluded": 518,
+      "source_children_missing_from_files": 463,
+      "sources": 328
+    },
+    "models": {
+      "Qdrant/bm25": {
+        "implementation": "venv/lib/python3.12/site-packages/fastembed/sparse/bm25.py",
+        "package_version": "0.8.0",
+        "revision": "22b8d2af71a76161e18dd432d2cee0eefa66e412"
+      },
+      "cross-encoder/ettin-reranker-150m-v1": {
+        "revision": "025501c4e0f9bbeb4c5b198318e0089ff061cc14",
+        "revision_basis": "single offline M1 cache snapshot; gate runner sets HF_HUB_OFFLINE=1",
+        "snapshot": "hf-cache/hub/models--cross-encoder--ettin-reranker-150m-v1/snapshots/025501c4e0f9bbeb4c5b198318e0089ff061cc14"
+      },
+      "jinaai/jina-embeddings-v5-text-small-retrieval": {
+        "revision": "6856e76bb72982e58de0620458a4e8b3614da340",
+        "revision_basis": "single offline M1 cache snapshot; gate runner sets HF_HUB_OFFLINE=1",
+        "snapshot": "hf-cache/hub/models--jinaai--jina-embeddings-v5-text-small-retrieval/snapshots/6856e76bb72982e58de0620458a4e8b3614da340"
+      }
+    },
+    "redirect": {
+      "current_file_sha256": "0131bd41f39e35bcf890fa01faa00b326cf373de055d5c78e4baac4d4134442c",
+      "labels": {
+        "easy": {
+          "count": 199,
+          "empty_positive_query_indices": [],
+          "original_path": "labels/original-easy.jsonl",
+          "original_sha256": "e8890320ea6969568da4b10bfbafa6dd60ef8a0dd1a6e397f844eb75f61b7830",
+          "query_texts_sha256": "9ee9f0030ad8f6c6f5104dfe75f4894985ac6dbe05c9e9b84bd8bef5ee8b83bf",
+          "remapped_grade_maps_sha256": "38a37f98c9e8ebc4cc336e662038c5a296eed3d29cb3c8943431d8aacb478645",
+          "remapped_path": "labels/remapped-easy.jsonl",
+          "remapped_sha256": "05b5ea5d44440c54afb632c3268bb8e56d14dd46ed4030912e29c7c1a3249811",
+          "touched_queries": 4
+        },
+        "hard": {
+          "count": 438,
+          "empty_positive_query_indices": [],
+          "original_path": "labels/original-hard.jsonl",
+          "original_sha256": "16641565b1f299716f2a4605bc273fe09b07c591f8dd3d0c66ee6e6897cb6cb1",
+          "query_texts_sha256": "ba3d7ec9931587cfe7c5bb16df812b66c2ada36639bcb8dd6f81f780be2e2311",
+          "remapped_grade_maps_sha256": "5564a812da6b2801c10e642e03314ef5d0b5d50a2c95d717ed85a1a06c916b32",
+          "remapped_path": "labels/remapped-hard.jsonl",
+          "remapped_sha256": "2109c3bdcb182390d9b0e9fa813ae89c6ea8108cff72abc99d1cc0c3bf794438",
+          "touched_queries": 7
+        },
+        "sanity": {
+          "count": 30,
+          "empty_positive_query_indices": [],
+          "original_path": "labels/original-sanity.jsonl",
+          "original_sha256": "0e12e0c8e3d53567d772d3b1990a9239316a1a8c339c37b793af5d34013470bf",
+          "query_texts_sha256": "0629da66641f8b1b63631d2cd9187dc3f532c7bb6bf595e17f551caaa9430a44",
+          "remapped_grade_maps_sha256": "92cd196681a8c189f3bf372029ee8b4a9fc523a38a780956d3791010e52754c6",
+          "remapped_path": "labels/remapped-sanity.jsonl",
+          "remapped_sha256": "0e12e0c8e3d53567d772d3b1990a9239316a1a8c339c37b793af5d34013470bf",
+          "touched_queries": 0
+        }
+      },
+      "method": "literal token overlap; no models, semantic similarity or relevance judgment",
+      "old_file_sha256": "465ee1010e58e100ac5dd82316b57c3147b2826d17546e2a4a31f5365c86ea7c",
+      "parents": {
+        "postgresql-14-internals-p101": {
+          "coverage_ratio": 0.9362101313320825,
+          "new_ids": [
+            "postgresql-14-internals-p147",
+            "postgresql-14-internals-p148"
+          ],
+          "status": "mapped"
+        },
+        "postgresql-14-internals-p113": {
+          "coverage_ratio": 0.9789343246592317,
+          "new_ids": [
+            "postgresql-14-internals-p175",
+            "postgresql-14-internals-p176"
+          ],
+          "status": "mapped"
+        },
+        "postgresql-14-internals-p139": {
+          "coverage_ratio": 0.9581749049429658,
+          "new_ids": [
+            "postgresql-14-internals-p212",
+            "postgresql-14-internals-p213"
+          ],
+          "status": "mapped"
+        },
+        "postgresql-14-internals-p140": {
+          "coverage_ratio": 0.09411764705882353,
+          "new_ids": [],
+          "status": "unmapped"
+        },
+        "postgresql-14-internals-p42": {
+          "coverage_ratio": 0.8754605747973471,
+          "new_ids": [
+            "postgresql-14-internals-p66",
+            "postgresql-14-internals-p67"
+          ],
+          "status": "mapped"
+        },
+        "postgresql-14-internals-p44": {
+          "coverage_ratio": 0.9298642533936652,
+          "new_ids": [
+            "postgresql-14-internals-p68",
+            "postgresql-14-internals-p69"
+          ],
+          "status": "mapped"
+        },
+        "postgresql-14-internals-p64": {
+          "coverage_ratio": 0.9026073619631901,
+          "new_ids": [
+            "postgresql-14-internals-p96",
+            "postgresql-14-internals-p97"
+          ],
+          "status": "mapped"
+        },
+        "postgresql-14-internals-p65": {
+          "coverage_ratio": 0.9447717231222386,
+          "new_ids": [
+            "postgresql-14-internals-p97",
+            "postgresql-14-internals-p98",
+            "postgresql-14-internals-p99"
+          ],
+          "status": "mapped"
+        },
+        "postgresql-14-internals-p81": {
+          "coverage_ratio": 0.9383429672447013,
+          "new_ids": [
+            "postgresql-14-internals-p128",
+            "postgresql-14-internals-p129",
+            "postgresql-14-internals-p130"
+          ],
+          "status": "mapped"
+        }
+      },
+      "threshold": 0.8,
+      "touched_query_counts": {
+        "easy": 4,
+        "hard": 7,
+        "sanity": 0
+      }
+    }
+  },
+  "mac": {
+    "aliases": [
+      {
+        "alias_name": "developer_knowledge",
+        "collection_name": "developer_knowledge_v10"
+      }
+    ],
+    "collection": {
+      "name": "developer_knowledge_v10",
+      "points_count": 330778,
+      "config": {
+        "params": {
+          "vectors": {
+            "size": 1024,
+            "distance": "Cosine"
+          },
+          "shard_number": 1,
+          "replication_factor": 1,
+          "write_consistency_factor": 1,
+          "on_disk_payload": true,
+          "sparse_vectors": {
+            "bm25": {
+              "modifier": "idf"
+            }
+          }
+        },
+        "hnsw_config": {
+          "m": 16,
+          "ef_construct": 100,
+          "full_scan_threshold": 10000,
+          "max_indexing_threads": 0,
+          "on_disk": false
+        },
+        "optimizer_config": {
+          "deleted_threshold": 0.2,
+          "vacuum_min_vector_number": 1000,
+          "default_segment_number": 0,
+          "max_segment_size": null,
+          "memmap_threshold": null,
+          "indexing_threshold": 10000,
+          "flush_interval_sec": 5,
+          "max_optimization_threads": null,
+          "prevent_unoptimized": null
+        },
+        "wal_config": {
+          "wal_capacity_mb": 32,
+          "wal_segments_ahead": 0,
+          "wal_retain_closed": 1
+        },
+        "quantization_config": null
+      }
+    },
+    "machine": {
+      "os": "macOS 26.6.2",
+      "kernel": "25.6.0",
+      "architecture": "arm64",
+      "python_checker": "3.11.5",
+      "python_query": "Python 3.11.5",
+      "qdrant": {
+        "version": "1.18.2",
+        "commit": "44ad62f8cd69642be5afa6441612525e24a0d063"
+      },
+      "query_packages": {
+        "torch": "2.14.0",
+        "transformers": "5.17.0",
+        "sentence-transformers": "6.1.0",
+        "fastembed": "0.8.0",
+        "qdrant-client": "1.19.1"
+      }
+    }
+  },
+  "local_sources": [
+    {
+      "location": {
+        "backend": "main-checkout",
+        "path": "data/intake/kbu-2026-10-07/design-spec.md"
+      },
+      "sha256": "3eb020c6106e8d534a3320f914c02a08b3f84701ef84813d7ba73129a2cd39b8",
+      "bytes": 123995
+    },
+    {
+      "location": {
+        "backend": "main-checkout",
+        "path": "data/intake/kbu-2026-10-07/product-brief.md"
+      },
+      "sha256": "7b5f19ef63f96b14580b90aa9a75a25a108277cd479719fe9d1875572b5e318c",
+      "bytes": 56243
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "CLAUDE.md"
+      },
+      "sha256": "98c770c6e795cf3424f0c02a1c2e1166cb3237269a71234d044dd1d3f1ae99c6",
+      "bytes": 40673
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "pyproject.toml"
+      },
+      "sha256": "6ea9328b3f7e17bd38b4fda4bd343aff26a281531e1e2d23b34245abf2665ff8",
+      "bytes": 556
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "knowledge_base/server.py"
+      },
+      "sha256": "ecd67af5120b669fc2fc8db9e6b0ab8a09583a51bf83f10f78f5d220a44d6272",
+      "bytes": 21538
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "knowledge_base/config.py"
+      },
+      "sha256": "637ca9b67f87fd161d99fffcd72926ff9fede2e5b9cd09edb4a2bce534618dce",
+      "bytes": 32357
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "knowledge_base/embedder.py"
+      },
+      "sha256": "119c486faf2d322d6e1015e1258a2d533635f75b0d6b581dec3f815a6d581965",
+      "bytes": 4793
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "knowledge_base/search.py"
+      },
+      "sha256": "7d56f976efe8fb5d4b5ddd3a11ad4f3bb39aa36b502298e1075b14cdb9b2b628",
+      "bytes": 9981
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "knowledge_base/index.py"
+      },
+      "sha256": "b9016f98f49708ddaf67adab4319b086dfe3e93f8f54a037dbbfa837de139099",
+      "bytes": 6499
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "knowledge_base/chunk.py"
+      },
+      "sha256": "b7072ca19635f78478b0cd8b5684cc4fbc38b17dd9572cb230f1906b95144ca7",
+      "bytes": 15041
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "scripts/eval_retrieval.py"
+      },
+      "sha256": "a71604974d5cbdd7281591193b3639fe2fdbcfb066c7009d04a9afec218a23be",
+      "bytes": 11268
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "scripts/significance.py"
+      },
+      "sha256": "a92668c9c2d97a8dcd9e9ea82e6d5e3b9c7233ed0c395eddca99e3dcd766d968",
+      "bytes": 7296
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "scripts/bench_latency.py"
+      },
+      "sha256": "030cd8cbb7ac3095a3e8baec6325d3ccbb52a2d4c51b9ee57efc69568fb41261",
+      "bytes": 2320
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "scripts/check_catalog.py"
+      },
+      "sha256": "467376145e7c08b8abe2d1cb0d5534f8c1244b33fb5cde51494b3f1ad2cda38e",
+      "bytes": 2515
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "data/bench/gate-v10.md"
+      },
+      "sha256": "2dbd55dcb834863473abf1fb6f07632c77c35f7386b440fa4f20ebe053e5bb70",
+      "bytes": 2194
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/mind-mcp/src/inputs.ts"
+      },
+      "sha256": "55331ae6a67d9a92e143982eb19920d6e8193be02e8a4db86e59749db18b0993",
+      "bytes": 4160
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/mind-mcp/src/service.ts"
+      },
+      "sha256": "ebe461c7c8fe4cb3d79365dd8b0e6728c1d0be47a934a1a712c3589dd31f4630",
+      "bytes": 19260
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/mind-mcp/src/server.ts"
+      },
+      "sha256": "2b9cab3c28bd1f0cd2472385c6be8ec96604ef4f7045e7e06b141735bd4b06cb",
+      "bytes": 3999
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/src/common.ts"
+      },
+      "sha256": "692a06cb91eea261b5ab9bc3780421327e2e71fcbf420e8dcd49c808c0fb8d69",
+      "bytes": 1757
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/src/memory.ts"
+      },
+      "sha256": "c88794df6d8034ae71c0d138e8b5b6c62dd6d6b7458e4119235e0f11903072a5",
+      "bytes": 12212
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/package.json"
+      },
+      "sha256": "5f645c52ff606ccec0130a54e7e5e65215e85c696819c8084bc270d3c1e225ec",
+      "bytes": 278
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/schemas/memory-audit-event.json"
+      },
+      "sha256": "2e61eecb1901ccf74af7bc742380c9c0ad987f34b6561bda5bc679c8ed918fc4",
+      "bytes": 1213
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/test/fixtures/memory-audit-event.json"
+      },
+      "sha256": "48d84f96122233744764cb09a0bb962027eb365e5c8f88528da74c634c9ceca2",
+      "bytes": 1964
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/schemas/memory-record.json"
+      },
+      "sha256": "493a180c7c1079c21d88a302abf19869b0d66cf055b704b23bf1911372f6a619",
+      "bytes": 39442
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/test/fixtures/memory-record.json"
+      },
+      "sha256": "846283ef3e0c9ece396eaebe974fbc6dbf0564ed0900655aafd2ce3ae06543fe",
+      "bytes": 8157
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/schemas/lesson-payload.json"
+      },
+      "sha256": "c3499ed2cf4d61b6af2ab46878210c5befefbadb775e04e19fc0e50bbcda16d7",
+      "bytes": 1192
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/test/fixtures/lesson-payload.json"
+      },
+      "sha256": "2d53e62f60f593845085a92ad767e3a6096201d88fa47d2806edf66791316340",
+      "bytes": 2108
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/schemas/memory-write-receipt.json"
+      },
+      "sha256": "1b2b49469e79559bf4355d9f9809396d72cc759ee336e4a472254642bd74fa6f",
+      "bytes": 6556
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/test/fixtures/memory-write-receipt.json"
+      },
+      "sha256": "ea29d870562cc2fdad7175663c0768ae8435cd457aa09eea8fe6ed3922d101ae",
+      "bytes": 9535
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/schemas/memory-write-error.json"
+      },
+      "sha256": "87339c9bf05e59e7e172e337dcb114925727c6e5a26ba4b89e6f7ab1885b3eb2",
+      "bytes": 1194
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/test/fixtures/memory-write-error.json"
+      },
+      "sha256": "fb112f0409004d436ed49e3ead46b6ab6704a095344d6f7b4bfca10940b50419",
+      "bytes": 940
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/schemas/stale-flag-record.json"
+      },
+      "sha256": "7a3184b9efa34b1c1153549d50bc160eaf92cc25dd3ed24442fbb313967130f7",
+      "bytes": 10047
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/test/fixtures/stale-flag-record.json"
+      },
+      "sha256": "611cdc2c1205cb1ef7ac4e7962c2f297beda55287a82b29791a3d85fafe4d3c1",
+      "bytes": 3881
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/schemas/memory-provenance.json"
+      },
+      "sha256": "0890951b3062b3df28aced2acb99a2bab044ade2bc024ffe0bd21cac8a364157",
+      "bytes": 1634
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/test/fixtures/memory-provenance.json"
+      },
+      "sha256": "abb0e087a1ffc9ea223614a34d931f5cfc1fffc2e8544eba51be5e817bb24ebf",
+      "bytes": 1060
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/schemas/evidence-reference.json"
+      },
+      "sha256": "7df116b6967077e39c146c1bc3db08093fd451cbf81b1240caacf6b0ef584bb4",
+      "bytes": 2736
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/test/fixtures/evidence-reference.json"
+      },
+      "sha256": "bb610a3ce07c0ec4fdb7f77b63db6b22e76f156c34ff696f3480aa7aa9b3d42a",
+      "bytes": 1962
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/schemas/stale-flag-payload.json"
+      },
+      "sha256": "2f407b344decf28be8628eb920253e9e897b1423f17424a6eabacb331edf0666",
+      "bytes": 1965
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/test/fixtures/stale-flag-payload.json"
+      },
+      "sha256": "028053f78ab3a99fe98cf5d62d8bfebfa1c88f6700a691379c38d2f0d0a640a4",
+      "bytes": 1631
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/schemas/comment-selector.json"
+      },
+      "sha256": "8bedcdabd1ed1ce89519ee698c47e439bbe32c40492a386fd24424496629ebda",
+      "bytes": 808
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/test/fixtures/comment-selector.json"
+      },
+      "sha256": "30dbb517a4622bdaa878526870199b7b38298f9969d092e4795903930d749068",
+      "bytes": 1199
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/schemas/reviewer-or-check.json"
+      },
+      "sha256": "78c276c480092dafdc41dfd5e8c1fa071d4c7e3cf62064df3d87dfa061301b6f",
+      "bytes": 640
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/test/fixtures/reviewer-or-check.json"
+      },
+      "sha256": "157d776fcb61203931ec092ab93dcd625e64222ce4b164268bb08aca7c2f64bc",
+      "bytes": 813
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/schemas/lesson-revision-request.json"
+      },
+      "sha256": "c89a919320f43a126bdc593d5bfe86a95176d3b5b71c659d6aadc0f5b2058804",
+      "bytes": 5941
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/test/fixtures/lesson-revision-request.json"
+      },
+      "sha256": "c0decf641ad2bebe83ad745112c419eb0ee164e464373c1e10ce54302e114053",
+      "bytes": 2325
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/schemas/memory-receipt-lookup.json"
+      },
+      "sha256": "fa61304bb3f310852b7383cfb277c8e3ba51a0ffca138786e1ac4e4c433386dc",
+      "bytes": 654
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/test/fixtures/memory-receipt-lookup.json"
+      },
+      "sha256": "d2b21df7ece386cd25759ae643c4775f6e98f3e9928caebbe783e5141de5fbf4",
+      "bytes": 707
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/schemas/feedback-payload.json"
+      },
+      "sha256": "3560e90925b83c04b02d1a7d8334a450f51d86467f94a7cbcdc29f0546952dd1",
+      "bytes": 5960
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/test/fixtures/feedback-payload.json"
+      },
+      "sha256": "0fe1873b76d4cbb21127ccbd6be0f2091bbc5904df7010febe08e6d7fd9c23ec",
+      "bytes": 3969
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/schemas/target-reference.json"
+      },
+      "sha256": "c5391d0fb050c52ff8e8b1a0dfca0c1977e7990eea691ca42c3c1a8b5b4d9bdd",
+      "bytes": 1114
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/test/fixtures/target-reference.json"
+      },
+      "sha256": "6f8837c575d94e687366382354839f3c71773b70203147df7756bc0adc391090",
+      "bytes": 908
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/schemas/feedback-record.json"
+      },
+      "sha256": "481f6e247874ef7e05a00d927ff966badc5faa8ac6c7820ebcb49ed6ec6207b4",
+      "bytes": 14706
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/test/fixtures/feedback-record.json"
+      },
+      "sha256": "b7598186a49ac3e3129d5ce6c48759fd2593c3d8c8123608f7013e5d1ad96cdc",
+      "bytes": 7235
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/schemas/lesson-record.json"
+      },
+      "sha256": "c25cdb8134f3723959ee0d52f69242df391f30fba75f0ba6e3a9d76989da1d76",
+      "bytes": 9162
+    },
+    {
+      "location": {
+        "backend": "pi-mind",
+        "path": "packages/contracts/test/fixtures/lesson-record.json"
+      },
+      "sha256": "7f269b9a4c9792c5ff1c1d876f71c75a196c721deae7eb96f61d3aa82d91d50e",
+      "bytes": 17575
+    },
+    {
+      "location": {
+        "backend": "main-checkout",
+        "path": "dist/release/manifest.json"
+      },
+      "sha256": "49a8364f2944385cb3033b58fe1063b76fc3c4ee386aedd3f169412e55e95fe8",
+      "bytes": 1201
+    },
+    {
+      "location": {
+        "backend": "main-checkout",
+        "path": "dist/release/kb-core.part00"
+      },
+      "sha256": "7d8786632690ce13743b993a0f16e552fd5ef8494cafed625a9f0c7817cc0424",
+      "bytes": 1900000000
+    },
+    {
+      "location": {
+        "backend": "main-checkout",
+        "path": "dist/release/kb-core.part01"
+      },
+      "sha256": "12bf177fee7d2da69c41d0e2a101acc8647dad0c82807d442da53ef46c0424f3",
+      "bytes": 335560778
+    },
+    {
+      "location": {
+        "backend": "main-checkout",
+        "path": "dist/release/kb-philosophy.part00"
+      },
+      "sha256": "f89462242603684504d37a949db4df78e6229f9f0b0afef186603fa2da4a19e0",
+      "bytes": 112412476
+    }
+  ],
+  "server": {
+    "version": "0.1.0",
+    "revision": "a7d5a90bd3ba1d7578d8e1ccb44d43844b839742",
+    "file": {
+      "location": {
+        "backend": "repo",
+        "path": "knowledge_base/server.py"
+      },
+      "sha256": "ecd67af5120b669fc2fc8db9e6b0ab8a09583a51bf83f10f78f5d220a44d6272",
+      "bytes": 21538
+    }
+  },
+  "runtime_profile": {
+    "dense_model": "jinaai/jina-embeddings-v5-text-small-retrieval",
+    "dimension": 1024,
+    "query_role": "retrieval.query",
+    "document_role": "retrieval.passage",
+    "normalization": "L2",
+    "precision": "float32",
+    "sparse_model": "Qdrant/bm25",
+    "sparse_modifier": "idf",
+    "fusion": "DBSF",
+    "dense_candidates": 50,
+    "sparse_candidates": 50,
+    "fused_candidates": 50,
+    "top_k": 10,
+    "reranker": "cross-encoder/ettin-reranker-150m-v1",
+    "rerank_input": "descriptive-heading",
+    "score_floor": 4,
+    "minimum_results": 3,
+    "child_max_tokens": 250,
+    "parent_max_tokens": 1900,
+    "query_device": "cuda (recorded M1 control; no models run by P1)",
+    "historical_index_checkpoint_proof": "not found; single offline M1 cache pins current control models, while data-v10 part hashes preserve the original index bytes"
+  },
+  "validator": {
+    "jsonschema": "4.23.0"
+  },
+  "boundaries": [
+    "bppc has no alias: it is the control mirror, not the approved future infrastructure host",
+    "mac alias is required to remain developer_knowledge_v10 for this baseline gate",
+    "source file hashes in frozen manifest predate the M1 PostgreSQL restoration; frozen payload/sparse JSONL is the v10 membership authority",
+    "no new benchmark, model loads, GPU usage or promotion by P1"
+  ],
+  "component_pins": [
+    {
+      "role": "knowledge-base",
+      "repository": "gaztrabisme/knowledge-base",
+      "revision": "a7d5a90bd3ba1d7578d8e1ccb44d43844b839742",
+      "dirty": true,
+      "status": "included",
+      "file_pins": [
+        {
+          "location": {
+            "backend": "repo",
+            "path": "CLAUDE.md"
+          },
+          "sha256": "98c770c6e795cf3424f0c02a1c2e1166cb3237269a71234d044dd1d3f1ae99c6",
+          "bytes": 40673
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "pyproject.toml"
+          },
+          "sha256": "6ea9328b3f7e17bd38b4fda4bd343aff26a281531e1e2d23b34245abf2665ff8",
+          "bytes": 556
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "knowledge_base/server.py"
+          },
+          "sha256": "ecd67af5120b669fc2fc8db9e6b0ab8a09583a51bf83f10f78f5d220a44d6272",
+          "bytes": 21538
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "knowledge_base/config.py"
+          },
+          "sha256": "637ca9b67f87fd161d99fffcd72926ff9fede2e5b9cd09edb4a2bce534618dce",
+          "bytes": 32357
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "knowledge_base/embedder.py"
+          },
+          "sha256": "119c486faf2d322d6e1015e1258a2d533635f75b0d6b581dec3f815a6d581965",
+          "bytes": 4793
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "knowledge_base/search.py"
+          },
+          "sha256": "7d56f976efe8fb5d4b5ddd3a11ad4f3bb39aa36b502298e1075b14cdb9b2b628",
+          "bytes": 9981
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "knowledge_base/index.py"
+          },
+          "sha256": "b9016f98f49708ddaf67adab4319b086dfe3e93f8f54a037dbbfa837de139099",
+          "bytes": 6499
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "knowledge_base/chunk.py"
+          },
+          "sha256": "b7072ca19635f78478b0cd8b5684cc4fbc38b17dd9572cb230f1906b95144ca7",
+          "bytes": 15041
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "scripts/eval_retrieval.py"
+          },
+          "sha256": "a71604974d5cbdd7281591193b3639fe2fdbcfb066c7009d04a9afec218a23be",
+          "bytes": 11268
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "scripts/significance.py"
+          },
+          "sha256": "a92668c9c2d97a8dcd9e9ea82e6d5e3b9c7233ed0c395eddca99e3dcd766d968",
+          "bytes": 7296
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "scripts/bench_latency.py"
+          },
+          "sha256": "030cd8cbb7ac3095a3e8baec6325d3ccbb52a2d4c51b9ee57efc69568fb41261",
+          "bytes": 2320
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "scripts/check_catalog.py"
+          },
+          "sha256": "467376145e7c08b8abe2d1cb0d5534f8c1244b33fb5cde51494b3f1ad2cda38e",
+          "bytes": 2515
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "data/bench/gate-v10.md"
+          },
+          "sha256": "2dbd55dcb834863473abf1fb6f07632c77c35f7386b440fa4f20ebe053e5bb70",
+          "bytes": 2194
+        }
+      ]
+    },
+    {
+      "role": "harness",
+      "repository": "pi-mind",
+      "revision": "9911905ced69d4a3d5fee2ca8ed5b7344f2b7f34",
+      "dirty": true,
+      "status": "reference-only",
+      "file_pins": [
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/mind-mcp/src/inputs.ts"
+          },
+          "sha256": "55331ae6a67d9a92e143982eb19920d6e8193be02e8a4db86e59749db18b0993",
+          "bytes": 4160
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/mind-mcp/src/service.ts"
+          },
+          "sha256": "ebe461c7c8fe4cb3d79365dd8b0e6728c1d0be47a934a1a712c3589dd31f4630",
+          "bytes": 19260
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/mind-mcp/src/server.ts"
+          },
+          "sha256": "2b9cab3c28bd1f0cd2472385c6be8ec96604ef4f7045e7e06b141735bd4b06cb",
+          "bytes": 3999
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/src/common.ts"
+          },
+          "sha256": "692a06cb91eea261b5ab9bc3780421327e2e71fcbf420e8dcd49c808c0fb8d69",
+          "bytes": 1757
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/src/memory.ts"
+          },
+          "sha256": "c88794df6d8034ae71c0d138e8b5b6c62dd6d6b7458e4119235e0f11903072a5",
+          "bytes": 12212
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/package.json"
+          },
+          "sha256": "5f645c52ff606ccec0130a54e7e5e65215e85c696819c8084bc270d3c1e225ec",
+          "bytes": 278
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/memory-audit-event.json"
+          },
+          "sha256": "2e61eecb1901ccf74af7bc742380c9c0ad987f34b6561bda5bc679c8ed918fc4",
+          "bytes": 1213
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/memory-audit-event.json"
+          },
+          "sha256": "48d84f96122233744764cb09a0bb962027eb365e5c8f88528da74c634c9ceca2",
+          "bytes": 1964
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/memory-record.json"
+          },
+          "sha256": "493a180c7c1079c21d88a302abf19869b0d66cf055b704b23bf1911372f6a619",
+          "bytes": 39442
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/memory-record.json"
+          },
+          "sha256": "846283ef3e0c9ece396eaebe974fbc6dbf0564ed0900655aafd2ce3ae06543fe",
+          "bytes": 8157
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/lesson-payload.json"
+          },
+          "sha256": "c3499ed2cf4d61b6af2ab46878210c5befefbadb775e04e19fc0e50bbcda16d7",
+          "bytes": 1192
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/lesson-payload.json"
+          },
+          "sha256": "2d53e62f60f593845085a92ad767e3a6096201d88fa47d2806edf66791316340",
+          "bytes": 2108
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/memory-write-receipt.json"
+          },
+          "sha256": "1b2b49469e79559bf4355d9f9809396d72cc759ee336e4a472254642bd74fa6f",
+          "bytes": 6556
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/memory-write-receipt.json"
+          },
+          "sha256": "ea29d870562cc2fdad7175663c0768ae8435cd457aa09eea8fe6ed3922d101ae",
+          "bytes": 9535
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/memory-write-error.json"
+          },
+          "sha256": "87339c9bf05e59e7e172e337dcb114925727c6e5a26ba4b89e6f7ab1885b3eb2",
+          "bytes": 1194
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/memory-write-error.json"
+          },
+          "sha256": "fb112f0409004d436ed49e3ead46b6ab6704a095344d6f7b4bfca10940b50419",
+          "bytes": 940
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/stale-flag-record.json"
+          },
+          "sha256": "7a3184b9efa34b1c1153549d50bc160eaf92cc25dd3ed24442fbb313967130f7",
+          "bytes": 10047
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/stale-flag-record.json"
+          },
+          "sha256": "611cdc2c1205cb1ef7ac4e7962c2f297beda55287a82b29791a3d85fafe4d3c1",
+          "bytes": 3881
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/memory-provenance.json"
+          },
+          "sha256": "0890951b3062b3df28aced2acb99a2bab044ade2bc024ffe0bd21cac8a364157",
+          "bytes": 1634
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/memory-provenance.json"
+          },
+          "sha256": "abb0e087a1ffc9ea223614a34d931f5cfc1fffc2e8544eba51be5e817bb24ebf",
+          "bytes": 1060
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/evidence-reference.json"
+          },
+          "sha256": "7df116b6967077e39c146c1bc3db08093fd451cbf81b1240caacf6b0ef584bb4",
+          "bytes": 2736
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/evidence-reference.json"
+          },
+          "sha256": "bb610a3ce07c0ec4fdb7f77b63db6b22e76f156c34ff696f3480aa7aa9b3d42a",
+          "bytes": 1962
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/stale-flag-payload.json"
+          },
+          "sha256": "2f407b344decf28be8628eb920253e9e897b1423f17424a6eabacb331edf0666",
+          "bytes": 1965
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/stale-flag-payload.json"
+          },
+          "sha256": "028053f78ab3a99fe98cf5d62d8bfebfa1c88f6700a691379c38d2f0d0a640a4",
+          "bytes": 1631
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/comment-selector.json"
+          },
+          "sha256": "8bedcdabd1ed1ce89519ee698c47e439bbe32c40492a386fd24424496629ebda",
+          "bytes": 808
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/comment-selector.json"
+          },
+          "sha256": "30dbb517a4622bdaa878526870199b7b38298f9969d092e4795903930d749068",
+          "bytes": 1199
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/reviewer-or-check.json"
+          },
+          "sha256": "78c276c480092dafdc41dfd5e8c1fa071d4c7e3cf62064df3d87dfa061301b6f",
+          "bytes": 640
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/reviewer-or-check.json"
+          },
+          "sha256": "157d776fcb61203931ec092ab93dcd625e64222ce4b164268bb08aca7c2f64bc",
+          "bytes": 813
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/lesson-revision-request.json"
+          },
+          "sha256": "c89a919320f43a126bdc593d5bfe86a95176d3b5b71c659d6aadc0f5b2058804",
+          "bytes": 5941
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/lesson-revision-request.json"
+          },
+          "sha256": "c0decf641ad2bebe83ad745112c419eb0ee164e464373c1e10ce54302e114053",
+          "bytes": 2325
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/memory-receipt-lookup.json"
+          },
+          "sha256": "fa61304bb3f310852b7383cfb277c8e3ba51a0ffca138786e1ac4e4c433386dc",
+          "bytes": 654
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/memory-receipt-lookup.json"
+          },
+          "sha256": "d2b21df7ece386cd25759ae643c4775f6e98f3e9928caebbe783e5141de5fbf4",
+          "bytes": 707
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/feedback-payload.json"
+          },
+          "sha256": "3560e90925b83c04b02d1a7d8334a450f51d86467f94a7cbcdc29f0546952dd1",
+          "bytes": 5960
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/feedback-payload.json"
+          },
+          "sha256": "0fe1873b76d4cbb21127ccbd6be0f2091bbc5904df7010febe08e6d7fd9c23ec",
+          "bytes": 3969
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/target-reference.json"
+          },
+          "sha256": "c5391d0fb050c52ff8e8b1a0dfca0c1977e7990eea691ca42c3c1a8b5b4d9bdd",
+          "bytes": 1114
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/target-reference.json"
+          },
+          "sha256": "6f8837c575d94e687366382354839f3c71773b70203147df7756bc0adc391090",
+          "bytes": 908
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/feedback-record.json"
+          },
+          "sha256": "481f6e247874ef7e05a00d927ff966badc5faa8ac6c7820ebcb49ed6ec6207b4",
+          "bytes": 14706
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/feedback-record.json"
+          },
+          "sha256": "b7598186a49ac3e3129d5ce6c48759fd2593c3d8c8123608f7013e5d1ad96cdc",
+          "bytes": 7235
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/lesson-record.json"
+          },
+          "sha256": "c25cdb8134f3723959ee0d52f69242df391f30fba75f0ba6e3a9d76989da1d76",
+          "bytes": 9162
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/lesson-record.json"
+          },
+          "sha256": "7f269b9a4c9792c5ff1c1d876f71c75a196c721deae7eb96f61d3aa82d91d50e",
+          "bytes": 17575
+        }
+      ]
+    }
+  ],
+  "record_amendment": "Independent review added component pin reconciliation. Frozen remote files, aliases, model checkpoints, controls, labels and machine observations are unchanged."
+}

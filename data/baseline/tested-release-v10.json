@@ -1,0 +1,765 @@
+{
+  "schema_version": "mind/tested-release@1",
+  "release_id": "data-v10-fp-baseline",
+  "created_at": "2026-10-14T15:40:15.138521+00:00",
+  "deployment_state": "baseline-only",
+  "privacy_scope": "owner-private",
+  "baseline": {
+    "location": {
+      "backend": "repo",
+      "path": "data/baseline/baseline.json"
+    },
+    "sha256": "d92a3b07eb634916e03273de6caac6b8398571ae8f1a755bf25a4a40fd17d04f",
+    "bytes": 135980
+  },
+  "contract_inventory": {
+    "location": {
+      "backend": "repo",
+      "path": "data/baseline/contracts-lock.json"
+    },
+    "sha256": "8e8d15e6b9746b7157b5263845dc1d36839f26f51c592f9e2c4b61ff50c0ac62",
+    "bytes": 48400
+  },
+  "components": [
+    {
+      "role": "knowledge-base",
+      "repository": "gaztrabisme/knowledge-base",
+      "revision": "a7d5a90bd3ba1d7578d8e1ccb44d43844b839742",
+      "dirty": true,
+      "status": "included",
+      "file_pins": [
+        {
+          "location": {
+            "backend": "repo",
+            "path": "CLAUDE.md"
+          },
+          "sha256": "98c770c6e795cf3424f0c02a1c2e1166cb3237269a71234d044dd1d3f1ae99c6",
+          "bytes": 40673
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "pyproject.toml"
+          },
+          "sha256": "6ea9328b3f7e17bd38b4fda4bd343aff26a281531e1e2d23b34245abf2665ff8",
+          "bytes": 556
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "knowledge_base/server.py"
+          },
+          "sha256": "ecd67af5120b669fc2fc8db9e6b0ab8a09583a51bf83f10f78f5d220a44d6272",
+          "bytes": 21538
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "knowledge_base/config.py"
+          },
+          "sha256": "637ca9b67f87fd161d99fffcd72926ff9fede2e5b9cd09edb4a2bce534618dce",
+          "bytes": 32357
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "knowledge_base/embedder.py"
+          },
+          "sha256": "119c486faf2d322d6e1015e1258a2d533635f75b0d6b581dec3f815a6d581965",
+          "bytes": 4793
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "knowledge_base/search.py"
+          },
+          "sha256": "7d56f976efe8fb5d4b5ddd3a11ad4f3bb39aa36b502298e1075b14cdb9b2b628",
+          "bytes": 9981
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "knowledge_base/index.py"
+          },
+          "sha256": "b9016f98f49708ddaf67adab4319b086dfe3e93f8f54a037dbbfa837de139099",
+          "bytes": 6499
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "knowledge_base/chunk.py"
+          },
+          "sha256": "b7072ca19635f78478b0cd8b5684cc4fbc38b17dd9572cb230f1906b95144ca7",
+          "bytes": 15041
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "scripts/eval_retrieval.py"
+          },
+          "sha256": "a71604974d5cbdd7281591193b3639fe2fdbcfb066c7009d04a9afec218a23be",
+          "bytes": 11268
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "scripts/significance.py"
+          },
+          "sha256": "a92668c9c2d97a8dcd9e9ea82e6d5e3b9c7233ed0c395eddca99e3dcd766d968",
+          "bytes": 7296
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "scripts/bench_latency.py"
+          },
+          "sha256": "030cd8cbb7ac3095a3e8baec6325d3ccbb52a2d4c51b9ee57efc69568fb41261",
+          "bytes": 2320
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "scripts/check_catalog.py"
+          },
+          "sha256": "467376145e7c08b8abe2d1cb0d5534f8c1244b33fb5cde51494b3f1ad2cda38e",
+          "bytes": 2515
+        },
+        {
+          "location": {
+            "backend": "repo",
+            "path": "data/bench/gate-v10.md"
+          },
+          "sha256": "2dbd55dcb834863473abf1fb6f07632c77c35f7386b440fa4f20ebe053e5bb70",
+          "bytes": 2194
+        }
+      ]
+    },
+    {
+      "role": "harness",
+      "repository": "pi-mind",
+      "revision": "9911905ced69d4a3d5fee2ca8ed5b7344f2b7f34",
+      "dirty": true,
+      "status": "reference-only",
+      "file_pins": [
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/mind-mcp/src/inputs.ts"
+          },
+          "sha256": "55331ae6a67d9a92e143982eb19920d6e8193be02e8a4db86e59749db18b0993",
+          "bytes": 4160
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/mind-mcp/src/service.ts"
+          },
+          "sha256": "ebe461c7c8fe4cb3d79365dd8b0e6728c1d0be47a934a1a712c3589dd31f4630",
+          "bytes": 19260
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/mind-mcp/src/server.ts"
+          },
+          "sha256": "2b9cab3c28bd1f0cd2472385c6be8ec96604ef4f7045e7e06b141735bd4b06cb",
+          "bytes": 3999
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/src/common.ts"
+          },
+          "sha256": "692a06cb91eea261b5ab9bc3780421327e2e71fcbf420e8dcd49c808c0fb8d69",
+          "bytes": 1757
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/src/memory.ts"
+          },
+          "sha256": "c88794df6d8034ae71c0d138e8b5b6c62dd6d6b7458e4119235e0f11903072a5",
+          "bytes": 12212
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/package.json"
+          },
+          "sha256": "5f645c52ff606ccec0130a54e7e5e65215e85c696819c8084bc270d3c1e225ec",
+          "bytes": 278
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/memory-audit-event.json"
+          },
+          "sha256": "2e61eecb1901ccf74af7bc742380c9c0ad987f34b6561bda5bc679c8ed918fc4",
+          "bytes": 1213
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/memory-audit-event.json"
+          },
+          "sha256": "48d84f96122233744764cb09a0bb962027eb365e5c8f88528da74c634c9ceca2",
+          "bytes": 1964
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/memory-record.json"
+          },
+          "sha256": "493a180c7c1079c21d88a302abf19869b0d66cf055b704b23bf1911372f6a619",
+          "bytes": 39442
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/memory-record.json"
+          },
+          "sha256": "846283ef3e0c9ece396eaebe974fbc6dbf0564ed0900655aafd2ce3ae06543fe",
+          "bytes": 8157
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/lesson-payload.json"
+          },
+          "sha256": "c3499ed2cf4d61b6af2ab46878210c5befefbadb775e04e19fc0e50bbcda16d7",
+          "bytes": 1192
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/lesson-payload.json"
+          },
+          "sha256": "2d53e62f60f593845085a92ad767e3a6096201d88fa47d2806edf66791316340",
+          "bytes": 2108
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/memory-write-receipt.json"
+          },
+          "sha256": "1b2b49469e79559bf4355d9f9809396d72cc759ee336e4a472254642bd74fa6f",
+          "bytes": 6556
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/memory-write-receipt.json"
+          },
+          "sha256": "ea29d870562cc2fdad7175663c0768ae8435cd457aa09eea8fe6ed3922d101ae",
+          "bytes": 9535
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/memory-write-error.json"
+          },
+          "sha256": "87339c9bf05e59e7e172e337dcb114925727c6e5a26ba4b89e6f7ab1885b3eb2",
+          "bytes": 1194
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/memory-write-error.json"
+          },
+          "sha256": "fb112f0409004d436ed49e3ead46b6ab6704a095344d6f7b4bfca10940b50419",
+          "bytes": 940
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/stale-flag-record.json"
+          },
+          "sha256": "7a3184b9efa34b1c1153549d50bc160eaf92cc25dd3ed24442fbb313967130f7",
+          "bytes": 10047
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/stale-flag-record.json"
+          },
+          "sha256": "611cdc2c1205cb1ef7ac4e7962c2f297beda55287a82b29791a3d85fafe4d3c1",
+          "bytes": 3881
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/memory-provenance.json"
+          },
+          "sha256": "0890951b3062b3df28aced2acb99a2bab044ade2bc024ffe0bd21cac8a364157",
+          "bytes": 1634
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/memory-provenance.json"
+          },
+          "sha256": "abb0e087a1ffc9ea223614a34d931f5cfc1fffc2e8544eba51be5e817bb24ebf",
+          "bytes": 1060
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/evidence-reference.json"
+          },
+          "sha256": "7df116b6967077e39c146c1bc3db08093fd451cbf81b1240caacf6b0ef584bb4",
+          "bytes": 2736
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/evidence-reference.json"
+          },
+          "sha256": "bb610a3ce07c0ec4fdb7f77b63db6b22e76f156c34ff696f3480aa7aa9b3d42a",
+          "bytes": 1962
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/stale-flag-payload.json"
+          },
+          "sha256": "2f407b344decf28be8628eb920253e9e897b1423f17424a6eabacb331edf0666",
+          "bytes": 1965
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/stale-flag-payload.json"
+          },
+          "sha256": "028053f78ab3a99fe98cf5d62d8bfebfa1c88f6700a691379c38d2f0d0a640a4",
+          "bytes": 1631
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/comment-selector.json"
+          },
+          "sha256": "8bedcdabd1ed1ce89519ee698c47e439bbe32c40492a386fd24424496629ebda",
+          "bytes": 808
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/comment-selector.json"
+          },
+          "sha256": "30dbb517a4622bdaa878526870199b7b38298f9969d092e4795903930d749068",
+          "bytes": 1199
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/reviewer-or-check.json"
+          },
+          "sha256": "78c276c480092dafdc41dfd5e8c1fa071d4c7e3cf62064df3d87dfa061301b6f",
+          "bytes": 640
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/reviewer-or-check.json"
+          },
+          "sha256": "157d776fcb61203931ec092ab93dcd625e64222ce4b164268bb08aca7c2f64bc",
+          "bytes": 813
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/lesson-revision-request.json"
+          },
+          "sha256": "c89a919320f43a126bdc593d5bfe86a95176d3b5b71c659d6aadc0f5b2058804",
+          "bytes": 5941
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/lesson-revision-request.json"
+          },
+          "sha256": "c0decf641ad2bebe83ad745112c419eb0ee164e464373c1e10ce54302e114053",
+          "bytes": 2325
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/memory-receipt-lookup.json"
+          },
+          "sha256": "fa61304bb3f310852b7383cfb277c8e3ba51a0ffca138786e1ac4e4c433386dc",
+          "bytes": 654
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/memory-receipt-lookup.json"
+          },
+          "sha256": "d2b21df7ece386cd25759ae643c4775f6e98f3e9928caebbe783e5141de5fbf4",
+          "bytes": 707
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/feedback-payload.json"
+          },
+          "sha256": "3560e90925b83c04b02d1a7d8334a450f51d86467f94a7cbcdc29f0546952dd1",
+          "bytes": 5960
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/feedback-payload.json"
+          },
+          "sha256": "0fe1873b76d4cbb21127ccbd6be0f2091bbc5904df7010febe08e6d7fd9c23ec",
+          "bytes": 3969
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/target-reference.json"
+          },
+          "sha256": "c5391d0fb050c52ff8e8b1a0dfca0c1977e7990eea691ca42c3c1a8b5b4d9bdd",
+          "bytes": 1114
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/target-reference.json"
+          },
+          "sha256": "6f8837c575d94e687366382354839f3c71773b70203147df7756bc0adc391090",
+          "bytes": 908
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/feedback-record.json"
+          },
+          "sha256": "481f6e247874ef7e05a00d927ff966badc5faa8ac6c7820ebcb49ed6ec6207b4",
+          "bytes": 14706
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/feedback-record.json"
+          },
+          "sha256": "b7598186a49ac3e3129d5ce6c48759fd2593c3d8c8123608f7013e5d1ad96cdc",
+          "bytes": 7235
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/schemas/lesson-record.json"
+          },
+          "sha256": "c25cdb8134f3723959ee0d52f69242df391f30fba75f0ba6e3a9d76989da1d76",
+          "bytes": 9162
+        },
+        {
+          "location": {
+            "backend": "pi-mind",
+            "path": "packages/contracts/test/fixtures/lesson-record.json"
+          },
+          "sha256": "7f269b9a4c9792c5ff1c1d876f71c75a196c721deae7eb96f61d3aa82d91d50e",
+          "bytes": 17575
+        }
+      ]
+    }
+  ],
+  "models": [
+    {
+      "model_id": "Qdrant/bm25",
+      "revision": "22b8d2af71a76161e18dd432d2cee0eefa66e412",
+      "dimension": null,
+      "precision": "sparse",
+      "query_role": "BM25 query",
+      "document_role": "BM25 document",
+      "normalization": "not applicable",
+      "runtime_packages": {
+        "fastembed": "0.8.0",
+        "qdrant-client": "1.19.1",
+        "sentence-transformers": "6.1.0",
+        "torch": "2.14.1+cu130",
+        "transformers": "5.19.0"
+      }
+    },
+    {
+      "model_id": "cross-encoder/ettin-reranker-150m-v1",
+      "revision": "025501c4e0f9bbeb4c5b198318e0089ff061cc14",
+      "dimension": null,
+      "precision": "float32",
+      "query_role": "query-document pair",
+      "document_role": "descriptive-heading + child text",
+      "normalization": "not applicable",
+      "runtime_packages": {
+        "fastembed": "0.8.0",
+        "qdrant-client": "1.19.1",
+        "sentence-transformers": "6.1.0",
+        "torch": "2.14.1+cu130",
+        "transformers": "5.19.0"
+      }
+    },
+    {
+      "model_id": "jinaai/jina-embeddings-v5-text-small-retrieval",
+      "revision": "6856e76bb72982e58de0620458a4e8b3614da340",
+      "dimension": 1024,
+      "precision": "float32",
+      "query_role": "retrieval.query",
+      "document_role": "retrieval.passage",
+      "normalization": "L2",
+      "runtime_packages": {
+        "fastembed": "0.8.0",
+        "qdrant-client": "1.19.1",
+        "sentence-transformers": "6.1.0",
+        "torch": "2.14.1+cu130",
+        "transformers": "5.19.0"
+      }
+    }
+  ],
+  "routing": {
+    "alias": "developer_knowledge",
+    "physical_collection": "developer_knowledge_v10",
+    "embedding_space": "jina-v5-1024-6856e76bb72982e58de0620458a4e8b3614da340",
+    "source_generation": "ba08b7ee1686a263682632e6607c34b05e73a4c7a28a3e5c406e4e163bfc0c69"
+  },
+  "data_artifacts": [
+    {
+      "location": {
+        "backend": "bppc",
+        "path": "frozen/manifest.json"
+      },
+      "bytes": 237107,
+      "sha256": "690d5cc3285ac1bd9e861b3ff3810bb7159c6828d944a8eb12e044be45c793ce"
+    },
+    {
+      "location": {
+        "backend": "bppc",
+        "path": "gate/v10-easy.json"
+      },
+      "bytes": 962,
+      "sha256": "fe9f577e0ebb17b4f517dc4af6044c67e2101ed98b03868d3a48eed920eb0379"
+    },
+    {
+      "location": {
+        "backend": "bppc",
+        "path": "gate/v10-easy.jsonl"
+      },
+      "bytes": 1263399,
+      "sha256": "433e85000a70b701cd527dfbac6396ff9708615d27553ecf5f03e50e5e2631cf"
+    },
+    {
+      "location": {
+        "backend": "bppc",
+        "path": "gate/v10-easy.meta.json"
+      },
+      "bytes": 1583,
+      "sha256": "7e7db208ce00b0cd3825c86d1d292174d2d245fb96d24adf7c520684000574e3"
+    },
+    {
+      "location": {
+        "backend": "bppc",
+        "path": "gate/v10-hard.json"
+      },
+      "bytes": 8823,
+      "sha256": "f73ce0cdd9d8eb620f9fd47ad96889a30815fa03f57cb9c364bbeb684e89684d"
+    },
+    {
+      "location": {
+        "backend": "bppc",
+        "path": "gate/v10-hard.jsonl"
+      },
+      "bytes": 2890128,
+      "sha256": "d869df89836b79144f66fcfad585072613c9fb0768c7a56e8a864d6180f08106"
+    },
+    {
+      "location": {
+        "backend": "bppc",
+        "path": "gate/v10-hard.meta.json"
+      },
+      "bytes": 1588,
+      "sha256": "c7252ad26f4a7831ca881e31550ecd1fc46a04e59c5b835576508afd64496095"
+    },
+    {
+      "location": {
+        "backend": "bppc",
+        "path": "gate/v10-sanity.json"
+      },
+      "bytes": 1933,
+      "sha256": "f7722a37e4b0d7ff1e145bfd401261d8033fdf565fb7e43deb89a0b481e779ad"
+    },
+    {
+      "location": {
+        "backend": "bppc",
+        "path": "gate/v10-sanity.jsonl"
+      },
+      "bytes": 199632,
+      "sha256": "4bea77364fb8e30385c28c06321f0bda90e723676e1ee2632435e6bee8301599"
+    },
+    {
+      "location": {
+        "backend": "bppc",
+        "path": "gate/v10-sanity.meta.json"
+      },
+      "bytes": 1576,
+      "sha256": "14121a2208d26ae91d196cf0ebb73bb6251b4f9d9fd105570ad0f7a63d046412"
+    },
+    {
+      "location": {
+        "backend": "bppc",
+        "path": "kb/data/gate-v10/sanity-plan.jsonl"
+      },
+      "bytes": 6849,
+      "sha256": "2a7bf46d8cca17162687070e6eb770cd1ef9584fc0cac102e383a7c08f81b18e"
+    },
+    {
+      "location": {
+        "backend": "bppc",
+        "path": "kb/data/gate-v10/sanity.jsonl"
+      },
+      "bytes": 31898,
+      "sha256": "0e12e0c8e3d53567d772d3b1990a9239316a1a8c339c37b793af5d34013470bf"
+    },
+    {
+      "location": {
+        "backend": "bppc",
+        "path": "kb/data/golden/golden_queries.jsonl"
+      },
+      "bytes": 438643,
+      "sha256": "e8890320ea6969568da4b10bfbafa6dd60ef8a0dd1a6e397f844eb75f61b7830"
+    },
+    {
+      "location": {
+        "backend": "bppc",
+        "path": "kb/data/golden/golden_queries_hard.jsonl"
+      },
+      "bytes": 1073840,
+      "sha256": "16641565b1f299716f2a4605bc273fe09b07c591f8dd3d0c66ee6e6897cb6cb1"
+    },
+    {
+      "location": {
+        "backend": "bppc",
+        "path": "m1c/mapping.json"
+      },
+      "bytes": 172863,
+      "sha256": "c57f73014056d00906bc31f935762ad073a15601f42000e89da05590c071b389"
+    }
+  ],
+  "data_parts": [
+    {
+      "location": {
+        "backend": "main-checkout",
+        "path": "dist/release/kb-core.part00"
+      },
+      "sha256": "7d8786632690ce13743b993a0f16e552fd5ef8494cafed625a9f0c7817cc0424",
+      "bytes": 1900000000
+    },
+    {
+      "location": {
+        "backend": "main-checkout",
+        "path": "dist/release/kb-core.part01"
+      },
+      "sha256": "12bf177fee7d2da69c41d0e2a101acc8647dad0c82807d442da53ef46c0424f3",
+      "bytes": 335560778
+    },
+    {
+      "location": {
+        "backend": "main-checkout",
+        "path": "dist/release/kb-philosophy.part00"
+      },
+      "sha256": "f89462242603684504d37a949db4df78e6229f9f0b0afef186603fa2da4a19e0",
+      "bytes": 112412476
+    }
+  ],
+  "installation_matrix": [
+    {
+      "machine": "Mac",
+      "os": "macOS 26.6.2",
+      "python": "Python 3.11.5",
+      "qdrant": "1.18.2",
+      "capability": "alias/collection identity",
+      "verdict": "verified",
+      "receipt": {
+        "location": {
+          "backend": "repo",
+          "path": "data/baseline/baseline.json"
+        },
+        "sha256": "d92a3b07eb634916e03273de6caac6b8398571ae8f1a755bf25a4a40fd17d04f",
+        "bytes": 135980
+      }
+    },
+    {
+      "machine": "bppc",
+      "os": "Ubuntu 24.04.4 LTS",
+      "python": "Python 3.12.3",
+      "qdrant": "1.18.2",
+      "capability": "v10 matched retrieval control",
+      "verdict": "verified",
+      "receipt": {
+        "location": {
+          "backend": "bppc",
+          "path": "gate/v10-hard.meta.json"
+        },
+        "bytes": 1588,
+        "sha256": "c7252ad26f4a7831ca881e31550ecd1fc46a04e59c5b835576508afd64496095"
+      }
+    },
+    {
+      "machine": "Mac",
+      "os": "macOS 26.6.2",
+      "python": "Python 3.11.5",
+      "qdrant": "1.18.2",
+      "capability": "joined gateway and harness matrix",
+      "verdict": "untested",
+      "receipt": null
+    }
+  ],
+  "capabilities": [
+    {
+      "name": "v10 retrieval control (438/199/30)",
+      "state": "verified",
+      "evidence": [
+        {
+          "location": {
+            "backend": "bppc",
+            "path": "gate/v10-hard.meta.json"
+          },
+          "bytes": 1588,
+          "sha256": "c7252ad26f4a7831ca881e31550ecd1fc46a04e59c5b835576508afd64496095"
+        }
+      ],
+      "reason": "Saved M1 fresh control outputs and original labels; P1 verified identities and hashes without running retrieval"
+    },
+    {
+      "name": "catalog/archive/shared memory/gateway",
+      "state": "pending",
+      "evidence": [],
+      "reason": "P2-P7 implementation and target installation receipts pending"
+    },
+    {
+      "name": "Gemma promotion/figure ranking/graph",
+      "state": "excluded",
+      "evidence": [],
+      "reason": "Separate authorized gates; not part of this frozen v10 release"
+    }
+  ],
+  "pending_gates": [
+    "Gary contract approval",
+    "P7 component and data activation receipts",
+    "Mac end-to-end retrieval/installation checks",
+    "supported harness subset checks"
+  ],
+  "rollback": {
+    "routing": "developer_knowledge_v10 + matching Jina query profile",
+    "membership_manifest": {
+      "location": {
+        "backend": "bppc",
+        "path": "frozen/manifest.json"
+      },
+      "bytes": 237107,
+      "sha256": "690d5cc3285ac1bd9e861b3ff3810bb7159c6828d944a8eb12e044be45c793ce"
+    }
+  },
+  "mutable_state_policy": {
+    "journal_in_release": false,
+    "outbox_in_release": false,
+    "install_preserves_journal_and_outbox": true
+  }
+}

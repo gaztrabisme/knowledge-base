@@ -1,0 +1,321 @@
+{
+  "valid": [
+    {
+      "name": "synthetic valid shape",
+      "value": {
+        "schema_version": "mind-tool-response/v1",
+        "data": [
+          {
+            "schema_version": "mind/catalog-entry@1",
+            "source": {
+              "schema_version": "mind/source@1",
+              "source_id": "synthetic-book",
+              "source_revision": "edition-1",
+              "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "privacy_scope": "owner-private",
+              "kind": "book",
+              "aliases": [],
+              "canonical_url": null,
+              "title": "Synthetic fixture",
+              "creators": [],
+              "publication_date": {
+                "value": null,
+                "reason": "not found"
+              },
+              "revision_date": {
+                "value": null,
+                "reason": "not found"
+              },
+              "acquired_at": "2026-10-14T00:00:00Z",
+              "selected_scope": "one chapter",
+              "derivation": "original"
+            },
+            "snapshot": "v10",
+            "ordered_membership": [
+              "synthetic-unit"
+            ],
+            "inventory_complete": true,
+            "archive": {
+              "state": "completed",
+              "expected": {
+                "value": 1,
+                "reason": null
+              },
+              "attempted": {
+                "value": 1,
+                "reason": null
+              },
+              "completed": {
+                "value": 1,
+                "reason": null
+              },
+              "profile": "synthetic-profile",
+              "errors": []
+            },
+            "parse": {
+              "state": "completed",
+              "expected": {
+                "value": 1,
+                "reason": null
+              },
+              "attempted": {
+                "value": 1,
+                "reason": null
+              },
+              "completed": {
+                "value": 1,
+                "reason": null
+              },
+              "profile": "synthetic-profile",
+              "errors": []
+            },
+            "index": {
+              "state": "completed",
+              "expected": {
+                "value": 1,
+                "reason": null
+              },
+              "attempted": {
+                "value": 1,
+                "reason": null
+              },
+              "completed": {
+                "value": 1,
+                "reason": null
+              },
+              "profile": "synthetic-profile",
+              "errors": []
+            },
+            "extraction": {
+              "state": "completed",
+              "expected": {
+                "value": 1,
+                "reason": null
+              },
+              "attempted": {
+                "value": 1,
+                "reason": null
+              },
+              "completed": {
+                "value": 1,
+                "reason": null
+              },
+              "profile": "synthetic-profile",
+              "errors": []
+            },
+            "omitted_modalities": [],
+            "truncation": false,
+            "quote_checks": "pending",
+            "gaps": []
+          }
+        ],
+        "metadata": {
+          "schema_version": "mind-read/v1",
+          "read_id": "synthetic-read",
+          "backend_availability": "ready",
+          "source_snapshot": "v10",
+          "index_snapshot": "developer_knowledge_v10",
+          "graph_snapshot": null,
+          "privacy_scope": "owner-private",
+          "sources": [
+            {
+              "source_id": "synthetic-book",
+              "source_revision": "edition-1",
+              "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "privacy_scope": "owner-private",
+              "producing_revision": "edition-1",
+              "returned_text_hash": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+              "locator": {
+                "kind": "markdown-lines",
+                "path": "synthetic.md",
+                "start_line": 1,
+                "end_line": 3
+              }
+            }
+          ],
+          "legacy_character_truncation": false,
+          "budget_truncation": false,
+          "omitted_count": 0,
+          "cursor": null,
+          "errors": [],
+          "budget": null
+        }
+      }
+    },
+    {
+      "name": "unavailable optional backend",
+      "value": {
+        "schema_version": "mind-tool-response/v1",
+        "data": null,
+        "metadata": {
+          "schema_version": "mind-read/v1",
+          "read_id": "synthetic-read",
+          "backend_availability": "unavailable",
+          "source_snapshot": "v10",
+          "index_snapshot": "developer_knowledge_v10",
+          "graph_snapshot": null,
+          "privacy_scope": "owner-private",
+          "sources": [],
+          "legacy_character_truncation": false,
+          "budget_truncation": false,
+          "omitted_count": 0,
+          "cursor": null,
+          "errors": [
+            {
+              "code": "backend_unavailable",
+              "message": "Synthetic backend is unavailable",
+              "retryable": true,
+              "retry_after_ms": null
+            }
+          ],
+          "budget": null
+        }
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "reject invalid shape",
+      "value": {
+        "schema_version": "mind-tool-response/v1",
+        "data": [
+          {
+            "schema_version": "mind/catalog-entry@1",
+            "source": {
+              "schema_version": "mind/source@1",
+              "source_id": "synthetic-book",
+              "source_revision": "edition-1",
+              "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "privacy_scope": "owner-private",
+              "kind": "book",
+              "aliases": [],
+              "canonical_url": null,
+              "title": "Synthetic fixture",
+              "creators": [],
+              "publication_date": {
+                "value": null,
+                "reason": "not found"
+              },
+              "revision_date": {
+                "value": null,
+                "reason": "not found"
+              },
+              "acquired_at": "2026-10-14T00:00:00Z",
+              "selected_scope": "one chapter",
+              "derivation": "original"
+            },
+            "snapshot": "v10",
+            "ordered_membership": [
+              "synthetic-unit"
+            ],
+            "inventory_complete": true,
+            "archive": {
+              "state": "completed",
+              "expected": {
+                "value": 1,
+                "reason": null
+              },
+              "attempted": {
+                "value": 1,
+                "reason": null
+              },
+              "completed": {
+                "value": 1,
+                "reason": null
+              },
+              "profile": "synthetic-profile",
+              "errors": []
+            },
+            "parse": {
+              "state": "completed",
+              "expected": {
+                "value": 1,
+                "reason": null
+              },
+              "attempted": {
+                "value": 1,
+                "reason": null
+              },
+              "completed": {
+                "value": 1,
+                "reason": null
+              },
+              "profile": "synthetic-profile",
+              "errors": []
+            },
+            "index": {
+              "state": "completed",
+              "expected": {
+                "value": 1,
+                "reason": null
+              },
+              "attempted": {
+                "value": 1,
+                "reason": null
+              },
+              "completed": {
+                "value": 1,
+                "reason": null
+              },
+              "profile": "synthetic-profile",
+              "errors": []
+            },
+            "extraction": {
+              "state": "completed",
+              "expected": {
+                "value": 1,
+                "reason": null
+              },
+              "attempted": {
+                "value": 1,
+                "reason": null
+              },
+              "completed": {
+                "value": 1,
+                "reason": null
+              },
+              "profile": "synthetic-profile",
+              "errors": []
+            },
+            "omitted_modalities": [],
+            "truncation": false,
+            "quote_checks": "pending",
+            "gaps": []
+          }
+        ],
+        "metadata": {
+          "schema_version": "mind-read/v1",
+          "read_id": "synthetic-read",
+          "backend_availability": "ready",
+          "source_snapshot": "v10",
+          "index_snapshot": "developer_knowledge_v10",
+          "graph_snapshot": null,
+          "privacy_scope": "owner-private",
+          "sources": [
+            {
+              "source_id": "synthetic-book",
+              "source_revision": "edition-1",
+              "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "privacy_scope": "owner-private",
+              "producing_revision": "edition-1",
+              "returned_text_hash": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+              "locator": {
+                "kind": "markdown-lines",
+                "path": "synthetic.md",
+                "start_line": 1,
+                "end_line": 3
+              }
+            }
+          ],
+          "legacy_character_truncation": false,
+          "budget_truncation": false,
+          "omitted_count": 0,
+          "cursor": null,
+          "errors": [],
+          "budget": null
+        },
+        "undeclared_field": "reject unknown fields"
+      }
+    }
+  ]
+}

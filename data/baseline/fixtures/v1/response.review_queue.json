@@ -1,0 +1,241 @@
+{
+  "valid": [
+    {
+      "name": "synthetic valid shape",
+      "value": {
+        "schema_version": "mind-tool-response/v1",
+        "data": [
+          {
+            "schema_version": "mind/annotation-record@1",
+            "id": "lesson-1",
+            "revision": 1,
+            "owner_scope": "owner",
+            "project_scope": "pi-mind",
+            "origin": "mcp",
+            "writer": "agent-1",
+            "writer_assurance": "configured",
+            "claimed_harness": "not found",
+            "model": "not found",
+            "session_id": "not found",
+            "run_id": "not found",
+            "created_at": "2026-10-13T08:00:00Z",
+            "assertion_type": "inference",
+            "status": "candidate",
+            "expires_at": null,
+            "review_due_at": null,
+            "last_reviewed_at": null,
+            "last_supported_at": null,
+            "supersedes": [],
+            "contradicts": [],
+            "related": [],
+            "evidence": [
+              {
+                "type": "source_span",
+                "id": "synthetic-span",
+                "source_id": "synthetic-book",
+                "source_revision": "edition-1",
+                "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "privacy_scope": "owner-private",
+                "locator": {
+                  "kind": "markdown-lines",
+                  "path": "synthetic.md",
+                  "start_line": 1,
+                  "end_line": 3
+                },
+                "verification": "unchecked"
+              }
+            ],
+            "kind": "comment",
+            "payload_schema": "mind/comment@1",
+            "payload": {
+              "target": {
+                "target_type": "source",
+                "target_id": "synthetic-book",
+                "target_revision": "edition-1"
+              },
+              "selector": {
+                "exact": "run from the worktree",
+                "prefix": "Always ",
+                "suffix": " before closing.",
+                "start_offset": 7,
+                "end_offset": 28,
+                "source_id": "synthetic-book",
+                "source_revision": "edition-1"
+              },
+              "relation": "question",
+              "body": "Synthetic question",
+              "attachment_state": "attached"
+            },
+            "authority": "annotation"
+          }
+        ],
+        "metadata": {
+          "schema_version": "mind-read/v1",
+          "read_id": "synthetic-read",
+          "backend_availability": "ready",
+          "source_snapshot": "v10",
+          "index_snapshot": "developer_knowledge_v10",
+          "graph_snapshot": null,
+          "privacy_scope": "owner-private",
+          "sources": [
+            {
+              "source_id": "synthetic-book",
+              "source_revision": "edition-1",
+              "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "privacy_scope": "owner-private",
+              "producing_revision": "edition-1",
+              "returned_text_hash": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+              "locator": {
+                "kind": "markdown-lines",
+                "path": "synthetic.md",
+                "start_line": 1,
+                "end_line": 3
+              }
+            }
+          ],
+          "legacy_character_truncation": false,
+          "budget_truncation": false,
+          "omitted_count": 0,
+          "cursor": null,
+          "errors": [],
+          "budget": null
+        }
+      }
+    },
+    {
+      "name": "unavailable optional backend",
+      "value": {
+        "schema_version": "mind-tool-response/v1",
+        "data": null,
+        "metadata": {
+          "schema_version": "mind-read/v1",
+          "read_id": "synthetic-read",
+          "backend_availability": "unavailable",
+          "source_snapshot": "v10",
+          "index_snapshot": "developer_knowledge_v10",
+          "graph_snapshot": null,
+          "privacy_scope": "owner-private",
+          "sources": [],
+          "legacy_character_truncation": false,
+          "budget_truncation": false,
+          "omitted_count": 0,
+          "cursor": null,
+          "errors": [
+            {
+              "code": "backend_unavailable",
+              "message": "Synthetic backend is unavailable",
+              "retryable": true,
+              "retry_after_ms": null
+            }
+          ],
+          "budget": null
+        }
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "reject invalid shape",
+      "value": {
+        "schema_version": "mind-tool-response/v1",
+        "data": [
+          {
+            "schema_version": "mind/annotation-record@1",
+            "id": "lesson-1",
+            "revision": 1,
+            "owner_scope": "owner",
+            "project_scope": "pi-mind",
+            "origin": "mcp",
+            "writer": "agent-1",
+            "writer_assurance": "configured",
+            "claimed_harness": "not found",
+            "model": "not found",
+            "session_id": "not found",
+            "run_id": "not found",
+            "created_at": "2026-10-13T08:00:00Z",
+            "assertion_type": "inference",
+            "status": "candidate",
+            "expires_at": null,
+            "review_due_at": null,
+            "last_reviewed_at": null,
+            "last_supported_at": null,
+            "supersedes": [],
+            "contradicts": [],
+            "related": [],
+            "evidence": [
+              {
+                "type": "source_span",
+                "id": "synthetic-span",
+                "source_id": "synthetic-book",
+                "source_revision": "edition-1",
+                "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "privacy_scope": "owner-private",
+                "locator": {
+                  "kind": "markdown-lines",
+                  "path": "synthetic.md",
+                  "start_line": 1,
+                  "end_line": 3
+                },
+                "verification": "unchecked"
+              }
+            ],
+            "kind": "comment",
+            "payload_schema": "mind/comment@1",
+            "payload": {
+              "target": {
+                "target_type": "source",
+                "target_id": "synthetic-book",
+                "target_revision": "edition-1"
+              },
+              "selector": {
+                "exact": "run from the worktree",
+                "prefix": "Always ",
+                "suffix": " before closing.",
+                "start_offset": 7,
+                "end_offset": 28,
+                "source_id": "synthetic-book",
+                "source_revision": "edition-1"
+              },
+              "relation": "question",
+              "body": "Synthetic question",
+              "attachment_state": "attached"
+            },
+            "authority": "annotation"
+          }
+        ],
+        "metadata": {
+          "schema_version": "mind-read/v1",
+          "read_id": "synthetic-read",
+          "backend_availability": "ready",
+          "source_snapshot": "v10",
+          "index_snapshot": "developer_knowledge_v10",
+          "graph_snapshot": null,
+          "privacy_scope": "owner-private",
+          "sources": [
+            {
+              "source_id": "synthetic-book",
+              "source_revision": "edition-1",
+              "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "privacy_scope": "owner-private",
+              "producing_revision": "edition-1",
+              "returned_text_hash": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+              "locator": {
+                "kind": "markdown-lines",
+                "path": "synthetic.md",
+                "start_line": 1,
+                "end_line": 3
+              }
+            }
+          ],
+          "legacy_character_truncation": false,
+          "budget_truncation": false,
+          "omitted_count": 0,
+          "cursor": null,
+          "errors": [],
+          "budget": null
+        },
+        "undeclared_field": "reject unknown fields"
+      }
+    }
+  ]
+}

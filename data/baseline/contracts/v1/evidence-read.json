@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:evidence-read:1",
+  "title": "evidence-read",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "mind/evidence-read@1"
+    },
+    "evidence_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "privacy_scope": {
+      "enum": [
+        "owner-private",
+        "project-private"
+      ]
+    },
+    "selected_snapshot": {
+      "type": "string",
+      "minLength": 1
+    },
+    "producing_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "locator": {
+      "$ref": "urn:organized-mind:locator:1"
+    },
+    "content": {
+      "type": "string"
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "derivation": {
+      "enum": [
+        "original",
+        "translation",
+        "derived"
+      ]
+    },
+    "verification": {
+      "enum": [
+        "exact",
+        "fuzzy",
+        "failed",
+        "unchecked"
+      ]
+    },
+    "annotations": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:pi-mind:contracts:target-reference:1"
+      }
+    },
+    "metadata": {
+      "$ref": "urn:organized-mind:read-metadata:1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "evidence_id",
+    "source_id",
+    "source_revision",
+    "source_hash",
+    "privacy_scope",
+    "selected_snapshot",
+    "producing_revision",
+    "locator",
+    "content",
+    "content_sha256",
+    "derivation",
+    "verification",
+    "annotations",
+    "metadata"
+  ],
+  "additionalProperties": false
+}

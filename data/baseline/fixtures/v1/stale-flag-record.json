@@ -1,0 +1,130 @@
+{
+  "valid": [
+    {
+      "name": "open flag",
+      "value": {
+        "schema_version": "pi-mind/memory-record@1",
+        "id": "flag-1",
+        "revision": 1,
+        "owner_scope": "owner",
+        "project_scope": "pi-mind",
+        "origin": "mcp",
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "claimed_harness": "not found",
+        "model": "not found",
+        "session_id": "not found",
+        "run_id": "not found",
+        "created_at": "2026-10-13T08:00:00Z",
+        "assertion_type": "observation",
+        "status": "candidate",
+        "expires_at": null,
+        "review_due_at": null,
+        "last_reviewed_at": null,
+        "last_supported_at": null,
+        "supersedes": [],
+        "contradicts": [],
+        "related": [],
+        "evidence": [],
+        "kind": "stale_flag",
+        "payload_schema": "mind/stale-flag@1",
+        "payload": {
+          "target": {
+            "target_type": "memory_record",
+            "target_id": "lesson-1",
+            "target_revision": 1
+          },
+          "reason": "Dependency version changed",
+          "detected_at": "2026-10-13T08:00:00Z",
+          "observed_version": "v2",
+          "resolution": null,
+          "resolved_at": null
+        }
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "resolved W1 flag",
+      "value": {
+        "schema_version": "pi-mind/memory-record@1",
+        "id": "flag-1",
+        "revision": 1,
+        "owner_scope": "owner",
+        "project_scope": "pi-mind",
+        "origin": "mcp",
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "claimed_harness": "not found",
+        "model": "not found",
+        "session_id": "not found",
+        "run_id": "not found",
+        "created_at": "2026-10-13T08:00:00Z",
+        "assertion_type": "observation",
+        "status": "candidate",
+        "expires_at": null,
+        "review_due_at": null,
+        "last_reviewed_at": null,
+        "last_supported_at": null,
+        "supersedes": [],
+        "contradicts": [],
+        "related": [],
+        "evidence": [],
+        "kind": "stale_flag",
+        "payload_schema": "mind/stale-flag@1",
+        "payload": {
+          "target": {
+            "target_type": "memory_record",
+            "target_id": "lesson-1",
+            "target_revision": 1
+          },
+          "reason": "Dependency version changed",
+          "detected_at": "2026-10-13T08:00:00Z",
+          "observed_version": "v2",
+          "resolution": "fixed",
+          "resolved_at": "2026-10-13T08:00:00Z"
+        }
+      }
+    },
+    {
+      "name": "wrong payload",
+      "value": {
+        "schema_version": "pi-mind/memory-record@1",
+        "id": "flag-1",
+        "revision": 1,
+        "owner_scope": "owner",
+        "project_scope": "pi-mind",
+        "origin": "mcp",
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "claimed_harness": "not found",
+        "model": "not found",
+        "session_id": "not found",
+        "run_id": "not found",
+        "created_at": "2026-10-13T08:00:00Z",
+        "assertion_type": "observation",
+        "status": "candidate",
+        "expires_at": null,
+        "review_due_at": null,
+        "last_reviewed_at": null,
+        "last_supported_at": null,
+        "supersedes": [],
+        "contradicts": [],
+        "related": [],
+        "evidence": [],
+        "kind": "stale_flag",
+        "payload_schema": "mind/stale-flag@1",
+        "payload": {
+          "claim": "Checks must use the task worktree",
+          "context": "Parallel work",
+          "trigger": "Before checking a patch",
+          "recommended_action": "Run the checks from the canonical worktree",
+          "limits": "This repository",
+          "observed_outcome": "not found",
+          "polarity": "rule",
+          "support": "not found"
+        }
+      }
+    }
+  ]
+}

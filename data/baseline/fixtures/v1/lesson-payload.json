@@ -1,0 +1,70 @@
+{
+  "valid": [
+    {
+      "name": "rule",
+      "value": {
+        "claim": "Checks must use the task worktree",
+        "context": "Parallel work",
+        "trigger": "Before checking a patch",
+        "recommended_action": "Run the checks from the canonical worktree",
+        "limits": "This repository",
+        "observed_outcome": "not found",
+        "polarity": "rule",
+        "support": "not found"
+      }
+    },
+    {
+      "name": "anti-pattern",
+      "value": {
+        "claim": "Human-checkout runs check the wrong source",
+        "context": "Parallel work",
+        "trigger": "Before checking a patch",
+        "recommended_action": "Avoid the human checkout; use the task worktree",
+        "limits": "This repository",
+        "observed_outcome": "not found",
+        "polarity": "anti-pattern",
+        "support": "not found"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "anti-pattern without action",
+      "value": {
+        "claim": "Human-checkout runs check the wrong source",
+        "context": "Parallel work",
+        "trigger": "Before checking a patch",
+        "limits": "This repository",
+        "observed_outcome": "not found",
+        "polarity": "anti-pattern",
+        "support": "not found"
+      }
+    },
+    {
+      "name": "unsupported polarity",
+      "value": {
+        "claim": "Checks must use the task worktree",
+        "context": "Parallel work",
+        "trigger": "Before checking a patch",
+        "recommended_action": "Run the checks from the canonical worktree",
+        "limits": "This repository",
+        "observed_outcome": "not found",
+        "polarity": "neutral",
+        "support": "not found"
+      }
+    },
+    {
+      "name": "invented support",
+      "value": {
+        "claim": "Checks must use the task worktree",
+        "context": "Parallel work",
+        "trigger": "Before checking a patch",
+        "recommended_action": "Run the checks from the canonical worktree",
+        "limits": "This repository",
+        "observed_outcome": "not found",
+        "polarity": "rule",
+        "support": "verified"
+      }
+    }
+  ]
+}

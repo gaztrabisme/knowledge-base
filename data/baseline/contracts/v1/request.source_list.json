@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:request.source_list:1",
+  "title": "request.source_list",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "mind-tool-request/v1"
+    },
+    "operation": {
+      "const": "source_list"
+    },
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "book",
+            "course",
+            "lesson",
+            "paper",
+            "repository",
+            "file",
+            "symbol"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "snapshot": {
+          "type": "string",
+          "minLength": 1
+        },
+        "filters": {
+          "type": "object",
+          "properties": {
+            "source_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "stage": {
+              "enum": [
+                "archive",
+                "parse",
+                "index",
+                "extraction"
+              ]
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        },
+        "cursor": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "scope",
+        "snapshot"
+      ],
+      "additionalProperties": false
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "owner_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "privacy_scope": {
+          "enum": [
+            "owner-private",
+            "project-private"
+          ]
+        },
+        "question_budget_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "owner_scope",
+        "project_scope",
+        "privacy_scope"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "operation",
+    "arguments",
+    "context"
+  ],
+  "additionalProperties": false
+}

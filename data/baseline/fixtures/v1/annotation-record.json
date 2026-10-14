@@ -1,0 +1,494 @@
+{
+  "valid": [
+    {
+      "name": "synthetic valid shape",
+      "value": {
+        "schema_version": "mind/annotation-record@1",
+        "id": "lesson-1",
+        "revision": 1,
+        "owner_scope": "owner",
+        "project_scope": "pi-mind",
+        "origin": "mcp",
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "claimed_harness": "not found",
+        "model": "not found",
+        "session_id": "not found",
+        "run_id": "not found",
+        "created_at": "2026-10-13T08:00:00Z",
+        "assertion_type": "inference",
+        "status": "candidate",
+        "expires_at": null,
+        "review_due_at": null,
+        "last_reviewed_at": null,
+        "last_supported_at": null,
+        "supersedes": [],
+        "contradicts": [],
+        "related": [],
+        "evidence": [
+          {
+            "type": "source_span",
+            "id": "synthetic-span",
+            "source_id": "synthetic-book",
+            "source_revision": "edition-1",
+            "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "privacy_scope": "owner-private",
+            "locator": {
+              "kind": "markdown-lines",
+              "path": "synthetic.md",
+              "start_line": 1,
+              "end_line": 3
+            },
+            "verification": "unchecked"
+          }
+        ],
+        "kind": "comment",
+        "payload_schema": "mind/comment@1",
+        "payload": {
+          "target": {
+            "target_type": "source",
+            "target_id": "synthetic-book",
+            "target_revision": "edition-1"
+          },
+          "selector": {
+            "exact": "run from the worktree",
+            "prefix": "Always ",
+            "suffix": " before closing.",
+            "start_offset": 7,
+            "end_offset": 28,
+            "source_id": "synthetic-book",
+            "source_revision": "edition-1"
+          },
+          "relation": "question",
+          "body": "Synthetic question",
+          "attachment_state": "attached"
+        },
+        "authority": "annotation"
+      }
+    },
+    {
+      "name": "stale_flag",
+      "value": {
+        "schema_version": "mind/annotation-record@1",
+        "id": "lesson-1",
+        "revision": 1,
+        "owner_scope": "owner",
+        "project_scope": "pi-mind",
+        "origin": "mcp",
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "claimed_harness": "not found",
+        "model": "not found",
+        "session_id": "not found",
+        "run_id": "not found",
+        "created_at": "2026-10-13T08:00:00Z",
+        "assertion_type": "inference",
+        "status": "candidate",
+        "expires_at": null,
+        "review_due_at": null,
+        "last_reviewed_at": null,
+        "last_supported_at": null,
+        "supersedes": [],
+        "contradicts": [],
+        "related": [],
+        "evidence": [
+          {
+            "type": "source_span",
+            "id": "synthetic-span",
+            "source_id": "synthetic-book",
+            "source_revision": "edition-1",
+            "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "privacy_scope": "owner-private",
+            "locator": {
+              "kind": "markdown-lines",
+              "path": "synthetic.md",
+              "start_line": 1,
+              "end_line": 3
+            },
+            "verification": "unchecked"
+          }
+        ],
+        "kind": "stale_flag",
+        "payload_schema": "mind/stale-flag@2",
+        "payload": {
+          "target": {
+            "target_type": "source",
+            "target_id": "synthetic-book",
+            "target_revision": "edition-1"
+          },
+          "reason": "Rechecked synthetic source",
+          "detected_at": "2026-10-14T00:00:00Z",
+          "observed_version": "edition-1",
+          "resolution": "Scoped check passed",
+          "resolved_at": "2026-10-14T01:00:00Z"
+        },
+        "authority": "annotation"
+      }
+    },
+    {
+      "name": "tag",
+      "value": {
+        "schema_version": "mind/annotation-record@1",
+        "id": "lesson-1",
+        "revision": 1,
+        "owner_scope": "owner",
+        "project_scope": "pi-mind",
+        "origin": "mcp",
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "claimed_harness": "not found",
+        "model": "not found",
+        "session_id": "not found",
+        "run_id": "not found",
+        "created_at": "2026-10-13T08:00:00Z",
+        "assertion_type": "inference",
+        "status": "candidate",
+        "expires_at": null,
+        "review_due_at": null,
+        "last_reviewed_at": null,
+        "last_supported_at": null,
+        "supersedes": [],
+        "contradicts": [],
+        "related": [],
+        "evidence": [
+          {
+            "type": "source_span",
+            "id": "synthetic-span",
+            "source_id": "synthetic-book",
+            "source_revision": "edition-1",
+            "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "privacy_scope": "owner-private",
+            "locator": {
+              "kind": "markdown-lines",
+              "path": "synthetic.md",
+              "start_line": 1,
+              "end_line": 3
+            },
+            "verification": "unchecked"
+          }
+        ],
+        "kind": "tag",
+        "payload_schema": "mind/tag@1",
+        "payload": {
+          "subject": {
+            "target_type": "source",
+            "target_id": "synthetic-book",
+            "target_revision": "edition-1"
+          },
+          "label": "synthetic-tag",
+          "rationale": "Synthetic classification"
+        },
+        "authority": "annotation"
+      }
+    },
+    {
+      "name": "link",
+      "value": {
+        "schema_version": "mind/annotation-record@1",
+        "id": "lesson-1",
+        "revision": 1,
+        "owner_scope": "owner",
+        "project_scope": "pi-mind",
+        "origin": "mcp",
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "claimed_harness": "not found",
+        "model": "not found",
+        "session_id": "not found",
+        "run_id": "not found",
+        "created_at": "2026-10-13T08:00:00Z",
+        "assertion_type": "inference",
+        "status": "candidate",
+        "expires_at": null,
+        "review_due_at": null,
+        "last_reviewed_at": null,
+        "last_supported_at": null,
+        "supersedes": [],
+        "contradicts": [],
+        "related": [],
+        "evidence": [
+          {
+            "type": "source_span",
+            "id": "synthetic-span",
+            "source_id": "synthetic-book",
+            "source_revision": "edition-1",
+            "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "privacy_scope": "owner-private",
+            "locator": {
+              "kind": "markdown-lines",
+              "path": "synthetic.md",
+              "start_line": 1,
+              "end_line": 3
+            },
+            "verification": "unchecked"
+          }
+        ],
+        "kind": "link",
+        "payload_schema": "mind/link@1",
+        "payload": {
+          "subject": {
+            "target_type": "source",
+            "target_id": "synthetic-book",
+            "target_revision": "edition-1"
+          },
+          "predicate": "supports",
+          "object": {
+            "target_type": "source",
+            "target_id": "synthetic-book",
+            "target_revision": "edition-1"
+          },
+          "rationale": "Synthetic relation",
+          "applicability": "one chapter"
+        },
+        "authority": "annotation"
+      }
+    },
+    {
+      "name": "source_change",
+      "value": {
+        "schema_version": "mind/annotation-record@1",
+        "id": "lesson-1",
+        "revision": 1,
+        "owner_scope": "owner",
+        "project_scope": "pi-mind",
+        "origin": "mcp",
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "claimed_harness": "not found",
+        "model": "not found",
+        "session_id": "not found",
+        "run_id": "not found",
+        "created_at": "2026-10-13T08:00:00Z",
+        "assertion_type": "inference",
+        "status": "candidate",
+        "expires_at": null,
+        "review_due_at": null,
+        "last_reviewed_at": null,
+        "last_supported_at": null,
+        "supersedes": [],
+        "contradicts": [],
+        "related": [],
+        "evidence": [
+          {
+            "type": "source_span",
+            "id": "synthetic-span",
+            "source_id": "synthetic-book",
+            "source_revision": "edition-1",
+            "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "privacy_scope": "owner-private",
+            "locator": {
+              "kind": "markdown-lines",
+              "path": "synthetic.md",
+              "start_line": 1,
+              "end_line": 3
+            },
+            "verification": "unchecked"
+          }
+        ],
+        "kind": "source_change",
+        "payload_schema": "mind/source_change@1",
+        "payload": {
+          "target": {
+            "target_type": "source",
+            "target_id": "synthetic-book",
+            "target_revision": "edition-1"
+          },
+          "target_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "before": "Before",
+          "after": "After",
+          "rationale": "Synthetic proposal",
+          "applied": false
+        },
+        "authority": "annotation"
+      }
+    },
+    {
+      "name": "review",
+      "value": {
+        "schema_version": "mind/annotation-record@1",
+        "id": "lesson-1",
+        "revision": 1,
+        "owner_scope": "owner",
+        "project_scope": "pi-mind",
+        "origin": "mcp",
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "claimed_harness": "not found",
+        "model": "not found",
+        "session_id": "not found",
+        "run_id": "not found",
+        "created_at": "2026-10-13T08:00:00Z",
+        "assertion_type": "inference",
+        "status": "candidate",
+        "expires_at": null,
+        "review_due_at": null,
+        "last_reviewed_at": null,
+        "last_supported_at": null,
+        "supersedes": [],
+        "contradicts": [],
+        "related": [],
+        "evidence": [
+          {
+            "type": "source_span",
+            "id": "synthetic-span",
+            "source_id": "synthetic-book",
+            "source_revision": "edition-1",
+            "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "privacy_scope": "owner-private",
+            "locator": {
+              "kind": "markdown-lines",
+              "path": "synthetic.md",
+              "start_line": 1,
+              "end_line": 3
+            },
+            "verification": "unchecked"
+          }
+        ],
+        "kind": "review",
+        "payload_schema": "mind/review@1",
+        "payload": {
+          "target": {
+            "target_type": "source",
+            "target_id": "synthetic-book",
+            "target_revision": "edition-1"
+          },
+          "disposition": "approve-patch",
+          "check": {
+            "writer": "owner",
+            "writer_assurance": "authenticated"
+          },
+          "scope": "one chapter"
+        },
+        "authority": "annotation"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "reject invalid shape",
+      "value": {
+        "schema_version": "mind/annotation-record@1",
+        "id": "lesson-1",
+        "revision": 1,
+        "owner_scope": "owner",
+        "project_scope": "pi-mind",
+        "origin": "mcp",
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "claimed_harness": "not found",
+        "model": "not found",
+        "session_id": "not found",
+        "run_id": "not found",
+        "created_at": "2026-10-13T08:00:00Z",
+        "assertion_type": "inference",
+        "status": "candidate",
+        "expires_at": null,
+        "review_due_at": null,
+        "last_reviewed_at": null,
+        "last_supported_at": null,
+        "supersedes": [],
+        "contradicts": [],
+        "related": [],
+        "evidence": [
+          {
+            "type": "source_span",
+            "id": "synthetic-span",
+            "source_id": "synthetic-book",
+            "source_revision": "edition-1",
+            "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "privacy_scope": "owner-private",
+            "locator": {
+              "kind": "markdown-lines",
+              "path": "synthetic.md",
+              "start_line": 1,
+              "end_line": 3
+            },
+            "verification": "unchecked"
+          }
+        ],
+        "kind": "comment",
+        "payload_schema": "mind/comment@1",
+        "payload": {
+          "target": {
+            "target_type": "source",
+            "target_id": "synthetic-book",
+            "target_revision": "edition-1"
+          },
+          "selector": {
+            "exact": "run from the worktree",
+            "prefix": "Always ",
+            "suffix": " before closing.",
+            "start_offset": 7,
+            "end_offset": 28,
+            "source_id": "synthetic-book",
+            "source_revision": "edition-1"
+          },
+          "relation": "question",
+          "body": "Synthetic question",
+          "attachment_state": "attached"
+        },
+        "authority": "annotation",
+        "undeclared_field": "reject unknown fields"
+      }
+    },
+    {
+      "name": "closure without time",
+      "value": {
+        "schema_version": "mind/annotation-record@1",
+        "id": "lesson-1",
+        "revision": 1,
+        "owner_scope": "owner",
+        "project_scope": "pi-mind",
+        "origin": "mcp",
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "claimed_harness": "not found",
+        "model": "not found",
+        "session_id": "not found",
+        "run_id": "not found",
+        "created_at": "2026-10-13T08:00:00Z",
+        "assertion_type": "inference",
+        "status": "candidate",
+        "expires_at": null,
+        "review_due_at": null,
+        "last_reviewed_at": null,
+        "last_supported_at": null,
+        "supersedes": [],
+        "contradicts": [],
+        "related": [],
+        "evidence": [
+          {
+            "type": "source_span",
+            "id": "synthetic-span",
+            "source_id": "synthetic-book",
+            "source_revision": "edition-1",
+            "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "privacy_scope": "owner-private",
+            "locator": {
+              "kind": "markdown-lines",
+              "path": "synthetic.md",
+              "start_line": 1,
+              "end_line": 3
+            },
+            "verification": "unchecked"
+          }
+        ],
+        "kind": "stale_flag",
+        "payload_schema": "mind/stale-flag@2",
+        "payload": {
+          "target": {
+            "target_type": "source",
+            "target_id": "synthetic-book",
+            "target_revision": "edition-1"
+          },
+          "reason": "Rechecked synthetic source",
+          "detected_at": "2026-10-14T00:00:00Z",
+          "observed_version": "edition-1",
+          "resolution": "Scoped check passed",
+          "resolved_at": null
+        },
+        "authority": "annotation"
+      }
+    }
+  ]
+}

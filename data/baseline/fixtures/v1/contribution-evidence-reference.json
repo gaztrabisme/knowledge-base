@@ -1,0 +1,43 @@
+{
+  "valid": [
+    {
+      "name": "synthetic valid shape",
+      "value": {
+        "type": "source_span",
+        "id": "synthetic-span",
+        "source_id": "synthetic-book",
+        "source_revision": "edition-1",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "privacy_scope": "owner-private",
+        "locator": {
+          "kind": "markdown-lines",
+          "path": "synthetic.md",
+          "start_line": 1,
+          "end_line": 3
+        },
+        "verification": "unchecked"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "reject invalid shape",
+      "value": {
+        "type": "source_span",
+        "id": "synthetic-span",
+        "source_id": "synthetic-book",
+        "source_revision": "edition-1",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "privacy_scope": "owner-private",
+        "locator": {
+          "kind": "markdown-lines",
+          "path": "synthetic.md",
+          "start_line": 1,
+          "end_line": 3
+        },
+        "verification": "unchecked",
+        "undeclared_field": "reject unknown fields"
+      }
+    }
+  ]
+}

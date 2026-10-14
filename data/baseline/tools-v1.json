@@ -1,0 +1,229 @@
+{
+  "schema_version": "mind/tool-registry@1",
+  "tools": [
+    {
+      "name": "search",
+      "request": "request.search.json",
+      "response": "response.search.json",
+      "state": "legacy-compatible",
+      "permission": "read"
+    },
+    {
+      "name": "search_book",
+      "request": "request.search_book.json",
+      "response": "response.search_book.json",
+      "state": "legacy-compatible",
+      "permission": "read"
+    },
+    {
+      "name": "read_chunk",
+      "request": "request.read_chunk.json",
+      "response": "response.read_chunk.json",
+      "state": "legacy-compatible",
+      "permission": "read"
+    },
+    {
+      "name": "get_chapter",
+      "request": "request.get_chapter.json",
+      "response": "response.get_chapter.json",
+      "state": "legacy-compatible",
+      "permission": "read"
+    },
+    {
+      "name": "list_books",
+      "request": "request.list_books.json",
+      "response": "response.list_books.json",
+      "state": "legacy-compatible",
+      "permission": "read"
+    },
+    {
+      "name": "grep_books",
+      "request": "request.grep_books.json",
+      "response": "response.grep_books.json",
+      "state": "legacy-compatible",
+      "permission": "read"
+    },
+    {
+      "name": "search_philosophy",
+      "request": "request.search_philosophy.json",
+      "response": "response.search_philosophy.json",
+      "state": "legacy-compatible",
+      "permission": "read"
+    },
+    {
+      "name": "list_philosophy",
+      "request": "request.list_philosophy.json",
+      "response": "response.list_philosophy.json",
+      "state": "legacy-compatible",
+      "permission": "read"
+    },
+    {
+      "name": "legacy_read",
+      "request": "request.legacy_read.json",
+      "response": "response.legacy_read.json",
+      "state": "proposed",
+      "permission": "read"
+    },
+    {
+      "name": "read_metadata",
+      "request": "request.read_metadata.json",
+      "response": "response.read_metadata.json",
+      "state": "proposed",
+      "permission": "read"
+    },
+    {
+      "name": "mind_status",
+      "request": "request.mind_status.json",
+      "response": "response.mind_status.json",
+      "state": "proposed",
+      "permission": "read"
+    },
+    {
+      "name": "source_list",
+      "request": "request.source_list.json",
+      "response": "response.source_list.json",
+      "state": "proposed",
+      "permission": "read"
+    },
+    {
+      "name": "source_read",
+      "request": "request.source_read.json",
+      "response": "response.source_read.json",
+      "state": "proposed",
+      "permission": "read"
+    },
+    {
+      "name": "figure_read",
+      "request": "request.figure_read.json",
+      "response": "response.figure_read.json",
+      "state": "proposed",
+      "permission": "read"
+    },
+    {
+      "name": "figure_search",
+      "request": "request.figure_search.json",
+      "response": "response.figure_search.json",
+      "state": "proposed",
+      "permission": "read"
+    },
+    {
+      "name": "coverage",
+      "request": "request.coverage.json",
+      "response": "response.coverage.json",
+      "state": "proposed",
+      "permission": "read"
+    },
+    {
+      "name": "coverage_gaps",
+      "request": "request.coverage_gaps.json",
+      "response": "response.coverage_gaps.json",
+      "state": "proposed",
+      "permission": "read"
+    },
+    {
+      "name": "graph_subgraph",
+      "request": "request.graph_subgraph.json",
+      "response": "response.graph_subgraph.json",
+      "state": "proposed",
+      "permission": "read"
+    },
+    {
+      "name": "graph_evidence",
+      "request": "request.graph_evidence.json",
+      "response": "response.graph_evidence.json",
+      "state": "proposed",
+      "permission": "read"
+    },
+    {
+      "name": "graph_who_tried",
+      "request": "request.graph_who_tried.json",
+      "response": "response.graph_who_tried.json",
+      "state": "proposed",
+      "permission": "read"
+    },
+    {
+      "name": "memory_create_lesson",
+      "request": "request.memory_create_lesson.json",
+      "response": "response.memory_create_lesson.json",
+      "state": "proposed",
+      "permission": "annotation-write"
+    },
+    {
+      "name": "memory_flag_stale",
+      "request": "request.memory_flag_stale.json",
+      "response": "response.memory_flag_stale.json",
+      "state": "proposed",
+      "permission": "annotation-write"
+    },
+    {
+      "name": "memory_feedback",
+      "request": "request.memory_feedback.json",
+      "response": "response.memory_feedback.json",
+      "state": "proposed",
+      "permission": "annotation-write"
+    },
+    {
+      "name": "memory_read",
+      "request": "request.memory_read.json",
+      "response": "response.memory_read.json",
+      "state": "proposed",
+      "permission": "read"
+    },
+    {
+      "name": "memory_search",
+      "request": "request.memory_search.json",
+      "response": "response.memory_search.json",
+      "state": "proposed",
+      "permission": "read"
+    },
+    {
+      "name": "memory_comment",
+      "request": "request.memory_comment.json",
+      "response": "response.memory_comment.json",
+      "state": "proposed",
+      "permission": "annotation-write"
+    },
+    {
+      "name": "memory_tag_link",
+      "request": "request.memory_tag_link.json",
+      "response": "response.memory_tag_link.json",
+      "state": "proposed",
+      "permission": "annotation-write"
+    },
+    {
+      "name": "memory_propose_source_change",
+      "request": "request.memory_propose_source_change.json",
+      "response": "response.memory_propose_source_change.json",
+      "state": "proposed",
+      "permission": "annotation-write"
+    },
+    {
+      "name": "review_decide",
+      "request": "request.review_decide.json",
+      "response": "response.review_decide.json",
+      "state": "proposed",
+      "permission": "owner-review"
+    },
+    {
+      "name": "review_queue",
+      "request": "request.review_queue.json",
+      "response": "response.review_queue.json",
+      "state": "proposed",
+      "permission": "read"
+    },
+    {
+      "name": "archive_prepare",
+      "request": "request.archive_prepare.json",
+      "response": "response.archive_prepare.json",
+      "state": "proposed",
+      "permission": "authorized-archive-job"
+    },
+    {
+      "name": "archive_job_status",
+      "request": "request.archive_job_status.json",
+      "response": "response.archive_job_status.json",
+      "state": "proposed",
+      "permission": "read"
+    }
+  ]
+}

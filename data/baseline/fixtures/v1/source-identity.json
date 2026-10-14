@@ -1,0 +1,59 @@
+{
+  "valid": [
+    {
+      "name": "synthetic valid shape",
+      "value": {
+        "schema_version": "mind/source@1",
+        "source_id": "synthetic-book",
+        "source_revision": "edition-1",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "privacy_scope": "owner-private",
+        "kind": "book",
+        "aliases": [],
+        "canonical_url": null,
+        "title": "Synthetic fixture",
+        "creators": [],
+        "publication_date": {
+          "value": null,
+          "reason": "not found"
+        },
+        "revision_date": {
+          "value": null,
+          "reason": "not found"
+        },
+        "acquired_at": "2026-10-14T00:00:00Z",
+        "selected_scope": "one chapter",
+        "derivation": "original"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "reject invalid shape",
+      "value": {
+        "schema_version": "mind/source@1",
+        "source_id": "synthetic-book",
+        "source_revision": "edition-1",
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "privacy_scope": "owner-private",
+        "kind": "book",
+        "aliases": [],
+        "canonical_url": null,
+        "title": "Synthetic fixture",
+        "creators": [],
+        "publication_date": {
+          "value": null,
+          "reason": "not found"
+        },
+        "revision_date": {
+          "value": null,
+          "reason": "not found"
+        },
+        "acquired_at": "2026-10-14T00:00:00Z",
+        "selected_scope": "one chapter",
+        "derivation": "original",
+        "undeclared_field": "reject unknown fields"
+      }
+    }
+  ]
+}

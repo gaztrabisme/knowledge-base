@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:pi-mind:contracts:memory-receipt-lookup:1",
+  "title": "memory-receipt-lookup",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "request_key",
+    "owner_scope",
+    "project_scope"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "pi-mind/memory-receipt-lookup@1"
+    },
+    "request_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "owner_scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_scope": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

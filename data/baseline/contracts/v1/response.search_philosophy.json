@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:response.search_philosophy:1",
+  "title": "response.search_philosophy",
+  "type": "object",
+  "properties": {
+    "legacy_output": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "_meta": {
+      "type": "object",
+      "properties": {
+        "mind": {
+          "$ref": "urn:organized-mind:read-metadata:1"
+        }
+      },
+      "required": [
+        "mind"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "legacy_output",
+    "_meta"
+  ],
+  "additionalProperties": false
+}

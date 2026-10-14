@@ -1,0 +1,225 @@
+{
+  "valid": [
+    {
+      "name": "synthetic valid shape",
+      "value": {
+        "schema_version": "mind/tested-release@1",
+        "release_id": "synthetic-release",
+        "created_at": "2026-10-14T00:00:00Z",
+        "deployment_state": "baseline-only",
+        "privacy_scope": "owner-private",
+        "baseline": {
+          "location": {
+            "backend": "repo",
+            "path": "data/baseline/baseline.json"
+          },
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 1
+        },
+        "contract_inventory": {
+          "location": {
+            "backend": "repo",
+            "path": "data/baseline/contracts-lock.json"
+          },
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 1
+        },
+        "components": [
+          {
+            "role": "knowledge-base",
+            "repository": "knowledge-base",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "dirty": false,
+            "status": "included",
+            "file_pins": []
+          }
+        ],
+        "models": [
+          {
+            "model_id": "synthetic-model",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "dimension": 1024,
+            "precision": "float32",
+            "query_role": "retrieval.query",
+            "document_role": "retrieval.passage",
+            "normalization": "L2",
+            "runtime_packages": {
+              "torch": "synthetic",
+              "transformers": "synthetic",
+              "sentence-transformers": "synthetic",
+              "fastembed": "synthetic",
+              "qdrant-client": "synthetic"
+            }
+          }
+        ],
+        "routing": {
+          "alias": "developer_knowledge",
+          "physical_collection": "developer_knowledge_v10",
+          "embedding_space": "synthetic-space",
+          "source_generation": "v10"
+        },
+        "data_artifacts": [
+          {
+            "location": {
+              "backend": "bppc",
+              "path": "frozen/manifest.json"
+            },
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 1
+          }
+        ],
+        "data_parts": [],
+        "installation_matrix": [
+          {
+            "machine": "Mac",
+            "os": "synthetic",
+            "python": "synthetic",
+            "qdrant": "synthetic",
+            "capability": "retrieval",
+            "verdict": "untested",
+            "receipt": null
+          }
+        ],
+        "capabilities": [
+          {
+            "name": "retrieval",
+            "state": "pending",
+            "evidence": [],
+            "reason": "synthetic"
+          }
+        ],
+        "pending_gates": [
+          "P7"
+        ],
+        "rollback": {
+          "routing": "v10",
+          "membership_manifest": {
+            "location": {
+              "backend": "bppc",
+              "path": "frozen/manifest.json"
+            },
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 1
+          }
+        },
+        "mutable_state_policy": {
+          "journal_in_release": false,
+          "outbox_in_release": false,
+          "install_preserves_journal_and_outbox": true
+        }
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "reject invalid shape",
+      "value": {
+        "schema_version": "mind/tested-release@1",
+        "release_id": "synthetic-release",
+        "created_at": "2026-10-14T00:00:00Z",
+        "deployment_state": "baseline-only",
+        "privacy_scope": "owner-private",
+        "baseline": {
+          "location": {
+            "backend": "repo",
+            "path": "data/baseline/baseline.json"
+          },
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 1
+        },
+        "contract_inventory": {
+          "location": {
+            "backend": "repo",
+            "path": "data/baseline/contracts-lock.json"
+          },
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 1
+        },
+        "components": [
+          {
+            "role": "knowledge-base",
+            "repository": "knowledge-base",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "dirty": false,
+            "status": "included",
+            "file_pins": []
+          }
+        ],
+        "models": [
+          {
+            "model_id": "synthetic-model",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "dimension": 1024,
+            "precision": "float32",
+            "query_role": "retrieval.query",
+            "document_role": "retrieval.passage",
+            "normalization": "L2",
+            "runtime_packages": {
+              "torch": "synthetic",
+              "transformers": "synthetic",
+              "sentence-transformers": "synthetic",
+              "fastembed": "synthetic",
+              "qdrant-client": "synthetic"
+            }
+          }
+        ],
+        "routing": {
+          "alias": "developer_knowledge",
+          "physical_collection": "developer_knowledge_v10",
+          "embedding_space": "synthetic-space",
+          "source_generation": "v10"
+        },
+        "data_artifacts": [
+          {
+            "location": {
+              "backend": "bppc",
+              "path": "frozen/manifest.json"
+            },
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 1
+          }
+        ],
+        "data_parts": [],
+        "installation_matrix": [
+          {
+            "machine": "Mac",
+            "os": "synthetic",
+            "python": "synthetic",
+            "qdrant": "synthetic",
+            "capability": "retrieval",
+            "verdict": "untested",
+            "receipt": null
+          }
+        ],
+        "capabilities": [
+          {
+            "name": "retrieval",
+            "state": "pending",
+            "evidence": [],
+            "reason": "synthetic"
+          }
+        ],
+        "pending_gates": [
+          "P7"
+        ],
+        "rollback": {
+          "routing": "v10",
+          "membership_manifest": {
+            "location": {
+              "backend": "bppc",
+              "path": "frozen/manifest.json"
+            },
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 1
+          }
+        },
+        "mutable_state_policy": {
+          "journal_in_release": false,
+          "outbox_in_release": false,
+          "install_preserves_journal_and_outbox": true
+        },
+        "undeclared_field": "reject unknown fields"
+      }
+    }
+  ]
+}

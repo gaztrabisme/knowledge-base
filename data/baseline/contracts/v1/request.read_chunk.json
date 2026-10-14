@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:request.read_chunk:1",
+  "title": "request.read_chunk",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "mind-tool-request/v1"
+    },
+    "operation": {
+      "const": "read_chunk"
+    },
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "chunk_id": {
+          "type": "string"
+        },
+        "window": {
+          "type": "integer",
+          "default": 1
+        }
+      },
+      "required": [
+        "chunk_id"
+      ],
+      "additionalProperties": false
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "owner_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "privacy_scope": {
+          "enum": [
+            "owner-private",
+            "project-private"
+          ]
+        },
+        "question_budget_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "owner_scope",
+        "project_scope",
+        "privacy_scope"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "operation",
+    "arguments",
+    "context"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,406 @@
+{
+  "valid": [
+    {
+      "name": "synthetic valid shape",
+      "value": {
+        "schema_version": "mind-tool-response/v1",
+        "data": {
+          "conclusion": "supported",
+          "certificate": {
+            "snapshot": "v10",
+            "scope": "one chapter",
+            "predicate": "EXPLAINS",
+            "profile": "synthetic-profile",
+            "required_units": [
+              "synthetic-unit"
+            ],
+            "processing": {
+              "state": "completed",
+              "expected": {
+                "value": 1,
+                "reason": null
+              },
+              "attempted": {
+                "value": 1,
+                "reason": null
+              },
+              "completed": {
+                "value": 1,
+                "reason": null
+              },
+              "profile": "synthetic-profile",
+              "errors": []
+            },
+            "omissions": [],
+            "review_state": "pending"
+          },
+          "evidence": [
+            {
+              "schema_version": "mind/evidence-read@1",
+              "evidence_id": "synthetic-span",
+              "source_id": "synthetic-book",
+              "source_revision": "edition-1",
+              "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "privacy_scope": "owner-private",
+              "selected_snapshot": "v10",
+              "producing_revision": "edition-1",
+              "locator": {
+                "kind": "markdown-lines",
+                "path": "synthetic.md",
+                "start_line": 1,
+                "end_line": 3
+              },
+              "content": "synthetic fixture",
+              "content_sha256": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+              "derivation": "original",
+              "verification": "unchecked",
+              "annotations": [],
+              "metadata": {
+                "schema_version": "mind-read/v1",
+                "read_id": "synthetic-read",
+                "backend_availability": "ready",
+                "source_snapshot": "v10",
+                "index_snapshot": "developer_knowledge_v10",
+                "graph_snapshot": null,
+                "privacy_scope": "owner-private",
+                "sources": [
+                  {
+                    "source_id": "synthetic-book",
+                    "source_revision": "edition-1",
+                    "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "privacy_scope": "owner-private",
+                    "producing_revision": "edition-1",
+                    "returned_text_hash": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+                    "locator": {
+                      "kind": "markdown-lines",
+                      "path": "synthetic.md",
+                      "start_line": 1,
+                      "end_line": 3
+                    }
+                  }
+                ],
+                "legacy_character_truncation": false,
+                "budget_truncation": false,
+                "omitted_count": 0,
+                "cursor": null,
+                "errors": [],
+                "budget": null
+              }
+            }
+          ],
+          "ambiguities": []
+        },
+        "metadata": {
+          "schema_version": "mind-read/v1",
+          "read_id": "synthetic-read",
+          "backend_availability": "ready",
+          "source_snapshot": "v10",
+          "index_snapshot": "developer_knowledge_v10",
+          "graph_snapshot": null,
+          "privacy_scope": "owner-private",
+          "sources": [
+            {
+              "source_id": "synthetic-book",
+              "source_revision": "edition-1",
+              "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "privacy_scope": "owner-private",
+              "producing_revision": "edition-1",
+              "returned_text_hash": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+              "locator": {
+                "kind": "markdown-lines",
+                "path": "synthetic.md",
+                "start_line": 1,
+                "end_line": 3
+              }
+            }
+          ],
+          "legacy_character_truncation": false,
+          "budget_truncation": false,
+          "omitted_count": 0,
+          "cursor": null,
+          "errors": [],
+          "budget": null
+        }
+      }
+    },
+    {
+      "name": "unavailable optional backend",
+      "value": {
+        "schema_version": "mind-tool-response/v1",
+        "data": null,
+        "metadata": {
+          "schema_version": "mind-read/v1",
+          "read_id": "synthetic-read",
+          "backend_availability": "unavailable",
+          "source_snapshot": "v10",
+          "index_snapshot": "developer_knowledge_v10",
+          "graph_snapshot": null,
+          "privacy_scope": "owner-private",
+          "sources": [],
+          "legacy_character_truncation": false,
+          "budget_truncation": false,
+          "omitted_count": 0,
+          "cursor": null,
+          "errors": [
+            {
+              "code": "backend_unavailable",
+              "message": "Synthetic backend is unavailable",
+              "retryable": true,
+              "retry_after_ms": null
+            }
+          ],
+          "budget": null
+        }
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "reject invalid shape",
+      "value": {
+        "schema_version": "mind-tool-response/v1",
+        "data": {
+          "conclusion": "supported",
+          "certificate": {
+            "snapshot": "v10",
+            "scope": "one chapter",
+            "predicate": "EXPLAINS",
+            "profile": "synthetic-profile",
+            "required_units": [
+              "synthetic-unit"
+            ],
+            "processing": {
+              "state": "completed",
+              "expected": {
+                "value": 1,
+                "reason": null
+              },
+              "attempted": {
+                "value": 1,
+                "reason": null
+              },
+              "completed": {
+                "value": 1,
+                "reason": null
+              },
+              "profile": "synthetic-profile",
+              "errors": []
+            },
+            "omissions": [],
+            "review_state": "pending"
+          },
+          "evidence": [
+            {
+              "schema_version": "mind/evidence-read@1",
+              "evidence_id": "synthetic-span",
+              "source_id": "synthetic-book",
+              "source_revision": "edition-1",
+              "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "privacy_scope": "owner-private",
+              "selected_snapshot": "v10",
+              "producing_revision": "edition-1",
+              "locator": {
+                "kind": "markdown-lines",
+                "path": "synthetic.md",
+                "start_line": 1,
+                "end_line": 3
+              },
+              "content": "synthetic fixture",
+              "content_sha256": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+              "derivation": "original",
+              "verification": "unchecked",
+              "annotations": [],
+              "metadata": {
+                "schema_version": "mind-read/v1",
+                "read_id": "synthetic-read",
+                "backend_availability": "ready",
+                "source_snapshot": "v10",
+                "index_snapshot": "developer_knowledge_v10",
+                "graph_snapshot": null,
+                "privacy_scope": "owner-private",
+                "sources": [
+                  {
+                    "source_id": "synthetic-book",
+                    "source_revision": "edition-1",
+                    "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "privacy_scope": "owner-private",
+                    "producing_revision": "edition-1",
+                    "returned_text_hash": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+                    "locator": {
+                      "kind": "markdown-lines",
+                      "path": "synthetic.md",
+                      "start_line": 1,
+                      "end_line": 3
+                    }
+                  }
+                ],
+                "legacy_character_truncation": false,
+                "budget_truncation": false,
+                "omitted_count": 0,
+                "cursor": null,
+                "errors": [],
+                "budget": null
+              }
+            }
+          ],
+          "ambiguities": []
+        },
+        "metadata": {
+          "schema_version": "mind-read/v1",
+          "read_id": "synthetic-read",
+          "backend_availability": "ready",
+          "source_snapshot": "v10",
+          "index_snapshot": "developer_knowledge_v10",
+          "graph_snapshot": null,
+          "privacy_scope": "owner-private",
+          "sources": [
+            {
+              "source_id": "synthetic-book",
+              "source_revision": "edition-1",
+              "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "privacy_scope": "owner-private",
+              "producing_revision": "edition-1",
+              "returned_text_hash": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+              "locator": {
+                "kind": "markdown-lines",
+                "path": "synthetic.md",
+                "start_line": 1,
+                "end_line": 3
+              }
+            }
+          ],
+          "legacy_character_truncation": false,
+          "budget_truncation": false,
+          "omitted_count": 0,
+          "cursor": null,
+          "errors": [],
+          "budget": null
+        },
+        "undeclared_field": "reject unknown fields"
+      }
+    },
+    {
+      "name": "false absence over failed units",
+      "value": {
+        "schema_version": "mind-tool-response/v1",
+        "data": {
+          "conclusion": "no-indexed-evidence-in-scope",
+          "certificate": {
+            "snapshot": "v10",
+            "scope": "one chapter",
+            "predicate": "EXPLAINS",
+            "profile": "synthetic-profile",
+            "required_units": [
+              "synthetic-unit"
+            ],
+            "processing": {
+              "state": "failed",
+              "expected": {
+                "value": 1,
+                "reason": null
+              },
+              "attempted": {
+                "value": 1,
+                "reason": null
+              },
+              "completed": {
+                "value": 1,
+                "reason": null
+              },
+              "profile": "synthetic-profile",
+              "errors": []
+            },
+            "omissions": [],
+            "review_state": "pending"
+          },
+          "evidence": [
+            {
+              "schema_version": "mind/evidence-read@1",
+              "evidence_id": "synthetic-span",
+              "source_id": "synthetic-book",
+              "source_revision": "edition-1",
+              "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "privacy_scope": "owner-private",
+              "selected_snapshot": "v10",
+              "producing_revision": "edition-1",
+              "locator": {
+                "kind": "markdown-lines",
+                "path": "synthetic.md",
+                "start_line": 1,
+                "end_line": 3
+              },
+              "content": "synthetic fixture",
+              "content_sha256": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+              "derivation": "original",
+              "verification": "unchecked",
+              "annotations": [],
+              "metadata": {
+                "schema_version": "mind-read/v1",
+                "read_id": "synthetic-read",
+                "backend_availability": "ready",
+                "source_snapshot": "v10",
+                "index_snapshot": "developer_knowledge_v10",
+                "graph_snapshot": null,
+                "privacy_scope": "owner-private",
+                "sources": [
+                  {
+                    "source_id": "synthetic-book",
+                    "source_revision": "edition-1",
+                    "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "privacy_scope": "owner-private",
+                    "producing_revision": "edition-1",
+                    "returned_text_hash": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+                    "locator": {
+                      "kind": "markdown-lines",
+                      "path": "synthetic.md",
+                      "start_line": 1,
+                      "end_line": 3
+                    }
+                  }
+                ],
+                "legacy_character_truncation": false,
+                "budget_truncation": false,
+                "omitted_count": 0,
+                "cursor": null,
+                "errors": [],
+                "budget": null
+              }
+            }
+          ],
+          "ambiguities": []
+        },
+        "metadata": {
+          "schema_version": "mind-read/v1",
+          "read_id": "synthetic-read",
+          "backend_availability": "ready",
+          "source_snapshot": "v10",
+          "index_snapshot": "developer_knowledge_v10",
+          "graph_snapshot": null,
+          "privacy_scope": "owner-private",
+          "sources": [
+            {
+              "source_id": "synthetic-book",
+              "source_revision": "edition-1",
+              "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "privacy_scope": "owner-private",
+              "producing_revision": "edition-1",
+              "returned_text_hash": "ab94ec319d9f7574e41c10b15b3fdfeb39cf322877ec00d5b269c15c853c7b7a",
+              "locator": {
+                "kind": "markdown-lines",
+                "path": "synthetic.md",
+                "start_line": 1,
+                "end_line": 3
+              }
+            }
+          ],
+          "legacy_character_truncation": false,
+          "budget_truncation": false,
+          "omitted_count": 0,
+          "cursor": null,
+          "errors": [],
+          "budget": null
+        }
+      }
+    }
+  ]
+}

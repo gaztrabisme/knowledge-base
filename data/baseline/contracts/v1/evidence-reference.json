@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:pi-mind:contracts:evidence-reference:1",
+  "title": "evidence-reference",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "type",
+        "id",
+        "revision",
+        "checked"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "memory_record"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "checked": {
+          "type": "boolean",
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "type",
+        "path",
+        "content_sha256",
+        "checked"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "file"
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "content_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "checked": {
+          "type": "boolean",
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "type",
+        "sha",
+        "checked"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "commit"
+        },
+        "sha": {
+          "type": "string",
+          "pattern": "^(?:[a-f0-9]{40}|[a-f0-9]{64})$"
+        },
+        "repository": {
+          "type": "string",
+          "minLength": 1
+        },
+        "checked": {
+          "type": "boolean",
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "type",
+        "url",
+        "checked"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "url"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://"
+        },
+        "checked": {
+          "type": "boolean",
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "type",
+        "session_id",
+        "checked"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "session"
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "checked": {
+          "type": "boolean",
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

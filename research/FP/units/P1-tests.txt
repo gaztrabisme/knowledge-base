@@ -1,0 +1,22 @@
+test_alias_retarget_and_point_membership_drift_fail (test_fp_baseline.BaselineFailureTests.test_alias_retarget_and_point_membership_drift_fail) ... ok
+test_changed_file_and_missing_file_fail (test_fp_baseline.BaselineFailureTests.test_changed_file_and_missing_file_fail) ... ok
+test_every_schema_has_discriminating_positive_and_negative_fixtures (test_fp_baseline.BaselineFailureTests.test_every_schema_has_discriminating_positive_and_negative_fixtures) ... ok
+test_evidence_metadata_cannot_point_at_other_source_or_text (test_fp_baseline.BaselineFailureTests.test_evidence_metadata_cannot_point_at_other_source_or_text) ... ok
+test_incomplete_scope_cannot_be_declared_absent (test_fp_baseline.BaselineFailureTests.test_incomplete_scope_cannot_be_declared_absent) ... ok
+test_legacy_signatures_and_payload_type_are_preserved (test_fp_baseline.BaselineFailureTests.test_legacy_signatures_and_payload_type_are_preserved) ... ok
+test_legacy_wrapper_operation_must_match_arguments (test_fp_baseline.BaselineFailureTests.test_legacy_wrapper_operation_must_match_arguments) ... ok
+test_missing_or_unreachable_schema_ref_fails_without_network (test_fp_baseline.BaselineFailureTests.test_missing_or_unreachable_schema_ref_fails_without_network) ... ok
+test_paths_and_symlinks_cannot_escape_artifact_root (test_fp_baseline.BaselineFailureTests.test_paths_and_symlinks_cannot_escape_artifact_root) ... ok
+test_real_evidence_bytes_cannot_change_under_same_hash (test_fp_baseline.BaselineFailureTests.test_real_evidence_bytes_cannot_change_under_same_hash) ... ok
+test_release_cannot_claim_tested_without_installation_receipt (test_fp_baseline.BaselineFailureTests.test_release_cannot_claim_tested_without_installation_receipt) ... ok
+test_release_cannot_hide_unfinished_installation_by_clearing_pending_gates (test_fp_baseline.BaselineFailureTests.test_release_cannot_hide_unfinished_installation_by_clearing_pending_gates) ... ok
+test_release_routing_model_and_component_claims_match_baseline (test_fp_baseline.BaselineFailureTests.test_release_routing_model_and_component_claims_match_baseline) ... ok
+test_remote_control_hash_changed_or_missing_fails (test_fp_baseline.BaselineFailureTests.test_remote_control_hash_changed_or_missing_fails) ... ok
+test_required_units_cannot_have_zero_processing_for_absence (test_fp_baseline.BaselineFailureTests.test_required_units_cannot_have_zero_processing_for_absence) ... ok
+test_unknown_schema_version_is_not_guessed (test_fp_baseline.BaselineFailureTests.test_unknown_schema_version_is_not_guessed) ... ok
+test_verified_installation_requires_a_receipt (test_fp_baseline.BaselineFailureTests.test_verified_installation_requires_a_receipt) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.559s
+
+OK

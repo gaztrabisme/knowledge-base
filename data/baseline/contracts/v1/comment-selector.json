@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:pi-mind:contracts:comment-selector:1",
+  "title": "comment-selector",
+  "type": "object",
+  "required": [
+    "exact",
+    "prefix",
+    "suffix",
+    "start_offset",
+    "end_offset",
+    "source_id",
+    "source_revision"
+  ],
+  "properties": {
+    "exact": {
+      "type": "string",
+      "minLength": 1
+    },
+    "prefix": {
+      "type": "string"
+    },
+    "suffix": {
+      "type": "string"
+    },
+    "start_offset": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "end_offset": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_revision": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

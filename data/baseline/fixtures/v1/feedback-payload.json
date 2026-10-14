@@ -1,0 +1,150 @@
+{
+  "valid": [
+    {
+      "name": "helpful",
+      "value": {
+        "target": {
+          "target_type": "memory_record",
+          "target_id": "lesson-1",
+          "target_revision": 1
+        },
+        "outcome": "helpful",
+        "evidence": [
+          {
+            "type": "file",
+            "path": "src/main.py",
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "checked": false
+          }
+        ],
+        "reviewer_or_check": {
+          "writer": "agent-1",
+          "writer_assurance": "configured"
+        },
+        "explanation": "The check ran from the worktree"
+      }
+    },
+    {
+      "name": "harmful",
+      "value": {
+        "target": {
+          "target_type": "memory_record",
+          "target_id": "lesson-1",
+          "target_revision": 1
+        },
+        "outcome": "harmful",
+        "evidence": [
+          {
+            "type": "file",
+            "path": "src/main.py",
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "checked": false
+          }
+        ],
+        "reviewer_or_check": {
+          "writer": "agent-1",
+          "writer_assurance": "configured"
+        },
+        "explanation": "The check ran from the worktree"
+      }
+    },
+    {
+      "name": "neutral",
+      "value": {
+        "target": {
+          "target_type": "memory_record",
+          "target_id": "lesson-1",
+          "target_revision": 1
+        },
+        "outcome": "neutral",
+        "evidence": [
+          {
+            "type": "file",
+            "path": "src/main.py",
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "checked": false
+          }
+        ],
+        "reviewer_or_check": {
+          "writer": "agent-1",
+          "writer_assurance": "configured"
+        },
+        "explanation": "The check ran from the worktree"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "feedback sets polarity",
+      "value": {
+        "target": {
+          "target_type": "memory_record",
+          "target_id": "lesson-1",
+          "target_revision": 1
+        },
+        "outcome": "helpful",
+        "evidence": [
+          {
+            "type": "file",
+            "path": "src/main.py",
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "checked": false
+          }
+        ],
+        "reviewer_or_check": {
+          "writer": "agent-1",
+          "writer_assurance": "configured"
+        },
+        "explanation": "The check ran from the worktree",
+        "polarity": "anti-pattern"
+      }
+    },
+    {
+      "name": "unsupported outcome",
+      "value": {
+        "target": {
+          "target_type": "memory_record",
+          "target_id": "lesson-1",
+          "target_revision": 1
+        },
+        "outcome": "verified",
+        "evidence": [
+          {
+            "type": "file",
+            "path": "src/main.py",
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "checked": false
+          }
+        ],
+        "reviewer_or_check": {
+          "writer": "agent-1",
+          "writer_assurance": "configured"
+        },
+        "explanation": "The check ran from the worktree"
+      }
+    },
+    {
+      "name": "missing explanation",
+      "value": {
+        "target": {
+          "target_type": "memory_record",
+          "target_id": "lesson-1",
+          "target_revision": 1
+        },
+        "outcome": "helpful",
+        "evidence": [
+          {
+            "type": "file",
+            "path": "src/main.py",
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "checked": false
+          }
+        ],
+        "reviewer_or_check": {
+          "writer": "agent-1",
+          "writer_assurance": "configured"
+        }
+      }
+    }
+  ]
+}

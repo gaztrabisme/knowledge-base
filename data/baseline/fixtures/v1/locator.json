@@ -1,0 +1,138 @@
+{
+  "valid": [
+    {
+      "name": "synthetic valid shape",
+      "value": {
+        "kind": "markdown-lines",
+        "path": "synthetic.md",
+        "start_line": 1,
+        "end_line": 3
+      }
+    },
+    {
+      "name": "pdf-page",
+      "value": {
+        "kind": "pdf-page",
+        "page": 2,
+        "page_label": "ii",
+        "width": 600,
+        "height": 800,
+        "rotation": 0,
+        "coordinate_system": "top-left-points",
+        "rectangle": [
+          10,
+          20,
+          100,
+          200
+        ]
+      }
+    },
+    {
+      "name": "epub-resource",
+      "value": {
+        "kind": "epub-resource",
+        "resource": "chapter1.xhtml",
+        "reading_order": 0,
+        "start_offset": 10,
+        "end_offset": 50
+      }
+    },
+    {
+      "name": "caption-cue",
+      "value": {
+        "kind": "caption-cue",
+        "lesson_id": "lesson-1",
+        "cue_id": "cue-1",
+        "start_seconds": 1.25,
+        "end_seconds": 4.5
+      }
+    },
+    {
+      "name": "code-lines",
+      "value": {
+        "kind": "code-lines",
+        "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "path": "src/main.py",
+        "start_line": 1,
+        "end_line": 20
+      }
+    },
+    {
+      "name": "legacy-chunk",
+      "value": {
+        "kind": "legacy-chunk",
+        "chunk_id": "old-child",
+        "parent_id": "old-parent",
+        "page_mapping": "not found"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "reject invalid shape",
+      "value": {
+        "kind": "markdown-lines",
+        "path": "synthetic.md",
+        "start_line": 1,
+        "end_line": 3,
+        "undeclared_field": "reject unknown fields"
+      }
+    },
+    {
+      "name": "reversed lines",
+      "value": {
+        "kind": "markdown-lines",
+        "path": "synthetic.md",
+        "start_line": 1,
+        "end_line": 0
+      }
+    },
+    {
+      "name": "semantic reversed range",
+      "value": {
+        "kind": "markdown-lines",
+        "path": "synthetic.md",
+        "start_line": 5,
+        "end_line": 3
+      }
+    },
+    {
+      "name": "rectangle outside physical page",
+      "value": {
+        "kind": "pdf-page",
+        "page": 2,
+        "page_label": "ii",
+        "width": 600,
+        "height": 800,
+        "rotation": 0,
+        "coordinate_system": "top-left-points",
+        "rectangle": [
+          10,
+          20,
+          700,
+          200
+        ]
+      }
+    },
+    {
+      "name": "reversed EPUB offsets",
+      "value": {
+        "kind": "epub-resource",
+        "resource": "chapter1.xhtml",
+        "reading_order": 0,
+        "start_offset": 10,
+        "end_offset": 5
+      }
+    },
+    {
+      "name": "reversed measured cue time",
+      "value": {
+        "kind": "caption-cue",
+        "lesson_id": "lesson-1",
+        "cue_id": "cue-1",
+        "start_seconds": 1.25,
+        "end_seconds": 0.5
+      }
+    }
+  ]
+}

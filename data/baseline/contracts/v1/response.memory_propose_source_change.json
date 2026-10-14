@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:response.memory_propose_source_change:1",
+  "title": "response.memory_propose_source_change",
+  "type": "object",
+  "properties": {
+    "receipt": {
+      "$ref": "urn:pi-mind:contracts:memory-write-receipt:1"
+    },
+    "metadata": {
+      "$ref": "urn:organized-mind:read-metadata:1"
+    }
+  },
+  "required": [
+    "receipt",
+    "metadata"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,435 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:request.legacy_read:1",
+  "title": "request.legacy_read",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "mind-tool-request/v1"
+    },
+    "operation": {
+      "const": "legacy_read"
+    },
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "enum": [
+            "search",
+            "search_book",
+            "read_chunk",
+            "get_chapter",
+            "list_books",
+            "grep_books",
+            "search_philosophy",
+            "list_philosophy"
+          ]
+        },
+        "arguments": {
+          "type": "object"
+        },
+        "question_budget_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cursor": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "operation",
+        "arguments",
+        "question_budget_id"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "operation": {
+                "const": "search"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "arguments": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string"
+                  },
+                  "top_k": {
+                    "type": "integer",
+                    "default": 10
+                  },
+                  "book": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "hyde_passage": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "extra_queries": {
+                    "anyOf": [
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "bm25_keywords": {
+                    "anyOf": [
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "detail": {
+                    "type": "string",
+                    "default": "brief"
+                  }
+                },
+                "required": [
+                  "query"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "operation": {
+                "const": "search_book"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "arguments": {
+                "type": "object",
+                "properties": {
+                  "book": {
+                    "type": "string"
+                  },
+                  "query": {
+                    "type": "string"
+                  },
+                  "top_k": {
+                    "type": "integer",
+                    "default": 5
+                  },
+                  "detail": {
+                    "type": "string",
+                    "default": "brief"
+                  }
+                },
+                "required": [
+                  "book",
+                  "query"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "operation": {
+                "const": "read_chunk"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "arguments": {
+                "type": "object",
+                "properties": {
+                  "chunk_id": {
+                    "type": "string"
+                  },
+                  "window": {
+                    "type": "integer",
+                    "default": 1
+                  }
+                },
+                "required": [
+                  "chunk_id"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "operation": {
+                "const": "get_chapter"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "arguments": {
+                "type": "object",
+                "properties": {
+                  "book": {
+                    "type": "string"
+                  },
+                  "chapter": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "integer"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "book",
+                  "chapter"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "operation": {
+                "const": "list_books"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "arguments": {
+                "type": "object",
+                "properties": {
+                  "book": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "operation": {
+                "const": "grep_books"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "arguments": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "type": "string"
+                  },
+                  "book": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "max_results": {
+                    "type": "integer",
+                    "default": 20
+                  }
+                },
+                "required": [
+                  "pattern"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "operation": {
+                "const": "search_philosophy"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "arguments": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string"
+                  },
+                  "top_k": {
+                    "type": "integer",
+                    "default": 5
+                  },
+                  "language": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "work": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  },
+                  "parallel": {
+                    "type": "boolean",
+                    "default": true
+                  }
+                },
+                "required": [
+                  "query"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "operation": {
+                "const": "list_philosophy"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "arguments": {
+                "type": "object",
+                "properties": {
+                  "work": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "owner_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "privacy_scope": {
+          "enum": [
+            "owner-private",
+            "project-private"
+          ]
+        },
+        "question_budget_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "owner_scope",
+        "project_scope",
+        "privacy_scope"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "operation",
+    "arguments",
+    "context"
+  ],
+  "additionalProperties": false
+}

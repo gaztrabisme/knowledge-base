@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:shared-memory-record:1",
+  "title": "shared-memory-record",
+  "anyOf": [
+    {
+      "$ref": "urn:pi-mind:contracts:memory-record:1"
+    },
+    {
+      "$ref": "urn:organized-mind:annotation-record:1"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:source-evidence-reference:1",
+  "title": "source-evidence-reference",
+  "type": "object",
+  "properties": {
+    "type": {
+      "const": "source_span"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "privacy_scope": {
+      "enum": [
+        "owner-private",
+        "project-private"
+      ]
+    },
+    "locator": {
+      "$ref": "urn:organized-mind:locator:1"
+    },
+    "verification": {
+      "enum": [
+        "exact",
+        "fuzzy",
+        "failed",
+        "unchecked"
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "id",
+    "source_id",
+    "source_revision",
+    "source_hash",
+    "privacy_scope",
+    "locator",
+    "verification"
+  ],
+  "additionalProperties": false
+}

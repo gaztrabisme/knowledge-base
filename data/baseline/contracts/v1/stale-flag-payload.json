@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:pi-mind:contracts:stale-flag-payload:1",
+  "title": "stale-flag-payload",
+  "type": "object",
+  "required": [
+    "target",
+    "reason",
+    "detected_at",
+    "observed_version",
+    "resolution",
+    "resolved_at"
+  ],
+  "properties": {
+    "target": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "target_type",
+            "target_id",
+            "target_revision"
+          ],
+          "properties": {
+            "target_type": {
+              "type": "string",
+              "const": "memory_record"
+            },
+            "target_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "target_revision": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "target_type",
+            "target_id",
+            "target_revision"
+          ],
+          "properties": {
+            "target_type": {
+              "type": "string",
+              "const": "source"
+            },
+            "target_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "target_revision": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "detected_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "observed_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+    },
+    "resolution": {
+      "type": "null"
+    },
+    "resolved_at": {
+      "type": "null"
+    }
+  },
+  "additionalProperties": false
+}

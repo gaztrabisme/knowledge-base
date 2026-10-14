@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:response.figure_read:1",
+  "title": "response.figure_read",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "mind-tool-response/v1"
+    },
+    "data": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "figure_occurrence_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_revision": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_hash": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "privacy_scope": {
+              "enum": [
+                "owner-private",
+                "project-private"
+              ]
+            },
+            "locator": {
+              "$ref": "urn:organized-mind:locator:1"
+            },
+            "asset_path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "asset_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "caption": {
+              "type": "string"
+            },
+            "context": {
+              "type": "string"
+            },
+            "requested_time_seconds": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "actual_time_seconds": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "reason": {
+                      "const": null
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "reason"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "const": null
+                    },
+                    "reason": {
+                      "const": "not found"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "reason"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "figure_occurrence_id",
+            "source_id",
+            "source_revision",
+            "source_hash",
+            "privacy_scope",
+            "locator",
+            "asset_path",
+            "asset_sha256",
+            "caption",
+            "context",
+            "requested_time_seconds",
+            "actual_time_seconds"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "metadata": {
+      "$ref": "urn:organized-mind:read-metadata:1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "data",
+    "metadata"
+  ],
+  "additionalProperties": false
+}

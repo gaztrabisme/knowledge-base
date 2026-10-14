@@ -1,0 +1,120 @@
+{
+  "valid": [
+    {
+      "name": "synthetic valid shape",
+      "value": {
+        "schema_version": "mind-tool-request/v1",
+        "operation": "memory_create_lesson",
+        "arguments": {
+          "request_key": "synthetic-request",
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "assertion_type": "observation",
+          "payload": {
+            "claim": "Checks must use the task worktree",
+            "context": "Parallel work",
+            "trigger": "Before checking a patch",
+            "recommended_action": "Run the checks from the canonical worktree",
+            "limits": "This repository",
+            "observed_outcome": "not found",
+            "polarity": "rule",
+            "support": "not found"
+          }
+        },
+        "context": {
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "privacy_scope": "owner-private"
+        }
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "reject invalid shape",
+      "value": {
+        "schema_version": "mind-tool-request/v1",
+        "operation": "memory_create_lesson",
+        "arguments": {
+          "request_key": "synthetic-request",
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "assertion_type": "observation",
+          "payload": {
+            "claim": "Checks must use the task worktree",
+            "context": "Parallel work",
+            "trigger": "Before checking a patch",
+            "recommended_action": "Run the checks from the canonical worktree",
+            "limits": "This repository",
+            "observed_outcome": "not found",
+            "polarity": "rule",
+            "support": "not found"
+          }
+        },
+        "context": {
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "privacy_scope": "owner-private"
+        },
+        "undeclared_field": "reject unknown fields"
+      }
+    },
+    {
+      "name": "wrong operation",
+      "value": {
+        "schema_version": "mind-tool-request/v1",
+        "operation": "nonexistent_tool",
+        "arguments": {
+          "request_key": "synthetic-request",
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "assertion_type": "observation",
+          "payload": {
+            "claim": "Checks must use the task worktree",
+            "context": "Parallel work",
+            "trigger": "Before checking a patch",
+            "recommended_action": "Run the checks from the canonical worktree",
+            "limits": "This repository",
+            "observed_outcome": "not found",
+            "polarity": "rule",
+            "support": "not found"
+          }
+        },
+        "context": {
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "privacy_scope": "owner-private"
+        }
+      }
+    },
+    {
+      "name": "unknown argument",
+      "value": {
+        "schema_version": "mind-tool-request/v1",
+        "operation": "memory_create_lesson",
+        "arguments": {
+          "request_key": "synthetic-request",
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "assertion_type": "observation",
+          "payload": {
+            "claim": "Checks must use the task worktree",
+            "context": "Parallel work",
+            "trigger": "Before checking a patch",
+            "recommended_action": "Run the checks from the canonical worktree",
+            "limits": "This repository",
+            "observed_outcome": "not found",
+            "polarity": "rule",
+            "support": "not found"
+          },
+          "unknown": true
+        },
+        "context": {
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "privacy_scope": "owner-private"
+        }
+      }
+    }
+  ]
+}

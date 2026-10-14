@@ -1,0 +1,43 @@
+{
+  "valid": [
+    {
+      "name": "writer",
+      "value": {
+        "writer": "agent-1",
+        "writer_assurance": "configured"
+      }
+    },
+    {
+      "name": "named check",
+      "value": {
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "check_name": "acceptance"
+      }
+    },
+    {
+      "name": "future authenticated writer",
+      "value": {
+        "writer": "agent-1",
+        "writer_assurance": "authenticated"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "unrecognized assurance",
+      "value": {
+        "writer": "agent-1",
+        "writer_assurance": "trusted"
+      }
+    },
+    {
+      "name": "empty check name",
+      "value": {
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "check_name": ""
+      }
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "schema_version": "mind/contract-disagreements@1",
+  "records": [
+    {
+      "id": "D01",
+      "area": "canonical-placement",
+      "design": "Design proposes agent-workflow/contracts and integration.",
+      "current_pi_or_kb": "Gary confirmed pi-mind harness repo; KB/archive remain separate.",
+      "draft": "Stage in KB only for review; pi-mind canonical copy and common installer are future work.",
+      "status": "pending Gary/coordinator contract review"
+    },
+    {
+      "id": "D02",
+      "area": "authentication",
+      "design": "Authenticated writer, server-enforced identity, owner review credentials.",
+      "current_pi_or_kb": "W1 server instructions explicitly say configured writer with no authentication or authority-changing review tools; writer_assurance=configured.",
+      "draft": "Keep exact W1 assurance enum; joined dispatch context is server-bound, and authentication/owner-only review requires service tests.",
+      "status": "pending Gary/coordinator contract review"
+    },
+    {
+      "id": "D03",
+      "area": "record-kinds-and-authority",
+      "design": "Lessons/comments/flags/tags/links/feedback/reviews, authority separate from lifecycle.",
+      "current_pi_or_kb": "W1 MemoryRecord supports lesson/stale_flag/feedback only, with no separate authority field.",
+      "draft": "Preserve W1. Proposed annotation-record has new kinds, authority=annotation, new payload schemas; shared-memory-record unions both.",
+      "status": "pending Gary/coordinator contract review"
+    },
+    {
+      "id": "D04",
+      "area": "evidence-shape-and-support",
+      "design": "Supporting stable evidence identities, exact source revision and locator, reviewable support.",
+      "current_pi_or_kb": "W1 references are unchecked memory/file/commit/url/session values; lesson support is always not found.",
+      "draft": "Preserve W1. New source-evidence-reference and contribution-evidence-reference add source spans for new annotations; verified lesson support remains a future version/service gate.",
+      "status": "pending Gary/coordinator contract review"
+    },
+    {
+      "id": "D05",
+      "area": "source-targets",
+      "design": "Annotations and flags can target exact source revisions.",
+      "current_pi_or_kb": "W1 target-reference schema permits source, but service.target rejects it until catalog IDs exist.",
+      "draft": "Schema acceptance is not a current capability; source target dispatch waits for P2/P4.",
+      "status": "pending Gary/coordinator contract review"
+    },
+    {
+      "id": "D06",
+      "area": "stale-closure",
+      "design": "Recorded recheck closes technical flags; Gary closes authoritative guidance flags.",
+      "current_pi_or_kb": "W1 stale-flag payload resolution/resolved_at are null and all flags stay open.",
+      "draft": "New mind/stale-flag@2 branch in annotation-record permits recorded closure; paired fields are validated. W1 remains open-only.",
+      "status": "pending Gary/coordinator contract review"
+    },
+    {
+      "id": "D07",
+      "area": "memory_search.arguments",
+      "design": "Status filters/history/cursor.",
+      "current_pi_or_kb": "W1 query,statuses,limit,offset,optional owner_scope/project_scope; no history/cursor.",
+      "draft": "Keep W1 fields, propose optional history/cursor; reject simultaneous cursor and offset. Retired/expired history behavior requires an adapter and service tests.",
+      "status": "pending Gary/coordinator contract review"
+    },
+    {
+      "id": "D08",
+      "area": "memory_read.arguments",
+      "design": "Read by record ID/revision/history or receipt key during recovery.",
+      "current_pi_or_kb": "W1 accepts optional id,revision,history,request_key and scopes, including an empty argument object structurally.",
+      "draft": "Keep every field; joined contract requires id or request_key. Define response records/receipt envelope explicitly rather than implying W1 emits it.",
+      "status": "pending Gary/coordinator contract review"
+    },
+    {
+      "id": "D09",
+      "area": "mind_status.arguments",
+      "design": "Optional component selector; release/backend/gate/pending-job/sync state.",
+      "current_pi_or_kb": "W1 accepts only an empty object and returns database/scope/projection state.",
+      "draft": "Proposed component enum and joined response schema; W1 remains empty-input until an explicit adapter is implemented.",
+      "status": "pending Gary/coordinator contract review"
+    },
+    {
+      "id": "D10",
+      "area": "memory-read-response",
+      "design": "Joined structured responses carry source/index/graph snapshot, privacy, availability, pagination and errors.",
+      "current_pi_or_kb": "W1 pi-mind/memory-response@1 uses backend_availability object and record-specific fields with no source snapshots.",
+      "draft": "Propose mind-tool-response/v1 metadata plus data; preserve raw W1 record/write-receipt schemas and adapt read envelopes explicitly.",
+      "status": "pending Gary/coordinator contract review"
+    },
+    {
+      "id": "D11",
+      "area": "C101-example-field-names",
+      "design": "Illustration uses omitted_source_spans, graph_snapshot string unavailable, Markdown locator start/end.",
+      "current_pi_or_kb": "W1 receipts use omitted_count; pi selectors use explicit start_offset/end_offset.",
+      "draft": "Propose omitted_count, null absent snapshots, start_line/end_line for Markdown. These differences are presented for approval; _meta.mind is a metadata record beside legacy payload.",
+      "status": "pending Gary/coordinator contract review"
+    },
+    {
+      "id": "D12",
+      "area": "legacy-output-validation",
+      "design": "Keep existing string/list/dict payloads and provenance for every returned span.",
+      "current_pi_or_kb": "Existing KB payloads have no source-version/locator sidecars.",
+      "draft": "Draft schemas preserve opaque legacy payload objects and top-level types. Metadata is separately validated; per-hit locator correspondence, clipping and byte equality require nonempty gateway integration tests.",
+      "status": "pending Gary/coordinator contract review"
+    },
+    {
+      "id": "D13",
+      "area": "write-dispatch",
+      "design": "New requests and writes return structured receipts and allow one classified temporary same-key replay, receipt lookup first.",
+      "current_pi_or_kb": "W1 write tools return the raw pi-mind receipt; there are no joined schemas/context envelopes.",
+      "draft": "Reuse receipt byte-for-byte inside a joined receipt+metadata response; one replay is service policy, not implied by a JSON boolean. No new source writes are authorized.",
+      "status": "pending Gary/coordinator contract review"
+    }
+  ]
+}

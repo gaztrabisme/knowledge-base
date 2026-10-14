@@ -1,0 +1,337 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:response.graph_who_tried:1",
+  "title": "response.graph_who_tried",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "mind-tool-response/v1"
+    },
+    "data": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "relationships": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "revision": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "subject": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "predicate": {
+                    "enum": [
+                      "CONTAINS",
+                      "IMPORTS",
+                      "DEFINES",
+                      "EXPLAINS",
+                      "APPLIED_TO",
+                      "USES",
+                      "ASSUMES",
+                      "COMPARES_WITH",
+                      "CONTRADICTS",
+                      "RECOMMENDS_AGAINST",
+                      "PREREQUISITE_OF",
+                      "IMPLEMENTS"
+                    ]
+                  },
+                  "object": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "conditions": {
+                    "type": "string"
+                  },
+                  "negated": {
+                    "type": "boolean"
+                  },
+                  "profile": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "verification": {
+                    "enum": [
+                      "exact",
+                      "fuzzy",
+                      "failed",
+                      "unchecked"
+                    ]
+                  },
+                  "evidence": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "urn:organized-mind:evidence-read:1"
+                    },
+                    "minItems": 1
+                  },
+                  "applicability": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "id",
+                  "revision",
+                  "subject",
+                  "predicate",
+                  "object",
+                  "conditions",
+                  "negated",
+                  "profile",
+                  "verification",
+                  "evidence",
+                  "applicability"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "certificate": {
+              "type": "object",
+              "properties": {
+                "snapshot": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "scope": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "predicate": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "profile": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "required_units": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                },
+                "processing": {
+                  "type": "object",
+                  "properties": {
+                    "state": {
+                      "enum": [
+                        "missing",
+                        "locked",
+                        "failed",
+                        "skipped",
+                        "truncated",
+                        "pending",
+                        "valid-empty",
+                        "completed"
+                      ]
+                    },
+                    "expected": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            "reason": {
+                              "const": null
+                            }
+                          },
+                          "required": [
+                            "value",
+                            "reason"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "const": null
+                            },
+                            "reason": {
+                              "const": "not found"
+                            }
+                          },
+                          "required": [
+                            "value",
+                            "reason"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "attempted": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            "reason": {
+                              "const": null
+                            }
+                          },
+                          "required": [
+                            "value",
+                            "reason"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "const": null
+                            },
+                            "reason": {
+                              "const": "not found"
+                            }
+                          },
+                          "required": [
+                            "value",
+                            "reason"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "completed": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            "reason": {
+                              "const": null
+                            }
+                          },
+                          "required": [
+                            "value",
+                            "reason"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "const": null
+                            },
+                            "reason": {
+                              "const": "not found"
+                            }
+                          },
+                          "required": [
+                            "value",
+                            "reason"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "profile": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  },
+                  "required": [
+                    "state",
+                    "expected",
+                    "attempted",
+                    "completed",
+                    "profile",
+                    "errors"
+                  ],
+                  "additionalProperties": false
+                },
+                "omissions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "review_state": {
+                  "enum": [
+                    "pending",
+                    "checked"
+                  ]
+                }
+              },
+              "required": [
+                "snapshot",
+                "scope",
+                "predicate",
+                "profile",
+                "required_units",
+                "processing",
+                "omissions",
+                "review_state"
+              ],
+              "additionalProperties": false
+            },
+            "absence_state": {
+              "enum": [
+                "supported",
+                "unknown",
+                "no-indexed-evidence-in-scope"
+              ]
+            }
+          },
+          "required": [
+            "relationships",
+            "certificate",
+            "absence_state"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "metadata": {
+      "$ref": "urn:organized-mind:read-metadata:1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "data",
+    "metadata"
+  ],
+  "additionalProperties": false
+}

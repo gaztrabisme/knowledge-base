@@ -1,0 +1,100 @@
+{
+  "valid": [
+    {
+      "name": "memory_record",
+      "value": {
+        "type": "memory_record",
+        "id": "lesson-0",
+        "revision": 1,
+        "checked": false
+      }
+    },
+    {
+      "name": "file",
+      "value": {
+        "type": "file",
+        "path": "src/main.py",
+        "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "checked": false
+      }
+    },
+    {
+      "name": "commit",
+      "value": {
+        "type": "commit",
+        "sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "repository": "project-1",
+        "checked": false
+      }
+    },
+    {
+      "name": "url",
+      "value": {
+        "type": "url",
+        "url": "https://example.org/design",
+        "checked": false
+      }
+    },
+    {
+      "name": "session",
+      "value": {
+        "type": "session",
+        "session_id": "session-1",
+        "checked": false
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "checked evidence",
+      "value": {
+        "type": "memory_record",
+        "id": "lesson-0",
+        "revision": 1,
+        "checked": true
+      }
+    },
+    {
+      "name": "file missing content hash",
+      "value": {
+        "type": "file",
+        "path": "src/main.py",
+        "checked": false
+      }
+    },
+    {
+      "name": "file bad content hash",
+      "value": {
+        "type": "file",
+        "path": "src/main.py",
+        "content_sha256": "short",
+        "checked": false
+      }
+    },
+    {
+      "name": "unversioned memory reference",
+      "value": {
+        "type": "memory_record",
+        "id": "lesson-0",
+        "checked": false
+      }
+    },
+    {
+      "name": "bad url",
+      "value": {
+        "type": "url",
+        "url": "not a URL",
+        "checked": false
+      }
+    },
+    {
+      "name": "unknown type",
+      "value": {
+        "type": "text",
+        "id": "lesson-0",
+        "revision": 1,
+        "checked": false
+      }
+    }
+  ]
+}

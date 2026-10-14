@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:contribution-evidence-reference:1",
+  "title": "contribution-evidence-reference",
+  "anyOf": [
+    {
+      "$ref": "urn:pi-mind:contracts:evidence-reference:1"
+    },
+    {
+      "$ref": "urn:organized-mind:source-evidence-reference:1"
+    }
+  ]
+}

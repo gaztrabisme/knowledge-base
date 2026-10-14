@@ -1,0 +1,357 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:request.memory_flag_stale:1",
+  "title": "request.memory_flag_stale",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "mind-tool-request/v1"
+    },
+    "operation": {
+      "const": "memory_flag_stale"
+    },
+    "arguments": {
+      "type": "object",
+      "required": [
+        "request_key",
+        "owner_scope",
+        "project_scope",
+        "assertion_type",
+        "target",
+        "reason"
+      ],
+      "properties": {
+        "request_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "assertion_type": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "observation"
+            },
+            {
+              "type": "string",
+              "const": "inference"
+            },
+            {
+              "type": "string",
+              "const": "user_statement"
+            }
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "object",
+                "required": [
+                  "type",
+                  "id",
+                  "revision",
+                  "checked"
+                ],
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "memory_record"
+                  },
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "revision": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "checked": {
+                    "type": "boolean",
+                    "const": false
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "required": [
+                  "type",
+                  "path",
+                  "content_sha256",
+                  "checked"
+                ],
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "file"
+                  },
+                  "path": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "content_sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "checked": {
+                    "type": "boolean",
+                    "const": false
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "required": [
+                  "type",
+                  "sha",
+                  "checked"
+                ],
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "commit"
+                  },
+                  "sha": {
+                    "type": "string",
+                    "pattern": "^(?:[a-f0-9]{40}|[a-f0-9]{64})$"
+                  },
+                  "repository": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "checked": {
+                    "type": "boolean",
+                    "const": false
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "required": [
+                  "type",
+                  "url",
+                  "checked"
+                ],
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "url"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "pattern": "^https?://"
+                  },
+                  "checked": {
+                    "type": "boolean",
+                    "const": false
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "required": [
+                  "type",
+                  "session_id",
+                  "checked"
+                ],
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "session"
+                  },
+                  "session_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "checked": {
+                    "type": "boolean",
+                    "const": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "origin": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claimed_harness": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expires_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "review_due_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "supersedes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "contradicts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "related": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "target": {
+          "anyOf": [
+            {
+              "type": "object",
+              "required": [
+                "target_type",
+                "target_id",
+                "target_revision"
+              ],
+              "properties": {
+                "target_type": {
+                  "type": "string",
+                  "const": "memory_record"
+                },
+                "target_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "target_revision": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "target_type",
+                "target_id",
+                "target_revision"
+              ],
+              "properties": {
+                "target_type": {
+                  "type": "string",
+                  "const": "source"
+                },
+                "target_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "target_revision": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "detected_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "observed_version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "owner_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "privacy_scope": {
+          "enum": [
+            "owner-private",
+            "project-private"
+          ]
+        },
+        "question_budget_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "owner_scope",
+        "project_scope",
+        "privacy_scope"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "operation",
+    "arguments",
+    "context"
+  ],
+  "additionalProperties": false
+}

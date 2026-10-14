@@ -1,0 +1,2 @@
+# Checker/validator only: no model packages needed.
+jsonschema==4.23.0

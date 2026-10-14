@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:pi-mind:contracts:memory-provenance:1",
+  "title": "memory-provenance",
+  "type": "object",
+  "required": [
+    "origin",
+    "writer",
+    "writer_assurance",
+    "claimed_harness",
+    "model",
+    "session_id",
+    "run_id",
+    "created_at"
+  ],
+  "properties": {
+    "origin": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+    },
+    "writer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "writer_assurance": {
+      "anyOf": [
+        {
+          "type": "string",
+          "const": "configured"
+        },
+        {
+          "type": "string",
+          "const": "authenticated"
+        }
+      ]
+    },
+    "claimed_harness": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+    },
+    "model": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}

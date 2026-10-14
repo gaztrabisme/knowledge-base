@@ -1,0 +1,75 @@
+{
+  "valid": [
+    {
+      "name": "own lesson revision",
+      "value": {
+        "schema_version": "pi-mind/lesson-revision-request@1",
+        "id": "lesson-1",
+        "expected_revision": 1,
+        "request_key": "request-2",
+        "owner_scope": "owner",
+        "project_scope": "pi-mind",
+        "assertion_type": "inference",
+        "evidence": [],
+        "payload": {
+          "claim": "Checks must use the task worktree",
+          "context": "Parallel work",
+          "trigger": "Before checking a patch",
+          "recommended_action": "Run the checks from the canonical worktree",
+          "limits": "This repository",
+          "observed_outcome": "not found",
+          "polarity": "rule",
+          "support": "not found"
+        }
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "missing expected revision",
+      "value": {
+        "schema_version": "pi-mind/lesson-revision-request@1",
+        "id": "lesson-1",
+        "request_key": "request-2",
+        "owner_scope": "owner",
+        "project_scope": "pi-mind",
+        "assertion_type": "inference",
+        "evidence": [],
+        "payload": {
+          "claim": "Checks must use the task worktree",
+          "context": "Parallel work",
+          "trigger": "Before checking a patch",
+          "recommended_action": "Run the checks from the canonical worktree",
+          "limits": "This repository",
+          "observed_outcome": "not found",
+          "polarity": "rule",
+          "support": "not found"
+        }
+      }
+    },
+    {
+      "name": "forged writer input",
+      "value": {
+        "schema_version": "pi-mind/lesson-revision-request@1",
+        "id": "lesson-1",
+        "expected_revision": 1,
+        "request_key": "request-2",
+        "owner_scope": "owner",
+        "project_scope": "pi-mind",
+        "assertion_type": "inference",
+        "evidence": [],
+        "payload": {
+          "claim": "Checks must use the task worktree",
+          "context": "Parallel work",
+          "trigger": "Before checking a patch",
+          "recommended_action": "Run the checks from the canonical worktree",
+          "limits": "This repository",
+          "observed_outcome": "not found",
+          "polarity": "rule",
+          "support": "not found"
+        },
+        "writer": "another-agent"
+      }
+    }
+  ]
+}

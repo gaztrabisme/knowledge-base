@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:pi-mind:contracts:reviewer-or-check:1",
+  "title": "reviewer-or-check",
+  "type": "object",
+  "required": [
+    "writer",
+    "writer_assurance"
+  ],
+  "properties": {
+    "writer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "writer_assurance": {
+      "anyOf": [
+        {
+          "type": "string",
+          "const": "configured"
+        },
+        {
+          "type": "string",
+          "const": "authenticated"
+        }
+      ]
+    },
+    "check_name": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

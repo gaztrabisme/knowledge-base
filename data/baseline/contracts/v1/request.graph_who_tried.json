@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:request.graph_who_tried:1",
+  "title": "request.graph_who_tried",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "mind-tool-request/v1"
+    },
+    "operation": {
+      "const": "graph_who_tried"
+    },
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "method_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "problem_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "predicate": {
+          "enum": [
+            "CONTAINS",
+            "IMPORTS",
+            "DEFINES",
+            "EXPLAINS",
+            "APPLIED_TO",
+            "USES",
+            "ASSUMES",
+            "COMPARES_WITH",
+            "CONTRADICTS",
+            "RECOMMENDS_AGAINST",
+            "PREREQUISITE_OF",
+            "IMPLEMENTS"
+          ]
+        },
+        "direction": {
+          "enum": [
+            "in",
+            "out",
+            "both"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "method_ids",
+        "problem_ids",
+        "predicate",
+        "direction",
+        "scope"
+      ],
+      "additionalProperties": false
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "owner_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "privacy_scope": {
+          "enum": [
+            "owner-private",
+            "project-private"
+          ]
+        },
+        "question_budget_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "owner_scope",
+        "project_scope",
+        "privacy_scope"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "operation",
+    "arguments",
+    "context"
+  ],
+  "additionalProperties": false
+}

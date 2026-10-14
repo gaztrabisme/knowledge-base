@@ -1,0 +1,285 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:response.legacy_read:1",
+  "title": "response.legacy_read",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "const": "search"
+        },
+        "read_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legacy_output": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "metadata": {
+          "$ref": "urn:organized-mind:read-metadata:1"
+        },
+        "annotations": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:organized-mind:shared-memory-record:1"
+          }
+        }
+      },
+      "required": [
+        "operation",
+        "read_id",
+        "legacy_output",
+        "metadata",
+        "annotations"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "const": "search_book"
+        },
+        "read_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legacy_output": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "metadata": {
+          "$ref": "urn:organized-mind:read-metadata:1"
+        },
+        "annotations": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:organized-mind:shared-memory-record:1"
+          }
+        }
+      },
+      "required": [
+        "operation",
+        "read_id",
+        "legacy_output",
+        "metadata",
+        "annotations"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "const": "read_chunk"
+        },
+        "read_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legacy_output": {
+          "type": "object"
+        },
+        "metadata": {
+          "$ref": "urn:organized-mind:read-metadata:1"
+        },
+        "annotations": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:organized-mind:shared-memory-record:1"
+          }
+        }
+      },
+      "required": [
+        "operation",
+        "read_id",
+        "legacy_output",
+        "metadata",
+        "annotations"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "const": "get_chapter"
+        },
+        "read_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legacy_output": {
+          "type": "string"
+        },
+        "metadata": {
+          "$ref": "urn:organized-mind:read-metadata:1"
+        },
+        "annotations": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:organized-mind:shared-memory-record:1"
+          }
+        }
+      },
+      "required": [
+        "operation",
+        "read_id",
+        "legacy_output",
+        "metadata",
+        "annotations"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "const": "list_books"
+        },
+        "read_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legacy_output": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            {
+              "type": "object"
+            }
+          ]
+        },
+        "metadata": {
+          "$ref": "urn:organized-mind:read-metadata:1"
+        },
+        "annotations": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:organized-mind:shared-memory-record:1"
+          }
+        }
+      },
+      "required": [
+        "operation",
+        "read_id",
+        "legacy_output",
+        "metadata",
+        "annotations"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "const": "grep_books"
+        },
+        "read_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legacy_output": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "metadata": {
+          "$ref": "urn:organized-mind:read-metadata:1"
+        },
+        "annotations": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:organized-mind:shared-memory-record:1"
+          }
+        }
+      },
+      "required": [
+        "operation",
+        "read_id",
+        "legacy_output",
+        "metadata",
+        "annotations"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "const": "search_philosophy"
+        },
+        "read_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legacy_output": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "metadata": {
+          "$ref": "urn:organized-mind:read-metadata:1"
+        },
+        "annotations": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:organized-mind:shared-memory-record:1"
+          }
+        }
+      },
+      "required": [
+        "operation",
+        "read_id",
+        "legacy_output",
+        "metadata",
+        "annotations"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "const": "list_philosophy"
+        },
+        "read_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legacy_output": {
+          "type": "object"
+        },
+        "metadata": {
+          "$ref": "urn:organized-mind:read-metadata:1"
+        },
+        "annotations": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:organized-mind:shared-memory-record:1"
+          }
+        }
+      },
+      "required": [
+        "operation",
+        "read_id",
+        "legacy_output",
+        "metadata",
+        "annotations"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

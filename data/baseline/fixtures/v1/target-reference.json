@@ -1,0 +1,46 @@
+{
+  "valid": [
+    {
+      "name": "memory revision",
+      "value": {
+        "target_type": "memory_record",
+        "target_id": "lesson-1",
+        "target_revision": 1
+      }
+    },
+    {
+      "name": "future source revision",
+      "value": {
+        "target_type": "source",
+        "target_id": "source-1",
+        "target_revision": "edition-2026"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "zero revision",
+      "value": {
+        "target_type": "memory_record",
+        "target_id": "lesson-1",
+        "target_revision": 0
+      }
+    },
+    {
+      "name": "untyped target",
+      "value": {
+        "target_type": "lesson",
+        "target_id": "lesson-1",
+        "target_revision": 1
+      }
+    },
+    {
+      "name": "integer source revision",
+      "value": {
+        "target_type": "source",
+        "target_id": "source-1",
+        "target_revision": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:locator:1",
+  "title": "locator",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "markdown-lines"
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start_line": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "end_line": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "kind",
+        "path",
+        "start_line",
+        "end_line"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "pdf-page"
+        },
+        "page": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "page_label": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "width": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "height": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "rotation": {
+          "enum": [
+            0,
+            90,
+            180,
+            270
+          ]
+        },
+        "coordinate_system": {
+          "const": "top-left-points"
+        },
+        "rectangle": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 4,
+              "maxItems": 4
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "page",
+        "page_label",
+        "width",
+        "height",
+        "rotation",
+        "coordinate_system",
+        "rectangle"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "epub-resource"
+        },
+        "resource": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reading_order": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "start_offset": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end_offset": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "kind",
+        "resource",
+        "reading_order",
+        "start_offset",
+        "end_offset"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "caption-cue"
+        },
+        "lesson_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cue_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "end_seconds": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "kind",
+        "lesson_id",
+        "cue_id",
+        "start_seconds",
+        "end_seconds"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "code-lines"
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^(?:[a-f0-9]{40}|[a-f0-9]{64})$"
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start_line": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "end_line": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "kind",
+        "commit",
+        "path",
+        "start_line",
+        "end_line"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "legacy-chunk"
+        },
+        "chunk_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parent_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "page_mapping": {
+          "const": "not found"
+        }
+      },
+      "required": [
+        "kind",
+        "chunk_id",
+        "parent_id",
+        "page_mapping"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

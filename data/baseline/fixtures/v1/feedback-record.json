@@ -1,0 +1,240 @@
+{
+  "valid": [
+    {
+      "name": "helpful feedback",
+      "value": {
+        "schema_version": "pi-mind/memory-record@1",
+        "id": "feedback-1",
+        "revision": 1,
+        "owner_scope": "owner",
+        "project_scope": "pi-mind",
+        "origin": "mcp",
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "claimed_harness": "not found",
+        "model": "not found",
+        "session_id": "not found",
+        "run_id": "not found",
+        "created_at": "2026-10-13T08:00:00Z",
+        "assertion_type": "observation",
+        "status": "candidate",
+        "expires_at": null,
+        "review_due_at": null,
+        "last_reviewed_at": null,
+        "last_supported_at": null,
+        "supersedes": [],
+        "contradicts": [],
+        "related": [],
+        "evidence": [
+          {
+            "type": "file",
+            "path": "src/main.py",
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "checked": false
+          }
+        ],
+        "kind": "feedback",
+        "payload_schema": "mind/feedback@1",
+        "payload": {
+          "target": {
+            "target_type": "memory_record",
+            "target_id": "lesson-1",
+            "target_revision": 1
+          },
+          "outcome": "helpful",
+          "evidence": [
+            {
+              "type": "file",
+              "path": "src/main.py",
+              "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "checked": false
+            }
+          ],
+          "reviewer_or_check": {
+            "writer": "agent-1",
+            "writer_assurance": "configured"
+          },
+          "explanation": "The check ran from the worktree"
+        }
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "feedback tries to set polarity",
+      "value": {
+        "schema_version": "pi-mind/memory-record@1",
+        "id": "feedback-1",
+        "revision": 1,
+        "owner_scope": "owner",
+        "project_scope": "pi-mind",
+        "origin": "mcp",
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "claimed_harness": "not found",
+        "model": "not found",
+        "session_id": "not found",
+        "run_id": "not found",
+        "created_at": "2026-10-13T08:00:00Z",
+        "assertion_type": "observation",
+        "status": "candidate",
+        "expires_at": null,
+        "review_due_at": null,
+        "last_reviewed_at": null,
+        "last_supported_at": null,
+        "supersedes": [],
+        "contradicts": [],
+        "related": [],
+        "evidence": [
+          {
+            "type": "file",
+            "path": "src/main.py",
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "checked": false
+          }
+        ],
+        "kind": "feedback",
+        "payload_schema": "mind/feedback@1",
+        "payload": {
+          "target": {
+            "target_type": "memory_record",
+            "target_id": "lesson-1",
+            "target_revision": 1
+          },
+          "outcome": "helpful",
+          "evidence": [
+            {
+              "type": "file",
+              "path": "src/main.py",
+              "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "checked": false
+            }
+          ],
+          "reviewer_or_check": {
+            "writer": "agent-1",
+            "writer_assurance": "configured"
+          },
+          "explanation": "The check ran from the worktree",
+          "polarity": "anti-pattern"
+        }
+      }
+    },
+    {
+      "name": "bad nested assurance",
+      "value": {
+        "schema_version": "pi-mind/memory-record@1",
+        "id": "feedback-1",
+        "revision": 1,
+        "owner_scope": "owner",
+        "project_scope": "pi-mind",
+        "origin": "mcp",
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "claimed_harness": "not found",
+        "model": "not found",
+        "session_id": "not found",
+        "run_id": "not found",
+        "created_at": "2026-10-13T08:00:00Z",
+        "assertion_type": "observation",
+        "status": "candidate",
+        "expires_at": null,
+        "review_due_at": null,
+        "last_reviewed_at": null,
+        "last_supported_at": null,
+        "supersedes": [],
+        "contradicts": [],
+        "related": [],
+        "evidence": [
+          {
+            "type": "file",
+            "path": "src/main.py",
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "checked": false
+          }
+        ],
+        "kind": "feedback",
+        "payload_schema": "mind/feedback@1",
+        "payload": {
+          "target": {
+            "target_type": "memory_record",
+            "target_id": "lesson-1",
+            "target_revision": 1
+          },
+          "outcome": "helpful",
+          "evidence": [
+            {
+              "type": "file",
+              "path": "src/main.py",
+              "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "checked": false
+            }
+          ],
+          "reviewer_or_check": {
+            "writer": "agent-1",
+            "writer_assurance": "trusted"
+          },
+          "explanation": "The check ran from the worktree"
+        }
+      }
+    },
+    {
+      "name": "feedback changes status",
+      "value": {
+        "schema_version": "pi-mind/memory-record@1",
+        "id": "feedback-1",
+        "revision": 1,
+        "owner_scope": "owner",
+        "project_scope": "pi-mind",
+        "origin": "mcp",
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "claimed_harness": "not found",
+        "model": "not found",
+        "session_id": "not found",
+        "run_id": "not found",
+        "created_at": "2026-10-13T08:00:00Z",
+        "assertion_type": "observation",
+        "status": "candidate",
+        "expires_at": null,
+        "review_due_at": null,
+        "last_reviewed_at": null,
+        "last_supported_at": null,
+        "supersedes": [],
+        "contradicts": [],
+        "related": [],
+        "evidence": [
+          {
+            "type": "file",
+            "path": "src/main.py",
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "checked": false
+          }
+        ],
+        "kind": "feedback",
+        "payload_schema": "mind/feedback@1",
+        "payload": {
+          "target": {
+            "target_type": "memory_record",
+            "target_id": "lesson-1",
+            "target_revision": 1
+          },
+          "outcome": "helpful",
+          "evidence": [
+            {
+              "type": "file",
+              "path": "src/main.py",
+              "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "checked": false
+            }
+          ],
+          "reviewer_or_check": {
+            "writer": "agent-1",
+            "writer_assurance": "configured"
+          },
+          "explanation": "The check ran from the worktree",
+          "status": "verified"
+        }
+      }
+    }
+  ]
+}

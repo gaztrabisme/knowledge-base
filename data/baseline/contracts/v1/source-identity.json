@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:source-identity:1",
+  "title": "source-identity",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "mind/source@1"
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "privacy_scope": {
+      "enum": [
+        "owner-private",
+        "project-private"
+      ]
+    },
+    "kind": {
+      "enum": [
+        "book",
+        "course",
+        "lesson",
+        "paper",
+        "repository",
+        "file",
+        "symbol"
+      ]
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "namespace",
+          "value"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "canonical_url": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "creators": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "publication_date": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "string",
+                  "format": "date"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^\\d{4}(-(?:0[1-9]|1[0-2]))?$"
+                }
+              ]
+            },
+            "reason": {
+              "const": null
+            }
+          },
+          "required": [
+            "value",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "const": null
+            },
+            "reason": {
+              "const": "not found"
+            }
+          },
+          "required": [
+            "value",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "revision_date": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "string",
+                  "format": "date"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^\\d{4}(-(?:0[1-9]|1[0-2]))?$"
+                }
+              ]
+            },
+            "reason": {
+              "const": null
+            }
+          },
+          "required": [
+            "value",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "const": null
+            },
+            "reason": {
+              "const": "not found"
+            }
+          },
+          "required": [
+            "value",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "acquired_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "selected_scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "derivation": {
+      "enum": [
+        "original",
+        "translation",
+        "derived"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "source_id",
+    "source_revision",
+    "source_hash",
+    "privacy_scope",
+    "kind",
+    "aliases",
+    "canonical_url",
+    "title",
+    "creators",
+    "publication_date",
+    "revision_date",
+    "acquired_at",
+    "selected_scope",
+    "derivation"
+  ],
+  "additionalProperties": false
+}

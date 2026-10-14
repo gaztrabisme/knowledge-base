@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:response.read_metadata:1",
+  "title": "response.read_metadata",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "mind-tool-response/v1"
+    },
+    "data": {
+      "anyOf": [
+        {
+          "$ref": "urn:organized-mind:read-metadata:1"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "metadata": {
+      "$ref": "urn:organized-mind:read-metadata:1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "data",
+    "metadata"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,85 @@
+{
+  "valid": [
+    {
+      "name": "synthetic valid shape",
+      "value": {
+        "legacy_output": "# Synthetic chapter\n",
+        "_meta": {
+          "mind": {
+            "schema_version": "mind-read/v1",
+            "read_id": "synthetic-read",
+            "backend_availability": "ready",
+            "source_snapshot": "v10",
+            "index_snapshot": "developer_knowledge_v10",
+            "graph_snapshot": null,
+            "privacy_scope": "owner-private",
+            "sources": [
+              {
+                "source_id": "synthetic-book",
+                "source_revision": "edition-1",
+                "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "privacy_scope": "owner-private",
+                "producing_revision": "edition-1",
+                "returned_text_hash": "e894b7eb02c25759434941e64fd9e020c42f9e7681c5e388c326e0d9f9789443",
+                "locator": {
+                  "kind": "markdown-lines",
+                  "path": "synthetic.md",
+                  "start_line": 1,
+                  "end_line": 3
+                }
+              }
+            ],
+            "legacy_character_truncation": false,
+            "budget_truncation": false,
+            "omitted_count": 0,
+            "cursor": null,
+            "errors": [],
+            "budget": null
+          }
+        }
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "reject invalid shape",
+      "value": {
+        "legacy_output": "# Synthetic chapter\n",
+        "_meta": {
+          "mind": {
+            "schema_version": "mind-read/v1",
+            "read_id": "synthetic-read",
+            "backend_availability": "ready",
+            "source_snapshot": "v10",
+            "index_snapshot": "developer_knowledge_v10",
+            "graph_snapshot": null,
+            "privacy_scope": "owner-private",
+            "sources": [
+              {
+                "source_id": "synthetic-book",
+                "source_revision": "edition-1",
+                "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "privacy_scope": "owner-private",
+                "producing_revision": "edition-1",
+                "returned_text_hash": "e894b7eb02c25759434941e64fd9e020c42f9e7681c5e388c326e0d9f9789443",
+                "locator": {
+                  "kind": "markdown-lines",
+                  "path": "synthetic.md",
+                  "start_line": 1,
+                  "end_line": 3
+                }
+              }
+            ],
+            "legacy_character_truncation": false,
+            "budget_truncation": false,
+            "omitted_count": 0,
+            "cursor": null,
+            "errors": [],
+            "budget": null
+          }
+        },
+        "undeclared_field": "reject unknown fields"
+      }
+    }
+  ]
+}

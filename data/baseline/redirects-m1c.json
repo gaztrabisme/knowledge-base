@@ -1,0 +1,131 @@
+{
+  "schema_version": "mind/label-redirect@1",
+  "mapping_artifact": {
+    "location": {
+      "backend": "bppc",
+      "path": "m1c/mapping.json"
+    },
+    "bytes": 172863,
+    "sha256": "c57f73014056d00906bc31f935762ad073a15601f42000e89da05590c071b389"
+  },
+  "source_generation": "developer_knowledge_v10",
+  "destination_generation": "kbu_m1_gemma768_cur",
+  "interpretation": "Label correspondence by literal token overlap; not a semantic relevance review or a source/locator replacement. Original labels and control stay unchanged. Unmapped parents remain explicit.",
+  "current_file_sha256": "0131bd41f39e35bcf890fa01faa00b326cf373de055d5c78e4baac4d4134442c",
+  "labels": {
+    "easy": {
+      "count": 199,
+      "empty_positive_query_indices": [],
+      "original_path": "labels/original-easy.jsonl",
+      "original_sha256": "e8890320ea6969568da4b10bfbafa6dd60ef8a0dd1a6e397f844eb75f61b7830",
+      "query_texts_sha256": "9ee9f0030ad8f6c6f5104dfe75f4894985ac6dbe05c9e9b84bd8bef5ee8b83bf",
+      "remapped_grade_maps_sha256": "38a37f98c9e8ebc4cc336e662038c5a296eed3d29cb3c8943431d8aacb478645",
+      "remapped_path": "labels/remapped-easy.jsonl",
+      "remapped_sha256": "05b5ea5d44440c54afb632c3268bb8e56d14dd46ed4030912e29c7c1a3249811",
+      "touched_queries": 4
+    },
+    "hard": {
+      "count": 438,
+      "empty_positive_query_indices": [],
+      "original_path": "labels/original-hard.jsonl",
+      "original_sha256": "16641565b1f299716f2a4605bc273fe09b07c591f8dd3d0c66ee6e6897cb6cb1",
+      "query_texts_sha256": "ba3d7ec9931587cfe7c5bb16df812b66c2ada36639bcb8dd6f81f780be2e2311",
+      "remapped_grade_maps_sha256": "5564a812da6b2801c10e642e03314ef5d0b5d50a2c95d717ed85a1a06c916b32",
+      "remapped_path": "labels/remapped-hard.jsonl",
+      "remapped_sha256": "2109c3bdcb182390d9b0e9fa813ae89c6ea8108cff72abc99d1cc0c3bf794438",
+      "touched_queries": 7
+    },
+    "sanity": {
+      "count": 30,
+      "empty_positive_query_indices": [],
+      "original_path": "labels/original-sanity.jsonl",
+      "original_sha256": "0e12e0c8e3d53567d772d3b1990a9239316a1a8c339c37b793af5d34013470bf",
+      "query_texts_sha256": "0629da66641f8b1b63631d2cd9187dc3f532c7bb6bf595e17f551caaa9430a44",
+      "remapped_grade_maps_sha256": "92cd196681a8c189f3bf372029ee8b4a9fc523a38a780956d3791010e52754c6",
+      "remapped_path": "labels/remapped-sanity.jsonl",
+      "remapped_sha256": "0e12e0c8e3d53567d772d3b1990a9239316a1a8c339c37b793af5d34013470bf",
+      "touched_queries": 0
+    }
+  },
+  "method": "literal token overlap; no models, semantic similarity or relevance judgment",
+  "old_file_sha256": "465ee1010e58e100ac5dd82316b57c3147b2826d17546e2a4a31f5365c86ea7c",
+  "parents": {
+    "postgresql-14-internals-p101": {
+      "coverage_ratio": 0.9362101313320825,
+      "new_ids": [
+        "postgresql-14-internals-p147",
+        "postgresql-14-internals-p148"
+      ],
+      "status": "mapped"
+    },
+    "postgresql-14-internals-p113": {
+      "coverage_ratio": 0.9789343246592317,
+      "new_ids": [
+        "postgresql-14-internals-p175",
+        "postgresql-14-internals-p176"
+      ],
+      "status": "mapped"
+    },
+    "postgresql-14-internals-p139": {
+      "coverage_ratio": 0.9581749049429658,
+      "new_ids": [
+        "postgresql-14-internals-p212",
+        "postgresql-14-internals-p213"
+      ],
+      "status": "mapped"
+    },
+    "postgresql-14-internals-p140": {
+      "coverage_ratio": 0.09411764705882353,
+      "new_ids": [],
+      "status": "unmapped"
+    },
+    "postgresql-14-internals-p42": {
+      "coverage_ratio": 0.8754605747973471,
+      "new_ids": [
+        "postgresql-14-internals-p66",
+        "postgresql-14-internals-p67"
+      ],
+      "status": "mapped"
+    },
+    "postgresql-14-internals-p44": {
+      "coverage_ratio": 0.9298642533936652,
+      "new_ids": [
+        "postgresql-14-internals-p68",
+        "postgresql-14-internals-p69"
+      ],
+      "status": "mapped"
+    },
+    "postgresql-14-internals-p64": {
+      "coverage_ratio": 0.9026073619631901,
+      "new_ids": [
+        "postgresql-14-internals-p96",
+        "postgresql-14-internals-p97"
+      ],
+      "status": "mapped"
+    },
+    "postgresql-14-internals-p65": {
+      "coverage_ratio": 0.9447717231222386,
+      "new_ids": [
+        "postgresql-14-internals-p97",
+        "postgresql-14-internals-p98",
+        "postgresql-14-internals-p99"
+      ],
+      "status": "mapped"
+    },
+    "postgresql-14-internals-p81": {
+      "coverage_ratio": 0.9383429672447013,
+      "new_ids": [
+        "postgresql-14-internals-p128",
+        "postgresql-14-internals-p129",
+        "postgresql-14-internals-p130"
+      ],
+      "status": "mapped"
+    }
+  },
+  "threshold": 0.8,
+  "touched_query_counts": {
+    "easy": 4,
+    "hard": 7,
+    "sanity": 0
+  }
+}

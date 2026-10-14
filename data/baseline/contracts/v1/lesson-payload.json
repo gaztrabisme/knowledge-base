@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:pi-mind:contracts:lesson-payload:1",
+  "title": "lesson-payload",
+  "type": "object",
+  "required": [
+    "claim",
+    "context",
+    "trigger",
+    "recommended_action",
+    "limits",
+    "observed_outcome",
+    "polarity",
+    "support"
+  ],
+  "properties": {
+    "claim": {
+      "type": "string",
+      "minLength": 1
+    },
+    "context": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trigger": {
+      "type": "string",
+      "minLength": 1
+    },
+    "recommended_action": {
+      "type": "string",
+      "minLength": 1
+    },
+    "limits": {
+      "type": "string",
+      "minLength": 1
+    },
+    "observed_outcome": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+    },
+    "polarity": {
+      "anyOf": [
+        {
+          "type": "string",
+          "const": "rule"
+        },
+        {
+          "type": "string",
+          "const": "anti-pattern"
+        }
+      ]
+    },
+    "support": {
+      "type": "string",
+      "const": "not found"
+    }
+  },
+  "additionalProperties": false
+}

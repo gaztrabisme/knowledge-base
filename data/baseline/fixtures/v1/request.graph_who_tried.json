@@ -1,0 +1,100 @@
+{
+  "valid": [
+    {
+      "name": "synthetic valid shape",
+      "value": {
+        "schema_version": "mind-tool-request/v1",
+        "operation": "graph_who_tried",
+        "arguments": {
+          "method_ids": [
+            "method"
+          ],
+          "problem_ids": [
+            "problem"
+          ],
+          "predicate": "APPLIED_TO",
+          "direction": "out",
+          "scope": "one chapter"
+        },
+        "context": {
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "privacy_scope": "owner-private"
+        }
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "reject invalid shape",
+      "value": {
+        "schema_version": "mind-tool-request/v1",
+        "operation": "graph_who_tried",
+        "arguments": {
+          "method_ids": [
+            "method"
+          ],
+          "problem_ids": [
+            "problem"
+          ],
+          "predicate": "APPLIED_TO",
+          "direction": "out",
+          "scope": "one chapter"
+        },
+        "context": {
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "privacy_scope": "owner-private"
+        },
+        "undeclared_field": "reject unknown fields"
+      }
+    },
+    {
+      "name": "wrong operation",
+      "value": {
+        "schema_version": "mind-tool-request/v1",
+        "operation": "nonexistent_tool",
+        "arguments": {
+          "method_ids": [
+            "method"
+          ],
+          "problem_ids": [
+            "problem"
+          ],
+          "predicate": "APPLIED_TO",
+          "direction": "out",
+          "scope": "one chapter"
+        },
+        "context": {
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "privacy_scope": "owner-private"
+        }
+      }
+    },
+    {
+      "name": "unknown argument",
+      "value": {
+        "schema_version": "mind-tool-request/v1",
+        "operation": "graph_who_tried",
+        "arguments": {
+          "method_ids": [
+            "method"
+          ],
+          "problem_ids": [
+            "problem"
+          ],
+          "predicate": "APPLIED_TO",
+          "direction": "out",
+          "scope": "one chapter",
+          "unknown": true
+        },
+        "context": {
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "privacy_scope": "owner-private"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "valid": [
+    {
+      "name": "synthetic valid shape",
+      "value": {
+        "schema_version": "mind-tool-request/v1",
+        "operation": "memory_flag_stale",
+        "arguments": {
+          "request_key": "synthetic-request",
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "assertion_type": "observation",
+          "target": {
+            "target_type": "source",
+            "target_id": "synthetic-book",
+            "target_revision": "edition-1"
+          },
+          "reason": "synthetic recheck"
+        },
+        "context": {
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "privacy_scope": "owner-private"
+        }
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "reject invalid shape",
+      "value": {
+        "schema_version": "mind-tool-request/v1",
+        "operation": "memory_flag_stale",
+        "arguments": {
+          "request_key": "synthetic-request",
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "assertion_type": "observation",
+          "target": {
+            "target_type": "source",
+            "target_id": "synthetic-book",
+            "target_revision": "edition-1"
+          },
+          "reason": "synthetic recheck"
+        },
+        "context": {
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "privacy_scope": "owner-private"
+        },
+        "undeclared_field": "reject unknown fields"
+      }
+    },
+    {
+      "name": "wrong operation",
+      "value": {
+        "schema_version": "mind-tool-request/v1",
+        "operation": "nonexistent_tool",
+        "arguments": {
+          "request_key": "synthetic-request",
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "assertion_type": "observation",
+          "target": {
+            "target_type": "source",
+            "target_id": "synthetic-book",
+            "target_revision": "edition-1"
+          },
+          "reason": "synthetic recheck"
+        },
+        "context": {
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "privacy_scope": "owner-private"
+        }
+      }
+    },
+    {
+      "name": "unknown argument",
+      "value": {
+        "schema_version": "mind-tool-request/v1",
+        "operation": "memory_flag_stale",
+        "arguments": {
+          "request_key": "synthetic-request",
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "assertion_type": "observation",
+          "target": {
+            "target_type": "source",
+            "target_id": "synthetic-book",
+            "target_revision": "edition-1"
+          },
+          "reason": "synthetic recheck",
+          "unknown": true
+        },
+        "context": {
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "privacy_scope": "owner-private"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "valid": [
+    {
+      "name": "configured provenance",
+      "value": {
+        "origin": "mcp",
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "claimed_harness": "not found",
+        "model": "not found",
+        "session_id": "not found",
+        "run_id": "not found",
+        "created_at": "2026-10-13T08:00:00Z"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "missing claimed model",
+      "value": {
+        "origin": "mcp",
+        "writer": "agent-1",
+        "writer_assurance": "configured",
+        "claimed_harness": "not found",
+        "session_id": "not found",
+        "run_id": "not found",
+        "created_at": "2026-10-13T08:00:00Z"
+      }
+    },
+    {
+      "name": "bad assurance",
+      "value": {
+        "origin": "mcp",
+        "writer": "agent-1",
+        "writer_assurance": "trusted",
+        "claimed_harness": "not found",
+        "model": "not found",
+        "session_id": "not found",
+        "run_id": "not found",
+        "created_at": "2026-10-13T08:00:00Z"
+      }
+    }
+  ]
+}

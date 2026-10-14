@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:response.graph_subgraph:1",
+  "title": "response.graph_subgraph",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "mind-tool-response/v1"
+    },
+    "data": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "revision": {
+                "type": "string",
+                "minLength": 1
+              },
+              "subject": {
+                "type": "string",
+                "minLength": 1
+              },
+              "predicate": {
+                "enum": [
+                  "CONTAINS",
+                  "IMPORTS",
+                  "DEFINES",
+                  "EXPLAINS",
+                  "APPLIED_TO",
+                  "USES",
+                  "ASSUMES",
+                  "COMPARES_WITH",
+                  "CONTRADICTS",
+                  "RECOMMENDS_AGAINST",
+                  "PREREQUISITE_OF",
+                  "IMPLEMENTS"
+                ]
+              },
+              "object": {
+                "type": "string",
+                "minLength": 1
+              },
+              "conditions": {
+                "type": "string"
+              },
+              "negated": {
+                "type": "boolean"
+              },
+              "profile": {
+                "type": "string",
+                "minLength": 1
+              },
+              "verification": {
+                "enum": [
+                  "exact",
+                  "fuzzy",
+                  "failed",
+                  "unchecked"
+                ]
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "$ref": "urn:organized-mind:evidence-read:1"
+                },
+                "minItems": 1
+              },
+              "applicability": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "revision",
+              "subject",
+              "predicate",
+              "object",
+              "conditions",
+              "negated",
+              "profile",
+              "verification",
+              "evidence",
+              "applicability"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "metadata": {
+      "$ref": "urn:organized-mind:read-metadata:1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "data",
+    "metadata"
+  ],
+  "additionalProperties": false
+}

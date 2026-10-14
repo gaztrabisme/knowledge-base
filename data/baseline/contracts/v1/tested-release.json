@@ -1,0 +1,679 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:tested-release:1",
+  "title": "tested-release",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "mind/tested-release@1"
+    },
+    "release_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "deployment_state": {
+      "enum": [
+        "baseline-only",
+        "tested",
+        "released"
+      ]
+    },
+    "privacy_scope": {
+      "enum": [
+        "owner-private",
+        "project-private"
+      ]
+    },
+    "baseline": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "object",
+          "properties": {
+            "backend": {
+              "enum": [
+                "repo",
+                "main-checkout",
+                "pi-mind",
+                "bppc"
+              ]
+            },
+            "path": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "backend",
+            "path"
+          ],
+          "additionalProperties": false
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "location",
+        "sha256",
+        "bytes"
+      ],
+      "additionalProperties": false
+    },
+    "contract_inventory": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "object",
+          "properties": {
+            "backend": {
+              "enum": [
+                "repo",
+                "main-checkout",
+                "pi-mind",
+                "bppc"
+              ]
+            },
+            "path": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "backend",
+            "path"
+          ],
+          "additionalProperties": false
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "location",
+        "sha256",
+        "bytes"
+      ],
+      "additionalProperties": false
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "enum": [
+              "knowledge-base",
+              "harness",
+              "archive",
+              "graph"
+            ]
+          },
+          "repository": {
+            "type": "string",
+            "minLength": 1
+          },
+          "revision": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{40,64}$"
+          },
+          "dirty": {
+            "type": "boolean"
+          },
+          "status": {
+            "enum": [
+              "included",
+              "reference-only",
+              "excluded"
+            ]
+          },
+          "file_pins": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "location": {
+                  "type": "object",
+                  "properties": {
+                    "backend": {
+                      "enum": [
+                        "repo",
+                        "main-checkout",
+                        "pi-mind",
+                        "bppc"
+                      ]
+                    },
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "backend",
+                    "path"
+                  ],
+                  "additionalProperties": false
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "location",
+                "sha256",
+                "bytes"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "role",
+          "repository",
+          "revision",
+          "dirty",
+          "status",
+          "file_pins"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "models": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "model_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "revision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "dimension": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "precision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "query_role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "document_role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "normalization": {
+            "type": "string",
+            "minLength": 1
+          },
+          "runtime_packages": {
+            "type": "object",
+            "properties": {
+              "torch": {
+                "type": "string",
+                "minLength": 1
+              },
+              "transformers": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sentence-transformers": {
+                "type": "string",
+                "minLength": 1
+              },
+              "fastembed": {
+                "type": "string",
+                "minLength": 1
+              },
+              "qdrant-client": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "torch",
+              "transformers",
+              "sentence-transformers",
+              "fastembed",
+              "qdrant-client"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "model_id",
+          "revision",
+          "dimension",
+          "precision",
+          "query_role",
+          "document_role",
+          "normalization",
+          "runtime_packages"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "routing": {
+      "type": "object",
+      "properties": {
+        "alias": {
+          "type": "string",
+          "minLength": 1
+        },
+        "physical_collection": {
+          "type": "string",
+          "minLength": 1
+        },
+        "embedding_space": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_generation": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "alias",
+        "physical_collection",
+        "embedding_space",
+        "source_generation"
+      ],
+      "additionalProperties": false
+    },
+    "data_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "object",
+            "properties": {
+              "backend": {
+                "enum": [
+                  "repo",
+                  "main-checkout",
+                  "pi-mind",
+                  "bppc"
+                ]
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "backend",
+              "path"
+            ],
+            "additionalProperties": false
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "location",
+          "sha256",
+          "bytes"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "data_parts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "object",
+            "properties": {
+              "backend": {
+                "enum": [
+                  "repo",
+                  "main-checkout",
+                  "pi-mind",
+                  "bppc"
+                ]
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "backend",
+              "path"
+            ],
+            "additionalProperties": false
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "location",
+          "sha256",
+          "bytes"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "installation_matrix": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "machine": {
+            "type": "string",
+            "minLength": 1
+          },
+          "os": {
+            "type": "string",
+            "minLength": 1
+          },
+          "python": {
+            "type": "string",
+            "minLength": 1
+          },
+          "qdrant": {
+            "type": "string",
+            "minLength": 1
+          },
+          "capability": {
+            "type": "string",
+            "minLength": 1
+          },
+          "verdict": {
+            "enum": [
+              "verified",
+              "untested",
+              "unavailable"
+            ]
+          },
+          "receipt": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "location": {
+                    "type": "object",
+                    "properties": {
+                      "backend": {
+                        "enum": [
+                          "repo",
+                          "main-checkout",
+                          "pi-mind",
+                          "bppc"
+                        ]
+                      },
+                      "path": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "backend",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "bytes": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "location",
+                  "sha256",
+                  "bytes"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "machine",
+          "os",
+          "python",
+          "qdrant",
+          "capability",
+          "verdict",
+          "receipt"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "state": {
+            "enum": [
+              "verified",
+              "pending",
+              "excluded"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "location": {
+                  "type": "object",
+                  "properties": {
+                    "backend": {
+                      "enum": [
+                        "repo",
+                        "main-checkout",
+                        "pi-mind",
+                        "bppc"
+                      ]
+                    },
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "backend",
+                    "path"
+                  ],
+                  "additionalProperties": false
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "location",
+                "sha256",
+                "bytes"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "name",
+          "state",
+          "evidence",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "pending_gates": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "rollback": {
+      "type": "object",
+      "properties": {
+        "routing": {
+          "type": "string",
+          "minLength": 1
+        },
+        "membership_manifest": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "object",
+              "properties": {
+                "backend": {
+                  "enum": [
+                    "repo",
+                    "main-checkout",
+                    "pi-mind",
+                    "bppc"
+                  ]
+                },
+                "path": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "backend",
+                "path"
+              ],
+              "additionalProperties": false
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "bytes": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "location",
+            "sha256",
+            "bytes"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "routing",
+        "membership_manifest"
+      ],
+      "additionalProperties": false
+    },
+    "mutable_state_policy": {
+      "type": "object",
+      "properties": {
+        "journal_in_release": {
+          "const": false
+        },
+        "outbox_in_release": {
+          "const": false
+        },
+        "install_preserves_journal_and_outbox": {
+          "const": true
+        }
+      },
+      "required": [
+        "journal_in_release",
+        "outbox_in_release",
+        "install_preserves_journal_and_outbox"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "release_id",
+    "created_at",
+    "deployment_state",
+    "privacy_scope",
+    "baseline",
+    "contract_inventory",
+    "components",
+    "models",
+    "routing",
+    "data_artifacts",
+    "data_parts",
+    "installation_matrix",
+    "capabilities",
+    "pending_gates",
+    "rollback",
+    "mutable_state_policy"
+  ],
+  "additionalProperties": false
+}

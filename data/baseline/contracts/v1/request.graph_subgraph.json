@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:request.graph_subgraph:1",
+  "title": "request.graph_subgraph",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "mind-tool-request/v1"
+    },
+    "operation": {
+      "const": "graph_subgraph"
+    },
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "entity_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "predicates": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "CONTAINS",
+              "IMPORTS",
+              "DEFINES",
+              "EXPLAINS",
+              "APPLIED_TO",
+              "USES",
+              "ASSUMES",
+              "COMPARES_WITH",
+              "CONTRADICTS",
+              "RECOMMENDS_AGAINST",
+              "PREREQUISITE_OF",
+              "IMPLEMENTS"
+            ]
+          },
+          "minItems": 1
+        },
+        "direction": {
+          "enum": [
+            "in",
+            "out",
+            "both"
+          ]
+        },
+        "cursor": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "entity_id",
+        "predicates",
+        "direction"
+      ],
+      "additionalProperties": false
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "owner_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "privacy_scope": {
+          "enum": [
+            "owner-private",
+            "project-private"
+          ]
+        },
+        "question_budget_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "owner_scope",
+        "project_scope",
+        "privacy_scope"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "operation",
+    "arguments",
+    "context"
+  ],
+  "additionalProperties": false
+}

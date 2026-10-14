@@ -1,0 +1,52 @@
+{
+  "valid": [
+    {
+      "name": "reserved anchor",
+      "value": {
+        "exact": "run from the worktree",
+        "prefix": "Always ",
+        "suffix": " before closing.",
+        "start_offset": 7,
+        "end_offset": 28,
+        "source_id": "source-1",
+        "source_revision": "edition-2026"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "negative offset",
+      "value": {
+        "exact": "run from the worktree",
+        "prefix": "Always ",
+        "suffix": " before closing.",
+        "start_offset": -1,
+        "end_offset": 28,
+        "source_id": "source-1",
+        "source_revision": "edition-2026"
+      }
+    },
+    {
+      "name": "missing exact quote",
+      "value": {
+        "prefix": "Always ",
+        "suffix": " before closing.",
+        "start_offset": 7,
+        "end_offset": 28,
+        "source_id": "source-1",
+        "source_revision": "edition-2026"
+      }
+    },
+    {
+      "name": "missing source revision",
+      "value": {
+        "exact": "run from the worktree",
+        "prefix": "Always ",
+        "suffix": " before closing.",
+        "start_offset": 7,
+        "end_offset": 28,
+        "source_id": "source-1"
+      }
+    }
+  ]
+}

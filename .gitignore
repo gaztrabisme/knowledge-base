@@ -25,6 +25,8 @@ knowledge-base/research-methods/
 data/*
 !data/golden/
 !data/bench/
+# FP records and schemas are small; bulk evidence stays external and is hashed.
+!data/baseline/
 # The book catalog is reviewed by hand and read at runtime, so it is versioned.
 !data/catalog.json
 !data/intake/

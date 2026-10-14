@@ -1,0 +1,75 @@
+{
+  "valid": [
+    {
+      "name": "created",
+      "value": {
+        "schema_version": "pi-mind/memory-audit-event@1",
+        "event_id": "event-1",
+        "record_id": "lesson-1",
+        "revision": 1,
+        "event_type": "created",
+        "actor": "agent-1",
+        "writer_assurance": "configured",
+        "at": "2026-10-13T08:00:00Z",
+        "request_key": "request-1"
+      }
+    },
+    {
+      "name": "future review event",
+      "value": {
+        "schema_version": "pi-mind/memory-audit-event@1",
+        "event_id": "event-1",
+        "record_id": "lesson-1",
+        "revision": 1,
+        "event_type": "review_decided",
+        "actor": "owner",
+        "writer_assurance": "authenticated",
+        "at": "2026-10-13T08:00:00Z",
+        "request_key": "request-1"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "missing key",
+      "value": {
+        "schema_version": "pi-mind/memory-audit-event@1",
+        "event_id": "event-1",
+        "record_id": "lesson-1",
+        "revision": 1,
+        "event_type": "created",
+        "actor": "agent-1",
+        "writer_assurance": "configured",
+        "at": "2026-10-13T08:00:00Z"
+      }
+    },
+    {
+      "name": "bad assurance",
+      "value": {
+        "schema_version": "pi-mind/memory-audit-event@1",
+        "event_id": "event-1",
+        "record_id": "lesson-1",
+        "revision": 1,
+        "event_type": "created",
+        "actor": "agent-1",
+        "writer_assurance": "trusted",
+        "at": "2026-10-13T08:00:00Z",
+        "request_key": "request-1"
+      }
+    },
+    {
+      "name": "noninteger revision",
+      "value": {
+        "schema_version": "pi-mind/memory-audit-event@1",
+        "event_id": "event-1",
+        "record_id": "lesson-1",
+        "revision": 1.5,
+        "event_type": "created",
+        "actor": "agent-1",
+        "writer_assurance": "configured",
+        "at": "2026-10-13T08:00:00Z",
+        "request_key": "request-1"
+      }
+    }
+  ]
+}

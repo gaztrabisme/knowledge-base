@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:pi-mind:contracts:target-reference:1",
+  "title": "target-reference",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "target_type",
+        "target_id",
+        "target_revision"
+      ],
+      "properties": {
+        "target_type": {
+          "type": "string",
+          "const": "memory_record"
+        },
+        "target_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_revision": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "target_type",
+        "target_id",
+        "target_revision"
+      ],
+      "properties": {
+        "target_type": {
+          "type": "string",
+          "const": "source"
+        },
+        "target_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_revision": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

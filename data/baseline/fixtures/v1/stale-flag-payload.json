@@ -1,0 +1,66 @@
+{
+  "valid": [
+    {
+      "name": "open memory flag",
+      "value": {
+        "target": {
+          "target_type": "memory_record",
+          "target_id": "lesson-1",
+          "target_revision": 1
+        },
+        "reason": "Dependency version changed",
+        "detected_at": "2026-10-13T08:00:00Z",
+        "observed_version": "v2",
+        "resolution": null,
+        "resolved_at": null
+      }
+    },
+    {
+      "name": "future source target",
+      "value": {
+        "target": {
+          "target_type": "source",
+          "target_id": "source-1",
+          "target_revision": "edition-2026"
+        },
+        "reason": "Dependency version changed",
+        "detected_at": "2026-10-13T08:00:00Z",
+        "observed_version": "v2",
+        "resolution": null,
+        "resolved_at": null
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "closed in W1",
+      "value": {
+        "target": {
+          "target_type": "memory_record",
+          "target_id": "lesson-1",
+          "target_revision": 1
+        },
+        "reason": "Dependency version changed",
+        "detected_at": "2026-10-13T08:00:00Z",
+        "observed_version": "v2",
+        "resolution": "fixed",
+        "resolved_at": "2026-10-13T08:00:00Z"
+      }
+    },
+    {
+      "name": "invalid date",
+      "value": {
+        "target": {
+          "target_type": "memory_record",
+          "target_id": "lesson-1",
+          "target_revision": 1
+        },
+        "reason": "Dependency version changed",
+        "detected_at": "today",
+        "observed_version": "v2",
+        "resolution": null,
+        "resolved_at": null
+      }
+    }
+  ]
+}

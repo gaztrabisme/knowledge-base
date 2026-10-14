@@ -1,0 +1,1569 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:annotation-record:1",
+  "title": "annotation-record",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "mind/annotation-record@1"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "owner_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "writer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "writer_assurance": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "configured"
+            },
+            {
+              "type": "string",
+              "const": "authenticated"
+            }
+          ]
+        },
+        "claimed_harness": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "assertion_type": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "observation"
+            },
+            {
+              "type": "string",
+              "const": "inference"
+            },
+            {
+              "type": "string",
+              "const": "user_statement"
+            }
+          ]
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "candidate"
+            },
+            {
+              "type": "string",
+              "const": "verified"
+            },
+            {
+              "type": "string",
+              "const": "contested"
+            },
+            {
+              "type": "string",
+              "const": "superseded"
+            },
+            {
+              "type": "string",
+              "const": "retired"
+            }
+          ]
+        },
+        "expires_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "review_due_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "last_reviewed_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "last_supported_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "supersedes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "contradicts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "related": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:organized-mind:contribution-evidence-reference:1"
+          }
+        },
+        "authority": {
+          "const": "annotation"
+        },
+        "kind": {
+          "const": "stale_flag"
+        },
+        "payload_schema": {
+          "const": "mind/stale-flag@2"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "$ref": "urn:pi-mind:contracts:target-reference:1"
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            },
+            "detected_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "observed_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "resolution": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "resolved_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "target",
+            "reason",
+            "detected_at",
+            "observed_version",
+            "resolution",
+            "resolved_at"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "revision",
+        "owner_scope",
+        "project_scope",
+        "origin",
+        "writer",
+        "writer_assurance",
+        "claimed_harness",
+        "model",
+        "session_id",
+        "run_id",
+        "created_at",
+        "assertion_type",
+        "status",
+        "expires_at",
+        "review_due_at",
+        "last_reviewed_at",
+        "last_supported_at",
+        "supersedes",
+        "contradicts",
+        "related",
+        "evidence",
+        "authority",
+        "kind",
+        "payload_schema",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "mind/annotation-record@1"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "owner_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "writer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "writer_assurance": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "configured"
+            },
+            {
+              "type": "string",
+              "const": "authenticated"
+            }
+          ]
+        },
+        "claimed_harness": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "assertion_type": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "observation"
+            },
+            {
+              "type": "string",
+              "const": "inference"
+            },
+            {
+              "type": "string",
+              "const": "user_statement"
+            }
+          ]
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "candidate"
+            },
+            {
+              "type": "string",
+              "const": "verified"
+            },
+            {
+              "type": "string",
+              "const": "contested"
+            },
+            {
+              "type": "string",
+              "const": "superseded"
+            },
+            {
+              "type": "string",
+              "const": "retired"
+            }
+          ]
+        },
+        "expires_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "review_due_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "last_reviewed_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "last_supported_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "supersedes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "contradicts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "related": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:organized-mind:contribution-evidence-reference:1"
+          }
+        },
+        "authority": {
+          "const": "annotation"
+        },
+        "kind": {
+          "const": "comment"
+        },
+        "payload_schema": {
+          "const": "mind/comment@1"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "allOf": [
+                {
+                  "$ref": "urn:pi-mind:contracts:target-reference:1"
+                },
+                {
+                  "properties": {
+                    "target_type": {
+                      "const": "source"
+                    }
+                  }
+                }
+              ]
+            },
+            "selector": {
+              "$ref": "urn:pi-mind:contracts:comment-selector:1"
+            },
+            "relation": {
+              "enum": [
+                "question",
+                "disagreement",
+                "example",
+                "note"
+              ]
+            },
+            "body": {
+              "type": "string",
+              "minLength": 1
+            },
+            "attachment_state": {
+              "enum": [
+                "attached",
+                "detached",
+                "proposed-reattachment"
+              ]
+            }
+          },
+          "required": [
+            "target",
+            "selector",
+            "relation",
+            "body",
+            "attachment_state"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "revision",
+        "owner_scope",
+        "project_scope",
+        "origin",
+        "writer",
+        "writer_assurance",
+        "claimed_harness",
+        "model",
+        "session_id",
+        "run_id",
+        "created_at",
+        "assertion_type",
+        "status",
+        "expires_at",
+        "review_due_at",
+        "last_reviewed_at",
+        "last_supported_at",
+        "supersedes",
+        "contradicts",
+        "related",
+        "evidence",
+        "authority",
+        "kind",
+        "payload_schema",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "mind/annotation-record@1"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "owner_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "writer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "writer_assurance": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "configured"
+            },
+            {
+              "type": "string",
+              "const": "authenticated"
+            }
+          ]
+        },
+        "claimed_harness": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "assertion_type": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "observation"
+            },
+            {
+              "type": "string",
+              "const": "inference"
+            },
+            {
+              "type": "string",
+              "const": "user_statement"
+            }
+          ]
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "candidate"
+            },
+            {
+              "type": "string",
+              "const": "verified"
+            },
+            {
+              "type": "string",
+              "const": "contested"
+            },
+            {
+              "type": "string",
+              "const": "superseded"
+            },
+            {
+              "type": "string",
+              "const": "retired"
+            }
+          ]
+        },
+        "expires_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "review_due_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "last_reviewed_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "last_supported_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "supersedes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "contradicts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "related": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:organized-mind:contribution-evidence-reference:1"
+          }
+        },
+        "authority": {
+          "const": "annotation"
+        },
+        "kind": {
+          "const": "tag"
+        },
+        "payload_schema": {
+          "const": "mind/tag@1"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "subject": {
+              "$ref": "urn:pi-mind:contracts:target-reference:1"
+            },
+            "label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "subject",
+            "label",
+            "rationale"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "revision",
+        "owner_scope",
+        "project_scope",
+        "origin",
+        "writer",
+        "writer_assurance",
+        "claimed_harness",
+        "model",
+        "session_id",
+        "run_id",
+        "created_at",
+        "assertion_type",
+        "status",
+        "expires_at",
+        "review_due_at",
+        "last_reviewed_at",
+        "last_supported_at",
+        "supersedes",
+        "contradicts",
+        "related",
+        "evidence",
+        "authority",
+        "kind",
+        "payload_schema",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "mind/annotation-record@1"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "owner_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "writer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "writer_assurance": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "configured"
+            },
+            {
+              "type": "string",
+              "const": "authenticated"
+            }
+          ]
+        },
+        "claimed_harness": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "assertion_type": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "observation"
+            },
+            {
+              "type": "string",
+              "const": "inference"
+            },
+            {
+              "type": "string",
+              "const": "user_statement"
+            }
+          ]
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "candidate"
+            },
+            {
+              "type": "string",
+              "const": "verified"
+            },
+            {
+              "type": "string",
+              "const": "contested"
+            },
+            {
+              "type": "string",
+              "const": "superseded"
+            },
+            {
+              "type": "string",
+              "const": "retired"
+            }
+          ]
+        },
+        "expires_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "review_due_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "last_reviewed_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "last_supported_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "supersedes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "contradicts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "related": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:organized-mind:contribution-evidence-reference:1"
+          }
+        },
+        "authority": {
+          "const": "annotation"
+        },
+        "kind": {
+          "const": "link"
+        },
+        "payload_schema": {
+          "const": "mind/link@1"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "subject": {
+              "$ref": "urn:pi-mind:contracts:target-reference:1"
+            },
+            "predicate": {
+              "type": "string",
+              "minLength": 1
+            },
+            "object": {
+              "$ref": "urn:pi-mind:contracts:target-reference:1"
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            },
+            "applicability": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "subject",
+            "predicate",
+            "object",
+            "rationale",
+            "applicability"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "revision",
+        "owner_scope",
+        "project_scope",
+        "origin",
+        "writer",
+        "writer_assurance",
+        "claimed_harness",
+        "model",
+        "session_id",
+        "run_id",
+        "created_at",
+        "assertion_type",
+        "status",
+        "expires_at",
+        "review_due_at",
+        "last_reviewed_at",
+        "last_supported_at",
+        "supersedes",
+        "contradicts",
+        "related",
+        "evidence",
+        "authority",
+        "kind",
+        "payload_schema",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "mind/annotation-record@1"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "owner_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "writer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "writer_assurance": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "configured"
+            },
+            {
+              "type": "string",
+              "const": "authenticated"
+            }
+          ]
+        },
+        "claimed_harness": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "assertion_type": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "observation"
+            },
+            {
+              "type": "string",
+              "const": "inference"
+            },
+            {
+              "type": "string",
+              "const": "user_statement"
+            }
+          ]
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "candidate"
+            },
+            {
+              "type": "string",
+              "const": "verified"
+            },
+            {
+              "type": "string",
+              "const": "contested"
+            },
+            {
+              "type": "string",
+              "const": "superseded"
+            },
+            {
+              "type": "string",
+              "const": "retired"
+            }
+          ]
+        },
+        "expires_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "review_due_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "last_reviewed_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "last_supported_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "supersedes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "contradicts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "related": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:organized-mind:contribution-evidence-reference:1"
+          }
+        },
+        "authority": {
+          "const": "annotation"
+        },
+        "kind": {
+          "const": "source_change"
+        },
+        "payload_schema": {
+          "const": "mind/source_change@1"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "allOf": [
+                {
+                  "$ref": "urn:pi-mind:contracts:target-reference:1"
+                },
+                {
+                  "properties": {
+                    "target_type": {
+                      "const": "source"
+                    }
+                  }
+                }
+              ]
+            },
+            "target_hash": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "before": {
+              "type": "string"
+            },
+            "after": {
+              "type": "string"
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            },
+            "applied": {
+              "const": false
+            }
+          },
+          "required": [
+            "target",
+            "target_hash",
+            "before",
+            "after",
+            "rationale",
+            "applied"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "revision",
+        "owner_scope",
+        "project_scope",
+        "origin",
+        "writer",
+        "writer_assurance",
+        "claimed_harness",
+        "model",
+        "session_id",
+        "run_id",
+        "created_at",
+        "assertion_type",
+        "status",
+        "expires_at",
+        "review_due_at",
+        "last_reviewed_at",
+        "last_supported_at",
+        "supersedes",
+        "contradicts",
+        "related",
+        "evidence",
+        "authority",
+        "kind",
+        "payload_schema",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "mind/annotation-record@1"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "owner_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "writer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "writer_assurance": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "configured"
+            },
+            {
+              "type": "string",
+              "const": "authenticated"
+            }
+          ]
+        },
+        "claimed_harness": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "session_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A claimed value, or the literal \"not found\" when unavailable; not authorization."
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "assertion_type": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "observation"
+            },
+            {
+              "type": "string",
+              "const": "inference"
+            },
+            {
+              "type": "string",
+              "const": "user_statement"
+            }
+          ]
+        },
+        "status": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "candidate"
+            },
+            {
+              "type": "string",
+              "const": "verified"
+            },
+            {
+              "type": "string",
+              "const": "contested"
+            },
+            {
+              "type": "string",
+              "const": "superseded"
+            },
+            {
+              "type": "string",
+              "const": "retired"
+            }
+          ]
+        },
+        "expires_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "review_due_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "last_reviewed_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "last_supported_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "supersedes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "contradicts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "related": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:organized-mind:contribution-evidence-reference:1"
+          }
+        },
+        "authority": {
+          "const": "annotation"
+        },
+        "kind": {
+          "const": "review"
+        },
+        "payload_schema": {
+          "const": "mind/review@1"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "$ref": "urn:pi-mind:contracts:target-reference:1"
+            },
+            "disposition": {
+              "enum": [
+                "verify",
+                "contest",
+                "retire",
+                "reject",
+                "close-stale",
+                "approve-patch"
+              ]
+            },
+            "check": {
+              "$ref": "urn:pi-mind:contracts:reviewer-or-check:1"
+            },
+            "scope": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "target",
+            "disposition",
+            "check",
+            "scope"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schema_version",
+        "id",
+        "revision",
+        "owner_scope",
+        "project_scope",
+        "origin",
+        "writer",
+        "writer_assurance",
+        "claimed_harness",
+        "model",
+        "session_id",
+        "run_id",
+        "created_at",
+        "assertion_type",
+        "status",
+        "expires_at",
+        "review_due_at",
+        "last_reviewed_at",
+        "last_supported_at",
+        "supersedes",
+        "contradicts",
+        "related",
+        "evidence",
+        "authority",
+        "kind",
+        "payload_schema",
+        "payload"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

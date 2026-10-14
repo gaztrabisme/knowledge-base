@@ -1,0 +1,10 @@
+{
+  "schema_version": "mind/baseline-locations@1",
+  "roots": {
+    "main-checkout": "/Users/GaryT/Documents/Work/tools/knowledge-base",
+    "pi-mind": "/Users/GaryT/Documents/Work/tools/pi-mind",
+    "bppc": "/home/bppc/kb-work/kbu-2026-10-07/M1"
+  },
+  "mac_qdrant_url": "http://127.0.0.1:6333",
+  "bppc_hosts": ["192.168.1.17", "100.106.185.34"]
+}

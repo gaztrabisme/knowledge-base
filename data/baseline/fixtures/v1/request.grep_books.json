@@ -1,0 +1,68 @@
+{
+  "valid": [
+    {
+      "name": "synthetic valid shape",
+      "value": {
+        "schema_version": "mind-tool-request/v1",
+        "operation": "grep_books",
+        "arguments": {
+          "pattern": "synthetic"
+        },
+        "context": {
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "privacy_scope": "owner-private"
+        }
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "reject invalid shape",
+      "value": {
+        "schema_version": "mind-tool-request/v1",
+        "operation": "grep_books",
+        "arguments": {
+          "pattern": "synthetic"
+        },
+        "context": {
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "privacy_scope": "owner-private"
+        },
+        "undeclared_field": "reject unknown fields"
+      }
+    },
+    {
+      "name": "wrong operation",
+      "value": {
+        "schema_version": "mind-tool-request/v1",
+        "operation": "nonexistent_tool",
+        "arguments": {
+          "pattern": "synthetic"
+        },
+        "context": {
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "privacy_scope": "owner-private"
+        }
+      }
+    },
+    {
+      "name": "unknown argument",
+      "value": {
+        "schema_version": "mind-tool-request/v1",
+        "operation": "grep_books",
+        "arguments": {
+          "pattern": "synthetic",
+          "unknown": true
+        },
+        "context": {
+          "owner_scope": "owner-1",
+          "project_scope": "project-1",
+          "privacy_scope": "owner-private"
+        }
+      }
+    }
+  ]
+}

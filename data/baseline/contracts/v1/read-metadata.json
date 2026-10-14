@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:organized-mind:read-metadata:1",
+  "title": "read-metadata",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "mind-read/v1"
+    },
+    "read_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "backend_availability": {
+      "enum": [
+        "ready",
+        "partial",
+        "unavailable",
+        "disabled",
+        "experimental"
+      ]
+    },
+    "source_snapshot": {
+      "type": "string",
+      "minLength": 1
+    },
+    "index_snapshot": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "graph_snapshot": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "privacy_scope": {
+      "enum": [
+        "owner-private",
+        "project-private"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_revision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "privacy_scope": {
+            "enum": [
+              "owner-private",
+              "project-private"
+            ]
+          },
+          "producing_revision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "returned_text_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "locator": {
+            "$ref": "urn:organized-mind:locator:1"
+          }
+        },
+        "required": [
+          "source_id",
+          "source_revision",
+          "source_hash",
+          "privacy_scope",
+          "producing_revision",
+          "returned_text_hash",
+          "locator"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "legacy_character_truncation": {
+      "type": "boolean"
+    },
+    "budget_truncation": {
+      "type": "boolean"
+    },
+    "omitted_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "cursor": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "enum": [
+              "validation",
+              "permission",
+              "revision_conflict",
+              "request_key_conflict",
+              "backend_unavailable",
+              "not_found",
+              "version_mismatch",
+              "budget_limit",
+              "internal"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1
+          },
+          "retryable": {
+            "type": "boolean"
+          },
+          "retry_after_ms": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "retryable",
+          "retry_after_ms"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "budget": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "question_budget_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "tokens_used": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "tokens_remaining": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "counter": {
+              "type": "string",
+              "minLength": 1
+            },
+            "serialization_revision": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "question_budget_id",
+            "tokens_used",
+            "tokens_remaining",
+            "counter",
+            "serialization_revision"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "read_id",
+    "backend_availability",
+    "source_snapshot",
+    "index_snapshot",
+    "graph_snapshot",
+    "privacy_scope",
+    "sources",
+    "legacy_character_truncation",
+    "budget_truncation",
+    "omitted_count",
+    "cursor",
+    "errors",
+    "budget"
+  ],
+  "additionalProperties": false
+}
