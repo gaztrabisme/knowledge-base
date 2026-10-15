@@ -134,7 +134,10 @@ def check():
     for name, count in [('hard', 438), ('easy', 199), ('sanity', 30)]:
         compare(f'{name} control population', count, observed_remote['controls'][name]['count'])
     print(f'PASS: {len(observed_remote["files"])} bppc file hashes; 330778 IDs/payloads/BM25, 328 sources; original labels and M1c redirect', flush=True)
-    print('PASS: FP P1 mechanical baseline gate. Gary contract approval and P7 installation gates remain pending.', flush=True)
+    approval = BASE / 'approval-2026-10-15.json'
+    record = __import__('json').loads(approval.read_text()) if approval.exists() else None
+    state = f"contracts approved by {record['approved_by']} on {record['approved_at']}" if record else 'Gary contract approval pending'
+    print('PASS: FP P1 mechanical baseline gate; ' + state + '. P7 installation gates remain pending.', flush=True)
 
 
 if __name__ == '__main__':
