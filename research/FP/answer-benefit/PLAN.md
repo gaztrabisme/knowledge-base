@@ -1,13 +1,20 @@
 # FP row 12 — answer-benefit pre-registration
 
-Owner and decision authority: Gary. Authoring unit: AB0, 2026-10-15.
-Status at AB0 handoff: **PROPOSED; NOT APPROVED; NO EXPERIMENT AUTHORIZED BY THIS FILE.**
+Owner and decision authority: Gary. Authoring units: AB0 / AB0f, 2026-10-15.
+Status at AB0f handoff: **PROPOSED; NOT APPROVED; NO EXPERIMENT AUTHORIZED BY THIS FILE.**
 
 This unit writes the plan and an offline freeze validator only. It creates no study
 questions, reference answers, model answers or measurements. No model, retrieval
 service, GPU, bppc or oMLX is used. The experiment belongs to a later unit, after
 the graph phase and Gary's recorded approval. Product approval on 2026-10-14 and
 P1 contract approval do not approve this scoring plan.
+
+AB0f applies Gary's 2026-10-15 decision: "You can replace human by Fable 5.1 subagent or Codex Astra subagent."
+The later study uses two isolated cloud reviewer lanes with no shared session
+context: **Fable 5.1**, model `claude-fable-5-1`, launched headlessly with
+`claude -p --model claude-fable-5-1`; and **Codex Astra**, model `gpt-6-astra`,
+launched with `codex exec -m gpt-6-astra`. These are later execution instructions,
+not calls authorized or made by AB0f. Gary retains the four decisions in section 6.
 
 ## 1. Question and scope
 
@@ -21,20 +28,36 @@ cost; extraction-model quality and embedding replacement are separate studies.
 The design's C037/C038/C078 requirements retain **48 source units**, 12 each from
 books, courses, papers and repositories, drawn from **2 books, 2 courses, 8 papers
 and 2 repositories**. A unit is a section, lesson segment, paper span or file with
-enough enclosing context to interpret it. Gary chooses one technical domain and
-the exact works/revisions before question writing. Record every required unit,
-ordered scope membership, source hash, locator, processing state and omitted
+enough enclosing context to interpret it. Fable 5.1 proposes one technical domain
+and the exact 14 works/revisions before question writing, selecting only works
+actually present in the frozen common text snapshot and the phase 2 catalog.
+Record every required unit, ordered scope membership, source hash, locator, processing state and omitted
 modality. Editions/translations of one work do not count as independent sources.
 
 The frozen v10 control is `developer_knowledge_v10`, release `v10-fp-p1` in
 `data/baseline/`. Its historical retrieval scores are not answer scores. Before
 freezing, the experiment owner must establish that all selected evidence is
 accessible through ordinary text search/reads in **both** arms. A graph-only
-source is not an eligible advantage. If the required diversity cannot be met by
-the approved common text snapshot, stop for Gary's pre-results scope decision;
-do not silently substitute M3's sample, change v10, reduce diversity or count
-unavailable sources as absent. Any shared text supplement needs an explicitly
-approved, pinned comparator before questions are frozen.
+source is not an eligible advantage. Catalog membership without accessible common
+text is insufficient. v10 holds books; the archive core exists, but no real course
+or repository is archived yet. Fable must verify the later frozen inventory,
+produce a target-versus-available composition table and record each shortfall.
+If courses, repositories or other required works are unavailable, Fable proposes
+the closest feasible composition using only eligible works, with exact revisions,
+counts by medium, missing media, rationale and the narrower claim it permits.
+It must retain 96 questions, source grouping and held-out-source rules; retain
+48 units and 14 works wherever feasible. If even the minimum group requirement
+cannot be met, mark preparation blocked rather than manufacture independence.
+
+The original diversity target remains visible; an alternative is a proposal,
+never an automatic substitution or evidence of the missing medium's benefit.
+The final composition and shortfall ledger go to Gary in the final freeze packet.
+Any changed composition must be explicit in the approved plan and matching schema
+constants before freeze; this version's validator still enforces the original
+48-unit/14-work composition. Never silently substitute M3's sample, change v10,
+reduce diversity or count unavailable sources as absent. A shared text supplement
+requires an explicitly approved, pinned comparator in that packet before questions
+are frozen; acquiring or archiving missing works belongs to another unit.
 
 ## 2. Questions and reference labels, written before answers
 
@@ -45,14 +68,15 @@ propose these populations; they do not supply independent answer labels.
 30-row `gate-v10/sanity-plan.jsonl` are retrieval material, not this answer study.
 The 438 hard retrieval queries must remain a separate promotion gate.
 
-The later curator writes and freezes `questions.jsonl` and `labels.jsonl`:
+Fable 5.1 then writes and freezes `questions.jsonl` and `labels.jsonl` from source
+text only, with the scope ledger used for processing qualifications:
 
 | Class | Number | Construction and expected reference |
 |---|---:|---|
 | Lookup — C038 harm | 24 | Direct, ordinary source questions over the selected units; all answerable from original text. Existing bench wording may be adapted only if its positive source is in the common snapshot; record the original qid/path and every edit. Otherwise write new questions from the source. |
 | Relational — C037 benefit | 24 | Ask who applied a method to a problem, which conditions/versions constrain a claim, or what implementation/evaluation supports a relation. Label direction, negation and conditions from source text, without inspecting graph outputs. |
 | Coverage — C037/C078 benefit | 24 | 12 known-present cases with source witnesses; 12 no-support cases independently checked across every required unit in an explicitly bounded, completely processed scope. A graph miss alone cannot label no-support. |
-| Gap review — benefit description | 24 | Gary supplies a task and an explicit requirement set before writing. Ask which introductions, implementations, evaluations or prerequisites have support, which need review and why. Label available evidence and the appropriate processing/gap state. A library gap is never a claim about Gary's understanding or global novelty. |
+| Gap review — benefit description | 24 | Fable defines a source-grounded task and an explicit requirement set before question writing and includes them in the freeze packet. Ask which introductions, implementations, evaluations or prerequisites have support, which need review and why. Label available evidence and the appropriate processing/gap state. A library gap is never a claim about Gary's understanding or global novelty. |
 
 This yields **96** test questions. Each record has a stable `qid`, `class`
 (`lookup`, `relational`, `coverage`, `gap_review`), wording, source IDs/revisions,
@@ -64,12 +88,17 @@ relational labels have state `answer`; coverage has 12 `answer` and 12
 `no_support`. Gap-review states follow source review. Never invent negative
 labels by withholding a known supporting span from the reference reviewer.
 
-Recommendation: Gary is the source curator; a named knowledgeable human checks
-every label independently against preserved originals and the scope ledger.
-Gary adjudicates disagreements before freeze. Keep both initial labels and the
-resolution log. Ambiguous items are rewritten or replaced **before** freeze,
-with reasons; no answer is generated to help choose them. No unresolved labels
-may enter the experiment. Exact reviewer names are mandatory freeze inputs.
+Codex Astra independently checks **every** Fable label against preserved originals
+and the scope ledger. Its fresh session receives the question and label record,
+required originals and ledger, without Fable's authoring context, reasoning
+outside the label record, graph outputs or answers. It returns structured JSON
+with per-claim evidence checks, scope checks and accept/revise findings. Fable
+rewrites or replaces disputed or ambiguous items from source text **before**
+freeze, with reasons; Astra checks the resulting records again. No unresolved
+label may enter the experiment, and no answer is generated to help choose one.
+Keep original labels, all check outputs and the resolution log in `label_review`.
+This is model review, with no required human label checker or adjudicator.
+Freeze lane model IDs, CLI versions, prompt files/hashes and output schemas.
 
 Group all neighboring units, editions and translations of a work together.
 If a question or its reference depends on several works, join their groups;
@@ -112,11 +141,17 @@ catalog-only or extraction-model arm is tested here, despite R3's broader propos
 Recommendation: Swift 1.5 only if Gary confirms that exact local checkpoint and
 an authorized later compute window; this plan asserts neither availability nor
 quality. Freeze model ID, checkpoint/content revision, runtime/build, chat
-template and generation configuration. No automatic model fallback is permitted.
+template and generation configuration. The answer model must belong to neither
+scorer's model family: Claude (`claude`) or GPT (`gpt`, including Codex Astra).
+Record its canonical family and checkpoint-provenance basis, and a passed family
+separation check in the manifest. A different model ID within a scorer's family
+does not satisfy this condition. No automatic model fallback is permitted.
 An unsupported generation parameter must be disclosed and settled before freeze.
 
 Proposed execution: **1** fresh, isolated session per question/arm (**192** answer
-attempts), temperature **0**, at most **1,024** newly generated answer tokens,
+attempts). Temperature **0**, model seed **42** if supported and at most **1,024**
+newly generated answer tokens remain recommendations for Gary's answer model
+on bppc; its final supported settings must be approved and frozen. Also propose
 **32** tool-call attempts and **600 seconds** elapsed per question/arm, with **0**
 automatic retries. Record all limits and actual use. Seed Python's schedule RNG
 with **42**; sort qids, shuffle questions, and randomly choose first arm for each
@@ -168,7 +203,7 @@ question/arm budget ID, read IDs, source/index/graph snapshots, returned-text
 hashes, omission/error states, used/remaining tokens and terminal status. A cap,
 renderer, counter, snapshot, privacy or isolation violation invalidates the run.
 
-## 4. Rubric and blind human review
+## 4. Rubric and blind model review
 
 **Support** requires a cited source span that opens through the frozen catalog
 at the pinned revision and actually contains the claim, including relationship
@@ -178,16 +213,42 @@ substitute for source text supporting a substantive relation. A source ID, graph
 edge or citation-shaped string alone is not support. `verification: exact` in
 P2 means frozen payload identity, not proof of original-edition truth.
 
-Two named knowledgeable human reviewers independently score **every** answer,
-with arm/model/tool identities hidden and randomized answer IDs. They see the
+Fable 5.1 and Codex Astra each independently score **all 192 answers**, with
+arm/model/tool identities hidden and answer IDs and presentation order randomized
+separately for each lane. Keep the mapping outside reviewer access. They see the
 frozen question/reference packet and catalog evidence, but not the paired answer
 or interim totals. Retain original wording/citations; remove transport traces
 and arm labels without changing substantive content. Some coverage wording may
 reveal the arm; record reviewer arm guesses and this blinding limitation.
 Reviewers must be independent of answer generation and graph implementation.
-Gary is the final human adjudicator, with arm labels hidden until grades lock.
-The reference checker may be one scorer; a second distinct scorer is required.
-No automated/model judge is authorized by this plan. No stopping on interim scores.
+Scoring uses fresh isolated per-answer sessions, without curation/checking
+transcripts, previous grades or the other scorer's notes in the initial round.
+The frozen reference packet is the only carried-over label material; no shared
+chat context or private reasoning crosses lanes or roles. No stopping on interim
+scores. Gary may audit any item, but no human scoring or adjudication is required.
+
+### Reviewer prompts, settings and structured outputs
+
+Each role is a model-lane record in `protocol.reviewers`: `source_curator` is
+Fable, `source_checker` is Astra, and `answer_reviewers` contains one of each.
+Each record freezes `lane`, `model_id`, `model_family`, `cli_version`,
+`prompt_files` (local paths, SHA-256 hashes and byte counts) and `output_schema`
+(the same artifact fields). The `prompts` inventory binds all prompt files;
+the configuration records exact CLI invocation and effective/default settings.
+Use separate prompts for source selection, question/label writing, label checks,
+initial scoring and reconciliation; each role record lists its applicable files.
+Freeze the output schema for each role. Every reviewer output is structured JSON,
+validated against its frozen schema; invalid or missing JSON is a missing review,
+not an automatic grade. Preserve raw outputs and validation records.
+
+Label JSON includes the section 2 reference fields and checker findings. Scorer
+JSON includes blind answer ID, round, category, binary credit, per-claim verdicts
+with evidence locators and scope qualifications, and arm guess/uncertainty.
+Reconciliation JSON also references the initial record and the peer notes used.
+Cloud CLI settings apply to these lanes; do not send sampling parameters to oMLX
+or route reviewer calls through it. The answer-model recommendations in section 3
+do not prescribe cloud reviewer sampling settings. Freeze any reviewer setting
+or provider-default behavior that can be recorded; disclose residual drift.
 
 Apply categories in this precedence order, and retain per-claim notes:
 
@@ -208,8 +269,24 @@ evidence can coexist with unknown broader coverage. Unjustified unknowns on
 known-present cases receive no supported credit. The 12 incomplete-scope fixtures
 are excluded from the answer-benefit denominator (section 7).
 
-After independent grades, retain disagreements and Gary's written source-based
-resolution. No unresolved grade permits a confirmatory claim. A discovered gold
+### Disagreement rule, fixed before results
+
+After both initial grades lock, give each scorer the other's initial per-claim
+notes for disputed answers, with the peer's identity removed. Each re-grades
+once in a fresh session using the same blind answer, reference packet and its own
+initial record. Arm/model/tool identities and the paired answer remain hidden.
+Neither sees the other's revised grade before submitting; there is no second
+reconciliation round. Retain both initial and revised JSON records and peer-note
+packets. Agreement means identical category **and** credit. Report agreement
+before and after reconciliation as a count and rate over **192 answers**, with
+unchanged agreements carried forward; also list disputed IDs and final credits.
+
+Any remaining disagreement receives lower credit **0** in **both the main and
+failure-conservative analyses**, even if the categories differ but both already
+earn 0. Keep both categories instead of inventing an adjudicated category.
+This rule is final without Gary's intervention; optional audits are recorded and
+cannot override it to recover a win. Missing grades or required reconciliation
+records invalidate grading rather than count as disagreement. A discovered gold
 error after answers exist is reported against the original labels and invalidates
 the confirmatory claim; do not relabel or drop the item to recover a win. A revised
 benchmark needs fresh held-out sources and new approval.
@@ -282,13 +359,20 @@ failure before study start blocks the study rather than fabricating 192 failures
 
 Publish a conservative sensitivity calculation on the same frozen resamples:
 assign **control failures credit 1** and **treatment failures credit 0**, retaining
-all nonfailed scores, and recompute primary and lookup endpoints. A benefit claim
-must also have a positive primary lower bound under this assignment; the harm
-gate must pass under its loss count too. Missing/unresolved human grades, missing
+all nonfailed scores. Then apply the section 4 remaining-disagreement mask last:
+each disputed answer stays at **0 in both analyses**, including a control
+failure that would otherwise receive 1. Recompute primary and lookup endpoints.
+A benefit claim must also have a positive primary lower bound under this
+assignment; the harm gate must pass under its loss count too. Missing reviewer grades/reconciliation,
 budget logs or protocol violations invalidate the claim rather than count as
 favorable model outcomes. Keep all attempts and report the invalidity.
 
 ## 6. Decisions Gary must approve before answers
+
+The remaining human decisions are the answer model (including supported generation
+settings), the lookup-harm allowance, acceptance of the model-reviewer rule and
+approval of the final freeze packet (composition and manifest). Fable proposes
+sources and tasks; Gary need not curate labels, appoint humans or adjudicate grades.
 
 Benefit is claimed only when the primary paired 95% lower bound is **strictly
 above 0**, in both the main and failure-conservative analysis, and all validity,
@@ -334,9 +418,11 @@ a separately registered study with new held-out groups; retain the first result.
    answer generation, retrieval run or score**. Preserve the human approval;
    product/contract approval and a validator pass do not substitute for it.
 2. Later, assemble source-held-out questions, independent labels, disagreement
-   log, prompts, exact source/index/graph pins, model/runtime, named reviewers,
+   log, prompts/output schemas, exact source/index/graph pins, model/runtime,
+   model-lane records and answer-family separation evidence,
    tool allowlists, budget instrument and analysis implementation. Gary approves
-   the completed freeze packet and its exact choices before execution. Changes
+   the completed freeze packet, including the proposed source composition and
+   shortfall ledger, and its exact choices before execution. Changes
    to the approved plan need renewed approval before any answer exists.
 3. Create a new, immutable directory such as `freezes/<run-id>/` containing
    `manifest.json` and local copies of every required artifact. Paths are relative
@@ -351,9 +437,11 @@ a separately registered study with new held-out groups; retain the first result.
    implementation must bind its own runtime/dependency lock too.
 4. `configuration` is JSON containing `protocol` equal to the manifest's
    `protocol`, plus complete tool/arm/runtime/snapshot configuration. The protocol
-   contains approved counts, budget pins, model identity, reviewer identities,
-   execution limits and lookup-loss tolerance. Question/label JSONL uses the
-   fields in section 2; additional reference detail is retained, not exposed to
+   contains approved counts, budget pins, answer-model identity/family,
+   `reviewer_family_check`, reviewer model-lane records, the fixed disagreement
+   rule, execution limits and lookup-loss tolerance. Each lane's prompt and output
+   schema files are local hashed artifacts in the manifest, not mutable references.
+   Question/label JSONL uses the fields in section 2; additional reference detail is retained, not exposed to
    the answer model. The schema fixes method constants; a changed method needs
    a new plan and schema revision before results.
 5. Save a JSON approval record with `approval` and `pre_results` equal to the
@@ -372,8 +460,11 @@ a separately registered study with new held-out groups; retain the first result.
 7. The later `check-answer-benefit.sh` (not written by AB0) must call this validator
    with the receipt's `--expected-sha256`, verify approval provenance and that
    every study start/read/result timestamp is later than registration, check all
-   source/model/adapter pins and budget logs, require all 192 terminal records
-   and locked grades, and reproduce intervals/decisions from retained data.
+   source/model/adapter pins and budget logs, require all 192 terminal records,
+   both scorers' 192 locked initial grades and all required one-round re-grades,
+   validate reviewer JSON, verify lane isolation/blinding and family separation,
+   and reproduce agreement rates, disagreement-zero masks, intervals and decisions
+   from retained data.
    Keep results in separate files referencing the manifest digest; do not edit
    the freeze to append results. Revalidate frozen files after execution.
 
@@ -385,11 +476,13 @@ python3 research/FP/answer-benefit/validate_manifest.py path/to/freeze/manifest.
 ```
 
 The offline validator checks schema, byte hashes, paths, approval bindings,
-resolved choices, question/label identity and counts, group consistency and
-configuration agreement. It does not certify semantic labels, human identity,
-actual renderer/counter behavior, snapshot availability or real chronology.
+resolved choices, question/label identity and counts, group consistency,
+reviewer lane/model/family assignments, prompt/output-schema hashes and
+configuration agreement. It does not certify semantic labels, model provenance,
+actual reviewer independence, human approval identity, actual renderer/counter
+behavior, snapshot availability or real chronology.
 Its self-test uses synthetic metadata only, without source answers or model calls.
-No frozen manifest is issued by AB0 because Gary's choices and the graph/test
+No frozen manifest is issued by AB0/AB0f because Gary's choices and the graph/test
 artifacts do not yet exist. A plan/question/label/prompt/configuration change
 after answers or results exist **invalidates the confirmatory claim**, even if
 rehashing makes a new manifest internally consistent. Keep exploratory analysis
@@ -420,6 +513,16 @@ Source observation hashes and unresolved choices are in `../units/AB0-report.md`
 AB0 choices beyond the design (binary credit, primary 48-question gate,
 source-cluster algorithm, minimum group count, conservative failures and proposed
 execution limits) are recommendations for Gary, not measured findings. Rejecting
-an aggregate retrieval proxy, a question-independent bootstrap, a model judge and
-a visual comparison here preserves the specific answer-support question and
-the plan-only boundary.
+an aggregate retrieval proxy, a question-independent bootstrap and a visual
+comparison here preserves the specific answer-support question and plan-only
+boundary. The design's no-model-judge recommendation is **set aside by Gary's
+2026-10-15 decision** quoted above; it is no longer a gate in this plan.
+
+Model reviewers replace human judgement here. A shared blind spot between two
+strong models can survive both independent checks and the disagreement rule;
+agreement is not proof of truth. Fable's reuse as curator and scorer can add
+correlated error even with fresh contexts. Cloud model behavior may also drift
+behind a pinned model ID; record provider revisions when available. Any supported
+benefit claim must say **"under two independent model reviewers"**, name the
+frozen lanes and scope, and report agreement rates, remaining disagreements and
+these limits. It does not establish benefit under human judgement.

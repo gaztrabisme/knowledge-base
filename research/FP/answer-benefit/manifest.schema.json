@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:fp:answer-benefit:manifest:1",
+  "$id": "urn:fp:answer-benefit:manifest:2",
   "title": "Approved pre-results FP answer-benefit freeze (not a result receipt)",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema_version", "run_id", "phase", "frozen_at", "approval", "pre_results", "protocol", "files"],
   "properties": {
-    "schema_version": {"const": "fp-answer-benefit-manifest/v1"},
+    "schema_version": {"const": "fp-answer-benefit-manifest/v2"},
     "run_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,95}$"},
     "phase": {"const": "pre-results"},
     "frozen_at": {"$ref": "#/$defs/timestamp"},
@@ -27,7 +27,7 @@
     },
     "protocol": {
       "type": "object", "additionalProperties": false,
-      "required": ["question_counts", "source_units", "units_per_medium", "source_diversity", "coverage_cases", "minimum_source_groups", "scoring", "statistics", "budget", "answer_model", "reviewers", "execution", "maximum_lookup_losses"],
+      "required": ["question_counts", "source_units", "units_per_medium", "source_diversity", "coverage_cases", "minimum_source_groups", "scoring", "statistics", "budget", "answer_model", "reviewer_family_check", "reviewers", "execution", "maximum_lookup_losses"],
       "properties": {
         "question_counts": {"const": {"lookup": 24, "relational": 24, "coverage": 24, "gap_review": 24}},
         "source_units": {"const": 48},
@@ -64,22 +64,46 @@
         },
         "answer_model": {
           "type": "object", "additionalProperties": false,
-          "required": ["id", "revision", "runtime", "chat_template_sha256"],
+          "required": ["id", "family", "revision", "runtime", "chat_template_sha256"],
           "properties": {
             "id": {"$ref": "#/$defs/name"},
+            "family": {"type": "string", "pattern": "^[a-z][a-z0-9._-]*$"},
             "revision": {"$ref": "#/$defs/name"},
             "runtime": {"$ref": "#/$defs/name"},
             "chat_template_sha256": {"$ref": "#/$defs/sha256"}
           }
         },
+        "reviewer_family_check": {
+          "type": "object", "additionalProperties": false,
+          "required": ["passed", "basis"],
+          "properties": {
+            "passed": {"const": true},
+            "basis": {"$ref": "#/$defs/name"}
+          }
+        },
         "reviewers": {
           "type": "object", "additionalProperties": false,
-          "required": ["source_curator", "source_checker", "answer_reviewers", "adjudicator"],
+          "required": ["source_curator", "source_checker", "answer_reviewers", "isolation", "output_format", "disagreement_rule"],
           "properties": {
-            "source_curator": {"$ref": "#/$defs/name"},
-            "source_checker": {"$ref": "#/$defs/name"},
-            "answer_reviewers": {"type": "array", "minItems": 2, "maxItems": 2, "uniqueItems": true, "items": {"$ref": "#/$defs/name"}},
-            "adjudicator": {"const": "Gary"}
+            "source_curator": {"$ref": "#/$defs/model_lane"},
+            "source_checker": {"$ref": "#/$defs/model_lane"},
+            "answer_reviewers": {"type": "array", "minItems": 2, "maxItems": 2, "uniqueItems": true, "items": {"$ref": "#/$defs/model_lane"}},
+            "isolation": {"const": "fresh-sessions-no-shared-context/v1"},
+            "output_format": {"const": "structured-json"},
+            "disagreement_rule": {
+              "const": {
+                "regrade_rounds": 1,
+                "peer_material": "initial-per-claim-notes",
+                "blind_through_reconciliation": true,
+                "remaining_disagreement_credit": 0,
+                "applies_to": ["main", "failure_conservative"],
+                "disagreement_mask_applied_last": true,
+                "agreement_definition": "category-and-credit",
+                "agreement_denominator": 192,
+                "report_agreement": ["before", "after"],
+                "gary_audit": "optional"
+              }
+            }
           }
         },
         "execution": {
@@ -123,6 +147,18 @@
     }
   },
   "$defs": {
+    "model_lane": {
+      "type": "object", "additionalProperties": false,
+      "required": ["lane", "model_id", "model_family", "cli_version", "prompt_files", "output_schema"],
+      "properties": {
+        "lane": {"enum": ["fable-5.1", "codex-astra"]},
+        "model_id": {"enum": ["claude-fable-5-1", "gpt-6-astra"]},
+        "model_family": {"enum": ["claude", "gpt"]},
+        "cli_version": {"$ref": "#/$defs/name"},
+        "prompt_files": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/artifact"}},
+        "output_schema": {"$ref": "#/$defs/artifact"}
+      }
+    },
     "name": {"type": "string", "minLength": 1, "maxLength": 300},
     "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
     "timestamp": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"},

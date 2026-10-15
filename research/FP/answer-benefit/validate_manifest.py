@@ -18,6 +18,8 @@ from datetime import datetime, timezone
 
 HERE = Path(__file__).resolve().parent
 SCHEMA_PATH = HERE / "manifest.schema.json"
+REVIEWER_MODELS = {"fable-5.1": ("claude-fable-5-1", "claude"),
+                  "codex-astra": ("gpt-6-astra", "gpt")}
 
 
 class Invalid(ValueError):
@@ -139,8 +141,52 @@ def local_file(base, raw):
 def named(value):
     need(isinstance(value, str) and value.strip() and not re.search(
         r"\b(tbd|todo|pending|placeholder|unknown|unset)\b|gary to choose", value, re.I),
-        "model/reviewer choice is unresolved")
+        "model/reviewer metadata is unresolved")
     return value.strip().casefold()
+
+
+def reviewer_records(protocol):
+    reviewers = protocol["reviewers"]
+    return [reviewers["source_curator"], reviewers["source_checker"], *reviewers["answer_reviewers"]]
+
+
+def check_reviewers(protocol):
+    reviewers = protocol["reviewers"]
+    curator, checker = reviewers["source_curator"], reviewers["source_checker"]
+    need(curator["lane"] != checker["lane"], "source checker must be independent of curator")
+    need(curator["lane"] == "fable-5.1" and checker["lane"] == "codex-astra",
+         "source curation/checking lane assignment differs from plan")
+    need({r["lane"] for r in reviewers["answer_reviewers"]} == set(REVIEWER_MODELS),
+         "answer scorers must use two distinct prescribed model lanes")
+    versions = {}
+    for record in reviewer_records(protocol):
+        lane = record["lane"]
+        need((record["model_id"], record["model_family"]) == REVIEWER_MODELS[lane],
+             "reviewer lane/model/family mismatch")
+        named(record["cli_version"])
+        need(lane not in versions or versions[lane] == record["cli_version"],
+             "reviewer CLI version differs across roles in the same lane")
+        versions[lane] = record["cli_version"]
+    # Canonical family plus checkpoint provenance is required. Catch obvious
+    # aliases here; the later checker must verify the actual checkpoint lineage.
+    for field in ("family", "id"):
+        value = named(protocol["answer_model"][field])
+        need(not re.match(r"^(claude|gpt|codex|anthropic|openai)(?:$|[^a-z])", value),
+             "answer model shares a reviewer family")
+    named(protocol["reviewer_family_check"]["basis"])
+
+
+def check_reviewer_files(base, manifest_path, protocol, targets):
+    for record in reviewer_records(protocol):
+        for artifact in [*record["prompt_files"], record["output_schema"]]:
+            target = local_file(base, artifact["path"])
+            need(target != manifest_path and target not in targets.values(),
+                 "reviewer artifact aliases a top-level role/manifest")
+            need(target.stat().st_size == artifact["bytes"] and digest(target) == artifact["sha256"],
+                 "reviewer prompt/output-schema bytes/hash changed")
+        output_schema = decode(local_file(base, record["output_schema"]["path"]).read_text(encoding="utf-8"))
+        need(isinstance(output_schema, dict) and output_schema.get("type") == "object",
+             "reviewer output schema must describe a JSON object")
 
 
 def rows(path):
@@ -206,12 +252,7 @@ def validate(path, expected=None):
          "counter/vocabulary fingerprint mismatch")
     for value in protocol["answer_model"].values():
         named(value)
-    reviewers = protocol["reviewers"]
-    curator, checker = named(reviewers["source_curator"]), named(reviewers["source_checker"])
-    graders = [named(name) for name in reviewers["answer_reviewers"]]
-    need(curator != checker, "source checker must be independent of curator")
-    need(len(set(graders)) == 2 and named(reviewers["adjudicator"]) not in graders,
-         "answer scorers must be distinct from each other and adjudicator")
+    check_reviewers(protocol)
     files, targets = manifest["files"], {}
     for role, artifact in files.items():
         target = local_file(path.parent, artifact["path"])
@@ -219,6 +260,7 @@ def validate(path, expected=None):
         need(target.stat().st_size == artifact["bytes"] and digest(target) == artifact["sha256"],
              f"{role}: artifact bytes/hash changed")
         targets[role] = target
+    check_reviewer_files(path.parent, path, protocol, targets)
     for role, current in (("schema", SCHEMA_PATH), ("validator", Path(__file__).resolve())):
         need(files[role]["sha256"] == digest(current), f"{role}: checker differs from frozen version")
     for role in ("plan", "configuration", "questions", "labels"):
@@ -240,6 +282,10 @@ def write_json(path, value):
 
 def seal_fixture(base, manifest):
     """Synthetic test helper; never used to issue a real study freeze."""
+    for lane in reviewer_records(manifest["protocol"]):
+        for artifact in [*lane["prompt_files"], lane["output_schema"]]:
+            path = base / artifact["path"]
+            artifact.update(sha256=digest(path), bytes=path.stat().st_size)
     for artifact in manifest["files"].values():
         path = base / artifact["path"]
         artifact.update(sha256=digest(path), bytes=path.stat().st_size)
@@ -259,13 +305,34 @@ def fixture(base, schema):
     protocol.update(maximum_lookup_losses=0,
         budget={k: copy.deepcopy(v["const"]) for k, v in fields["budget"]["properties"].items() if "const" in v},
         execution={k: copy.deepcopy(v["const"]) for k, v in fields["execution"]["properties"].items() if "const" in v},
-        answer_model={"id": "synthetic-local", "revision": "test-revision", "runtime": "test-runtime",
+        answer_model={"id": "synthetic-local", "family": "synthetic", "revision": "test-revision", "runtime": "test-runtime",
                       "chat_template_sha256": "a" * 64},
-        reviewers={"source_curator": "Gary", "source_checker": "Test Checker",
-                   "answer_reviewers": ["Test Checker", "Test Scorer"], "adjudicator": "Gary"})
+        reviewer_family_check={"passed": True, "basis": "FICTIONAL self-test checkpoint provenance only"},
+        reviewers={k: copy.deepcopy(v["const"]) for k, v in fields["reviewers"]["properties"].items()
+                   if "const" in v})
+    def lane_fixture(role, lane, prompts):
+        model_id, family, cli = (("claude-fable-5-1", "claude", "claude") if lane == "fable-5.1"
+                                 else ("gpt-6-astra", "gpt", "codex"))
+        prompt_files = []
+        for prompt in prompts:
+            name = f"{role}-{prompt}.txt"
+            path = base / name
+            path.write_text("FICTIONAL reviewer prompt metadata only\n", encoding="utf-8")
+            prompt_files.append({"path": name, "sha256": digest(path), "bytes": path.stat().st_size})
+        name = f"{role}-output.schema.json"
+        write_json(base / name, {"type": "object"})
+        return {"lane": lane, "model_id": model_id, "model_family": family,
+                "cli_version": f"synthetic-{cli}/0.0", "prompt_files": prompt_files,
+                "output_schema": {"path": name, "sha256": digest(base / name),
+                                  "bytes": (base / name).stat().st_size}}
+    protocol["reviewers"].update(
+        source_curator=lane_fixture("curator", "fable-5.1", ["selection", "labels"]),
+        source_checker=lane_fixture("checker", "codex-astra", ["check"]),
+        answer_reviewers=[lane_fixture("scorer-fable", "fable-5.1", ["score", "reconcile"]),
+                          lane_fixture("scorer-astra", "codex-astra", ["score", "reconcile"])])
     protocol["budget"].update(vocabulary_sha256="a" * 64, counter="python-tiktoken/0.14.0:cl100k_base:" + "a" * 64)
     protocol["execution"].update(model_seed=None, python_version="3.11.0")
-    manifest = {"schema_version": "fp-answer-benefit-manifest/v1", "run_id": "synthetic-only",
+    manifest = {"schema_version": "fp-answer-benefit-manifest/v2", "run_id": "synthetic-only",
         "phase": "pre-results", "frozen_at": "2026-10-15T01:00:00Z",
         "approval": {"approved_by": "Gary", "approved_at": "2026-10-15T00:00:00Z"},
         "pre_results": {"answers_generated": False, "retrieval_run": False, "scores_seen": False},
@@ -306,7 +373,36 @@ def self_test():
         ("boolean harm tolerance", lambda m, b: m["protocol"].update(maximum_lookup_losses=False)),
         ("invalid harm tolerance", lambda m, b: m["protocol"].update(maximum_lookup_losses=25)),
         ("model placeholder", lambda m, b: m["protocol"]["answer_model"].update(id="GARY TO CHOOSE")),
-        ("same scorers", lambda m, b: m["protocol"]["reviewers"].update(answer_reviewers=["A", "a"])),
+        ("same scorers", lambda m, b: m["protocol"]["reviewers"]["answer_reviewers"].__setitem__(
+            1, copy.deepcopy(m["protocol"]["reviewers"]["answer_reviewers"][0]))),
+        ("same curator/checker", lambda m, b: m["protocol"]["reviewers"].update(
+            source_checker=copy.deepcopy(m["protocol"]["reviewers"]["source_curator"]))),
+        ("wrong curator lane", lambda m, b: m["protocol"]["reviewers"].update(
+            source_curator=copy.deepcopy(m["protocol"]["reviewers"]["source_checker"]))),
+        ("human reviewer", lambda m, b: m["protocol"]["reviewers"].update(source_checker="Gary")),
+        ("human adjudicator", lambda m, b: m["protocol"]["reviewers"].update(adjudicator="Gary")),
+        ("wrong lane model", lambda m, b: m["protocol"]["reviewers"]["source_curator"].update(model_id="gpt-6-astra")),
+        ("wrong lane family", lambda m, b: m["protocol"]["reviewers"]["source_curator"].update(model_family="gpt")),
+        ("missing CLI version", lambda m, b: m["protocol"]["reviewers"]["source_checker"].pop("cli_version")),
+        ("unset CLI version", lambda m, b: m["protocol"]["reviewers"]["source_checker"].update(cli_version="pending")),
+        ("inconsistent CLI version", lambda m, b: m["protocol"]["reviewers"]["source_checker"].update(cli_version="other-cli/1")),
+        ("missing reviewer prompt", lambda m, b: m["protocol"]["reviewers"]["source_checker"].update(prompt_files=[])),
+        ("missing prompt hash", lambda m, b: m["protocol"]["reviewers"]["source_checker"]["prompt_files"][0].pop("sha256")),
+        ("missing output schema", lambda m, b: m["protocol"]["reviewers"]["source_checker"].pop("output_schema")),
+        ("reviewer prompt traversal", lambda m, b: m["protocol"]["reviewers"]["source_checker"]["prompt_files"][0].update(path="../outside")),
+        ("tampered reviewer prompt", lambda m, b: (b / "checker-check.txt").write_text("changed", encoding="utf-8")),
+        ("tampered output schema", lambda m, b: (b / "checker-output.schema.json").write_text("changed", encoding="utf-8")),
+        ("answer from Claude family", lambda m, b: m["protocol"]["answer_model"].update(family="claude")),
+        ("answer from GPT family", lambda m, b: m["protocol"]["answer_model"].update(family="gpt")),
+        ("answer hides reviewer model", lambda m, b: m["protocol"]["answer_model"].update(id="gpt-6-astra")),
+        ("answer hides family variant", lambda m, b: m["protocol"]["answer_model"].update(family="claude-other")),
+        ("missing family check", lambda m, b: m["protocol"].pop("reviewer_family_check")),
+        ("failed family check", lambda m, b: m["protocol"]["reviewer_family_check"].update(passed=False)),
+        ("unset family provenance", lambda m, b: m["protocol"]["reviewer_family_check"].update(basis="pending")),
+        ("changed disagreement credit", lambda m, b: m["protocol"]["reviewers"]["disagreement_rule"].update(remaining_disagreement_credit=1)),
+        ("extra regrade round", lambda m, b: m["protocol"]["reviewers"]["disagreement_rule"].update(regrade_rounds=2)),
+        ("no conservative disagreement mask", lambda m, b: m["protocol"]["reviewers"]["disagreement_rule"].update(applies_to=["main"])),
+        ("required human audit", lambda m, b: m["protocol"]["reviewers"]["disagreement_rule"].update(gary_audit="required")),
         ("post-freeze approval", lambda m, b: m["approval"].update(approved_at="2026-10-16T00:00:00Z")),
         ("impossible date", lambda m, b: m.update(frozen_at="2026-02-30T01:00:00Z")),
         ("traversal", lambda m, b: m["files"]["plan"].update(path="../outside")),
@@ -346,7 +442,8 @@ def self_test():
         # Rehashed metadata exercises semantic checks, beyond mere hash mismatch.
         for name in ("question count", "missing label", "split source", "coverage state",
                      "configuration mismatch", "approval evidence", "external symlink",
-                     "registration digest", "duplicate JSON key"):
+                     "registration digest", "duplicate JSON key", "reviewer output schema shape",
+                     "reviewer schema JSON", "reviewer external symlink", "reviewer artifact alias"):
             case = base / name.replace(" ", "-")
             case.mkdir()
             manifest = fixture(case, schema)
@@ -366,7 +463,17 @@ def self_test():
                 (case / "labels").write_text("".join(json.dumps(r) + "\n" for r in data), encoding="utf-8")
             elif name == "configuration mismatch":
                 write_json(case / "configuration", {"protocol": {}})
+            elif name == "reviewer output schema shape":
+                write_json(case / "checker-output.schema.json", {"type": "string"})
+            elif name == "reviewer schema JSON":
+                (case / "checker-output.schema.json").write_text("{", encoding="utf-8")
+            elif name == "reviewer artifact alias":
+                manifest["protocol"]["reviewers"]["source_checker"]["prompt_files"][0] = copy.deepcopy(
+                    manifest["files"]["prompts"])
             seal_fixture(case, manifest)
+            if name in ("reviewer output schema shape", "reviewer schema JSON", "reviewer artifact alias"):
+                write_json(case / "configuration", {"protocol": manifest["protocol"]})
+                seal_fixture(case, manifest)
             if name == "approval evidence":
                 write_json(case / "approval_record", {"approval": {}, "human_confirmation": ""})
                 artifact = manifest["files"]["approval_record"]
@@ -376,12 +483,25 @@ def self_test():
                 (case / "prompts").unlink()
                 (base / "outside").write_text("synthetic metadata only\n", encoding="utf-8")
                 (case / "prompts").symlink_to(base / "outside")
+            if name == "reviewer external symlink":
+                (case / "checker-check.txt").unlink()
+                (base / "outside-reviewer").write_text("FICTIONAL reviewer prompt metadata only\n", encoding="utf-8")
+                (case / "checker-check.txt").symlink_to(base / "outside-reviewer")
             if name == "duplicate JSON key":
                 text = (case / "manifest.json").read_text(encoding="utf-8")
                 (case / "manifest.json").write_text(text.replace('{', '{"phase":"pre-results",', 1), encoding="utf-8")
             try:
                 validate(case / "manifest.json", "0" * 64 if name == "registration digest" else None)
-            except (Invalid, ValueError, OSError):
+            except (Invalid, ValueError, OSError) as exc:
+                expected_errors = {
+                    "reviewer output schema shape": "reviewer output schema must describe a JSON object",
+                    "reviewer external symlink": "artifact escapes freeze directory",
+                    "reviewer artifact alias": "reviewer artifact aliases a top-level role/manifest"}
+                if name in expected_errors:
+                    need(isinstance(exc, Invalid) and str(exc) == expected_errors[name],
+                         f"self-test rejected for the wrong reason: {name}")
+                if name == "reviewer schema JSON":
+                    need(isinstance(exc, json.JSONDecodeError), "self-test did not reach reviewer JSON parsing")
                 passed += 1
             else:
                 raise Invalid(f"self-test did not reject: {name}")

@@ -3,6 +3,59 @@
 Status: AB0 plan-only deliverables complete; ready for coordinator review.
 Gary has not approved this pre-registration. Row 12's experiment is not run.
 
+## AB0f — model reviewer follow-up (2026-10-15)
+
+Status: complete; plan edits only, ready for handoff. This section supersedes AB0's human-role
+recommendations below; the earlier record remains historical.
+
+- Read the five requested AB0 deliverables before editing; confirmed branch
+  `unit/fp-AB0` at `a6aabff` with a clean working tree.
+- Gary's decision: "You can replace human by Fable 5.1 subagent or Codex Astra subagent."
+- Updating source curation, independent label checking, blind scoring and fixed
+  disagreement handling to isolated Fable 5.1 and Codex Astra lanes.
+- Retained the existing scope, evidence, held-out-source, statistical and freeze
+  checks; the plan requires an explicit shortfall record for unavailable source
+  media and Gary's final composition approval. No model calls, retrieval, GPU,
+  bppc or oMLX use.
+- PLAN.md now assigns source selection and all 96 labels to Fable, independent
+  original/ledger checks to Astra, and all 192 blind answer grades to each lane.
+  It fixes one reconciliation round, remaining disagreement credit 0 in both
+  analyses, and agreement reporting. Shared model blind spots limit the claim
+  to benefit "under two independent model reviewers".
+- APPROVAL.md now has four human decisions: answer model, lookup-loss allowance,
+  acceptance of the model-reviewer rule, and the final composition/manifest.
+- Manifest v2 replaces human reviewer names/adjudicator with model-lane records,
+  pinned prompt/output-schema artifacts, family separation evidence and the
+  disagreement rule. Original counts, grouping, budget, approval, hash/path and
+  chronology-binding checks remain. Alternate compositions still need explicit
+  pre-results approval and matching plan/schema constants; they cannot pass by
+  silently weakening the existing checks.
+- Dev pattern: intrinsic-artifact gate, with direct document editing. Grounding:
+  Gary's supplied AB0f decision and the five AB0 files; KB retrieval and additional
+  model review were not run because this unit prohibits them. The report is the
+  requested durable record; wiki edits are prohibited. Independent review remains
+  a coordinator handoff, not a claimed model review in this unit.
+- Test-first migration: the new model-lane fixture was rejected by the old
+  identity logic as expected. After implementation, the self-test passes **66**
+  offline synthetic checks (all 36 original checks, adapted identities, plus 30
+  new reviewer checks). Rehashed schema/alias and external-symlink cases also
+  assert the expected error path, rather than passing on configuration drift.
+- Final acceptance command:
+  `python3 research/FP/answer-benefit/validate_manifest.py --self-test` →
+  `PASS: 66 offline synthetic manifest checks; no study answers or results created`.
+- Independently checked the schema with installed `jsonschema` Draft 2020-12:
+  schema validity, positive model-lane fixture, and three negative cases pass.
+  This remains test-only; the delivered validator still uses only the stdlib.
+- Compared the schema to `HEAD`: all original protocol fields outside reviewer
+  and answer-model records, plus approval/attestation/artifact definitions, are
+  unchanged. Python syntax, final newlines, trailing whitespace and
+  `git diff --check` pass. APPROVAL.md is about one page (628 words).
+- Completed the coordinator reread of **PLAN.md and APPROVAL.md in full** after
+  final edits. Confirmed the four decisions, model-role assignments, source
+  shortfall path, blind reconciliation, conservative-mask precedence and claim
+  limitation agree across the documents, schema and validator.
+- No commit, merge or push; no changes outside the five requested deliverables.
+
 ## Scope and safeguards
 
 - Write the row 12 scoring plan, Gary approval summary, manifest schema and offline validator.
