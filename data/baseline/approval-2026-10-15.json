@@ -1,0 +1,13 @@
+{
+  "schema_version": "fp/contract-approval@1",
+  "approved_by": "Gary",
+  "approved_at": "2026-10-15",
+  "evidence": "Gary answered \"2. Yes\" to the approval request in the pi-mind coordinator session; request text in pi-mind research/FP/approvals/P1-contracts.md.",
+  "scope": [
+    "knowledge-base data/baseline/contracts/v1 (91 schemas) and the 13 differences in data/baseline/disagreements.json, as drafted",
+    "archive repo contracts/v1: archive-manifest, kb-handoff, archive-locator, figure-occurrence, text-chunk, image-record (unit/fp-P3)",
+    "pi-mind packages/contracts/schemas v1.1 memory formats (unit/fp-P4a)",
+    "pi-mind packages/contracts/schemas/bundle-tools (unit/fp-BT)"
+  ],
+  "supersedes_field": "baseline.json approval_state (frozen capture value 'contracts-pending-review' is kept as captured)"
+}

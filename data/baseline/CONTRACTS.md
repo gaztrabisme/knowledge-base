@@ -1,6 +1,6 @@
 # P1 contract approval — Gary, 2026-10-14
 
-**Decision requested:** approve the v1 shapes in `contracts/v1/` and the explicit differences below. Status: **pending**; the mechanical gate does not approve contracts or claim installed product features. Gary's approved repo/host choices apply: pi-mind owns the harness and shared contract/interface; KB and archive retain their repos; the Mac owns infrastructure, bppc only the sandboxed LLM engine. This KB copy is a review pack for transfer to pi-mind, with byte-identical W1 imports.
+**Decision requested:** approve the v1 shapes in `contracts/v1/` and the explicit differences below. Status: **approved by Gary on 2026-10-15** ("Yes", relayed by the pi-mind coordinator), together with the archive formats from P3 and the memory v1.1 and bundle-tool formats from P4a and BT; see `approval-2026-10-15.json`. The mechanical gate does not claim installed product features. Gary's approved repo/host choices apply: pi-mind owns the harness and shared contract/interface; KB and archive retain their repos; the Mac owns infrastructure, bppc only the sandboxed LLM engine. This KB copy is a review pack for transfer to pi-mind, with byte-identical W1 imports.
 
 | Contract | What it fixes |
 |---|---|
