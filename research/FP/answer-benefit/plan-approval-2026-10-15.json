@@ -1,0 +1,14 @@
+{
+  "schema_version": "fp/answer-benefit-plan-approval@1",
+  "approved_by": "Gary",
+  "approved_at": "2026-10-15T04:18:36Z",
+  "plan_sha256": "be323faa8d155efbafc6982b1f940b62cd7da34e0e5f05f8c4162dd8d9f06e61",
+  "approval_sheet_sha256": "a3da8b42a0c88cbde846b0001d4cf350bad44c8800224343aada73a822e08496",
+  "decisions": {
+    "answer_model": "Swift 1.5 on bppc (swift-1.5-iq3_s, Qwen family); exact checkpoint and settings frozen in the later freeze packet",
+    "lookup_harm_allowance": "0 of 24",
+    "model_reviewer_rule": "accepted as drafted (Fable 5.1 curator and scorer, Codex Astra checker and scorer, one reconciliation round, remaining disagreement scores 0)"
+  },
+  "evidence": "Gary's answers in the pi-mind coordinator session to three questions: 'Swift 1.5 on bppc', '0 of 24', 'Accept as drafted'.",
+  "still_required": "Gary approves the final freeze packet (composition, shortfalls, manifest) before any answer is generated. No study answers or results exist at this time."
+}
