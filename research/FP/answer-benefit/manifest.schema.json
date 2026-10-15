@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:fp:answer-benefit:manifest:1",
+  "title": "Approved pre-results FP answer-benefit freeze (not a result receipt)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "phase", "frozen_at", "approval", "pre_results", "protocol", "files"],
+  "properties": {
+    "schema_version": {"const": "fp-answer-benefit-manifest/v1"},
+    "run_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,95}$"},
+    "phase": {"const": "pre-results"},
+    "frozen_at": {"$ref": "#/$defs/timestamp"},
+    "approval": {
+      "type": "object", "additionalProperties": false,
+      "required": ["approved_by", "approved_at", "plan_sha256", "configuration_sha256", "questions_sha256", "labels_sha256"],
+      "properties": {
+        "approved_by": {"const": "Gary"},
+        "approved_at": {"$ref": "#/$defs/timestamp"},
+        "plan_sha256": {"$ref": "#/$defs/sha256"},
+        "configuration_sha256": {"$ref": "#/$defs/sha256"},
+        "questions_sha256": {"$ref": "#/$defs/sha256"},
+        "labels_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "pre_results": {
+      "const": {"answers_generated": false, "retrieval_run": false, "scores_seen": false}
+    },
+    "protocol": {
+      "type": "object", "additionalProperties": false,
+      "required": ["question_counts", "source_units", "units_per_medium", "source_diversity", "coverage_cases", "minimum_source_groups", "scoring", "statistics", "budget", "answer_model", "reviewers", "execution", "maximum_lookup_losses"],
+      "properties": {
+        "question_counts": {"const": {"lookup": 24, "relational": 24, "coverage": 24, "gap_review": 24}},
+        "source_units": {"const": 48},
+        "units_per_medium": {"const": {"book": 12, "course": 12, "paper": 12, "repository": 12}},
+        "source_diversity": {"const": {"book": 2, "course": 2, "paper": 8, "repository": 2}},
+        "coverage_cases": {"const": {"present": 12, "no_support": 12}},
+        "minimum_source_groups": {"const": 8},
+        "scoring": {"const": "supported-binary/v1"},
+        "statistics": {
+          "const": {
+            "primary_classes": ["relational", "coverage"],
+            "method": "paired-source-group-percentile/v1",
+            "confidence": 0.95,
+            "replicates": 10000,
+            "seed": 42,
+            "quantile_indices_zero_based": [249, 9749],
+            "weighting": "question",
+            "failure_sensitivity": "control-failures-1-treatment-failures-0",
+            "secondary_claims": false
+          }
+        },
+        "budget": {
+          "type": "object", "additionalProperties": false,
+          "required": ["tokens_per_question_arm", "package", "encoding", "vocabulary_sha256", "counter", "renderer_revision", "image_reads_per_arm"],
+          "properties": {
+            "tokens_per_question_arm": {"const": 6000},
+            "package": {"const": "tiktoken==0.14.0"},
+            "encoding": {"const": "cl100k_base"},
+            "vocabulary_sha256": {"$ref": "#/$defs/sha256"},
+            "counter": {"type": "string", "pattern": "^python-tiktoken/0\\.14\\.0:cl100k_base:[a-f0-9]{64}$"},
+            "renderer_revision": {"const": "gateway-content-text+canonical-tool-metadata/v1"},
+            "image_reads_per_arm": {"const": 0}
+          }
+        },
+        "answer_model": {
+          "type": "object", "additionalProperties": false,
+          "required": ["id", "revision", "runtime", "chat_template_sha256"],
+          "properties": {
+            "id": {"$ref": "#/$defs/name"},
+            "revision": {"$ref": "#/$defs/name"},
+            "runtime": {"$ref": "#/$defs/name"},
+            "chat_template_sha256": {"$ref": "#/$defs/sha256"}
+          }
+        },
+        "reviewers": {
+          "type": "object", "additionalProperties": false,
+          "required": ["source_curator", "source_checker", "answer_reviewers", "adjudicator"],
+          "properties": {
+            "source_curator": {"$ref": "#/$defs/name"},
+            "source_checker": {"$ref": "#/$defs/name"},
+            "answer_reviewers": {"type": "array", "minItems": 2, "maxItems": 2, "uniqueItems": true, "items": {"$ref": "#/$defs/name"}},
+            "adjudicator": {"const": "Gary"}
+          }
+        },
+        "execution": {
+          "type": "object", "additionalProperties": false,
+          "required": ["attempts_per_question_arm", "temperature", "maximum_answer_tokens", "maximum_tool_calls", "timeout_seconds_per_arm", "automatic_retries", "schedule_seed", "model_seed", "python_version"],
+          "properties": {
+            "attempts_per_question_arm": {"const": 1},
+            "temperature": {"const": 0},
+            "maximum_answer_tokens": {"const": 1024},
+            "maximum_tool_calls": {"const": 32},
+            "timeout_seconds_per_arm": {"const": 600},
+            "automatic_retries": {"const": 0},
+            "schedule_seed": {"const": 42},
+            "model_seed": {"type": ["integer", "null"], "enum": [42, null]},
+            "python_version": {"type": "string", "pattern": "^3\\.[0-9]+\\.[0-9]+$"}
+          }
+        },
+        "maximum_lookup_losses": {"type": "integer", "minimum": 0, "maximum": 24}
+      }
+    },
+    "files": {
+      "type": "object", "additionalProperties": false,
+      "required": ["plan", "approval_summary", "questions", "labels", "prompts", "configuration", "source_snapshot", "baseline", "graph_snapshot", "gateway_contract", "analysis_implementation", "label_review", "approval_record", "schema", "validator"],
+      "properties": {
+        "plan": {"$ref": "#/$defs/artifact"},
+        "approval_summary": {"$ref": "#/$defs/artifact"},
+        "questions": {"$ref": "#/$defs/artifact"},
+        "labels": {"$ref": "#/$defs/artifact"},
+        "prompts": {"$ref": "#/$defs/artifact"},
+        "configuration": {"$ref": "#/$defs/artifact"},
+        "source_snapshot": {"$ref": "#/$defs/artifact"},
+        "baseline": {"$ref": "#/$defs/artifact"},
+        "graph_snapshot": {"$ref": "#/$defs/artifact"},
+        "gateway_contract": {"$ref": "#/$defs/artifact"},
+        "analysis_implementation": {"$ref": "#/$defs/artifact"},
+        "label_review": {"$ref": "#/$defs/artifact"},
+        "approval_record": {"$ref": "#/$defs/artifact"},
+        "schema": {"$ref": "#/$defs/artifact"},
+        "validator": {"$ref": "#/$defs/artifact"}
+      }
+    }
+  },
+  "$defs": {
+    "name": {"type": "string", "minLength": 1, "maxLength": 300},
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "timestamp": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"},
+    "artifact": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "sha256", "bytes"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "bytes": {"type": "integer", "minimum": 1}
+      }
+    }
+  }
+}
