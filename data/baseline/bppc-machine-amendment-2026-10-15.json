@@ -1,0 +1,33 @@
+{
+  "schema_version": "fp/bppc-machine-amendment@1",
+  "approved_by": "Gary",
+  "approved_at": "2026-10-15",
+  "reason": "OS update reboot",
+  "approval_source": {
+    "kind": "user-brief",
+    "reference": "Brief P1g2: bppc kernel change in the baseline check, Evidence; Brief P1g3: bppc OS release in the baseline amendment, Evidence",
+    "evidence": "Gary authorized the bppc operating-system update reboot on 2026-10-15 and supplied his password; the caretaker session ran it. Brief P1g2 reports the frozen kernel is 7.0.0-28-generic and uname -r now returns 7.0.0-38-generic. Brief P1g3 reports PRETTY_NAME changed from Ubuntu 24.04.4 LTS to Ubuntu 24.04.5 LTS in the same update. The coordinator reports architecture x86_64, system Python 3.12.3, Qdrant container image and digest, Qdrant version 1.18.2 and commit remain unchanged. No other bppc machine, evidence, collection or model-file change is authorized.",
+    "reboot_at_reported": "2026-10-15 about 22:00 ICT",
+    "coordinator_observation_date": "2026-10-16"
+  },
+  "baseline": {
+    "location": {
+      "backend": "repo",
+      "path": "data/baseline/baseline.json"
+    },
+    "sha256": "6074b5d0cb8a85fc57191aab83eacb12eeebce407ba205f6d8fcb0e9232ea879",
+    "bytes": 141323
+  },
+  "changes": {
+    "kernel": {
+      "before": "7.0.0-28-generic",
+      "after": "7.0.0-38-generic"
+    },
+    "os": {
+      "before": "Ubuntu 24.04.4 LTS",
+      "after": "Ubuntu 24.04.5 LTS"
+    }
+  },
+  "scope": "baseline.json remote.machine.kernel and remote.machine.os only, as the complete recorded pair from one OS update reboot; all other bppc machine, evidence, collection, model, payload, sparse fingerprint and control facts remain strict. The frozen baseline remains unchanged.",
+  "approval_binding_sha256": "e56b697ec4d498c6988ca9714cbb4764953714ca675dfb4648ba51201e2e075d"
+}

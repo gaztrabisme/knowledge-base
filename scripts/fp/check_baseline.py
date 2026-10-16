@@ -7,6 +7,8 @@ from pathlib import Path
 from baseline_io import (BASE, ROOT, compare, fingerprint, git_fingerprint, load, local_target,
                          remote_target, roots, release_models, verify_artifact, verify_source)
 from validate_contracts import Contracts
+from serving_amendment import (AMENDMENT_NAME, BPPC_AMENDMENT_NAME,
+                               amended_bppc_machine, amended_machine)
 
 
 def artifact_refs(value):
@@ -61,12 +63,34 @@ def verify_pi_copies(schemas, baseline, locations):
                         fingerprint(BASE / local / f'{name}.json'))
 
 
-def verify_mac_target(expected, observed):
+def verify_mac_target(expected, observed, amendment=None):
     compare('Mac physical collection', expected['collection'], observed.get('collection'))
-    compare('Mac versions', expected['machine'], observed['machine'])
     targets = [item['collection_name'] for item in observed['aliases']
                if item['alias_name'] == 'developer_knowledge']
     print(f'INFO: alias now -> {", ".join(targets) if targets else "(absent)"}', flush=True)
+    machine = expected['machine']
+    if amendment is not None:
+        machine = amended_machine(machine, amendment)
+        changes = '; '.join(f'{name}: {change["before"] or "(not captured)"} -> {change["after"]}'
+                            for name, change in sorted(amendment['changes'].items()))
+        print(f'INFO: serving-stack amendment approved by {amendment["approved_by"]} on '
+              f'{amendment["approved_at"]}; gate-v11 at {amendment["approval_source"]["revision"]}; '
+              f'{changes}', flush=True)
+    if observed['machine'] != expected['machine']:
+        compare('Mac versions', machine, observed['machine'])
+
+
+def verify_bppc_target(expected, observed, amendment=None):
+    amended = expected
+    if amendment is not None:
+        amended = {**expected, 'machine': amended_bppc_machine(expected['machine'], amendment)}
+        changes = '; '.join(f'{name}: {change["before"]} -> {change["after"]}'
+                            for name, change in sorted(amendment['changes'].items()))
+        print(f'INFO: bppc machine amendment approved by {amendment["approved_by"]} on '
+              f'{amendment["approved_at"]}; {amendment["reason"]}; '
+              f'{changes}', flush=True)
+    if observed != expected:
+        compare('bppc frozen evidence/collection/versions', amended, observed)
 
 
 def check():
@@ -123,11 +147,15 @@ def check():
     verify_approval(locations)
     print(f'PASS: {len(pack.schemas)} schemas, 32 tool pairs, {cases} fixtures; local source/release hashes', flush=True)
     observed_mac = local_target(locations)
-    verify_mac_target(baseline['mac'], observed_mac)
+    amendment_path = BASE / AMENDMENT_NAME
+    amendment = load(amendment_path) if amendment_path.exists() else None
+    verify_mac_target(baseline['mac'], observed_mac, amendment)
     print('PASS: Mac physical developer_knowledge_v10 (330778 points, 1024 dimensions, BM25 idf); versions', flush=True)
     print('Reading bppc frozen payloads, sparse fingerprints, models and 438/199/30 controls (no model execution)...', flush=True)
     observed_remote = remote_target(locations)
-    compare('bppc frozen evidence/collection/versions', baseline['remote'], observed_remote)
+    bppc_amendment_path = BASE / BPPC_AMENDMENT_NAME
+    bppc_amendment = load(bppc_amendment_path) if bppc_amendment_path.exists() else None
+    verify_bppc_target(baseline['remote'], observed_remote, bppc_amendment)
     for value in [release, load(BASE / 'redirects-m1c.json')]:
         for item in artifact_refs(value):
             verify(item, observed_remote)
