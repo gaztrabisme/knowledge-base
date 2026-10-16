@@ -119,7 +119,7 @@
  "alias": {
   "before": "developer_knowledge_v10",
   "after": "developer_knowledge_v11",
-  "switched": "2026-10-16T07:35+07:00",
+  "switched": "2026-10-16T07:50+07:00 (first attempt 07:35 reverted; see gate-v11.md)",
   "switch_approved_by_huy": "2026-10-15 conditional on this gate; 2026-10-16 \"Merge and switch\"",
   "merge_approved": true,
   "main_commit": "2b35da9"

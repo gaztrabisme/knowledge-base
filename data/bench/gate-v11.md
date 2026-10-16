@@ -63,4 +63,4 @@ To roll back, point `developer_knowledge` at `developer_knowledge_v10`. Then eit
 
 ## Outcome
 
-On 2026-10-16 at 07:35 ICT, `developer_knowledge` was moved from v10 to v11, on Huy's "Merge and switch". The switch is on main at commit 2b35da9. Before the move, a fresh search through main's code against v11 returned the expected passages, and philosophy search worked. Search servers that were already running loaded the new code at the Mac restart that followed.
+On 2026-10-16 at 07:35 ICT, `developer_knowledge` was moved from v10 to v11 on Huy's "Merge and switch", then moved back to v10 within minutes: search servers already running still embedded queries with Jina (1,024 dimensions) and failed against v11. It was moved to v11 again at 07:50, just before the 08:00 Mac restart, which reloads every server onto the new code. The switch is on main at commit 2b35da9. Before the move, a fresh search through main's code against v11 returned the expected passages, and philosophy search worked.
