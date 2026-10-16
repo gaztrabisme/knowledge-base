@@ -129,7 +129,7 @@ def local_target(locations):
     info = api(url, '/collections/developer_knowledge_v10')['result']
     main = Path(roots(locations)['main-checkout'])
     project_python = str(main / '.venv/bin/python')
-    package_code = "import importlib.metadata,json; print(json.dumps({p:importlib.metadata.version(p) for p in ['torch','transformers','sentence-transformers','fastembed','qdrant-client']}))"
+    package_code = "import importlib.metadata,json; print(json.dumps({p:importlib.metadata.version(p) for p in ['torch','transformers','torchvision','sentence-transformers','fastembed','qdrant-client']}))"
     return {'aliases': api(url, '/aliases')['result']['aliases'],
             'collection': {'name': 'developer_knowledge_v10', 'points_count': info['points_count'], 'config': info['config']},
             'machine': {'os': 'macOS ' + platform.mac_ver()[0], 'kernel': platform.release(),

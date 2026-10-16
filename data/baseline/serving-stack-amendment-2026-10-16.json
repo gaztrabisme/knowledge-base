@@ -1,0 +1,62 @@
+{
+  "schema_version": "fp/serving-stack-amendment@1",
+  "approved_by": "Gary",
+  "approved_at": "2026-10-16",
+  "evidence": "Gary approved the Gemma 768 live-search switch in the knowledge-base session on 2026-10-16 (P1g brief). The committed gate calls the switch approver Huy and records his \"Merge and switch\" instruction. Commit ba264d76b879a8e9672c1f05fd9c2f8f305f1c01 records the final 07:50 ICT alias move after the reverted 07:35 attempt; the implementation is 2b35da9cb2b21b82006050d3529d0fe6157a5261.",
+  "scope": [
+    "Mac serving-stack versions only: transformers 5.17.0 to 5.19.0; newly observed torchvision 0.29.1, added by the approved switch.",
+    "The live developer_knowledge alias is informational; developer_knowledge_v10, data, control query results, other machine versions and the frozen baseline remain strict."
+  ],
+  "baseline": {
+    "location": {
+      "backend": "repo",
+      "path": "data/baseline/baseline.json"
+    },
+    "sha256": "6074b5d0cb8a85fc57191aab83eacb12eeebce407ba205f6d8fcb0e9232ea879",
+    "bytes": 141323
+  },
+  "approval_source": {
+    "revision": "ba264d76b879a8e9672c1f05fd9c2f8f305f1c01",
+    "artifacts": [
+      {
+        "location": {
+          "backend": "repo",
+          "path": "data/bench/gate-v11.json"
+        },
+        "git_blob": "b43c443de366844298f5dcf619e0ad3946e3be8e",
+        "sha256": "d681d788ff9b738da3a16289efe4ad37932a7595c0c39f95b70a0fea2dfd0e41",
+        "bytes": 2945
+      },
+      {
+        "location": {
+          "backend": "repo",
+          "path": "data/bench/gate-v11.md"
+        },
+        "git_blob": "0770495d946b7bffb0602b43ba7123b0d7d6e353",
+        "sha256": "abd0935f36ef83686d67b5ce71918fb005a3ad4bcbc495f71db576eebd62144f",
+        "bytes": 4772
+      },
+      {
+        "location": {
+          "backend": "repo",
+          "path": "uv.lock"
+        },
+        "git_blob": "b68363ad3dd66fb810aba2ec7a0121b3a0b7d0fd",
+        "sha256": "45c65573f1e1a486bb0038fe6448712efc9bd4bd405d7159ef3db1bc6b7d8196",
+        "bytes": 642361
+      }
+    ]
+  },
+  "changes": {
+    "transformers": {
+      "before": "5.17.0",
+      "after": "5.19.0"
+    },
+    "torchvision": {
+      "before": null,
+      "after": "0.29.1"
+    }
+  },
+  "supersedes_field": "baseline.json mac.machine.query_packages for the two named serving packages only; baseline.json remains unchanged.",
+  "approval_binding_sha256": "2ce7639f990003f16b25f3af2ebf11d1f0b63caac24408c2c0d61bcf47038167"
+}

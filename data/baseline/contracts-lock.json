@@ -28,6 +28,14 @@
     {
       "location": {
         "backend": "repo",
+        "path": "data/baseline/bppc-machine-amendment-2026-10-15.json"
+      },
+      "sha256": "cbb385f167a3fae78b3f5d9a88d2ac6737ba57e9ad3c2ca3f6eb977ed7121f06",
+      "bytes": 1840
+    },
+    {
+      "location": {
+        "backend": "repo",
         "path": "data/baseline/contracts/v1/annotation-record.json"
       },
       "sha256": "1340553505759e3bdafcf746ac5b377a1d80fb9f3f5a10b4fdbe1db7de7103c6",
@@ -1516,6 +1524,14 @@
     {
       "location": {
         "backend": "repo",
+        "path": "data/baseline/serving-stack-amendment-2026-10-16.json"
+      },
+      "sha256": "82e501d732052dfb3fe099fb11ffb869aab7489106b094174d1ba4b5366ce692",
+      "bytes": 2454
+    },
+    {
+      "location": {
+        "backend": "repo",
         "path": "data/baseline/tools-v1.json"
       },
       "sha256": "4258b47c8cf745074312fafa6aabca56da6540e333f90abbefd9786ae1245403",
@@ -1526,8 +1542,16 @@
         "backend": "repo",
         "path": "scripts/fp/baseline_io.py"
       },
-      "sha256": "11b499562a96235de11561a3eb0f44d305ee01c8faa54b29fa9e3e12b2995307",
-      "bytes": 8350
+      "sha256": "82cd2586ea67bb9339b666d538fa0397d588ee697d9ac59f250915ebe75fac7e",
+      "bytes": 8364
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "scripts/fp/baseline_runtime.py"
+      },
+      "sha256": "66235beee872b24d6d9a7a373965a115e3894758d3220438e1c881db66d8d63c",
+      "bytes": 1340
     },
     {
       "location": {
@@ -1574,16 +1598,16 @@
         "backend": "repo",
         "path": "scripts/fp/check-baseline.sh"
       },
-      "sha256": "7612cd1f42256cde89db3c57123f85c41df5abd63fd5b55bbb6d3350981be2e5",
-      "bytes": 212
+      "sha256": "f7ba26ace9b968f23800f7e8647fb87e864251e8086649bbc6556455c9b02618",
+      "bytes": 201
     },
     {
       "location": {
         "backend": "repo",
         "path": "scripts/fp/check_baseline.py"
       },
-      "sha256": "24ee062441b89af2214f28711db477069a1516bd17a02a8b0d021a40f0c0c63d",
-      "bytes": 8297
+      "sha256": "48a348aafc45499522c20d840dbd35e9f4134ec89138bab461c468f8f1f9fafa",
+      "bytes": 9964
     },
     {
       "location": {
@@ -1606,8 +1630,8 @@
         "backend": "repo",
         "path": "scripts/fp/refresh_contract_lock.py"
       },
-      "sha256": "bbe7e445e96f933bca3e50222ebc2e89f6ddd1e0c50a17272741750084057067",
-      "bytes": 2201
+      "sha256": "b6c2b2bc34b97397c8198053139df6b20c364d7b3ece6ef5ea21e5a53b868d5d",
+      "bytes": 2396
     },
     {
       "location": {
@@ -1628,6 +1652,22 @@
     {
       "location": {
         "backend": "repo",
+        "path": "scripts/fp/run-python.sh"
+      },
+      "sha256": "c36458d15ba49554d125d7fc9d5801de11d851a47149ea88ce8de8ca5959283e",
+      "bytes": 294
+    },
+    {
+      "location": {
+        "backend": "repo",
+        "path": "scripts/fp/serving_amendment.py"
+      },
+      "sha256": "8f089e03e1b3af8822c3296f05d64bdb27de67a5473500208dff76ff73680088",
+      "bytes": 4816
+    },
+    {
+      "location": {
+        "backend": "repo",
         "path": "scripts/fp/validate_contracts.py"
       },
       "sha256": "c7bc0b5a400d1761fe633488a02cf845d3a4763ce66b8f3cbd4ed361c96a2caa",
@@ -1636,10 +1676,18 @@
     {
       "location": {
         "backend": "repo",
+        "path": "tests/fp_baseline_cases.py"
+      },
+      "sha256": "bc6a2b942dc7a4e2f2c42cd1a793b4db27fb7c6281e046e264a868b05dbc3650",
+      "bytes": 38016
+    },
+    {
+      "location": {
+        "backend": "repo",
         "path": "tests/test_fp_baseline.py"
       },
-      "sha256": "1ea9ccf02a6f89869b894dd71315901dc6ec96bcf47786fccdd665276ffac3fb",
-      "bytes": 22144
+      "sha256": "128ee58c377f458cdd94ba0e28cb9949929db8b9a750043802ea5832b8613714",
+      "bytes": 970
     }
   ]
 }
