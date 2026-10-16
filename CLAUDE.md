@@ -17,7 +17,7 @@ The v9 gate compares the candidate with v8 on the same GPU:
 
 The candidate failed one of three promotion conditions set in advance: sanity recall@10 was 0.793 (23/29) against a threshold of 0.80, while both hard-set conditions passed. A blind review of the sanity queries afterwards scored 0.821 (23/28). Gary promoted the candidate on 2026-09-30 despite the failed condition, as happened for v8. See `data/bench/gate-v9.md` and Known Limitations.
 
-The live name `developer_knowledge` is a Qdrant alias for the collection `developer_knowledge_v9`. The v8 collection stays on the server for rollback.
+The live name `developer_knowledge` is a Qdrant alias for the collection `developer_knowledge_v11` (switched 2026-10-16). The v10 collection stays on the server for rollback.
 
 **Philosophy collection.** `philosophy` holds 8,432 vectors, kept apart from technical search so it cannot dilute it. It covers:
 - the Original Library in Vietnamese (the source), English and Traditional Chinese, 38 sections each;
@@ -27,6 +27,16 @@ The live name `developer_knowledge` is a Qdrant alias for the collection `develo
 Sections are aligned across translations, so a hit returns the matching passages in the other languages. The 60-query multilingual eval reads recall@10 of 0.867 for English, 0.867 for Vietnamese, 0.800 for Chinese and 1.000 cross-language.
 
 PDF heading hierarchy comes from PyMuPDF TOC reconstruction, with a markitdown fallback when CID-font garble is detected. Chunk sizing uses real tiktoken counts (child max 250, parent max 1900). Chunks are embedded from heading_path + child_text; contextual enrichment is a deferred background pass (index-now-enrich-later).
+
+## Switching the embedding model (alias move)
+
+MCP servers hold the embedding model in memory and read the alias live. Moving the alias to a collection with a different vector size breaks every already-running server until it restarts.
+
+Order: merge the code, `uv sync --frozen`, check for other users of the model, then move the alias in the minutes before a restart of all MCP servers, then run one search from a fresh server.
+
+Before the move, grep for other users of the model: `knowledge_base/philosophy/search.py` hard-codes its own Jina model and 1024-dim index; the reranker defaults to the Mac GPU unless `KB_DEVICE=cpu`; tests with fixed vector sizes (`tests/test_merge_collection.py` used 1024).
+
+Rollback: alias back to the old collection, set `KB_EMBEDDING_MODEL`, restart servers.
 
 ## Architecture
 
