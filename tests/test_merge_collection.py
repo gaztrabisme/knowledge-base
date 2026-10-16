@@ -13,6 +13,8 @@ os.environ["ORT_DISABLE_TELEMETRY"] = "1"
 
 from qdrant_client import QdrantClient, models
 
+from knowledge_base.config import EMBEDDING_DIM
+
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = ROOT / ".venv" / "bin" / "python"
 SCRIPT = ROOT / "scripts" / "merge_collection.py"
@@ -39,7 +41,7 @@ def run_cli(*args: str, success: bool = True) -> subprocess.CompletedProcess[str
 
 def make_point(child_id: str, rng: random.Random, marker: str) -> models.PointStruct:
     point_id = int.from_bytes(hashlib.sha256(child_id.encode()).digest()[:8], "big") >> 1
-    dense = [rng.random() for _ in range(1024)]
+    dense = [rng.random() for _ in range(EMBEDDING_DIM)]
     norm = math.sqrt(sum(value * value for value in dense))
     dense = [value / norm for value in dense]
     return models.PointStruct(
