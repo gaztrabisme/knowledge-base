@@ -1,0 +1,126 @@
+{
+ "collection": "developer_knowledge_v11",
+ "source_collection": "kbu_m1_gemma768_cur (bppc)",
+ "snapshot": {
+  "file": "kbu_m1_gemma768_cur-8767249420631925-2026-10-15-13-43-03.snapshot",
+  "sha256": "5759b19d51324fc99fd2ae59e0d9d8af3685e2daa5e4b201ee66b3f293e30642",
+  "bytes": 2728179712
+ },
+ "points": 330833,
+ "corpus": "data/chunks as of 2026-10-15 (today's files)",
+ "embedder": {
+  "model": "google/embeddinggemma-2",
+  "checkpoint": "914f7f89142e33e77833254d9c9b90c3cef7303b",
+  "dim": 768,
+  "query_prompt": "task: search result | query: ",
+  "document_prompt": "title: none | text: ",
+  "dtype": "float32",
+  "modalities": "text only"
+ },
+ "search_pipeline": "unchanged: BM25 sparse + dense, DBSF fusion, 50 candidates, Ettin-150m reranker",
+ "labels": {
+  "candidate": "kbu-2026-10-07/M1c/labels/remapped-*.jsonl (8 PostgreSQL parents remapped by text overlap, p140 unmapped)",
+  "control": "original labels"
+ },
+ "gate_run": {
+  "machine": "Mac (mcbob) CPU, 8 threads",
+  "date": "2026-10-16",
+  "evaluator": "scripts/eval_retrieval.py, unchanged"
+ },
+ "control": {
+  "collection": "developer_knowledge_v10",
+  "source": "M1c CPU control on bppc, 2026-10-15",
+  "metrics": {
+   "hard": {
+    "ndcg": 0.7391322287126778,
+    "recall10": 0.952054794520548
+   },
+   "easy": {
+    "ndcg": 0.9044205070280983,
+    "recall10": 1.0
+   },
+   "sanity": {
+    "ndcg": 0.6462904117686469,
+    "recall10": 0.9333333333333333
+   }
+  }
+ },
+ "candidate_metrics": {
+  "hard": {
+   "ndcg": 0.736,
+   "recall10": 0.9521,
+   "mrr": 0.8306
+  },
+  "easy": {
+   "ndcg": 0.8988,
+   "recall10": 1.0,
+   "mrr": 0.9709
+  },
+  "sanity": {
+   "ndcg": 0.6474,
+   "recall10": 0.9333,
+   "mrr": 0.7233
+  }
+ },
+ "conditions": {
+  "hard_ndcg_drop": {
+   "value": 0.0031,
+   "limit": 0.01,
+   "pass": true
+  },
+  "hard_recall10_drop": {
+   "value": -0.0,
+   "limit": 0.005,
+   "pass": true
+  },
+  "sanity_recall10": {
+   "value": 0.9333,
+   "min": 0.8,
+   "pass": true
+  }
+ },
+ "verdict": "PASS",
+ "mac_query_latency_cpu_8_threads": {
+  "reference_ms": 300,
+  "jina_v10": {
+   "runs": 3,
+   "median_ms": [
+    166.3,
+    168.0,
+    137.6
+   ],
+   "p95_ms": [
+    209.7,
+    189.6,
+    157.7
+   ],
+   "peak_rss_mb": [
+    4092
+   ]
+  },
+  "gemma768": {
+   "runs": 3,
+   "median_ms": [
+    98.0,
+    82.9,
+    77.9
+   ],
+   "p95_ms": [
+    119.5,
+    94.1,
+    87.3
+   ],
+   "peak_rss_mb": [
+    2381
+   ]
+  },
+  "note": "3 runs each, 100 hard queries, oMLX busy in background"
+ },
+ "alias": {
+  "before": "developer_knowledge_v10",
+  "after": null,
+  "switch_approved_by_huy": "2026-10-15, conditional on this gate passing",
+  "merge_approved": false
+ },
+ "rollback": "alias back to developer_knowledge_v10, and set KB_EMBEDDING_MODEL=jinaai/jina-embeddings-v5-text-small-retrieval (or revert the merge)"
+}

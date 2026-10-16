@@ -20,10 +20,21 @@ _ranker = None
 _client: QdrantClient | None = None
 
 
+_model = None
+
+
 def embed_texts(texts: list[str], task: str = "retrieval.query") -> list[list[float]]:
-    """Encode with the technical index's Jina v5 model, so the server loads it once."""
-    from ..index import embed_texts as shared_embed_texts
-    return shared_embed_texts([text[:8000] for text in texts], task=task)
+    """Encode with Jina v5, which built the philosophy collection.
+
+    The technical index may use a different model, so this loads its own copy
+    instead of sharing index.get_model().
+    """
+    global _model
+    from ..embedder import encode_texts, load_model
+    if _model is None:
+        _model = load_model(EMBEDDING_MODEL)
+    return encode_texts(_model, EMBEDDING_MODEL, [text[:8000] for text in texts],
+                        is_query=task.startswith("retrieval.query"))
 
 
 def get_ranker() -> CrossEncoder:

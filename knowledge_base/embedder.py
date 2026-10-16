@@ -26,6 +26,8 @@ if TYPE_CHECKING:
 # naive-raw index and a late-chunk index share one query encoder. The base model is
 # loaded by stripping "::raw".
 EMBEDDING_REGISTRY: dict[str, dict] = {
+    "google/embeddinggemma-2": {"dim": 768, "idiom": "gemma2-prompts"},
+    "google/embeddinggemma-2::256": {"dim": 256, "idiom": "gemma2-prompts"},
     "jinaai/jina-embeddings-v5-text-small-retrieval": {"dim": 1024, "idiom": "jina-task"},
     "jinaai/jina-embeddings-v3": {"dim": 1024, "idiom": "jina-task"},
     "Qwen/Qwen3-Embedding-0.6B": {"dim": 1024, "idiom": "encode-qd"},
@@ -54,7 +56,62 @@ def load_model(model_id: str) -> "SentenceTransformer":
     """Load a SentenceTransformer. trust_remote_code for Jina custom code (harmless
     for Qwen3/Gemma)."""
     from sentence_transformers import SentenceTransformer
+    import os
+    import torch
+    if base_model_id(model_id) == "google/embeddinggemma-2":
+        model = SentenceTransformer(
+            base_model_id(model_id),
+            revision="914f7f89142e33e77833254d9c9b90c3cef7303b",
+            device=os.environ.get("KB_DEVICE", "cuda" if torch.cuda.is_available() else "cpu"),
+            model_kwargs={"dtype": torch.float32, "attn_implementation": "sdpa"},
+            config_kwargs={"vision_config": None, "audio_config": None},
+        ).eval()
+        model.max_seq_length = 8192
+        assert model.prompts["SearchQuery"] == "task: search result | query: "
+        assert model.prompts["Document"] == "title: none | text: "
+        return model
+    if base_model_id(model_id) == "jinaai/jina-embeddings-v5-text-small-retrieval":
+        return SentenceTransformer(
+            base_model_id(model_id), trust_remote_code=True,
+            revision="6856e76bb72982e58de0620458a4e8b3614da340",
+            device=os.environ.get("KB_DEVICE", "cuda" if torch.cuda.is_available() else "cpu"),
+        )
     return SentenceTransformer(base_model_id(model_id), trust_remote_code=True)
+
+
+def gemma2_text_encode(model, texts, is_query, batch_size):
+    """Treat media-marker literals in documentation as text, without rewriting bytes.
+
+    Ordinary inputs retain SentenceTransformer.encode. For marker inputs, the
+    pinned chat template renders only prefix+text; tokenize it as ordinary pieces
+    and run the same transformer, mean pooling and Normalize modules directly.
+    """
+    import numpy as np
+    import torch
+    markers = ("<|image|>", "<|video|>", "<|audio|>")
+    literal = [i for i, text in enumerate(texts) if any(m in text for m in markers)]
+    prompt_name = "SearchQuery" if is_query else "Document"
+    common = dict(prompt_name=prompt_name, show_progress_bar=False,
+                  batch_size=batch_size, normalize_embeddings=True, convert_to_numpy=True)
+    if not literal:
+        return model.encode(texts, **common).astype(np.float32)
+    literal_set = set(literal)
+    regular = [i for i in range(len(texts)) if i not in literal_set]
+    output = np.empty((len(texts), 768), dtype=np.float32)
+    if regular:
+        output[regular] = model.encode([texts[i] for i in regular], **common).astype(np.float32)
+    prefix = model.prompts[prompt_name]
+    for start in range(0, len(literal), batch_size):
+        indices = literal[start:start + batch_size]
+        features = model.tokenizer([prefix + texts[i] for i in indices],
+                                   return_tensors="pt", padding=True, truncation=True,
+                                   max_length=8192, split_special_tokens=True)
+        features = {key: value.to(model.device) for key, value in features.items()}
+        with torch.inference_mode():
+            vectors = model.forward(features)["sentence_embedding"]
+        output[indices] = vectors.float().cpu().numpy()
+    assert np.isfinite(output).all()
+    return output
 
 
 def raw_mean_encode(model, texts: list[str], batch_size: int = 32) -> list[list[float]]:
@@ -88,7 +145,13 @@ def encode_texts(
     truncated = [t[:_MAX_CHARS] if len(t) > _MAX_CHARS else t for t in texts]
     idiom = model_idiom(model_id)
 
-    if idiom == "jina-task":
+    if idiom == "gemma2-prompts":
+        import numpy as np
+        vecs = gemma2_text_encode(model, truncated, is_query, batch_size)
+        vecs = vecs[:, :model_dim(model_id)]
+        vecs /= np.linalg.norm(vecs, axis=1, keepdims=True)
+        assert np.isfinite(vecs).all()
+    elif idiom == "jina-task":
         task = "retrieval.query" if is_query else "retrieval.passage"
         vecs = model.encode(truncated, task=task, show_progress_bar=False, batch_size=batch_size)
     elif idiom == "encode-qd":

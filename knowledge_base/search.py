@@ -23,7 +23,7 @@ _client: QdrantClient | None = None
 def get_ranker() -> CrossEncoder:
     global _reranker
     if _reranker is None:
-        _reranker = CrossEncoder(RERANKER_MODEL, trust_remote_code=True)
+        _reranker = CrossEncoder(RERANKER_MODEL, trust_remote_code=True, device=os.environ.get("KB_DEVICE"))
     return _reranker
 
 

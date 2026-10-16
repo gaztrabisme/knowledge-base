@@ -41,7 +41,7 @@ else:
 # own collection+dir without code edits). Defaults = the shipped v6.2 production index.
 QDRANT_DIR = Path(os.environ.get("KB_QDRANT_DIR", str(ROOT / "data" / "qdrant")))
 COLLECTION_NAME = os.environ.get("KB_COLLECTION", "developer_knowledge")
-EMBEDDING_MODEL = os.environ.get("KB_EMBEDDING_MODEL", "jinaai/jina-embeddings-v5-text-small-retrieval")
+EMBEDDING_MODEL = os.environ.get("KB_EMBEDDING_MODEL", "google/embeddinggemma-2")
 # Dim derives from the model registry unless explicitly overridden.
 EMBEDDING_DIM = int(os.environ.get("KB_EMBEDDING_DIM", str(model_dim(EMBEDDING_MODEL))))
 
