@@ -60,3 +60,7 @@ The switch moves the alias `developer_knowledge` from v10 to v11. The code that 
 - `pyproject.toml` and `uv.lock` add transformers 5.19 and torchvision.
 
 To roll back, point `developer_knowledge` at `developer_knowledge_v10`. Then either set `KB_EMBEDDING_MODEL=jinaai/jina-embeddings-v5-text-small-retrieval` for the search server, or revert the merge, and restart the search servers. v10 stays in Qdrant for that purpose.
+
+## Outcome
+
+On 2026-10-16 at 07:35 ICT, `developer_knowledge` was moved from v10 to v11, on Huy's "Merge and switch". The switch is on main at commit 2b35da9. Before the move, a fresh search through main's code against v11 returned the expected passages, and philosophy search worked. Search servers that were already running loaded the new code at the Mac restart that followed.

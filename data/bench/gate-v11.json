@@ -118,9 +118,11 @@
  },
  "alias": {
   "before": "developer_knowledge_v10",
-  "after": null,
-  "switch_approved_by_huy": "2026-10-15, conditional on this gate passing",
-  "merge_approved": false
+  "after": "developer_knowledge_v11",
+  "switched": "2026-10-16T07:35+07:00",
+  "switch_approved_by_huy": "2026-10-15 conditional on this gate; 2026-10-16 \"Merge and switch\"",
+  "merge_approved": true,
+  "main_commit": "2b35da9"
  },
  "rollback": "alias back to developer_knowledge_v10, and set KB_EMBEDDING_MODEL=jinaai/jina-embeddings-v5-text-small-retrieval (or revert the merge)"
 }
