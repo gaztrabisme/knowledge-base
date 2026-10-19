@@ -11,6 +11,7 @@ APPROVAL_REVISION = 'ba264d76b879a8e9672c1f05fd9c2f8f305f1c01'
 MERGE_REVISION = '2b35da9'
 AMENDMENT_NAME = 'serving-stack-amendment-2026-10-16.json'
 BPPC_AMENDMENT_NAME = 'bppc-machine-amendment-2026-10-15.json'
+MAC_AMENDMENT_NAME = 'mac-machine-amendment-2026-10-19.json'
 
 
 def approval_binding(record):
@@ -62,6 +63,25 @@ def amended_machine(expected, record):
         compare('amendment original version ' + name, expected['query_packages'].get(name), change['before'])
         compare('amendment approved version ' + name, packages[name], change['after'])
         machine['query_packages'][name] = change['after']
+    return machine
+
+
+def amended_mac_machine(expected, record):
+    compare('Mac amendment approval schema', 'fp/mac-machine-amendment@1', record['schema_version'])
+    compare('Mac amendment approval owner', "coordinator on Gary's delegation (2026-10-19)", record['approved_by'])
+    compare('Mac amendment approval date', '2026-10-19', record['approved_at'])
+    compare('Mac amendment approval binding', record['approval_binding_sha256'], approval_binding(record))
+    compare('Mac amendment reason', 'macOS 27 update', record['reason'])
+    verify_frozen_baseline(record)
+    # Brief P1g4 is the authority; rebinding cannot authorize other fields or values.
+    compare('Mac amendment change scope', {
+        'kernel': {'before': '25.6.0', 'after': '27.0.0'},
+        'os': {'before': 'macOS 26.6.2', 'after': 'macOS 27.0.1'},
+    }, record['changes'])
+    machine = dict(expected)
+    for name, change in sorted(record['changes'].items()):
+        compare('Mac amendment original ' + name, expected[name], change['before'])
+        machine[name] = change['after']
     return machine
 
 
