@@ -15,7 +15,8 @@ def refresh():
         ROOT / 'scripts/fp/run-python.sh', ROOT / 'scripts/fp/requirements.txt',
         ROOT / 'tests/test_fp_baseline.py', ROOT / 'tests/fp_baseline_cases.py',
         BASE / 'serving-stack-amendment-2026-10-16.json',
-        BASE / 'bppc-machine-amendment-2026-10-15.json', ROOT / '.gitignore']
+        BASE / 'bppc-machine-amendment-2026-10-15.json',
+        BASE / 'mac-machine-amendment-2026-10-19.json', ROOT / '.gitignore']
     dump(BASE / 'contracts-lock.json', {'schema_version': 'mind/contracts-lock@1', 'artifacts': [
          {'location': {'backend': 'repo', 'path': str(path.relative_to(ROOT))}, **fingerprint(path)} for path in sorted(paths)]})
     release = load(BASE / 'tested-release-v10.json')

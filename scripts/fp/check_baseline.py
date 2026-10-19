@@ -7,8 +7,8 @@ from pathlib import Path
 from baseline_io import (BASE, ROOT, compare, fingerprint, git_fingerprint, load, local_target,
                          remote_target, roots, release_models, verify_artifact, verify_source)
 from validate_contracts import Contracts
-from serving_amendment import (AMENDMENT_NAME, BPPC_AMENDMENT_NAME,
-                               amended_bppc_machine, amended_machine)
+from serving_amendment import (AMENDMENT_NAME, BPPC_AMENDMENT_NAME, MAC_AMENDMENT_NAME,
+                               amended_bppc_machine, amended_mac_machine, amended_machine)
 
 
 def artifact_refs(value):
@@ -63,7 +63,7 @@ def verify_pi_copies(schemas, baseline, locations):
                         fingerprint(BASE / local / f'{name}.json'))
 
 
-def verify_mac_target(expected, observed, amendment=None):
+def verify_mac_target(expected, observed, amendment=None, mac_amendment=None):
     compare('Mac physical collection', expected['collection'], observed.get('collection'))
     targets = [item['collection_name'] for item in observed['aliases']
                if item['alias_name'] == 'developer_knowledge']
@@ -75,6 +75,13 @@ def verify_mac_target(expected, observed, amendment=None):
                             for name, change in sorted(amendment['changes'].items()))
         print(f'INFO: serving-stack amendment approved by {amendment["approved_by"]} on '
               f'{amendment["approved_at"]}; gate-v11 at {amendment["approval_source"]["revision"]}; '
+              f'{changes}', flush=True)
+    if mac_amendment is not None:
+        machine = amended_mac_machine(machine, mac_amendment)
+        changes = '; '.join(f'{name}: {change["before"]} -> {change["after"]}'
+                            for name, change in sorted(mac_amendment['changes'].items()))
+        print(f'INFO: Mac machine amendment approved by {mac_amendment["approved_by"]} on '
+              f'{mac_amendment["approved_at"]}; {mac_amendment["reason"]}; '
               f'{changes}', flush=True)
     if observed['machine'] != expected['machine']:
         compare('Mac versions', machine, observed['machine'])
@@ -149,7 +156,9 @@ def check():
     observed_mac = local_target(locations)
     amendment_path = BASE / AMENDMENT_NAME
     amendment = load(amendment_path) if amendment_path.exists() else None
-    verify_mac_target(baseline['mac'], observed_mac, amendment)
+    mac_amendment_path = BASE / MAC_AMENDMENT_NAME
+    mac_amendment = load(mac_amendment_path) if mac_amendment_path.exists() else None
+    verify_mac_target(baseline['mac'], observed_mac, amendment, mac_amendment)
     print('PASS: Mac physical developer_knowledge_v10 (330778 points, 1024 dimensions, BM25 idf); versions', flush=True)
     print('Reading bppc frozen payloads, sparse fingerprints, models and 438/199/30 controls (no model execution)...', flush=True)
     observed_remote = remote_target(locations)

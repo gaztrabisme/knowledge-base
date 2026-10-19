@@ -29,4 +29,8 @@ if __name__ == '__main__':
     print(f'INFO: checker runtime {sys.executable}; Python {platform.python_version()}; '
           f'jsonschema {importlib.metadata.version("jsonschema")}; formats date/date-time/uri', flush=True)
     sys.argv = sys.argv[1:]
-    runpy.run_path(sys.argv[0], run_name='__main__')
+    if sys.argv[0] == '-m':
+        sys.argv = sys.argv[1:]
+        runpy.run_module(sys.argv[0], run_name='__main__', alter_sys=True)
+    else:
+        runpy.run_path(sys.argv[0], run_name='__main__')

@@ -1508,6 +1508,14 @@
     {
       "location": {
         "backend": "repo",
+        "path": "data/baseline/mac-machine-amendment-2026-10-19.json"
+      },
+      "sha256": "434bdfcd4b4efa424761de27f69bd53f502800f77b21de4d3114b7b9a7e9f16a",
+      "bytes": 1929
+    },
+    {
+      "location": {
+        "backend": "repo",
         "path": "data/baseline/pi-inputs-v1.json"
       },
       "sha256": "2b9f98ff34fb4a15dea07b55e94fe0b445975a7aba15e5ef320e1155906eb254",
@@ -1550,8 +1558,8 @@
         "backend": "repo",
         "path": "scripts/fp/baseline_runtime.py"
       },
-      "sha256": "66235beee872b24d6d9a7a373965a115e3894758d3220438e1c881db66d8d63c",
-      "bytes": 1340
+      "sha256": "434664a135a4e457d4e2e92f3de0a3122315f4fc396d7bc9095a946cf5796483",
+      "bytes": 1489
     },
     {
       "location": {
@@ -1606,8 +1614,8 @@
         "backend": "repo",
         "path": "scripts/fp/check_baseline.py"
       },
-      "sha256": "48a348aafc45499522c20d840dbd35e9f4134ec89138bab461c468f8f1f9fafa",
-      "bytes": 9964
+      "sha256": "37943e3f2bd6b79615b944c5ca3928847a74b1e483019d3db46da164546df9f0",
+      "bytes": 10651
     },
     {
       "location": {
@@ -1630,8 +1638,8 @@
         "backend": "repo",
         "path": "scripts/fp/refresh_contract_lock.py"
       },
-      "sha256": "b6c2b2bc34b97397c8198053139df6b20c364d7b3ece6ef5ea21e5a53b868d5d",
-      "bytes": 2396
+      "sha256": "aa07073cb39992e71cb85c9f10831772bef6ac37886e2a572b84748105af18f0",
+      "bytes": 2452
     },
     {
       "location": {
@@ -1662,8 +1670,8 @@
         "backend": "repo",
         "path": "scripts/fp/serving_amendment.py"
       },
-      "sha256": "8f089e03e1b3af8822c3296f05d64bdb27de67a5473500208dff76ff73680088",
-      "bytes": 4816
+      "sha256": "da588b9123b4179f64276cc9da7de55e58ecc3918970ef42dd8471c2426e4820",
+      "bytes": 5947
     },
     {
       "location": {
@@ -1678,8 +1686,8 @@
         "backend": "repo",
         "path": "tests/fp_baseline_cases.py"
       },
-      "sha256": "bc6a2b942dc7a4e2f2c42cd1a793b4db27fb7c6281e046e264a868b05dbc3650",
-      "bytes": 38016
+      "sha256": "34e9f1811b068aa7e1a8848aca8d97daad511fe28d2151192fed521e74aca8d9",
+      "bytes": 45797
     },
     {
       "location": {

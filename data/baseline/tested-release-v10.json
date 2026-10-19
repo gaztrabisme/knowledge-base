@@ -17,8 +17,8 @@
       "backend": "repo",
       "path": "data/baseline/contracts-lock.json"
     },
-    "sha256": "f2f590cbc24f8cb958cfd0b08b6756f0632aff71b3db3d6ffc30f7d68f83ebf0",
-    "bytes": 50879
+    "sha256": "f5b5584b9496b536811fb6850d30339be681c6d159f308dea2ce85bdff49cdc9",
+    "bytes": 51123
   },
   "components": [
     {

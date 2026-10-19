@@ -46,6 +46,14 @@ class BaselineFailureTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'validator.python'):
                 verify_runtime()
 
+    def test_pinned_launcher_supports_python_module_arguments(self):
+        path = BASE / 'bppc-machine-amendment-2026-10-15.json'
+        launcher = Path(__file__).resolve().parents[1] / 'scripts/fp/run-python.sh'
+        result = subprocess.run(['bash', str(launcher), '-m', 'json.tool', str(path)],
+                                capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(json.loads(result.stdout.split('\n', 1)[1]), load(path))
+
     def test_invalid_date_time_still_fails_schema_validation(self):
         cases = load(BASE / 'fixtures/v1/stale-flag-payload.json')
         case = next(item for item in cases['invalid'] if item['name'] == 'invalid date')
@@ -509,6 +517,131 @@ class ServingAmendmentTests(unittest.TestCase):
                 self.observed[section][field] = saved
 
 
+class MacAmendmentTests(unittest.TestCase):
+    def setUp(self):
+        self.expected = load(BASE / 'baseline.json')['mac']
+        self.observed = copy.deepcopy(self.expected)
+        self.observed['machine'].update(kernel='27.0.0', os='macOS 27.0.1')
+        self.amendment = load(BASE / 'mac-machine-amendment-2026-10-19.json')
+
+    def verify(self, amendment):
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output):
+            verify_mac_target(self.expected, self.observed, mac_amendment=amendment)
+        return output.getvalue()
+
+    def test_approved_exact_mac_update_passes_without_mutating_inputs(self):
+        frozen, observed = copy.deepcopy(self.expected), copy.deepcopy(self.observed)
+        output = self.verify(self.amendment)
+        self.assertIn("INFO: Mac machine amendment approved by coordinator on Gary's delegation (2026-10-19)", output)
+        self.assertIn('macOS 27 update', output)
+        self.assertIn('kernel: 25.6.0 -> 27.0.0', output)
+        self.assertIn('os: macOS 26.6.2 -> macOS 27.0.1', output)
+        self.assertEqual(self.expected, frozen)
+        self.assertEqual(self.observed, observed)
+
+    def test_mac_update_without_amendment_fails(self):
+        with self.assertRaisesRegex(ValueError, 'Mac versions.kernel'):
+            self.verify(None)
+
+    def test_unchanged_mac_passes_with_or_without_amendment(self):
+        self.observed = copy.deepcopy(self.expected)
+        self.verify(None)
+        self.verify(self.amendment)
+
+    def test_other_observed_mac_values_and_partial_updates_fail(self):
+        for field, value in [('kernel', '27.0.1'), ('os', 'macOS 27.0.2'),
+                             ('kernel', self.expected['machine']['kernel']),
+                             ('os', self.expected['machine']['os'])]:
+            with self.subTest(field=field, value=value):
+                saved = self.observed['machine'][field]
+                self.observed['machine'][field] = value
+                with self.assertRaisesRegex(ValueError, 'Mac versions.' + field):
+                    self.verify(self.amendment)
+                self.observed['machine'][field] = saved
+
+    def test_unlisted_mac_machine_and_collection_changes_fail(self):
+        for section, field, value in [('machine', 'architecture', 'x86_64'),
+                                      ('machine', 'python_query', 'Python 3.11.6'),
+                                      ('machine', 'build', '26A435'),
+                                      ('collection', 'points_count', 330777)]:
+            with self.subTest(field=field):
+                self.observed = copy.deepcopy(self.expected)
+                self.observed['machine'].update(kernel='27.0.0', os='macOS 27.0.1')
+                self.observed[section][field] = value
+                with self.assertRaisesRegex(ValueError, 'Mac (versions|physical collection)'):
+                    self.verify(self.amendment)
+
+    def test_broken_mac_approval_binding_fails_even_for_unchanged_observation(self):
+        self.amendment['approval_binding_sha256'] = '0' * 64
+        for observed in [self.observed, copy.deepcopy(self.expected)]:
+            with self.subTest(unchanged=observed == self.expected):
+                self.observed = observed
+                with self.assertRaisesRegex(ValueError, 'Mac amendment approval binding'):
+                    self.verify(self.amendment)
+
+    def test_changed_mac_approval_fails_even_when_rebound(self):
+        for field, value in [('approved_by', 'pending'), ('approved_at', '2026-10-20'),
+                             ('schema_version', 'fp/mac-machine-amendment@99'),
+                             ('reason', 'unapproved update')]:
+            with self.subTest(field=field):
+                record = copy.deepcopy(self.amendment)
+                record[field] = value
+                record['approval_binding_sha256'] = approval_binding(record)
+                with self.assertRaisesRegex(ValueError, 'Mac amendment'):
+                    self.verify(record)
+
+    def test_different_recorded_mac_before_or_after_fails_even_when_rebound(self):
+        for name, value in [('kernel', '27.0.1'), ('os', 'macOS 27.0.2')]:
+            for field in ['before', 'after']:
+                with self.subTest(name=name, field=field):
+                    record = copy.deepcopy(self.amendment)
+                    record['changes'][name][field] = value
+                    record['approval_binding_sha256'] = approval_binding(record)
+                    self.observed['machine'][name] = record['changes'][name]['after']
+                    with self.assertRaisesRegex(ValueError, 'Mac amendment change scope'):
+                        self.verify(record)
+
+    def test_missing_or_extra_mac_amended_fields_fail_even_when_rebound(self):
+        changesets = [{}, {**self.amendment['changes'], 'architecture': {'before': 'arm64', 'after': 'x86_64'}}]
+        changesets.extend({name: change for name, change in self.amendment['changes'].items() if name != missing}
+                          for missing in ['kernel', 'os'])
+        for changes in changesets:
+            with self.subTest(changes=changes):
+                record = copy.deepcopy(self.amendment)
+                record['changes'] = changes
+                record['approval_binding_sha256'] = approval_binding(record)
+                with self.assertRaisesRegex(ValueError, 'Mac amendment change scope'):
+                    self.verify(record)
+
+    def test_mac_amendment_requires_original_frozen_values(self):
+        for field in ['kernel', 'os']:
+            with self.subTest(field=field):
+                saved = self.expected['machine'][field]
+                self.expected['machine'][field] = 'unapproved original'
+                with self.assertRaisesRegex(ValueError, 'Mac amendment original ' + field):
+                    self.verify(self.amendment)
+                self.expected['machine'][field] = saved
+
+    def test_mac_amendment_wrong_baseline_fails_even_when_rebound(self):
+        for field, value in [('sha256', '0' * 64), ('bytes', 0),
+                             ('location', {'backend': 'repo', 'path': 'other.json'})]:
+            with self.subTest(field=field):
+                record = copy.deepcopy(self.amendment)
+                record['baseline'][field] = value
+                record['approval_binding_sha256'] = approval_binding(record)
+                with self.assertRaisesRegex(ValueError, 'amendment (frozen baseline|baseline location)'):
+                    self.verify(record)
+
+    def test_mac_and_serving_amendments_compose_and_keep_other_packages_strict(self):
+        serving = load(BASE / 'serving-stack-amendment-2026-10-16.json')
+        self.observed['machine']['query_packages'].update(transformers='5.19.0', torchvision='0.29.1')
+        verify_mac_target(self.expected, self.observed, serving, self.amendment)
+        self.observed['machine']['query_packages']['torch'] = '99.0.1'
+        with self.assertRaisesRegex(ValueError, 'Mac versions.query_packages.torch'):
+            verify_mac_target(self.expected, self.observed, serving, self.amendment)
+
+
 class BppcAmendmentTests(unittest.TestCase):
     def setUp(self):
         self.expected = load(BASE / 'baseline.json')['remote']
@@ -660,8 +793,9 @@ class BppcAmendmentTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'bppc amendment approval binding'):
             self.verify(self.amendment)
 
-    def test_full_checker_loads_both_machine_amendments_and_keeps_remote_checks(self):
+    def test_full_checker_loads_all_amendments_and_keeps_remote_checks(self):
         mac = load(BASE / 'baseline.json')['mac']
+        mac['machine'].update(kernel='27.0.0', os='macOS 27.0.1')
         mac['machine']['query_packages'].update(transformers='5.19.0', torchvision='0.29.1')
         mac['aliases'][0]['collection_name'] = 'developer_knowledge_v11'
         output = io.StringIO()
@@ -676,6 +810,7 @@ class BppcAmendmentTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, r'bppc frozen.*controls.hard.output_sha256'):
                 check()
         self.assertIn('serving-stack amendment approved by Gary on 2026-10-16', output.getvalue())
+        self.assertIn('Mac machine amendment approved by coordinator', output.getvalue())
         self.assertIn('bppc machine amendment approved by Gary on 2026-10-15', output.getvalue())
         self.assertIn('PASS: FP P1 mechanical baseline gate', output.getvalue())
 

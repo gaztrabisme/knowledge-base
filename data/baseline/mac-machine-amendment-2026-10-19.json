@@ -1,0 +1,32 @@
+{
+  "schema_version": "fp/mac-machine-amendment@1",
+  "approved_by": "coordinator on Gary's delegation (2026-10-19)",
+  "approved_at": "2026-10-19",
+  "reason": "macOS 27 update",
+  "approval_source": {
+    "kind": "user-brief",
+    "reference": "Brief P1g4: macOS 27 update in the row-3 baseline check; wiki decisions 2026-10-19: please answer them yourself",
+    "evidence": "Gary updated his own Mac; the coordinator accepts the update on Gary's delegation recorded in the 2026-10-19 wiki decisions (please answer them yourself), as supplied by Brief P1g4. The frozen Mac machine records kernel 25.6.0 and os macOS 26.6.2. On 2026-10-19, uname -r and the checker's platform.release() return 27.0.0; sw_vers ProductVersion and the checker's platform.mac_ver()[0] return 27.0.1. sw_vers BuildVersion returns 26A434. baseline.json and the live collector do not record a macOS build field, so the build is evidence only. Brief P1g4 reports the remaining gate checks pass, including the existing serving-stack amendment. No other Mac machine or collection change is authorized.",
+    "coordinator_observation_date": "2026-10-19"
+  },
+  "baseline": {
+    "location": {
+      "backend": "repo",
+      "path": "data/baseline/baseline.json"
+    },
+    "sha256": "6074b5d0cb8a85fc57191aab83eacb12eeebce407ba205f6d8fcb0e9232ea879",
+    "bytes": 141323
+  },
+  "changes": {
+    "kernel": {
+      "before": "25.6.0",
+      "after": "27.0.0"
+    },
+    "os": {
+      "before": "macOS 26.6.2",
+      "after": "macOS 27.0.1"
+    }
+  },
+  "scope": "baseline.json mac.machine.kernel and mac.machine.os only, as the complete recorded pair from the macOS 27 update; all other Mac machine and physical collection facts remain strict under the existing checker and separately approved serving-stack amendment. The frozen baseline remains unchanged.",
+  "approval_binding_sha256": "d46903de76aeb9b02fe8ee4940ffc0d6b4ac1b32fe8f7d8506a27c4a36217e04"
+}
