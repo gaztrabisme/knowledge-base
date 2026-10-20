@@ -8,7 +8,7 @@ from fastmcp import FastMCP
 
 from .calllog import logged
 from .config import BOOKS, CHUNKS_DIR, EDITION, MARKDOWN_DIR
-from .books import _chapter_title, book_chapters, book_domain, resolve_book
+from .books import book_chapters, book_domain, chapter_number, chapter_sections, resolve_book
 from .search import get_client, hybrid_search
 
 _CHUNK_ID_RE = re.compile(r"^(.+)-p(\d+)-c(\d+)$")
@@ -220,7 +220,9 @@ def get_chapter(book: str, chapter: str | int) -> str:
 
     Args:
         book: Book slug or title (use list_books() to see available books).
-        chapter: 1-based chapter index, exact or partial title, or title prefix.
+        chapter: Printed chapter number, exact or partial title, or title prefix.
+            Falls back to a 1-based position if no printed number matches, with
+            a notice in the response.
 
     Returns:
         Full markdown text of the chapter, or an error message.
@@ -264,75 +266,52 @@ def get_chapter(book: str, chapter: str | int) -> str:
         return f"Book markdown not found: {slug}"
 
     text = md_path.read_text(encoding="utf-8")
-    chapter_titles = book_chapters(slug)
+    sections = chapter_sections(text)
     chapter_query = str(chapter).strip()
     chapter_lower = chapter_query.casefold()
-    selected_index = None
+    selected = None
+    used_position = False
 
     if isinstance(chapter, int) and not isinstance(chapter, bool):
         index = chapter
-    elif chapter_query.isdigit():
+    elif chapter_query.isdecimal():
         index = int(chapter_query)
     else:
         index = None
-    if index is not None and 1 <= index <= len(chapter_titles):
-        selected_index = index
-    if selected_index is None:
-        for i, title in enumerate(chapter_titles, start=1):
-            if title.casefold() == chapter_lower:
-                selected_index = i
+    if index is not None:
+        selected = next((section for section in sections if chapter_number(section.title) == index), None)
+        if selected is None and 1 <= index <= len(sections):
+            selected = sections[index - 1]
+            used_position = True
+    else:
+        for section in sections:
+            if section.title.casefold() == chapter_lower:
+                selected = section
                 break
-        if selected_index is None:
-            for i, title in enumerate(chapter_titles, start=1):
-                if title.casefold().startswith(chapter_lower):
-                    selected_index = i
+        if selected is None:
+            for section in sections:
+                if section.title.casefold().startswith(chapter_lower):
+                    selected = section
                     break
-        if selected_index is None:
-            for i, title in enumerate(chapter_titles, start=1):
-                title_lower = title.casefold()
+        if selected is None:
+            for section in sections:
+                title_lower = section.title.casefold()
                 if chapter_lower in title_lower or title_lower in chapter_lower:
-                    selected_index = i
+                    selected = section
                     break
 
-    if selected_index is None:
+    if selected is None:
         available = "; ".join(
-            f"{i}. {title}" for i, title in enumerate(chapter_titles[:10], start=1)
+            f"{section.title} (position {i})" for i, section in enumerate(sections, start=1)
         )
         suffix = f" Available chapters: {available}." if available else " No chapters found."
         return f"Chapter '{chapter}' not found in {slug}.{suffix}"
 
-    capturing = False
-    chapter_lines: list[str] = []
-    in_code = False
-    heading_index = 0
-
-    for line in text.splitlines():
-        if line.lstrip().startswith(("```", "~~~")):
-            if capturing:
-                chapter_lines.append(line)
-            in_code = not in_code
-            continue
-
-        heading = None if in_code else _chapter_title(line)
-        if heading:
-            heading_index += 1
-            if capturing:
-                break
-            if heading_index == selected_index:
-                capturing = True
-
-        if capturing:
-            chapter_lines.append(line)
-
-    if not chapter_lines:
-        available = "; ".join(
-            f"{i}. {title}" for i, title in enumerate(chapter_titles[:10], start=1)
-        )
-        return f"Chapter '{chapter}' not found in {slug}. Available chapters: {available}."
-
-    result = "\n".join(chapter_lines).strip()
+    result = "\n".join(text.splitlines()[selected.start:selected.end]).strip()
     if len(result) > 50000:
         result = result[:50000] + "\n\n[... truncated at 50,000 characters ...]"
+    if used_position:
+        result = f"[Used positional index {index}; no printed chapter label matched.]\n\n" + result
     return result
 
 
