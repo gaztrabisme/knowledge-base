@@ -796,3 +796,16 @@ Reusable infra: `scripts/gpu_sweep.sh` (unattended index→eval driver for candi
 **Decision:** Keep downloads on the standard library and use `httpx` only for the multipart snapshot upload. Its iterator request body streams the snapshot; the common `requests` `files=` path buffers the whole file.
 **Dependency exception:** Declare `opencc-python-reimplemented` because full philosophy search imports `OpenCC` and raises without it. Keep pytest in uv's dev dependency group so the documented project test command uses the project environment.
 **Evidence:** `tests/test_editions.py`, and live dry-run point counts.
+
+## Organized mind: product brief and design approved (2026-10-14)
+**Decision:** Huy approved the organized-mind product brief and design spec as a whole ("Approve as whole", relayed by the pi-mind conductor session). Documents: `data/intake/kbu-2026-10-07/product-brief.md`, `design-spec.md`.
+**Open choices:** 13 of 14 answered (log.md, 2026-10-14). 1: pi-mind is one repo for the harness side (extension, bundle server, memory server, plan-goal); the knowledge base and archive keep their own repos, joined by one shared interface and one installer. 2: this Mac hosts the memory writer and all infrastructure; bppc hosts only the LLM engine. 3–9, 11–14: as recommended (4–7, 11–13 via "Ok to rest"). 10 (speed acceptance ratio) stays open until query latency is measured on the Mac.
+**Related:** embedding switch to embeddinggemma-2 at 768 dims on today's chunk files, pending the M1c re-gate; graph extraction to be tested with LFM2.5-24B-A2B (unit M4).
+
+## Technical search switched to embeddinggemma-2, v11 (2026-10-16)
+**Decision:** Huy approved the switch if the Mac gate passed (2026-10-15) and then "Merge and switch" (2026-10-16). `developer_knowledge` now points to `developer_knowledge_v11`: embeddinggemma-2, 768 dimensions, pinned checkpoint 914f7f89, built from the 2026-10-15 chunk files. Code on main at 2b35da9 (switch) and 6ebedf1 (test fix); not pushed.
+**Evidence:** `data/bench/gate-v11.md` and `gate-v11.json`. Mac CPU gate: hard NDCG@10 0.7360 vs v10 0.7391 (−0.0031, limit 0.010), hard recall@10 0.9521 both (limit 0.005), sanity recall@10 0.933 (minimum 0.80). Mac query embedding median 78–98 ms vs Jina 138–168 ms, peak 2.4 GB vs 4.1 GB.
+**Kept separate:** philosophy search stays on Jina v5 (its collection is 1024-dimensional) and loads its own model.
+**Labels:** 8 PostgreSQL gate labels were remapped by text overlap after re-chunking; p140 is unmapped (M1c report).
+**Rollback:** point `developer_knowledge` back to `developer_knowledge_v10` (kept), set `KB_EMBEDDING_MODEL=jinaai/jina-embeddings-v5-text-small-retrieval` for the MCP server (or revert 2b35da9), and restart the KB MCP servers.
+**Choice 10** (speed acceptance) has its evidence: Gemma's median is about 0.5–0.6× Jina's, with lower p95 and memory. The choice itself remains Huy's.

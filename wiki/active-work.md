@@ -1,5 +1,14 @@
 # Active Work
 
+## Organized mind: research and design (run kbu-2026-10-07)
+**Status:** Approved by Huy 2026-10-14 (decisions.md). The build is run by the pi-mind conductor session (phases 1-7); this run owns the embedding switch and the LFM2.5 graph test. Goal file: [2026-10-07-organized-mind](goals/2026-10-07-organized-mind.md); deliverables in `data/intake/kbu-2026-10-07/`.
+
+**Embedding switch: DONE 2026-10-16.** Live `developer_knowledge` → `developer_knowledge_v11` (embeddinggemma-2, 768 dims); main at 6ebedf1, not pushed. Gate and latency in `data/bench/gate-v11.md`; decision and rollback in decisions.md. v10 kept for rollback. Running KB MCP servers needed a restart (the Mac restart on 2026-10-16) to load the new code.
+
+**LFM2.5 graph test (M4), this run's part DONE 2026-10-15:** fits on the 5080 and is ~9x faster than Qwen, but 3/48 strict-valid vs 35/48 with the GGUF's embedded chat template, which Huy says is broken. P6 (pi-mind) reruns with the upstream template ([report](../data/intake/kbu-2026-10-07/reports/M4-REPORT.md)).
+
+**Open:** Huy's choice 10 (evidence in gate-v11.md); push of KB main (not requested); LFM2.5 rerun with the fixed template (pi-mind P6).
+
 ## Philosophy phase B: rest of the Falun Dafa archive
 **Status:** Built and gated 2026-10-01. **Not promoted:** the gate failed conditions (b), (c) and (f) ([gate report](../data/bench/gate-philosophy-b.md)). The decision is Gary's. Goal file: [2026-09-30-philosophy-phase-b](goals/2026-09-30-philosophy-phase-b.md).
 
