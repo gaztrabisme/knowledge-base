@@ -2,20 +2,20 @@
 
 A local MCP server that serves semantic search over technical books to Claude Code during development sessions. 320 technical sources are indexed across 19 domains. A separate philosophy collection holds the Original Library, three Tao Te Ching translations and Zhuan Falun, searchable in English, Vietnamese and Chinese.
 
-## Status: v9 — sales and research-methods shelves
+## Status: v11 — embeddinggemma-2 embeddings
 
-**Technical collection.** 320 books are indexed (286,723 vectors). v9 adds 29 books (20,076 vectors): two new domains, sales (10 books) and research methods (6 books), plus 13 books across the existing domains (management, security, systems/ops, software engineering, AI engineering, design, frontend, C++).
+**Technical collection.** 320 books are indexed (330,833 vectors) in `developer_knowledge_v11`. v11 changes only the embedding model: Google's `embeddinggemma-2` (pinned checkpoint 914f7f89, 768 dimensions, float32, text only) replaces Jina v5-text-small (1024 dimensions). It was built from the chunk files as they stood on 2026-10-15. BM25, fusion, the 50 reranker candidates and the Ettin-150m reranker are unchanged. Queries are prefixed `task: search result | query:`, passages `title: none | text:`.
 
-The v9 gate compares the candidate with v8 on the same GPU:
+The v11 gate compares it with v10, the previous live collection (Jina, 330,778 vectors):
 
-| Set | Metric | v8 | v9 |
+| Set | Metric | v10 | v11 |
 |---|---|---|---|
-| Hard (438 queries) | NDCG@10 | 0.7429 | 0.7409 |
+| Hard (438 queries) | NDCG@10 | 0.7391 | 0.7360 |
 | | Recall@10 | 0.9521 | 0.9521 |
-| Easy (199 queries) | NDCG@10 | 0.9043 | 0.9044 |
-| Sanity (29 queries written from the new books) | Recall@10 | — | 0.793 |
+| Easy (199 queries) | NDCG@10 | 0.9044 | 0.8988 |
+| Sanity (30 queries written from the v10 books) | Recall@10 | 0.9333 | 0.9333 |
 
-The candidate failed one of three promotion conditions set in advance: sanity recall@10 was 0.793 (23/29) against a threshold of 0.80, while both hard-set conditions passed. A blind review of the sanity queries afterwards scored 0.821 (23/28). Gary promoted the candidate on 2026-09-30 despite the failed condition, as happened for v8. See `data/bench/gate-v9.md` and Known Limitations.
+All three promotion conditions pass. v11 was scored on this Mac's CPU; 8 PostgreSQL answer labels were remapped by text overlap after re-chunking, and one (p140) was left out. On the Mac CPU, query embedding median is 78–98 ms against Jina's 138–168 ms, with peak memory 2.4 GB against 4.1 GB. Gary approved the switch on 2026-10-16. See `data/bench/gate-v11.md`.
 
 The live name `developer_knowledge` is a Qdrant alias for the collection `developer_knowledge_v11` (switched 2026-10-16). The v10 collection stays on the server for rollback.
 
@@ -46,7 +46,7 @@ EPUBs + PDFs + HTML
   → HTML cleanup + front/back matter stripping
   → tiktoken-sized heading-aware parent/child chunker (H2-based splitting + small section merging + section overlap + hard-split oversized blocks)
   → (deferred) contextual enrichment via LLM
-  → heading_path + context_text + child_text → Jina v5-text-small embeddings (1024-dim)
+  → heading_path + context_text + child_text → embeddinggemma-2 embeddings (768-dim)
   → FastEmbed Qdrant/bm25 sparse vectors (proper tokenization + stopwords)
   → Qdrant hybrid index (dense + BM25 sparse, DBSF fusion, file-based)
   → HyDE + multi-query expansion (agent-provided, no LLM dependency)
@@ -58,7 +58,7 @@ EPUBs + PDFs + HTML
 Philosophy collection (separate Qdrant collection `philosophy`):
   PDF/EPUB per work and language → markdown sections keyed for alignment (ol-01…38, ttc-001…081, zfl-L1…L9)
   → Chinese text check (share of characters outside a common-character list; garbled editions rejected)
-  → Jina v5 dense + custom sparse (words; CJK unigrams+bigrams after OpenCC Traditional→Simplified) + FastEmbed BM25
+  → Jina v5 dense (1024-dim, philosophy only) + custom sparse (words; CJK unigrams+bigrams after OpenCC Traditional→Simplified) + FastEmbed BM25
   → reranker routed by query language: Ettin for plain-ASCII (English) queries, BGE-reranker-v2-m3 otherwise
   → each hit carries up to two aligned passages from every other translation of the same work
 ```
@@ -94,7 +94,7 @@ Configured in `.mcp.json` (project) and `~/.claude.json` (global, via PYTHONPATH
 
 The private repo is `gaztrabisme/knowledge-base`. Other machines install it with `install.ps1` (Windows) or `install.sh` (macOS/Linux) and a fine-grained GitHub token that can only read this repo; `README.md` is the guide for that reader.
 
-- Data ships as GitHub Release `data-v9`: `kb-core.part00` and `kb-core.part01` (technical snapshot, markdown, chunks), `kb-philosophy.part00`, and `manifest.json` with point counts and sha256 per part.
+- Data ships as GitHub Release `data-v10` (the Jina v10 collection; no v11 release yet): `kb-core.part00` and `kb-core.part01` (technical snapshot, markdown, chunks), `kb-philosophy.part00`, and `manifest.json` with point counts and sha256 per part.
 - Rebuild the release after an index change: `uv run python scripts/package_release.py` (snapshots the live Qdrant, writes `dist/release/`), then upload under a new tag and bump the installer's `--release-tag` default.
 - `scripts/install.py --dir <dir> --edition core|full [--update] [--qdrant-port N]` downloads and verifies the parts, fetches the pinned Qdrant binary, restores the snapshots, and runs `claude mcp add`.
 
@@ -157,7 +157,8 @@ knowledge_base/
   ingest.py    — EPUB/PDF/HTML → clean markdown (markitdown / PyMuPDF TOC), front/back-matter rules
   chunk.py     — heading-aware parent/child chunker (enforces the 250/1900-token caps)
   enrich.py    — contextual enrichment via LM Studio
-  index.py     — Jina v5 dense + FastEmbed BM25 sparse → Qdrant
+  embedder.py  — embedding model registry (embeddinggemma-2 default; Jina v5 for philosophy)
+  index.py     — dense embeddings + FastEmbed BM25 sparse → Qdrant
   search.py    — hybrid search (DBSF fusion) + Ettin-150m cross-encoder reranking + adaptive cutoff
   server.py    — FastMCP MCP server (8 tools)
   philosophy/  — alignment, chunking, Chinese text check, CJK sparse tokenizer, search with parallels
@@ -182,7 +183,7 @@ data/
 - `markitdown` — EPUB/PDF/HTML to markdown conversion
 - `fastmcp` — MCP server framework
 - `qdrant-client` >= 1.12 — file-based vector store with native hybrid search + DBSF fusion
-- `sentence-transformers` — Jina v5-text-small embedding model (677M params, 1024-dim)
+- `sentence-transformers` — embeddinggemma-2 (768-dim) for technical search; Jina v5-text-small (677M params, 1024-dim) for philosophy search
 - `fastembed` — Qdrant/bm25 sparse text embeddings (proper tokenization + stopwords)
 - `sentence-transformers` — Ettin-150m cross-encoder reranking (ModernBERT, 151M params)
 - `openai` — LM Studio / llama-server client for contextual enrichment
@@ -412,19 +413,18 @@ a byte-identical duplicate.
 
 ## Corpus Stats
 
-- 320 technical sources indexed live; 286,723 child chunks (vectors) in `developer_knowledge_v9`
-  (266,647 carried over from v8 + 20,076 new)
+- 320 technical sources indexed live; 330,833 child chunks (vectors) in `developer_knowledge_v11`
 - The 55 on-disk postgresql-14-internals chunks remain unindexed (corrupt re-chunk; see Known Limitations)
 - Philosophy: 8,432 vectors in the `philosophy` collection (10 language files across 5 work records)
 - **Not yet enriched** — index-now-enrich-later: embedded with heading_path + child_text only; contextual enrichment is a deferred background pass
 - Token counting: tiktoken `cl100k_base` (≈ Jina v5 tokenizer within ~2%). Child max 250 / min 75, parent max 1900 tokens
-- Embedding: heading_path + context_text + child_text → Jina v5-text-small (677M params, 1024-dim)
+- Embedding: heading_path + context_text + child_text → embeddinggemma-2 (768-dim). Philosophy keeps Jina v5-text-small (1024-dim)
 - Sparse: FastEmbed Qdrant/bm25 (proper tokenization, stopwords, IDF)
 - Reranker: Ettin-150m cross-encoder (ModernBERT, 151M params, 0.5994 NDCG@10)
 - Fusion: Qdrant DBSF (Distribution-Based Score Fusion) via prefetch API
 - Adaptive cutoff: score floor 4.0, min results 3
 - Vector store: Qdrant server at `127.0.0.1:6333` (KB_QDRANT_URL). `developer_knowledge` is an alias for
-  `developer_knowledge_v9`; `philosophy` is its own collection. If the server is down, search falls back to
+  `developer_knowledge_v11`; `philosophy` is its own collection. If the server is down, search falls back to
   the embedded store at `data/qdrant`, which still holds v7.1 (126 books) and no philosophy collection
 
 ## Version History
@@ -469,6 +469,11 @@ a byte-identical duplicate.
   NDCG 0.7429 → 0.7409 and recall unchanged (both pass); sanity recall@10 0.793 against a 0.80 threshold
   (fail). A blind review of the sanity queries scored 0.821 (23/28). Promoted on Gary's decision, as for v8.
   Promotion is a Qdrant alias switch; the release is `data-v9`.
+- **v10:** 330,778 vectors (Jina v5). Hard gate NDCG 0.7409 → 0.7393, recall unchanged, sanity recall@10
+  0.933 (all pass). Release `data-v10`.
+- **v11 (embedding switch):** embeddinggemma-2 at 768 dimensions replaces Jina v5 for technical search;
+  330,833 vectors from the 2026-10-15 chunk files. Hard NDCG 0.7391 → 0.7360, recall 0.9521 both, sanity
+  0.933 (all pass, Mac CPU). Philosophy stays on Jina. Live 2026-10-16; v10 kept for rollback.
 
 ## Known Limitations
 

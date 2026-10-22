@@ -72,3 +72,7 @@ data/golden/eval_runs/pq-v67-oldindex-hard.jsonl
 # Philosophy corpus registry, text-quality lists, eval queries, and report
 !data/philosophy/
 data/intake/v9-dryrun/
+
+# Local caches written by model loads and app runs inside the repo
+.cache/
+Library/
