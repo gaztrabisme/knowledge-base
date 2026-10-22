@@ -350,6 +350,15 @@ def _qdrant_asset_name() -> str:
     raise RuntimeError(f"Unsupported Qdrant platform: {system} {platform.machine()}")
 
 
+def _qdrant_version(manifest: dict) -> str:
+    """The manifest's pinned Qdrant, unless KB_QDRANT_VERSION names another.
+
+    Qdrant 1.18.x on Windows cannot restore these snapshots ("failed to sync
+    file .../applied_seq.json: Access is denied"); 1.19.2 restores them.
+    """
+    return os.environ.get("KB_QDRANT_VERSION") or str(manifest["qdrant_version"])
+
+
 def _download_qdrant(version: str, install_dir: Path, port: int = 6333) -> Path:
     asset_name = _qdrant_asset_name()
     executable_name = "qdrant.exe" if os.name == "nt" else "qdrant"
@@ -454,6 +463,21 @@ def _process_command(pid: int) -> str | None:
 
 
 def _pid_is_running(pid: int) -> bool:
+    if os.name == "nt":
+        # os.kill(pid, 0) on Windows terminates the process instead of probing it.
+        import ctypes
+
+        kernel32 = ctypes.windll.kernel32
+        handle = kernel32.OpenProcess(0x1000, False, pid)  # PROCESS_QUERY_LIMITED_INFORMATION
+        if not handle:
+            return False
+        try:
+            code = ctypes.c_ulong()
+            if not kernel32.GetExitCodeProcess(handle, ctypes.byref(code)):
+                return True
+            return code.value == 259  # STILL_ACTIVE
+        finally:
+            kernel32.CloseHandle(handle)
     try:
         os.kill(pid, 0)
         return True
@@ -902,7 +926,7 @@ def install(args: argparse.Namespace) -> None:
             state.get("tag") == args.release_tag
             and state.get("edition") == args.edition
             and binary.is_file()
-            and binary_version == str(manifest["qdrant_version"])
+            and binary_version == _qdrant_version(manifest)
             and _collections_match(base_url, collections)
         ):
             _clear_download_tokens()
@@ -935,7 +959,7 @@ def install(args: argparse.Namespace) -> None:
         archive = download_dir / f"{bundle_name}.tar.gz"
         bundle_archives[bundle_name] = assemble_bundle(bundle, download_dir, archive)
 
-    version = str(manifest["qdrant_version"])
+    version = _qdrant_version(manifest)
     binary = _download_qdrant(version, install_dir, args.qdrant_port)
     base_url, matching = _prepare_qdrant(
         install_dir, args.qdrant_port, binary, collections,

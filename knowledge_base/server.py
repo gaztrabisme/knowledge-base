@@ -9,7 +9,21 @@ from fastmcp import FastMCP
 from .calllog import logged
 from .config import BOOKS, CHUNKS_DIR, EDITION, MARKDOWN_DIR
 from .books import book_chapters, book_domain, chapter_number, chapter_sections, resolve_book
-from .search import get_client, hybrid_search
+
+
+# `.search` pulls in sentence_transformers/torch (~9 s). Importing it on first
+# use lets the server answer the MCP handshake before Claude Code's timeout.
+def get_client(*args, **kwargs):
+    from .search import get_client as _get_client
+
+    return _get_client(*args, **kwargs)
+
+
+def hybrid_search(*args, **kwargs):
+    from .search import hybrid_search as _hybrid_search
+
+    return _hybrid_search(*args, **kwargs)
+
 
 _CHUNK_ID_RE = re.compile(r"^(.+)-p(\d+)-c(\d+)$")
 
