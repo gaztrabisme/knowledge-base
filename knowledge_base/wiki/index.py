@@ -13,15 +13,30 @@ from pathlib import Path
 from qdrant_client import QdrantClient, models
 
 from ..config import BM25_MODEL, EMBEDDING_DIM, EMBEDDING_MODEL, ROOT
-from ..embedder import encode_texts, load_model
+from ..embedder import encode_texts, load_model, model_dim
 from ..index import ensure_collection
 from .chunk import chunk_page
 from .roots import iter_pages, resolve_roots
 
 COLLECTION = os.environ.get("KB_WIKI_COLLECTION", "wiki")
-MANIFEST_PATH = ROOT / "data" / "wiki" / "manifest.json"
+DEFAULT_PROFILE = ("http://127.0.0.1:6333", "wiki", "google/embeddinggemma-2", model_dim("google/embeddinggemma-2"))
 _model = None
 _sparse_model = None
+
+
+def _manifest_path(profile: tuple | None = None) -> Path:
+    if profile is None:
+        profile = (os.environ.get("KB_QDRANT_URL", DEFAULT_PROFILE[0]),
+                   COLLECTION, EMBEDDING_MODEL, EMBEDDING_DIM)
+    key = hashlib.sha256(json.dumps(profile).encode()).hexdigest()[:16]
+    return ROOT / "data" / "wiki" / f"manifest-{key}.json"
+
+
+def _migrate_manifest() -> None:
+    legacy = ROOT / "data" / "wiki" / "manifest.json"
+    default = _manifest_path(DEFAULT_PROFILE)
+    if legacy.exists() and not default.exists():
+        legacy.replace(default)
 
 
 def embed_texts(texts: list[str], task: str = "retrieval.passage") -> list[list[float]]:
@@ -47,7 +62,7 @@ def text_to_sparse_vector(text: str) -> models.SparseVector:
 
 def get_client() -> QdrantClient:
     """A server is required: never acquire the book embedded store's process lock."""
-    url = os.environ.get("KB_QDRANT_URL", "http://127.0.0.1:6333")
+    url = os.environ.get("KB_QDRANT_URL", DEFAULT_PROFILE[0])
     client = None
     try:
         client = QdrantClient(url=url, timeout=30)
@@ -70,52 +85,65 @@ class RootCounts:
     re_embedded: int = 0
     deleted: int = 0
     skipped_worktree: int = 0
+    reconciled: int = 0
+    missing_points: int = 0
 
 
-def _load_manifest(path: Path) -> dict[str, str]:
+def _load_manifest(path: Path) -> dict[str, dict]:
     if not path.exists():
         return {}
     manifest = json.loads(path.read_text(encoding="utf-8"))
-    if not isinstance(manifest, dict) or any(
-        not isinstance(key, str) or not isinstance(value, str)
-        for key, value in manifest.items()
-    ):
+    if not isinstance(manifest, dict):
         raise ValueError(f"Invalid wiki manifest: {path}")
+    for key, value in manifest.items():
+        # Legacy digests have no point inventory; upgrade them by re-indexing.
+        if isinstance(value, str):
+            value = manifest[key] = {"hash": "", "point_ids": []}
+        if (not isinstance(key, str) or not isinstance(value, dict)
+                or not isinstance(value.get("hash"), str)
+                or not isinstance(value.get("point_ids"), list)
+                or any(not isinstance(point_id, int) for point_id in value["point_ids"])):
+            raise ValueError(f"Invalid wiki manifest: {path}")
     return manifest
 
 
-def _save_manifest(path: Path, manifest: dict[str, str]) -> None:
+def _save_manifest(path: Path, manifest: dict[str, dict]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(".tmp")
     temporary.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     temporary.replace(path)
 
 
-def _delete_file(client: QdrantClient, path: str) -> None:
+def _delete_file(client: QdrantClient, path: str, keep_ids: list[int] | None = None) -> None:
     client.delete(
         collection_name=COLLECTION,
-        points_selector=models.FilterSelector(filter=models.Filter(must=[
-            models.FieldCondition(key="path", match=models.MatchValue(value=path)),
-        ])),
+        points_selector=models.FilterSelector(filter=models.Filter(
+            must=[models.FieldCondition(key="path", match=models.MatchValue(value=path))],
+            must_not=[models.HasIdCondition(has_id=keep_ids)] if keep_ids else None,
+        )),
         wait=True,
     )
 
 
-def _upsert_file(client: QdrantClient, path: Path, root, content: bytes) -> None:
+def _upsert_file(client: QdrantClient, path: Path, root, content: bytes) -> list[int]:
     chunks = chunk_page(path, content.decode("utf-8"))
+    points = []
     for start in range(0, len(chunks), 32):
         batch = chunks[start:start + 32]
         texts = ["\n\n".join(filter(None, [item["heading"], item["text"]])) for item in batch]
         dense = embed_texts(texts)
-        points = [models.PointStruct(
+        points.extend(models.PointStruct(
             id=int.from_bytes(hashlib.sha256(f"{path}\0{start + i}".encode()).digest()[:8], "big") >> 1,
             vector={"": dense[i], "bm25": text_to_sparse_vector(texts[i])},
             payload={
                 "project": root.project, "path": str(path),
                 "rel_path": path.relative_to(root.path).as_posix(), **item,
             },
-        ) for i, item in enumerate(batch)]
-        client.upsert(collection_name=COLLECTION, points=points, wait=True)
+        ) for i, item in enumerate(batch))
+    # Prepare every dense/sparse embedding before replacing any existing points.
+    for start in range(0, len(points), 32):
+        client.upsert(collection_name=COLLECTION, points=points[start:start + 32], wait=True)
+    return [point.id for point in points]
 
 
 def index_roots(
@@ -132,7 +160,12 @@ def index_roots(
     Only successful, acknowledged upserts receive the file's real digest.
     """
     selected = resolve_roots(paths)
-    manifest_path = MANIFEST_PATH if manifest_path is None else Path(manifest_path)
+    if manifest_path is None:
+        if not dry_run:
+            _migrate_manifest()
+        manifest_path = _manifest_path()
+    else:
+        manifest_path = Path(manifest_path)
     manifest = _load_manifest(manifest_path)
     results = []
     owned_client = False
@@ -144,6 +177,7 @@ def index_roots(
             if not client.collection_exists(COLLECTION):
                 # A deleted/recreated collection cannot trust hashes from its old points.
                 manifest = {}
+                _save_manifest(manifest_path, manifest)
             ensure_collection(client, name=COLLECTION, dim=EMBEDDING_DIM)
 
         for root in selected:
@@ -165,16 +199,28 @@ def index_roots(
                     _save_manifest(manifest_path, manifest)
             for path, content in pages.items():
                 digest = hashlib.sha256(content).hexdigest()
-                if manifest.get(path) == digest:
-                    continue
+                entry = manifest.get(path, {"hash": "", "point_ids": []})
+                if entry["hash"] == digest:
+                    if dry_run:
+                        continue
+                    ids = entry["point_ids"]
+                    present = client.retrieve(
+                        collection_name=COLLECTION, ids=ids,
+                        with_payload=False, with_vectors=False,
+                    ) if ids else []
+                    counts.reconciled += 1
+                    missing = set(ids) - {point.id for point in present}
+                    counts.missing_points += len(missing)
+                    if not missing:
+                        continue
                 counts.re_embedded += 1
                 if dry_run:
                     continue
-                manifest[path] = ""
+                manifest[path] = {"hash": "", "point_ids": entry["point_ids"]}
                 _save_manifest(manifest_path, manifest)
-                _delete_file(client, path)
-                _upsert_file(client, Path(path), root, content)
-                manifest[path] = digest
+                ids = _upsert_file(client, Path(path), root, content)
+                _delete_file(client, path, keep_ids=ids)
+                manifest[path] = {"hash": digest, "point_ids": ids}
                 _save_manifest(manifest_path, manifest)
     finally:
         if owned_client:
@@ -197,7 +243,8 @@ def main(argv: list[str] | None = None) -> int:
     for item in counts:
         print(f"{item.root} ({item.project}): files seen={item.files_seen}, "
               f"re-embedded={item.re_embedded}, deleted={item.deleted}, "
-              f"skipped (worktree)={item.skipped_worktree}")
+              f"skipped (worktree)={item.skipped_worktree}, "
+              f"reconciliation checked={item.reconciled}, missing points={item.missing_points}")
     if not counts:
         print("No wiki roots configured.")
     return 0

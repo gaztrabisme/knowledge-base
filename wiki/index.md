@@ -41,7 +41,7 @@ PREVIOUS (v6.4 gate-audit round: **audited the golden gate itself — overall gr
 - [v9 C2 Intake Report](../data/intake/v9-C2-report.md) — 29-book audit, repaired front matter, parent/child totals, and acceptance evidence.
 - [Gate v9](../data/bench/gate-v9.md) — v8 vs v9 retrieval gate and the promotion verdict.
 - [Wiki Log](log.md) — Dated session outcomes and evidence pointers.
-- [Run reports](runs/) — Implementation, test evidence, and coordinator handoffs, including the project wiki corpus.
+- [Run reports](runs/) — Implementation, test evidence and coordinator handoffs; [wiki corpus review fixes](runs/2026-10-27-wiki-corpus-fixes.md) includes per-finding tests and blocked live acceptance.
 - [Architecture](architecture.md) — Pipeline design, data flow, component interactions
 - [Decisions](decisions.md) — Key technical decisions and their rationale
 - [Gotchas](gotchas.md) — Known issues, workarounds, failure patterns

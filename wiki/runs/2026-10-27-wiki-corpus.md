@@ -2,6 +2,8 @@
 
 Date: 2026-10-27. Owner: knowledge-base maintainers; implementation by Codex on `wiki-corpus`. Status: implementation and offline checks complete; full acceptance pending coordinator execution. No commit.
 
+**Follow-up (2026-10-27):** The six independent-review findings are fixed; the manifest and update behavior described below are historical. See the [review fixes report](2026-10-27-wiki-corpus-fixes.md) for current behavior, 44 passing focused cases, the full-suite result (75 known failures), and blocked live index/query attempts.
+
 ## Behavior
 
 The separate `wiki` collection uses the configured main embedding model (default `google/embeddinggemma-2`) through its existing adapter, plus its own FastEmbed `Qdrant/bm25` encoder. Wiki queries have their own DBSF fusion and server client. Ettin reranking defaults on; `KB_WIKI_RERANK=0` (also `false`, `no`, `off`) disables it. `KB_WIKI_COLLECTION` overrides the collection name. `KB_QDRANT_URL` defaults to `http://127.0.0.1:6333`; wiki operations never use the embedded book store.

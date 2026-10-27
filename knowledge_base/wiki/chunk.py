@@ -7,7 +7,7 @@ from pathlib import Path
 import re
 
 MAX_CHARS = 6000  # Approximation: four characters/token, no tokenizer/model download.
-_HEADING = re.compile(r"^ {0,3}(#{1,6})[ \t]+(.+?)[ \t]*#*[ \t]*$")
+_HEADING = re.compile(r"^ {0,3}(#{1,6})([ \t]+.*|)$")
 _FENCE = re.compile(r"^ {0,3}(`{3,}|~{3,})")
 _DATE = re.compile(r"\b\d{4}-\d{2}-\d{2}\b")
 
@@ -35,7 +35,8 @@ def headings(text: str) -> list[Heading]:
             elif run[0] == fence[0] and len(run) >= len(fence) and not line[marker.end():].strip():
                 fence = ""
         elif not fence and (match := _HEADING.match(line.rstrip("\r\n"))):
-            level, title = len(match.group(1)), match.group(2).strip()
+            level = len(match.group(1))
+            title = re.sub(r"[ \t]+#+[ \t]*$", "", match.group(2)).strip()
             while stack and stack[-1][0] >= level:
                 stack.pop()
             stack.append((level, title))

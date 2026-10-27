@@ -12,7 +12,7 @@ from types import SimpleNamespace
 
 import numpy as np
 import pytest
-from qdrant_client import QdrantClient
+from qdrant_client import QdrantClient, models
 
 from knowledge_base.config import COLLECTION_NAME, EMBEDDING_DIM
 from knowledge_base.index import ensure_collection
@@ -182,9 +182,10 @@ def test_incremental_second_pass_reembeds_zero(tmp_path, corpus):
     assert corpus.run([root])[0].re_embedded == 0
     assert corpus.calls == []
     assert {p.id for p in all_points(corpus)} == ids
-    assert json.loads(corpus.manifest.read_text()) == {
-        str(page): hashlib.sha256(page.read_bytes()).hexdigest(),
-    }
+    manifest = json.loads(corpus.manifest.read_text())
+    assert set(manifest) == {str(page)}
+    assert manifest[str(page)]["hash"] == hashlib.sha256(page.read_bytes()).hexdigest()
+    assert set(manifest[str(page)]["point_ids"]) == ids
 
 
 def test_changed_page_reembedded_and_old_points_removed(tmp_path, corpus):
@@ -225,7 +226,7 @@ def test_interrupted_new_page_can_be_deleted_on_next_pass(tmp_path, corpus, monk
         patch.setattr(corpus.client, "upsert", partial_write)
         with pytest.raises(RuntimeError, match="lost response"):
             corpus.run([root])
-    assert json.loads(corpus.manifest.read_text())[str(page)] == ""
+    assert json.loads(corpus.manifest.read_text())[str(page)]["hash"] == ""
     page.unlink()
     assert corpus.run([root])[0].deleted == 1
     assert all_points(corpus) == []
@@ -279,6 +280,194 @@ def test_recreated_collection_reembeds_despite_existing_manifest(tmp_path, corpu
     corpus.client.delete_collection(index.COLLECTION)
     assert corpus.run([root])[0].re_embedded == 1
     assert len(all_points(corpus)) == 1
+
+
+def test_recreated_collection_crash_leaves_cleared_manifest(tmp_path, corpus, monkeypatch):
+    root = make_root(tmp_path)
+    (root / "page.md").write_text("## Facts\n\nContent.")
+    corpus.run([root])
+    corpus.client.delete_collection(index.COLLECTION)
+
+    def crash_after_create(*args, **kwargs):
+        ensure_collection(*args, **kwargs)
+        assert json.loads(corpus.manifest.read_text()) == {}
+        raise RuntimeError("crashed after collection creation")
+
+    with monkeypatch.context() as patch:
+        patch.setattr(index, "ensure_collection", crash_after_create)
+        with pytest.raises(RuntimeError, match="crashed after collection creation"):
+            corpus.run([root])
+    assert corpus.run([root])[0].re_embedded == 1
+    assert len(all_points(corpus)) == 1
+
+
+def test_unchanged_page_reconciles_ids_and_restores_missing_point(tmp_path, corpus, monkeypatch):
+    root = make_root(tmp_path)
+    page = root / "page.md"
+    page.write_text("## One\n\nFirst.\n\n## Two\n\nSecond.")
+    corpus.run([root])
+    ids = {point.id for point in all_points(corpus)}
+    corpus.client.delete(index.COLLECTION, models.PointIdsList(points=[min(ids)]))
+    retrieve = corpus.client.retrieve
+    requests = []
+
+    def checked_retrieve(**kwargs):
+        requests.append(kwargs)
+        return retrieve(**kwargs)
+
+    monkeypatch.setattr(corpus.client, "retrieve", checked_retrieve)
+    assert corpus.run([root])[0].re_embedded == 1
+    assert {point.id for point in all_points(corpus)} == ids
+    assert len(requests) == 1
+    assert set(requests[0]["ids"]) == ids
+    assert requests[0]["with_payload"] is requests[0]["with_vectors"] is False
+    stored = json.loads(corpus.manifest.read_text())[str(page)]
+    assert set(stored["point_ids"]) == ids
+    corpus.calls.clear()
+    stats = corpus.run([root])[0]
+    assert stats.re_embedded == 0 and stats.reconciled == 1
+    assert corpus.calls == []
+
+
+def test_update_embeds_all_batches_before_upsert_and_keeps_page_on_failure(tmp_path, corpus, monkeypatch):
+    root = make_root(tmp_path)
+    page = root / "page.md"
+    page.write_text("## Original\n\nSearchable content.")
+    corpus.run([root])
+    before = all_points(corpus)
+    # More than one embedding batch: a later failure must preserve the whole page.
+    page.write_text("\n\n".join(f"## Section {i}\n\nReplacement {i}." for i in range(33)))
+    calls = []
+
+    def embed_then_fail(texts, **kwargs):
+        assert all_points(corpus) == before
+        assert search.wiki_search("Searchable")[0]["heading"] == "Original"
+        calls.append(texts)
+        if len(calls) == 2:
+            raise RuntimeError("embedding failed")
+        return [[1.0, 0.0, 0.0] for _ in texts]
+
+    # Search uses its own fake query encoder so the probe does not recurse.
+    monkeypatch.setattr(search, "embed_texts", lambda *a, **kw: [[1.0, 0.0, 0.0]])
+    with monkeypatch.context() as patch:
+        patch.setattr(index, "embed_texts", embed_then_fail)
+        with pytest.raises(RuntimeError, match="embedding failed"):
+            corpus.run([root])
+    assert len(calls) == 2
+    assert all_points(corpus) == before
+    assert corpus.run([root])[0].re_embedded == 1
+    assert len(all_points(corpus)) == 33
+
+
+def test_update_upserts_before_deleting_only_obsolete_ids(tmp_path, corpus, monkeypatch):
+    root = make_root(tmp_path)
+    page = root / "page.md"
+    page.write_text("## One\n\nFirst.\n\n## Two\n\nSecond.")
+    corpus.run([root])
+    page.write_text("## New\n\nReplacement.")
+    delete = corpus.client.delete
+    deletions = []
+
+    def checked_delete(**kwargs):
+        points = all_points(corpus)
+        assert any(p.payload["heading"] == "New" for p in points)
+        deletions.append(kwargs)
+        return delete(**kwargs)
+
+    monkeypatch.setattr(corpus.client, "delete", checked_delete)
+    corpus.run([root])
+    assert len(deletions) == 1
+    assert [p.payload["heading"] for p in all_points(corpus)] == ["New"]
+
+
+def test_manifest_profile_isolates_url_collection_model_and_dimension(tmp_path, corpus, monkeypatch):
+    root = make_root(tmp_path)
+    (root / "page.md").write_text("## Facts\n\nContent.")
+    monkeypatch.setattr(index, "ROOT", tmp_path)
+    monkeypatch.setenv("KB_QDRANT_URL", "http://localhost:6333")
+    paths = set()
+
+    def run_profile():
+        assert index.index_roots([root], client=corpus.client)[0].re_embedded == 1
+        manifests = set((tmp_path / "data/wiki").glob("manifest-*.json"))
+        assert len(manifests - paths) == 1
+        paths.update(manifests)
+        assert index.index_roots([root], client=corpus.client)[0].re_embedded == 0
+
+    run_profile()
+    monkeypatch.setenv("KB_QDRANT_URL", "http://localhost:6334")
+    run_profile()
+    monkeypatch.setattr(index, "COLLECTION", "another-wiki")
+    run_profile()
+    monkeypatch.setattr(index, "EMBEDDING_MODEL", "another-model")
+    run_profile()
+    # Empty pages allow a different vector dimension without altering the fake encoder.
+    (root / "page.md").write_text("# Title only")
+    monkeypatch.setattr(index, "EMBEDDING_DIM", 4)
+    run_profile()
+
+
+def test_legacy_manifest_migrates_to_default_profile_only(tmp_path, corpus, monkeypatch):
+    root = make_root(tmp_path)
+    page = root / "page.md"
+    page.write_text("## Facts\n\nContent.")
+    monkeypatch.setattr(index, "ROOT", tmp_path)
+    legacy = tmp_path / "data/wiki/manifest.json"
+    legacy.parent.mkdir(parents=True)
+    original = json.dumps({str(page): hashlib.sha256(page.read_bytes()).hexdigest()})
+    legacy.write_text(original)
+    monkeypatch.setenv("KB_QDRANT_URL", "http://other-server:6333")
+    assert index.index_roots([root], client=corpus.client)[0].re_embedded == 1
+    assert not legacy.exists()
+    manifests = list(legacy.parent.glob("manifest-*.json"))
+    assert len(manifests) == 2
+    assert sum(path.read_text() == original for path in manifests) == 1
+    # The migrated default hashes have no ids and must be upgraded through a real pass.
+    monkeypatch.setenv("KB_QDRANT_URL", "http://127.0.0.1:6333")
+    monkeypatch.setattr(index, "COLLECTION", "wiki")
+    monkeypatch.setattr(index, "EMBEDDING_MODEL", "google/embeddinggemma-2")
+    monkeypatch.setattr(index, "EMBEDDING_DIM", 768)
+    assert index.index_roots([root], client=corpus.client)[0].re_embedded == 1
+    assert index.index_roots([root], client=corpus.client)[0].re_embedded == 0
+
+
+def test_nested_repo_inside_linked_worktree_is_skipped(tmp_path, corpus):
+    repo = tmp_path / "main"
+    repo.mkdir()
+
+    def git(folder, *args):
+        return subprocess.run(
+            ["git", "-C", str(folder), "-c", "commit.gpgsign=false", "-c",
+             "core.hooksPath=/dev/null", *args], check=True, capture_output=True, text=True,
+        )
+
+    git(repo, "init")
+    git(repo, "-c", "user.name=Tests", "-c", "user.email=tests@example.invalid",
+        "commit", "--allow-empty", "-m", "initial")
+    worktree = tmp_path / "copy"
+    git(repo, "worktree", "add", "-b", "copy", str(worktree))
+    # Two nested repositories require walking past more than the nearest enclosing repo.
+    nested = worktree / "outer/inner"
+    nested.mkdir(parents=True)
+    git(worktree / "outer", "init")
+    git(nested, "init")
+    root = nested / "docs/wiki"
+    root.mkdir(parents=True)
+    (root / "page.md").write_text("## Duplicate\n\nDo not index.")
+    stats = corpus.run([root])[0]
+    assert stats.skipped_worktree == 1 and stats.files_seen == 0
+    assert corpus.calls == []
+    assert not corpus.client.collection_exists(index.COLLECTION)
+
+
+@pytest.mark.parametrize("title, expected", [
+    ("C#", "C#"), ("C# ###", "C#"), ("Heading###", "Heading###"),
+    ("Heading ###  ", "Heading"), ("Heading\t##", "Heading"), ("###", ""),
+])
+def test_heading_closing_hashes_require_whitespace(tmp_path, title, expected):
+    text = f"## {title}\n\nContent."
+    assert chunk.headings(text)[0].title == expected
+    assert chunk.chunk_page(tmp_path / "page.md", text)[0]["heading"] == expected
 
 
 def test_cli_repeatable_roots_and_per_root_counts(tmp_path, capsys):

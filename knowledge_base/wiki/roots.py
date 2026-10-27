@@ -41,20 +41,29 @@ def resolve_roots(paths: list[str | Path] | None = None) -> list[WikiRoot]:
         if not path.is_dir():
             # A missing/unmounted root is not evidence that all its files vanished.
             raise FileNotFoundError(f"Configured wiki root is not a directory: {path}")
-        result = subprocess.run(
-            ["git", "-C", str(path), "rev-parse", "--path-format=absolute", "--git-common-dir", "--git-dir", "--show-toplevel"],
-            capture_output=True, text=True, timeout=10,
-        )
         reason = None
         project = path.parent.name
-        if result.returncode == 0:
+        probe = path
+        while True:
+            result = subprocess.run(
+                ["git", "-C", str(probe), "rev-parse", "--path-format=absolute", "--git-common-dir", "--git-dir", "--show-toplevel"],
+                capture_output=True, text=True, timeout=10,
+            )
+            if result.returncode != 0:
+                if "not a git repository" not in result.stderr.lower():
+                    raise RuntimeError(f"Cannot check wiki root {path} for a git worktree: {result.stderr.strip()}")
+                break
             common_dir, git_dir, repo_dir = result.stdout.strip().splitlines()
-            project = Path(repo_dir).name
+            if probe == path:
+                project = Path(repo_dir).name
             if Path(common_dir).resolve() != Path(git_dir).resolve():
                 reason = f"git worktree (git-dir {git_dir} differs from common-dir {common_dir})"
                 logger.warning("Skipping wiki root %s: %s", path, reason)
-        elif "not a git repository" not in result.stderr.lower():
-            raise RuntimeError(f"Cannot check wiki root {path} for a git worktree: {result.stderr.strip()}")
+                break
+            repo = Path(repo_dir).resolve()
+            if repo.parent == repo:
+                break
+            probe = repo.parent
         resolved.append(WikiRoot(path, project, reason))
     return resolved
 
