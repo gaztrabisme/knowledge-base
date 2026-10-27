@@ -1,5 +1,10 @@
 # Active Work
 
+## Project wiki corpus (2026-10-27)
+**Status:** Implemented on `wiki-corpus`, uncommitted. Offline wiki and edition checks pass (31 cases). Full-suite acceptance is blocked here by an uncached tokenizer, a pinned-validator version mismatch, and absent philosophy data.
+
+**Next:** Coordinator runs the full suite and the live Qdrant index, confirms a second pass reports zero re-embedded files, then checks three real queries. Configuration, commands, review limitations and test names are in the [wiki corpus report](runs/2026-10-27-wiki-corpus.md).
+
 ## Organized mind: research and design (run kbu-2026-10-07)
 **Status:** Approved by Huy 2026-10-14 (decisions.md). The build is run by the pi-mind conductor session (phases 1-7); this run owns the embedding switch and the LFM2.5 graph test. Goal file: [2026-10-07-organized-mind](goals/2026-10-07-organized-mind.md); deliverables in `data/intake/kbu-2026-10-07/`.
 

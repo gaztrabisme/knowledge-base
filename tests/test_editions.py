@@ -28,6 +28,8 @@ TECHNICAL_TOOLS = {
 def test_server_registers_the_requested_edition_tools(edition, expected):
     env = os.environ.copy()
     env["KB_EDITION"] = edition
+    # Optional local wiki tools are independent of the portable book editions.
+    env["KB_WIKI_ROOTS"] = ""
     command = (
         "import asyncio, json, knowledge_base.server as server; "
         "print(json.dumps(sorted(tool.name for tool in "

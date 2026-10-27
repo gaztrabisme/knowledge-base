@@ -71,6 +71,11 @@ data/golden/eval_runs/pq-v67-oldindex-hard.jsonl
 
 # Philosophy corpus registry, text-quality lists, eval queries, and report
 !data/philosophy/
+# Wiki roots are configuration; the per-machine incremental manifest is derived.
+!data/wiki/
+data/wiki/*
+!data/wiki/roots.txt
+data/wiki/manifest.json
 data/intake/v9-dryrun/
 
 # Local caches written by model loads and app runs inside the repo

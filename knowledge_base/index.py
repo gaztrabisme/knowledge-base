@@ -49,14 +49,16 @@ def get_client() -> QdrantClient:
         return QdrantClient(path=str(QDRANT_DIR))
 
 
-def ensure_collection(client: QdrantClient) -> None:
+def ensure_collection(
+    client: QdrantClient, name: str = COLLECTION_NAME, dim: int = EMBEDDING_DIM,
+) -> None:
     collections = [c.name for c in client.get_collections().collections]
-    if COLLECTION_NAME in collections:
+    if name in collections:
         return
     client.create_collection(
-        collection_name=COLLECTION_NAME,
+        collection_name=name,
         vectors_config=models.VectorParams(
-            size=EMBEDDING_DIM,
+            size=dim,
             distance=models.Distance.COSINE,
         ),
         sparse_vectors_config={

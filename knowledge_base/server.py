@@ -9,6 +9,7 @@ from fastmcp import FastMCP
 from .calllog import logged
 from .config import BOOKS, CHUNKS_DIR, EDITION, MARKDOWN_DIR
 from .books import book_chapters, book_domain, chapter_number, chapter_sections, resolve_book
+from .wiki.roots import configured_roots
 
 
 # `.search` pulls in sentence_transformers/torch (~9 s). Importing it on first
@@ -40,6 +41,9 @@ _instructions = (
     "Stop when new searches return passages you have already read. Name the book and "
     "chapter behind each claim."
 )
+_wiki_enabled = bool(configured_roots())
+if _wiki_enabled:
+    _instructions += "\n\nwiki_search finds project wiki passages; wiki_read opens their pages or heading sections."
 if EDITION == "full":
     _instructions += (
         "\n\nSeparate philosophy tools search and list the multilingual philosophy corpus; "
@@ -462,6 +466,27 @@ def list_philosophy(work: str | None = None) -> dict:
 if EDITION == "full":
     mcp.tool()(search_philosophy)
     mcp.tool()(list_philosophy)
+
+
+@logged
+def wiki_search(query: str, project: str | None = None, limit: int = 8) -> list[dict]:
+    """Search project wikis, optionally scoped to a project; use the returned path with wiki_read."""
+    from .wiki.search import wiki_search as search_wiki
+
+    return search_wiki(query, project=project, limit=limit)
+
+
+@logged
+def wiki_read(path: str, heading: str | None = None) -> str:
+    """Read a wiki page by absolute path, or an exact heading title/path and its subsections."""
+    from .wiki.search import wiki_read as read_wiki
+
+    return read_wiki(path, heading=heading)
+
+
+if _wiki_enabled:
+    mcp.tool()(wiki_search)
+    mcp.tool()(wiki_read)
 
 
 def _grep_ripgrep(
